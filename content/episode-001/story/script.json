@@ -1,0 +1,220 @@
+{
+  "selectedHook": "beta-tasks-inside-one-contact",
+  "segments": [
+    {
+      "id": "seg-001",
+      "section": "hook",
+      "narration": "提醒吃药，问球赛结果，出门前看天气。",
+      "onScreenText": [
+        "提醒吃药",
+        "问球赛结果",
+        "出门前看天气"
+      ],
+      "claimIds": [
+        "claim-poke-008"
+      ],
+      "scene": "hook-beta-actions",
+      "visualIntent": "三条有来源的 Beta 请求从第一帧依次出现；角落小字标“创始人回忆 Beta 使用”，不先展示公司名或消息总数。",
+      "targetSeconds": 3
+    },
+    {
+      "id": "seg-002",
+      "section": "hook",
+      "narration": "这些请求原本发给一个邮件助手。后来，它住进了联系人列表。",
+      "onScreenText": [
+        "这些请求原本发给邮件助手",
+        "后来它住进联系人列表"
+      ],
+      "claimIds": [
+        "claim-poke-006",
+        "claim-poke-008",
+        "claim-poke-010"
+      ],
+      "scene": "hook-direction-change",
+      "visualIntent": "三条请求落进邮件助手草图，草图随后收进联系人卡；合成联系人界面标“功能演示”。",
+      "targetSeconds": 8
+    },
+    {
+      "id": "seg-003",
+      "section": "hook",
+      "narration": "Poke 是个 AI 助手，但它的主要入口不在一个新 App 里。它就是手机联系人里的一个名字。你会让这个联系人读邮件、改日历吗？",
+      "onScreenText": [
+        "Poke 是 AI 助手",
+        "主要入口不在新 App",
+        "联系人里的一个名字",
+        "让它读邮件、改日历？"
+      ],
+      "claimIds": [
+        "claim-poke-010",
+        "claim-poke-011"
+      ],
+      "scene": "hook-question",
+      "visualIntent": "Poke 联系人卡先给出一句定义，再连接邮件与日历授权页，最后停在人工确认框。",
+      "targetSeconds": 9
+    },
+    {
+      "id": "seg-004",
+      "section": "problem-and-definition",
+      "narration": "你收到一封邮件，里面有个会议时间。复制日期，打开日历，粘贴。再打开待办，补一条提醒。邮件里的时间一改，日历和待办还要跟着改。来回切三个窗口，只是为了安顿一个日期。Poke 想解决的，就是这种重复搬运。",
+      "onScreenText": [
+        "复制日期",
+        "打开日历",
+        "补一条提醒",
+        "三个窗口搬一个日期"
+      ],
+      "claimIds": [
+        "claim-poke-007"
+      ],
+      "scene": "problem-fragmentation",
+      "visualIntent": "首帧标“流程示意、功能演示”；光标从邮件复制日期，切到日历，再补一条待办；窗口大小和切换间隔不完全相同。",
+      "targetSeconds": 18
+    },
+    {
+      "id": "seg-005",
+      "section": "discovery-and-decision",
+      "narration": "最早，团队试过从邮件客户端和自动化做起。可访谈里的用户不想再学一套界面。于是团队把重点转向消息里的对话。Poke 收起新的工作台，变成一个联系人。你不用先找功能，直接像发消息一样告诉它要做什么。",
+      "onScreenText": [
+        "最早：邮件客户端与自动化",
+        "用户不想再学一套界面",
+        "于是转向消息对话"
+      ],
+      "claimIds": [
+        "claim-poke-006",
+        "claim-poke-010"
+      ],
+      "scene": "decision-messaging",
+      "visualIntent": "邮件客户端草图先出现；访谈反馈卡压上来以后，草图收起，只留下消息联系人卡；合成 UI 标“功能演示”。",
+      "targetSeconds": 17
+    },
+    {
+      "id": "seg-006",
+      "section": "discovery-and-decision",
+      "narration": "结果，Beta 用户把它带得更远。有人用它提醒吃药，有人查天气、问球赛结果。这些请求已经越过邮箱。团队又把产品往更通用、更主动的方向推。一个邮件助手，开始接住日常生活里随时冒出来的事。",
+      "onScreenText": [
+        "Beta 用户把任务带出邮箱",
+        "提醒吃药",
+        "查天气",
+        "问球赛结果"
+      ],
+      "claimIds": [
+        "claim-poke-008",
+        "claim-poke-010"
+      ],
+      "scene": "beta-user-pull",
+      "visualIntent": "三条来源中出现过的 Beta 请求以不同长度进入画面；箭头从“邮件助手”转向“更通用、更主动”。",
+      "targetSeconds": 17
+    },
+    {
+      "id": "seg-007",
+      "section": "solution",
+      "narration": "改变入口以后，提醒的顺序也变了。你发“明天提醒我吃药”，Poke 把请求留在对话里。时间到了，它可以先开口。邮件该跟进，行程有变化，提醒也会出现在联系人列表。你不用记得打开另一套应用，Poke 会在原来的消息窗口里来找你。",
+      "onScreenText": [
+        "提醒顺序变了",
+        "Poke 可以先开口",
+        "原来的消息窗口"
+      ],
+      "claimIds": [
+        "claim-poke-008",
+        "claim-poke-010"
+      ],
+      "scene": "proactive-message",
+      "visualIntent": "用户先发有来源的吃药提醒请求；随后在没有新输入时，提醒从联系人列表里出现；合成 UI 从第一帧标“功能演示”。",
+      "targetSeconds": 18
+    },
+    {
+      "id": "seg-008",
+      "section": "solution",
+      "narration": "但少开一个界面，还不等于少做那些步骤。Poke 得到授权以后，能读邮件和日历，草拟回复，也能安排会议。你说“把邮件里的时间放进日历”，它就接着往下做。复制、粘贴和切换可以交给它，真实账户里的改动也会留下来。",
+      "onScreenText": [
+        "先授权",
+        "读取邮件与日历",
+        "草拟回复",
+        "安排会议",
+        "真实改动会留下"
+      ],
+      "claimIds": [
+        "claim-poke-007",
+        "claim-poke-011",
+        "claim-poke-024"
+      ],
+      "scene": "permission-action-loop",
+      "visualIntent": "首帧标“功能演示”；授权卡先出现，随后读取邮件里的日期并写入日历；最后停在人工确认框。",
+      "targetSeconds": 20
+    },
+    {
+      "id": "seg-009",
+      "section": "solution",
+      "narration": "能做的事情一多，设置也变复杂。一个人已经写好背景、接上服务，另一个人想用同样的助手，还要重来一遍。Recipe 是 Poke 里的分享功能。它把背景、第一句话和需要连接的服务装进一个链接。别人点开后从这套设置开始，涉及账户时，授权仍要自己完成。",
+      "onScreenText": [
+        "Recipe 是 Poke 的分享功能",
+        "背景",
+        "第一句话",
+        "所需服务",
+        "账户仍需授权"
+      ],
+      "claimIds": [
+        "claim-poke-004",
+        "claim-poke-012"
+      ],
+      "scene": "recipe-setup",
+      "visualIntent": "先展示两个人重复设置同一助手；随后把背景、首条消息和所需服务收进 Recipe 链接；合成 UI 标“功能演示”，画面小字标“2026.03.19 与一般可用同步开放”。",
+      "targetSeconds": 19
+    },
+    {
+      "id": "seg-010",
+      "section": "evidence",
+      "narration": "开放使用之后，消息开始累积。收购前大约三个月，Cognition 披露，人们与 Poke 往来超过一亿条消息。每次请求和回复，都留在同一个联系人对话里。这个入口最终堆出了一个很大的消息数字。",
+      "onScreenText": [
+        "2026.03.19 一般可用",
+        "收购前约三个月",
+        "1 亿+ 条消息",
+        "消息数，不是用户数"
+      ],
+      "claimIds": [
+        "claim-poke-004",
+        "claim-poke-010",
+        "claim-poke-015"
+      ],
+      "scene": "message-metric-boundary",
+      "visualIntent": "候补名单卡先移走；随后同一个联系人里的请求和回复累积成“1 亿+ 条消息”；统计期与来源留在画面小字。",
+      "targetSeconds": 17
+    },
+    {
+      "id": "seg-011",
+      "section": "turning-point",
+      "narration": "这些实时动作，也在持续调用模型。创始人举过两个例子：新邮件一到就跑自动化，查航班状态还要不断刷新。任务没结束，推理调用也不会只发生一次。一句很短的请求，背后可能是一串持续运行的调用。他说 Poke 运行昂贵，也很难盈利。随后，Cognition 收购了开发 Poke 的公司。",
+      "onScreenText": [
+        "实时任务持续产生推理成本",
+        "运行昂贵，也很难盈利",
+        "2026.07.23 Cognition 收购"
+      ],
+      "claimIds": [
+        "claim-poke-019",
+        "claim-poke-021"
+      ],
+      "scene": "cost-then-acquisition",
+      "visualIntent": "新邮件自动化和航班查询只增加调用次数，不画金额；画面清空一拍后再切 Cognition 收购公告。",
+      "targetSeconds": 18
+    },
+    {
+      "id": "seg-012",
+      "section": "boundary-and-ending",
+      "narration": "收购当下，Poke 继续照常使用。Cognition 计划把它接上自己的模型和基础设施。TechCrunch 报道，至少到 2026 年底，产品不会立刻改变。之后会不会完全并入 Cognition，当时仍未确定。对用户来说，眼前的交换没有变：少开几个窗口，换来一个能动真实账户的联系人。下一次它把会议挪错，你还会不会让它继续改日历？",
+      "onScreenText": [
+        "当下继续照常使用",
+        "计划接入 Cognition 模型与基础设施",
+        "长期整合仍未确定",
+        "下一次改错日程"
+      ],
+      "claimIds": [
+        "claim-poke-007",
+        "claim-poke-011",
+        "claim-poke-022",
+        "claim-poke-024"
+      ],
+      "scene": "ending-known-edge",
+      "visualIntent": "Cognition 公告缩到一旁；联系人、邮件和日历回到开场位置；一次日程移动到错误时间，人工确认框停住后结束。",
+      "targetSeconds": 16
+    }
+  ]
+}

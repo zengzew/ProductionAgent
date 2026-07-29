@@ -1,0 +1,14 @@
+node_modules/
+.venv/
+.DS_Store
+*.log
+output/*.mp4
+output/*.wav
+output/*.png
+output/episode-001/*.mp4
+output/episode-001/*.wav
+public/audio/chapter/*.mp3
+public/audio/ambient-bed.wav
+public/episodes/*/audio/*.mp3
+public/episodes/*/audio/*.wav
+.env

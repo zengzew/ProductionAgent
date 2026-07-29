@@ -1,0 +1,172 @@
+[
+  {
+    "id": "src-poke-001",
+    "title": "A576 - META AI interim measures decision",
+    "publisher": "Autorità Garante della Concorrenza e del Mercato",
+    "url": "https://en.agcm.it/dotcmsdoc/pressrelease/A576_adoz%20misure%20cautelari_omi_signed_signed.pdf",
+    "publishedAt": "2025-12-24",
+    "accessedAt": "2026-07-28",
+    "sourceType": "official",
+    "notes": "监管决定记载 The Interaction Company of California 于 2024-06-24 成立，并描述其经营 Poke。"
+  },
+  {
+    "id": "src-poke-002",
+    "title": "Introducing Poke.com: Reimagining How Artificial Intelligence Integrates Into Our Lives",
+    "publisher": "The Interaction Company of California via WebWire",
+    "url": "https://www.webwire.com/ViewPressRel.asp?aId=343533",
+    "publishedAt": "2025-09-08",
+    "accessedAt": "2026-07-28",
+    "sourceType": "official",
+    "notes": "公司分发的新闻稿称 Poke 当日公开发布；Beta 用户数、消息数、留存、融资与估值均属公司自报。"
+  },
+  {
+    "id": "src-poke-003",
+    "title": "Seeding the Future with The Interaction Company of California",
+    "publisher": "General Catalyst",
+    "url": "https://www.generalcatalyst.com/stories/seeding-the-future-with-the-interaction-company-of-california",
+    "publishedAt": "2025-09-08",
+    "accessedAt": "2026-07-28",
+    "sourceType": "founder",
+    "notes": "投资方文章含创始人访谈，描述邮件产品起点、用户不愿学习新界面和 Beta 用户超出预期的使用方式。"
+  },
+  {
+    "id": "src-poke-004",
+    "title": "Poke Release Notes",
+    "publisher": "Poke",
+    "url": "https://poke.com/docs/release-notes",
+    "publishedAt": "2026-07-23",
+    "accessedAt": "2026-07-28",
+    "sourceType": "official",
+    "notes": "持续更新页面。关键事件包括 2026-03-19 取消 bouncer/waitlist，06-04 Apple Messages，06-18 Ultra，06-25 Poke Human，07-23 加入 Cognition。"
+  },
+  {
+    "id": "src-poke-005",
+    "title": "Poke makes using AI agents as easy as sending a text",
+    "publisher": "TechCrunch",
+    "url": "https://techcrunch.com/2026/04/08/poke-makes-ai-agents-as-easy-as-sending-a-text/",
+    "publishedAt": "2026-04-08",
+    "accessedAt": "2026-07-28",
+    "sourceType": "media",
+    "notes": "原创采访，涵盖邮件产品向通用助手转向、模型路由、Linq、Recipes、创作者获客、推理成本和公司所称的 10 倍增长。"
+  },
+  {
+    "id": "src-poke-006",
+    "title": "Apple approves Poke as the first AI agent on its Messages for Business platform",
+    "publisher": "TechCrunch",
+    "url": "https://techcrunch.com/2026/06/04/apple-approves-poke-as-the-first-ai-agent-on-its-messages-for-business-platform/",
+    "publishedAt": "2026-06-04",
+    "accessedAt": "2026-07-28",
+    "sourceType": "media",
+    "notes": "原创报道解释 Apple Messages for Business 审核与界面要求。约一亿条累计消息来自公司，Apple 当时未回应媒体置评。"
+  },
+  {
+    "id": "src-poke-007",
+    "title": "Welcoming The Interaction Company",
+    "publisher": "Cognition",
+    "url": "https://cognition.com/blog/interaction",
+    "publishedAt": "2026-07-23",
+    "accessedAt": "2026-07-28",
+    "sourceType": "official",
+    "notes": "收购方公告称过去三个月 Poke 上交换超过一亿条消息、使用者达数十万人，并称双方押注 always-on cloud agents。"
+  },
+  {
+    "id": "src-poke-008",
+    "title": "Why Cognition bought Poke: AI personality is becoming a competitive advantage",
+    "publisher": "TechCrunch",
+    "url": "https://techcrunch.com/2026/07/24/why-cognition-bought-poke-ai-personality-is-becoming-a-competitive-advantage/",
+    "publishedAt": "2026-07-24",
+    "accessedAt": "2026-07-28",
+    "sourceType": "media",
+    "notes": "原创采访确认收购及 low-nine-figures 价格口径；创始人称产品运行昂贵、难以盈利。"
+  },
+  {
+    "id": "src-poke-009",
+    "title": "MCP Servers",
+    "publisher": "Poke",
+    "url": "https://poke.com/docs/mcp-servers",
+    "publishedAt": "",
+    "accessedAt": "2026-07-28",
+    "sourceType": "official",
+    "notes": "官方文档确认 Poke 能发现并调用 MCP 工具，并支持远程服务、OAuth、API Key 和本地隧道。"
+  },
+  {
+    "id": "src-poke-010",
+    "title": "Creating Recipes",
+    "publisher": "Poke",
+    "url": "https://poke.com/docs/creating-recipes",
+    "publishedAt": "",
+    "accessedAt": "2026-07-28",
+    "sourceType": "official",
+    "notes": "官方文档说明 Recipe 包含 onboarding context、首条消息、所需集成和分享链接，发布后可获得推荐链接及收益资格。"
+  },
+  {
+    "id": "src-poke-011",
+    "title": "Privacy Policy",
+    "publisher": "Poke",
+    "url": "https://poke.com/privacy",
+    "publishedAt": "2026-06-23",
+    "accessedAt": "2026-07-28",
+    "sourceType": "official",
+    "notes": "政策列出邮件可能暴露的健康、财务等敏感信息，并称 Maximum Privacy 用户数据不用于模型训练。"
+  },
+  {
+    "id": "src-poke-012",
+    "title": "Terms of Service",
+    "publisher": "Poke",
+    "url": "https://poke.com/terms",
+    "publishedAt": "2026-03-17",
+    "accessedAt": "2026-07-28",
+    "sourceType": "official",
+    "notes": "条款称输出可能错误或产生幻觉，重要决定需人工复核，并列明敏感信息边界。"
+  },
+  {
+    "id": "src-poke-013",
+    "title": "AI Gateway leaderboards, now with open data and shareable charts",
+    "publisher": "Vercel",
+    "url": "https://vercel.com/changelog/open-data-and-shareable-charts-for-ai-gateway-leaderboards",
+    "publishedAt": "2026-07-13",
+    "accessedAt": "2026-07-28",
+    "sourceType": "platform",
+    "notes": "解释榜单按经 Vercel AI Gateway 的生产流量排名，数据每日聚合，不能解释为整个市场或用户数。"
+  },
+  {
+    "id": "src-poke-014",
+    "title": "Vercel AI Gateway leaderboard export - apps",
+    "publisher": "Vercel",
+    "url": "https://vercel.com/api/ai/leaderboard-export?dataset=apps",
+    "publishedAt": "",
+    "accessedAt": "2026-07-28",
+    "sourceType": "platform",
+    "notes": "实时 API 快照。访问时 Poke 在 apps 榜单按 Token Volume 排第 4、按 Spend 排第 2；排名会变化。"
+  },
+  {
+    "id": "src-poke-015",
+    "title": "Meta to exclude Italy from rival chatbot ban on WhatsApp",
+    "publisher": "Reuters",
+    "url": "https://www.reuters.com/sustainability/boards-policy-regulation/meta-exclude-italy-rival-chatbot-ban-whatsapp-2026-01-12/",
+    "publishedAt": "2026-01-12",
+    "accessedAt": "2026-07-28",
+    "sourceType": "media",
+    "notes": "Reuters 查看 Meta 通知并采访 Poke 创始人，确认 WhatsApp 政策对第三方 AI 助手分发造成实际影响。"
+  },
+  {
+    "id": "src-poke-016",
+    "title": "Commission imposes interim measures on Meta to preserve free access to WhatsApp for rival AI assistants",
+    "publisher": "European Commission",
+    "url": "https://europa.eu/newsroom/ecpc-failover/pdf/ip-26-1276_en.pdf",
+    "publishedAt": "2026-06-09",
+    "accessedAt": "2026-07-28",
+    "sourceType": "official",
+    "notes": "欧委会要求 Meta 恢复第三方通用 AI 助手对 WhatsApp Business API 的免费访问，说明平台风险得到临时缓解但未消失。"
+  },
+  {
+    "id": "src-poke-017",
+    "title": "Poke - Chat with Poke",
+    "publisher": "Poke",
+    "url": "https://poke.com/",
+    "publishedAt": "",
+    "accessedAt": "2026-07-28",
+    "sourceType": "official",
+    "notes": "当前官网用于核对产品定位、支持的消息渠道、集成、公开定价和视觉语言。"
+  }
+]

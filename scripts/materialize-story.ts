@@ -1,0 +1,41 @@
+import fs from "node:fs";
+import path from "node:path";
+import {parseFinalScript} from "../src/lib/story";
+import {episodeRoot, writeJson} from "../src/lib/project";
+import {scriptSchema} from "../src/schemas/episode";
+
+const finalScriptPath = path.join(episodeRoot, "story/final-script.md");
+const markdown = fs.readFileSync(finalScriptPath, "utf8");
+const selectedHook = markdown.match(/选中 Hook：`([^`]+)`/u)?.[1];
+if (!selectedHook) {
+  throw new Error("final-script.md 缺少“选中 Hook”");
+}
+
+const segments = parseFinalScript(markdown).map((segment) => ({
+  id: segment.id,
+  section: segment.section,
+  narration: segment.narration,
+  onScreenText: segment.onScreenText
+    .replaceAll("`", "")
+    .split(/\s*\/\s*/u)
+    .map((text) => text.trim())
+    .filter(Boolean),
+  claimIds: segment.claimIds,
+  scene: segment.scene,
+  visualIntent: segment.visualIntent,
+  targetSeconds: segment.targetSeconds,
+}));
+
+const script = scriptSchema.parse({selectedHook, segments});
+writeJson(path.join(episodeRoot, "story/script.json"), script);
+fs.writeFileSync(
+  path.join(episodeRoot, "story/narration.txt"),
+  `${script.segments.map((segment) => segment.narration).join("\n\n")}\n`,
+);
+
+console.log(
+  `story materialized: ${script.segments.length} segments, hook=${selectedHook}, target=${script.segments.reduce(
+    (total, segment) => total + segment.targetSeconds,
+    0,
+  )}s`,
+);

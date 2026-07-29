@@ -1,0 +1,75 @@
+[
+  {
+    "id": "asset-001",
+    "type": "screenshot",
+    "path": "public/episodes/episode-001/captured/poke-home.png",
+    "sourceUrl": "https://poke.com/",
+    "owner": "The Interaction Company of California / Poke",
+    "licenseOrBasis": "Official public product page captured by this project for limited editorial commentary and source identification; publication rights should receive final human review.",
+    "capturedAt": "2026-07-28",
+    "usage": "Brief product-context still with source label; no social or video material.",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": ["claim-poke-010", "claim-poke-011"]
+  },
+  {
+    "id": "asset-002",
+    "type": "screenshot",
+    "path": "public/episodes/episode-001/captured/poke-release-notes.png",
+    "sourceUrl": "https://poke.com/docs/release-notes",
+    "owner": "The Interaction Company of California / Poke",
+    "licenseOrBasis": "Official public documentation captured by this project for limited factual commentary; publication rights should receive final human review.",
+    "capturedAt": "2026-07-28",
+    "usage": "Timeline evidence for 2026-03-19 general availability.",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": ["claim-poke-004"]
+  },
+  {
+    "id": "asset-003",
+    "type": "screenshot",
+    "path": "public/episodes/episode-001/captured/cognition-announcement.png",
+    "sourceUrl": "https://cognition.com/blog/interaction",
+    "owner": "Cognition AI, Inc.",
+    "licenseOrBasis": "Official public announcement captured by this project for limited factual commentary; publication rights should receive final human review.",
+    "capturedAt": "2026-07-28",
+    "usage": "Acquisition and message-volume source evidence.",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": ["claim-poke-015", "claim-poke-019"]
+  },
+  {
+    "id": "asset-005",
+    "type": "generated",
+    "path": "reports/design-concept-9x16.png",
+    "sourceUrl": "",
+    "owner": "Generated for this project",
+    "licenseOrBasis": "Project-generated visual design concept.",
+    "capturedAt": "2026-07-28",
+    "usage": "Vertical design specification only; not directly rendered into the final video.",
+    "approved": true,
+    "usedInRender": false,
+    "claimIds": ["claim-poke-015"]
+  },
+  {
+    "id": "asset-006",
+    "type": "generated",
+    "path": "src/compositions/PokeEpisode.tsx",
+    "sourceUrl": "",
+    "owner": "Generated in this repository",
+    "licenseOrBasis": "Original code-native graphics created for this project.",
+    "capturedAt": "2026-07-28",
+    "usage": "Programmatic charts, timelines, message bubbles, diagrams, captions and source labels.",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-poke-006",
+      "claim-poke-008",
+      "claim-poke-010",
+      "claim-poke-012",
+      "claim-poke-015",
+      "claim-poke-017",
+      "claim-poke-021"
+    ]
+  }
+]
