@@ -11,7 +11,9 @@ const videoPath = path.join(outputEpisodeRoot, "vertical_9x16.mp4");
 const subtitlesPath = path.join(outputEpisodeRoot, "subtitles_zh.srt");
 const timelinePath = path.join(episodeRoot, "production/timeline.json");
 const inspectionPath = path.join(outputEpisodeRoot, "inspection.json");
-const captionsPath = path.join(repoRoot, "src/poke-captions.generated.json");
+const generatedPrefix =
+  episodeId === "episode-001" ? "poke" : episodeId.replace("episode-", "episode-");
+const captionsPath = path.join(repoRoot, `src/${generatedPrefix}-captions.generated.json`);
 const captionPlanPath = path.join(episodeRoot, "story/caption-plan.json");
 const errors: string[] = [];
 

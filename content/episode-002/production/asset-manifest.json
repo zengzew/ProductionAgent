@@ -1,0 +1,49 @@
+[
+  {
+    "id": "asset-roost-home",
+    "type": "screenshot",
+    "path": "public/episodes/episode-002/captured/roost-home.png",
+    "sourceUrl": "https://roostsocial.app/",
+    "owner": "Good Egg LLC / Roost",
+    "licenseOrBasis": "Official public product page captured by this project for limited editorial commentary and source identification; publication rights should receive final human review.",
+    "capturedAt": "2026-07-31",
+    "usage": "Product-definition evidence showing the official site and its real map UI.",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": ["claim-roost-003", "claim-roost-004"]
+  },
+  {
+    "id": "asset-roost-app-store",
+    "type": "screenshot",
+    "path": "public/episodes/episode-002/captured/roost-app-store.png",
+    "sourceUrl": "https://apps.apple.com/us/app/roost-social/id6746680855",
+    "owner": "Apple App Store / Good Egg LLC / Roost",
+    "licenseOrBasis": "Public App Store product listing captured by this project for limited editorial commentary and product identification; publication rights should receive final human review.",
+    "capturedAt": "2026-07-31",
+    "usage": "Application evidence showing the icon, developer listing and four official in-app screenshots.",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": ["claim-roost-001", "claim-roost-003", "claim-roost-004"]
+  },
+  {
+    "id": "asset-roost-001",
+    "type": "generated",
+    "path": "src/compositions/RoostEpisode.tsx",
+    "sourceUrl": "",
+    "owner": "Generated in this repository",
+    "licenseOrBasis": "Original code-native graphics created for this project.",
+    "capturedAt": "2026-07-31",
+    "usage": "Programmatic map, message, bird, counter, store, privacy and source-evidence graphics.",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-roost-003",
+      "claim-roost-004",
+      "claim-roost-009",
+      "claim-roost-010",
+      "claim-roost-013",
+      "claim-roost-015",
+      "claim-roost-018"
+    ]
+  }
+]

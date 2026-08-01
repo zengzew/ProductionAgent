@@ -71,5 +71,18 @@
       "claim-poke-017",
       "claim-poke-021"
     ]
+  },
+  {
+    "id": "asset-007",
+    "type": "generated",
+    "path": "public/episodes/episode-001/sound-design/ambient-bed.mp3",
+    "sourceUrl": "",
+    "owner": "Generated in this repository",
+    "licenseOrBasis": "Original procedural audio generated with FFmpeg oscillators and noise sources; no external recording or music sample.",
+    "capturedAt": "2026-07-30",
+    "usage": "Low-level ambient bed and code-generated message, impact and pulse cues used to mark story turns.",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": ["claim-poke-011", "claim-poke-015", "claim-poke-019", "claim-poke-021"]
   }
 ]

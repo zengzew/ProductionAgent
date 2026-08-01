@@ -5,6 +5,9 @@
 /story/
 /storyboard/
 /content/*/story/script.json
+/content/*/story/polished-script.json
+/content/*/story/polished-caption-plan.json
+/content/*/production/polish-judge-report.json
 /content/*/production/timeline.json
 src/poke-captions.generated.json
 src/poke-timeline.generated.json

@@ -33,6 +33,25 @@ export const criticGateSchema = z.object({
   rewriteRequired: z.boolean(),
 });
 
+export const oralReviewGateSchema = z.object({
+  rubricVersion: z.literal("oral-review-v1"),
+  reviewedFile: z.literal("story/final-script.md"),
+  reviewedSha256: z.string().regex(/^[a-f0-9]{64}$/u),
+  sourceDraftFile: z.literal("story/script-draft.md"),
+  sourceDraftSha256: z.string().regex(/^[a-f0-9]{64}$/u),
+  round: z.number().int().min(1).max(3),
+  scores: z.object({
+    chineseNaturalness: z.number().min(0).max(5),
+    spokenDelivery: z.number().min(0).max(5),
+    informationFidelity: z.number().min(0).max(5),
+  }),
+  minimumScore: z.literal(4),
+  styleSamples: z.array(z.string()),
+  blockers: z.array(z.string()),
+  verdict: z.enum(["PASS", "REJECT"]),
+  returnTo: z.enum(["none", "oral-rewriter", "script-writer", "human-editor"]),
+});
+
 export const factCheckGateSchema = z.object({
   rubricVersion: z.literal("fact-guardian-v1"),
   reviewedFile: z.literal("story/final-script.md"),
@@ -41,7 +60,13 @@ export const factCheckGateSchema = z.object({
   checkedNarrationUnits: z.number().int().positive(),
   blockers: z.array(z.string()),
   verdict: z.enum(["PASS", "REJECT"]),
-  returnTo: z.enum(["none", "research-analyst", "story-director", "script-writer"]),
+  returnTo: z.enum([
+    "none",
+    "research-analyst",
+    "story-director",
+    "script-writer",
+    "oral-rewriter",
+  ]),
 });
 
 export type NarrationUnit = {
@@ -142,6 +167,12 @@ export const parseCriticGate = (markdown: string): z.infer<typeof criticGateSche
   const raw = markdown.match(/<!-- critic-gate\n([\s\S]*?)\n-->/u)?.[1];
   if (!raw) throw new Error("critic-report.md is missing critic-gate metadata");
   return criticGateSchema.parse(JSON.parse(raw));
+};
+
+export const parseOralReviewGate = (markdown: string): z.infer<typeof oralReviewGateSchema> => {
+  const raw = markdown.match(/<!-- oral-review-gate\n([\s\S]*?)\n-->/u)?.[1];
+  if (!raw) throw new Error("oral-review.md is missing oral-review-gate metadata");
+  return oralReviewGateSchema.parse(JSON.parse(raw));
 };
 
 export const parseFactCheckGate = (markdown: string): z.infer<typeof factCheckGateSchema> => {

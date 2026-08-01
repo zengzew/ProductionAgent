@@ -1,0 +1,18 @@
+{
+  "provider": "edge",
+  "acceptsApiKey": false,
+  "providerSelectionEnabled": false,
+  "normalization": {
+    "integratedLufs": -16,
+    "truePeakDb": -1.5,
+    "loudnessRange": 7,
+    "sampleRate": 48000,
+    "bitrate": "192k"
+  },
+  "profile": {
+    "label": "Microsoft Edge neural TTS",
+    "voice": "zh-CN-YunjianNeural",
+    "rate": "+25%",
+    "pitch": "-2Hz"
+  }
+}

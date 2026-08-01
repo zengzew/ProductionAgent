@@ -49,11 +49,19 @@
 
 - 当前只交付 1080×1920、30 fps 的 9:16 竖版视频。
 - 不渲染横版视频，不用横版通过代替竖版检查。
-- 旁白固定使用项目 `.venv` 中的 Microsoft Edge neural TTS：
+- 当前先解决文案自然度。只有口播改写、口播评审、观众评审和事实评审全部通过，
+  才允许进入 TTS。
+- 旁白默认使用 `config/tts-v2.json` 选择的中文 TTS provider。当前默认 MiniMax，
+  API Key 只从 `MINIMAX_API_KEY` 环境变量读取；缺少凭据或服务失败时，按配置回退
+  到项目 `.venv` 中的 Microsoft Edge neural TTS。
+- provider、音色、语速、音高和回退策略只进配置文件。旧 Edge 配置保留
   `zh-CN-YunjianNeural`、rate `+25%`、pitch `-2Hz`。
-- 这条配音链路不接受 API Key、provider、voice、model 或手工音频目录等输入。
+- 项目永久排除自部署 GPT、LLM 和语音生成模型；不建设 GPU 推理服务，也不把
+  GPT-SoVITS、CosyVoice 等自托管方案保留为候选或 fallback。
 - 音频生成后用 FFmpeg 归一化到 `I=-16`、`TP=-1.5`、`LRA=7`。
 - 每次改旁白都要重新生成分段音频、测量真实时长、重建字幕和时间轴。
+- 自动化 `polish` 与初稿生成分开。system prompt、风格规则、禁用词和 few-shot
+  样本目录都从配置加载；每次运行必须落逐轮 judge 评分报告。
 
 ## Facts first
 
@@ -63,6 +71,14 @@
 - 消息数不能换算成用户数、留存、收入、人均强度或成功任务数。
 - 不猜创始人动机、后台架构、增长归因、市场验证或素材权利。
 - 外部素材必须登记在 asset manifest。权利不清楚时，改用代码图形或直接删掉。
+- 产品有公开官网、应用商店页面或官方应用截图，且画面能解释当前主线时，每期默认
+  至少使用一处真实官方产品画面；官网和应用内截图都可用时，优先各保留一处。不能
+  为了凑截图加入与故事问题无关的页面。
+- 截图必须来自可追溯的官方 URL。捕获日期、来源 URL、权利主体、编辑使用依据、
+  使用目的和对应 claim ID 必须写入 `production/asset-manifest.json`。渲染画面要
+  标明“真实页面截图”和具体来源，不把官网宣传语直接当作独立事实。
+- 真实页面不存在、页面无法稳定访问或发布权利不清楚时，改用有 Claim 支持的
+  程序化图形；合成界面必须标“功能演示”，不得伪装成真实应用截图。
 
 ## Script development workflow
 
@@ -84,10 +100,20 @@
   "脚本亮点规划"，等待确认后再写完整分镜和口播。
 - 大纲的每一段必须写明时间范围、叙事任务、可见动作或证据画面、claim ID、来源
   身份、节奏切换和不能越过的事实边界。没有对应 claim 的事实不能进入口播计划。
+- 大纲必须为可用的官网或应用截图指定进入时间、叙事作用和对应 claim。截图优先
+  用于前 20 秒建立产品心智模型、首次解释核心动作，或后续展示真实产品状态；不能
+  只作为无信息量的装饰背景。
 - "脚本亮点规划" 只列真正能维持注意力的节点，并说明它靠哪条新信息、哪个动作
   或哪份证据成立。梗图、BGM 停顿和夸张标题不能代替内容。
-- 完整稿必须能直接拆进 `script.json`。每段至少包含 section、narration、
-  onScreenText、claimIds、scene、visualIntent 和 targetSeconds。
+- `Script Writer` 先把信息正确、Claim 完整的版本写入 `script-draft.md`，不得直接
+  把初稿标成最终口播。
+- 独立的 `Oral Rewriter` 再把初稿改成 `final-script.md`。它只能改变中文表达和
+  句间节奏，不能新增事实、人物、场景、因果或 Claim。
+- `final-script.md` 必须能直接拆进 `script.json`。每段至少包含 section、
+  narration、onScreenText、claimIds、scene、visualIntent 和 targetSeconds。
+- 独立的 `Oral Judge` 必须在 `oral-review.md` 中绑定初稿和最终稿的 SHA-256，
+  分别评估中文自然度、口播节奏和信息保真。三项均不低于 4/5 且没有 blocker 才能
+  继续；最多回改 3 轮，第三轮仍不通过就交给人工编辑，不无限自动重写。
 - 用“因为、所以、于是、结果”连接两个事件时，Claim 必须支持因果。资料只支持先后
   顺序时，用具体动作呈现变化，不靠连接词制造因果。
 - 不把 "百万播放量" 当作质量结论。只能检查开场速度、信息推进、证据可信度、
@@ -95,7 +121,8 @@
 
 ## Text style: de-ai
 
-写旁白、标题、画面文案和发布文案时，先做一遍去 AI 味检查。
+写旁白、标题、画面文案和发布文案时，先做一遍去 AI 味检查。初稿的信息整理和
+最终口播改写是两个独立阶段，不允许一次生成后直接跳到评审。
 
 ### 禁止
 
@@ -112,6 +139,9 @@
 - 禁止用破折号制造停顿。改用句号、逗号或直接重写。
 - 禁止把研究过程直接念给观众。旁白不说 "公开资料没有披露"、"能确认的只有"
   或 "资料到这里断了"。没有数据时，换成观众听得懂的具体边界，或者删掉。
+- 禁止沿用英文的主语、长定语和动宾顺序逐句翻译。出现“把 A、B 和 C 装进 D”
+  一类生硬结构时，先改成一个人会怎样问、怎样做、怎样得到结果。
+- 禁止把“于是、随后、结果”当通用转场。只有语义真的成立时才保留。
 
 ### 写法
 
@@ -120,6 +150,10 @@
 - 用普通词。能写 "打开" 就不写 "激活入口"，能写 "改日历" 就不写
   "执行跨系统动作"。
 - 长短句要错开。允许口语停顿、自我校正和不完全对称的节奏。
+- 默认一句只说一个意思，尽量控制在 25 个汉字左右。超过时优先拆开长定语、并列项
+  和从句；不能为了达标把一句话切成连续的海报短句。
+- 口播要有明确对象感。可以自然地问一句、补一句或改口，但不能机械插入反问、
+  “说人话”或口头禅来伪装真人。
 - 保留不确定性，但不要堆免责声明。说一次来源边界，然后继续故事。
 - 先消化英文来源，再按中文口语重新组织。不要沿用英文原句的语序、抽象名词和
   从句结构，也不要逐句翻译研究档案。
@@ -129,10 +163,24 @@
   旁白不说“这个口径没有拆分”“看不出”“回答不了”。
 - 不写“听上去很技术”“说白了”一类元评论。技术词首次出现必须紧跟普通话解释，
   否则删掉。
+- Poke、Recipe、Cognition 等专有名词保留原文；第一次出现时必须用一句普通话
+  说明它是什么或做什么。
+- 标点就是 TTS 的停顿提示。数字、年代和英文缩写按实际读法检查，不能只保证屏幕
+  上看得懂。
 - 具体细节必须来自来源或明确标注为演示。不能为了显得真实而编造人物、房间、
   身体反应或生活用品。
 - 每段旁白朗读一遍。删掉播音时需要换气两次才能说完的句子。
 - 结尾回到开头的问题，用具体动作回答，然后停在已知数据的边缘。
+
+## Style assets
+
+- `style/voice-guide.md` 是稳定风格规则；`style/approved/` 只放人工明确认可、可以
+  复用的历史成稿。
+- Oral Rewriter 每轮最多选 2～3 份与当前题材最接近的 approved 样稿作为参考，并
+  在 `oral-review.md` 记录文件路径。没有 approved 样稿时，只使用 voice guide，
+  不把 AI 自己写的稿件倒灌成 few-shot。
+- 风格样稿只能影响说法，不能成为事实来源。样稿和当前 Claim 冲突时，以当前
+  Claim Ledger 为准。
 
 ## Caption style
 
@@ -206,16 +254,24 @@ Prompt 按以下顺序写：
 
 - 使用 TypeScript strict mode、pnpm、React、Remotion、Zod、Vitest 和 FFmpeg。
 - episode 内容放在 `content/<episode>/`，复用代码放在 `src/`。
-- research、script、timeline 和 manifests 是 source of truth。
+- research、script draft、final script、oral review、timeline 和 manifests 是
+  source of truth。
 - 不手修最终 MP4。更新内容或组件后重渲。
 - 当前仓库只保留 9:16 产品故事生产链，不注册或生成旧项目与横版 Composition。
+- 角色化写作通过 Codex Prompt 和文件交接完成，不在仓库内调用 LLM API，不增加
+  LangGraph、AutoGen、CrewAI 或自部署模型运行时。
 
 ## Delivery review
 
+- `oral-pass` 只代表口播自然度和信息保真通过；还要经过 Audience Critic 与 Fact
+  Guardian 才能成为 `story-approved`。
 - `story-approved` 只批准脚本，不代表成片合格。TTS、字幕、时间轴和竖版渲染完成
   后，必须由独立 `Delivery Critic` 审核实际 MP4、SRT 和真实 TTS 时长。
 - Delivery Critic 的硬 blocker：英文单词或中文词组在词中断开；小于 1.0 秒的
   cue 占比超过 10%；第一屏对零背景观众不可懂；真实语速导致吞字或字幕错位。
+- Delivery Critic 必须抽查所有官网和应用截图镜头，确认关键界面在竖屏中可读、
+  来源标签可见、字幕没有遮住证据重点，并与 asset manifest 的 URL、用途和 claim
+  一致。无法辨认或缺少来源标签时退回 `render`。
 - 任一 blocker 命中即退回 `captions`、`timeline`、`tts` 或 `render`。Delivery
   Critic 不直接改产物，也不拿脚本阅读体验代替成片审核。
 - Delivery Critic 报告必须绑定当前竖版 MP4、SRT 与 production timeline 的

@@ -1,5 +1,6 @@
 import {describe, expect, it} from "vitest";
 import {
+  alignCaptionPartsToTimestamps,
   captionPartsFromPlan,
   fitCaptionPartsToDuration,
   formatSrtTime,
@@ -99,6 +100,27 @@ describe("caption helpers", () => {
 
   it("formats SRT timestamps", () => {
     expect(formatSrtTime(65.432)).toBe("00:01:05,432");
+  });
+
+  it("uses provider word timestamps when their text matches the caption plan", () => {
+    const parts = captionPartsFromPlan("Poke 会来找你。", ["Poke 会来", "找你"]);
+    const aligned = alignCaptionPartsToTimestamps(
+      parts,
+      [
+        {text: "Poke", startMs: 100, endMs: 500},
+        {text: "会来", startMs: 600, endMs: 1000},
+        {text: "找你", startMs: 1200, endMs: 1700},
+      ],
+      2,
+    );
+
+    expect(aligned?.map(({startSeconds, endSeconds}) => [startSeconds, endSeconds])).toEqual([
+      [0.1, 1],
+      [1, 1.7],
+    ]);
+    expect(
+      alignCaptionPartsToTimestamps(parts, [{text: "别的文字", startMs: 0, endMs: 500}], 2),
+    ).toBeUndefined();
   });
 
   it("removes punctuation at the end of every displayed caption", () => {

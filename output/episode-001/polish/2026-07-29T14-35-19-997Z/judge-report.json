@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "runId": "2026-07-29T14-35-19-997Z",
+  "episodeId": "episode-001",
+  "generatedAt": "2026-07-29T14:35:20.000Z",
+  "status": "error",
+  "error": "polish 需要环境变量 OPENAI_API_KEY",
+  "rounds": []
+}

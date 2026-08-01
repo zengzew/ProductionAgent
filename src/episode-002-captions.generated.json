@@ -1,0 +1,1046 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 1.0752000000000002,
+    "startFrame": 0,
+    "endFrame": 32,
+    "text": "发条消息"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-001",
+    "startSeconds": 1.0752000000000002,
+    "endSeconds": 2.688,
+    "startFrame": 32,
+    "endFrame": 81,
+    "text": "先等鸟飞三天"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 2.8680000000000003,
+    "endSeconds": 4.005777777777778,
+    "startFrame": 86,
+    "endFrame": 120,
+    "text": "消息没卡住"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 4.005777777777778,
+    "endSeconds": 6.053777777777778,
+    "startFrame": 120,
+    "endFrame": 182,
+    "text": "它按距离和鸟速送达"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-002",
+    "startSeconds": 6.053777777777778,
+    "endSeconds": 7.191555555555556,
+    "startFrame": 182,
+    "endFrame": 216,
+    "text": "可用户三天"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-002",
+    "startSeconds": 7.191555555555556,
+    "endSeconds": 9.012,
+    "startFrame": 216,
+    "endFrame": 270,
+    "text": "就从一万涨到十万"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-003",
+    "startSeconds": 9.192,
+    "endSeconds": 11.767813953488371,
+    "startFrame": 276,
+    "endFrame": 353,
+    "text": "Roost 是慢速通讯 App"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-003",
+    "startSeconds": 11.767813953488371,
+    "endSeconds": 14.541767441860465,
+    "startFrame": 353,
+    "endFrame": 436,
+    "text": "你选只鸟 看它把话送到朋友那里"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-003",
+    "startSeconds": 14.541767441860465,
+    "endSeconds": 16.12688372093023,
+    "startFrame": 436,
+    "endFrame": 484,
+    "text": "消息都在追求秒到"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-003",
+    "startSeconds": 16.12688372093023,
+    "endSeconds": 17.712,
+    "startFrame": 484,
+    "endFrame": 531,
+    "text": "为什么有人偏要等"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-004",
+    "startSeconds": 17.892,
+    "endSeconds": 19.8192,
+    "startFrame": 537,
+    "endFrame": 595,
+    "text": "普通聊天里 消息刚发出去"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-004",
+    "startSeconds": 19.8192,
+    "endSeconds": 21.7464,
+    "startFrame": 595,
+    "endFrame": 652,
+    "text": "已读 正在输入 怎么还没回"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-004",
+    "startSeconds": 21.7464,
+    "endSeconds": 22.7976,
+    "startFrame": 652,
+    "endFrame": 684,
+    "text": "马上挤到一起"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-004",
+    "startSeconds": 22.7976,
+    "endSeconds": 24.9,
+    "startFrame": 684,
+    "endFrame": 747,
+    "text": "Roost 把这串催促切断"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-004",
+    "startSeconds": 24.9,
+    "endSeconds": 26.3016,
+    "startFrame": 747,
+    "endFrame": 789,
+    "text": "发送以后 不能撤回"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-004",
+    "startSeconds": 26.3016,
+    "endSeconds": 28.2288,
+    "startFrame": 789,
+    "endFrame": 847,
+    "text": "不能编辑 也不能给鸟加速"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-004",
+    "startSeconds": 28.2288,
+    "endSeconds": 31.3824,
+    "startFrame": 847,
+    "endFrame": 941,
+    "text": "TechCrunch 采访里的\n创始人说"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-004",
+    "startSeconds": 31.3824,
+    "endSeconds": 32.6088,
+    "startFrame": 941,
+    "endFrame": 978,
+    "text": "他想给人留一段"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-004",
+    "startSeconds": 32.6088,
+    "endSeconds": 34.1856,
+    "startFrame": 978,
+    "endFrame": 1026,
+    "text": "不用立刻反应的时间"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-004",
+    "startSeconds": 34.1856,
+    "endSeconds": 35.587199999999996,
+    "startFrame": 1026,
+    "endFrame": 1068,
+    "text": "另一位体验者发现"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-004",
+    "startSeconds": 35.587199999999996,
+    "endSeconds": 36.9888,
+    "startFrame": 1068,
+    "endFrame": 1110,
+    "text": "自己开始先想清楚"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-004",
+    "startSeconds": 36.9888,
+    "endSeconds": 38.916,
+    "startFrame": 1110,
+    "endFrame": 1167,
+    "text": "这句话值不值得派一只鸟"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-005",
+    "startSeconds": 39.815999999999995,
+    "endSeconds": 42.14075675675675,
+    "startFrame": 1194,
+    "endFrame": 1264,
+    "text": "它最早没打算 做成一门公开生意"
+  },
+  {
+    "index": 24,
+    "sceneId": "seg-005",
+    "startSeconds": 42.14075675675675,
+    "endSeconds": 43.30313513513513,
+    "startFrame": 1264,
+    "endFrame": 1299,
+    "text": "2025 年 5 月"
+  },
+  {
+    "index": 25,
+    "sceneId": "seg-005",
+    "startSeconds": 43.30313513513513,
+    "endSeconds": 46.2921081081081,
+    "startFrame": 1299,
+    "endFrame": 1389,
+    "text": "Logan Mendelsohn\n和朋友"
+  },
+  {
+    "index": 26,
+    "sceneId": "seg-005",
+    "startSeconds": 46.2921081081081,
+    "endSeconds": 48.28475675675675,
+    "startFrame": 1389,
+    "endFrame": 1449,
+    "text": "把虚拟鸟送信做成业余项目"
+  },
+  {
+    "index": 27,
+    "sceneId": "seg-005",
+    "startSeconds": 48.28475675675675,
+    "endSeconds": 49.779243243243236,
+    "startFrame": 1449,
+    "endFrame": 1493,
+    "text": "先发了一段概念视频"
+  },
+  {
+    "index": 28,
+    "sceneId": "seg-005",
+    "startSeconds": 49.779243243243236,
+    "endSeconds": 51.43978378378378,
+    "startFrame": 1493,
+    "endFrame": 1543,
+    "text": "后来他做出能用的版本"
+  },
+  {
+    "index": 29,
+    "sceneId": "seg-005",
+    "startSeconds": 51.43978378378378,
+    "endSeconds": 53.59848648648648,
+    "startFrame": 1543,
+    "endFrame": 1608,
+    "text": "只给身边人试 朋友玩得很开心"
+  },
+  {
+    "index": 30,
+    "sceneId": "seg-005",
+    "startSeconds": 53.59848648648648,
+    "endSeconds": 55.092972972972966,
+    "startFrame": 1608,
+    "endFrame": 1653,
+    "text": "催他把应用送上商店"
+  },
+  {
+    "index": 31,
+    "sceneId": "seg-005",
+    "startSeconds": 55.092972972972966,
+    "endSeconds": 56.75351351351351,
+    "startFrame": 1653,
+    "endFrame": 1703,
+    "text": "2026 年 4 月 28 日"
+  },
+  {
+    "index": 32,
+    "sceneId": "seg-005",
+    "startSeconds": 56.75351351351351,
+    "endSeconds": 58.24799999999999,
+    "startFrame": 1703,
+    "endFrame": 1747,
+    "text": "Roost 正式公开"
+  },
+  {
+    "index": 33,
+    "sceneId": "seg-006",
+    "startSeconds": 59.14799999999999,
+    "endSeconds": 61.695463917525764,
+    "startFrame": 1774,
+    "endFrame": 1851,
+    "text": "这个点子能撑起一个 App"
+  },
+  {
+    "index": 34,
+    "sceneId": "seg-006",
+    "startSeconds": 61.695463917525764,
+    "endSeconds": 64.24292783505153,
+    "startFrame": 1851,
+    "endFrame": 1927,
+    "text": "靠的是三件连在一起的动作"
+  },
+  {
+    "index": 35,
+    "sceneId": "seg-006",
+    "startSeconds": 64.24292783505153,
+    "endSeconds": 66.36581443298968,
+    "startFrame": 1927,
+    "endFrame": 1991,
+    "text": "先选信使 猎鹰快 蜂鸟慢"
+  },
+  {
+    "index": 36,
+    "sceneId": "seg-006",
+    "startSeconds": 66.36581443298968,
+    "endSeconds": 68.91327835051545,
+    "startFrame": 1991,
+    "endFrame": 2067,
+    "text": "想等更久 还能派蜗牛或乌龟"
+  },
+  {
+    "index": 37,
+    "sceneId": "seg-006",
+    "startSeconds": 68.91327835051545,
+    "endSeconds": 70.61158762886598,
+    "startFrame": 2067,
+    "endFrame": 2118,
+    "text": "再看距离 同一只鸟"
+  },
+  {
+    "index": 38,
+    "sceneId": "seg-006",
+    "startSeconds": 70.61158762886598,
+    "endSeconds": 71.88531958762886,
+    "startFrame": 2118,
+    "endFrame": 2157,
+    "text": "飞到隔壁城市"
+  },
+  {
+    "index": 39,
+    "sceneId": "seg-006",
+    "startSeconds": 71.88531958762886,
+    "endSeconds": 74.22049484536082,
+    "startFrame": 2157,
+    "endFrame": 2227,
+    "text": "和飞过一片大陆 时间不同"
+  },
+  {
+    "index": 40,
+    "sceneId": "seg-006",
+    "startSeconds": 74.22049484536082,
+    "endSeconds": 76.7679587628866,
+    "startFrame": 2227,
+    "endFrame": 2303,
+    "text": "最后 地图把这段等待画出来"
+  },
+  {
+    "index": 41,
+    "sceneId": "seg-006",
+    "startSeconds": 76.7679587628866,
+    "endSeconds": 78.67855670103091,
+    "startFrame": 2303,
+    "endFrame": 2360,
+    "text": "鸟飞到哪里 还剩多久"
+  },
+  {
+    "index": 42,
+    "sceneId": "seg-006",
+    "startSeconds": 78.67855670103091,
+    "endSeconds": 79.73999999999998,
+    "startFrame": 2360,
+    "endFrame": 2392,
+    "text": "你都能看见"
+  },
+  {
+    "index": 43,
+    "sceneId": "seg-007",
+    "startSeconds": 80.63999999999999,
+    "endSeconds": 82.08792660550458,
+    "startFrame": 2419,
+    "endFrame": 2463,
+    "text": "等待因此有了形状"
+  },
+  {
+    "index": 44,
+    "sceneId": "seg-007",
+    "startSeconds": 82.08792660550458,
+    "endSeconds": 83.35486238532108,
+    "startFrame": 2463,
+    "endFrame": 2501,
+    "text": "你看到朋友的鸟"
+  },
+  {
+    "index": 45,
+    "sceneId": "seg-007",
+    "startSeconds": 83.35486238532108,
+    "endSeconds": 84.44080733944952,
+    "startFrame": 2501,
+    "endFrame": 2533,
+    "text": "正穿过海岸线"
+  },
+  {
+    "index": 46,
+    "sceneId": "seg-007",
+    "startSeconds": 84.44080733944952,
+    "endSeconds": 85.52675229357797,
+    "startFrame": 2533,
+    "endFrame": 2566,
+    "text": "也能回到鸟舍"
+  },
+  {
+    "index": 47,
+    "sceneId": "seg-007",
+    "startSeconds": 85.52675229357797,
+    "endSeconds": 86.61269724770641,
+    "startFrame": 2566,
+    "endFrame": 2598,
+    "text": "训练自己的鸟"
+  },
+  {
+    "index": 48,
+    "sceneId": "seg-007",
+    "startSeconds": 86.61269724770641,
+    "endSeconds": 88.060623853211,
+    "startFrame": 2598,
+    "endFrame": 2642,
+    "text": "或者玩一局小游戏"
+  },
+  {
+    "index": 49,
+    "sceneId": "seg-007",
+    "startSeconds": 88.060623853211,
+    "endSeconds": 89.14656880733943,
+    "startFrame": 2642,
+    "endFrame": 2674,
+    "text": "消息到达之前"
+  },
+  {
+    "index": 50,
+    "sceneId": "seg-007",
+    "startSeconds": 89.14656880733943,
+    "endSeconds": 90.95647706422017,
+    "startFrame": 2674,
+    "endFrame": 2729,
+    "text": "应用没有逼你一直守着"
+  },
+  {
+    "index": 51,
+    "sceneId": "seg-007",
+    "startSeconds": 90.95647706422017,
+    "endSeconds": 93.67133944954128,
+    "startFrame": 2729,
+    "endFrame": 2810,
+    "text": "WhistleOut 的体验者说"
+  },
+  {
+    "index": 52,
+    "sceneId": "seg-007",
+    "startSeconds": 93.67133944954128,
+    "endSeconds": 95.84322935779815,
+    "startFrame": 2810,
+    "endFrame": 2875,
+    "text": "他反而开始期待那只鸟落地"
+  },
+  {
+    "index": 53,
+    "sceneId": "seg-007",
+    "startSeconds": 95.84322935779815,
+    "endSeconds": 97.47214678899081,
+    "startFrame": 2875,
+    "endFrame": 2924,
+    "text": "慢在这里不再是空白"
+  },
+  {
+    "index": 54,
+    "sceneId": "seg-007",
+    "startSeconds": 97.47214678899081,
+    "endSeconds": 99.10106422018347,
+    "startFrame": 2924,
+    "endFrame": 2973,
+    "text": "它成了一段能看 能聊"
+  },
+  {
+    "index": 55,
+    "sceneId": "seg-007",
+    "startSeconds": 99.10106422018347,
+    "endSeconds": 100.368,
+    "startFrame": 2973,
+    "endFrame": 3011,
+    "text": "还能收集的过程"
+  },
+  {
+    "index": 56,
+    "sceneId": "seg-008",
+    "startSeconds": 101.268,
+    "endSeconds": 102.976,
+    "startFrame": 3038,
+    "endFrame": 3089,
+    "text": "真正让更多人看见它的"
+  },
+  {
+    "index": 57,
+    "sceneId": "seg-008",
+    "startSeconds": 102.976,
+    "endSeconds": 104.5132,
+    "startFrame": 3089,
+    "endFrame": 3135,
+    "text": "是一段很具体的使用"
+  },
+  {
+    "index": 58,
+    "sceneId": "seg-008",
+    "startSeconds": 104.5132,
+    "endSeconds": 106.5628,
+    "startFrame": 3135,
+    "endFrame": 3197,
+    "text": "TechCrunch 报道"
+  },
+  {
+    "index": 59,
+    "sceneId": "seg-008",
+    "startSeconds": 106.5628,
+    "endSeconds": 108.7832,
+    "startFrame": 3197,
+    "endFrame": 3263,
+    "text": "一位母亲在 Threads 写"
+  },
+  {
+    "index": 60,
+    "sceneId": "seg-008",
+    "startSeconds": 108.7832,
+    "endSeconds": 110.14959999999999,
+    "startFrame": 3263,
+    "endFrame": 3304,
+    "text": "女儿和朋友开始用"
+  },
+  {
+    "index": 61,
+    "sceneId": "seg-008",
+    "startSeconds": 110.14959999999999,
+    "endSeconds": 112.0284,
+    "startFrame": 3304,
+    "endFrame": 3361,
+    "text": "伊丽莎白时代的英语通信"
+  },
+  {
+    "index": 62,
+    "sceneId": "seg-008",
+    "startSeconds": 112.0284,
+    "endSeconds": 113.7364,
+    "startFrame": 3361,
+    "endFrame": 3412,
+    "text": "因为话真的要等鸟送到"
+  },
+  {
+    "index": 63,
+    "sceneId": "seg-008",
+    "startSeconds": 113.7364,
+    "endSeconds": 114.7612,
+    "startFrame": 3412,
+    "endFrame": 3443,
+    "text": "帖子传开以后"
+  },
+  {
+    "index": 64,
+    "sceneId": "seg-008",
+    "startSeconds": 114.7612,
+    "endSeconds": 116.2984,
+    "startFrame": 3443,
+    "endFrame": 3489,
+    "text": "创始人给出的数字是"
+  },
+  {
+    "index": 65,
+    "sceneId": "seg-008",
+    "startSeconds": 116.2984,
+    "endSeconds": 118.1772,
+    "startFrame": 3489,
+    "endFrame": 3545,
+    "text": "三天 用户从一万升到十万"
+  },
+  {
+    "index": 66,
+    "sceneId": "seg-008",
+    "startSeconds": 118.1772,
+    "endSeconds": 119.5436,
+    "startFrame": 3545,
+    "endFrame": 3586,
+    "text": "它们时间挨得很近"
+  },
+  {
+    "index": 67,
+    "sceneId": "seg-008",
+    "startSeconds": 119.5436,
+    "endSeconds": 121.764,
+    "startFrame": 3586,
+    "endFrame": 3653,
+    "text": "但一则帖子解释不了全部增长"
+  },
+  {
+    "index": 68,
+    "sceneId": "seg-009",
+    "startSeconds": 122.664,
+    "endSeconds": 123.56183132530121,
+    "startFrame": 3680,
+    "endFrame": 3707,
+    "text": "到 7 月 7 日"
+  },
+  {
+    "index": 69,
+    "sceneId": "seg-009",
+    "startSeconds": 123.56183132530121,
+    "endSeconds": 126.07575903614458,
+    "startFrame": 3707,
+    "endFrame": 3782,
+    "text": "Roost 已超过二十五万用户"
+  },
+  {
+    "index": 70,
+    "sceneId": "seg-009",
+    "startSeconds": 126.07575903614458,
+    "endSeconds": 128.05098795180723,
+    "startFrame": 3782,
+    "endFrame": 3842,
+    "text": "每天有十万多个活跃对话"
+  },
+  {
+    "index": 71,
+    "sceneId": "seg-009",
+    "startSeconds": 128.05098795180723,
+    "endSeconds": 129.3079518072289,
+    "startFrame": 3842,
+    "endFrame": 3879,
+    "text": "广告和付费获客"
+  },
+  {
+    "index": 72,
+    "sceneId": "seg-009",
+    "startSeconds": 129.3079518072289,
+    "endSeconds": 130.20578313253012,
+    "startFrame": 3879,
+    "endFrame": 3906,
+    "text": "花了零美元"
+  },
+  {
+    "index": 73,
+    "sceneId": "seg-009",
+    "startSeconds": 130.20578313253012,
+    "endSeconds": 131.64231325301205,
+    "startFrame": 3906,
+    "endFrame": 3949,
+    "text": "第二天更新的数字"
+  },
+  {
+    "index": 74,
+    "sceneId": "seg-009",
+    "startSeconds": 131.64231325301205,
+    "endSeconds": 132.54014457831326,
+    "startFrame": 3949,
+    "endFrame": 3976,
+    "text": "接近三十万"
+  },
+  {
+    "index": 75,
+    "sceneId": "seg-009",
+    "startSeconds": 132.54014457831326,
+    "endSeconds": 134.33580722891566,
+    "startFrame": 3976,
+    "endFrame": 4030,
+    "text": "数字能说明它传播得快"
+  },
+  {
+    "index": 76,
+    "sceneId": "seg-009",
+    "startSeconds": 134.33580722891566,
+    "endSeconds": 135.95190361445782,
+    "startFrame": 4030,
+    "endFrame": 4079,
+    "text": "却还不能说明这些人"
+  },
+  {
+    "index": 77,
+    "sceneId": "seg-009",
+    "startSeconds": 135.95190361445782,
+    "endSeconds": 137.568,
+    "startFrame": 4079,
+    "endFrame": 4127,
+    "text": "过一个月会不会回来"
+  },
+  {
+    "index": 78,
+    "sceneId": "seg-010",
+    "startSeconds": 138.46800000000002,
+    "endSeconds": 139.50148672566374,
+    "startFrame": 4154,
+    "endFrame": 4185,
+    "text": "接下来是更小"
+  },
+  {
+    "index": 79,
+    "sceneId": "seg-010",
+    "startSeconds": 139.50148672566374,
+    "endSeconds": 140.70722123893808,
+    "startFrame": 4185,
+    "endFrame": 4221,
+    "text": "也更现实的数字"
+  },
+  {
+    "index": 80,
+    "sceneId": "seg-010",
+    "startSeconds": 140.70722123893808,
+    "endSeconds": 142.60194690265487,
+    "startFrame": 4221,
+    "endFrame": 4278,
+    "text": "Roost 卖单只虚拟鸟"
+  },
+  {
+    "index": 81,
+    "sceneId": "seg-010",
+    "startSeconds": 142.60194690265487,
+    "endSeconds": 144.66892035398232,
+    "startFrame": 4278,
+    "endFrame": 4340,
+    "text": "也卖支持者订阅 7 月 7 日时"
+  },
+  {
+    "index": 82,
+    "sceneId": "seg-010",
+    "startSeconds": 144.66892035398232,
+    "endSeconds": 146.39139823008853,
+    "startFrame": 4340,
+    "endFrame": 4392,
+    "text": "五十美元的终身支持档"
+  },
+  {
+    "index": 83,
+    "sceneId": "seg-010",
+    "startSeconds": 146.39139823008853,
+    "endSeconds": 148.1138761061947,
+    "startFrame": 4392,
+    "endFrame": 4443,
+    "text": "卖了大约六十到七十份"
+  },
+  {
+    "index": 84,
+    "sceneId": "seg-010",
+    "startSeconds": 148.1138761061947,
+    "endSeconds": 149.49185840707966,
+    "startFrame": 4443,
+    "endFrame": 4485,
+    "text": "项目没有外部融资"
+  },
+  {
+    "index": 85,
+    "sceneId": "seg-010",
+    "startSeconds": 149.49185840707966,
+    "endSeconds": 151.5588318584071,
+    "startFrame": 4485,
+    "endFrame": 4547,
+    "text": "Mendelsohn 还在"
+  },
+  {
+    "index": 86,
+    "sceneId": "seg-010",
+    "startSeconds": 151.5588318584071,
+    "endSeconds": 152.76456637168144,
+    "startFrame": 4547,
+    "endFrame": 4583,
+    "text": "用业余时间维护"
+  },
+  {
+    "index": 87,
+    "sceneId": "seg-010",
+    "startSeconds": 152.76456637168144,
+    "endSeconds": 154.83153982300888,
+    "startFrame": 4583,
+    "endFrame": 4645,
+    "text": "二十五万用户已经挤进鸟舍"
+  },
+  {
+    "index": 88,
+    "sceneId": "seg-010",
+    "startSeconds": 154.83153982300888,
+    "endSeconds": 156.72626548672568,
+    "startFrame": 4645,
+    "endFrame": 4702,
+    "text": "愿意长期付钱的人有多少"
+  },
+  {
+    "index": 89,
+    "sceneId": "seg-010",
+    "startSeconds": 156.72626548672568,
+    "endSeconds": 157.93200000000002,
+    "startFrame": 4702,
+    "endFrame": 4738,
+    "text": "才刚开始被测试"
+  },
+  {
+    "index": 90,
+    "sceneId": "seg-011",
+    "startSeconds": 159.132,
+    "endSeconds": 160.98000000000002,
+    "startFrame": 4774,
+    "endFrame": 4829,
+    "text": "鸟要跨城飞 位置就绕不开"
+  },
+  {
+    "index": 91,
+    "sceneId": "seg-011",
+    "startSeconds": 160.98000000000002,
+    "endSeconds": 163.5,
+    "startFrame": 4829,
+    "endFrame": 4905,
+    "text": "Roost 默认只让朋友看到城市"
+  },
+  {
+    "index": 92,
+    "sceneId": "seg-011",
+    "startSeconds": 163.5,
+    "endSeconds": 164.844,
+    "startFrame": 4905,
+    "endFrame": 4945,
+    "text": "精确位置要单独给"
+  },
+  {
+    "index": 93,
+    "sceneId": "seg-011",
+    "startSeconds": 164.844,
+    "endSeconds": 167.196,
+    "startFrame": 4945,
+    "endFrame": 5016,
+    "text": "close friends 打开"
+  },
+  {
+    "index": 94,
+    "sceneId": "seg-011",
+    "startSeconds": 167.196,
+    "endSeconds": 168.876,
+    "startFrame": 5016,
+    "endFrame": 5066,
+    "text": "陌生人 Pen Pals"
+  },
+  {
+    "index": 95,
+    "sceneId": "seg-011",
+    "startSeconds": 168.876,
+    "endSeconds": 169.88400000000001,
+    "startFrame": 5066,
+    "endFrame": 5097,
+    "text": "按年龄段匹配"
+  },
+  {
+    "index": 96,
+    "sceneId": "seg-011",
+    "startSeconds": 169.88400000000001,
+    "endSeconds": 171.06,
+    "startFrame": 5097,
+    "endFrame": 5132,
+    "text": "还会提醒别交出"
+  },
+  {
+    "index": 97,
+    "sceneId": "seg-011",
+    "startSeconds": 171.06,
+    "endSeconds": 172.068,
+    "startFrame": 5132,
+    "endFrame": 5162,
+    "text": "真实联系方式"
+  },
+  {
+    "index": 98,
+    "sceneId": "seg-011",
+    "startSeconds": 172.068,
+    "endSeconds": 173.412,
+    "startFrame": 5162,
+    "endFrame": 5202,
+    "text": "7 月 8 日的采访里"
+  },
+  {
+    "index": 99,
+    "sceneId": "seg-011",
+    "startSeconds": 173.412,
+    "endSeconds": 175.092,
+    "startFrame": 5202,
+    "endFrame": 5253,
+    "text": "照片功能仍被挡在外面"
+  },
+  {
+    "index": 100,
+    "sceneId": "seg-011",
+    "startSeconds": 175.092,
+    "endSeconds": 176.268,
+    "startFrame": 5253,
+    "endFrame": 5288,
+    "text": "要先补内容审核"
+  },
+  {
+    "index": 101,
+    "sceneId": "seg-011",
+    "startSeconds": 176.268,
+    "endSeconds": 177.78,
+    "startFrame": 5288,
+    "endFrame": 5333,
+    "text": "慢可以降低交流速度"
+  },
+  {
+    "index": 102,
+    "sceneId": "seg-011",
+    "startSeconds": 177.78,
+    "endSeconds": 178.95600000000002,
+    "startFrame": 5333,
+    "endFrame": 5369,
+    "text": "却不会自动解决"
+  },
+  {
+    "index": 103,
+    "sceneId": "seg-011",
+    "startSeconds": 178.95600000000002,
+    "endSeconds": 180.46800000000002,
+    "startFrame": 5369,
+    "endFrame": 5414,
+    "text": "陌生人和位置的风险"
+  },
+  {
+    "index": 104,
+    "sceneId": "seg-012",
+    "startSeconds": 181.96800000000002,
+    "endSeconds": 184.16509090909094,
+    "startFrame": 5459,
+    "endFrame": 5525,
+    "text": "这个规模也逼出了 另一道选择"
+  },
+  {
+    "index": 105,
+    "sceneId": "seg-012",
+    "startSeconds": 184.16509090909094,
+    "endSeconds": 187.7142377622378,
+    "startFrame": 5525,
+    "endFrame": 5631,
+    "text": "Mendelsohn 用\nClaude Code"
+  },
+  {
+    "index": 106,
+    "sceneId": "seg-012",
+    "startSeconds": 187.7142377622378,
+    "endSeconds": 190.24934265734268,
+    "startFrame": 5631,
+    "endFrame": 5707,
+    "text": "帮自己开发 早期鸟图也由 AI 生成"
+  },
+  {
+    "index": 107,
+    "sceneId": "seg-012",
+    "startSeconds": 190.24934265734268,
+    "endSeconds": 191.26338461538464,
+    "startFrame": 5707,
+    "endFrame": 5738,
+    "text": "用户开始投诉"
+  },
+  {
+    "index": 108,
+    "sceneId": "seg-012",
+    "startSeconds": 191.26338461538464,
+    "endSeconds": 192.78444755244757,
+    "startFrame": 5738,
+    "endFrame": 5784,
+    "text": "这些鸟能用真钱购买"
+  },
+  {
+    "index": 109,
+    "sceneId": "seg-012",
+    "startSeconds": 192.78444755244757,
+    "endSeconds": 194.1365034965035,
+    "startFrame": 5784,
+    "endFrame": 5824,
+    "text": "图却不该一直这样"
+  },
+  {
+    "index": 110,
+    "sceneId": "seg-012",
+    "startSeconds": 194.1365034965035,
+    "endSeconds": 195.31955244755247,
+    "startFrame": 5824,
+    "endFrame": 5860,
+    "text": "创始人没有硬顶"
+  },
+  {
+    "index": 111,
+    "sceneId": "seg-012",
+    "startSeconds": 195.31955244755247,
+    "endSeconds": 197.0096223776224,
+    "startFrame": 5860,
+    "endFrame": 5910,
+    "text": "转去办艺术家投稿活动"
+  },
+  {
+    "index": 112,
+    "sceneId": "seg-012",
+    "startSeconds": 197.0096223776224,
+    "endSeconds": 199.3757202797203,
+    "startFrame": 5910,
+    "endFrame": 5981,
+    "text": "Roost 靠一只飞得很慢的鸟"
+  },
+  {
+    "index": 113,
+    "sceneId": "seg-012",
+    "startSeconds": 199.3757202797203,
+    "endSeconds": 200.72777622377623,
+    "startFrame": 5981,
+    "endFrame": 6022,
+    "text": "让几十万人愿意等"
+  },
+  {
+    "index": 114,
+    "sceneId": "seg-012",
+    "startSeconds": 200.72777622377623,
+    "endSeconds": 203.09387412587415,
+    "startFrame": 6022,
+    "endFrame": 6093,
+    "text": "下一批鸟换成谁来画 谁愿意付钱"
+  },
+  {
+    "index": 115,
+    "sceneId": "seg-012",
+    "startSeconds": 203.09387412587415,
+    "endSeconds": 204.78394405594406,
+    "startFrame": 6093,
+    "endFrame": 6144,
+    "text": "一个月后还会不会回来"
+  },
+  {
+    "index": 116,
+    "sceneId": "seg-012",
+    "startSeconds": 204.78394405594406,
+    "endSeconds": 206.13600000000002,
+    "startFrame": 6144,
+    "endFrame": 6184,
+    "text": "产品还得继续回答"
+  }
+]

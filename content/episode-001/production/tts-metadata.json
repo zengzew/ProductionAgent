@@ -1,14 +1,17 @@
 {
+  "requestedProvider": "MiniMax Speech",
   "provider": "Microsoft Edge neural TTS",
-  "preview": false,
-  "generatedAt": "2026-07-29T08:46:59.738Z",
+  "providerId": "edge",
+  "fallbackUsed": true,
+  "fallbackReason": "missing MINIMAX_API_KEY",
+  "generatedAt": "2026-07-30T15:21:45.060Z",
   "voice": "zh-CN-YunjianNeural",
-  "rate": "+25%",
+  "speed": 1.25,
   "pitch": "-2Hz",
   "normalization": "loudnorm I=-16 TP=-1.5 LRA=7",
   "credentialRequired": false,
   "networkRequired": true,
-  "referenceEffect": "fixed project narration profile",
+  "alignmentStrategy": "caption-plan-proportional",
   "files": [
     {
       "segmentId": "seg-001",

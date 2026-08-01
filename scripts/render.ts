@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import {spawnSync} from "node:child_process";
-import {outputEpisodeRoot, repoRoot} from "../src/lib/project";
+import {episodeId, outputEpisodeRoot, repoRoot} from "../src/lib/project";
 
 type Mode = "smoke" | "vertical";
 const mode = (process.argv[2] ?? "vertical") as Mode;
@@ -38,10 +38,16 @@ const renderVideo = (composition: string, output: string): void => {
 };
 
 if (mode === "smoke") {
-  renderVideo("PokeVerticalSmoke", path.join(outputEpisodeRoot, "smoke_9x16.mp4"));
+  renderVideo(
+    episodeId === "episode-002" ? "RoostVerticalSmoke" : "PokeVerticalSmoke",
+    path.join(outputEpisodeRoot, "smoke_9x16.mp4"),
+  );
 }
 if (mode === "vertical") {
-  renderVideo("PokeVertical", path.join(outputEpisodeRoot, "vertical_9x16.mp4"));
+  renderVideo(
+    episodeId === "episode-002" ? "RoostVertical" : "PokeVertical",
+    path.join(outputEpisodeRoot, "vertical_9x16.mp4"),
+  );
 }
 
 console.log(`render mode ${mode} complete`);

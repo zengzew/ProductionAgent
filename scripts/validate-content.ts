@@ -7,7 +7,7 @@ import {
   scriptSchema,
   timelineSchema,
 } from "../src/schemas/episode";
-import {episodeRoot, readJson, repoRoot} from "../src/lib/project";
+import {episodeId, episodeRoot, readJson, repoRoot} from "../src/lib/project";
 import {captionPartsFromPlan, fitCaptionPartsToDuration, visibleLength} from "../src/lib/captions";
 
 const claims = readJson<unknown[]>(path.join(episodeRoot, "research/facts.json")).map((claim) =>
@@ -151,7 +151,9 @@ if (fs.existsSync(timelinePath)) {
       errors.push(`Hook 真实音频必须在 20 秒内结束，当前 ${actualHookEnd.toFixed(3)} 秒`);
     }
   }
-  const captionPath = path.join(repoRoot, "src/poke-captions.generated.json");
+  const generatedPrefix =
+    episodeId === "episode-001" ? "poke" : episodeId.replace("episode-", "episode-");
+  const captionPath = path.join(repoRoot, `src/${generatedPrefix}-captions.generated.json`);
   if (timelineMatchesScript && fs.existsSync(captionPath)) {
     const captions = readJson<Array<{sceneId: string; text: string}>>(captionPath);
     const captionsByScene = new Map<string, string[]>();

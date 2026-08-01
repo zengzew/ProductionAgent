@@ -2,8 +2,13 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import {factSchema} from "../src/schemas/episode";
-import {parseCriticGate, parseFactCheckGate, parseFinalScript} from "../src/lib/story";
-import {episodeRoot, readJson} from "../src/lib/project";
+import {
+  parseCriticGate,
+  parseFactCheckGate,
+  parseFinalScript,
+  parseOralReviewGate,
+} from "../src/lib/story";
+import {episodeRoot, readJson, repoRoot} from "../src/lib/project";
 
 const storyRoot = path.join(episodeRoot, "story");
 const requiredFiles = [
@@ -11,7 +16,9 @@ const requiredFiles = [
   "story-angle.md",
   "three-act-structure.md",
   "hook-candidates.md",
+  "script-draft.md",
   "final-script.md",
+  "oral-review.md",
   "critic-report.md",
   "fact-check-report.md",
 ];
@@ -35,6 +42,9 @@ const facts = readJson<unknown[]>(path.join(episodeRoot, "research/facts.json"))
 const factMap = new Map(facts.map((fact) => [fact.id, fact]));
 const finalScriptMarkdown = readStory("final-script.md");
 const segments = parseFinalScript(finalScriptMarkdown);
+const finalScriptHash = crypto.createHash("sha256").update(finalScriptMarkdown).digest("hex");
+const scriptDraftMarkdown = readStory("script-draft.md");
+const scriptDraftHash = crypto.createHash("sha256").update(scriptDraftMarkdown).digest("hex");
 
 const requiredStoryTokens: Record<string, string[]> = {
   "story-bible.md": [
@@ -172,6 +182,35 @@ if (spokenAttributions.length > 2) {
   errors.push(`final-script 旁白显式来源归因超过 2 次：${spokenAttributions.join("、")}`);
 }
 
+const oralReview = parseOralReviewGate(readStory("oral-review.md"));
+if (oralReview.reviewedSha256 !== finalScriptHash) {
+  errors.push("Oral Judge reviewedSha256 与 final-script.md 不一致");
+}
+if (oralReview.sourceDraftSha256 !== scriptDraftHash) {
+  errors.push("Oral Judge sourceDraftSha256 与 script-draft.md 不一致");
+}
+for (const [dimension, score] of Object.entries(oralReview.scores)) {
+  if (score < oralReview.minimumScore) {
+    errors.push(`Oral Judge 维度 ${dimension} 低于 ${oralReview.minimumScore}/5 门槛`);
+  }
+}
+for (const styleSample of oralReview.styleSamples) {
+  if (!styleSample.startsWith("style/approved/") || styleSample.endsWith("/README.md")) {
+    errors.push(`Oral Judge styleSamples 不是 approved 样稿：${styleSample}`);
+    continue;
+  }
+  if (!fs.existsSync(path.join(repoRoot, styleSample))) {
+    errors.push(`Oral Judge styleSamples 不存在：${styleSample}`);
+  }
+}
+const oralReviewShouldPass =
+  Object.values(oralReview.scores).every((score) => score >= oralReview.minimumScore) &&
+  oralReview.blockers.length === 0 &&
+  oralReview.returnTo === "none";
+if ((oralReview.verdict === "PASS") !== oralReviewShouldPass) {
+  errors.push("Oral Judge verdict 与分数、blockers 或 returnTo 不一致");
+}
+
 const finalSegment = segments.at(-1);
 if (!finalSegment || !/会不会回来|成本|多少钱|是否继续|还会不会/u.test(finalSegment.narration)) {
   errors.push("结尾没有停在具体动作或仍待验证的实际问题");
@@ -182,8 +221,7 @@ if (/时代|趋势|未来必然|重新定义|改变世界/u.test(finalSegment?.n
 
 const criticMarkdown = readStory("critic-report.md");
 const critic = parseCriticGate(criticMarkdown);
-const actualHash = crypto.createHash("sha256").update(finalScriptMarkdown).digest("hex");
-if (critic.reviewedSha256 !== actualHash) {
+if (critic.reviewedSha256 !== finalScriptHash) {
   errors.push("Critic reviewedSha256 与 final-script.md 不一致");
 }
 const calculatedTotal = Object.values(critic.scores).reduce((sum, score) => sum + score, 0);
@@ -217,7 +255,7 @@ if (critic.rewriteRequired === shouldPass) {
 }
 
 const factCheck = parseFactCheckGate(readStory("fact-check-report.md"));
-if (factCheck.reviewedSha256 !== actualHash) {
+if (factCheck.reviewedSha256 !== finalScriptHash) {
   errors.push("Fact Guardian reviewedSha256 与 final-script.md 不一致");
 }
 if (factCheck.checkedSegments !== segments.length) {
@@ -245,5 +283,5 @@ if (errors.length > 0) {
 }
 
 console.log(
-  `story validation passed: ${segments.length} segments, target=${totalTargetSeconds}s, hook=${hookTargetSeconds}s, critic=${critic.total}, fact=${factCheck.verdict}`,
+  `story validation passed: ${segments.length} segments, target=${totalTargetSeconds}s, hook=${hookTargetSeconds}s, oral=${oralReview.verdict}, critic=${critic.total}, fact=${factCheck.verdict}`,
 );

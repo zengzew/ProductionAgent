@@ -3,6 +3,17 @@ export type CaptionPart = {
   weight: number;
 };
 
+export type CaptionTiming = CaptionPart & {
+  startSeconds: number;
+  endSeconds: number;
+};
+
+export type TimestampPart = {
+  text: string;
+  startMs: number;
+  endMs: number;
+};
+
 const punctuationSplit = /(?<=[。！？；：，、,.!?;:])/u;
 const trailingCaptionPunctuation = /[。！？；：，、,.!?;:]+$/u;
 const whitespaceOnly = /^\s+$/u;
@@ -17,6 +28,61 @@ export const stripTrailingCaptionPunctuation = (text: string): string =>
 
 const normalizeCaptionContent = (text: string): string =>
   text.normalize("NFKC").replace(/[\p{P}\p{S}\s]/gu, "");
+
+export const alignCaptionPartsToTimestamps = (
+  parts: CaptionPart[],
+  timestamps: TimestampPart[],
+  audioDurationSeconds: number,
+): CaptionTiming[] | undefined => {
+  if (parts.length === 0 || timestamps.length === 0 || audioDurationSeconds <= 0) return undefined;
+  const captionText = normalizeCaptionContent(parts.map((part) => part.text).join(""));
+  const timestampText = normalizeCaptionContent(timestamps.map((part) => part.text).join(""));
+  if (!captionText || captionText !== timestampText) return undefined;
+
+  const timestampSpans: Array<TimestampPart & {startChar: number; endChar: number}> = [];
+  let timestampCursor = 0;
+  for (const timestamp of timestamps) {
+    const length = Array.from(normalizeCaptionContent(timestamp.text)).length;
+    if (length === 0 || timestamp.endMs <= timestamp.startMs) continue;
+    timestampSpans.push({
+      ...timestamp,
+      startChar: timestampCursor,
+      endChar: timestampCursor + length,
+    });
+    timestampCursor += length;
+  }
+  if (timestampCursor !== Array.from(captionText).length || timestampSpans.length === 0) {
+    return undefined;
+  }
+
+  const timeAtBoundary = (charOffset: number): number => {
+    if (charOffset <= 0) return Math.max(0, (timestampSpans[0]?.startMs ?? 0) / 1000);
+    if (charOffset >= timestampCursor) {
+      return Math.min(
+        audioDurationSeconds,
+        (timestampSpans.at(-1)?.endMs ?? audioDurationSeconds * 1000) / 1000,
+      );
+    }
+    const span =
+      timestampSpans.find(
+        (candidate) => charOffset >= candidate.startChar && charOffset <= candidate.endChar,
+      ) ?? timestampSpans.at(-1)!;
+    const ratio = (charOffset - span.startChar) / (span.endChar - span.startChar);
+    return Math.min(
+      audioDurationSeconds,
+      Math.max(0, (span.startMs + (span.endMs - span.startMs) * ratio) / 1000),
+    );
+  };
+
+  let captionCursor = 0;
+  return parts.map((part) => {
+    const startChar = captionCursor;
+    captionCursor += Array.from(normalizeCaptionContent(part.text)).length;
+    const startSeconds = timeAtBoundary(startChar);
+    const endSeconds = Math.max(startSeconds + 0.001, timeAtBoundary(captionCursor));
+    return {...part, startSeconds, endSeconds: Math.min(audioDurationSeconds, endSeconds)};
+  });
+};
 
 export const captionPartsFromPlan = (
   narration: string,

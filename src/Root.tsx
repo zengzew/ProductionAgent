@@ -2,6 +2,8 @@ import React from "react";
 import {Composition} from "remotion";
 import pokeTimeline from "./poke-timeline.generated.json";
 import {PokeCover, PokeEpisode} from "./compositions/PokeEpisode";
+import roostTimeline from "./episode-002-timeline.generated.json";
+import {RoostCover, RoostEpisode} from "./compositions/RoostEpisode";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -30,6 +32,30 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{orientation: "portrait" as const}}
         durationInFrames={1}
         fps={pokeTimeline.fps}
+        width={1080}
+        height={1440}
+      />
+      <Composition
+        id="RoostVertical"
+        component={RoostEpisode}
+        durationInFrames={roostTimeline.totalFrames}
+        fps={roostTimeline.fps}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="RoostVerticalSmoke"
+        component={RoostEpisode}
+        durationInFrames={300}
+        fps={roostTimeline.fps}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="RoostCover3x4"
+        component={RoostCover}
+        durationInFrames={1}
+        fps={roostTimeline.fps}
         width={1080}
         height={1440}
       />

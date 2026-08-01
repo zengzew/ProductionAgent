@@ -55,7 +55,8 @@ story/fact-check-report.md
 
 - 缺来源、来源冲突或 Claim Ledger 错误：`research-analyst`
 - 故事角度依赖不受支持的前提：`story-director`
-- Claim 存在但旁白表述越界：`script-writer`
+- 初稿的信息选择或 Claim 绑定错误：`script-writer`
+- 口播改写改变了 Claim 含义、来源身份或事实边界：`oral-rewriter`
 
 Fact Guardian 不得自己修正上游文件。
 

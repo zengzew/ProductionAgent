@@ -147,6 +147,7 @@ export const timelineSchema = z.object({
   totalFrames: z.number().int().positive(),
   totalSeconds: z.number().positive(),
   ttsProvider: z.string().min(1),
+  captionAlignment: z.enum(["provider-timestamps", "caption-plan-proportional"]).optional(),
   scenes: z.array(timelineSceneSchema).min(1),
 });
 

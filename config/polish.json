@@ -1,0 +1,25 @@
+{
+  "execution": {
+    "mode": "codex-file-handoff",
+    "networkCalls": false,
+    "apiKeys": false,
+    "selfHostedModels": false
+  },
+  "prompts": {
+    "polishSystem": "prompts/polish-system.md",
+    "polishUser": "prompts/polish-user.md",
+    "judgeSystem": "prompts/judge-system.md",
+    "judgeUser": "prompts/judge-user.md",
+    "rewriteUser": "prompts/rewrite-user.md"
+  },
+  "voiceGuide": "style/voice-guide.md",
+  "styleRules": "config/polish-style.json",
+  "acceptedSamplesDir": "style/approved",
+  "sampleCount": 3,
+  "maxRounds": 3,
+  "thresholds": {
+    "chineseNaturalness": 4,
+    "spokenDelivery": 4,
+    "informationFidelity": 4
+  }
+}

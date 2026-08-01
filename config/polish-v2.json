@@ -1,0 +1,32 @@
+{
+  "execution": {
+    "mode": "hosted-llm-api",
+    "networkCalls": true,
+    "apiKeys": true,
+    "selfHostedModels": false
+  },
+  "llm": {
+    "endpoint": "https://api.openai.com/v1/chat/completions",
+    "apiKeyEnv": "OPENAI_API_KEY",
+    "modelEnv": "POLISH_LLM_MODEL",
+    "defaultModel": "gpt-5-mini",
+    "temperature": 0.4
+  },
+  "prompts": {
+    "polishSystem": "prompts/v2/polish-system.md",
+    "polishUser": "prompts/v2/polish-user.md",
+    "judgeSystem": "prompts/v2/judge-system.md",
+    "judgeUser": "prompts/v2/judge-user.md",
+    "rewriteUser": "prompts/v2/rewrite-user.md"
+  },
+  "voiceGuide": "style/voice-guide.md",
+  "styleRules": "config/polish-v2-style.json",
+  "acceptedSamplesDir": "style/approved",
+  "sampleCount": 3,
+  "maxRounds": 3,
+  "thresholds": {
+    "translationese": 8,
+    "spokenChinese": 8,
+    "informationFidelity": 9
+  }
+}

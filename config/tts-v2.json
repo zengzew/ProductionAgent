@@ -1,0 +1,33 @@
+{
+  "defaultProvider": "minimax",
+  "fallbackProvider": "edge",
+  "fallbackOnMissingCredential": true,
+  "fallbackOnError": true,
+  "normalization": {
+    "integratedLufs": -16,
+    "truePeakDb": -1.5,
+    "loudnessRange": 7,
+    "sampleRate": 48000,
+    "bitrate": "192k"
+  },
+  "providers": {
+    "minimax": {
+      "label": "MiniMax Speech",
+      "endpoint": "https://api.minimaxi.com/v1/t2a_v2",
+      "apiKeyEnv": "MINIMAX_API_KEY",
+      "model": "speech-2.8-hd",
+      "voice": "male-qn-qingse",
+      "speed": 1.15,
+      "pitch": 0,
+      "volume": 1,
+      "languageBoost": "Chinese",
+      "requestTimestamps": true
+    },
+    "edge": {
+      "label": "Microsoft Edge neural TTS",
+      "voice": "zh-CN-YunjianNeural",
+      "speed": 1.25,
+      "pitch": "-2Hz"
+    }
+  }
+}

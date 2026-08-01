@@ -9,6 +9,7 @@
 
 ## 输入
 
+只有 `story/oral-review.md` 对当前 `story/final-script.md` 给出 PASS 后才开始。
 读取 episode 的研究包和全部故事文件，重点评审 `story/final-script.md`。
 
 ## 输出
@@ -96,4 +97,6 @@ blocker，结论必须是 `REJECT`。
 }
 ```
 
-PASS 后交给 Fact Guardian；REJECT 时列出最小修改清单并退回 Script Writer。
+PASS 后交给 Fact Guardian；REJECT 时列出最小修改清单。故事结构或信息缺口退回
+Script Writer 或 Story Director；翻译腔、口播节奏和对象感问题退回 Oral Rewriter，
+修订后必须先重新经过 Oral Judge。

@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "runId": "2026-07-29T14-34-34-872Z",
+  "episodeId": "episode-001",
+  "generatedAt": "2026-07-29T14:34:34.874Z",
+  "status": "error",
+  "error": "[\n  {\n    \"code\": \"invalid_value\",\n    \"values\": [\n      \"hosted-llm-api\"\n    ],\n    \"path\": [\n      \"execution\",\n      \"mode\"\n    ],\n    \"message\": \"Invalid input: expected \\\"hosted-llm-api\\\"\"\n  },\n  {\n    \"code\": \"invalid_value\",\n    \"values\": [\n      true\n    ],\n    \"path\": [\n      \"execution\",\n      \"networkCalls\"\n    ],\n    \"message\": \"Invalid input: expected true\"\n  },\n  {\n    \"code\": \"invalid_value\",\n    \"values\": [\n      true\n    ],\n    \"path\": [\n      \"execution\",\n      \"apiKeys\"\n    ],\n    \"message\": \"Invalid input: expected true\"\n  },\n  {\n    \"expected\": \"object\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"llm\"\n    ],\n    \"message\": \"Invalid input: expected object, received undefined\"\n  },\n  {\n    \"expected\": \"number\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"thresholds\",\n      \"translationese\"\n    ],\n    \"message\": \"Invalid input: expected number, received undefined\"\n  },\n  {\n    \"expected\": \"number\",\n    \"code\": \"invalid_type\",\n    \"path\": [\n      \"thresholds\",\n      \"spokenChinese\"\n    ],\n    \"message\": \"Invalid input: expected number, received undefined\"\n  }\n]",
+  "rounds": []
+}

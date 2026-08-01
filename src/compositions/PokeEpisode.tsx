@@ -378,6 +378,175 @@ const HookScene: React.FC<{
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const pop = enter(frame, fps, 2);
+  if (scene.scene === "hook-calendar-action") {
+    return (
+      <div
+        style={{
+          height: "100%",
+          display: "grid",
+          gridTemplateRows: "auto 1fr",
+          alignContent: "center",
+          gap: isVertical ? 56 : 48,
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            opacity: interpolate(frame, [0, 10], [0, 1], clamp),
+            transform: `translateY(${interpolate(frame, [0, 10], [26, 0], clamp)}px)`,
+          }}
+        >
+          <div
+            style={{
+              maxWidth: "82%",
+              padding: isVertical ? "28px 34px" : "22px 28px",
+              borderRadius: "30px 30px 8px 30px",
+              background: COLORS.ink,
+              color: COLORS.white,
+              fontSize: isVertical ? 42 : 34,
+              lineHeight: 1.35,
+              boxShadow: "0 22px 55px rgba(21,23,27,.24)",
+            }}
+          >
+            把周三的会
+            <br />
+            改到下午三点
+          </div>
+        </div>
+        <div
+          style={{
+            alignSelf: "center",
+            padding: isVertical ? "40px 42px" : "34px 38px",
+            borderRadius: 34,
+            background: "rgba(255,255,255,.84)",
+            border: `2px solid ${COLORS.blue}`,
+            boxShadow: "0 26px 75px rgba(61,120,181,.18)",
+            opacity: interpolate(frame, [16, 28], [0, 1], clamp),
+            transform: `translateX(${interpolate(frame, [16, 28], [-60, 0], clamp)}px)`,
+          }}
+        >
+          <div style={{color: COLORS.blue, fontSize: isVertical ? 26 : 20, fontWeight: 760}}>
+            日历已更新 · 功能演示
+          </div>
+          <div
+            style={{
+              fontFamily: SERIF,
+              fontSize: isVertical ? 78 : 64,
+              fontWeight: 760,
+              marginTop: 18,
+            }}
+          >
+            周三 15:00
+          </div>
+          <div style={{fontSize: isVertical ? 28 : 22, color: COLORS.muted, marginTop: 12}}>
+            与项目组开会
+          </div>
+        </div>
+      </div>
+    );
+  }
+  if (scene.scene === "hook-metric-cost") {
+    return (
+      <div
+        style={{
+          height: "100%",
+          display: "grid",
+          alignContent: "center",
+          gap: isVertical ? 44 : 36,
+        }}
+      >
+        <div
+          style={{
+            fontFamily: SERIF,
+            fontWeight: 800,
+            fontSize: isVertical ? 230 : 230,
+            lineHeight: 0.82,
+            letterSpacing: -12,
+            transform: `scale(${interpolate(frame, [0, 20], [0.82, 1], clamp)})`,
+            transformOrigin: "left center",
+          }}
+        >
+          1 亿+
+        </div>
+        <div style={{fontSize: isVertical ? 34 : 28, color: COLORS.muted}}>约三个月 · 消息往来</div>
+        <div
+          style={{
+            marginTop: 20,
+            padding: isVertical ? "30px 34px" : "24px 30px",
+            borderLeft: `8px solid ${COLORS.caution}`,
+            background: "rgba(166,92,67,.08)",
+            color: COLORS.caution,
+            fontFamily: SERIF,
+            fontSize: isVertical ? 58 : 50,
+            fontWeight: 760,
+            lineHeight: 1.25,
+            opacity: interpolate(frame, [32, 46], [0, 1], clamp),
+            transform: `translateX(${interpolate(frame, [32, 46], [70, 0], clamp)}px)`,
+          }}
+        >
+          运行昂贵
+          <br />
+          也很难赚钱
+        </div>
+        <div style={{fontSize: isVertical ? 22 : 17, color: COLORS.muted}}>
+          消息数，不是用户数 · Cognition 披露 + 创始人口述
+        </div>
+      </div>
+    );
+  }
+  if (scene.scene === "hook-core-question") {
+    const pulse = 0.55 + Math.sin(frame / 5) * 0.2;
+    return (
+      <div
+        style={{
+          height: "100%",
+          display: "grid",
+          alignContent: "center",
+          gap: isVertical ? 46 : 40,
+        }}
+      >
+        <div style={{display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: 18}}>
+          <TaskCard
+            label="联系人里的 Poke"
+            detail="你只发一句"
+            accent={COLORS.blue}
+            delay={2}
+            isVertical={isVertical}
+          />
+          <div style={{alignSelf: "center", fontSize: 54, color: COLORS.blue}}>→</div>
+          <div
+            style={{
+              display: "grid",
+              gap: 14,
+              paddingTop: 10,
+              opacity: interpolate(frame, [12, 28], [0, 1], clamp),
+            }}
+          >
+            {["读邮件", "改日历", "主动提醒"].map((label, index) => (
+              <div
+                key={label}
+                style={{
+                  padding: "18px 22px",
+                  borderRadius: 999,
+                  border: `2px solid ${index === 2 ? COLORS.caution : COLORS.blue}`,
+                  background: "rgba(255,255,255,.72)",
+                  fontSize: isVertical ? 27 : 22,
+                  textAlign: "center",
+                  boxShadow: `0 0 ${24 * pulse}px rgba(61,120,181,.14)`,
+                }}
+              >
+                {label}
+              </div>
+            ))}
+          </div>
+        </div>
+        <BigTitle isVertical={isVertical} size={isVertical ? 92 : 82}>
+          为什么越用越贵？
+        </BigTitle>
+      </div>
+    );
+  }
   if (scene.scene === "hook-beta-actions") {
     return (
       <div
@@ -395,20 +564,6 @@ const HookScene: React.FC<{
           <br />
           出门前看天气
         </BigTitle>
-        <div
-          style={{
-            display: "inline-flex",
-            width: "fit-content",
-            padding: isVertical ? "15px 20px" : "12px 16px",
-            borderRadius: 999,
-            color: COLORS.muted,
-            background: "rgba(255,255,255,.68)",
-            border: `1px solid ${COLORS.line}`,
-            fontSize: isVertical ? 24 : 20,
-          }}
-        >
-          创始人回忆 · Beta 用户提出的任务
-        </div>
       </div>
     );
   }
@@ -1009,6 +1164,106 @@ const ActionLoopScene: React.FC<{isVertical: boolean}> = ({isVertical}) => {
   );
 };
 
+const ProactivePermissionRiskScene: React.FC<{isVertical: boolean}> = ({isVertical}) => {
+  const frame = useCurrentFrame();
+  const warning = interpolate(frame, [170, 195], [0, 1], clamp);
+  return (
+    <div
+      style={{
+        height: "100%",
+        display: "grid",
+        gridTemplateColumns: isVertical ? "1fr" : "0.9fr 1.1fr",
+        gap: isVertical ? 34 : 52,
+        alignItems: "center",
+      }}
+    >
+      <div>
+        <div style={{color: COLORS.blue, fontSize: isVertical ? 26 : 20, fontWeight: 760}}>
+          它先来找你
+        </div>
+        <BigTitle isVertical={isVertical} size={isVertical ? 74 : 68}>
+          少切窗口，
+          <br />
+          也把操作权交出去
+        </BigTitle>
+        <div
+          style={{
+            marginTop: 30,
+            padding: isVertical ? "24px 28px" : "20px 24px",
+            borderRadius: 24,
+            background: COLORS.ink,
+            color: COLORS.white,
+            fontSize: isVertical ? 28 : 23,
+            lineHeight: 1.45,
+          }}
+        >
+          Poke：会议时间变了。
+          <br />
+          要现在一起改吗？
+        </div>
+      </div>
+      <div style={{position: "relative", minHeight: isVertical ? 620 : 610}}>
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            padding: isVertical ? 32 : 28,
+            borderRadius: 32,
+            background: "rgba(255,255,255,.82)",
+            border: `2px solid ${COLORS.blue}`,
+            boxShadow: "0 25px 70px rgba(61,120,181,.16)",
+          }}
+        >
+          <div style={{fontSize: isVertical ? 24 : 19, color: COLORS.blue, fontWeight: 760}}>
+            已授权 · 功能演示
+          </div>
+          <div style={{fontFamily: SERIF, fontSize: isVertical ? 62 : 54, marginTop: 28}}>
+            周四 14:00
+          </div>
+          <div style={{fontSize: isVertical ? 28 : 23, color: COLORS.muted, marginTop: 14}}>
+            项目复盘
+          </div>
+          <div
+            style={{
+              marginTop: 42,
+              height: 3,
+              background: COLORS.line,
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                top: -11,
+                left: `${interpolate(frame, [45, 120], [8, 74], clamp)}%`,
+                width: 24,
+                height: 24,
+                borderRadius: 99,
+                background: warning > 0 ? COLORS.caution : COLORS.blue,
+              }}
+            />
+          </div>
+          <div
+            style={{
+              marginTop: 42,
+              padding: "22px 24px",
+              borderLeft: `6px solid ${COLORS.caution}`,
+              background: `rgba(166,92,67,${0.04 + warning * 0.08})`,
+              color: COLORS.caution,
+              fontSize: isVertical ? 26 : 21,
+              opacity: warning,
+            }}
+          >
+            如果时间改错，
+            <br />
+            错误会直接留在日历里
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const RecipesScene: React.FC<{isVertical: boolean}> = ({isVertical}) => {
   const parts = ["初始上下文", "第一条消息", "所需集成", "分享链接"];
   return (
@@ -1070,6 +1325,75 @@ const RecipesScene: React.FC<{isVertical: boolean}> = ({isVertical}) => {
   );
 };
 
+const RecipeReleaseScene: React.FC<{isVertical: boolean}> = ({isVertical}) => {
+  const frame = useCurrentFrame();
+  return (
+    <div
+      style={{
+        height: "100%",
+        display: "grid",
+        gridTemplateRows: "auto 1fr",
+        gap: isVertical ? 34 : 28,
+      }}
+    >
+      <div>
+        <div style={{color: COLORS.blue, fontWeight: 760, fontSize: isVertical ? 25 : 19}}>
+          Recipe
+        </div>
+        <BigTitle isVertical={isVertical} size={isVertical ? 70 : 64}>
+          一套设置，发给下一个人
+        </BigTitle>
+      </div>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: isVertical ? "1fr 1fr" : "0.9fr 1.1fr",
+          gap: isVertical ? 22 : 34,
+          minHeight: 0,
+        }}
+      >
+        <div
+          style={{
+            display: "grid",
+            alignContent: "center",
+            gap: 16,
+            padding: isVertical ? 24 : 26,
+            borderRadius: 28,
+            background: "rgba(255,255,255,.75)",
+            border: `1px solid ${COLORS.line}`,
+            transform: `translateX(${interpolate(frame, [0, 35], [-40, 0], clamp)}px)`,
+          }}
+        >
+          {["背景设定", "开场白", "所需服务", "分享链接"].map((item, index) => (
+            <div
+              key={item}
+              style={{
+                padding: isVertical ? "18px 20px" : "16px 18px",
+                borderRadius: 18,
+                background: index === 3 ? COLORS.blue : COLORS.paperLight,
+                color: index === 3 ? COLORS.white : COLORS.ink,
+                fontSize: isVertical ? 24 : 20,
+                opacity: interpolate(frame, [index * 8, index * 8 + 12], [0, 1], clamp),
+              }}
+            >
+              {item}
+            </div>
+          ))}
+          <div style={{fontSize: isVertical ? 20 : 16, color: COLORS.muted}}>
+            账户仍需接收者授权
+          </div>
+        </div>
+        <SourceStill
+          path="episodes/episode-001/captured/poke-release-notes.png"
+          label="Poke Release Notes · 2026.03.19"
+          isVertical={isVertical}
+          objectPosition="58% 57%"
+        />
+      </div>
+    </div>
+  );
+};
+
 const GrowthScene: React.FC<{isVertical: boolean}> = ({isVertical}) => (
   <div
     style={{
@@ -1119,6 +1443,78 @@ const GrowthScene: React.FC<{isVertical: boolean}> = ({isVertical}) => (
     </div>
   </div>
 );
+
+const GrowthCostCounterScene: React.FC<{isVertical: boolean}> = ({isVertical}) => {
+  const frame = useCurrentFrame();
+  const nodes = ["用户消息", "模型", "邮件", "日历", "主动回复"];
+  return (
+    <div style={{height: "100%", display: "grid", alignContent: "center", gap: 36}}>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: 14,
+          fontSize: isVertical ? 23 : 18,
+          color: COLORS.muted,
+        }}
+      >
+        {[
+          ["03.19", "全面开放"],
+          ["06.04", "Apple 消息入口"],
+          ["约三个月", "1 亿+ 条消息"],
+        ].map(([date, label], index) => (
+          <div
+            key={date}
+            style={{
+              padding: isVertical ? "22px 18px" : "18px",
+              borderTop: `4px solid ${index === 2 ? COLORS.caution : COLORS.blue}`,
+              background: "rgba(255,255,255,.64)",
+              opacity: interpolate(frame, [index * 18, index * 18 + 14], [0, 1], clamp),
+            }}
+          >
+            <div style={{fontFamily: SERIF, fontSize: isVertical ? 40 : 34, color: COLORS.ink}}>
+              {date}
+            </div>
+            <div style={{marginTop: 8}}>{label}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{display: "grid", gridTemplateColumns: "0.7fr 1.3fr", gap: 26}}>
+        <div>
+          <div style={{fontFamily: SERIF, fontSize: isVertical ? 150 : 160, lineHeight: 0.88}}>
+            1 亿+
+          </div>
+          <div style={{fontSize: isVertical ? 23 : 18, color: COLORS.muted, marginTop: 18}}>
+            消息，不是用户
+          </div>
+        </div>
+        <div style={{display: "grid", gap: 12, alignContent: "center"}}>
+          {nodes.map((node, index) => (
+            <div
+              key={node}
+              style={{
+                padding: isVertical ? "16px 20px" : "14px 18px",
+                borderRadius: 999,
+                background: index === 0 ? COLORS.ink : "rgba(61,120,181,.1)",
+                color: index === 0 ? COLORS.white : COLORS.blue,
+                fontSize: isVertical ? 23 : 18,
+                transform: `translateX(${interpolate(
+                  frame,
+                  [55 + index * 7, 72 + index * 7],
+                  [50, 0],
+                  clamp,
+                )}px)`,
+                opacity: interpolate(frame, [55 + index * 7, 72 + index * 7], [0, 1], clamp),
+              }}
+            >
+              {index === 0 ? "一句请求" : `继续调用 · ${node}`}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const AppleScene: React.FC<{isVertical: boolean}> = ({isVertical}) => (
   <div style={{height: "100%", display: "grid", alignContent: "center", gap: isVertical ? 48 : 52}}>
@@ -1341,6 +1737,165 @@ const RiskScene: React.FC<{isVertical: boolean}> = ({isVertical}) => (
   </div>
 );
 
+const CostCallChainScene: React.FC<{isVertical: boolean}> = ({isVertical}) => {
+  const frame = useCurrentFrame();
+  const pulse = (offset: number) => 0.35 + 0.65 * ((Math.sin((frame - offset) / 8) + 1) / 2);
+  const calls = [
+    ["新邮件到达", "自动化再跑一次"],
+    ["航班还没落地", "状态继续刷新"],
+    ["任务仍在进行", "模型与工具继续调用"],
+  ];
+  return (
+    <div
+      style={{
+        height: "100%",
+        display: "grid",
+        gridTemplateRows: "auto 1fr",
+        gap: isVertical ? 42 : 34,
+      }}
+    >
+      <div>
+        <div style={{color: COLORS.caution, fontSize: isVertical ? 26 : 20, fontWeight: 760}}>
+          你只发了一句
+        </div>
+        <BigTitle isVertical={isVertical} size={isVertical ? 78 : 72}>
+          后台还在继续跑
+        </BigTitle>
+      </div>
+      <div style={{display: "grid", gridTemplateColumns: "0.76fr 1.24fr", gap: 26}}>
+        <div
+          style={{
+            alignSelf: "center",
+            padding: isVertical ? "28px 30px" : "24px 28px",
+            borderRadius: "28px 28px 8px 28px",
+            background: COLORS.ink,
+            color: COLORS.white,
+            fontSize: isVertical ? 34 : 28,
+            lineHeight: 1.35,
+          }}
+        >
+          帮我盯着
+          <br />
+          这趟航班
+        </div>
+        <div style={{display: "grid", gap: 18, alignContent: "center"}}>
+          {calls.map(([title, detail], index) => (
+            <div
+              key={title}
+              style={{
+                padding: isVertical ? "24px 26px" : "20px 22px",
+                borderRadius: 22,
+                border: `2px solid rgba(166,92,67,${pulse(index * 7)})`,
+                background: `rgba(166,92,67,${0.025 + pulse(index * 7) * 0.05})`,
+              }}
+            >
+              <div style={{fontSize: isVertical ? 26 : 21, fontWeight: 760}}>{title}</div>
+              <div
+                style={{
+                  fontSize: isVertical ? 22 : 18,
+                  color: COLORS.caution,
+                  marginTop: 8,
+                }}
+              >
+                {detail}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style={{fontSize: isVertical ? 22 : 18, color: COLORS.muted}}>
+        创始人口述 · 不推算单次调用数量或金额
+      </div>
+    </div>
+  );
+};
+
+const AcquisitionInfrastructureScene: React.FC<{isVertical: boolean}> = ({isVertical}) => {
+  const frame = useCurrentFrame();
+  return (
+    <div
+      style={{
+        height: "100%",
+        display: "grid",
+        gridTemplateRows: "auto 1fr",
+        gap: isVertical ? 28 : 24,
+      }}
+    >
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "0.7fr 1.3fr",
+          gap: 26,
+          alignItems: "end",
+        }}
+      >
+        <div>
+          <div style={{fontFamily: SERIF, fontSize: isVertical ? 66 : 58, fontWeight: 760}}>
+            07.23
+          </div>
+          <div style={{fontSize: isVertical ? 22 : 18, color: COLORS.muted}}>2026</div>
+        </div>
+        <div
+          style={{
+            borderLeft: `7px solid ${COLORS.caution}`,
+            paddingLeft: 24,
+            color: COLORS.caution,
+            fontSize: isVertical ? 31 : 25,
+            lineHeight: 1.4,
+            opacity: interpolate(frame, [0, 18], [0, 1], clamp),
+          }}
+        >
+          Poke 运行昂贵，
+          <br />
+          也很难盈利
+        </div>
+      </div>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: isVertical ? "1fr" : "1fr 1fr",
+          gap: 26,
+          minHeight: 0,
+        }}
+      >
+        <SourceStill
+          path="episodes/episode-001/captured/cognition-announcement.png"
+          label="Cognition 收购公告 · 2026.07.23"
+          isVertical={isVertical}
+          objectPosition="58% 44%"
+        />
+        <div
+          style={{
+            alignSelf: "center",
+            padding: isVertical ? "28px 30px" : "24px 26px",
+            borderRadius: 28,
+            background: "rgba(61,120,181,.09)",
+            border: `1px solid ${COLORS.blue}`,
+            opacity: interpolate(frame, [45, 70], [0, 1], clamp),
+          }}
+        >
+          <div style={{color: COLORS.blue, fontSize: isVertical ? 23 : 18}}>公告里的下一步</div>
+          <div
+            style={{
+              fontFamily: SERIF,
+              fontSize: isVertical ? 48 : 42,
+              lineHeight: 1.25,
+              marginTop: 14,
+            }}
+          >
+            接入 Cognition
+            <br />
+            的模型与基础设施
+          </div>
+          <div style={{fontSize: isVertical ? 21 : 17, color: COLORS.muted, marginTop: 18}}>
+            暂时照常使用 · 长期整合未定
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const ConclusionScene: React.FC<{isVertical: boolean}> = ({isVertical}) => (
   <div
     style={{
@@ -1352,10 +1907,10 @@ const ConclusionScene: React.FC<{isVertical: boolean}> = ({isVertical}) => (
     }}
   >
     <div>
-      <BigTitle isVertical={isVertical} size={isVertical ? 88 : 86}>
-        收购后，Poke
+      <BigTitle isVertical={isVertical} size={isVertical ? 82 : 78}>
+        用户少切一次窗口
         <br />
-        暂时照常使用
+        后台可能多跑很多次
       </BigTitle>
       <div
         style={{
@@ -1365,9 +1920,9 @@ const ConclusionScene: React.FC<{isVertical: boolean}> = ({isVertical}) => (
           color: COLORS.muted,
         }}
       >
-        下一步：接入 Cognition 的模型和基础设施。
+        Poke 最关键的选择，是让 AI 住进消息列表。
         <br />
-        长期会不会完全并入，当时仍未确定。
+        便利、成本和错误，都从同一条消息开始。
       </div>
       <div
         style={{
@@ -1379,7 +1934,9 @@ const ConclusionScene: React.FC<{isVertical: boolean}> = ({isVertical}) => (
           fontSize: isVertical ? 38 : 34,
         }}
       >
-        下一次改错日程，你还会让它继续吗？
+        下一次改错日程，
+        <br />
+        你还会继续发消息吗？
       </div>
     </div>
     <Phone isVertical={isVertical} compact />
@@ -1393,6 +1950,9 @@ const SceneVisual: React.FC<{
   switch (scene.scene) {
     case "hook-result":
     case "hook-beta-actions":
+    case "hook-calendar-action":
+    case "hook-metric-cost":
+    case "hook-core-question":
     case "hook-direction-change":
     case "hook-stat":
     case "hook-source":
@@ -1418,12 +1978,18 @@ const SceneVisual: React.FC<{
     case "permission-action-loop":
     case "action-loop":
       return <ActionLoopScene isVertical={isVertical} />;
+    case "proactive-permission-risk":
+      return <ProactivePermissionRiskScene isVertical={isVertical} />;
     case "recipe-setup":
     case "recipes":
       return <RecipesScene isVertical={isVertical} />;
+    case "recipe-release":
+      return <RecipeReleaseScene isVertical={isVertical} />;
     case "message-metric-boundary":
     case "growth-evidence":
       return <GrowthScene isVertical={isVertical} />;
+    case "growth-cost-counter":
+      return <GrowthCostCounterScene isVertical={isVertical} />;
     case "apple-distribution":
       return <AppleScene isVertical={isVertical} />;
     case "why-now-components":
@@ -1434,6 +2000,10 @@ const SceneVisual: React.FC<{
     case "cost-then-acquisition":
     case "risk-acquisition":
       return <RiskScene isVertical={isVertical} />;
+    case "cost-call-chain":
+      return <CostCallChainScene isVertical={isVertical} />;
+    case "acquisition-infrastructure":
+      return <AcquisitionInfrastructureScene isVertical={isVertical} />;
     case "ending-known-edge":
     case "conclusion":
       return <ConclusionScene isVertical={isVertical} />;
@@ -1444,8 +2014,37 @@ const SceneVisual: React.FC<{
 
 export const PokeEpisode: React.FC<{orientation: "landscape" | "vertical"}> = ({orientation}) => {
   const isVertical = orientation === "vertical";
+  const sceneStart = (id: string) =>
+    timeline.scenes.find((scene) => scene.id === id)?.startFrame ?? 0;
   return (
     <AbsoluteFill style={{background: COLORS.paper, fontFamily: SANS}}>
+      <Audio src={staticFile("episodes/episode-001/sound-design/ambient-bed.mp3")} volume={0.72} />
+      <Sequence from={sceneStart("seg-001")} durationInFrames={20}>
+        <Audio
+          src={staticFile("episodes/episode-001/sound-design/message-pop.wav")}
+          volume={0.55}
+        />
+      </Sequence>
+      {["seg-002", "seg-009", "seg-011"].map((id) => (
+        <Sequence key={`impact-${id}`} from={sceneStart(id)} durationInFrames={32}>
+          <Audio src={staticFile("episodes/episode-001/sound-design/impact.wav")} volume={0.42} />
+        </Sequence>
+      ))}
+      <Sequence from={sceneStart("seg-008") + 24} durationInFrames={20}>
+        <Audio
+          src={staticFile("episodes/episode-001/sound-design/message-pop.wav")}
+          volume={0.35}
+        />
+      </Sequence>
+      {[50, 105, 160, 215, 270].map((offset) => (
+        <Sequence
+          key={`pulse-${offset}`}
+          from={sceneStart("seg-010") + offset}
+          durationInFrames={20}
+        >
+          <Audio src={staticFile("episodes/episode-001/sound-design/pulse.wav")} volume={0.3} />
+        </Sequence>
+      ))}
       {timeline.scenes.map((scene) => (
         <Sequence
           key={scene.id}
