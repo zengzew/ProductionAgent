@@ -8,7 +8,11 @@ import {
   parseFinalScript,
   parseOralReviewGate,
 } from "../src/lib/story";
-import {containsGenericCta, findMissingHookCandidateFields} from "../src/lib/story-quality";
+import {
+  containsGenericCta,
+  endsWithQuestion,
+  findMissingHookCandidateFields,
+} from "../src/lib/story-quality";
 import {episodeRoot, readJson, repoRoot} from "../src/lib/project";
 
 const storyRoot = path.join(episodeRoot, "story");
@@ -149,8 +153,8 @@ for (const segment of segments) {
 if (hookTargetSeconds !== 20) {
   errors.push(`Hook 目标时长应为 20 秒，当前 ${hookTargetSeconds}`);
 }
-if (totalTargetSeconds < 180 || totalTargetSeconds > 300) {
-  errors.push(`Final script 目标时长必须在 180–300 秒，当前 ${totalTargetSeconds}`);
+if (totalTargetSeconds > 180) {
+  errors.push(`Final script 目标时长不得超过 180 秒，当前 ${totalTargetSeconds}`);
 }
 
 const narration = segments.map((segment) => segment.narration).join("\n");
@@ -217,14 +221,22 @@ if ((oralReview.verdict === "PASS") !== oralReviewShouldPass) {
 }
 
 const finalSegment = segments.at(-1);
-if (!finalSegment || !/会不会回来|成本|多少钱|是否继续|还会不会/u.test(finalSegment.narration)) {
-  errors.push("结尾没有停在具体动作或仍待验证的实际问题");
+const finalNarrationUnit = finalSegment?.narrationUnits.at(-1);
+const endsWithConcreteClaim =
+  finalNarrationUnit !== undefined &&
+  finalNarrationUnit.mode !== "editorial-analysis" &&
+  finalNarrationUnit.claimIds.length > 0;
+if (!finalSegment || !endsWithConcreteClaim) {
+  errors.push("结尾必须停在有 Claim 支持的具体事实、产品状态或用户动作");
 }
 if (/时代|趋势|未来必然|重新定义|改变世界/u.test(finalSegment?.narration ?? "")) {
   errors.push("结尾出现越过证据的主题升华");
 }
+if (endsWithQuestion(finalSegment?.narration ?? "")) {
+  errors.push("结尾不得用问题或对产品未来的质疑收尾");
+}
 if (containsGenericCta(finalSegment?.narration ?? "")) {
-  errors.push("结尾使用通用互动 CTA，没有停在具体事实、动作或实际问题");
+  errors.push("结尾使用通用互动 CTA，没有停在具体事实、产品状态或用户动作");
 }
 
 const criticMarkdown = readStory("critic-report.md");

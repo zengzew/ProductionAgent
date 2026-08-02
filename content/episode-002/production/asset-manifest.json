@@ -23,7 +23,7 @@
     "usage": "Hook evidence showing the icon, developer listing, official in-app screenshots and the product's deliberately delayed-message presentation.",
     "approved": true,
     "usedInRender": true,
-    "claimIds": ["claim-roost-001", "claim-roost-003", "claim-roost-004", "claim-roost-008"]
+    "claimIds": ["claim-roost-001", "claim-roost-003", "claim-roost-004"]
   },
   {
     "id": "asset-roost-001",
@@ -39,12 +39,13 @@
     "claimIds": [
       "claim-roost-003",
       "claim-roost-004",
+      "claim-roost-007",
       "claim-roost-009",
       "claim-roost-010",
       "claim-roost-011",
       "claim-roost-013",
       "claim-roost-015",
-      "claim-roost-018"
+      "claim-roost-020"
     ]
   }
 ]

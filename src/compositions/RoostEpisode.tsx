@@ -47,11 +47,13 @@ const SANS = '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif';
 const clamp = {extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const};
 
 const sourcePublishers = (claimIds: string[]): string => {
-  const sourceIds = new Set(claimIds.flatMap((claimId) => claimMap.get(claimId)?.sourceIds ?? []));
-  return Array.from(sourceIds)
-    .map((sourceId) => sourceMap.get(sourceId)?.publisher ?? sourceId)
-    .slice(0, 3)
-    .join(" · ");
+  const sourceIds = new Set(
+    [...claimIds].reverse().flatMap((claimId) => claimMap.get(claimId)?.sourceIds ?? []),
+  );
+  const publishers = Array.from(sourceIds).map(
+    (sourceId) => sourceMap.get(sourceId)?.publisher ?? sourceId,
+  );
+  return Array.from(new Set(publishers)).slice(0, 3).join(" · ");
 };
 
 const reportingLabel = (claimIds: string[]): string => {
@@ -382,7 +384,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
           source="Apple App Store"
           height={500}
         />
-        <Cards items={["按距离和鸟速送达", "发出后不能撤回", "途中不能加速"]} />
+        <Cards items={["按距离和鸟速送达", "地图显示飞行路线", "随时查看剩余时间"]} />
       </div>
     );
   }
@@ -399,7 +401,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
           <div style={{fontSize: 68, color: COLORS.gold}}>→</div>
           <Metric value="10 万" label="3 天后 · 创始人口径" />
         </div>
-        <div style={{fontSize: 34, color: COLORS.rust}}>为什么有人偏要等？</div>
+        <div style={{fontSize: 34, color: COLORS.rust}}>为什么反而让人期待？</div>
       </div>
     );
   }
@@ -407,7 +409,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
     return (
       <Cards
         accent={COLORS.rust}
-        items={["已读 · 20:31", "正在输入…", "怎么还没回？", "发送后不能撤回、编辑或加速"]}
+        items={["消息已经起飞", "路线清晰可见", "不用立刻回复", "想清楚，再派出一只鸟"]}
       />
     );
   }
@@ -492,7 +494,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
           <Metric value="10 万+" label="每日活跃对话" accent={COLORS.green} />
           <Metric value="$0" label="付费获客" accent={COLORS.gold} />
         </div>
-        <div style={{fontSize: 28, color: COLORS.muted}}>用户数 ≠ 活跃用户 ≠ 留存</div>
+        <div style={{fontSize: 28, color: COLORS.muted}}>创始人口径 · 用户与活跃对话分列</div>
       </div>
     );
   }
@@ -547,46 +549,33 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
         </div>
         <Cards
           items={[
-            "精确位置：只对 close friends 开启",
-            "Pen Pals：按年龄段匹配",
-            "照片：截至 7 月 8 日仍等待审核能力",
+            "默认只向朋友显示城市",
+            "精确位置：由你选择 close friends",
+            "Pen Pals：自愿的一对一匿名通信",
+            "双方接受后打开对话",
           ]}
         />
       </div>
     );
   }
   return (
-    <div style={{display: "grid", justifyItems: "center", gap: 46}}>
-      <div style={{display: "flex", alignItems: "center", gap: 25}}>
-        <Bird progress={frame / 30} size={260} color={COLORS.rust} />
-        <div style={{fontSize: 70, color: COLORS.rust}}>→</div>
-        <div
-          style={{
-            width: 290,
-            height: 220,
-            border: `4px dashed ${COLORS.gold}`,
-            borderRadius: 30,
-            display: "grid",
-            placeItems: "center",
-            fontSize: 36,
-            color: COLORS.muted,
-          }}
-        >
-          艺术家投稿
-        </div>
+    <div style={{display: "grid", justifyItems: "center", gap: 50, width: 900}}>
+      <div style={{display: "flex", alignItems: "flex-start", gap: 80}}>
+        <Metric value="30 万" label="注册用户 · ANSA 7/10" />
+        <Metric value="10 万+" label="每日活跃对话 · 创始人口径 7/7" accent={COLORS.green} />
       </div>
       <Cards
         accent={COLORS.rust}
         items={[
-          "AI 鸟图遭投诉",
-          "艺术家投稿活动",
-          "接近 30 万用户 · 创始人口径",
-          "一个月后，还有多少人回来？",
+          "缓解每条消息都催人立刻回复的压力",
+          "把等待变成看得见的路线",
+          "慢速社交 · 阶段性市场信号",
         ]}
       />
-      <div style={{display: "flex", alignItems: "center", gap: 18}}>
-        <Bird progress={0.82} size={160} color={COLORS.rust} />
-        <span style={{fontSize: 26, color: "#bcd0cd"}}>开头那只鸟，再次出现</span>
+      <div style={{display: "flex", alignItems: "center", gap: 24, width: "100%"}}>
+        <Bird progress={frame / 30} size={180} color={COLORS.rust} />
+        <div style={{height: 3, flex: 1, borderTop: `3px dashed ${COLORS.gold}`}} />
+        <span style={{fontSize: 31, color: COLORS.rust, fontWeight: 750}}>继续飞向朋友</span>
       </div>
     </div>
   );
@@ -629,7 +618,7 @@ const CaptionLayer: React.FC = () => {
 
 const RoostScene: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => {
   const frame = useCurrentFrame();
-  const dark = scene.index >= 10;
+  const dark = false;
   const opacity = interpolate(
     frame,
     [0, 10, Math.max(11, scene.durationFrames - 10), scene.durationFrames],

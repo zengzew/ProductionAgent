@@ -34,6 +34,8 @@ story/final-script.md
 
 ## 改写要求
 
+- 保持有事实支撑的正面推广口吻。优先让产品价值、真实体验和用户动作听起来清楚、
+  自然；不得把边界说明扩写成连续挑错、风险盘点或对未来的质疑。
 - 保留每个 segment 的 ID、Section、Claim IDs、Source identity、Scene、Visual
   intent、Pace switch 和 Fact boundary。
 - 可以拆句、合并重复解释、调整语序和替换连接词，但 Narration units 拼接后必须与
@@ -48,6 +50,7 @@ story/final-script.md
 - 专有名词第一次出现时，用一句普通话解释它是什么或替用户做什么。
 - 标点按实际口播停顿处理；数字、年代和英文缩写按读法检查。
 - 每段朗读一遍，删掉需要连续换气两次才能说完的句子。
+- 最后一句落在有 Claim 支持的具体事实、产品状态或用户动作，不用问题收尾。
 
 ## 信息保真
 

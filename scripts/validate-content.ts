@@ -4,6 +4,7 @@ import {
   assetSchema,
   captionPlanSchema,
   claimSchema,
+  episodeConfigSchema,
   scriptSchema,
   timelineSchema,
 } from "../src/schemas/episode";
@@ -13,6 +14,9 @@ import {containsGenericCta, findVisualAssetContractViolations} from "../src/lib/
 
 const claims = readJson<unknown[]>(path.join(episodeRoot, "research/facts.json")).map((claim) =>
   claimSchema.parse(claim),
+);
+const episodeConfig = episodeConfigSchema.parse(
+  readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
 );
 const script = scriptSchema.parse(readJson<unknown>(path.join(episodeRoot, "story/script.json")));
 const captionPlan = captionPlanSchema.parse(
@@ -119,7 +123,7 @@ if (spokenAttributions.length > 2) {
 
 const finalSegment = script.segments.at(-1);
 if (containsGenericCta(finalSegment?.narration ?? "")) {
-  errors.push("结尾使用通用互动 CTA，没有停在具体事实、动作或实际问题");
+  errors.push("结尾使用通用互动 CTA，没有停在具体事实、产品状态或用户动作");
 }
 
 for (const asset of assets) {
@@ -152,8 +156,11 @@ if (fs.existsSync(timelinePath)) {
         scene.narration === script.segments[index]?.narration,
     );
   if (timelineMatchesScript) {
-    if (timeline.totalSeconds < 180 || timeline.totalSeconds > 300) {
-      errors.push(`视频时长必须在 180–300 秒，当前 ${timeline.totalSeconds.toFixed(3)} 秒`);
+    const maximumDuration = episodeConfig.hardMaximumSeconds;
+    if (timeline.totalSeconds >= maximumDuration) {
+      errors.push(
+        `视频时长必须小于 ${maximumDuration} 秒，当前 ${timeline.totalSeconds.toFixed(3)} 秒`,
+      );
     }
     const actualHookEnd = Math.max(
       ...timeline.scenes

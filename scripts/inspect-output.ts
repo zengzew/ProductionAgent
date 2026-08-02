@@ -2,7 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 import {spawnSync} from "node:child_process";
 import {measureCaptionDelivery, parseSrt} from "../src/lib/delivery";
-import {outputEpisodeRoot, writeJson} from "../src/lib/project";
+import {episodeConfigSchema} from "../src/schemas/episode";
+import {episodeRoot, outputEpisodeRoot, readJson, writeJson} from "../src/lib/project";
 
 type Probe = {
   format: {duration: string; format_name: string};
@@ -42,6 +43,10 @@ const maxVolume = (filePath: string): number => {
 };
 
 const expected = [{file: "vertical_9x16.mp4", width: 1080, height: 1920}];
+const episodeConfig = episodeConfigSchema.parse(
+  readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
+);
+const maximumDuration = episodeConfig.hardMaximumSeconds;
 const inspections: Array<Record<string, unknown>> = [];
 const errors: string[] = [];
 let captionInspection: Record<string, unknown> | undefined;
@@ -64,8 +69,8 @@ for (const item of expected) {
     errors.push(`${item.file} 帧率错误：${video?.r_frame_rate}`);
   }
   if (!audio) errors.push(`${item.file} 缺少音轨`);
-  if (duration < 180 || duration > 300) {
-    errors.push(`${item.file} 时长超出 3–5 分钟：${duration}`);
+  if (duration >= maximumDuration) {
+    errors.push(`${item.file} 时长必须小于 ${maximumDuration} 秒：${duration}`);
   }
   if (peakDb > -0.1) {
     errors.push(`${item.file} 音频可能削波：${peakDb} dB`);

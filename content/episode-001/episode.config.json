@@ -6,7 +6,7 @@
   "language": "zh-CN",
   "fps": 30,
   "targetSeconds": 180,
-  "hardDurationRangeSeconds": [180, 300],
+  "hardMaximumSeconds": 180,
   "vertical": {"width": 1080, "height": 1920},
   "selection": "select-with-qualification",
   "selectionReason": "Poke 在 2025 年已有受限公开版本，但于 2026-03-19 取消候补名单进入一般可用，并在随后四个月出现可验证的公开扩张、消息量增长和收购事件。",

@@ -4,10 +4,22 @@ This repository builds sourced, repeatable Chinese product-story short videos
 with Remotion.
 Episode 001 follows Poke through its 2026 general release, product mechanics,
 reported message volume and acquisition. Episode 002 follows Roost Social and
-asks why users accepted a messaging product that deliberately makes them wait.
+shows how a slow-message app turns waiting into a visible, playful experience.
 
 The current episode pipeline produces one 9:16 video. Legacy Genspark and
 landscape Poke packages are not part of this repository.
+
+## Current editorial and duration standard
+
+- Every episode uses a fact-backed, positive promotional tone. Product value,
+  real usage, design choices and verified results lead the story.
+- Risks, disputes and missing metrics appear only when they materially affect
+  product understanding, factual accuracy or release compliance. They do not
+  become the default story spine or ending.
+- The last line lands on a claim-supported product state, user action or
+  concrete result. It does not question the product's future.
+- The final 1080×1920 MP4 must be strictly shorter than 180 seconds. Validation
+  uses the measured TTS timeline and the rendered file's ffprobe duration.
 
 ## Product-story short-video pipeline
 
@@ -211,7 +223,7 @@ pnpm validate:delivery
 The content checks verify source lineage, claim labels, hook timing, generic
 CTA rejection, caption limits and traceable real-asset declarations. Output
 inspection reads the vertical MP4 back with ffprobe and FFmpeg to verify its
-dimensions, duration, codecs, sample rate and audio peak. Delivery validation
+dimensions, strict sub-180-second duration, codecs, sample rate and audio peak. Delivery validation
 binds the independent review to the exact video, subtitles and timeline hashes;
 `story-approved` is not a delivery pass.
 Delivery review also checks that official website and in-app screenshots are

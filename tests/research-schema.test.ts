@@ -22,4 +22,11 @@ describe("episode source data", () => {
     expect(researchTimelineSchema.safeParse(timeline).success).toBe(true);
     expect(scriptSchema.safeParse(script).success).toBe(true);
   });
+
+  it("caps every episode at a strict three-minute maximum", () => {
+    const config = readJson<Record<string, unknown>>(path.join(episodeRoot, "episode.config.json"));
+    expect(episodeConfigSchema.safeParse({...config, hardMaximumSeconds: 180}).success).toBe(true);
+    expect(episodeConfigSchema.safeParse({...config, hardMaximumSeconds: 181}).success).toBe(false);
+    expect(episodeConfigSchema.safeParse({...config, targetSeconds: 181}).success).toBe(false);
+  });
 });

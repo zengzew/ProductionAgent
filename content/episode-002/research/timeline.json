@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-07-31",
+  "asOf": "2026-08-02",
   "events": [
     {
       "id": "event-roost-001",
@@ -87,13 +87,39 @@
     },
     {
       "id": "event-roost-007",
-      "dateLabel": "截至 2026 年 7 月 31 日",
-      "sortDate": "2026-07-31",
+      "dateLabel": "2026 年 7 月 10 日",
+      "sortDate": "2026-07-10",
+      "datePrecision": "day",
+      "event": "ANSA 报道 Roost 达到 30 万注册用户。",
+      "eventType": "growth",
+      "factIds": ["claim-roost-020"],
+      "sourceIds": ["src-roost-008"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "validation",
+      "notes": "媒体转述的阶段性注册用户数字，不等同于留存或平台后台审计。"
+    },
+    {
+      "id": "event-roost-008",
+      "dateLabel": "截至 2026 年 8 月 2 日",
+      "sortDate": "2026-08-02",
+      "datePrecision": "as-of",
+      "event": "Roost 当前 FAQ 已支持消耗 1 枚蛋撤回飞行中的消息，并将 Pen Pals 描述为双方接受后开启的一对一匿名通信。",
+      "eventType": "product",
+      "factIds": ["claim-roost-021", "claim-roost-022"],
+      "sourceIds": ["src-roost-009"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "context",
+      "notes": "当前功能修正旧版体验文章中的不可撤回操作边界。"
+    },
+    {
+      "id": "event-roost-009",
+      "dateLabel": "截至 2026 年 8 月 2 日",
+      "sortDate": "2026-08-02",
       "datePrecision": "as-of",
       "event": "公开指标仍不足以判断留存、完整收入成本与增长持续性。",
       "eventType": "growth",
       "factIds": ["claim-roost-019"],
-      "sourceIds": ["src-roost-003", "src-roost-004"],
+      "sourceIds": ["src-roost-003", "src-roost-004", "src-roost-008"],
       "relationToPrevious": "chronology-only",
       "storyFunction": "durability-test",
       "notes": "编辑边界，不把缺失指标改写成失败结论。"

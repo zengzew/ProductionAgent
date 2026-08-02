@@ -5,7 +5,7 @@
     "publisher": "Roost / Good Egg LLC",
     "url": "https://roostsocial.app/",
     "publishedAt": "",
-    "accessedAt": "2026-07-31",
+    "accessedAt": "2026-08-02",
     "sourceType": "official",
     "notes": "官网确认产品定位：消息由虚拟鸟按距离实时飞行，并包含收集鸟类等机制。"
   },
@@ -15,7 +15,7 @@
     "publisher": "Apple App Store",
     "url": "https://apps.apple.com/us/app/roost-social/id6746680855",
     "publishedAt": "2026-04-28",
-    "accessedAt": "2026-07-31",
+    "accessedAt": "2026-08-02",
     "sourceType": "platform",
     "notes": "商店页用于核对开发者、产品描述、价格、隐私标签、版本记录和用户评价。"
   },
@@ -25,7 +25,7 @@
     "publisher": "TechCrunch",
     "url": "https://techcrunch.com/2026/07/08/slow-cial-app-roost-forces-you-to-slow-down-to-the-speed-of-a-carrier-pigeon/",
     "publishedAt": "2026-07-08",
-    "accessedAt": "2026-07-31",
+    "accessedAt": "2026-08-02",
     "sourceType": "media",
     "notes": "原创采访与实测，涵盖产品机制、朋友推动公开、Threads 增长事件、隐私设计、AI 辅助开发和 AI 图像争议。"
   },
@@ -35,7 +35,7 @@
     "publisher": "GamesBeat",
     "url": "https://gamesbeat.com/roost-social-flies-to-250000-users-by-slowing-messaging-down/",
     "publishedAt": "2026-07-07",
-    "accessedAt": "2026-07-31",
+    "accessedAt": "2026-08-02",
     "sourceType": "media",
     "notes": "创始人采访，确认发布日期、用户与会话口径、零广告支出、项目起点、商品和订阅收入边界。"
   },
@@ -45,9 +45,9 @@
     "publisher": "WhistleOut",
     "url": "https://www.whistleout.com/CellPhones/Apps/best-new-apps",
     "publishedAt": "2026-07-01",
-    "accessedAt": "2026-07-31",
+    "accessedAt": "2026-08-02",
     "sourceType": "media",
-    "notes": "独立体验文章描述跨州消息需数日、等待感受，以及发送后不能撤回、编辑或加速的体验。"
+    "notes": "独立体验文章描述跨州消息需数日和等待感受；其发送后不能撤回的操作记录只代表当时版本，当前官方 FAQ 已更新该功能。2026-08-02 复查时页面返回访问限制，保留 7 月 31 日已捕获内容。"
   },
   {
     "id": "src-roost-006",
@@ -55,9 +55,9 @@
     "publisher": "Roost / Good Egg LLC",
     "url": "https://roostsocial.app/child-safety",
     "publishedAt": "",
-    "accessedAt": "2026-07-31",
+    "accessedAt": "2026-08-02",
     "sourceType": "official",
-    "notes": "官方儿童安全页面；与采访中的年龄分组、举报和平台安全边界交叉核对。"
+    "notes": "官方儿童安全页面；2026-08-02 复查时 URL 返回 404，只保留为 7 月 31 日历史证据，不再支持现行功能旁白。"
   },
   {
     "id": "src-roost-007",
@@ -65,8 +65,28 @@
     "publisher": "Roost / Good Egg LLC",
     "url": "https://roostsocial.app/privacy",
     "publishedAt": "",
-    "accessedAt": "2026-07-31",
+    "accessedAt": "2026-08-02",
     "sourceType": "official",
     "notes": "官方隐私政策；配合 App Store 隐私标签核对位置、联系方式、内容与购买数据的处理边界。"
+  },
+  {
+    "id": "src-roost-008",
+    "title": "Fenomeno Roost, il social che punta sulla lentezza",
+    "publisher": "ANSA",
+    "url": "https://www.ansa.it/canale_tecnologia/notizie/web_social/2026/07/10/sale-linteresse-per-roost-il-social-che-punta-sulla-lentezza_7c4bb24b-674c-4b77-a1ad-9172b00ecab6.html",
+    "publishedAt": "2026-07-10",
+    "accessedAt": "2026-08-02",
+    "sourceType": "media",
+    "notes": "ANSA 报道 Roost 达到 30 万注册用户；该数字为媒体转述，不等同于平台后台审计。"
+  },
+  {
+    "id": "src-roost-009",
+    "title": "FAQ - How Roost Works",
+    "publisher": "Roost / Good Egg LLC",
+    "url": "https://roostsocial.app/faq",
+    "publishedAt": "",
+    "accessedAt": "2026-08-02",
+    "sourceType": "official",
+    "notes": "当前官方功能说明；确认飞行中的消息可消耗 1 枚蛋撤回，并用于修正旧版体验文章的操作边界。"
   }
 ]

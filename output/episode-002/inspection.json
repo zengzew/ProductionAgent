@@ -1,9 +1,9 @@
 {
-  "inspectedAt": "2026-08-02T05:25:58.417Z",
+  "inspectedAt": "2026-08-02T13:53:26.168Z",
   "inspections": [
     {
       "file": "vertical_9x16.mp4",
-      "duration": 213.266667,
+      "duration": 167.233333,
       "width": 1080,
       "height": 1920,
       "frameRate": "30/1",
@@ -14,12 +14,12 @@
     }
   ],
   "captionInspection": {
-    "cues": 119,
+    "cues": 87,
     "microCueThresholdSeconds": 1,
-    "microCueCount": 3,
-    "microCueRatio": 0.02521,
+    "microCueCount": 6,
+    "microCueRatio": 0.068966,
     "microCueRatioLimit": 0.1,
-    "minimumCueSeconds": 0.898
+    "minimumCueSeconds": 0.551
   },
   "errors": []
 }

@@ -4,7 +4,12 @@ import path from "node:path";
 import {measureCaptionDelivery, parseDeliveryGate, parseSrt} from "../src/lib/delivery";
 import {captionPartsFromPlan, fitCaptionPartsToDuration} from "../src/lib/captions";
 import {episodeId, episodeRoot, outputEpisodeRoot, readJson, repoRoot} from "../src/lib/project";
-import {captionPlanSchema, scriptSchema, timelineSchema} from "../src/schemas/episode";
+import {
+  captionPlanSchema,
+  episodeConfigSchema,
+  scriptSchema,
+  timelineSchema,
+} from "../src/schemas/episode";
 
 const reportPath = path.join(episodeRoot, "production/delivery-critic-report.md");
 const videoPath = path.join(outputEpisodeRoot, "vertical_9x16.mp4");
@@ -70,6 +75,14 @@ const captionPlanBySegment = new Map(
   captionPlan.segments.map((segment) => [segment.segmentId, segment.cues]),
 );
 const timeline = timelineSchema.parse(readJson<unknown>(timelinePath));
+const episodeConfig = episodeConfigSchema.parse(
+  readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
+);
+if (timeline.totalSeconds >= episodeConfig.hardMaximumSeconds) {
+  errors.push(
+    `交付视频时长必须小于 ${episodeConfig.hardMaximumSeconds} 秒，当前 ${timeline.totalSeconds.toFixed(3)} 秒`,
+  );
+}
 const generatedCaptions = readJson<Array<{sceneId: string; text: string}>>(captionsPath);
 const actualByScene = new Map<string, string[]>();
 for (const caption of generatedCaptions) {

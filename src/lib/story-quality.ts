@@ -31,6 +31,8 @@ const genericCtaPattern =
 
 export const containsGenericCta = (text: string): boolean => genericCtaPattern.test(text);
 
+export const endsWithQuestion = (text: string): boolean => /[？?]\s*$/u.test(text);
+
 type VisualAssetContractInput = {
   type: string;
   usedInRender: boolean;

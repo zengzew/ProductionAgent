@@ -92,7 +92,7 @@
   },
   {
     "id": "claim-roost-008",
-    "claim": "WhistleOut 的体验者称，发送后不能撤回、编辑或加速，等待让他更认真考虑要说什么，并产生对消息到达的期待。",
+    "claim": "WhistleOut 的体验者称，等待让他更认真考虑要说什么，并产生对消息到达的期待；文章记录的不可撤回只代表当时版本。",
     "metricName": "",
     "value": "",
     "period": "hands-on review published 2026-07-01",
@@ -101,7 +101,7 @@
     "confidence": "high",
     "reportingType": "independently-verified",
     "allowedInNarration": true,
-    "notes": "这是单一媒体体验，不代表总体用户效果；旁白应保留体验者身份或只描述可验证操作约束。"
+    "notes": "这是单一媒体体验，不代表总体用户效果；当前版本已支持消耗 1 枚蛋撤回飞行中的消息，旁白不得继续使用不可撤回的绝对表述。"
   },
   {
     "id": "claim-roost-009",
@@ -188,11 +188,11 @@
     "value": "",
     "period": "as described 2026-07-08",
     "eventDate": "2026-07-08",
-    "sourceIds": ["src-roost-003", "src-roost-007"],
-    "confidence": "medium",
+    "sourceIds": ["src-roost-003", "src-roost-007", "src-roost-009"],
+    "confidence": "high",
     "reportingType": "company-reported",
     "allowedInNarration": true,
-    "notes": "功能描述来自创始人采访与政策；不宣称隐私风险被消除。"
+    "notes": "功能描述来自创始人采访、隐私政策与当前 FAQ；不宣称隐私风险被消除。"
   },
   {
     "id": "claim-roost-016",
@@ -204,8 +204,8 @@
     "sourceIds": ["src-roost-003", "src-roost-006"],
     "confidence": "medium",
     "reportingType": "company-reported",
-    "allowedInNarration": true,
-    "notes": "App Store 7 月下旬版本记录显示照片消息已向支持者早期开放，因此旁白必须保留 7 月 8 日时间边界。"
+    "allowedInNarration": false,
+    "notes": "这是 7 月 8 日历史状态。App Store 7 月下旬版本记录显示照片消息已向支持者早期开放，儿童安全 URL 于 8 月 2 日返回 404，不再作为现行功能旁白。"
   },
   {
     "id": "claim-roost-017",
@@ -238,12 +238,51 @@
     "claim": "现有公开用户数、对话数和付费份数不足以证明留存、盈利或增长会持续。",
     "metricName": "",
     "value": "",
-    "period": "as of 2026-07-31",
-    "eventDate": "2026-07-31",
-    "sourceIds": ["src-roost-003", "src-roost-004"],
+    "period": "as of 2026-08-02",
+    "eventDate": "2026-08-02",
+    "sourceIds": ["src-roost-003", "src-roost-004", "src-roost-008"],
     "confidence": "medium",
     "reportingType": "inference",
+    "allowedInNarration": false,
+    "notes": "编辑判断边界：已有指标不包含留存或完整收入成本，不进入本期正面结尾，也不能据此宣布成功或失败。"
+  },
+  {
+    "id": "claim-roost-020",
+    "claim": "ANSA 于 2026 年 7 月 10 日报道，Roost 已达到 300,000 名注册用户。",
+    "metricName": "registered users",
+    "value": "300000",
+    "period": "as of 2026-07-10",
+    "eventDate": "2026-07-10",
+    "sourceIds": ["src-roost-008"],
+    "confidence": "medium",
+    "reportingType": "founder-reported",
     "allowedInNarration": true,
-    "notes": "边界判断：已有指标不包含留存或完整收入成本，旁白只能用具体问题表达，不能宣布成功或失败。"
+    "notes": "媒体转述的阶段性注册用户数字，未见平台后台审计；不得写成留存、日活或整个赛道规模。"
+  },
+  {
+    "id": "claim-roost-021",
+    "claim": "Roost 当前官方 FAQ 说明，用户可以消耗 1 枚蛋撤回仍在飞行中的消息。",
+    "metricName": "unsend cost",
+    "value": "1 egg",
+    "period": "FAQ accessed 2026-08-02",
+    "eventDate": "2026-08-02",
+    "sourceIds": ["src-roost-009"],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "当前官方功能说明；旧体验文章中的不可撤回表述不能继续写成现行规则。"
+  },
+  {
+    "id": "claim-roost-022",
+    "claim": "Roost 当前官方 FAQ 将 Pen Pals 描述为自愿加入的一对一匿名通信；双方都接受后才会打开对话，并与 Friends 保持分开。",
+    "metricName": "",
+    "value": "",
+    "period": "FAQ accessed 2026-08-02",
+    "eventDate": "2026-08-02",
+    "sourceIds": ["src-roost-009"],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "当前官方功能说明；不再沿用 7 月 8 日年龄分组或尚未开放照片的历史状态。"
   }
 ]

@@ -2,11 +2,11 @@
   "id": "episode-002",
   "slug": "roost-slow-messaging",
   "product": "Roost Social",
-  "title": "一条消息飞三天，为什么有人偏要等",
+  "title": "一条消息飞三天，为什么反而让人期待",
   "language": "zh-CN",
   "fps": 30,
-  "targetSeconds": 200,
-  "hardDurationRangeSeconds": [180, 300],
+  "targetSeconds": 180,
+  "hardMaximumSeconds": 180,
   "vertical": {
     "width": 1080,
     "height": 1920
@@ -15,5 +15,5 @@
   "selectionReason": "Episode 001 备选池最高分候选；2026-04-28 发布后有可归因的用户增长、清楚的产品动作与可验证边界。",
   "publishStatus": "production",
   "publishBlocker": "发布前仍需人工确认官方页面引用、App Store 画面与合成语音披露要求。",
-  "asOf": "2026-07-31"
+  "asOf": "2026-08-02"
 }

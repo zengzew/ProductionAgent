@@ -7,8 +7,8 @@ export const episodeConfigSchema = z.object({
   title: z.string().min(1),
   language: z.string().min(1),
   fps: z.number().int().positive(),
-  targetSeconds: z.number().min(180).max(300),
-  hardDurationRangeSeconds: z.tuple([z.number().positive(), z.number().positive()]),
+  targetSeconds: z.number().positive().max(180),
+  hardMaximumSeconds: z.number().positive().max(180),
   vertical: z.object({
     width: z.literal(1080),
     height: z.literal(1920),
