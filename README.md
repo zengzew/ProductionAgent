@@ -84,13 +84,13 @@ SHA-256.
 using at most two simultaneous lines. Existing production artifacts remain the
 previous snapshot until that phase starts.
 
-## Official product screenshots
+## Official product evidence
 
-When a product has a public official website, app-store listing or official
-in-app screenshots that materially explain the story, each episode should use
-at least one real official product visual. Prefer showing both the official
-website and an in-app screenshot when each advances the episode's single story
-question.
+When a product has a public official website, app-store listing, official
+in-app screenshots, launch video or traceable real interaction recording that
+materially explains the story, each episode should use at least one real
+official product visual. Prefer the evidence type that proves the core action
+most directly instead of defaulting to a static screenshot.
 
 - Use a traceable official URL; do not treat marketing copy as independent
   evidence.
@@ -98,6 +98,9 @@ question.
   intended use and claim IDs in `production/asset-manifest.json`.
 - Label the rendered visual as a real page screenshot and identify the source.
 - Keep the relevant UI readable in the 9:16 frame and clear of captions.
+- Treat official video and real interaction recordings the same way: bind them
+  to claims, label the source, show the core action when the claim is first
+  spoken and verify that action remains legible after vertical framing.
 - If no stable or reviewable official image is available, use a
   claim-supported programmatic graphic. Label synthetic UI as a demonstration;
   never present it as a real product screenshot.
@@ -205,11 +208,12 @@ pnpm inspect:output
 pnpm validate:delivery
 ```
 
-The content checks verify source lineage, claim labels, hook timing, caption
-limits and asset declarations. Output inspection reads the vertical MP4 back
-with ffprobe and FFmpeg to verify its dimensions, duration, codecs, sample rate
-and audio peak. Delivery validation binds the independent review to the exact
-video, subtitles and timeline hashes; `story-approved` is not a delivery pass.
+The content checks verify source lineage, claim labels, hook timing, generic
+CTA rejection, caption limits and traceable real-asset declarations. Output
+inspection reads the vertical MP4 back with ffprobe and FFmpeg to verify its
+dimensions, duration, codecs, sample rate and audio peak. Delivery validation
+binds the independent review to the exact video, subtitles and timeline hashes;
+`story-approved` is not a delivery pass.
 Delivery review also checks that official website and in-app screenshots are
 readable, source-labelled and consistent with their asset-manifest entries.
 

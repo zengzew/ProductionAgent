@@ -12,69 +12,73 @@
 - Target seconds: `3`
 - Claim IDs: `claim-roost-003`
 - Source identity: 官网、商店与媒体交叉核对
-- On-screen text: `周末见` / `发送` / `预计三天后到达` / `功能演示`
+- On-screen text: `周末见 · 已发送` / `预计三天后到达` / `功能演示`
 - Scene: `hook-send-bird`
-- Visual intent: 第一帧出现消息输入框，点发送后虚拟鸟起飞；全程标注“功能演示”。
-- Pace switch: 不解释产品名，先让消息飞走。
+- Visual intent: 第一帧就是已发送气泡，虚拟鸟已经离开起点，倒计时正在变化；全程
+  标注“功能演示”。
+- Pace switch: 不解释产品名，先给已经发生的结果。
 - Fact boundary: 路线和文案为功能演示，不冒充真实用户通信。
 
 ### Narration
 
-发条消息，先等鸟飞三天。
+这条消息已经发出，三天后才到。
 
 ### Narration units
 
-| Text                     | Mode          | Claim IDs       | Attribution        |
-| ------------------------ | ------------- | --------------- | ------------------ |
-| 发条消息，先等鸟飞三天。 | demonstration | claim-roost-003 | 产品机制的功能演示 |
+| Text                           | Mode          | Claim IDs       | Attribution        |
+| ------------------------------ | ------------- | --------------- | ------------------ |
+| 这条消息已经发出，三天后才到。 | demonstration | claim-roost-003 | 产品机制的功能演示 |
 
 ## seg-002
 
 - Section: `hook`
 - Time range: `0:03–0:10`
 - Target seconds: `7`
-- Claim IDs: `claim-roost-003`, `claim-roost-009`
-- Source identity: 产品事实 + 创始人向 TechCrunch 披露
-- On-screen text: `消息没有卡住` / `按距离和鸟速送达` / `3 天：1 万 → 10 万用户`
+- Claim IDs: `claim-roost-003`, `claim-roost-008`
+- Source identity: 官网、商店与独立体验交叉核对
+- On-screen text: `不是网络卡住` / `按距离和鸟速送达` / `发出后不能撤回或加速`
 - Scene: `hook-rule-growth`
-- Visual intent: 飞行路线跨过地图，加载圈被划掉；随后用户数字快速抬升。
-- Pace switch: 用增长速度撞上消息速度。
-- Fact boundary: 用户数来自创始人口径，三日增长不归因给单一机制。
+- Visual intent: App Store 真实页面在“Messages don't send instantly. They fly”应用截图处
+  停留；旁边同步出现不可撤回、不可加速的规则卡。
+- Pace switch: 从功能演示切到真实应用页面，完成唯一一次认知修正。
+- Fact boundary: 商店页面是产品自述；发送约束来自独立体验，不外推所有使用场景。
 
 ### Narration
 
-消息没卡住。它按距离和鸟速送达。可用户三天就从一万涨到十万。
+不是网络卡住。Roost 按距离和鸟速送信。发送以后，不能撤回，也不能加速。
 
 ### Narration units
 
-| Text                             | Mode                   | Claim IDs       | Attribution              |
-| -------------------------------- | ---------------------- | --------------- | ------------------------ |
-| 消息没卡住。它按距离和鸟速送达。 | independently-verified | claim-roost-003 | 官网、商店与媒体         |
-| 可用户三天就从一万涨到十万。     | founder                | claim-roost-009 | 创始人向 TechCrunch 披露 |
+| Text                                   | Mode                   | Claim IDs       | Attribution  |
+| -------------------------------------- | ---------------------- | --------------- | ------------ |
+| 不是网络卡住。Roost 按距离和鸟速送信。 | independently-verified | claim-roost-003 | 官网与商店   |
+| 发送以后，不能撤回，也不能加速。       | independently-verified | claim-roost-008 | 独立体验记录 |
 
 ## seg-003
 
 - Section: `hook`
 - Time range: `0:10–0:20`
 - Target seconds: `10`
-- Claim IDs: `claim-roost-003`, `claim-roost-004`, `claim-roost-007`
-- Source identity: 产品事实 + 创始人口述
+- Claim IDs: `claim-roost-003`, `claim-roost-004`, `claim-roost-009`
+- Source identity: 官网、商店与创始人口径
 - On-screen text: `慢速通讯 App` / `选一只鸟` / `看它飞到朋友那里` / `为什么有人偏要等？`
 - Scene: `hook-core-question`
-- Visual intent: 手机、鸟舍与地图连成一个简单心智模型，最后只留下全片问题。
+- Visual intent: 官网真实页面先建立地图送信心智模型；标注“创始人口径”的数字从一万
+  升到十万，最后只留下全片问题。
 - Pace switch: 数字停住，画面第一次放慢。
-- Fact boundary: “降低压力”是创始人对产品动机的描述，不代表所有用户。
+- Fact boundary: 三日增长来自创始人口径，不代表留存或总体采用原因。
 
 ### Narration
 
-Roost 是慢速通讯 App。你选只鸟，看它把话送到朋友那里。消息都在追求秒到，为什么有人偏要等？
+Roost 是慢速通讯 App，聊天变成一段看得见的等待。三天，用户从一万涨到十万。为什么有人偏要等？
 
 ### Narration units
 
-| Text                                                   | Mode                   | Claim IDs                        | Attribution            |
-| ------------------------------------------------------ | ---------------------- | -------------------------------- | ---------------------- |
-| Roost 是慢速通讯 App。你选只鸟，看它把话送到朋友那里。 | independently-verified | claim-roost-003, claim-roost-004 | 产品机制交叉核对       |
-| 消息都在追求秒到，为什么有人偏要等？                   | editorial-analysis     | claim-roost-007                  | 基于创始人描述提出问题 |
+| Text                                             | Mode                   | Claim IDs                        | Attribution  |
+| ------------------------------------------------ | ---------------------- | -------------------------------- | ------------ |
+| Roost 是慢速通讯 App，聊天变成一段看得见的等待。 | independently-verified | claim-roost-003, claim-roost-004 | 产品心智模型 |
+| 三天，用户从一万涨到十万。                       | founder                | claim-roost-009                  | 创始人口径   |
+| 为什么有人偏要等？                               | editorial-analysis     | claim-roost-003, claim-roost-009 | 全片唯一问题 |
 
 ## seg-004
 
@@ -91,16 +95,16 @@ Roost 是慢速通讯 App。你选只鸟，看它把话送到朋友那里。消�
 
 ### Narration
 
-普通聊天里，消息刚发出去，已读、正在输入、怎么还没回，马上挤到一起。Roost 把这串催促切断。发送以后，不能撤回，不能编辑，也不能给鸟加速。TechCrunch 采访里的创始人说，他想给人留一段不用立刻反应的时间。另一位体验者发现，自己开始先想清楚，这句话值不值得派一只鸟。
+普通聊天里，消息刚发出去，已读、正在输入、怎么还没回，马上挤到一起。Roost 做了一个很硬的选择：消息一飞走，不能撤回，不能编辑，鸟也不能加速。TechCrunch 采访里的创始人说，他想给人留一段不用立刻反应的时间。另一位体验者发现，自己开始先想清楚，这句话值不值得派一只鸟。
 
 ### Narration units
 
-| Text                                                                                       | Mode                   | Claim IDs                        | Attribution            |
-| ------------------------------------------------------------------------------------------ | ---------------------- | -------------------------------- | ---------------------- |
-| 普通聊天里，消息刚发出去，已读、正在输入、怎么还没回，马上挤到一起。Roost 把这串催促切断。 | editorial-analysis     | claim-roost-007, claim-roost-008 | 将来源描述落到可见动作 |
-| 发送以后，不能撤回，不能编辑，也不能给鸟加速。                                             | independently-verified | claim-roost-008                  | WhistleOut 实测        |
-| TechCrunch 采访里的创始人说，他想给人留一段不用立刻反应的时间。                            | founder                | claim-roost-007                  | 创始人口述             |
-| 另一位体验者发现，自己开始先想清楚，这句话值不值得派一只鸟。                               | independently-verified | claim-roost-008                  | 单一媒体体验           |
+| Text                                                                     | Mode                   | Claim IDs                        | Attribution            |
+| ------------------------------------------------------------------------ | ---------------------- | -------------------------------- | ---------------------- |
+| 普通聊天里，消息刚发出去，已读、正在输入、怎么还没回，马上挤到一起。     | editorial-analysis     | claim-roost-007, claim-roost-008 | 将来源描述落到可见动作 |
+| Roost 做了一个很硬的选择：消息一飞走，不能撤回，不能编辑，鸟也不能加速。 | independently-verified | claim-roost-008                  | WhistleOut 实测        |
+| TechCrunch 采访里的创始人说，他想给人留一段不用立刻反应的时间。          | founder                | claim-roost-007                  | 创始人口述             |
+| 另一位体验者发现，自己开始先想清楚，这句话值不值得派一只鸟。             | independently-verified | claim-roost-008                  | 单一媒体体验           |
 
 ## seg-005
 
@@ -285,24 +289,26 @@ Roost 是慢速通讯 App。你选只鸟，看它把话送到朋友那里。消�
 - Section: `ending`
 - Time range: `2:43–3:00`
 - Target seconds: `17`
-- Claim IDs: `claim-roost-003`, `claim-roost-010`, `claim-roost-013`, `claim-roost-017`, `claim-roost-018`, `claim-roost-019`
+- Claim IDs: `claim-roost-003`, `claim-roost-004`, `claim-roost-011`, `claim-roost-013`, `claim-roost-017`, `claim-roost-018`, `claim-roost-019`
 - Source identity: 创始人采访 + 媒体与商店侧证
 - On-screen text: `AI 辅助开发` / `AI 鸟图遭投诉` / `艺术家投稿活动` / `下一只鸟，谁来画？`
 - Scene: `ai-art-ending`
-- Visual intent: 代码行组成一只鸟，用户投诉将羽毛擦掉；空白鸟卡交给艺术家，最后停在未填的留存曲线。
+- Visual intent: 代码行组成一只鸟，用户投诉将羽毛擦掉；空白鸟卡交给艺术家。开场的
+  飞行路线再次出现，此时同时带着接近三十万的创始人口径和未填的留存曲线。
 - Pace switch: 鸟落地，环境声停止，结尾不升华。
 - Fact boundary: 不宣布艺术家活动已完成，不判断 AI 辅助开发的质量，不补写留存结论。
 
 ### Narration
 
-这个规模也逼出了另一道选择。Mendelsohn 用 Claude Code 帮自己开发，早期鸟图也由 AI 生成。用户开始投诉：这些鸟能用真钱购买，图却不该一直这样。创始人没有硬顶，转去办艺术家投稿活动。Roost 靠一只飞得很慢的鸟，让几十万人愿意等。下一批鸟换成谁来画、谁愿意付钱、一个月后还会不会回来，产品还得继续回答。
+增长之后，另一道产品选择摆到面前。Mendelsohn 用 Claude Code 帮自己开发，早期鸟图也由 AI 生成。用户开始投诉：这些鸟能用真钱购买，图却不该一直这样。创始人随后转去办艺术家投稿活动。开头那只鸟又飞回来了：慢送达已经被做成一个可见、可玩的产品规则。到 7 月 8 日，用户数字接近三十万。下一批鸟由谁画，多少人愿意付钱，一个月后还会不会回来？
 
 ### Narration units
 
-| Text                                                                                     | Mode                   | Claim IDs                        | Attribution          |
-| ---------------------------------------------------------------------------------------- | ---------------------- | -------------------------------- | -------------------- |
-| 这个规模也逼出了另一道选择。Mendelsohn 用 Claude Code 帮自己开发，早期鸟图也由 AI 生成。 | founder                | claim-roost-017, claim-roost-018 | 创始人采访与媒体记录 |
-| 用户开始投诉：这些鸟能用真钱购买，图却不该一直这样。                                     | independently-verified | claim-roost-013, claim-roost-018 | 媒体与商店评价侧证   |
-| 创始人没有硬顶，转去办艺术家投稿活动。                                                   | independently-verified | claim-roost-018                  | 媒体记录创始人回应   |
-| Roost 靠一只飞得很慢的鸟，让几十万人愿意等。                                             | editorial-analysis     | claim-roost-003, claim-roost-010 | 回答开场，不外推留存 |
-| 下一批鸟换成谁来画、谁愿意付钱、一个月后还会不会回来，产品还得继续回答。                 | editorial-analysis     | claim-roost-018, claim-roost-019 | 停在具体待验证问题   |
+| Text                                                                                           | Mode                   | Claim IDs                                         | Attribution        |
+| ---------------------------------------------------------------------------------------------- | ---------------------- | ------------------------------------------------- | ------------------ |
+| 增长之后，另一道产品选择摆到面前。Mendelsohn 用 Claude Code 帮自己开发，早期鸟图也由 AI 生成。 | founder                | claim-roost-017, claim-roost-018                  | 只写时序，不补因果 |
+| 用户开始投诉：这些鸟能用真钱购买，图却不该一直这样。                                           | independently-verified | claim-roost-013, claim-roost-018                  | 媒体与商店评价侧证 |
+| 创始人随后转去办艺术家投稿活动。                                                               | independently-verified | claim-roost-018                                   | 媒体记录创始人回应 |
+| 开头那只鸟又飞回来了：慢送达已经被做成一个可见、可玩的产品规则。                               | editorial-analysis     | claim-roost-003, claim-roost-004                  | 回看产品选择       |
+| 到 7 月 8 日，用户数字接近三十万。                                                             | founder                | claim-roost-011                                   | 画面标创始人口径   |
+| 下一批鸟由谁画，多少人愿意付钱，一个月后还会不会回来？                                         | editorial-analysis     | claim-roost-013, claim-roost-018, claim-roost-019 | 停在具体待验证问题 |

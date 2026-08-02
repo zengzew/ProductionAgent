@@ -20,10 +20,10 @@
     "owner": "Apple App Store / Good Egg LLC / Roost",
     "licenseOrBasis": "Public App Store product listing captured by this project for limited editorial commentary and product identification; publication rights should receive final human review.",
     "capturedAt": "2026-07-31",
-    "usage": "Application evidence showing the icon, developer listing and four official in-app screenshots.",
+    "usage": "Hook evidence showing the icon, developer listing, official in-app screenshots and the product's deliberately delayed-message presentation.",
     "approved": true,
     "usedInRender": true,
-    "claimIds": ["claim-roost-001", "claim-roost-003", "claim-roost-004"]
+    "claimIds": ["claim-roost-001", "claim-roost-003", "claim-roost-004", "claim-roost-008"]
   },
   {
     "id": "asset-roost-001",
@@ -41,6 +41,7 @@
       "claim-roost-004",
       "claim-roost-009",
       "claim-roost-010",
+      "claim-roost-011",
       "claim-roost-013",
       "claim-roost-015",
       "claim-roost-018"

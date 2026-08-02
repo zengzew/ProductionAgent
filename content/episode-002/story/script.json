@@ -4,10 +4,9 @@
     {
       "id": "seg-001",
       "section": "hook",
-      "narration": "发条消息，先等鸟飞三天。",
+      "narration": "这条消息已经发出，三天后才到。",
       "onScreenText": [
-        "周末见",
-        "发送",
+        "周末见 · 已发送",
         "预计三天后到达",
         "功能演示"
       ],
@@ -15,30 +14,30 @@
         "claim-roost-003"
       ],
       "scene": "hook-send-bird",
-      "visualIntent": "第一帧出现消息输入框，点发送后虚拟鸟起飞；全程标注“功能演示”。",
+      "visualIntent": "第一帧就是已发送气泡，虚拟鸟已经离开起点，倒计时正在变化；全程",
       "targetSeconds": 3
     },
     {
       "id": "seg-002",
       "section": "hook",
-      "narration": "消息没卡住。它按距离和鸟速送达。可用户三天就从一万涨到十万。",
+      "narration": "不是网络卡住。Roost 按距离和鸟速送信。发送以后，不能撤回，也不能加速。",
       "onScreenText": [
-        "消息没有卡住",
+        "不是网络卡住",
         "按距离和鸟速送达",
-        "3 天：1 万 → 10 万用户"
+        "发出后不能撤回或加速"
       ],
       "claimIds": [
         "claim-roost-003",
-        "claim-roost-009"
+        "claim-roost-008"
       ],
       "scene": "hook-rule-growth",
-      "visualIntent": "飞行路线跨过地图，加载圈被划掉；随后用户数字快速抬升。",
+      "visualIntent": "App Store 真实页面在“Messages don't send instantly. They fly”应用截图处",
       "targetSeconds": 7
     },
     {
       "id": "seg-003",
       "section": "hook",
-      "narration": "Roost 是慢速通讯 App。你选只鸟，看它把话送到朋友那里。消息都在追求秒到，为什么有人偏要等？",
+      "narration": "Roost 是慢速通讯 App，聊天变成一段看得见的等待。三天，用户从一万涨到十万。为什么有人偏要等？",
       "onScreenText": [
         "慢速通讯 App",
         "选一只鸟",
@@ -48,16 +47,16 @@
       "claimIds": [
         "claim-roost-003",
         "claim-roost-004",
-        "claim-roost-007"
+        "claim-roost-009"
       ],
       "scene": "hook-core-question",
-      "visualIntent": "手机、鸟舍与地图连成一个简单心智模型，最后只留下全片问题。",
+      "visualIntent": "官网真实页面先建立地图送信心智模型；标注“创始人口径”的数字从一万",
       "targetSeconds": 10
     },
     {
       "id": "seg-004",
       "section": "problem",
-      "narration": "普通聊天里，消息刚发出去，已读、正在输入、怎么还没回，马上挤到一起。Roost 把这串催促切断。发送以后，不能撤回，不能编辑，也不能给鸟加速。TechCrunch 采访里的创始人说，他想给人留一段不用立刻反应的时间。另一位体验者发现，自己开始先想清楚，这句话值不值得派一只鸟。",
+      "narration": "普通聊天里，消息刚发出去，已读、正在输入、怎么还没回，马上挤到一起。Roost 做了一个很硬的选择：消息一飞走，不能撤回，不能编辑，鸟也不能加速。TechCrunch 采访里的创始人说，他想给人留一段不用立刻反应的时间。另一位体验者发现，自己开始先想清楚，这句话值不值得派一只鸟。",
       "onScreenText": [
         "已读",
         "正在输入",
@@ -203,7 +202,7 @@
     {
       "id": "seg-012",
       "section": "ending",
-      "narration": "这个规模也逼出了另一道选择。Mendelsohn 用 Claude Code 帮自己开发，早期鸟图也由 AI 生成。用户开始投诉：这些鸟能用真钱购买，图却不该一直这样。创始人没有硬顶，转去办艺术家投稿活动。Roost 靠一只飞得很慢的鸟，让几十万人愿意等。下一批鸟换成谁来画、谁愿意付钱、一个月后还会不会回来，产品还得继续回答。",
+      "narration": "增长之后，另一道产品选择摆到面前。Mendelsohn 用 Claude Code 帮自己开发，早期鸟图也由 AI 生成。用户开始投诉：这些鸟能用真钱购买，图却不该一直这样。创始人随后转去办艺术家投稿活动。开头那只鸟又飞回来了：慢送达已经被做成一个可见、可玩的产品规则。到 7 月 8 日，用户数字接近三十万。下一批鸟由谁画，多少人愿意付钱，一个月后还会不会回来？",
       "onScreenText": [
         "AI 辅助开发",
         "AI 鸟图遭投诉",
@@ -212,14 +211,15 @@
       ],
       "claimIds": [
         "claim-roost-003",
-        "claim-roost-010",
+        "claim-roost-004",
+        "claim-roost-011",
         "claim-roost-013",
         "claim-roost-017",
         "claim-roost-018",
         "claim-roost-019"
       ],
       "scene": "ai-art-ending",
-      "visualIntent": "代码行组成一只鸟，用户投诉将羽毛擦掉；空白鸟卡交给艺术家，最后停在未填的留存曲线。",
+      "visualIntent": "代码行组成一只鸟，用户投诉将羽毛擦掉；空白鸟卡交给艺术家。开场的",
       "targetSeconds": 17
     }
   ]

@@ -13,18 +13,18 @@ Roost Social：一条消息飞三天，为什么有人偏要等？
 - 1080×1920，9:16
 - 30 fps
 - H.264 视频，AAC 48 kHz 音频
-- 时长 208.567 秒
+- 时长 213.267 秒
 - 音频峰值 -1.7 dB
-- SHA-256：`a43d02ff92f4068bb3bc8f59b0349093990898d8e7d551b368fb8b0fa7c885d2`
+- SHA-256：`60e5ca73c6530ae832a704dd48048b2c1658e15072c6d6e7c38b8acb2a957a27`
 
 ## 真实生产数据
 
 - 12 段旁白
 - TTS：Microsoft Edge neural TTS `zh-CN-YunjianNeural`
 - MiniMax：因当前环境缺少凭据，按 `config/tts-v2.json` 回退
-- Hook 真实结束时间：17.892 秒
-- 中文字幕：116 个 cue
-- 小于 1 秒 cue：3 个，占 2.5862%
+- Hook 真实结束时间：19.044 秒
+- 中文字幕：119 个 cue
+- 小于 1 秒 cue：3 个，占 2.5210%
 - 最短 cue：0.898 秒
 
 ## 门禁结果
@@ -33,7 +33,7 @@ Roost Social：一条消息飞三天，为什么有人偏要等？
 - Oral Judge：PASS
 - Audience Critic：93 / 100，PASS
 - Fact Guardian：PASS
-- TypeScript / ESLint / Vitest：PASS，21 项测试
+- TypeScript / ESLint / Vitest：PASS，25 项测试
 - Smoke render：PASS
 - Vertical render：PASS
 - Output inspection：PASS
@@ -42,12 +42,11 @@ Roost Social：一条消息飞三天，为什么有人偏要等？
 
 ## 复审证据
 
-- `output/episode-002/evidence/smoke-0.5.png`
-- `output/episode-002/evidence/smoke-4.png`
-- `output/episode-002/evidence/smoke-9.png`
-- `output/episode-002/evidence/contact-sheet.jpg`
-- `output/episode-002/evidence/website-in-video.png`
-- `output/episode-002/evidence/app-store-in-video.png`
+- `output/episode-002/evidence/latest-hook-0.25.png`
+- `output/episode-002/evidence/latest-hook-4.2.png`
+- `output/episode-002/evidence/latest-hook-website.png`
+- `output/episode-002/evidence/latest-contact-sheet.jpg`
+- `output/episode-002/evidence/latest-ending-return.png`
 
 ## 发布边界
 

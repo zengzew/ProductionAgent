@@ -25,6 +25,7 @@ output/<episode>/vertical_9x16.mp4
 output/<episode>/subtitles_zh.srt
 content/<episode>/production/timeline.json
 content/<episode>/production/tts-metadata.json
+content/<episode>/production/asset-manifest.json
 src/poke-captions.generated.json
 ```
 
@@ -48,6 +49,11 @@ content/<episode>/production/delivery-critic-report.md
 - 对照 `production/asset-manifest.json` 抽查所有官网、应用商店和应用内截图：
   来源 URL、使用目的和 Claim ID 必须一致；画面中要有“真实页面截图”和具体来源
   标签，关键界面在 9:16 画面中可辨认，字幕不能遮住证据重点。
+- 对照 asset manifest 抽查所有官方视频、发布视频和真实操作录屏的首次出现：来源、
+  用途和 Claim ID 必须一致；核心动作在 9:16 中可辨认；强事实说出口时证据已经出现，
+  不能在后段补交；字幕和模糊填充不能遮住或稀释证据重点。
+- 检查结果画面的再次出现是否因中段揭示的选择、代价或后果获得新含义。若只是重复
+  素材填时长，作为质感问题退回 `render`。
 - 合成 UI 必须标“功能演示”，不能让陌生观众误以为它是真实应用截图。权利或来源
   不清楚的页面不得仅凭视觉效果通过。
 - 只审核 1080×1920、30 fps 的竖版产物，不用横版或 smoke render 代替。
@@ -60,6 +66,8 @@ content/<episode>/production/delivery-critic-report.md
 - 真实语速导致吞字，或字幕与旁白明显错位。
 - 官网或应用截图不可辨认、缺少来源标签、与 asset manifest 不一致，或合成 UI
   冒充真实截图。
+- 真实视频或操作录屏缺少来源标签、核心动作在竖屏中不可辨认，或强事实与证据明显
+  错位。
 - 报告绑定的 MP4、SRT 或时间轴 SHA-256 与当前产物不一致。
 
 ## 退回规则

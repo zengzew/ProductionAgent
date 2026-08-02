@@ -8,6 +8,7 @@ import {
   parseFinalScript,
   parseOralReviewGate,
 } from "../src/lib/story";
+import {containsGenericCta, findMissingHookCandidateFields} from "../src/lib/story-quality";
 import {episodeRoot, readJson, repoRoot} from "../src/lib/project";
 
 const storyRoot = path.join(episodeRoot, "story");
@@ -68,6 +69,10 @@ for (const [file, tokens] of Object.entries(requiredStoryTokens)) {
   for (const token of tokens) {
     if (!markdown.includes(token)) errors.push(`story/${file} 缺少结构：${token}`);
   }
+}
+
+for (const {heading, field} of findMissingHookCandidateFields(readStory("hook-candidates.md"))) {
+  errors.push(`story/hook-candidates.md 的 ${heading} 缺少结构：${field}`);
 }
 
 const ids = new Set<string>();
@@ -217,6 +222,9 @@ if (!finalSegment || !/会不会回来|成本|多少钱|是否继续|还会不�
 }
 if (/时代|趋势|未来必然|重新定义|改变世界/u.test(finalSegment?.narration ?? "")) {
   errors.push("结尾出现越过证据的主题升华");
+}
+if (containsGenericCta(finalSegment?.narration ?? "")) {
+  errors.push("结尾使用通用互动 CTA，没有停在具体事实、动作或实际问题");
 }
 
 const criticMarkdown = readStory("critic-report.md");

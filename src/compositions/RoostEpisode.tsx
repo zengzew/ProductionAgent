@@ -140,15 +140,19 @@ const Bird: React.FC<{
   );
 };
 
-const FlightMap: React.FC<{metric?: boolean}> = ({metric = false}) => {
+const FlightMap: React.FC<{metric?: boolean; initialProgress?: number}> = ({
+  metric = false,
+  initialProgress = 0,
+}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const progress = spring({
+  const animatedProgress = spring({
     frame,
     fps,
     config: {damping: 18, stiffness: 45, mass: 1.4},
     durationInFrames: fps * 3,
   });
+  const progress = initialProgress + animatedProgress * (1 - initialProgress);
   const x = interpolate(progress, [0, 1], [105, 775], clamp);
   const y = 310 - Math.sin(progress * Math.PI) * 190;
   return (
@@ -351,22 +355,34 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
               fontSize: 28,
             }}
           >
-            发送
+            已发送
           </span>
         </div>
-        <FlightMap />
+        <FlightMap initialProgress={0.18} />
+        <div
+          style={{
+            padding: "10px 18px",
+            borderRadius: 999,
+            background: "rgba(32,48,47,.86)",
+            color: COLORS.white,
+            fontSize: 22,
+            fontWeight: 700,
+          }}
+        >
+          功能演示 · 送达规则来自 Roost 官方说明
+        </div>
       </div>
     );
   }
   if (sceneIndex === 1) {
     return (
-      <div style={{display: "grid", justifyItems: "center", gap: 42}}>
-        <FlightMap metric />
-        <div style={{display: "flex", alignItems: "center", gap: 32}}>
-          <Metric value="1 万" label="用户" />
-          <div style={{fontSize: 76, color: COLORS.gold}}>→</div>
-          <Metric value="10 万" label="三天后 · 创始人口径" />
-        </div>
+      <div style={{display: "grid", justifyItems: "center", gap: 30}}>
+        <EvidenceScreenshot
+          src="episodes/episode-002/captured/roost-app-store.png"
+          source="Apple App Store"
+          height={500}
+        />
+        <Cards items={["按距离和鸟速送达", "发出后不能撤回", "途中不能加速"]} />
       </div>
     );
   }
@@ -376,20 +392,12 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
         <EvidenceScreenshot
           src="episodes/episode-002/captured/roost-home.png"
           source="Roost 官网"
-          height={500}
+          height={440}
         />
-        <div
-          style={{
-            fontFamily: SERIF,
-            fontSize: 66,
-            fontWeight: 800,
-            textAlign: "center",
-            lineHeight: 1.15,
-          }}
-        >
-          一款故意让你等的
-          <br />
-          通讯 App
+        <div style={{display: "flex", alignItems: "center", gap: 28}}>
+          <Metric value="1 万" label="用户" />
+          <div style={{fontSize: 68, color: COLORS.gold}}>→</div>
+          <Metric value="10 万" label="3 天后 · 创始人口径" />
         </div>
         <div style={{fontSize: 34, color: COLORS.rust}}>为什么有人偏要等？</div>
       </div>
@@ -418,11 +426,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
   if (sceneIndex === 5) {
     return (
       <div style={{display: "grid", justifyItems: "center", gap: 30}}>
-        <EvidenceScreenshot
-          src="episodes/episode-002/captured/roost-app-store.png"
-          source="Apple App Store"
-          height={500}
-        />
+        <FlightMap />
         <div style={{display: "flex", gap: 18, fontSize: 29}}>
           {["猎鹰 · 快", "蜂鸟 · 慢", "蜗牛 · 更慢", "乌龟 · 很久"].map((item, index) => (
             <div
@@ -573,8 +577,17 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
       </div>
       <Cards
         accent={COLORS.rust}
-        items={["AI 辅助开发", "AI 鸟图遭投诉", "下一只鸟，谁来画？", "一个月后，还会不会回来？"]}
+        items={[
+          "AI 鸟图遭投诉",
+          "艺术家投稿活动",
+          "接近 30 万用户 · 创始人口径",
+          "一个月后，还有多少人回来？",
+        ]}
       />
+      <div style={{display: "flex", alignItems: "center", gap: 18}}>
+        <Bird progress={0.82} size={160} color={COLORS.rust} />
+        <span style={{fontSize: 26, color: "#bcd0cd"}}>开头那只鸟，再次出现</span>
+      </div>
     </div>
   );
 };

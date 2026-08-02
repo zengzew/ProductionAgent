@@ -9,6 +9,7 @@ import {
 } from "../src/schemas/episode";
 import {episodeId, episodeRoot, readJson, repoRoot} from "../src/lib/project";
 import {captionPartsFromPlan, fitCaptionPartsToDuration, visibleLength} from "../src/lib/captions";
+import {containsGenericCta, findVisualAssetContractViolations} from "../src/lib/story-quality";
 
 const claims = readJson<unknown[]>(path.join(episodeRoot, "research/facts.json")).map((claim) =>
   claimSchema.parse(claim),
@@ -116,12 +117,24 @@ if (spokenAttributions.length > 2) {
   errors.push(`旁白显式来源归因超过 2 次：${spokenAttributions.join("、")}`);
 }
 
+const finalSegment = script.segments.at(-1);
+if (containsGenericCta(finalSegment?.narration ?? "")) {
+  errors.push("结尾使用通用互动 CTA，没有停在具体事实、动作或实际问题");
+}
+
 for (const asset of assets) {
   if (asset.usedInRender && !asset.approved) {
     errors.push(`渲染使用了未批准素材 ${asset.id}`);
   }
   if (asset.usedInRender && !fs.existsSync(path.join(repoRoot, asset.path))) {
     errors.push(`渲染素材不存在 ${asset.path}`);
+  }
+  for (const violation of findVisualAssetContractViolations(asset)) {
+    errors.push(
+      violation === "sourceUrl"
+        ? `真实视觉素材 ${asset.id} 缺少可追溯 sourceUrl`
+        : `真实视觉素材 ${asset.id} 没有绑定 Claim ID`,
+    );
   }
   for (const claimId of asset.claimIds) {
     if (!claimMap.has(claimId)) errors.push(`${asset.id} 引用了不存在的 claim ${claimId}`);
