@@ -2,7 +2,7 @@
 
 ## Mission
 
-制作有来源、可复跑、面向传播的中文产品故事短视频。
+Build an autonomous product storytelling studio that optimizes for audience retention, emotional engagement and factual credibility.
 
 当前成片是严格小于 3 分钟的 9:16 竖屏视频。目标是提高陌生观众停止划动、继续
 观看、理解产品并愿意讨论或转发的概率。
@@ -96,6 +96,9 @@
   结构，不用推测补齐。
 - 写大纲前，先用一句话写出全片要回答的问题，再分别写出目前有来源的答案和不能
   回答的边界。
+- `Story Director` 必须把核心问题、观众承诺、有来源答案、事实边界、情绪弧线和
+  信息揭示顺序写入 `director-brief.md`。该文件绑定当前 facts、sources 和 research
+  timeline 的 SHA-256，是后续注意力策略和故事结构的导演决策源。
 - 为开场准备多个候选。比较前三秒吸引力、信息密度、悬念、可信度和画面表现力，
   选择能靠事实和画面成立的一版，不选只靠夸张措辞的一版。
 - Hook 候选必须分别写出首帧已经发生的结果、与旁白同期出现的证据、0～3 秒、
@@ -129,6 +132,10 @@
   只作为无信息量的装饰背景。
 - "脚本亮点规划" 只列真正能维持注意力的节点，并说明它靠哪条新信息、哪个动作
   或哪份证据成立。梗图、BGM 停顿和夸张标题不能代替内容。
+- `Viral Director` 在写稿前把选中的注意力设计写入 `viral-strategy.md`。它必须评估
+  Opening hook、Curiosity gap、Emotional tension、Information reveal order 和
+  Ending payoff，并绑定当前故事输入的 SHA-256。策略只能重新排列有 Claim 支持的
+  信息，不能制造情绪、因果或播放量承诺。
 - `Script Writer` 先把信息正确、Claim 完整的版本写入 `script-draft.md`，不得直接
   把初稿标成最终口播。
 - 独立的 `Oral Rewriter` 再把初稿改成 `final-script.md`。它只能改变中文表达和
@@ -138,6 +145,19 @@
 - 独立的 `Oral Judge` 必须在 `oral-review.md` 中绑定初稿和最终稿的 SHA-256，
   分别评估中文自然度、口播节奏和信息保真。三项均不低于 4/5 且没有 blocker 才能
   继续；最多回改 3 轮，第三轮仍不通过就交给人工编辑，不无限自动重写。
+- Audience Critic 与 Fact Guardian 通过后，`Visual Director` 必须在
+  `visual-plan.md` 中为每个旁白段落定义 scene structure、visual evidence、animation
+  ideas、asset requirements、pacing 和完整 Claim IDs。计划绑定最终稿 SHA-256；关键
+  素材未取得、权利不清或竖屏不可读时不得标记 READY。
+- 独立的 `Retention Critic` 必须在 `retention-report.md` 中绑定最终稿与视觉方案的
+  SHA-256，预测前三秒、前三十秒、中段和结尾的划走风险。总分不低于 80/100、每项
+  不低于 15/25、没有 high risk 或 blocker 才能进入 TTS。它只指定退回角色，不直接
+  改稿或改视觉方案。
+- Audience Critic 和 Retention Critic 的划走风险必须写清时间、严重度、观众为什么
+  会走、当前证据、要求发生的具体变化和责任角色。不得只写“节奏弱”或“建议优化”。
+- Critic REJECT 后，`workflow.json` 必须记录 feedback ID、owner 和待修改产物。下一轮
+  评审必须引用上一轮报告，逐条记录修改前后产物的 SHA-256；产物没有实际变化时不得
+  把 REJECT 改成 PASS。创意修订最多三轮，仍失败时交给人工编辑。
 - 用“因为、所以、于是、结果”连接两个事件时，Claim 必须支持因果。资料只支持先后
   顺序时，用具体动作呈现变化，不靠连接词制造因果。
 - 不把 "百万播放量" 当作质量结论。只能检查开场速度、信息推进、证据可信度、
@@ -282,8 +302,9 @@ Prompt 按以下顺序写：
 
 - 使用 TypeScript strict mode、pnpm、React、Remotion、Zod、Vitest 和 FFmpeg。
 - episode 内容放在 `content/<episode>/`，复用代码放在 `src/`。
-- research、script draft、final script、oral review、timeline 和 manifests 是
-  source of truth。
+- research、director brief、viral strategy、script draft、final script、oral review、
+  visual plan、retention report、workflow、timeline、comparison report 和 manifests
+  是 source of truth。
 - 不手修最终 MP4。更新内容或组件后重渲。
 - 当前仓库只保留 9:16 产品故事生产链，不注册或生成旧项目与横版 Composition。
 - 角色化写作通过 Codex Prompt 和文件交接完成，不在仓库内调用 LLM API，不增加
@@ -291,8 +312,9 @@ Prompt 按以下顺序写：
 
 ## Delivery review
 
-- `oral-pass` 只代表口播自然度和信息保真通过；还要经过 Audience Critic 与 Fact
-  Guardian 才能成为 `story-approved`。
+- `oral-pass` 只代表口播自然度和信息保真通过；还要经过 Audience Critic、Fact
+  Guardian、Visual Director 与 Retention Critic。只有注意力策略 READY、视觉方案
+  READY、留存评审 PASS 且 `pnpm validate:story` 通过，状态才是 `story-approved`。
 - `story-approved` 只批准脚本，不代表成片合格。TTS、字幕、时间轴和竖版渲染完成
   后，必须由独立 `Delivery Critic` 审核实际 MP4、SRT 和真实 TTS 时长。
 - Delivery Critic 的硬 blocker：英文单词或中文词组在词中断开；小于 1.0 秒的
@@ -308,6 +330,9 @@ Prompt 按以下顺序写：
   Critic 不直接改产物，也不拿脚本阅读体验代替成片审核。
 - Delivery Critic 报告必须绑定当前竖版 MP4、SRT 与 production timeline 的
   SHA-256。只有 `pnpm validate:delivery` 通过，状态才是 `delivery-approved`。
+- 复刻既有 episode 时，保留旧 MP4 与 timeline，并用 `comparison-report.md` 绑定
+  两版哈希。Hook、故事连贯性、观众好奇心、产品理解、视觉叙事和留存潜力分别评分；
+  这些是编辑代理指标，不能代替发布后的真实留存或 A/B 数据。
 
 ## Required checks
 
@@ -317,6 +342,7 @@ pnpm lint
 pnpm typecheck
 pnpm test
 pnpm validate:research
+pnpm validate:workflow
 pnpm validate:story
 pnpm materialize:story
 pnpm validate:content
@@ -326,6 +352,8 @@ pnpm render:smoke
 pnpm render:vertical
 pnpm inspect:output
 pnpm validate:delivery
+pnpm validate:comparison
 ```
 
 只有竖版读回、字幕安全区、来源谱系、音频和真实时长都通过，才能说本轮完成。
+`validate:comparison` 只在本轮包含既有 episode 复刻对比时要求执行。

@@ -1,6 +1,6 @@
 <!-- critic-gate
 {
-  "rubricVersion": "product-story-v3",
+  "rubricVersion": "product-story-v4",
   "reviewedFile": "story/final-script.md",
   "reviewedSha256": "493e0866a5759009876654a93c53e676442d8a2b1fd8765317ea74eb5bc561cd",
   "round": 1,
@@ -19,9 +19,21 @@
   },
   "total": 93,
   "threshold": 85,
+  "viewerExitRisks": [
+    {
+      "id": "feedback-roost-mid-mechanism",
+      "timeRange": "0:56-1:32",
+      "severity": "low",
+      "whyViewerStops": "鸟速、地图和鸟舍如果连续做成功能卡，会削弱等待体验。",
+      "evidence": "这一窗口连续解释机制，是全片最容易变成说明书的位置。",
+      "requestedChange": "保留完整地图移动、用户离开手机和短暂静音。",
+      "returnTo": "visual-director"
+    }
+  ],
   "blockers": [],
   "verdict": "PASS",
-  "rewriteRequired": false
+  "rewriteRequired": false,
+  "returnTo": "none"
 }
 -->
 

@@ -4,7 +4,7 @@
   "providerId": "edge",
   "fallbackUsed": true,
   "fallbackReason": "missing MINIMAX_API_KEY",
-  "generatedAt": "2026-07-30T15:21:45.060Z",
+  "generatedAt": "2026-08-02T15:10:28.576Z",
   "voice": "zh-CN-YunjianNeural",
   "speed": 1.25,
   "pitch": "-2Hz",

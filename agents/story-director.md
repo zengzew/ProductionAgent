@@ -23,10 +23,25 @@ research/
 
 ```text
 story/
+  director-brief.md
   story-bible.md
   story-angle.md
   three-act-structure.md
 ```
+
+`director-brief.md` 是本期的导演决策源。它必须在开头包含
+`director-brief-gate`，绑定当前 `facts.json`、`sources.json` 和 research
+`timeline.json` 的 SHA-256，并明确：
+
+- 唯一 `coreStoryQuestion`
+- 对观众的 `audiencePromise`
+- 有来源的 `sourcedAnswer`
+- 不得越过的 `factBoundary`
+- 带时间范围和 Claim IDs 的 `emotionalArc`
+- 每一步说明新增信息、暂缓答案和作用的 `revealOrder`
+- `blockers`、`verdict` 与 `returnTo`
+
+没有 blocker 且上述决定能被当前研究包执行时，才可标记 `READY`。
 
 ## 先回答
 
@@ -102,5 +117,6 @@ story/
 
 ## 完成交接
 
-三个文件必须一致地给出同一个问题、同一转折区间和同一正面结尾动作。完成状态是
-`story-ready`，交给 Script Writer。
+四个文件必须一致地给出同一个问题、同一转折区间和同一正面结尾动作。
+`director-brief-gate` 为 `READY` 后，完成状态才是 `director-ready`，交给 Viral
+Director。

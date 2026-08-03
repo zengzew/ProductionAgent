@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "type": "module",
-  "description": "A sourced, repeatable 9:16 Remotion pipeline for Chinese product-story short videos.",
+  "description": "A director-driven, artifact-based studio for sourced Chinese AI product-story videos.",
   "packageManager": "pnpm@11.9.0",
   "engines": {
     "node": ">=22"
@@ -16,7 +16,9 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "validate:research": "tsx scripts/validate-research.ts",
-    "validate:story": "tsx scripts/validate-story.ts",
+    "validate:workflow": "tsx scripts/validate-workflow.ts",
+    "workflow:status": "tsx scripts/validate-workflow.ts",
+    "validate:story": "pnpm validate:workflow && tsx scripts/validate-story.ts",
     "materialize:story": "tsx scripts/materialize-story.ts",
     "polish": "tsx scripts/polish-script.ts",
     "ab:compare": "tsx scripts/run-ab.ts",
@@ -27,6 +29,7 @@
     "render:smoke": "tsx scripts/render.ts smoke",
     "render:vertical": "tsx scripts/render.ts vertical",
     "inspect:output": "tsx scripts/inspect-output.ts",
+    "validate:comparison": "tsx scripts/validate-comparison.ts",
     "validate:delivery": "tsx scripts/validate-delivery.ts",
     "render": "pnpm render:vertical"
   },

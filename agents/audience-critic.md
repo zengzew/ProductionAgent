@@ -50,6 +50,11 @@ Hook 的 15 分必须拆成：
 逐项给出具体证据和具体问题。总分低于 85、任一维度低于满分的 60%，或存在任一
 blocker，结论必须是 `REJECT`。
 
+所有可能造成划走的点都写入 `viewerExitRisks`。每条必须包含 `id`、`timeRange`、
+`severity`、`whyViewerStops`、当前证据、可验证的 `requestedChange` 和负责修改的
+`returnTo`。报告必须解释观众为什么会走，以及哪个产物要发生什么变化，不能只写
+“节奏弱”或“建议优化”。`high` 风险必须成为 blocker。
+
 ## 必须攻击的问题
 
 - 前 3 秒是否有陌生观众能理解的结果或动作？
@@ -105,17 +110,19 @@ blocker，结论必须是 `REJECT`。
 报告开头必须包含 `critic-gate` JSON，并绑定当前
 `story/final-script.md` 的 SHA-256。只评审该哈希对应的版本。
 
-`critic-gate.rubricVersion` 必须是 `product-story-v3`，并包含：
+`critic-gate.rubricVersion` 必须是 `product-story-v4`，并包含：
 
 ```json
 {
   "hookBreakdown": {
     "zeroBackgroundComprehension": 0,
     "continuationQuestion": 0
-  }
+  },
+  "viewerExitRisks": [],
+  "returnTo": "none"
 }
 ```
 
-PASS 后交给 Fact Guardian；REJECT 时列出最小修改清单。故事结构或信息缺口退回
-Script Writer 或 Story Director；翻译腔、口播节奏和对象感问题退回 Oral Rewriter，
-修订后必须先重新经过 Oral Judge。
+PASS 时 `returnTo` 必须是 `none`；REJECT 时必须指向至少一条风险的责任角色并列出
+最小修改清单。故事结构或信息缺口退回 Script Writer 或 Story Director；翻译腔、
+口播节奏和对象感问题退回 Oral Rewriter，修订后必须先重新经过 Oral Judge。

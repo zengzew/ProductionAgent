@@ -1,71 +1,67 @@
 <!-- critic-gate
 {
-  "rubricVersion": "product-story-v3",
+  "rubricVersion": "product-story-v4",
   "reviewedFile": "story/final-script.md",
-  "reviewedSha256": "ede415f75308a713ce17424ee11a23c757c042ebf4d488931209c8b13d2384f7",
-  "round": 5,
+  "reviewedSha256": "b86c56c74ba0a616ed1eb87631a1411cd6d07d20adae7c8c044ed4072a60e620",
+  "round": 1,
   "scores": {
     "hook": 15,
-    "conflict": 15,
+    "conflict": 14,
     "humanElement": 9,
     "productClarity": 15,
-    "growthLogic": 13,
-    "technologyExplanation": 14,
+    "growthLogic": 14,
+    "technologyExplanation": 13,
     "naturalChinese": 15
   },
   "hookBreakdown": {
     "zeroBackgroundComprehension": 8,
     "continuationQuestion": 7
   },
-  "total": 96,
+  "total": 95,
   "threshold": 85,
+  "viewerExitRisks": [
+    {
+      "id": "feedback-audience-cost-window",
+      "timeRange": "1:48-2:01",
+      "severity": "low",
+      "whyViewerStops": "持续运行的解释如果变成静态架构图，会短暂脱离用户动作。",
+      "evidence": "这一段是全片唯一连续技术说明，前后都是具体产品状态。",
+      "requestedChange": "保留一条用户消息，让邮件与航班状态在同屏持续变化。",
+      "returnTo": "visual-director"
+    }
+  ],
   "blockers": [],
   "verdict": "PASS",
-  "rewriteRequired": false
+  "rewriteRequired": false,
+  "returnTo": "none"
 }
 -->
 
 # Poke Audience Critic Report
 
-评审对象：`story/final-script.md`
-评审版本：`ede415f75308a713ce17424ee11a23c757c042ebf4d488931209c8b13d2384f7`
-Rubric：`product-story-v3`
-结论：**96 / 100，PASS**
+结论：**95 / 100，PASS**
 
 ## Hook
 
-| 子项         | 得分  | 证据                                                              |
-| ------------ | ----- | ----------------------------------------------------------------- |
-| 零背景可懂   | 8 / 8 | 第一帧是一条消息改动日历；10 秒内出现一亿条消息和难盈利的明确冲突 |
-| 继续观看问题 | 7 / 7 | 19.884 秒内完成产品定义，并留下“省掉界面为什么越用越贵”的唯一问题 |
+第 0 帧计划展示已发送消息与已更新日历。十秒内出现一亿多条消息，二十秒内完成产品
+定义，并留下团队选择与 Beta 用户动作的唯一问题。
 
-旧版前三秒列出提醒、球赛和天气，像功能清单；规模与成本要到 2 分钟以后才出现。新版把
-动作、规模、代价和问题压进前 20 秒，陌生观众不需要先认识 Poke。
+## Viewer exit diagnosis
 
-## 评分
+最可能的轻微划走点是 1:48～2:01。旁白从用户动作切到持续运行，如果画面只列模型、
+邮件和航班节点，会像技术说明。Visual Director 必须让同一句请求停在左侧，让后台
+状态仍在变化；这条风险不阻断脚本。
 
-| 维度                   | 得分    | 评语                                                               |
-| ---------------------- | ------- | ------------------------------------------------------------------ |
-| Hook                   | 15 / 15 | 三秒动作、七秒规模冲突、二十秒核心问题形成连续推进                 |
-| Conflict               | 15 / 15 | 少切窗口、持续调用和真实账户错误从开场一直贯穿结尾                 |
-| Human element          | 9 / 10  | 访谈用户拒绝新界面，Beta 用户又用生活任务把产品带出邮箱            |
-| Product clarity        | 15 / 15 | 联系人入口、主动消息、授权执行和 Recipe 都只在推动主线时出现       |
-| Growth logic           | 13 / 15 | 一般可用、Apple 渠道和一亿消息保持时间顺序，没有虚构单一增长归因   |
-| Technology explanation | 14 / 15 | 一条消息如何展开成邮件监听、航班刷新、模型与工具调用，直接解释成本 |
-| Natural Chinese        | 15 / 15 | 使用具体动作与不对称句长，没有报告腔、翻译腔、AI 套话或强行升华    |
+## 评分摘要
+
+故事从完成动作进入规模，再回到日常麻烦、团队选择和用户扩展。Recipe、消息规模、
+成本与收购都承接同一入口，没有形成孤立功能目录。结尾用已更新日历兑现开场，产品
+价值位于成本与风险之前，也位于结尾。
 
 ## 硬拒绝检查
 
-- 第一段不超过 3 秒，先让日历动作发生。
-- Hook 真实音频 19.884 秒，没有用文字目标替代实际时长。
-- 全片只追问“为什么越用越贵”，没有把 Idea、功能、增长和技术写成并列目录。
-- Beta 用户行为先于产品扩大，不补写创始人顿悟场景。
-- Recipe 和 Apple 入口只作为公开扩张与分发动作，不宣称造成增长。
-- 消息数没有换算成用户、留存、收入、人均强度或成功任务。
-- 成本和收购之间保留空拍，不宣布收购原因。
-- 结尾停在下一次日历错误和是否继续发消息，没有转去总结功能或行业趋势。
-
-## 仍需生产后审核
-
-本报告只批准当前脚本。真实 TTS、字幕词边界、节点音效、画面节奏与竖版安全区仍需
-由 Delivery Critic 审核当前 MP4、SRT 和时间轴。
+- 开场不依赖产品名，核心动作在第 0 帧成立。
+- 强事实都有同期证据计划。
+- 一亿消息不换算用户、留存或采用原因。
+- 成本与收购之间不写因果。
+- 结尾不质疑未来，不使用互动 CTA。

@@ -7,6 +7,7 @@ import {
   endsWithQuestion,
   findMissingHookCandidateFields,
   findVisualAssetContractViolations,
+  parseVisualPlanSections,
 } from "../src/lib/story-quality";
 
 describe("story quality contract", () => {
@@ -51,5 +52,25 @@ describe("story quality contract", () => {
         claimIds: [],
       }),
     ).toEqual([]);
+  });
+
+  it("reports missing Visual Director fields by segment", () => {
+    expect(
+      parseVisualPlanSections(`## seg-001
+
+- Scene structure: 结果已经出现。
+- Visual evidence: 官网截图。
+- Claim IDs: claim-demo-001
+`).missing,
+    ).toEqual([
+      {segmentId: "seg-001", field: "Narrative purpose"},
+      {segmentId: "seg-001", field: "Viewer state in"},
+      {segmentId: "seg-001", field: "Viewer state out"},
+      {segmentId: "seg-001", field: "New information"},
+      {segmentId: "seg-001", field: "Animation ideas"},
+      {segmentId: "seg-001", field: "Asset requirements"},
+      {segmentId: "seg-001", field: "Pacing"},
+      {segmentId: "seg-001", field: "Render target"},
+    ]);
   });
 });

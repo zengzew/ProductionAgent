@@ -2,11 +2,11 @@
 {
   "rubricVersion": "delivery-critic-v1",
   "reviewedVideo": "output/episode-001/vertical_9x16.mp4",
-  "reviewedVideoSha256": "672113aeb631f17c97c5d46d45d3c02d7e7003fdec669ef5298729ac81e4b523",
+  "reviewedVideoSha256": "57a02a5de86f188fe260d6295d7e2a38d16ed948f3341b2d44306e3b472040c0",
   "reviewedSubtitles": "output/episode-001/subtitles_zh.srt",
-  "reviewedSubtitlesSha256": "5aa0b169df39f66d297d7136b8e87bd02d2eb99a59eca01e5c9ec1ab0c4295bc",
+  "reviewedSubtitlesSha256": "d70b4ab74163d2ec5f5b2ed5cdf082f7f6231d3c0e522b582f5450d7d17876fe",
   "reviewedTimeline": "content/episode-001/production/timeline.json",
-  "reviewedTimelineSha256": "ceae4ae27e97e0def20c51fa134dab9a7d572491dca05b36e51eb9cd4ebe1fa1",
+  "reviewedTimelineSha256": "8974170d35d09317cc521acdf821ac4f68f92bfa2955d20e6665cb221011bbd6",
   "metrics": {
     "captionWordBreaks": 0,
     "englishWordBreaks": 0,
@@ -14,7 +14,7 @@
     "microCueCount": 0,
     "microCueRatio": 0,
     "microCueRatioLimit": 0.1,
-    "minimumCueSeconds": 1.025,
+    "minimumCueSeconds": 1.036,
     "firstFrameZeroContextReadable": true,
     "speechClippingOrSwallowing": false
   },
@@ -34,35 +34,36 @@ metadata、generated captions 和关键时间点抽帧
 
 | 产物                                               | SHA-256                                                            |
 | -------------------------------------------------- | ------------------------------------------------------------------ |
-| `output/episode-001/vertical_9x16.mp4`             | `672113aeb631f17c97c5d46d45d3c02d7e7003fdec669ef5298729ac81e4b523` |
-| `output/episode-001/subtitles_zh.srt`              | `5aa0b169df39f66d297d7136b8e87bd02d2eb99a59eca01e5c9ec1ab0c4295bc` |
-| `content/episode-001/production/timeline.json`     | `ceae4ae27e97e0def20c51fa134dab9a7d572491dca05b36e51eb9cd4ebe1fa1` |
-| `content/episode-001/production/tts-metadata.json` | `f6c92cd086da1f4e69148d971fad92abb5025d6abe641fb86465478f96cd5911` |
-| `src/poke-captions.generated.json`                 | `7ac074e7eb1d231fed8fcd726c99ae32a5e2dffed211cb6b267ff2a40dde5c57` |
+| `output/episode-001/vertical_9x16.mp4`             | `57a02a5de86f188fe260d6295d7e2a38d16ed948f3341b2d44306e3b472040c0` |
+| `output/episode-001/subtitles_zh.srt`              | `d70b4ab74163d2ec5f5b2ed5cdf082f7f6231d3c0e522b582f5450d7d17876fe` |
+| `content/episode-001/production/timeline.json`     | `8974170d35d09317cc521acdf821ac4f68f92bfa2955d20e6665cb221011bbd6` |
+| `content/episode-001/production/tts-metadata.json` | `8143a52c00cffd9510f75f9c77ace10a2d88e26bb1d3558cdaa860b899b12178` |
+| `src/poke-captions.generated.json`                 | `4bdd4fcaad55aeea1026a2ce9cb0376798afcddedb29b91da4495c7a81c118cf` |
 
 ## 最终复审
 
-| 检查             | 结果 | 当前产物证据                                                                                      |
-| ---------------- | ---- | ------------------------------------------------------------------------------------------------- |
-| 首帧零背景可懂   | PASS | 第 0 帧出现消息气泡“把周三的会改到下午三点”和已更新的日历卡；动作不依赖产品背景                   |
-| 前 20 秒心智模型 | PASS | 19.884 秒前完成日历动作、“1 亿+ / 难盈利”冲突、联系人 AI 定义和唯一问题                           |
-| 中文字幕语义边界 | PASS | 逐条复核 92 个 cue；完整词组与判断留在同一 cue，没有在词中切断                                    |
-| 英文单词边界     | PASS | `Poke`、`AI`、`Beta`、`Recipe`、`Apple Messages for Business`、`Cognition` 均保持完整             |
-| 两行字幕可读性   | PASS | 每条最多两行，单行不超过 16 个可见字符；关键时间点抽帧未见横向溢出或底部裁切                      |
-| 微 cue           | PASS | 小于 1.0 秒为 0 条，占比 0；最短 cue 为 1.025 秒                                                  |
-| SRT 与渲染字幕   | PASS | SRT 与 generated captions 均为 92 条，文本、换行和起止时间无不一致                                |
-| 字幕安全区       | PASS | 抽查 Hook、痛点、Beta、权限、Recipe、数据、成本、收购和结尾，字幕均位于竖屏底部安全区             |
-| 视觉推进         | PASS | 日历动作、数字对撞、邮箱边界、权限错误、Recipe 实证、调用链、收购公告和结尾回环形成可感知节奏变化 |
-| 画面规格         | PASS | H.264，1080×1920，30 fps，时长 180.544 秒；完整解码无错误                                         |
-| 音频技术状态     | PASS | AAC 48 kHz 双声道；综合响度 -14.1 LUFS，LRA 3.3 LU，true peak -1.0 dBFS，无削波或异常截断         |
-| 旁白完整性       | PASS | 12 段 Edge neural TTS 均成功；分段时长与 production timeline 一致；MiniMax 因缺少凭据按配置回退   |
-| 音画与字幕同步   | PASS | 末条字幕结束于 178.080 秒，成片 180.544 秒；最后问题保留约 2.4 秒视觉停留                         |
+| 检查             | 结果 | 当前产物证据                                                                                                 |
+| ---------------- | ---- | ------------------------------------------------------------------------------------------------------------ |
+| 首帧零背景可懂   | PASS | 第 0 帧同时出现“已发送”的改会消息和“日历已更新”的周三 15:00 卡片，并标注“功能演示”                           |
+| 前 20 秒心智模型 | PASS | 19.956 秒前完成具体动作、消息规模、联系人入口和唯一故事问题                                                  |
+| 中文字幕语义边界 | PASS | 自动复核 72 个 cue；caption plan 与 generated captions 一致，未检出词组断裂                                  |
+| 英文单词边界     | PASS | `Poke`、`AI`、`Beta`、`Recipe`、`Cognition` 均保持完整                                                       |
+| 微 cue           | PASS | 小于 1.0 秒为 0 条，占比 0；最短 cue 为 1.036 秒                                                             |
+| 字幕安全区       | PASS | 抽查 Hook、权限确认、Recipe、消息规模、收购公告和结尾，字幕未遮挡证据重点                                    |
+| 真实页面镜头     | PASS | Poke Release Notes 与 Cognition 收购公告首次出现时均在 9:16 中可辨认，来源和日期标签可见，并与 manifest 对应 |
+| 视觉推进         | PASS | 完成动作、规模、入口选择、用户请求、权限确认、Recipe、运行代价和收购状态依次增加新信息                       |
+| 结尾兑现         | PASS | 结尾回到开场同一句请求和已更新日历，不转去功能清单、未来质疑或互动 CTA                                       |
+| 画面规格         | PASS | H.264，1080×1920，30 fps，真实时长 135.744 秒；完整读回无错误                                                |
+| 音频技术状态     | PASS | AAC 48 kHz；最终混音实测 -14.19 LUFS、LRA 4.70 LU、true peak -1.15 dBFS，无削波或异常截断                    |
+| 旁白完整性       | PASS | 12 段 TTS 全部成功；旁白音频按 `I=-16, TP=-1.5, LRA=7` 归一化；缺少 MiniMax 凭据后按配置回退 Edge            |
+| 音画与字幕同步   | PASS | 末条字幕结束于 133.272 秒，成片 135.744 秒；最后完成状态保留约 2.47 秒                                       |
 
-## 版本对比结论
+## 对旧版的交付差异
 
-旧版前三秒是三项功能清单，最强的消息规模与成本冲突要到后半段才出现，画面主要重复
-大标题和白色卡片。新版前三秒先发生日历动作，十秒内给出“1 亿+”与“难盈利”，中后段
-每个产品动作都在回答同一个问题。视觉和声音节点也随信息转折变化，不再只复述旁白。
+旧版第 0 帧只有空白画布、来源小字和字幕，且 180.544 秒触碰了“严格小于 180
+秒”的硬门槛。当前版第 0 帧已经发生产品动作，删掉 Apple 日期支线和负面问题式结尾，
+把真实时长降到 135.744 秒。中段的真实页面与程序化界面都在强事实首次出现时同步给出，
+不再靠后段补交证据。
 
-当前竖版 MP4、字幕和 production timeline 与本报告哈希一致。首屏理解、Hook 实际
-时长、字幕边界、音频技术状态、画面节奏和结尾停留均未命中硬拒绝项。
+本报告只证明当前成片通过交付门禁。留存提升结论来自可观察的编辑代理指标，不代替
+发布后的真实留存、完播、评论和转发数据。

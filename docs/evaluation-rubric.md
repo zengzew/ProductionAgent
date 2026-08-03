@@ -1,0 +1,253 @@
+# Evaluation Rubric
+
+- Status: normative engineering contract
+- Rubric family: `engineering-evaluation-v1`
+
+## Scoring rules shared by all critics
+
+Scores are decision inputs, not decoration. Validators MUST recompute totals, weights, floors, and
+blocker consistency from the machine gate.
+
+1. A dimension score MUST cite at least one reviewed artifact locator or issue ID.
+2. Scores use the anchors in this document. A critic may choose an integer between anchors only when
+   its evidence explains why both neighboring anchors are inaccurate.
+3. Missing evidence receives the lower anchor. The model does not receive benefit of the doubt.
+4. A blocker overrides the numeric total.
+5. A dimension below its floor rejects the result even when the total passes.
+6. Scores from different `rubricVersion` values are not directly comparable.
+7. A retry over unchanged artifact hashes must reproduce the same deterministic measurements. A
+   subjective score change without new evidence is evaluation drift and cannot close an issue.
+
+Normalized score is:
+
+```text
+sum((dimension score / dimension maximum) * dimension weight) * 100
+```
+
+Weights sum to 1. Where existing reports already sum directly to 100, normalized and raw totals are
+equal.
+
+## Severity standard
+
+| Severity  | Standard                                                                                         |
+| --------- | ------------------------------------------------------------------------------------------------ |
+| `info`    | No correction required; records a useful observation and never changes verdict.                  |
+| `low`     | Local quality imperfection; product meaning and current gate remain intact.                      |
+| `medium`  | Clear correction required before downstream production unless the rubric explicitly allows PASS. |
+| `high`    | Likely audience loss, serious misunderstanding, or material production defect; blocks PASS for   |
+|           | Audience and Retention critics.                                                                  |
+| `blocker` | Violates fact, contract, rights, duration, format, safety, or a critic-specific hard rule.       |
+
+The same observed defect MUST retain severity across reruns under the same rubric. Severity changes
+require changed evidence or an explicit rubric migration.
+
+## Oral Judge
+
+Rubric version remains `oral-review-v1` for current compatibility.
+
+| Dimension            | Max | Weight | Floor |
+| -------------------- | --- | ------ | ----- |
+| Chinese naturalness  | 5   | 1/3    | 4     |
+| Spoken delivery      | 5   | 1/3    | 4     |
+| Information fidelity | 5   | 1/3    | 4     |
+
+PASS requires every dimension >= 4, no blocker, and normalized score >= 80. The per-dimension floor
+is controlling; a 5 cannot compensate for a 3.
+
+### Oral score anchors
+
+| Score | Observable standard                                                                                 |
+| ----- | --------------------------------------------------------------------------------------------------- |
+| 5     | No material defect; a native speaker can read it once at configured pace without repair.            |
+| 4     | One or two local, non-blocking imperfections; meaning, breath, and source identity remain clear.    |
+| 3     | Repeated stiffness, breath problem, ambiguity, or fidelity risk requiring revision.                 |
+| 2     | Multiple sections sound translated, cannot be spoken naturally, or materially drift from the draft. |
+| 1     | Most of the script fails the dimension.                                                             |
+| 0     | Missing/unreviewable artifact or direct contradiction of the required contract.                     |
+
+Dimension-specific evidence:
+
+- `chineseNaturalness`: sentence order, abstract noun density, formulaic contrast, forbidden wording,
+  and whether product terms receive ordinary-language explanation.
+- `spokenDelivery`: breath units, punctuation, sentence-length variation, TTS pronunciation risk, and
+  object of address.
+- `informationFidelity`: people, actions, numbers, dates, source identity, metric scope, causality,
+  rights boundary, and Claim IDs against the draft and research.
+
+Automatic blockers include any changed fact/number/date/causality/source identity, a new unsupported
+person or scene, a final question replacing a Claim-supported ending, or a third failed round. The
+third failed round routes to human editing regardless of numeric score.
+
+## Audience Critic
+
+Rubric version remains `product-story-v4`.
+
+| Dimension              | Max | Weight | Floor |
+| ---------------------- | --- | ------ | ----- |
+| Hook                   | 15  | 0.15   | 9     |
+| Conflict               | 15  | 0.15   | 9     |
+| Human element          | 10  | 0.10   | 6     |
+| Product clarity        | 15  | 0.15   | 9     |
+| Growth logic           | 15  | 0.15   | 9     |
+| Technology explanation | 15  | 0.15   | 9     |
+| Natural Chinese        | 15  | 0.15   | 9     |
+
+PASS requires total >= 85, every floor met, no high/blocker issue, and no hard blocker below.
+
+### Audience percentage anchors
+
+Apply these anchors to each dimension maximum, then round only to a permitted integer score:
+
+| Percent | Standard                                                                                       |
+| ------- | ---------------------------------------------------------------------------------------------- |
+| 100%    | Requirement is explicit, easy to locate, supported by evidence, and sustained through the cut. |
+| 80%     | Requirement works; one local weakness does not change comprehension or continuation.           |
+| 60%     | Core requirement is present but fragile, delayed, or partially repetitive. This is the floor.  |
+| 40%     | Viewers need inference or prior context; revision is required.                                 |
+| 0%      | Missing, contradicted, or impossible to evaluate.                                              |
+
+### Dimension standards
+
+| Dimension              | Full-credit evidence                                                                                    | Automatic dimension failure                                                                   |
+| ---------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Hook                   | First frame shows a changed state/action; 0-3 seconds are zero-context clear; by 20 seconds a relevant  | Core action appears after 3 seconds, or 20-second continuation question is absent.            |
+|                        | continuation question exists.                                                                           |                                                                                               |
+| Conflict               | One product tension explains user experience and advances toward a sourced answer without manufactured  | Conflict is a generic crisis, unsupported reversal, or future doubt unrelated to product use. |
+|                        | crisis.                                                                                                 |                                                                                               |
+| Human element          | A sourced person/user performs visible actions whose choices connect to product behavior.               | Invented protagonist/action, or no observable human action.                                   |
+| Product clarity        | By 20 seconds, a zero-context viewer can say what it does/where it is used; each later concept solves a | Product remains a list of names/features, or requires brand knowledge to parse.               |
+|                        | previously shown need.                                                                                  |                                                                                               |
+| Growth logic           | Metric definition, period, source identity, and sequence are explicit; scale is not converted to cause, | Messages become users/retention/revenue, or chronology is stated as causality.                |
+|                        | retention, or revenue.                                                                                  |                                                                                               |
+| Technology explanation | Technical detail changes visible experience, permission, cost, or distribution and is explained in      | Unsupported architecture or unexplained jargon becomes the story.                             |
+|                        | ordinary language.                                                                                      |                                                                                               |
+| Natural Chinese        | Spoken Chinese is direct, varied, attributable, and free from report/translation templates.             | Translation/report tone dominates, or sources/data gaps are narrated as the story.            |
+
+Hook is independently split:
+
+| Hook component                | Max | Anchors                                                                            |
+| ----------------------------- | --- | ---------------------------------------------------------------------------------- |
+| Zero-background comprehension | 8   | 8 clear by 3s; 6 clear with minor label dependence; 4 delayed/ambiguous; 0 absent. |
+| Continuation question         | 7   | 7 relevant by 20s; 5 present but generic; 3 weak/product-insider; 0 absent.        |
+
+The two hook components MUST sum to the Hook score.
+
+Audience blockers include unsupported fact or causality, fabricated person/motive/result, strong fact
+without feasible synchronous evidence, first 20 seconds without a product mental model, a story event
+that cannot reconnect to product choice and user-visible result, explicit source attribution more than
+twice, generic CTA ending, unsupported market outcome, and every `high` viewer-exit issue.
+
+## Fact Guardian
+
+Rubric version remains `fact-guardian-v1`. This is a binary weighted rubric: a dimension receives its
+full weight only when every checked unit passes; otherwise it receives zero and emits at least one
+blocker issue.
+
+| Dimension                    | Weight | Pass standard                                                                            |
+| ---------------------------- | ------ | ---------------------------------------------------------------------------------------- |
+| Claim coverage               | 0.25   | Every segment/unit binds existing, narration-allowed Claims.                             |
+| Semantic fidelity            | 0.25   | Wording preserves Claim meaning, strength, actor, result, and uncertainty.               |
+| Source identity/attribution  | 0.15   | Company, founder, independent report, and editorial analysis remain distinct.            |
+| Metric and time scope        | 0.15   | Definition, value, period, event date, and first/open/growth events are not conflated.   |
+| Causality/inference boundary | 0.10   | Chronology is not upgraded to cause; motives, architecture, and attribution not guessed. |
+| Visual truth boundary        | 0.10   | Real page, official footage, programmatic graphic, and demonstration are represented     |
+|                              |        | consistently with the Claim and asset basis.                                             |
+
+Threshold is 100. Every dimension floor is its full weight. Any open factual issue is a blocker and
+REJECTS regardless of how many other units pass. This deliberately prevents a high average from
+masking one unbroadcastable sentence.
+
+The validator MUST confirm `checkedSegments` and `checkedNarrationUnits` equal the current parsed
+script counts. Missing coverage is `contract.invalid-output`, not a lower editorial score.
+
+## Retention Critic
+
+Rubric version remains `retention-critic-v2`.
+
+| Window               | Max | Weight | Floor |
+| -------------------- | --- | ------ | ----- |
+| First 3 seconds      | 25  | 0.25   | 15    |
+| First 30 seconds     | 25  | 0.25   | 15    |
+| Mid-video engagement | 25  | 0.25   | 15    |
+| Ending satisfaction  | 25  | 0.25   | 15    |
+
+PASS requires total >= 80, every window >= 15, every window risk in `low|medium`, no high/blocker
+issue, no unresolved prior feedback, and exact script/visual hashes.
+
+### Retention anchors
+
+| Score band | Observable standard                                                                               |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| 23-25      | Clear visual action and new information; no plausible exit point beyond normal audience variance. |
+| 20-22      | Strong continuation with one specific low-risk weakness.                                          |
+| 15-19      | Core promise is intact but a medium-risk delay, repetition, or readability problem exists.        |
+| 6-14       | High-risk window; viewer lacks a reason, model, visible change, or payoff.                        |
+| 0-5        | Missing, contradicted, or unreviewable window.                                                    |
+
+Window standards:
+
+- First 3 seconds: first frame already shows a result or changed state, object and action are
+  understandable without the product name, and evidence can appear synchronously.
+- First 30 seconds: the product mental model, curiosity gap, and viewer-relevant question are active.
+- Mid-video: each 20-40 second span adds an action, evidence item, scale, choice, consequence, or
+  changed judgment; the planned 60-90 second pace shift advances the same story.
+- Ending: it answers the opening question with the same action now carrying new meaning, stops on a
+  supported result/state/action, and has no generic CTA or unsupported future claim.
+
+Any `high` window creates a high issue and blocker. A report cannot label the window low/medium while
+containing a high issue in that time range.
+
+## Delivery Critic
+
+Rubric version remains `delivery-critic-v1`. Like Fact Guardian, this is a binary weighted rubric.
+
+| Dimension                      | Weight | Pass standard                                                                      |
+| ------------------------------ | ------ | ---------------------------------------------------------------------------------- |
+| Artifact integrity             | 0.15   | MP4, SRT, timeline paths/hashes match current selected artifacts.                  |
+| Duration and vertical format   | 0.15   | ffprobe reads 1080x1920, 30 fps, and duration strictly below 180 seconds.          |
+| Caption integrity and timing   | 0.20   | No English/Chinese word split; micro-cue ratio <= 10%; cues align to narration.    |
+| Audio intelligibility and sync | 0.15   | No swallowing, broken pronunciation, abnormal pause, clipping, or material desync. |
+| First-frame comprehension      | 0.10   | Concrete zero-context action/result is understood within 3 seconds.                |
+| Evidence, rights, readability  | 0.20   | Used assets match manifest/source/Claim, labels are visible, evidence readable.    |
+| Render continuity/safe area    | 0.05   | No cut-off evidence, unsafe subtitle overlap, broken frame, or filler repetition.  |
+
+Threshold is 100 and every dimension floor is its full weight. Any failed dimension emits a blocker
+and routes to a production stage.
+
+Machine measurements override estimates:
+
+- final MP4 duration `>= 180.000` seconds is a blocker;
+- any English or Chinese word split is a blocker;
+- micro cue means duration `< 1.0` second; ratio `> 0.10` is a blocker;
+- wrong resolution, frame rate, orientation, missing stream, or stale hash is a blocker.
+
+Playback observations are also hard blockers when they concern first-frame comprehension, speech
+intelligibility/sync, source/evidence readability, missing source label, manifest mismatch, or a
+generated interface presented as real. Each requires a time-range evidence locator.
+
+## Score-to-verdict algorithm
+
+Validators apply this order:
+
+```text
+1. Validate report schema and reviewed hashes.
+2. Recompute deterministic metrics and all score arithmetic.
+3. Verify each dimension has evidence and meets its floor.
+4. Derive blockers from issues and critic-specific hard rules.
+5. Derive deterministic route for every open issue.
+6. PASS only if threshold/floors pass, blocker set is empty, and primaryRoute is null.
+7. Otherwise REJECT only if at least one valid open issue and primaryRoute exist.
+8. Any other combination is INVALID_OUTPUT, not PASS or REJECT.
+```
+
+## Rubric change control
+
+Changing a dimension, weight, floor, anchor, threshold, or blocker condition requires:
+
+1. a new immutable `rubricVersion`;
+2. updated critic schema/profile;
+3. updated routing and regression fixtures;
+4. replay of golden reports under both old and new rubrics;
+5. explicit declaration that cross-version score comparison is unsupported or a documented migration.
+
+Prompt changes alone cannot change rubric meaning.

@@ -1,84 +1,85 @@
 {
-  "selectedHook": "one-message-one-hundred-million-cost",
+  "selectedHook": "calendar-already-changed",
   "segments": [
     {
       "id": "seg-001",
       "section": "hook",
-      "narration": "给一个联系人发句话，它就能替你改日历。",
+      "narration": "发一句话，日历已经改好了。",
       "onScreenText": [
         "发给一个联系人",
-        "把周三会议改到下午三点",
-        "日历已更新"
+        "周三会议改到下午三点",
+        "日历已更新",
+        "功能演示"
       ],
       "claimIds": [
         "claim-poke-011"
       ],
       "scene": "hook-calendar-action",
-      "visualIntent": "第一帧即出现消息气泡与移动中的日历卡，持续标注“功能演示”；动作在三秒内完成。",
+      "visualIntent": "第 0 帧同时出现已发送消息与已更新日历，持续标“功能演示”；随后只做轻微确认动效。",
       "targetSeconds": 3
     },
     {
       "id": "seg-002",
       "section": "hook",
-      "narration": "三个月，这样的往来超过一亿条。可创始人说，Poke 跑起来很贵，也很难赚钱。",
+      "narration": "Cognition 披露，约三个月里，这样的消息超过一亿条。一个小动作，被放大成了一个产品问题。",
       "onScreenText": [
         "约三个月",
         "1 亿+ 条消息",
-        "运行昂贵，也很难赚钱"
+        "消息数，不是用户数"
       ],
       "claimIds": [
-        "claim-poke-015",
-        "claim-poke-021"
+        "claim-poke-015"
       ],
       "scene": "hook-metric-cost",
-      "visualIntent": "“1 亿+”占满画面，消息计数仍在增长；随后成本警示从数字中切开，数据口径和来源留在画面小字。",
+      "visualIntent": "一亿数字由开场消息扩展开，来源标签与统计口径同时出现，不再用成本警示切断正面结果。",
       "targetSeconds": 7
     },
     {
       "id": "seg-003",
       "section": "hook",
-      "narration": "Poke 是联系人列表里的 AI 助手。它能读邮件、动日历，也会主动来找你。为什么这个省掉界面的产品，反而越用越贵？",
+      "narration": "Poke 是联系人列表里的 AI 助手。它能读邮件、改日历，还会主动找你。团队为什么收起工作台，Beta 用户又怎样把它带出邮箱？",
       "onScreenText": [
-        "住在联系人列表里的 AI",
+        "联系人列表里的 AI",
         "读邮件",
         "改日历",
         "主动来找你",
-        "为什么越用越贵？"
+        "为什么收起工作台？"
       ],
       "claimIds": [
+        "claim-poke-006",
+        "claim-poke-008",
         "claim-poke-010",
-        "claim-poke-011",
-        "claim-poke-021"
+        "claim-poke-011"
       ],
       "scene": "hook-core-question",
-      "visualIntent": "联系人卡连接邮件与日历，随后所有连线变成持续调用的脉冲；画面停在全片唯一问题。",
+      "visualIntent": "联系人连接邮件、日历与主动提醒，最后停在团队选择和 Beta 用户动作的唯一问题。",
       "targetSeconds": 10
     },
     {
       "id": "seg-004",
-      "section": "problem-and-definition",
-      "narration": "先看它接住了什么。你收到一封邮件，会议改到周四。你得复制时间，打开日历，挪日程，再去待办里补提醒。下一封邮件一来，又得从头对一遍。团队盯上的，是这些散在三个窗口里的小动作。",
+      "section": "problem",
+      "narration": "先看旧办法。会议改期，你要从邮件复制时间，打开日历挪日程，再补一条提醒。邮件又变，三处还得重新核对。",
       "onScreenText": [
-        "邮件改时间",
-        "复制",
+        "会议改期",
+        "复制时间",
         "挪日历",
         "补提醒",
-        "下一封邮件，再来一遍"
+        "重新核对"
       ],
       "claimIds": [
         "claim-poke-007"
       ],
       "scene": "problem-fragmentation",
-      "visualIntent": "首帧标“流程示意、功能演示”；邮件日期被复制到日历和待办，原邮件变更后，三处同时亮红。",
-      "targetSeconds": 18
+      "visualIntent": "邮件日期依次搬到日历和待办；原邮件变化后，三处同时出现待核对状态并标“流程示意、功能演示”。",
+      "targetSeconds": 14
     },
     {
       "id": "seg-005",
-      "section": "discovery-and-decision",
-      "narration": "最早，他们想做一套围着邮箱转的客户端和自动化。访谈里的用户却给了一个很直接的反馈：别再让我学新界面。团队于是把工作台收起来，把 Poke 放进消息列表。功能不再等人去找，用户只需要发一句话。",
+      "section": "decision",
+      "narration": "团队最早想做邮件客户端和自动化。访谈里，用户的反馈很直接：别再让我学一套界面。团队随后收起工作台，把 Poke 放进现成的消息列表。需要时，发一句就行。",
       "onScreenText": [
         "最早：邮件客户端与自动化",
-        "用户反馈：别再让我学新界面",
+        "用户：别再让我学新界面",
         "工作台收起",
         "联系人留下"
       ],
@@ -87,36 +88,36 @@
         "claim-poke-010"
       ],
       "scene": "decision-messaging",
-      "visualIntent": "邮件客户端草图先铺满屏幕，访谈反馈压上来后，所有工具栏向外退场，只留下联系人卡。",
-      "targetSeconds": 18
+      "visualIntent": "邮件工作台先占满画面，用户反馈出现后界面组件依次退出，只留下联系人气泡。",
+      "targetSeconds": 15
     },
     {
       "id": "seg-006",
-      "section": "discovery-and-decision",
-      "narration": "真正把方向推远的，是 Beta 用户。他们没只把 Poke 当邮件助手。有人让它提醒吃药，有人问天气和球赛结果。团队原来想替人整理邮箱，用户却在把它当成一个随时能叫到的助手。产品的边界，就这样被真实请求往外拉。",
+      "section": "user-pull",
+      "narration": "Beta 用户又把边界推开。有人让它提醒吃药，有人问天气和球赛。原本的邮件助手，被这些真实请求带进了日常任务。",
       "onScreenText": [
-        "用户没有按原计划使用",
+        "Beta 用户继续往外推",
         "提醒吃药",
-        "问天气",
-        "问球赛结果",
-        "邮件助手被带出邮箱"
+        "天气",
+        "球赛结果",
+        "带出邮箱"
       ],
       "claimIds": [
         "claim-poke-008"
       ],
       "scene": "beta-user-pull",
-      "visualIntent": "“邮件助手”边界框出现裂口，三条来源中出现过的 Beta 请求穿过边界，画面构图从邮箱扩到生活任务。",
-      "targetSeconds": 17
+      "visualIntent": "三条来源支持的请求依次穿过“邮件助手”边界，画面从收件箱扩到日常任务。",
+      "targetSeconds": 14
     },
     {
       "id": "seg-007",
-      "section": "solution-and-risk",
-      "narration": "入口变成联系人以后，Poke 还能先开口。时间到了，它发来提醒；邮件变了，它跟着追；你授权以后，它可以读邮件、改日历、草拟回复。省下来的，是你来回切窗口的动作。交出去的，是对真实账户的操作权。你少点了几下，它改错一次也会直接留在日历里。",
+      "section": "product-value",
+      "narration": "联系人入口还让 Poke 先开口。时间到了，它提醒；邮件变了，它跟进。授权之后，它能读邮件、改日历、草拟回复。少切窗口的同时，真实账户里的结果也要由用户核对。",
       "onScreenText": [
         "它能先开口",
-        "授权后可读邮件、改日历",
+        "授权后读邮件、改日历",
         "少切窗口",
-        "错误会直接留下"
+        "结果仍需核对"
       ],
       "claimIds": [
         "claim-poke-010",
@@ -124,104 +125,101 @@
         "claim-poke-024"
       ],
       "scene": "proactive-permission-risk",
-      "visualIntent": "联系人先主动发提醒，授权门打开后邮件和日历被连接；一次日历移动先成功，随后同一动作以红色落在错误时间。",
-      "targetSeconds": 20
+      "visualIntent": "联系人主动提醒，授权门打开后日历移动并出现核对状态；合成操作持续标“功能演示”。",
+      "targetSeconds": 17
     },
     {
       "id": "seg-008",
-      "section": "distribution",
-      "narration": "还有一个能直接分享的设计。Poke 把背景设定、开场白和要连接的服务，装进 Recipe 链接。朋友点开，就能从配好的设置开始，账户授权仍要自己完成。2026 年 3 月 19 日，候补名单取消，Recipe 同时开放。",
+      "section": "sharing",
+      "narration": "Recipe 再把背景、开场白和要连接的服务做成链接。朋友点开，可以从配好的设置开始，账户仍要自己授权。2026 年 3 月 19 日，候补名单取消，Recipe 同时开放。",
       "onScreenText": [
         "Recipe：把设置做成链接",
-        "朋友从配好的设置开始",
-        "账户仍需自己授权",
-        "2026.03.19 候补名单取消"
+        "从配好的设置开始",
+        "账户仍需授权",
+        "2026.03.19 全面开放"
       ],
       "claimIds": [
         "claim-poke-004",
         "claim-poke-012"
       ],
       "scene": "recipe-release",
-      "visualIntent": "一张 Recipe 卡被复制并发送给另一个联系人；随后真实 Release Notes 截图切入，3 月 19 日被放大。",
-      "targetSeconds": 16
+      "visualIntent": "Recipe 设置卡传给下一位联系人，随后硬切真实 Release Notes 并放大 3 月 19 日。",
+      "targetSeconds": 14
     },
     {
       "id": "seg-009",
       "section": "evidence",
-      "narration": "三月全面开放，六月又进入 Apple Messages for Business。到收购前，Cognition 披露，约三个月里，人们与 Poke 往来超过一亿条消息。这个数字不是用户数，却把产品的使用方式露了出来：一次任务，可能不只是一来一回。",
+      "narration": "公开范围扩大以后，到收购前约三个月，人们与 Poke 往来超过一亿条消息。这个数字只代表消息规模，也让同一个入口承载了多少往来变得可见。",
       "onScreenText": [
-        "03.19 全面开放",
-        "06.04 进入 Apple Messages for Business",
-        "约三个月 1 亿+ 条消息",
-        "一次任务，不只一来一回"
+        "约三个月",
+        "1 亿+ 条消息",
+        "同一个联系人入口",
+        "消息规模，不是用户数"
       ],
       "claimIds": [
-        "claim-poke-004",
-        "claim-poke-015",
-        "claim-poke-017",
-        "claim-poke-021"
+        "claim-poke-010",
+        "claim-poke-015"
       ],
       "scene": "growth-cost-counter",
-      "visualIntent": "三个公开节点以不同节奏落下；“1 亿+”出现后，单条用户消息向后展开成多次请求和工具调用。",
-      "targetSeconds": 20
+      "visualIntent": "一亿消息第二次出现，但这次收拢到单一联系人入口；统计口径和来源持续可见。",
+      "targetSeconds": 14
     },
     {
       "id": "seg-010",
-      "section": "technology-and-cost",
-      "narration": "创始人举过两个例子。新邮件一到，自动化就跑一遍；查航班，它得一直刷新。你只发了一句，模型和工具可能在后台接着调用。任务越实时，调用越停不下来。那个最省事的消息入口，也把推理成本藏到了用户看不见的地方。",
+      "section": "tradeoff",
+      "narration": "这份便利也有代价。新邮件一到，自动化就会再跑；盯航班时，状态还要不断刷新。用户只发一句，后台的模型和工具可能继续工作。",
       "onScreenText": [
-        "新邮件到达：自动化运行",
-        "航班未落地：持续刷新",
-        "一句请求",
-        "多次模型与工具调用"
+        "新邮件到达：再运行一次",
+        "航班未落地：继续刷新",
+        "用户只发一句",
+        "后台仍在工作"
       ],
       "claimIds": [
         "claim-poke-021"
       ],
       "scene": "cost-call-chain",
-      "visualIntent": "一条短消息停在左侧，右侧的邮件监听、航班刷新、模型和工具节点反复脉冲；不画金额。",
-      "targetSeconds": 18
+      "visualIntent": "一条用户消息保持不动，邮件监听与航班刷新脉冲继续运行；不画未披露金额或架构。",
+      "targetSeconds": 13
     },
     {
       "id": "seg-011",
-      "section": "turning-point",
-      "narration": "创始人承认，Poke 运行昂贵，也很难盈利。2026 年 7 月 23 日，Cognition 宣布收购开发 Poke 的公司。它给出的下一步，是让 Poke 接上自己的模型和基础设施。Poke 暂时照常使用，长期会不会完全并入，当时还没定。",
+      "section": "current-state",
+      "narration": "2026 年 7 月 23 日，Cognition 宣布收购开发 Poke 的公司。公告里的下一步，是接入自己的模型和基础设施。Poke 当时继续照常使用。",
       "onScreenText": [
-        "运行昂贵，很难盈利",
         "2026.07.23 Cognition 收购",
-        "计划接入自己的模型与基础设施",
-        "Poke 暂时照常"
+        "计划接入模型与基础设施",
+        "Poke 当时照常使用"
       ],
       "claimIds": [
         "claim-poke-019",
-        "claim-poke-021",
         "claim-poke-022"
       ],
       "scene": "acquisition-infrastructure",
-      "visualIntent": "成本调用画面突然静音清空，随后整屏切入 Cognition 收购公告；模型与基础设施计划只在公告之后出现。",
-      "targetSeconds": 16
+      "visualIntent": "持续调用画面短暂静音，随后硬切 Cognition 真实公告与下一步计划。",
+      "targetSeconds": 13
     },
     {
       "id": "seg-012",
-      "section": "boundary-and-ending",
-      "narration": "Poke 当初把工作台收起来，住进了人们每天都看的消息列表。Beta 用户接着把它从邮箱带进生活。到了收购前，Cognition 披露的往来已经超过一亿条消息。可用户少切一次窗口，后台可能要多跑很多次。下一次它把会议挪错，你还会不会继续给它发消息？",
+      "section": "ending-payoff",
+      "narration": "回到开场。团队收起了新工作台，把 AI 放进联系人列表。Beta 用户再用提醒、天气和球赛把它带出邮箱。到收购前，约三个月的往来超过一亿条。发一句话，日历已经改好了。",
       "onScreenText": [
-        "关键选择：让 AI 住进消息列表",
-        "用户少切一次窗口",
-        "后台可能多跑很多次",
-        "下一次改错日程，你还会继续吗？"
+        "工作台收起",
+        "联系人留下",
+        "用户把它带出邮箱",
+        "约三个月 1 亿+ 条消息",
+        "日历已更新",
+        "功能演示"
       ],
       "claimIds": [
         "claim-poke-006",
         "claim-poke-008",
         "claim-poke-010",
-        "claim-poke-015",
-        "claim-poke-021",
-        "claim-poke-024"
+        "claim-poke-011",
+        "claim-poke-015"
       ],
       "scene": "ending-known-edge",
-      "visualIntent": "开场的消息、日历和联系人重新出现；用户的一条消息在前景，后台调用继续延伸，最后日历移到错误时间并停住。",
-      "targetSeconds": 17
+      "visualIntent": "工作台、Beta 请求和消息规模依次收拢到开场的联系人与日历；最后两秒只保留已完成动作并标“功能演示”。",
+      "targetSeconds": 16
     }
   ]
 }

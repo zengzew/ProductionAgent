@@ -5,6 +5,20 @@ export const hookCandidateFields = [
   "自然误解：",
 ] as const;
 
+export const visualPlanFields = [
+  "Narrative purpose",
+  "Viewer state in",
+  "Viewer state out",
+  "New information",
+  "Scene structure",
+  "Visual evidence",
+  "Animation ideas",
+  "Asset requirements",
+  "Pacing",
+  "Render target",
+  "Claim IDs",
+] as const;
+
 export type MissingHookCandidateField = {
   heading: string;
   field: (typeof hookCandidateFields)[number];
@@ -24,6 +38,42 @@ export const findMissingHookCandidateFields = (markdown: string): MissingHookCan
   }
 
   return missing;
+};
+
+export type VisualPlanSection = {
+  id: string;
+  fields: Record<(typeof visualPlanFields)[number], string>;
+};
+
+export type MissingVisualPlanField = {
+  segmentId: string;
+  field: (typeof visualPlanFields)[number];
+};
+
+export const parseVisualPlanSections = (
+  markdown: string,
+): {sections: VisualPlanSection[]; missing: MissingVisualPlanField[]} => {
+  const starts = [...markdown.matchAll(/^## seg-\d+[ \t]*$/gmu)].map((match) => match.index ?? 0);
+  const blocks = starts.map((start, index) => markdown.slice(start, starts[index + 1]));
+  const sections: VisualPlanSection[] = [];
+  const missing: MissingVisualPlanField[] = [];
+
+  for (const block of blocks) {
+    const id = block.match(/^## (seg-\d+)\s*$/mu)?.[1];
+    if (!id) continue;
+    const fields = {} as Record<(typeof visualPlanFields)[number], string>;
+    for (const field of visualPlanFields) {
+      const value = block.match(new RegExp(`^- ${field}: (.+)$`, "mu"))?.[1]?.trim();
+      if (!value) {
+        missing.push({segmentId: id, field});
+      } else {
+        fields[field] = value;
+      }
+    }
+    sections.push({id, fields});
+  }
+
+  return {sections, missing};
 };
 
 const genericCtaPattern =

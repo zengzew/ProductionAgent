@@ -11,9 +11,12 @@
 
 ```text
 research/facts.json
+story/director-brief.md
 story/story-bible.md
 story/story-angle.md
 story/three-act-structure.md
+story/hook-candidates.md
+story/viral-strategy.md
 ```
 
 ## 输出
@@ -21,7 +24,6 @@ story/three-act-structure.md
 只可创建或修改：
 
 ```text
-story/hook-candidates.md
 story/script-draft.md
 ```
 
@@ -38,9 +40,8 @@ story/script-draft.md
 - 前 20 秒必须出现反常识动作和一个与观众使用、信任或后果有关的问题。
 - 前 20 秒内用一句普通话建立产品心智模型，让观众知道它是什么、在哪里使用或替
   用户完成什么。不得写研究没有支持的排他性定义。
-- 每个 Hook 候选必须逐项写出 `首帧结果`、`同期证据`、`递进台阶` 和 `自然误解`。
-  递进台阶覆盖 0～3 秒、3～10 秒和 10～20 秒；没有可验证误解时明确写“无”，不能
-  为了完整制造反转。
+- 严格执行 Viral Director 选中的 Hook、好奇缺口、揭示顺序和结尾兑现。发现策略与
+  Claim 或故事结构冲突时退回，不自行换 Hook。
 - 统计口径是加分项，可在动作之后 5 至 10 秒补充，不得挤占第一句。
 - 先呈现用户的具体场景、愿望或麻烦，再讲产品第一版和公司时间线。每个新功能或
   专有名词出现前，先交代它接住了哪个已出现的需求；无法接回主线时删除。

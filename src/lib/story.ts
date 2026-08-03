@@ -8,8 +8,169 @@ const narrationModeSchema = z.enum([
   "demonstration",
 ]);
 
+const sha256Schema = z.string().regex(/^[a-f0-9]{64}$/u);
+
+const routedRoleSchema = z.enum([
+  "research-analyst",
+  "story-director",
+  "viral-director",
+  "script-writer",
+  "oral-rewriter",
+  "visual-director",
+]);
+
+const viewerExitRiskSchema = z.object({
+  id: z.string().regex(/^feedback-[a-z0-9-]+$/u),
+  timeRange: z.string().min(1),
+  severity: z.enum(["low", "medium", "high", "blocker"]),
+  whyViewerStops: z.string().min(1),
+  evidence: z.string().min(1),
+  requestedChange: z.string().min(1),
+  returnTo: routedRoleSchema,
+});
+
+export const directorBriefGateSchema = z.object({
+  rubricVersion: z.literal("director-brief-v1"),
+  reviewedFiles: z.object({
+    factsSha256: sha256Schema,
+    sourcesSha256: sha256Schema,
+    timelineSha256: sha256Schema,
+  }),
+  coreStoryQuestion: z.string().min(1),
+  audiencePromise: z.string().min(1),
+  sourcedAnswer: z.string().min(1),
+  factBoundary: z.string().min(1),
+  emotionalArc: z
+    .array(
+      z.object({
+        beatId: z.string().regex(/^beat-[0-9]{2}$/u),
+        viewerState: z.string().min(1),
+        storyMove: z.string().min(1),
+        targetRange: z.string().min(1),
+        claimIds: z.array(z.string().regex(/^claim-[a-z0-9-]+$/u)).min(1),
+      }),
+    )
+    .min(3),
+  revealOrder: z
+    .array(
+      z.object({
+        order: z.number().int().positive(),
+        reveal: z.string().min(1),
+        withheldAnswer: z.string().min(1),
+        purpose: z.string().min(1),
+      }),
+    )
+    .min(3),
+  blockers: z.array(z.string()),
+  verdict: z.enum(["READY", "REVISE"]),
+  returnTo: z.enum(["none", "research-analyst", "story-director"]),
+});
+
+export const viralStrategyGateSchema = z.object({
+  rubricVersion: z.literal("viral-strategy-v2"),
+  reviewedFiles: z.object({
+    storyBibleSha256: sha256Schema,
+    storyAngleSha256: sha256Schema,
+    threeActStructureSha256: sha256Schema,
+    hookCandidatesSha256: sha256Schema,
+    directorBriefSha256: sha256Schema,
+  }),
+  selectedHookHeading: z.string().min(1),
+  claimIds: z.array(z.string().regex(/^claim-[a-z0-9-]+$/u)).min(1),
+  scores: z.object({
+    openingHook: z.number().min(0).max(5),
+    curiosityGap: z.number().min(0).max(5),
+    emotionalTension: z.number().min(0).max(5),
+    informationRevealOrder: z.number().min(0).max(5),
+    endingPayoff: z.number().min(0).max(5),
+  }),
+  total: z.number().min(0).max(25),
+  threshold: z.literal(20),
+  blockers: z.array(z.string()),
+  verdict: z.enum(["READY", "REVISE"]),
+  returnTo: z.enum(["none", "research-analyst", "story-director", "viral-director"]),
+});
+
+export const visualPlanGateSchema = z.object({
+  rubricVersion: z.literal("visual-plan-v2"),
+  reviewedFile: z.literal("story/final-script.md"),
+  reviewedSha256: sha256Schema,
+  plannedSegments: z.number().int().positive(),
+  unresolvedAssets: z.array(z.string()),
+  verdict: z.enum(["READY", "REVISE"]),
+  returnTo: z.enum([
+    "none",
+    "research-analyst",
+    "story-director",
+    "script-writer",
+    "visual-director",
+  ]),
+});
+
+const retentionWindowSchema = z.object({
+  dropOffRisk: z.enum(["low", "medium", "high"]),
+  prediction: z.string().min(1),
+});
+
+const resolvedFeedbackSchema = z.object({
+  feedbackId: z.string().regex(/^feedback-[a-z0-9-]+$/u),
+  owner: routedRoleSchema,
+  change: z.string().min(1),
+  artifacts: z
+    .array(
+      z.object({
+        beforeFile: z.string().min(1),
+        beforeSha256: sha256Schema,
+        afterFile: z.string().min(1),
+        afterSha256: sha256Schema,
+      }),
+    )
+    .min(1),
+});
+
+export const retentionGateSchema = z.object({
+  rubricVersion: z.literal("retention-critic-v2"),
+  reviewedFile: z.literal("story/final-script.md"),
+  reviewedSha256: sha256Schema,
+  visualPlanFile: z.literal("story/visual-plan.md"),
+  visualPlanSha256: sha256Schema,
+  round: z.number().int().positive(),
+  scores: z.object({
+    first3Seconds: z.number().min(0).max(25),
+    first30Seconds: z.number().min(0).max(25),
+    midVideoEngagement: z.number().min(0).max(25),
+    endingSatisfaction: z.number().min(0).max(25),
+  }),
+  windows: z.object({
+    first3Seconds: retentionWindowSchema,
+    first30Seconds: retentionWindowSchema,
+    midVideo: retentionWindowSchema,
+    ending: retentionWindowSchema,
+  }),
+  total: z.number().min(0).max(100),
+  threshold: z.literal(80),
+  viewerExitRisks: z.array(viewerExitRiskSchema),
+  previousReview: z
+    .object({
+      reportFile: z.string().min(1),
+      reportSha256: sha256Schema,
+    })
+    .optional(),
+  resolvedFeedback: z.array(resolvedFeedbackSchema),
+  blockers: z.array(z.string()),
+  verdict: z.enum(["PASS", "REJECT"]),
+  returnTo: z.enum([
+    "none",
+    "viral-director",
+    "story-director",
+    "script-writer",
+    "oral-rewriter",
+    "visual-director",
+  ]),
+});
+
 export const criticGateSchema = z.object({
-  rubricVersion: z.literal("product-story-v3"),
+  rubricVersion: z.literal("product-story-v4"),
   reviewedFile: z.literal("story/final-script.md"),
   reviewedSha256: z.string().regex(/^[a-f0-9]{64}$/u),
   round: z.number().int().positive(),
@@ -28,9 +189,11 @@ export const criticGateSchema = z.object({
   }),
   total: z.number().min(0).max(100),
   threshold: z.literal(85),
+  viewerExitRisks: z.array(viewerExitRiskSchema),
   blockers: z.array(z.string()),
   verdict: z.enum(["PASS", "REJECT"]),
   rewriteRequired: z.boolean(),
+  returnTo: z.enum(["none", "story-director", "script-writer", "oral-rewriter"]),
 });
 
 export const oralReviewGateSchema = z.object({
@@ -179,4 +342,32 @@ export const parseFactCheckGate = (markdown: string): z.infer<typeof factCheckGa
   const raw = markdown.match(/<!-- fact-check-gate\n([\s\S]*?)\n-->/u)?.[1];
   if (!raw) throw new Error("fact-check-report.md is missing fact-check-gate metadata");
   return factCheckGateSchema.parse(JSON.parse(raw));
+};
+
+export const parseDirectorBriefGate = (
+  markdown: string,
+): z.infer<typeof directorBriefGateSchema> => {
+  const raw = markdown.match(/<!-- director-brief-gate\n([\s\S]*?)\n-->/u)?.[1];
+  if (!raw) throw new Error("director-brief.md is missing director-brief-gate metadata");
+  return directorBriefGateSchema.parse(JSON.parse(raw));
+};
+
+export const parseViralStrategyGate = (
+  markdown: string,
+): z.infer<typeof viralStrategyGateSchema> => {
+  const raw = markdown.match(/<!-- viral-strategy-gate\n([\s\S]*?)\n-->/u)?.[1];
+  if (!raw) throw new Error("viral-strategy.md is missing viral-strategy-gate metadata");
+  return viralStrategyGateSchema.parse(JSON.parse(raw));
+};
+
+export const parseVisualPlanGate = (markdown: string): z.infer<typeof visualPlanGateSchema> => {
+  const raw = markdown.match(/<!-- visual-plan-gate\n([\s\S]*?)\n-->/u)?.[1];
+  if (!raw) throw new Error("visual-plan.md is missing visual-plan-gate metadata");
+  return visualPlanGateSchema.parse(JSON.parse(raw));
+};
+
+export const parseRetentionGate = (markdown: string): z.infer<typeof retentionGateSchema> => {
+  const raw = markdown.match(/<!-- retention-gate\n([\s\S]*?)\n-->/u)?.[1];
+  if (!raw) throw new Error("retention-report.md is missing retention-gate metadata");
+  return retentionGateSchema.parse(JSON.parse(raw));
 };

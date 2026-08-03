@@ -1,0 +1,228 @@
+{
+  "schemaVersion": "director-workflow-v1",
+  "episodeId": "episode-001",
+  "coreStoryQuestion": "Poke 为什么出现在联系人列表里，Beta 用户又怎样把它从邮件工具带进日常生活？",
+  "currentStatus": "delivery-approved",
+  "revisionPolicy": {
+    "maximumCreativeRounds": 3,
+    "scriptChangeRestartsAt": "oral-judge",
+    "visualChangeRestartsAt": "retention-critic"
+  },
+  "stages": [
+    {
+      "id": "research-analyst",
+      "owner": "research-analyst",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-001/research/facts.json",
+        "content/episode-001/research/sources.json",
+        "content/episode-001/research/timeline.json"
+      ],
+      "decision": "确定可播事实、来源身份和事实边界。"
+    },
+    {
+      "id": "story-director",
+      "owner": "story-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-001/story/director-brief.md",
+        "content/episode-001/story/story-bible.md",
+        "content/episode-001/story/story-angle.md",
+        "content/episode-001/story/three-act-structure.md"
+      ],
+      "decision": "把核心问题改为团队入口选择与 Beta 用户动作。"
+    },
+    {
+      "id": "viral-director",
+      "owner": "viral-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-001/story/hook-candidates.md",
+        "content/episode-001/story/viral-strategy.md"
+      ],
+      "decision": "选择第 0 帧直接显示已更新日历的 Hook。"
+    },
+    {
+      "id": "script-writer",
+      "owner": "script-writer",
+      "status": "complete",
+      "artifacts": ["content/episode-001/story/script-draft.md"],
+      "decision": "删除 Apple 编年支线并把目标时长压到 150 秒。"
+    },
+    {
+      "id": "oral-rewriter",
+      "owner": "oral-rewriter",
+      "status": "complete",
+      "artifacts": ["content/episode-001/story/final-script.md"],
+      "decision": "把信息稿改成可直接口播的 12 段中文。"
+    },
+    {
+      "id": "oral-judge",
+      "owner": "oral-judge",
+      "status": "complete",
+      "artifacts": ["content/episode-001/story/oral-review.md"],
+      "decision": "确认自然度、口播节奏和信息保真均通过。"
+    },
+    {
+      "id": "audience-critic",
+      "owner": "audience-critic",
+      "status": "complete",
+      "artifacts": ["content/episode-001/story/critic-report.md"],
+      "decision": "识别持续运行段为轻微划走风险，并给出同屏动作要求。"
+    },
+    {
+      "id": "fact-guardian",
+      "owner": "fact-guardian",
+      "status": "complete",
+      "artifacts": ["content/episode-001/story/fact-check-report.md"],
+      "decision": "批准 36 个旁白单元的 Claim 与因果边界。"
+    },
+    {
+      "id": "visual-director",
+      "owner": "visual-director",
+      "status": "complete",
+      "artifacts": ["content/episode-001/story/visual-plan.md"],
+      "decision": "为每段定义观众状态、新信息、证据和实际 Render target。"
+    },
+    {
+      "id": "retention-critic",
+      "owner": "retention-critic",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-001/story/reviews/retention-round-01.md",
+        "content/episode-001/story/retention-report.md"
+      ],
+      "decision": "Round 01 退回三个角色，Round 02 验证修订闭环。"
+    },
+    {
+      "id": "delivery-critic",
+      "owner": "delivery-critic",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-001/production/delivery-critic-report.md",
+        "output/episode-001/vertical_9x16.mp4",
+        "output/episode-001/subtitles_zh.srt"
+      ],
+      "decision": "当前竖版成片以 135.744 秒通过首帧、字幕、真实页面、音频和结尾兑现复审。"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "decision-core-story-question",
+      "owner": "story-director",
+      "decision": "围绕联系人入口与 Beta 用户扩展用途讲故事。",
+      "rationale": "现有 Claim 能直接支持两次方向变化，也能在正面产品价值上兑现结尾。",
+      "artifact": "content/episode-001/story/director-brief.md",
+      "claimIds": ["claim-poke-006", "claim-poke-008", "claim-poke-010"]
+    },
+    {
+      "id": "decision-attention-strategy",
+      "owner": "viral-director",
+      "decision": "第 0 帧显示完成后的日历动作，十秒内给出一亿消息。",
+      "rationale": "先让陌生观众看懂结果，再用规模打开问题。",
+      "artifact": "content/episode-001/story/viral-strategy.md",
+      "claimIds": ["claim-poke-011", "claim-poke-015"]
+    },
+    {
+      "id": "decision-information-draft",
+      "owner": "script-writer",
+      "decision": "删除不能推进核心问题的 Apple 节点。",
+      "rationale": "减少日期编年，把公开规模用于解释入口。",
+      "artifact": "content/episode-001/story/script-draft.md",
+      "claimIds": ["claim-poke-010", "claim-poke-015"]
+    },
+    {
+      "id": "decision-spoken-delivery",
+      "owner": "oral-rewriter",
+      "decision": "将目标压到 150 秒并用具体动作连接段落。",
+      "rationale": "为真实 TTS 留出严格小于 180 秒的余量。",
+      "artifact": "content/episode-001/story/final-script.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-audience-clearance",
+      "owner": "audience-critic",
+      "decision": "脚本通过，但持续运行段必须保持用户动作。",
+      "rationale": "防止唯一技术段变成说明书。",
+      "artifact": "content/episode-001/story/critic-report.md",
+      "claimIds": ["claim-poke-021"]
+    },
+    {
+      "id": "decision-factual-clearance",
+      "owner": "fact-guardian",
+      "decision": "脚本事实与因果边界通过。",
+      "rationale": "消息规模、方向变化、成本和收购均保留来源身份。",
+      "artifact": "content/episode-001/story/fact-check-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-visual-language",
+      "owner": "visual-director",
+      "decision": "用连续的消息到日历动作串起全片。",
+      "rationale": "重复结果画面每次增加团队选择、用户用途或运行代价。",
+      "artifact": "content/episode-001/story/visual-plan.md",
+      "claimIds": ["claim-poke-011"]
+    },
+    {
+      "id": "decision-production-readiness",
+      "owner": "retention-critic",
+      "decision": "Round 02 以 93 分批准进入生产。",
+      "rationale": "上一轮三个高风险反馈均有实际 artifact 变更并重新评审。",
+      "artifact": "content/episode-001/story/retention-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-final-delivery",
+      "owner": "delivery-critic",
+      "decision": "批准当前 135.744 秒竖版成片交付。",
+      "rationale": "当前 MP4 严格小于 180 秒，第 0 帧展示已完成动作，字幕、证据镜头、音频和结尾均通过实际成片复审。",
+      "artifact": "content/episode-001/production/delivery-critic-report.md",
+      "claimIds": []
+    }
+  ],
+  "reviewCycles": [
+    {
+      "id": "review-retention-round-01",
+      "critic": "retention-critic",
+      "round": 1,
+      "reportPath": "content/episode-001/story/reviews/retention-round-01.md",
+      "reportSha256": "d2f3511b66261b766cfb843c7f8e16540749033e86a63e0f3cdee5be2e4c29c1",
+      "verdict": "REJECT",
+      "routes": [
+        {
+          "feedbackId": "feedback-retention-payoff",
+          "owner": "story-director",
+          "resolutionArtifacts": [
+            "content/episode-001/story/director-brief.md",
+            "content/episode-001/story/final-script.md"
+          ],
+          "status": "resolved"
+        },
+        {
+          "feedbackId": "feedback-retention-repeat",
+          "owner": "script-writer",
+          "resolutionArtifacts": [
+            "content/episode-001/story/script-draft.md",
+            "content/episode-001/story/final-script.md"
+          ],
+          "status": "resolved"
+        },
+        {
+          "feedbackId": "feedback-retention-visual-rhythm",
+          "owner": "visual-director",
+          "resolutionArtifacts": ["content/episode-001/story/visual-plan.md"],
+          "status": "resolved"
+        }
+      ]
+    },
+    {
+      "id": "review-retention-round-02",
+      "critic": "retention-critic",
+      "round": 2,
+      "reportPath": "content/episode-001/story/retention-report.md",
+      "reportSha256": "0f3a195b1d8be73da25854bdf0d04d8bc052f6af70eacb4dabf9cfcaa3cf257a",
+      "verdict": "PASS",
+      "routes": []
+    }
+  ]
+}

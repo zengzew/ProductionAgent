@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "director-workflow-v1",
+  "episodeId": "episode-002",
+  "coreStoryQuestion": "一条消息要飞三天，Roost 怎样把等待变成让人期待的交流体验？",
+  "currentStatus": "delivery-approved",
+  "revisionPolicy": {
+    "maximumCreativeRounds": 3,
+    "scriptChangeRestartsAt": "oral-judge",
+    "visualChangeRestartsAt": "retention-critic"
+  },
+  "stages": [
+    {
+      "id": "research-analyst",
+      "owner": "research-analyst",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-002/research/facts.json",
+        "content/episode-002/research/sources.json",
+        "content/episode-002/research/timeline.json"
+      ],
+      "decision": "确定慢速送达、用户故事、规模与权限的来源边界。"
+    },
+    {
+      "id": "story-director",
+      "owner": "story-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-002/story/director-brief.md",
+        "content/episode-002/story/story-bible.md",
+        "content/episode-002/story/story-angle.md",
+        "content/episode-002/story/three-act-structure.md"
+      ],
+      "decision": "围绕等待如何变成交流体验组织全片。"
+    },
+    {
+      "id": "viral-director",
+      "owner": "viral-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-002/story/hook-candidates.md",
+        "content/episode-002/story/viral-strategy.md"
+      ],
+      "decision": "选择消息已发出但要飞三天的 Hook。"
+    },
+    {
+      "id": "script-writer",
+      "owner": "script-writer",
+      "status": "complete",
+      "artifacts": ["content/episode-002/story/script-draft.md"],
+      "decision": "按规则、等待体验、用户故事和阶段性结果推进。"
+    },
+    {
+      "id": "oral-rewriter",
+      "owner": "oral-rewriter",
+      "status": "complete",
+      "artifacts": ["content/episode-002/story/final-script.md"],
+      "decision": "完成自然中文口播。"
+    },
+    {
+      "id": "oral-judge",
+      "owner": "oral-judge",
+      "status": "complete",
+      "artifacts": ["content/episode-002/story/oral-review.md"],
+      "decision": "口播三项通过。"
+    },
+    {
+      "id": "audience-critic",
+      "owner": "audience-critic",
+      "status": "complete",
+      "artifacts": ["content/episode-002/story/critic-report.md"],
+      "decision": "识别中段机制说明风险。"
+    },
+    {
+      "id": "fact-guardian",
+      "owner": "fact-guardian",
+      "status": "complete",
+      "artifacts": ["content/episode-002/story/fact-check-report.md"],
+      "decision": "事实与指标口径通过。"
+    },
+    {
+      "id": "visual-director",
+      "owner": "visual-director",
+      "status": "complete",
+      "artifacts": ["content/episode-002/story/visual-plan.md"],
+      "decision": "以连续飞行路线组织逐段视觉。"
+    },
+    {
+      "id": "retention-critic",
+      "owner": "retention-critic",
+      "status": "complete",
+      "artifacts": ["content/episode-002/story/retention-report.md"],
+      "decision": "以 92 分批准进入生产并保留中段风险提示。"
+    },
+    {
+      "id": "delivery-critic",
+      "owner": "delivery-critic",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-002/production/delivery-critic-report.md",
+        "output/episode-002/vertical_9x16.mp4"
+      ],
+      "decision": "当前竖版成片通过交付门。"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "decision-core-story-question",
+      "owner": "story-director",
+      "decision": "解释等待如何成为交流体验。",
+      "rationale": "规则、用户动作和阶段性结果都能接回同一只鸟。",
+      "artifact": "content/episode-002/story/director-brief.md",
+      "claimIds": ["claim-roost-003", "claim-roost-004"]
+    },
+    {
+      "id": "decision-attention-strategy",
+      "owner": "viral-director",
+      "decision": "首帧显示消息已发出但三天后到。",
+      "rationale": "反常识结果无需产品背景。",
+      "artifact": "content/episode-002/story/viral-strategy.md",
+      "claimIds": ["claim-roost-003"]
+    },
+    {
+      "id": "decision-information-draft",
+      "owner": "script-writer",
+      "decision": "从规则推进到等待体验和用户玩法。",
+      "rationale": "避免把鸟类功能写成目录。",
+      "artifact": "content/episode-002/story/script-draft.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-spoken-delivery",
+      "owner": "oral-rewriter",
+      "decision": "使用自然中文口播。",
+      "rationale": "让陌生观众在二十秒内建立心智模型。",
+      "artifact": "content/episode-002/story/final-script.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-audience-clearance",
+      "owner": "audience-critic",
+      "decision": "脚本通过，中段不得渲染成功能卡。",
+      "rationale": "机制窗口是最可能划走的位置。",
+      "artifact": "content/episode-002/story/critic-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-factual-clearance",
+      "owner": "fact-guardian",
+      "decision": "事实与增长口径通过。",
+      "rationale": "用户规模不换算留存，传播故事不写唯一因果。",
+      "artifact": "content/episode-002/story/fact-check-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-visual-language",
+      "owner": "visual-director",
+      "decision": "用一条持续飞行路线串起全片。",
+      "rationale": "等待本身成为可见动作。",
+      "artifact": "content/episode-002/story/visual-plan.md",
+      "claimIds": ["claim-roost-003", "claim-roost-004"]
+    },
+    {
+      "id": "decision-production-readiness",
+      "owner": "retention-critic",
+      "decision": "以 92 分批准生产。",
+      "rationale": "四个时间窗口均过门槛，无 high risk。",
+      "artifact": "content/episode-002/story/retention-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-final-delivery",
+      "owner": "delivery-critic",
+      "decision": "批准当前竖版 MP4。",
+      "rationale": "真实时长、字幕、首屏和来源证据通过交付检查。",
+      "artifact": "content/episode-002/production/delivery-critic-report.md",
+      "claimIds": []
+    }
+  ],
+  "reviewCycles": [
+    {
+      "id": "review-retention-round-01",
+      "critic": "retention-critic",
+      "round": 1,
+      "reportPath": "content/episode-002/story/retention-report.md",
+      "reportSha256": "61c3241a5ab56f41d63f1d42c51c64572bacd895f5dc69761fb52ff5631edd34",
+      "verdict": "PASS",
+      "routes": []
+    }
+  ]
+}

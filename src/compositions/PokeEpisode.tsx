@@ -137,6 +137,18 @@ const sourcePublishers = (claimIds: string[]): string => {
   return Array.from(publishers).slice(0, 3).join(" · ");
 };
 
+const sceneEvidenceLabel = (scene: Timeline["scenes"][number]): string => {
+  if (scene.id === "seg-001" || scene.id === "seg-012") {
+    return "Poke 官方能力说明 · 功能演示";
+  }
+  if (scene.id === "seg-002" || scene.id === "seg-009") {
+    return "Cognition 披露 · 消息数不是用户数";
+  }
+  if (scene.id === "seg-008") return "Poke 官方 Release Notes · 真实页面截图";
+  if (scene.id === "seg-011") return "Cognition 收购公告 · 真实页面截图";
+  return sourcePublishers(scene.claimIds);
+};
+
 const SceneShell: React.FC<{
   scene: Timeline["scenes"][number];
   children: React.ReactNode;
@@ -236,7 +248,7 @@ const SceneShell: React.FC<{
             textOverflow: "ellipsis",
           }}
         >
-          {sourcePublishers(scene.claimIds)}
+          {sceneEvidenceLabel(scene)}
         </span>
       </div>
     </AbsoluteFill>
@@ -379,6 +391,7 @@ const HookScene: React.FC<{
   const {fps} = useVideoConfig();
   const pop = enter(frame, fps, 2);
   if (scene.scene === "hook-calendar-action") {
+    const confirmation = interpolate(frame, [0, 18, 34], [0.94, 1.03, 1], clamp);
     return (
       <div
         style={{
@@ -393,8 +406,7 @@ const HookScene: React.FC<{
           style={{
             display: "flex",
             justifyContent: "flex-end",
-            opacity: interpolate(frame, [0, 10], [0, 1], clamp),
-            transform: `translateY(${interpolate(frame, [0, 10], [26, 0], clamp)}px)`,
+            opacity: 1,
           }}
         >
           <div
@@ -409,6 +421,16 @@ const HookScene: React.FC<{
               boxShadow: "0 22px 55px rgba(21,23,27,.24)",
             }}
           >
+            <div
+              style={{
+                marginBottom: 12,
+                color: COLORS.blueSoft,
+                fontSize: isVertical ? 22 : 17,
+                fontWeight: 700,
+              }}
+            >
+              已发送
+            </div>
             把周三的会
             <br />
             改到下午三点
@@ -422,8 +444,9 @@ const HookScene: React.FC<{
             background: "rgba(255,255,255,.84)",
             border: `2px solid ${COLORS.blue}`,
             boxShadow: "0 26px 75px rgba(61,120,181,.18)",
-            opacity: interpolate(frame, [16, 28], [0, 1], clamp),
-            transform: `translateX(${interpolate(frame, [16, 28], [-60, 0], clamp)}px)`,
+            opacity: 1,
+            transform: `scale(${confirmation})`,
+            transformOrigin: "center center",
           }}
         >
           <div style={{color: COLORS.blue, fontSize: isVertical ? 26 : 20, fontWeight: 760}}>
@@ -470,24 +493,37 @@ const HookScene: React.FC<{
           1 亿+
         </div>
         <div style={{fontSize: isVertical ? 34 : 28, color: COLORS.muted}}>约三个月 · 消息往来</div>
+        <div style={{display: "flex", gap: 12, alignItems: "center", marginTop: 4}}>
+          {Array.from({length: 6}).map((_, index) => (
+            <div
+              key={index}
+              style={{
+                width: 24 + index * 5,
+                height: 14,
+                borderRadius: 999,
+                background: index === 5 ? COLORS.caution : COLORS.blue,
+                opacity: interpolate(frame, [index * 5, index * 5 + 10], [0.2, 0.9], clamp),
+              }}
+            />
+          ))}
+        </div>
         <div
           style={{
-            marginTop: 20,
-            padding: isVertical ? "30px 34px" : "24px 30px",
-            borderLeft: `8px solid ${COLORS.caution}`,
-            background: "rgba(166,92,67,.08)",
-            color: COLORS.caution,
+            marginTop: 16,
+            padding: isVertical ? "26px 30px" : "22px 26px",
+            borderLeft: `8px solid ${COLORS.blue}`,
+            background: "rgba(61,120,181,.08)",
+            color: COLORS.ink,
             fontFamily: SERIF,
-            fontSize: isVertical ? 58 : 50,
+            fontSize: isVertical ? 52 : 46,
             fontWeight: 760,
             lineHeight: 1.25,
-            opacity: interpolate(frame, [32, 46], [0, 1], clamp),
-            transform: `translateX(${interpolate(frame, [32, 46], [70, 0], clamp)}px)`,
+            opacity: interpolate(frame, [24, 38], [0, 1], clamp),
           }}
         >
-          运行昂贵
+          一个小动作
           <br />
-          也很难赚钱
+          变成一个产品问题
         </div>
         <div style={{fontSize: isVertical ? 22 : 17, color: COLORS.muted}}>
           消息数，不是用户数 · Cognition 披露 + 创始人口述
@@ -541,9 +577,22 @@ const HookScene: React.FC<{
             ))}
           </div>
         </div>
-        <BigTitle isVertical={isVertical} size={isVertical ? 92 : 82}>
-          为什么越用越贵？
-        </BigTitle>
+        <div>
+          <BigTitle isVertical={isVertical} size={isVertical ? 78 : 72}>
+            为什么收起工作台？
+          </BigTitle>
+          <div
+            style={{
+              marginTop: 24,
+              fontSize: isVertical ? 40 : 34,
+              lineHeight: 1.35,
+              color: COLORS.caution,
+              fontWeight: 720,
+            }}
+          >
+            用户又怎样把它带出邮箱？
+          </div>
+        </div>
       </div>
     );
   }
@@ -1166,7 +1215,7 @@ const ActionLoopScene: React.FC<{isVertical: boolean}> = ({isVertical}) => {
 
 const ProactivePermissionRiskScene: React.FC<{isVertical: boolean}> = ({isVertical}) => {
   const frame = useCurrentFrame();
-  const warning = interpolate(frame, [170, 195], [0, 1], clamp);
+  const review = interpolate(frame, [150, 178], [0, 1], clamp);
   return (
     <div
       style={{
@@ -1184,7 +1233,7 @@ const ProactivePermissionRiskScene: React.FC<{isVertical: boolean}> = ({isVertic
         <BigTitle isVertical={isVertical} size={isVertical ? 74 : 68}>
           少切窗口，
           <br />
-          也把操作权交出去
+          结果仍要核对
         </BigTitle>
         <div
           style={{
@@ -1239,7 +1288,7 @@ const ProactivePermissionRiskScene: React.FC<{isVertical: boolean}> = ({isVertic
                 width: 24,
                 height: 24,
                 borderRadius: 99,
-                background: warning > 0 ? COLORS.caution : COLORS.blue,
+                background: review > 0 ? COLORS.green : COLORS.blue,
               }}
             />
           </div>
@@ -1247,16 +1296,16 @@ const ProactivePermissionRiskScene: React.FC<{isVertical: boolean}> = ({isVertic
             style={{
               marginTop: 42,
               padding: "22px 24px",
-              borderLeft: `6px solid ${COLORS.caution}`,
-              background: `rgba(166,92,67,${0.04 + warning * 0.08})`,
-              color: COLORS.caution,
+              borderLeft: `6px solid ${COLORS.green}`,
+              background: `rgba(74,114,95,${0.04 + review * 0.08})`,
+              color: COLORS.green,
               fontSize: isVertical ? 26 : 21,
-              opacity: warning,
+              opacity: review,
             }}
           >
-            如果时间改错，
+            操作完成
             <br />
-            错误会直接留在日历里
+            请核对日历时间
           </div>
         </div>
       </div>
@@ -1446,7 +1495,7 @@ const GrowthScene: React.FC<{isVertical: boolean}> = ({isVertical}) => (
 
 const GrowthCostCounterScene: React.FC<{isVertical: boolean}> = ({isVertical}) => {
   const frame = useCurrentFrame();
-  const nodes = ["用户消息", "模型", "邮件", "日历", "主动回复"];
+  const messages = ["改一下日历", "提醒我吃药", "查明天的天气", "告诉我球赛结果"];
   return (
     <div style={{height: "100%", display: "grid", alignContent: "center", gap: 36}}>
       <div
@@ -1459,9 +1508,9 @@ const GrowthCostCounterScene: React.FC<{isVertical: boolean}> = ({isVertical}) =
         }}
       >
         {[
-          ["03.19", "全面开放"],
-          ["06.04", "Apple 消息入口"],
-          ["约三个月", "1 亿+ 条消息"],
+          ["约三个月", "统计窗口"],
+          ["1 亿+", "消息往来"],
+          ["≠ 用户数", "只看消息规模"],
         ].map(([date, label], index) => (
           <div
             key={date}
@@ -1479,37 +1528,65 @@ const GrowthCostCounterScene: React.FC<{isVertical: boolean}> = ({isVertical}) =
           </div>
         ))}
       </div>
-      <div style={{display: "grid", gridTemplateColumns: "0.7fr 1.3fr", gap: 26}}>
-        <div>
-          <div style={{fontFamily: SERIF, fontSize: isVertical ? 150 : 160, lineHeight: 0.88}}>
-            1 亿+
-          </div>
-          <div style={{fontSize: isVertical ? 23 : 18, color: COLORS.muted, marginTop: 18}}>
-            消息，不是用户
-          </div>
-        </div>
-        <div style={{display: "grid", gap: 12, alignContent: "center"}}>
-          {nodes.map((node, index) => (
+      <div style={{display: "grid", gridTemplateColumns: "1.15fr 0.85fr", gap: 26}}>
+        <div style={{display: "grid", gap: 14, alignContent: "center"}}>
+          {messages.map((message, index) => (
             <div
-              key={node}
+              key={message}
               style={{
-                padding: isVertical ? "16px 20px" : "14px 18px",
-                borderRadius: 999,
-                background: index === 0 ? COLORS.ink : "rgba(61,120,181,.1)",
-                color: index === 0 ? COLORS.white : COLORS.blue,
-                fontSize: isVertical ? 23 : 18,
+                padding: isVertical ? "18px 22px" : "16px 20px",
+                borderRadius: "22px 22px 6px 22px",
+                background: index === 0 ? COLORS.ink : "rgba(255,255,255,.76)",
+                color: index === 0 ? COLORS.white : COLORS.ink,
+                border: index === 0 ? "none" : `1px solid ${COLORS.line}`,
+                fontSize: isVertical ? 24 : 19,
                 transform: `translateX(${interpolate(
                   frame,
-                  [55 + index * 7, 72 + index * 7],
-                  [50, 0],
+                  [index * 9, index * 9 + 18],
+                  [-42, 0],
                   clamp,
                 )}px)`,
-                opacity: interpolate(frame, [55 + index * 7, 72 + index * 7], [0, 1], clamp),
+                opacity: interpolate(frame, [index * 9, index * 9 + 18], [0, 1], clamp),
               }}
             >
-              {index === 0 ? "一句请求" : `继续调用 · ${node}`}
+              {message}
             </div>
           ))}
+        </div>
+        <div
+          style={{
+            display: "grid",
+            placeItems: "center",
+            alignSelf: "center",
+            minHeight: isVertical ? 360 : 320,
+            borderRadius: 36,
+            border: `2px solid ${COLORS.blue}`,
+            background: "rgba(61,120,181,.08)",
+            opacity: interpolate(frame, [28, 48], [0, 1], clamp),
+          }}
+        >
+          <div style={{textAlign: "center"}}>
+            <div
+              style={{
+                width: isVertical ? 100 : 84,
+                height: isVertical ? 100 : 84,
+                margin: "0 auto 24px",
+                borderRadius: 999,
+                display: "grid",
+                placeItems: "center",
+                background: COLORS.blue,
+                color: COLORS.white,
+                fontFamily: SERIF,
+                fontSize: isVertical ? 54 : 46,
+              }}
+            >
+              P
+            </div>
+            <div style={{fontSize: isVertical ? 30 : 25, fontWeight: 760}}>同一个联系人入口</div>
+            <div style={{marginTop: 12, color: COLORS.muted, fontSize: isVertical ? 21 : 17}}>
+              Poke · 官方入口说明
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1837,17 +1914,17 @@ const AcquisitionInfrastructureScene: React.FC<{isVertical: boolean}> = ({isVert
         </div>
         <div
           style={{
-            borderLeft: `7px solid ${COLORS.caution}`,
+            borderLeft: `7px solid ${COLORS.blue}`,
             paddingLeft: 24,
-            color: COLORS.caution,
+            color: COLORS.blue,
             fontSize: isVertical ? 31 : 25,
             lineHeight: 1.4,
             opacity: interpolate(frame, [0, 18], [0, 1], clamp),
           }}
         >
-          Poke 运行昂贵，
+          产品来到
           <br />
-          也很难盈利
+          一个公开新阶段
         </div>
       </div>
       <div
@@ -1896,52 +1973,92 @@ const AcquisitionInfrastructureScene: React.FC<{isVertical: boolean}> = ({isVert
   );
 };
 
-const ConclusionScene: React.FC<{isVertical: boolean}> = ({isVertical}) => (
-  <div
-    style={{
-      height: "100%",
-      display: "grid",
-      gridTemplateColumns: isVertical ? "1fr" : "1.1fr .9fr",
-      alignItems: "center",
-      gap: isVertical ? 36 : 70,
-    }}
-  >
-    <div>
-      <BigTitle isVertical={isVertical} size={isVertical ? 82 : 78}>
-        用户少切一次窗口
-        <br />
-        后台可能多跑很多次
-      </BigTitle>
-      <div
-        style={{
-          marginTop: 34,
-          fontSize: isVertical ? 29 : 25,
-          lineHeight: 1.7,
-          color: COLORS.muted,
-        }}
-      >
-        Poke 最关键的选择，是让 AI 住进消息列表。
-        <br />
-        便利、成本和错误，都从同一条消息开始。
+const ConclusionScene: React.FC<{isVertical: boolean}> = ({isVertical}) => {
+  const frame = useCurrentFrame();
+  return (
+    <div
+      style={{
+        height: "100%",
+        display: "grid",
+        gridTemplateRows: "auto 1fr",
+        alignContent: "center",
+        gap: isVertical ? 36 : 30,
+      }}
+    >
+      <div>
+        <div style={{display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 24}}>
+          {["工作台收起", "联系人留下", "用户带出邮箱"].map((label, index) => (
+            <div
+              key={label}
+              style={{
+                padding: isVertical ? "12px 17px" : "10px 14px",
+                borderRadius: 999,
+                background: index === 2 ? COLORS.blue : "rgba(255,255,255,.76)",
+                color: index === 2 ? COLORS.white : COLORS.ink,
+                border: index === 2 ? "none" : `1px solid ${COLORS.line}`,
+                fontSize: isVertical ? 22 : 18,
+                opacity: interpolate(frame, [index * 16, index * 16 + 14], [0, 1], clamp),
+              }}
+            >
+              {label}
+            </div>
+          ))}
+        </div>
+        <BigTitle isVertical={isVertical} size={isVertical ? 72 : 66}>
+          发一句话
+          <br />
+          日历已经改好了
+        </BigTitle>
       </div>
-      <div
-        style={{
-          marginTop: 38,
-          paddingTop: 28,
-          borderTop: `2px solid ${COLORS.blue}`,
-          color: COLORS.caution,
-          fontWeight: 760,
-          fontSize: isVertical ? 38 : 34,
-        }}
-      >
-        下一次改错日程，
-        <br />
-        你还会继续发消息吗？
+      <div style={{display: "grid", gridTemplateColumns: "0.88fr 1.12fr", gap: 24}}>
+        <div
+          style={{
+            alignSelf: "center",
+            padding: isVertical ? "26px 28px" : "22px 24px",
+            borderRadius: "28px 28px 8px 28px",
+            background: COLORS.ink,
+            color: COLORS.white,
+            fontSize: isVertical ? 31 : 25,
+            lineHeight: 1.4,
+            opacity: interpolate(frame, [34, 52], [0, 1], clamp),
+          }}
+        >
+          把周三的会
+          <br />
+          改到下午三点
+        </div>
+        <div
+          style={{
+            alignSelf: "center",
+            padding: isVertical ? "30px 32px" : "26px 28px",
+            borderRadius: 30,
+            background: "rgba(255,255,255,.86)",
+            border: `2px solid ${COLORS.blue}`,
+            boxShadow: "0 24px 62px rgba(61,120,181,.16)",
+            opacity: interpolate(frame, [52, 72], [0, 1], clamp),
+          }}
+        >
+          <div style={{color: COLORS.blue, fontSize: isVertical ? 22 : 18, fontWeight: 760}}>
+            日历已更新 · 功能演示
+          </div>
+          <div
+            style={{
+              marginTop: 18,
+              fontFamily: SERIF,
+              fontSize: isVertical ? 56 : 48,
+              fontWeight: 760,
+            }}
+          >
+            周三 15:00
+          </div>
+          <div style={{marginTop: 10, color: COLORS.muted, fontSize: isVertical ? 22 : 18}}>
+            与项目组开会
+          </div>
+        </div>
       </div>
     </div>
-    <Phone isVertical={isVertical} compact />
-  </div>
-);
+  );
+};
 
 const SceneVisual: React.FC<{
   scene: Timeline["scenes"][number];

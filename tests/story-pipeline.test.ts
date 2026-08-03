@@ -17,7 +17,7 @@ const criticReportPath = path.join(episodeRoot, "story/critic-report.md");
 const factCheckReportPath = path.join(episodeRoot, "story/fact-check-report.md");
 
 describe("product-story short-video pipeline", () => {
-  it("keeps the structured final script inside the 3-5 minute contract", () => {
+  it("keeps the structured final script inside the strict three-minute contract", () => {
     const markdown = fs.readFileSync(finalScriptPath, "utf8");
     const segments = parseFinalScript(markdown);
     const totalSeconds = segments.reduce((total, segment) => total + segment.targetSeconds, 0);
@@ -26,8 +26,8 @@ describe("product-story short-video pipeline", () => {
       .reduce((total, segment) => total + segment.targetSeconds, 0);
 
     expect(segments).toHaveLength(12);
-    expect(totalSeconds).toBeGreaterThanOrEqual(180);
-    expect(totalSeconds).toBeLessThanOrEqual(300);
+    expect(totalSeconds).toBeGreaterThan(0);
+    expect(totalSeconds).toBeLessThanOrEqual(180);
     expect(hookSeconds).toBe(20);
     expect(segments.every((segment) => segment.narrationUnits.length > 0)).toBe(true);
   });
@@ -67,6 +67,12 @@ describe("product-story short-video pipeline", () => {
     expect(critic.blockers).toEqual([]);
     expect(critic.verdict).toBe("PASS");
     expect(critic.rewriteRequired).toBe(false);
+    expect(critic.returnTo).toBe("none");
+    expect(
+      critic.viewerExitRisks.every(
+        (risk) => risk.whyViewerStops.length > 0 && risk.requestedChange.length > 0,
+      ),
+    ).toBe(true);
   });
 
   it("binds the independent fact gate to the exact approved script", () => {

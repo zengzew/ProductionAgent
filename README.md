@@ -1,7 +1,8 @@
-# Product Story Video Lab
+# AI Product Storytelling Studio
 
-This repository builds sourced, repeatable Chinese product-story short videos
-with Remotion.
+This repository builds sourced, repeatable Chinese AI product stories and
+renders them as short videos with Remotion. Facts define what may be said;
+director decisions define the audience promise, reveal order and visual rhythm.
 Episode 001 follows Poke through its 2026 general release, product mechanics,
 reported message volume and acquisition. Episode 002 follows Roost Social and
 shows how a slow-message app turns waiting into a visible, playful experience.
@@ -23,30 +24,44 @@ landscape Poke packages are not part of this repository.
 
 ## Product-story short-video pipeline
 
-The workflow uses eight gated roles. They are logical roles with
+The workflow uses eleven gated roles. They are logical roles with
 file handoffs, not a LangGraph or CrewAI runtime. Each role reads the previous
 role's artifacts instead of turning research directly into narration.
 
 1. **Research Analyst** writes facts, sources, research chronology, technology
    boundaries and growth data. This role does not write story conclusions.
-2. **Story Director** chooses one question, separates sourced answers from
-   unanswered boundaries, compares angles and builds a time-coded three-act
-   structure.
-3. **Script Writer** writes an information-complete `script-draft.md` from the
-   approved structure. It does not approve its own draft as spoken copy.
-4. **Oral Rewriter** independently turns the draft into natural spoken Chinese
+2. **Story Director** owns `director-brief.md`: one core question, the audience
+   promise, sourced answer, fact boundary, emotional arc and reveal order. It
+   then aligns the story bible and timed structure to that decision.
+3. **Viral Director** designs and evaluates the opening hook, curiosity gap,
+   emotional tension, reveal order and ending payoff before drafting begins.
+4. **Script Writer** writes an information-complete `script-draft.md` from the
+   approved structure and attention strategy. It does not approve its own draft.
+5. **Oral Rewriter** independently turns the draft into natural spoken Chinese
    without adding or changing facts.
-5. **Oral Judge** scores Chinese naturalness, spoken delivery and information
+6. **Oral Judge** scores Chinese naturalness, spoken delivery and information
    fidelity. All three must reach 4/5, with at most three rewrite rounds.
-6. **Audience Critic** scores Hook, Conflict, Human element, Product clarity,
-   Growth logic, Technology explanation and Natural Chinese. A score below 85,
-   any dimension below 60%, or any blocker rejects the script.
-7. **Fact Guardian** independently checks every narration unit, attribution,
+7. **Audience Critic** scores Hook, Conflict, Human element, Product clarity,
+   Growth logic, Technology explanation and Natural Chinese. Every likely exit
+   point must explain why the viewer leaves, request a testable change and name
+   the responsible role.
+8. **Fact Guardian** independently checks every narration unit, attribution,
    metric, date and causal boundary. It does not rewrite. A failure routes back
    to Research Analyst, Story Director, Script Writer or Oral Rewriter.
-8. **Delivery Critic** reviews the rendered 9:16 MP4, SRT and measured TTS as a
-   zero-context viewer. Word breaks, excessive sub-second cues, an opaque first
-   frame or swallowed narration reject delivery.
+9. **Visual Director** translates every approved narration segment into scene
+   structure, visual evidence, animation, asset requirements and pacing.
+10. **Retention Critic** predicts drop-off in the first 3 seconds, first 30
+    seconds, middle and ending. A rejection routes back to the responsible
+    creative role; the next review must bind the prior report and prove each
+    resolved item with changed artifact hashes.
+11. **Delivery Critic** reviews the rendered 9:16 MP4, SRT and measured TTS as a
+    zero-context viewer. Word breaks, excessive sub-second cues, an opaque first
+    frame or swallowed narration reject delivery.
+
+`story/workflow.json` is the episode control plane. It records the fixed role
+order, current state, every major decision and owner, artifacts, review rounds,
+feedback routes and closure status. It coordinates file handoffs without adding
+an orchestration runtime.
 
 Writing roles still support Codex file handoffs. The automated polish stage may
 call a configured hosted LLM API. The project continues to exclude self-hosted
@@ -72,18 +87,25 @@ content/episode-001/
     technology.md
     growth-data.md
   story/
+    director-brief.md
     story-bible.md
     story-angle.md
     three-act-structure.md
     hook-candidates.md
+    viral-strategy.md
     script-draft.md
     final-script.md
     oral-review.md
     caption-plan.json
     critic-report.md
     fact-check-report.md
+    visual-plan.md
+    retention-report.md
+    reviews/
+    workflow.json
   production/
     delivery-critic-report.md
+    comparison-report.md
 ```
 
 `facts.json` is the Claim Ledger. `timeline.json` is the research chronology;
@@ -95,6 +117,14 @@ SHA-256.
 `caption-plan.json` keeps complete Chinese semantic units in one timed cue,
 using at most two simultaneous lines. Existing production artifacts remain the
 previous snapshot until that phase starts.
+
+`director-brief.md` binds the audience-facing decisions to the current research
+hashes. `viral-strategy.md` binds its attention design to that brief and the
+current story inputs.
+`visual-plan.md` binds one executable visual treatment to every final-script
+segment. `retention-report.md` binds its four-window drop-off prediction to the
+exact final script and visual plan. `workflow.json` verifies ownership and
+revision closure. All four are required before production can start.
 
 ## Official product evidence
 
@@ -121,6 +151,7 @@ Validate research and story only, without creating audio or video:
 
 ```bash
 pnpm validate:research
+pnpm validate:workflow
 pnpm validate:story
 ```
 
@@ -136,6 +167,8 @@ pnpm validate:research -- --episode episode-002
 - `output/episode-001/subtitles_zh.srt`: timed Simplified Chinese captions
 - `output/episode-001/fact-check-report.md`: claim and source summary
 - `output/episode-001/run-report.md`: execution and verification evidence
+- `content/episode-001/production/comparison-report.md`: hash-bound comparison
+  against the preserved publish-v2 baseline
 
 ## Episode 002 output
 
@@ -189,15 +222,17 @@ environment above.
 ```bash
 pnpm install
 pnpm validate:research
+pnpm validate:workflow
 pnpm validate:story
 pnpm materialize:story
 pnpm validate:content
 pnpm tts
 pnpm timeline
 pnpm render:smoke
-pnpm render
+pnpm render:vertical
 pnpm inspect:output
 pnpm validate:delivery
+pnpm validate:comparison
 ```
 
 Run the Remotion Studio with:
@@ -214,20 +249,35 @@ pnpm lint
 pnpm typecheck
 pnpm test
 pnpm validate:research
+pnpm validate:workflow
 pnpm validate:story
+pnpm materialize:story
 pnpm validate:content
+pnpm tts
+pnpm timeline
+pnpm render:smoke
+pnpm render:vertical
 pnpm inspect:output
 pnpm validate:delivery
+pnpm validate:comparison
 ```
 
-The content checks verify source lineage, claim labels, hook timing, generic
-CTA rejection, caption limits and traceable real-asset declarations. Output
+The workflow check verifies one owner for every major decision and requires a
+later PASS to close any recorded rejection with changed artifacts. The story
+checks also verify Director Brief and attention-strategy input hashes, Viral
+Director scores, complete visual-plan purpose/state/render coverage, actionable
+viewer-exit diagnoses, and a Retention Critic PASS bound to the exact script and
+visual plan. The content checks verify source lineage, claim labels, hook timing,
+generic CTA rejection, caption limits and traceable real-asset declarations. Output
 inspection reads the vertical MP4 back with ffprobe and FFmpeg to verify its
 dimensions, strict sub-180-second duration, codecs, sample rate and audio peak. Delivery validation
 binds the independent review to the exact video, subtitles and timeline hashes;
 `story-approved` is not a delivery pass.
 Delivery review also checks that official website and in-app screenshots are
 readable, source-labelled and consistent with their asset-manifest entries.
+For a reproduced episode, comparison validation binds both videos and timelines,
+requires improvement in all six editorial proxy dimensions and keeps the
+limitation explicit: only post-publication audience data can prove real retention.
 
 ## Publication checks
 
