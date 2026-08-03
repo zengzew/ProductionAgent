@@ -17,6 +17,9 @@ import sourcesRaw from "../../content/episode-002/research/sources.json";
 import type {Claim, Source, Timeline} from "../schemas/episode";
 
 const timeline = timelineRaw as Timeline;
+const isGoal3Benchmark = timeline.scenes[2]?.onScreenText.some((text) =>
+  text.includes("伊丽莎白时代"),
+);
 const claims = claimsRaw as Claim[];
 const sources = sourcesRaw as Source[];
 const captions = captionsRaw as Array<{
@@ -142,10 +145,11 @@ const Bird: React.FC<{
   );
 };
 
-const FlightMap: React.FC<{metric?: boolean; initialProgress?: number}> = ({
-  metric = false,
-  initialProgress = 0,
-}) => {
+const FlightMap: React.FC<{
+  metric?: boolean;
+  initialProgress?: number;
+  centerLabel?: string;
+}> = ({metric = false, initialProgress = 0, centerLabel}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const animatedProgress = spring({
@@ -214,7 +218,9 @@ const FlightMap: React.FC<{metric?: boolean; initialProgress?: number}> = ({
         }}
       >
         <span>出发城市</span>
-        <span style={{color: COLORS.rust}}>{metric ? "三日增长：10×" : "预计三天后到达"}</span>
+        <span style={{color: COLORS.rust}}>
+          {centerLabel ?? (metric ? "三日增长：10×" : "预计三天后到达")}
+        </span>
         <span>朋友所在城市</span>
       </div>
     </div>
@@ -384,7 +390,13 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
           source="Apple App Store"
           height={500}
         />
-        <Cards items={["按距离和鸟速送达", "地图显示飞行路线", "随时查看剩余时间"]} />
+        <Cards
+          items={
+            isGoal3Benchmark
+              ? ["按距离和鸟速送达", "地图显示飞行路线"]
+              : ["按距离和鸟速送达", "地图显示飞行路线", "随时查看剩余时间"]
+          }
+        />
       </div>
     );
   }
@@ -428,9 +440,12 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
   if (sceneIndex === 5) {
     return (
       <div style={{display: "grid", justifyItems: "center", gap: 30}}>
-        <FlightMap />
+        <FlightMap centerLabel={isGoal3Benchmark ? "距离改变到达时间" : undefined} />
         <div style={{display: "flex", gap: 18, fontSize: 29}}>
-          {["猎鹰 · 快", "蜂鸟 · 慢", "蜗牛 · 更慢", "乌龟 · 很久"].map((item, index) => (
+          {(isGoal3Benchmark
+            ? ["信使速度不同", "距离越远，到达越久", "路线一直看得见"]
+            : ["猎鹰 · 快", "蜂鸟 · 慢", "蜗牛 · 更慢", "乌龟 · 很久"]
+          ).map((item, index) => (
             <div
               key={item}
               style={{
@@ -499,6 +514,14 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
     );
   }
   if (sceneIndex === 9) {
+    if (isGoal3Benchmark) {
+      return (
+        <div style={{display: "grid", justifyItems: "center", gap: 48}}>
+          <Bird progress={frame / 30} size={300} color={COLORS.rust} />
+          <Cards items={["挑一只喜欢的鸟", "收集和训练", "轮换商店 · 支持者订阅"]} />
+        </div>
+      );
+    }
     return (
       <div style={{display: "grid", gridTemplateColumns: "1fr 1fr", gap: 28}}>
         {[
@@ -555,6 +578,19 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
             "双方接受后打开对话",
           ]}
         />
+      </div>
+    );
+  }
+  if (isGoal3Benchmark) {
+    return (
+      <div style={{display: "grid", justifyItems: "center", gap: 50, width: 900}}>
+        <Metric value="30 万" label="注册用户 · ANSA 7/10" />
+        <Cards accent={COLORS.rust} items={["回复不用马上来", "把等待变成看得见的路线"]} />
+        <div style={{display: "flex", alignItems: "center", gap: 24, width: "100%"}}>
+          <Bird progress={frame / 30} size={180} color={COLORS.rust} />
+          <div style={{height: 3, flex: 1, borderTop: `3px dashed ${COLORS.gold}`}} />
+          <span style={{fontSize: 31, color: COLORS.rust, fontWeight: 750}}>继续飞向朋友</span>
+        </div>
       </div>
     );
   }

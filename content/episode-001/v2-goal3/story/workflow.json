@@ -1,0 +1,257 @@
+{
+  "schemaVersion": "director-workflow-v1",
+  "episodeId": "episode-001-v2-goal3",
+  "coreStoryQuestion": "少学一套工作台以后，Beta 用户把哪些日常任务交给了 Poke，这个联系人又怎样把用法传给下一位？",
+  "currentStatus": "delivery-approved",
+  "revisionPolicy": {
+    "maximumCreativeRounds": 3,
+    "scriptChangeRestartsAt": "oral-judge",
+    "visualChangeRestartsAt": "retention-critic"
+  },
+  "stages": [
+    {
+      "id": "research-analyst",
+      "owner": "research-analyst",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-001/v2-goal3/research/facts.json",
+        "content/episode-001/v2-goal3/research/sources.json",
+        "content/episode-001/v2-goal3/research/timeline.json",
+        "content/episode-001/v2-goal3/research/benchmark-lineage.md"
+      ],
+      "decision": "沿用可追溯研究事实，不补写新来源或因果。"
+    },
+    {
+      "id": "story-director",
+      "owner": "story-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-001/v2-goal3/story/director-brief.md",
+        "content/episode-001/v2-goal3/story/story-bible.md",
+        "content/episode-001/v2-goal3/story/story-angle.md",
+        "content/episode-001/v2-goal3/story/three-act-structure.md"
+      ],
+      "decision": "围绕少学一套工作台后用户交出哪些任务组织主线。"
+    },
+    {
+      "id": "viral-director",
+      "owner": "viral-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-001/v2-goal3/story/hook-candidates.md",
+        "content/episode-001/v2-goal3/story/viral-strategy.md"
+      ],
+      "decision": "选择第一帧直接显示周三 15:00 日历结果的 Hook。"
+    },
+    {
+      "id": "script-writer",
+      "owner": "script-writer",
+      "status": "complete",
+      "artifacts": ["content/episode-001/v2-goal3/story/script-draft.md"],
+      "decision": "删除运行成本和收购支线，把一亿消息放在心智模型之后。"
+    },
+    {
+      "id": "oral-rewriter",
+      "owner": "oral-rewriter",
+      "status": "complete",
+      "artifacts": ["content/episode-001/v2-goal3/story/final-script.md"],
+      "decision": "把信息稿压成 10 段、目标 110 秒的自然中文口播。"
+    },
+    {
+      "id": "oral-judge",
+      "owner": "oral-judge",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-001/v2-goal3/story/oral-review.md",
+        "content/episode-001/v2-goal3/story/reviews/oral-round-01.md",
+        "content/episode-001/v2-goal3/story/reviews/oral-round-02.md"
+      ],
+      "decision": "确认自然度、口播节奏和信息保真均为 4/5。"
+    },
+    {
+      "id": "audience-critic",
+      "owner": "audience-critic",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-001/v2-goal3/story/reviews/audience-round-01.md",
+        "content/episode-001/v2-goal3/story/critic-report.md"
+      ],
+      "decision": "Round 1 退回指标口径口播与 Hook 利害，Round 3 以 89 分通过。"
+    },
+    {
+      "id": "fact-guardian",
+      "owner": "fact-guardian",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-001/v2-goal3/story/fact-check-report.md",
+        "content/episode-001/v2-goal3/story/reviews/fact-round-02.md"
+      ],
+      "decision": "批准 10 段、27 个旁白单元的 Claim 和因果边界。"
+    },
+    {
+      "id": "visual-director",
+      "owner": "visual-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-001/v2-goal3/story/visual-plan.md",
+        "content/episode-001/v2-goal3/production/asset-manifest.json"
+      ],
+      "decision": "把完成动作、用户请求、Recipe 和官方 Release Notes 绑定到对应旁白。"
+    },
+    {
+      "id": "retention-critic",
+      "owner": "retention-critic",
+      "status": "complete",
+      "artifacts": ["content/episode-001/v2-goal3/story/retention-report.md"],
+      "decision": "以 87 分批准生产，并把 Hook 密度和能力段列为渲染约束。"
+    },
+    {
+      "id": "delivery-critic",
+      "owner": "delivery-critic",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-001/v2-goal3/production/delivery-critic-report.md",
+        "content/episode-001/v2-goal3/production/output/vertical_9x16.mp4",
+        "content/episode-001/v2-goal3/production/output/subtitles_zh.srt"
+      ],
+      "decision": "当前 99.925 秒竖版成片通过画面、字幕、音频技术读回和证据复审。"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "decision-core-story-question",
+      "owner": "story-director",
+      "decision": "只讲工作台收起、用户扩展用途和 Recipe 分享这条连续主线。",
+      "rationale": "现有 Claim 能完整支持团队选择、用户动作和分享方式，不需要成本或收购支线。",
+      "artifact": "content/episode-001/v2-goal3/story/director-brief.md",
+      "claimIds": ["claim-poke-006", "claim-poke-008", "claim-poke-012"]
+    },
+    {
+      "id": "decision-attention-strategy",
+      "owner": "viral-director",
+      "decision": "第一帧显示周三会议已改到下午三点，十秒内解释联系人入口。",
+      "rationale": "先让陌生观众看懂产品结果，再进入规模与故事问题。",
+      "artifact": "content/episode-001/v2-goal3/story/viral-strategy.md",
+      "claimIds": ["claim-poke-010", "claim-poke-011"]
+    },
+    {
+      "id": "decision-information-draft",
+      "owner": "script-writer",
+      "decision": "删除重复的一亿消息、运行成本和收购现状段。",
+      "rationale": "这些内容没有增加核心问题需要的用户动作。",
+      "artifact": "content/episode-001/v2-goal3/story/script-draft.md",
+      "claimIds": ["claim-poke-015"]
+    },
+    {
+      "id": "decision-spoken-delivery",
+      "owner": "oral-rewriter",
+      "decision": "将旁白压到 598 字并保留具体动作。",
+      "rationale": "减少研究报告口吻，为真实 TTS 和画面留出停顿。",
+      "artifact": "content/episode-001/v2-goal3/story/final-script.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-audience-clearance",
+      "owner": "audience-critic",
+      "decision": "修掉指标口径口播和偏公司沿革的问题后，以 89 分通过。",
+      "rationale": "当前 Hook 利害落到用户愿意交出哪些任务，旁白不再念研究边界。",
+      "artifact": "content/episode-001/v2-goal3/story/critic-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-factual-clearance",
+      "owner": "fact-guardian",
+      "decision": "脚本事实、来源身份和因果边界通过。",
+      "rationale": "消息规模、方向变化、用户请求、Recipe 与开放节点各自绑定 Claim。",
+      "artifact": "content/episode-001/v2-goal3/story/fact-check-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-visual-language",
+      "owner": "visual-director",
+      "decision": "用同一条改期动作串起界面收起、用户拉动和 Recipe 分享。",
+      "rationale": "每段画面都增加动作或证据，并区分功能演示与真实页面。",
+      "artifact": "content/episode-001/v2-goal3/story/visual-plan.md",
+      "claimIds": ["claim-poke-011", "claim-poke-012"]
+    },
+    {
+      "id": "decision-production-readiness",
+      "owner": "retention-critic",
+      "decision": "以 87 分批准进入 TTS 与渲染。",
+      "rationale": "四个窗口均过门槛，无 high risk 或 blocker。",
+      "artifact": "content/episode-001/v2-goal3/story/retention-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-final-delivery",
+      "owner": "delivery-critic",
+      "decision": "批准当前 99.925 秒竖版成片。",
+      "rationale": "首帧、字幕、证据镜头、音频技术状态和结尾均通过实际成片复审。",
+      "artifact": "content/episode-001/v2-goal3/production/delivery-critic-report.md",
+      "claimIds": []
+    }
+  ],
+  "reviewCycles": [
+    {
+      "id": "review-audience-round-01",
+      "critic": "audience-critic",
+      "round": 1,
+      "reportPath": "content/episode-001/v2-goal3/story/reviews/audience-round-01.md",
+      "reportSha256": "636a59dd87e3d8fb80ab2f30735f997dd43320904af464df41e483d9aa67e20b",
+      "verdict": "REJECT",
+      "routes": [
+        {
+          "feedbackId": "feedback-poke-metric-caveat",
+          "owner": "script-writer",
+          "resolutionArtifacts": [
+            "content/episode-001/v2-goal3/story/script-draft.md",
+            "content/episode-001/v2-goal3/story/final-script.md"
+          ],
+          "status": "resolved"
+        },
+        {
+          "feedbackId": "feedback-poke-hook-stakes",
+          "owner": "story-director",
+          "resolutionArtifacts": [
+            "content/episode-001/v2-goal3/story/director-brief.md",
+            "content/episode-001/v2-goal3/story/final-script.md"
+          ],
+          "status": "resolved"
+        },
+        {
+          "feedbackId": "feedback-poke-recipe-bridge",
+          "owner": "script-writer",
+          "resolutionArtifacts": ["content/episode-001/v2-goal3/story/final-script.md"],
+          "status": "resolved"
+        }
+      ]
+    },
+    {
+      "id": "review-audience-round-03",
+      "critic": "audience-critic",
+      "round": 3,
+      "reportPath": "content/episode-001/v2-goal3/story/critic-report.md",
+      "reportSha256": "fd8e3e427d0bda857ceb0621f3b9bf563330fd68b903026dc9104240f668e9b5",
+      "verdict": "PASS",
+      "routes": []
+    },
+    {
+      "id": "review-retention-round-01",
+      "critic": "retention-critic",
+      "round": 1,
+      "reportPath": "content/episode-001/v2-goal3/story/retention-report.md",
+      "reportSha256": "90dc5bf7e9822d0cc18cc423802dbb90e98e8b415ca7ada42119d3561d6d4c4d",
+      "verdict": "PASS",
+      "routes": []
+    },
+    {
+      "id": "review-delivery-round-01",
+      "critic": "delivery-critic",
+      "round": 1,
+      "reportPath": "content/episode-001/v2-goal3/production/delivery-critic-report.md",
+      "reportSha256": "6b983b1dfaace74dc203a9d5627dc450b489df0e85ebd779acdca6e7c65eaf41",
+      "verdict": "PASS",
+      "routes": []
+    }
+  ]
+}

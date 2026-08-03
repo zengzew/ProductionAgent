@@ -1,0 +1,120 @@
+{
+  "selectedHook": "calendar-at-three",
+  "segments": [
+    {
+      "id": "seg-001",
+      "section": "hook",
+      "narration": "发一句话，周三的会议改到下午三点。",
+      "onScreenText": ["周三会议改到下午三点", "日历已更新", "功能演示"],
+      "claimIds": ["claim-poke-011"],
+      "scene": "hook-calendar-action",
+      "visualIntent": "第 0 帧同时出现已发送消息和周三 15:00 的日历结果，持续标“功能演示”。",
+      "targetSeconds": 3
+    },
+    {
+      "id": "seg-002",
+      "section": "hook",
+      "narration": "Poke 就在联系人列表里。它能读邮件、改日历，也会主动提醒。",
+      "onScreenText": ["不用再学一套工作台", "联系人列表里的 AI", "读邮件 · 改日历 · 主动提醒"],
+      "claimIds": ["claim-poke-010", "claim-poke-011"],
+      "scene": "hook-core-question",
+      "visualIntent": "联系人卡连接邮件、日历和提醒，功能均由官方能力 Claim 同期支持。",
+      "targetSeconds": 7
+    },
+    {
+      "id": "seg-003",
+      "section": "hook",
+      "narration": "Cognition 披露，收购前约三个月，往来超过一亿条。Poke 最初却是邮件工作台。用户为什么愿意把更多日常任务交给它？",
+      "onScreenText": ["约三个月 · 1 亿+ 条消息", "最初却是一套邮件工作台", "用户接着交给它什么？"],
+      "claimIds": ["claim-poke-006", "claim-poke-008", "claim-poke-015"],
+      "scene": "hook-metric-cost",
+      "visualIntent": "消息规模与来源标签出现后，工作台轮廓收起，问题停在团队选择和用户动作。",
+      "targetSeconds": 10
+    },
+    {
+      "id": "seg-004",
+      "section": "problem",
+      "narration": "会议一改期，旧办法要从邮件抄时间，打开日历挪日程，再补提醒。邮件再变一次，几处都得重新核对。",
+      "onScreenText": ["邮件改期", "抄时间 · 挪日历 · 补提醒", "再变一次，还要重新核对"],
+      "claimIds": ["claim-poke-007"],
+      "scene": "problem-fragmentation",
+      "visualIntent": "日期从邮件搬到日历和提醒，原邮件变化后几处同时进入待核对状态，标“功能演示”。",
+      "targetSeconds": 11
+    },
+    {
+      "id": "seg-005",
+      "section": "decision",
+      "narration": "团队原来就在做邮件客户端和自动化。访谈里，用户的反馈很直接：别再让我学新界面。团队后来收起工作台，把 Poke 放进大家已经在用的消息列表。要改日程，发一句就行。",
+      "onScreenText": [
+        "最早：邮件客户端与自动化",
+        "用户：别再让我学新界面",
+        "工作台收起 · 联系人留下"
+      ],
+      "claimIds": ["claim-poke-006", "claim-poke-010"],
+      "scene": "decision-messaging",
+      "visualIntent": "邮件工作台先占满画面，反馈出现后组件依次退场，只留下联系人。",
+      "targetSeconds": 14
+    },
+    {
+      "id": "seg-006",
+      "section": "user-pull",
+      "narration": "Beta 用户没把它只当邮件助手。有人让它提醒吃药，有人问天气和球赛。用户给出的这些请求，把 Poke 推向了更日常的任务。",
+      "onScreenText": ["Beta 用户继续往外推", "提醒吃药 · 天气 · 球赛结果", "带出邮箱"],
+      "claimIds": ["claim-poke-008"],
+      "scene": "beta-user-pull",
+      "visualIntent": "三类来源支持的请求依次穿过“邮件助手”边界，不重建具体人物。",
+      "targetSeconds": 13
+    },
+    {
+      "id": "seg-007",
+      "section": "product-value",
+      "narration": "放在消息列表里，它还能先开口。时间到了就提醒，邮件变了再跟进。用户授权后，它可以读邮件、改日历、草拟回复。结果也要自己核对。",
+      "onScreenText": ["它还能先开口", "授权后读邮件 · 改日历 · 草拟回复", "结果仍要核对"],
+      "claimIds": ["claim-poke-010", "claim-poke-011", "claim-poke-024"],
+      "scene": "proactive-permission-risk",
+      "visualIntent": "主动提醒出现，授权门打开后日历移动并进入可核对状态，合成操作持续标功能演示。",
+      "targetSeconds": 14
+    },
+    {
+      "id": "seg-008",
+      "section": "sharing",
+      "narration": "一套用法还能交给别人。Poke 把背景设定、开场白和要连接的服务做成 Recipe 链接。朋友点开，从配好的设置开始，自己的账户仍要自己授权。",
+      "onScreenText": ["Recipe：把一套用法做成链接", "从配好的设置开始", "账户仍要自己授权"],
+      "claimIds": ["claim-poke-012"],
+      "scene": "recipe-release",
+      "visualIntent": "Recipe 设置卡从一个联系人传给另一个，授权边界与官方来源持续可见。",
+      "targetSeconds": 13
+    },
+    {
+      "id": "seg-009",
+      "section": "evidence",
+      "narration": "2026 年 3 月 19 日，候补名单取消，Recipe 同时开放。此前要等准入，从这一天起，Poke 进入一般可用状态。",
+      "onScreenText": ["2026.03.19 候补名单取消", "Recipe 同时开放", "进入一般可用状态"],
+      "claimIds": ["claim-poke-004"],
+      "scene": "launch-timeline",
+      "visualIntent": "硬切真实 Release Notes，用日期、候补名单与 Recipe 状态确认一般可用节点。",
+      "targetSeconds": 13
+    },
+    {
+      "id": "seg-010",
+      "section": "ending-payoff",
+      "narration": "回到那条改期消息。团队收起工作台，用户把提醒、天气和球赛带进来，Recipe 又把用法交给下一位。最后，联系人里发出一句话，日历停在周三下午三点。",
+      "onScreenText": [
+        "工作台收起",
+        "用户把它带出邮箱",
+        "Recipe 交给下一位",
+        "周三 15:00 · 日历已更新"
+      ],
+      "claimIds": [
+        "claim-poke-006",
+        "claim-poke-008",
+        "claim-poke-010",
+        "claim-poke-011",
+        "claim-poke-012"
+      ],
+      "scene": "ending-known-edge",
+      "visualIntent": "工作台、Beta 请求和 Recipe 依次收拢到联系人，最后停在开场已更新的日历并标功能演示。",
+      "targetSeconds": 12
+    }
+  ]
+}

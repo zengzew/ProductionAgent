@@ -1,0 +1,128 @@
+{
+  "asOf": "2026-08-02",
+  "events": [
+    {
+      "id": "event-roost-001",
+      "dateLabel": "2025 年 5 月",
+      "sortDate": "2025-05-01",
+      "datePrecision": "month",
+      "event": "Mendelsohn 与朋友把虚拟鸟送信做成业余项目，并先发布概念 TikTok。",
+      "eventType": "company",
+      "factIds": ["claim-roost-005"],
+      "sourceIds": ["src-roost-004"],
+      "relationToPrevious": "not-applicable",
+      "storyFunction": "context",
+      "notes": "创始人采访口径。"
+    },
+    {
+      "id": "event-roost-002",
+      "dateLabel": "公开前",
+      "sortDate": "2026-04-27",
+      "datePrecision": "before",
+      "event": "朋友的使用反馈推动 Mendelsohn 把原本不打算公开的应用送上商店。",
+      "eventType": "user-behavior",
+      "factIds": ["claim-roost-006"],
+      "sourceIds": ["src-roost-003"],
+      "relationToPrevious": "source-supported-influence",
+      "storyFunction": "decision",
+      "notes": "创始人向 TechCrunch 回忆，朋友喜欢并鼓励公开。"
+    },
+    {
+      "id": "event-roost-003",
+      "dateLabel": "2026 年 4 月 28 日",
+      "sortDate": "2026-04-28",
+      "datePrecision": "day",
+      "event": "Roost Social 公开发布。",
+      "eventType": "product",
+      "factIds": ["claim-roost-001", "claim-roost-002"],
+      "sourceIds": ["src-roost-002", "src-roost-004"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "public-expansion",
+      "notes": "平台与媒体交叉核对。"
+    },
+    {
+      "id": "event-roost-004",
+      "dateLabel": "2026 年 6 月",
+      "sortDate": "2026-06-01",
+      "datePrecision": "month",
+      "event": "一则 Threads 帖子描述孩子用伊丽莎白时代的英语等鸟送信；创始人称此后三天用户数从一万升至十万。",
+      "eventType": "growth",
+      "factIds": ["claim-roost-009"],
+      "sourceIds": ["src-roost-003"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "turning-point",
+      "notes": "创始人向媒体披露用户数；帖子与增长相邻，不写成唯一原因。"
+    },
+    {
+      "id": "event-roost-005",
+      "dateLabel": "2026 年 7 月 7 日",
+      "sortDate": "2026-07-07",
+      "datePrecision": "day",
+      "event": "创始人称用户数超过 25 万，每天超过 10 万个活跃对话，付费获客支出为零。",
+      "eventType": "growth",
+      "factIds": ["claim-roost-010", "claim-roost-012"],
+      "sourceIds": ["src-roost-004"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "validation",
+      "notes": "创始人采访口径，未独立审计。"
+    },
+    {
+      "id": "event-roost-006",
+      "dateLabel": "2026 年 7 月 8 日",
+      "sortDate": "2026-07-08",
+      "datePrecision": "day",
+      "event": "创始人称 Roost 接近 30 万用户；媒体同时报道位置、Pen Pals、AI 辅助开发与 AI 图像争议。",
+      "eventType": "policy",
+      "factIds": [
+        "claim-roost-011",
+        "claim-roost-015",
+        "claim-roost-016",
+        "claim-roost-017",
+        "claim-roost-018"
+      ],
+      "sourceIds": ["src-roost-002", "src-roost-003", "src-roost-006", "src-roost-007"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "durability-test",
+      "notes": "增长数字为创始人披露；争议有媒体、商店评价与版本记录侧证。"
+    },
+    {
+      "id": "event-roost-007",
+      "dateLabel": "2026 年 7 月 10 日",
+      "sortDate": "2026-07-10",
+      "datePrecision": "day",
+      "event": "ANSA 报道 Roost 达到 30 万注册用户。",
+      "eventType": "growth",
+      "factIds": ["claim-roost-020"],
+      "sourceIds": ["src-roost-008"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "validation",
+      "notes": "媒体转述的阶段性注册用户数字，不等同于留存或平台后台审计。"
+    },
+    {
+      "id": "event-roost-008",
+      "dateLabel": "截至 2026 年 8 月 2 日",
+      "sortDate": "2026-08-02",
+      "datePrecision": "as-of",
+      "event": "Roost 当前 FAQ 已支持消耗 1 枚蛋撤回飞行中的消息，并将 Pen Pals 描述为双方接受后开启的一对一匿名通信。",
+      "eventType": "product",
+      "factIds": ["claim-roost-021", "claim-roost-022"],
+      "sourceIds": ["src-roost-009"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "context",
+      "notes": "当前功能修正旧版体验文章中的不可撤回操作边界。"
+    },
+    {
+      "id": "event-roost-009",
+      "dateLabel": "截至 2026 年 8 月 2 日",
+      "sortDate": "2026-08-02",
+      "datePrecision": "as-of",
+      "event": "公开指标仍不足以判断留存、完整收入成本与增长持续性。",
+      "eventType": "growth",
+      "factIds": ["claim-roost-019"],
+      "sourceIds": ["src-roost-003", "src-roost-004", "src-roost-008"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "durability-test",
+      "notes": "编辑边界，不把缺失指标改写成失败结论。"
+    }
+  ]
+}

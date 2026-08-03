@@ -138,6 +138,9 @@ const sourcePublishers = (claimIds: string[]): string => {
 };
 
 const sceneEvidenceLabel = (scene: Timeline["scenes"][number]): string => {
+  if (scene.scene === "launch-timeline") {
+    return "Poke 官方 Release Notes · 真实页面截图";
+  }
   if (scene.id === "seg-001" || scene.id === "seg-012") {
     return "Poke 官方能力说明 · 功能演示";
   }
@@ -1119,7 +1122,7 @@ const LaunchScene: React.FC<{isVertical: boolean}> = ({isVertical}) => (
           fontSize: isVertical ? 24 : 19,
         }}
       >
-        时间先后明确 · 增长因果未证明
+        从等待准入到一般可用
       </div>
     </div>
     <div style={{height: isVertical ? 610 : 650}}>

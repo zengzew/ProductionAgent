@@ -1,0 +1,54 @@
+<!-- fact-check-gate
+{
+  "rubricVersion": "fact-guardian-v1",
+  "reviewedFile": "story/final-script.md",
+  "reviewedSha256": "af1839d280cd61c80c9355666ff9af538a82737517834e2133af61f4cbf72adc",
+  "checkedSegments": 12,
+  "checkedNarrationUnits": 32,
+  "blockers": [],
+  "verdict": "PASS",
+  "returnTo": "none"
+}
+-->
+
+# Roost v2 Fact Guardian Report · Round 3
+
+核查对象：`story/final-script.md`  
+前置 Audience Critic：92 / 100，PASS  
+上一轮：`story/reviews/fact-round-02.md`，SHA-256
+`3f4c4ef303362de2e62615a79ecd159b2d9bd3ce939dd7e85fac002d03e85880`  
+核查范围：12 段、32 个 narration units、Claim Ledger、sources、timeline、完整 story
+lineage 与 Visual Plan  
+结论：**PASS**
+
+## Round 2 blocker 关闭证据
+
+| Round 2 blocker                               | 当前证据                                                                                                                                           | 结论     |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| 地图显示“还要多久”无 Claim 明文               | 当前初稿、定稿和 Visual Plan 均只写飞行路线与位置；seg-006 narration 为“鸟飞到哪里，一眼就能看见”。                                                | RESOLVED |
+| Timeline 把伊丽莎白时代英语写成古英语         | `research/timeline.json` event-roost-004 已精确写为“伊丽莎白时代的英语”，并继续绑定 claim-roost-009。                                              | RESOLVED |
+| Story lineage 残留错误语言名称和鸟舍          | Story Bible、Story Angle、Hook Candidates、三幕结构、Director Brief、Viral Strategy 均已使用准确语言名称，并将机制收敛到地图、收集、训练和小游戏。 | RESOLVED |
+| Final Script visualIntent 与 Visual Plan 冲突 | seg-007 两处现均为“收集、训练与小游戏”；Final Script 与 Visual Plan 分别绑定哈希 `af1839d…2adc` 与 `42d6c184…3f28a`。                              | RESOLVED |
+
+`research/benchmark-lineage.md` 保留“将旧错误词校正”的历史审计说明；它没有把旧词继续
+作为现行事实、事件或故事动作，因此不构成 blocker。
+
+## 逐句核查结果
+
+| 检查               | 结果 | 说明                                                                                               |
+| ------------------ | ---- | -------------------------------------------------------------------------------------------------- |
+| Claim 存在与可播性 | PASS | 32 个旁白单元引用的 Claim 均存在且允许播出。                                                       |
+| 人物与产品动作     | PASS | 创始人、朋友、体验者、母亲帖子和虚拟鸟动作没有新增身份、动机或生活细节。                           |
+| 送达机制           | PASS | 距离与物种速度决定时间、地图显示飞行路线、收集训练和小游戏均落在 claim-roost-003、004 内。         |
+| 日期与指标         | PASS | 4 月 28 日公开、三日一万到十万、7 月 7 日用户与活跃对话、7 月 10 日注册用户保持各自日期和定义。    |
+| 来源身份           | PASS | 创始人口径、独立体验、官方功能和 ANSA 媒体转述通过 Source identity 与同期画面区分。                |
+| 增长因果           | PASS | Threads 帖子与三日增长只写时间相邻；零付费获客没有归因给帖子或单一功能。                           |
+| 数字换算           | PASS | 没有把用户、活跃对话、订阅、收入、留存或盈利互相换算。                                             |
+| 权限与商业边界     | PASS | 轮换商店、支持者订阅、城市级位置、close friends 与 Pen Pals 双确认保持 Claim 原强度。              |
+| 同期视觉证据       | PASS | Hook 标功能演示；App Store、官网、创始人口径、体验者身份和 ANSA 注册口径均在首次强事实时同期计划。 |
+| 认知修正           | PASS | 只纠正“消息卡住”这一由三天送达画面自然产生的误解，没有制造稻草人反转。                             |
+| 结尾边界           | PASS | 三十万明确是阶段注册用户，最后停在鸟继续飞向朋友，没有回答留存、盈利或赛道胜负。                   |
+
+当前 Fact Guardian PASS 只批准现有证据边界内的故事。Visual Director 与 Retention
+Critic 的 READY/PASS、`validate:story` 以及后续真实 TTS 和 Delivery Critic 仍是独立门禁；
+本报告不等于成片交付批准。

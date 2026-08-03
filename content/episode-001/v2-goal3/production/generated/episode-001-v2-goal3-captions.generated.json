@@ -1,0 +1,452 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 3.192,
+    "startFrame": 0,
+    "endFrame": 96,
+    "text": "发一句话 周三的会议改到下午三点"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-002",
+    "startSeconds": 3.3720000000000003,
+    "endSeconds": 5.864307692307693,
+    "startFrame": 101,
+    "endFrame": 176,
+    "text": "Poke 就在联系人列表里"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 5.864307692307693,
+    "endSeconds": 7.525846153846155,
+    "startFrame": 176,
+    "endFrame": 226,
+    "text": "它能读邮件 改日历"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 7.525846153846155,
+    "endSeconds": 8.772,
+    "startFrame": 226,
+    "endFrame": 263,
+    "text": "也会主动提醒"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-003",
+    "startSeconds": 8.952,
+    "endSeconds": 10.7712,
+    "startFrame": 269,
+    "endFrame": 323,
+    "text": "Cognition 披露"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-003",
+    "startSeconds": 10.7712,
+    "endSeconds": 11.928872727272728,
+    "startFrame": 323,
+    "endFrame": 358,
+    "text": "收购前约三个月"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-003",
+    "startSeconds": 11.928872727272728,
+    "endSeconds": 13.086545454545455,
+    "startFrame": 358,
+    "endFrame": 393,
+    "text": "往来超过一亿条"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-003",
+    "startSeconds": 13.086545454545455,
+    "endSeconds": 15.236509090909092,
+    "startFrame": 393,
+    "endFrame": 457,
+    "text": "Poke 最初却是邮件工作台"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-003",
+    "startSeconds": 15.236509090909092,
+    "endSeconds": 18.048000000000002,
+    "startFrame": 457,
+    "endFrame": 541,
+    "text": "用户为什么愿意把更多日常任务\n交给它"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-004",
+    "startSeconds": 18.228,
+    "endSeconds": 19.284000000000002,
+    "startFrame": 547,
+    "endFrame": 579,
+    "text": "会议一改期"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-004",
+    "startSeconds": 19.284000000000002,
+    "endSeconds": 21.396,
+    "startFrame": 579,
+    "endFrame": 642,
+    "text": "旧办法要从邮件抄时间"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-004",
+    "startSeconds": 21.396,
+    "endSeconds": 22.8744,
+    "startFrame": 642,
+    "endFrame": 686,
+    "text": "打开日历挪日程"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-004",
+    "startSeconds": 22.8744,
+    "endSeconds": 24.986400000000003,
+    "startFrame": 686,
+    "endFrame": 750,
+    "text": "再补提醒 邮件再变一次"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-004",
+    "startSeconds": 24.986400000000003,
+    "endSeconds": 26.676000000000002,
+    "startFrame": 750,
+    "endFrame": 800,
+    "text": "几处都得重新核对"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-005",
+    "startSeconds": 27.576,
+    "endSeconds": 30.648,
+    "startFrame": 827,
+    "endFrame": 919,
+    "text": "团队原来就在做\n邮件客户端和自动化"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-005",
+    "startSeconds": 30.648,
+    "endSeconds": 32.76,
+    "startFrame": 919,
+    "endFrame": 983,
+    "text": "访谈里 用户的反馈很直接"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-005",
+    "startSeconds": 32.76,
+    "endSeconds": 34.296,
+    "startFrame": 983,
+    "endFrame": 1029,
+    "text": "别再让我学新界面"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-005",
+    "startSeconds": 34.296,
+    "endSeconds": 36.024,
+    "startFrame": 1029,
+    "endFrame": 1081,
+    "text": "团队后来收起工作台"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-005",
+    "startSeconds": 36.024,
+    "endSeconds": 39.480000000000004,
+    "startFrame": 1081,
+    "endFrame": 1184,
+    "text": "把 Poke 放进\n大家已经在用的消息列表"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-005",
+    "startSeconds": 39.480000000000004,
+    "endSeconds": 41.208,
+    "startFrame": 1184,
+    "endFrame": 1236,
+    "text": "要改日程 发一句就行"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-006",
+    "startSeconds": 42.108,
+    "endSeconds": 44.82133333333333,
+    "startFrame": 1263,
+    "endFrame": 1345,
+    "text": "Beta 用户没把它只当邮件助手"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-006",
+    "startSeconds": 44.82133333333333,
+    "endSeconds": 46.26844444444444,
+    "startFrame": 1345,
+    "endFrame": 1388,
+    "text": "有人让它提醒吃药"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-006",
+    "startSeconds": 46.26844444444444,
+    "endSeconds": 47.715555555555554,
+    "startFrame": 1388,
+    "endFrame": 1431,
+    "text": "有人问天气和球赛"
+  },
+  {
+    "index": 24,
+    "sceneId": "seg-006",
+    "startSeconds": 47.715555555555554,
+    "endSeconds": 49.343555555555554,
+    "startFrame": 1431,
+    "endFrame": 1480,
+    "text": "用户给出的这些请求"
+  },
+  {
+    "index": 25,
+    "sceneId": "seg-006",
+    "startSeconds": 49.343555555555554,
+    "endSeconds": 51.876,
+    "startFrame": 1480,
+    "endFrame": 1556,
+    "text": "把 Poke 推向了更日常的任务"
+  },
+  {
+    "index": 26,
+    "sceneId": "seg-007",
+    "startSeconds": 52.775999999999996,
+    "endSeconds": 54.284830188679244,
+    "startFrame": 1583,
+    "endFrame": 1629,
+    "text": "放在消息列表里"
+  },
+  {
+    "index": 27,
+    "sceneId": "seg-007",
+    "startSeconds": 54.284830188679244,
+    "endSeconds": 55.57811320754717,
+    "startFrame": 1629,
+    "endFrame": 1667,
+    "text": "它还能先开口"
+  },
+  {
+    "index": 28,
+    "sceneId": "seg-007",
+    "startSeconds": 55.57811320754717,
+    "endSeconds": 57.08694339622641,
+    "startFrame": 1667,
+    "endFrame": 1713,
+    "text": "时间到了就提醒"
+  },
+  {
+    "index": 29,
+    "sceneId": "seg-007",
+    "startSeconds": 57.08694339622641,
+    "endSeconds": 58.59577358490566,
+    "startFrame": 1713,
+    "endFrame": 1758,
+    "text": "邮件变了再跟进"
+  },
+  {
+    "index": 30,
+    "sceneId": "seg-007",
+    "startSeconds": 58.59577358490566,
+    "endSeconds": 59.67350943396226,
+    "startFrame": 1758,
+    "endFrame": 1790,
+    "text": "用户授权后"
+  },
+  {
+    "index": 31,
+    "sceneId": "seg-007",
+    "startSeconds": 59.67350943396226,
+    "endSeconds": 60.966792452830184,
+    "startFrame": 1790,
+    "endFrame": 1829,
+    "text": "它可以读邮件"
+  },
+  {
+    "index": 32,
+    "sceneId": "seg-007",
+    "startSeconds": 60.966792452830184,
+    "endSeconds": 62.47562264150943,
+    "startFrame": 1829,
+    "endFrame": 1874,
+    "text": "改日历 草拟回复"
+  },
+  {
+    "index": 33,
+    "sceneId": "seg-007",
+    "startSeconds": 62.47562264150943,
+    "endSeconds": 64.19999999999999,
+    "startFrame": 1874,
+    "endFrame": 1926,
+    "text": "结果也要自己核对"
+  },
+  {
+    "index": 34,
+    "sceneId": "seg-008",
+    "startSeconds": 65.1,
+    "endSeconds": 66.89225806451613,
+    "startFrame": 1953,
+    "endFrame": 2007,
+    "text": "一套用法还能交给别人"
+  },
+  {
+    "index": 35,
+    "sceneId": "seg-008",
+    "startSeconds": 66.89225806451613,
+    "endSeconds": 68.50529032258063,
+    "startFrame": 2007,
+    "endFrame": 2055,
+    "text": "Poke 把背景设定"
+  },
+  {
+    "index": 36,
+    "sceneId": "seg-008",
+    "startSeconds": 68.50529032258063,
+    "endSeconds": 70.29754838709677,
+    "startFrame": 2055,
+    "endFrame": 2109,
+    "text": "开场白和要连接的服务"
+  },
+  {
+    "index": 37,
+    "sceneId": "seg-008",
+    "startSeconds": 70.29754838709677,
+    "endSeconds": 72.0898064516129,
+    "startFrame": 2109,
+    "endFrame": 2163,
+    "text": "做成 Recipe 链接"
+  },
+  {
+    "index": 38,
+    "sceneId": "seg-008",
+    "startSeconds": 72.0898064516129,
+    "endSeconds": 74.24051612903224,
+    "startFrame": 2163,
+    "endFrame": 2227,
+    "text": "朋友点开 从配好的设置开始"
+  },
+  {
+    "index": 39,
+    "sceneId": "seg-008",
+    "startSeconds": 74.24051612903224,
+    "endSeconds": 76.21199999999999,
+    "startFrame": 2227,
+    "endFrame": 2286,
+    "text": "自己的账户仍要自己授权"
+  },
+  {
+    "index": 40,
+    "sceneId": "seg-009",
+    "startSeconds": 77.112,
+    "endSeconds": 78.88506122448979,
+    "startFrame": 2313,
+    "endFrame": 2367,
+    "text": "2026 年 3 月 19 日"
+  },
+  {
+    "index": 41,
+    "sceneId": "seg-009",
+    "startSeconds": 78.88506122448979,
+    "endSeconds": 79.94889795918367,
+    "startFrame": 2367,
+    "endFrame": 2398,
+    "text": "候补名单取消"
+  },
+  {
+    "index": 42,
+    "sceneId": "seg-009",
+    "startSeconds": 79.94889795918367,
+    "endSeconds": 81.72195918367346,
+    "startFrame": 2398,
+    "endFrame": 2452,
+    "text": "Recipe 同时开放"
+  },
+  {
+    "index": 43,
+    "sceneId": "seg-009",
+    "startSeconds": 81.72195918367346,
+    "endSeconds": 83.67232653061224,
+    "startFrame": 2452,
+    "endFrame": 2510,
+    "text": "此前要等准入 从这一天起"
+  },
+  {
+    "index": 44,
+    "sceneId": "seg-009",
+    "startSeconds": 83.67232653061224,
+    "endSeconds": 85.8,
+    "startFrame": 2510,
+    "endFrame": 2574,
+    "text": "Poke 进入一般可用状态"
+  },
+  {
+    "index": 45,
+    "sceneId": "seg-010",
+    "startSeconds": 86.7,
+    "endSeconds": 88.194,
+    "startFrame": 2601,
+    "endFrame": 2646,
+    "text": "回到那条改期消息"
+  },
+  {
+    "index": 46,
+    "sceneId": "seg-010",
+    "startSeconds": 88.194,
+    "endSeconds": 90.435,
+    "startFrame": 2646,
+    "endFrame": 2713,
+    "text": "团队收起工作台 用户把提醒"
+  },
+  {
+    "index": 47,
+    "sceneId": "seg-010",
+    "startSeconds": 90.435,
+    "endSeconds": 91.929,
+    "startFrame": 2713,
+    "endFrame": 2758,
+    "text": "天气和球赛带进来"
+  },
+  {
+    "index": 48,
+    "sceneId": "seg-010",
+    "startSeconds": 91.929,
+    "endSeconds": 94.73025,
+    "startFrame": 2758,
+    "endFrame": 2842,
+    "text": "Recipe 又把用法交给下一位"
+  },
+  {
+    "index": 49,
+    "sceneId": "seg-010",
+    "startSeconds": 94.73025,
+    "endSeconds": 96.78450000000001,
+    "startFrame": 2842,
+    "endFrame": 2904,
+    "text": "最后 联系人里发出一句话"
+  },
+  {
+    "index": 50,
+    "sceneId": "seg-010",
+    "startSeconds": 96.78450000000001,
+    "endSeconds": 98.652,
+    "startFrame": 2904,
+    "endFrame": 2960,
+    "text": "日历停在周三下午三点"
+  }
+]
