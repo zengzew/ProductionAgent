@@ -4,7 +4,7 @@
     {
       "id": "seg-001",
       "section": "hook",
-      "narration": "发一句话，周三的会议改到下午三点。",
+      "narration": "发句话，把周三的会议改到下午三点。",
       "onScreenText": ["周三会议改到下午三点", "日历已更新", "功能演示"],
       "claimIds": ["claim-poke-011"],
       "scene": "hook-calendar-action",
@@ -14,7 +14,7 @@
     {
       "id": "seg-002",
       "section": "hook",
-      "narration": "Poke 就在联系人列表里。它能读邮件、改日历，也会主动提醒。",
+      "narration": "Poke 就在联系人列表里。它能读邮件、改日历，时间到了还会提醒你。",
       "onScreenText": ["不用再学一套工作台", "联系人列表里的 AI", "读邮件 · 改日历 · 主动提醒"],
       "claimIds": ["claim-poke-010", "claim-poke-011"],
       "scene": "hook-core-question",
@@ -24,7 +24,7 @@
     {
       "id": "seg-003",
       "section": "hook",
-      "narration": "Cognition 披露，收购前约三个月，往来超过一亿条。Poke 最初却是邮件工作台。用户为什么愿意把更多日常任务交给它？",
+      "narration": "Cognition 披露，收购前约三个月，用户和 Poke 来回发了一亿多条消息。可它一开始，只是邮件工作台。用户为什么愿意把日常小事也交给它？",
       "onScreenText": ["约三个月 · 1 亿+ 条消息", "最初却是一套邮件工作台", "用户接着交给它什么？"],
       "claimIds": ["claim-poke-006", "claim-poke-008", "claim-poke-015"],
       "scene": "hook-metric-cost",
@@ -34,7 +34,7 @@
     {
       "id": "seg-004",
       "section": "problem",
-      "narration": "会议一改期，旧办法要从邮件抄时间，打开日历挪日程，再补提醒。邮件再变一次，几处都得重新核对。",
+      "narration": "一封邮件把会议时间改了。你得先抄下新时间，再打开日历挪日程、补提醒。邮件要是又变了，这几处还得重新核对。",
       "onScreenText": ["邮件改期", "抄时间 · 挪日历 · 补提醒", "再变一次，还要重新核对"],
       "claimIds": ["claim-poke-007"],
       "scene": "problem-fragmentation",
@@ -44,7 +44,7 @@
     {
       "id": "seg-005",
       "section": "decision",
-      "narration": "团队原来就在做邮件客户端和自动化。访谈里，用户的反馈很直接：别再让我学新界面。团队后来收起工作台，把 Poke 放进大家已经在用的消息列表。要改日程，发一句就行。",
+      "narration": "团队一开始做的是邮件客户端和自动化。用户说得很直接：别再让我学一套新界面了。后来，团队收起工作台，把 Poke 放进大家本来就在用的消息列表。要改日程，发句话就行。",
       "onScreenText": [
         "最早：邮件客户端与自动化",
         "用户：别再让我学新界面",
@@ -58,7 +58,7 @@
     {
       "id": "seg-006",
       "section": "user-pull",
-      "narration": "Beta 用户没把它只当邮件助手。有人让它提醒吃药，有人问天气和球赛。用户给出的这些请求，把 Poke 推向了更日常的任务。",
+      "narration": "内测用户也没把它只当邮件助手。有人让它提醒吃药，有人问天气、查球赛结果。这些要求，也让 Poke 开始处理更多日常小事。",
       "onScreenText": ["Beta 用户继续往外推", "提醒吃药 · 天气 · 球赛结果", "带出邮箱"],
       "claimIds": ["claim-poke-008"],
       "scene": "beta-user-pull",
@@ -68,7 +68,7 @@
     {
       "id": "seg-007",
       "section": "product-value",
-      "narration": "放在消息列表里，它还能先开口。时间到了就提醒，邮件变了再跟进。用户授权后，它可以读邮件、改日历、草拟回复。结果也要自己核对。",
+      "narration": "Poke 待在消息列表里，也可以主动找你。时间到了，它来提醒；邮件有变化，它再跟进。授权以后，它能读邮件、改日历，也能草拟回复。不过，结果还得由你自己核对。",
       "onScreenText": ["它还能先开口", "授权后读邮件 · 改日历 · 草拟回复", "结果仍要核对"],
       "claimIds": ["claim-poke-010", "claim-poke-011", "claim-poke-024"],
       "scene": "proactive-permission-risk",
@@ -78,7 +78,7 @@
     {
       "id": "seg-008",
       "section": "sharing",
-      "narration": "一套用法还能交给别人。Poke 把背景设定、开场白和要连接的服务做成 Recipe 链接。朋友点开，从配好的设置开始，自己的账户仍要自己授权。",
+      "narration": "一套用法也能发给别人。Poke 会把背景设定、开场白，还有要连接的服务，整理成一个 Recipe 链接。朋友点开后，会先看到配好的设置。需要连接自己的账户时，再由他亲自确认授权。",
       "onScreenText": ["Recipe：把一套用法做成链接", "从配好的设置开始", "账户仍要自己授权"],
       "claimIds": ["claim-poke-012"],
       "scene": "recipe-release",
@@ -88,7 +88,7 @@
     {
       "id": "seg-009",
       "section": "evidence",
-      "narration": "2026 年 3 月 19 日，候补名单取消，Recipe 同时开放。此前要等准入，从这一天起，Poke 进入一般可用状态。",
+      "narration": "到了 2026 年 3 月 19 日，想用 Poke，已经不用再排候补。Recipe 也在同一天开放。",
       "onScreenText": ["2026.03.19 候补名单取消", "Recipe 同时开放", "进入一般可用状态"],
       "claimIds": ["claim-poke-004"],
       "scene": "launch-timeline",
@@ -98,7 +98,7 @@
     {
       "id": "seg-010",
       "section": "ending-payoff",
-      "narration": "回到那条改期消息。团队收起工作台，用户把提醒、天气和球赛带进来，Recipe 又把用法交给下一位。最后，联系人里发出一句话，日历停在周三下午三点。",
+      "narration": "再回到开头那条改期消息。团队收起工作台，内测用户又带来了提醒、天气和球赛这些需求。有了 Recipe，一套用法还能继续发给下一个人。最后，在联系人里发句话，日历就停在周三下午三点。",
       "onScreenText": [
         "工作台收起",
         "用户把它带出邮箱",

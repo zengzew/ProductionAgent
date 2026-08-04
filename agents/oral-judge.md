@@ -29,11 +29,15 @@ story/oral-review.md
 
 ## 评分
 
+使用 `oral-review-v2` 和 `oral-judge-v2` Prompt。评分锚点以
+`docs/evaluation-rubric.md` 为准，不得沿用 v1 分数解释。
+
 每项 0～5 分：
 
-- `chineseNaturalness`：是否摆脱英文句序、长定语、抽象动宾结构和翻译腔。
+- `chineseNaturalness`：是否摆脱英文句序、长定语、抽象动宾结构、研究档案词、产品
+  状态直译和翻译腔。
 - `spokenDelivery`：长短句是否错开，标点是否形成自然停顿，是否有明确对象感，
-  朗读时是否需要连续换气。
+  朗读时是否需要连续换气；“仍、却、反而、不过”等转折方向是否清楚。
 - `informationFidelity`：人物、动作、数字、来源身份、指标、时间、因果和不确定性
   是否与初稿及 Claim 一致。
 - 同时检查整体口吻是否正面介绍产品。边界可以保留，但不能压过产品价值、真实体验
@@ -41,9 +45,29 @@ story/oral-review.md
 
 三项都必须不低于 4 分，且 blockers 为空，才能 PASS。
 
+## 必查项
+
+以下七项必须逐项给出 `segment/Claim/原句` 定位和观察结果，不得只写“整体自然”：
+
+- `translatedSyntax`：是否仍有英文句序、长定语或说明书式并列。
+- `sourceAttributionLanguage`：来源称呼是否符合中文语境，是否用档案标签替代人物动作。
+- `productStageLanguage`：产品阶段是否变成用户能感知的身份或变化。
+- `turnDirection`：转折词的预期与褒贬方向是否明确。
+- `sentenceCadence`：句长与结构是否错开，是否出现海报短句或整齐节拍。
+- `spokenBreath`：标点、停顿和换气是否能按目标语速自然读出。
+- `informationFidelity`：初稿、最终稿、Claim、来源等级与事实边界是否一致。
+
+任一项 FAIL 都是 blocker，必须 REJECT 并给出最小修改要求。
+
 ## 硬拒绝
 
 - 仍有成段英文语序或产品说明书式并列。
+- 把人叫作“独立体验者”，或用“访谈里”“在那篇体验里”等研究档案词代替具体的
+  说话者和动作。
+- 把 `Beta users`、`general availability` 等阶段词生硬念成“Beta 用户”“一般可用
+  状态”，没有翻成中文听众能感知的身份或变化。
+- “仍、却、反而、不过”等词没有清楚的预期方向，让授权、核对或限制听起来褒贬
+  不明。
 - 连续多句长度和结构相同，听起来像书面稿逐句朗读。
 - 靠“说白了”“你敢信吗”或密集反问伪装口语。
 - 专有名词首次出现却没有普通话解释。
@@ -66,7 +90,8 @@ Script Writer。最多评审 3 轮。第三轮仍未通过时，`returnTo` 必�
 ```text
 <!-- oral-review-gate
 {
-  "rubricVersion": "oral-review-v1",
+  "rubricVersion": "oral-review-v2",
+  "promptVersion": "oral-judge-v2",
   "reviewedFile": "story/final-script.md",
   "reviewedSha256": "<sha256>",
   "sourceDraftFile": "story/script-draft.md",
@@ -78,6 +103,15 @@ Script Writer。最多评审 3 轮。第三轮仍未通过时，`returnTo` 必�
     "informationFidelity": 0
   },
   "minimumScore": 4,
+  "checks": {
+    "translatedSyntax": {"result": "PASS", "evidence": [{"locator": "seg-001", "observation": "<观察>"}]},
+    "sourceAttributionLanguage": {"result": "PASS", "evidence": [{"locator": "seg-001", "observation": "<观察>"}]},
+    "productStageLanguage": {"result": "PASS", "evidence": [{"locator": "seg-001", "observation": "<观察>"}]},
+    "turnDirection": {"result": "PASS", "evidence": [{"locator": "seg-001", "observation": "<观察>"}]},
+    "sentenceCadence": {"result": "PASS", "evidence": [{"locator": "seg-001", "observation": "<观察>"}]},
+    "spokenBreath": {"result": "PASS", "evidence": [{"locator": "seg-001", "observation": "<观察>"}]},
+    "informationFidelity": {"result": "PASS", "evidence": [{"locator": "seg-001 / claim-id", "observation": "<观察>"}]}
+  },
   "styleSamples": [],
   "blockers": [],
   "verdict": "PASS",

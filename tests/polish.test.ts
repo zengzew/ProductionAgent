@@ -2,8 +2,8 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import {describe, expect, it} from "vitest";
-import {evaluateHardConstraints, selectStyleSamples} from "../src/lib/polish";
-import {polishStyleSchema} from "../src/lib/pipeline-v2-config";
+import {evaluateHardConstraints, polishJudgeSchema, selectStyleSamples} from "../src/lib/polish";
+import {loadPolishV2Config, polishStyleSchema, promptText} from "../src/lib/pipeline-v2-config";
 import {scriptSchema} from "../src/schemas/episode";
 
 const script = scriptSchema.parse({
@@ -61,5 +61,47 @@ describe("polish constraints", () => {
     } finally {
       fs.rmSync(directory, {recursive: true, force: true});
     }
+  });
+
+  it("requires evidence for every polish-judge-v2 natural-Chinese check", () => {
+    const pass = (segmentId: string) => ({
+      result: "pass",
+      evidence: [{segmentId, observation: "已核对。"}],
+    });
+    const judge = {
+      scores: {translationese: 9, spokenChinese: 9, informationFidelity: 10},
+      checks: {
+        translatedSyntax: pass("seg-001"),
+        sourceAttributionLanguage: pass("seg-001"),
+        productStageLanguage: pass("seg-001"),
+        turnDirection: pass("seg-001"),
+        sentenceCadence: pass("seg-001"),
+        spokenBreath: pass("seg-001"),
+        informationFidelity: pass("seg-001"),
+      },
+      issues: [],
+      verdict: "pass",
+    };
+
+    expect(polishJudgeSchema.parse(judge)).toEqual(judge);
+    expect(() =>
+      polishJudgeSchema.parse({
+        ...judge,
+        checks: {...judge.checks, turnDirection: {result: "pass", evidence: []}},
+      }),
+    ).toThrow();
+  });
+
+  it("loads the versioned v3 prompt bundle with the v2 judge rules", () => {
+    const {config, style: currentStyle} = loadPolishV2Config();
+    const judgePrompt = promptText(config.prompts.judgeSystem);
+
+    expect(config.promptVersion).toBe("polish-prompt-bundle-v3");
+    expect(config.judgeRubricVersion).toBe("polish-judge-v2");
+    expect(config.prompts.judgeSystem).toBe("prompts/v3/judge-system.md");
+    expect(judgePrompt).toContain("`oral-review-v2`");
+    expect(currentStyle.bannedTerms).toEqual(
+      expect.arrayContaining(["独立体验者", "在那篇体验里", "Beta 用户", "一般可用状态"]),
+    );
   });
 });

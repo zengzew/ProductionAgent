@@ -2,7 +2,7 @@
 {
   "rubricVersion": "visual-plan-v2",
   "reviewedFile": "story/final-script.md",
-  "reviewedSha256": "a7529475d4b92dc55110903da2f23e1105aed452194eef2ac4a0fd34a9a2ba29",
+  "reviewedSha256": "93b003ef17c77b413c10298c0d884e9f1fdd56cd36ee54d100ddad116121f9e2",
   "plannedSegments": 10,
   "unresolvedAssets": [],
   "verdict": "READY",

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "pilotId": "episode-001-oral-v2-001",
+  "status": "human-review-complete",
+  "purpose": "Independent oral-review-v2 followed by blinded human listening",
+  "canonicalArtifactsUntouched": true,
+  "lineage": {
+    "sourceDraft": {
+      "path": "story/script-draft.md",
+      "sha256": "6585fa6a8e18d0d247d779e58341581caf7efd06b925f419c47953301ddd9aae"
+    },
+    "candidate": {
+      "path": "story/final-script.md",
+      "sha256": "b6e7a27d5406539463e7640cc5478da3807c3fe5337392db12c334eb5d03e7cf"
+    },
+    "independentReview": {
+      "path": "story/oral-review.md",
+      "sha256": "cba2648087f81a91cce4c4d1f2872ffb8f3e793c8ac53d1f233221268bfa64ba",
+      "rubricVersion": "oral-review-v2",
+      "promptVersion": "oral-judge-v2",
+      "sealedUntilHumanReview": false
+    },
+    "secondaryUnselectedReview": {
+      "path": "story/oral-review-fast.md",
+      "sha256": "dd19838f580b80a6f532251b7370e9472a85bdec2fc1c3e9fcdfb36eb43cfdd8",
+      "rubricVersion": "oral-review-v2",
+      "promptVersion": "oral-judge-v2",
+      "sealedUntilHumanReview": false
+    },
+    "candidateTts": {
+      "path": "audio/candidate-tts-metadata.json",
+      "sha256": "fc591b423822a1ecbc3ae7508cd10f7bb4b0d443390a0ff7b41c3e89977e5767"
+    },
+    "humanBlindReview": {
+      "path": "human-blind-review.md",
+      "sha256": "f6785fc7e7bb5ad382648bddd31851e691722d1fefdcf482a3b30057f1329e82",
+      "selectedSample": "sample-b.mp3",
+      "selectedArtifact": "oral-v2-pilot-candidate"
+    }
+  },
+  "blindPackage": {
+    "sampleA": {
+      "path": "blind/sample-a.mp3",
+      "sha256": "847a9a551e040ada1fdc884e2afeb861da1daaa586eba132fbd9c79fa2069aff",
+      "durationSeconds": 102.12
+    },
+    "sampleB": {
+      "path": "blind/sample-b.mp3",
+      "sha256": "75c00281aaa19c92a119440f4c9592c0fca6cb3b50f82fc0d2895ed5ce00bc3f",
+      "durationSeconds": 101.544
+    },
+    "form": {
+      "path": "blind-listen-form.md",
+      "sha256": "3f438f18d654108882d26b1f5dd97d6f815635410eac18b449dfd663ccd82b82"
+    },
+    "key": {
+      "path": "blind-key.json",
+      "sha256": "cdf617d378b4c1bb3438687d78d0d8a8c8edf6b55f904af8031485ef61c04c2f",
+      "openAfterFormCompletion": true,
+      "revealed": true
+    }
+  }
+}

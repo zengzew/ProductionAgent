@@ -40,7 +40,8 @@ role's artifacts instead of turning research directly into narration.
 5. **Oral Rewriter** independently turns the draft into natural spoken Chinese
    without adding or changing facts.
 6. **Oral Judge** scores Chinese naturalness, spoken delivery and information
-   fidelity. All three must reach 4/5, with at most three rewrite rounds.
+   fidelity, and records evidence for seven natural-Chinese checks. All scores must reach 4/5 and
+   every check must pass, with at most three rewrite rounds.
 7. **Audience Critic** scores Hook, Conflict, Human element, Product clarity,
    Growth logic, Technology explanation and Natural Chinese. Every likely exit
    point must explain why the viewer leaves, request a testable change and name
@@ -182,7 +183,8 @@ pnpm validate:research -- --episode episode-002
   maximum rounds
 - `config/polish-v2-style.json`: sentence limits, banned terms, protected
   English terms and spoken-number guidance
-- `prompts/`: Oral Rewriter and Oral Judge prompt templates
+- `prompts/v3/`: current Oral Rewriter and polish-judge prompt bundle; earlier prompt directories are
+  retained as immutable history
 - `style/approved/`: human-approved few-shot manuscripts
 
 Run `pnpm polish` with `OPENAI_API_KEY` (and optionally

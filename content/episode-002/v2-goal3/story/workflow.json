@@ -66,7 +66,7 @@
         "content/episode-002/v2-goal3/story/reviews/oral-round-01.md",
         "content/episode-002/v2-goal3/story/reviews/oral-round-02.md"
       ],
-      "decision": "自然度、口播节奏和信息保真以 4/4/5 通过。"
+      "decision": "自然度、口播节奏和信息保真以 5/5/5 通过。"
     },
     {
       "id": "audience-critic",
@@ -76,7 +76,7 @@
         "content/episode-002/v2-goal3/story/critic-report.md",
         "content/episode-002/v2-goal3/story/reviews/audience-round-02.md"
       ],
-      "decision": "以 92 分通过，并把后段功能密度交给视觉执行约束。"
+      "decision": "以 93 分通过，并把后段功能密度交给视觉执行约束。"
     },
     {
       "id": "fact-guardian",
@@ -86,7 +86,7 @@
         "content/episode-002/v2-goal3/story/fact-check-report.md",
         "content/episode-002/v2-goal3/story/reviews/fact-round-02.md"
       ],
-      "decision": "批准 12 段、32 个旁白单元的 Claim、时间顺序和指标口径。"
+      "decision": "批准 12 段、43 个旁白单元的 Claim、时间顺序和指标口径。"
     },
     {
       "id": "visual-director",
@@ -103,7 +103,7 @@
       "owner": "retention-critic",
       "status": "complete",
       "artifacts": ["content/episode-002/v2-goal3/story/retention-report.md"],
-      "decision": "以 87 分批准生产，并把 Hook 层级与后段功能密度列为渲染约束。"
+      "decision": "以 90 分批准生产，并把 Hook 层级与后段功能密度列为渲染约束。"
     },
     {
       "id": "delivery-critic",
@@ -114,7 +114,7 @@
         "content/episode-002/v2-goal3/production/output/vertical_9x16.mp4",
         "content/episode-002/v2-goal3/production/output/subtitles_zh.srt"
       ],
-      "decision": "当前 127.300 秒竖版成片通过画面、字幕、音频技术读回和证据复审。"
+      "decision": "当前 140.933 秒竖版成片通过画面、字幕、音频技术读回和证据复审。"
     }
   ],
   "decisions": [
@@ -145,15 +145,15 @@
     {
       "id": "decision-spoken-delivery",
       "owner": "oral-rewriter",
-      "decision": "将旁白压到 755 字，保留人类行为与产品动作。",
-      "rationale": "提高信息密度，同时让等待段有真实停顿。",
+      "decision": "将 12 段旁白改成 811 个字符的自然中文，保留人类行为与产品动作。",
+      "rationale": "删除档案式人物称呼和生硬回指，同时保持单一媒体体验的来源强度。",
       "artifact": "content/episode-002/v2-goal3/story/final-script.md",
       "claimIds": []
     },
     {
       "id": "decision-audience-clearance",
       "owner": "audience-critic",
-      "decision": "以 92 分通过，并把重复增长和功能尾段交给视觉约束。",
+      "decision": "以 93 分通过，并把重复增长和功能尾段交给视觉约束。",
       "rationale": "当前 Hook、人的使用行为和产品定义都能被零背景观众复述。",
       "artifact": "content/episode-002/v2-goal3/story/critic-report.md",
       "claimIds": []
@@ -177,7 +177,7 @@
     {
       "id": "decision-production-readiness",
       "owner": "retention-critic",
-      "decision": "以 87 分批准进入 TTS 与渲染。",
+      "decision": "以 90 分批准进入 TTS 与渲染。",
       "rationale": "四个窗口均过门槛，无 high risk 或 blocker。",
       "artifact": "content/episode-002/v2-goal3/story/retention-report.md",
       "claimIds": []
@@ -185,7 +185,7 @@
     {
       "id": "decision-final-delivery",
       "owner": "delivery-critic",
-      "decision": "批准当前 127.300 秒竖版成片。",
+      "decision": "批准当前 140.933 秒竖版成片。",
       "rationale": "首帧、字幕、真实页面、程序化演示边界、音频技术状态和结尾均通过实际成片复审。",
       "artifact": "content/episode-002/v2-goal3/production/delivery-critic-report.md",
       "claimIds": []
@@ -197,7 +197,7 @@
       "critic": "audience-critic",
       "round": 3,
       "reportPath": "content/episode-002/v2-goal3/story/critic-report.md",
-      "reportSha256": "be08a4f1031f5f6fc8a825855b9d163341d018a4689a81640d40273bd9e11658",
+      "reportSha256": "6a81bb34b0d39ccfb4147a357d7c5051daf8236e7f59958051a5f16f6d2dc19f",
       "verdict": "PASS",
       "routes": []
     },
@@ -206,7 +206,7 @@
       "critic": "retention-critic",
       "round": 1,
       "reportPath": "content/episode-002/v2-goal3/story/retention-report.md",
-      "reportSha256": "c723b48b4e6aa3e42b5057cf6e7092a17238922b9f7a4fbee889be895804d71c",
+      "reportSha256": "d8c4157139425281724ac836d21dc93194d4d2268203eee67fd4d12f683fa847",
       "verdict": "PASS",
       "routes": []
     },
@@ -215,7 +215,7 @@
       "critic": "delivery-critic",
       "round": 1,
       "reportPath": "content/episode-002/v2-goal3/production/delivery-critic-report.md",
-      "reportSha256": "bf9ffd1a8b9ef1415dc2b3710c82c19328a38b6e9a75feef46b88b25741feaee",
+      "reportSha256": "f5aebd90ee27165d4cb42d49da5b0e6a4391c5659ce874fc6c81bcc118ee3910",
       "verdict": "PASS",
       "routes": []
     }

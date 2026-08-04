@@ -2,52 +2,52 @@
 {
   "rubricVersion": "retention-critic-v2",
   "reviewedFile": "story/final-script.md",
-  "reviewedSha256": "a7529475d4b92dc55110903da2f23e1105aed452194eef2ac4a0fd34a9a2ba29",
+  "reviewedSha256": "93b003ef17c77b413c10298c0d884e9f1fdd56cd36ee54d100ddad116121f9e2",
   "visualPlanFile": "story/visual-plan.md",
-  "visualPlanSha256": "cb3ba696715e3c363f9d09c6e1b6cda64e9fce803e95bf0851ef5e8cdacff8df",
+  "visualPlanSha256": "26e7f511e1301f6311a33cd1f7c67b5e5b82b30ad05890b731df155636248e0b",
   "round": 1,
   "scores": {
     "first3Seconds": 24,
     "first30Seconds": 21,
-    "midVideoEngagement": 20,
+    "midVideoEngagement": 21,
     "endingSatisfaction": 22
   },
   "windows": {
     "first3Seconds": {
       "dropOffRisk": "low",
-      "prediction": "第 0 帧同屏显示发出的消息和改到周三 15:00 的日历结果，三秒旁白只说这一项变化；零背景观众不需要先认识 Poke。"
+      "prediction": "第 0 帧同屏显示消息和周三 15:00 的日历结果，首句直接说用户动作和结果。"
     },
     "first30Seconds": {
       "dropOffRisk": "medium",
-      "prediction": "十秒内完成联系人 AI 心智模型，二十秒留下用户为何愿意交出更多日常任务的问题，随后进入抄时间、挪日程和补提醒；压缩降低了口播负荷，但 0:10-0:20 仍包含来源数字、早期形态和核心问题。"
+      "prediction": "十秒内完成联系人 AI 心智模型，压缩后的第三段仍保留消息规模、早期形态和核心问题；字数下降，但三项认知任务仍在。"
     },
     "midVideo": {
       "dropOffRisk": "medium",
-      "prediction": "0:31-1:25 每 13 至 14 秒新增团队选择、Beta 请求、主动授权动作或 Recipe 分享；能力密度和 Recipe 转场仍可能产生短暂说明感。"
+      "prediction": "0:31-1:25 的用户反馈、内测请求、主动授权动作和 Recipe 分享按人的动作推进；0:58-1:25 的能力密度仍需连续画面承接。"
     },
     "ending": {
       "dropOffRisk": "low",
-      "prediction": "1:25 硬切真实 Release Notes 提供最后的新状态，1:38 起回收工作台、Beta 请求和 Recipe，最终停回同一日历结果。"
+      "prediction": "公开节点之后回收工作台、内测需求和 Recipe，最终停回同一日历结果。"
     }
   },
-  "total": 87,
+  "total": 88,
   "threshold": 80,
   "viewerExitRisks": [
     {
       "id": "feedback-retention-hook-density",
       "timeRange": "0:10-0:20",
       "severity": "medium",
-      "whyViewerStops": "压缩后的旁白仍要求观众在十秒内识别一亿条消息的来源与口径、理解早期邮件工作台，并记住继续观看问题；若三个视觉层同时运动，数字会压过人的选择。",
-      "evidence": "当前旁白连续给 Cognition 数字、早期产品形态和核心问题；视觉计划安排消息聚合、工作台收起和问题出现三个动作。",
-      "requestedChange": "渲染时严格按数字聚合、工作台收起、问题停住的顺序一次只保留一个视觉焦点，并给最后的问题至少两秒静止阅读时间。",
+      "whyViewerStops": "压缩减少了音节，但观众仍要在十秒内识别一亿多条消息的来源与口径、理解早期邮件工作台，并记住继续观看问题。",
+      "evidence": "当前旁白仍按 Cognition 数字、早期产品形态和核心问题推进；视觉计划安排消息聚合、工作台收起和问题出现三个动作。",
+      "requestedChange": "新 TTS 和渲染必须确认 Hook 在 20 秒内完成；画面继续按数字、工作台、问题的顺序一次只保留一个焦点。",
       "returnTo": "visual-director"
     },
     {
       "id": "feedback-retention-mid-capability-density",
       "timeRange": "0:58-1:25",
       "severity": "medium",
-      "whyViewerStops": "主动提醒、授权、读邮件、改日历、草拟回复、核对和 Recipe 分享连续出现，若画面逐项列卡片，会让故事退回产品说明。",
-      "evidence": "`seg-007` 和 `seg-008` 连续覆盖两组产品机制；视觉方案已提出一条完整授权动作和联系人之间的链接传递。",
+      "whyViewerStops": "主动提醒、授权、读邮件、改日历、草拟回复、核对和 Recipe 分享连续出现，若画面逐项列卡片，仍会让故事退回产品说明。",
+      "evidence": "`seg-007` 和 `seg-008` 连续覆盖两组产品机制；视觉方案提出一条授权动作和联系人之间的链接传递。",
       "requestedChange": "保持提醒、授权、日历移动、核对为一条连续动作；Recipe 只动画链接传给下一位，不额外轮播功能卡或增长图。",
       "returnTo": "visual-director"
     },
@@ -57,7 +57,7 @@
       "severity": "low",
       "whyViewerStops": "结尾前突然进入日期和 Release Notes，若页面缩得不可读或再扩展时间线，观众会把它当公司编年并提前离开。",
       "evidence": "这一段是全片唯一真实文档镜头，也是从 Recipe 程序图形切到公开状态的最大节奏变化。",
-      "requestedChange": "只放大日期、候补名单取消和一般可用状态；读完后立即切回联系人和日历，不增加其他发布事件。",
+      "requestedChange": "只放大日期、候补名单取消和 Recipe 同日开放；读完后立即切回联系人和日历，不增加其他发布事件。",
       "returnTo": "visual-director"
     }
   ],
@@ -68,45 +68,43 @@
 }
 -->
 
-# Poke v2 Retention Critic Report · Delivery-timing Rebind
+# Poke v2 Retention Critic Report · Real Hook Timing Rebind
 
 评审对象：`story/final-script.md`、`story/caption-plan.json` 与 `story/visual-plan.md`
 
-结论：**87 / 100，PASS**
+结论：**88 / 100，PASS**
 
-## Delivery-timing rebind
+## Rebind lineage
 
-压缩前 canonical 报告已原样归档到 `story/reviews/retention-round-01-pre-hook-timing.md`，归档 SHA-256 为 `bbaa1cd84b5a42825aa341d51ef7bf568ef189a31c76d97bd7bdc0e440ad0c01`，其评审的定稿 SHA-256 为 `c251863e8e5f6c41f281074b5997b0032be429662990ac5be5ee8bcc047ced3e`。当前定稿、字幕规划和视觉方案 SHA-256 分别为 `a7529475d4b92dc55110903da2f23e1105aed452194eef2ac4a0fd34a9a2ba29`、`8f76a6d9ee045cb838bd18ddb309436045202c7092df4ad3bcb9ca063d48dab5` 与 `cb3ba696715e3c363f9d09c6e1b6cda64e9fce803e95bf0851ef5e8cdacff8df`。
+压缩前 PASS 报告已原样归档到 `story/reviews/retention-round-01-pre-hook-real-timing.md`，归档 SHA-256 为 `65a42272172db0afd60f9362e2ea9383e623dd61af6500a69811407cca3398c1`，绑定的定稿和视觉方案 SHA-256 分别为 `2fed0279c85123f44a512ab7c15d2ad3c1ab107fdf204930b6d07ecdd3f30bc5` 与 `adb28b33dec9843dc195e14ac5a896d790f53656fd3a1138fb31a055e469c533`。当前定稿、字幕规划和视觉方案 SHA-256 分别为 `93b003ef17c77b413c10298c0d884e9f1fdd56cd36ee54d100ddad116121f9e2`、`21d9f0c6d24815ea942eaa70e331d5237bbfc09450274ddc86a72c893dc853d3` 与 `26e7f511e1301f6311a33cd1f7c67b5e5b82b30ad05890b731df155636248e0b`。
 
-本次只把前三段旁白压入原有 3、7、10 秒视觉窗口；镜头结构、20 秒后的旁白、风险边界和结尾没有变化。压缩降低了早期口播负荷，但没有删除 `0:10–0:20` 的三项认知任务，因此保守保留原分数和风险等级。
-
-压缩前 Retention 是同一轮 PASS，不是更早的 REJECT；本次仍使用 `round: 1`，不伪造 `previousReview` 或 `resolvedFeedback`，也不将交付时长重绑定记成新的创意修订轮。
+上一份报告是同一轮 PASS。本次只为真实 Hook 时长压缩 `seg-003`，没有解决或新增 viewer-exit risk，因此继续使用 `round: 1`，不伪造 `previousReview` 或 `resolvedFeedback`。
 
 ## First 3 seconds
 
-**24 / 25，drop-off risk: low。** 第 0 帧同屏显示消息和更新后的日历，旁白只说“发一句话，周三的会议改到下午三点”。没有公司名、背景或动作开端挡在结果前面，零背景观众能直接看懂改变后的状态。
+**24 / 25，drop-off risk: low。** 首帧和首句未改，仍直接给出一句消息和已经更新的日历结果。
 
 ## First 30 seconds
 
-**21 / 25，drop-off risk: medium。** 3～10 秒用两句完成联系人入口、读邮件、改日历和主动提醒的心智模型；10～20 秒给 Cognition 数字、早期工作台和“为什么愿意交出更多日常任务”的问题；20 秒后立即进入抄时间、挪日程和补提醒。口播更短，但数字、过去形态和问题仍要按顺序展示，不能同时运动。
+**21 / 25，drop-off risk: medium。** `seg-003` 的音节减少，产品规模、早期工作台和核心问题仍完整。但这些认知任务没有减少，真实 Hook 是否小于等于 20 秒必须等新 TTS 读回，不能用目标时长代替。
 
 ## Mid-video engagement
 
-**20 / 25，drop-off risk: medium。** `0:31–1:25` 每 13～14 秒新增团队选择、Beta 请求、主动授权动作或 Recipe 分享，没有 20～40 秒的信息停滞。`0:58–1:25` 连续讲两组机制，实际画面必须维持一条动作链，避免退回卡片式功能说明。
+**21 / 25，drop-off risk: medium。** 20 秒后的旁白、动作和信息推进未改。用户反馈、内测请求、主动授权与 Recipe 仍按具体动作连接。
 
 ## Ending satisfaction
 
-**22 / 25，drop-off risk: low。** `1:25` 用真实 Release Notes 给出一般可用的新状态，`1:38` 起回收工作台、Beta 请求和 Recipe，最后回到周三 15:00 的日历结果。结尾兑现开场，没有功能总结、未来质疑或 CTA。
+**22 / 25，drop-off risk: low。** 公开节点和结尾未改，仍回到周三下午三点的日历结果，没有新增支线或 CTA。
 
 ## Viewer exit diagnosis
 
-最可能划走窗口仍是 `0:10–0:20`，其次是 `0:58–1:25`。三个风险都有时间、严重度、观众离开原因、当前证据、要求发生的具体变化和责任角色；没有 high risk 或 blocker。Hook 压缩解决的是实际口播时长，不代表可以放松视觉焦点管理。
+最可能划走窗口仍是 `0:10–0:20`，其次是 `0:58–1:25`。压缩改善了可朗读性，但不改变视觉焦点管理和新 TTS 读回要求。
 
 ## PASS 依据
 
-- 四项均高于 15 分，总分 87，高于 80 分门槛。
-- Hook 保留首帧结果、产品心智模型和继续观看问题，压缩没有造成故事断裂。
-- 字幕 cue 保留完整语义单元，未在英文产品名或中文词组中间断开。
-- 20 秒后的信息推进和结尾回收未改，没有新增留存风险。
+- 四项均高于 15 分，总分 88，高于 80 分门槛。
+- Hook 保留来源、规模、早期形态和核心问题，没有为了时长删掉故事承诺。
+- Caption cue 与旁白同步压缩，视觉方案仍绑定同一 Scene 和 Claim。
+- 没有事实、故事或留存 blocker。
 
-Retention Critic 只批准当前脚本、字幕规划和视觉方案的预期留存。视觉方案自身 gate 仍需对应角色绑定当前定稿；真实 TTS、字幕时间、镜头执行和 MP4 仍需交付门禁验证。
+Retention Critic 批准当前文字与视觉计划的预期留存。新 TTS、字幕时间线和最终 MP4 必须重建后再走 Delivery Critic。

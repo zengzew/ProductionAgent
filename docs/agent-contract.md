@@ -174,16 +174,16 @@ referenced source snapshot or any canonical research artifact changes.
 
 ### Oral Rewriter
 
-| Field         | Contract                                                                                       |
-| ------------- | ---------------------------------------------------------------------------------------------- |
-| Agent name    | `oral-rewriter`                                                                                |
-| Preconditions | Current information draft is valid.                                                            |
-| Inputs        | `script-draft.md`, research Claims, story structure, `style/voice-guide.md`, and at most three |
-|               | actually approved samples.                                                                     |
-| Outputs       | `story/final-script.md`.                                                                       |
-| Success gate  | Segment structure and Claim bindings are preserved; only expression and spoken rhythm change.  |
-| Rejection     | Information-structure defects route to Script Writer.                                          |
-| Forbidden     | New fact, person, scene, result, causal relation, metric, or source identity.                  |
+| Field         | Contract                                                                                        |
+| ------------- | ----------------------------------------------------------------------------------------------- |
+| Agent name    | `oral-rewriter`                                                                                 |
+| Preconditions | Current information draft is valid.                                                             |
+| Inputs        | `script-draft.md`, research Claims, story structure, `style/voice-guide.md`, and at most three  |
+|               | actually approved samples.                                                                      |
+| Outputs       | `story/final-script.md`.                                                                        |
+| Success gate  | Segment structure and Claim bindings are preserved; expression passes the seven v2 oral checks. |
+| Rejection     | Information-structure defects route to Script Writer.                                           |
+| Forbidden     | New fact, person, scene, result, causal relation, metric, or source identity.                   |
 
 ### Oral Judge
 
@@ -193,7 +193,7 @@ referenced source snapshot or any canonical research artifact changes.
 | Preconditions | Draft and final script both exist and their hashes are declared.                             |
 | Inputs        | Research Claims, draft, final script, voice guide, and only the style samples actually used. |
 | Outputs       | `story/oral-review.md`.                                                                      |
-| Success gate  | All three dimensions >= 4/5, no blocker, `returnTo=none`, current input hashes match.        |
+| Success gate  | `oral-review-v2`; all three dimensions >= 4/5; seven checks PASS; no blocker; hashes match.  |
 | Rejection     | Oral Rewriter, Script Writer, or `human-editor` on the third failed round.                   |
 | Forbidden     | Editing either script or silently approving information drift.                               |
 
@@ -286,6 +286,8 @@ editorial decisions.
 - Existing leading gate markers such as `oral-review-gate`, `critic-gate`, and `delivery-gate`
   remain valid. The structured fields in [critic-output-schema.md](./critic-output-schema.md) are
   additive so current parsers may ignore unknown fields.
+- Existing `oral-review-v1` reports remain valid only for their bound historical artifacts. New Oral
+  Judge executions use `oral-review-v2`; v1 scores MUST NOT be reinterpreted or compared as v2.
 - Current `story/workflow.json` remains the control plane until a versioned successor is implemented.
 - Markdown prose remains useful for humans, but only the leading machine gate may drive status,
   invalidation, routing, or revision counters.

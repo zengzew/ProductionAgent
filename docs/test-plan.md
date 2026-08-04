@@ -314,8 +314,9 @@ Validate required fields for every event and these invariants:
 
 ### `LEGACY-001`
 
-Parse current `oral-review-v1`, `product-story-v4`, `fact-guardian-v1`,
-`retention-critic-v2`, and `delivery-critic-v1` reports without requiring new fields.
+Parse historical `oral-review-v1` plus current `oral-review-v2`, `product-story-v4`,
+`fact-guardian-v1`, `retention-critic-v2`, and `delivery-critic-v1` reports. V1 remains parse-only;
+new v2 reports require evidence for every named oral check.
 
 ### `LEGACY-002`
 

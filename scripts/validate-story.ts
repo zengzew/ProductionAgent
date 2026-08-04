@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import {factSchema} from "../src/schemas/episode";
 import {
+  findOralReviewDecisionErrors,
   parseCriticGate,
   parseDirectorBriefGate,
   parseFactCheckGate,
@@ -288,6 +289,8 @@ const bannedNarrationPatterns = [
   },
   {label: "抽象增长词", pattern: /点火事件|增长引擎|价值闭环|生态位/u},
   {label: "广告词", pattern: /沉浸式|极致|史诗级|震撼|完美融合/u},
+  {label: "研究档案身份", pattern: /独立体验者|在那篇体验里/u},
+  {label: "产品阶段直译", pattern: /Beta\s*用户|一般可用状态/u},
   {label: "破折号", pattern: /—/u},
 ];
 for (const {label, pattern} of bannedNarrationPatterns) {
@@ -323,13 +326,7 @@ for (const styleSample of oralReview.styleSamples) {
     errors.push(`Oral Judge styleSamples 不存在：${styleSample}`);
   }
 }
-const oralReviewShouldPass =
-  Object.values(oralReview.scores).every((score) => score >= oralReview.minimumScore) &&
-  oralReview.blockers.length === 0 &&
-  oralReview.returnTo === "none";
-if ((oralReview.verdict === "PASS") !== oralReviewShouldPass) {
-  errors.push("Oral Judge verdict 与分数、blockers 或 returnTo 不一致");
-}
+errors.push(...findOralReviewDecisionErrors(oralReview));
 
 const finalSegment = segments.at(-1);
 const finalNarrationUnit = finalSegment?.narrationUnits.at(-1);

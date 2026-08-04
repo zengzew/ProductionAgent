@@ -196,7 +196,7 @@ export const criticGateSchema = z.object({
   returnTo: z.enum(["none", "story-director", "script-writer", "oral-rewriter"]),
 });
 
-export const oralReviewGateSchema = z.object({
+export const oralReviewV1GateSchema = z.object({
   rubricVersion: z.literal("oral-review-v1"),
   reviewedFile: z.literal("story/final-script.md"),
   reviewedSha256: z.string().regex(/^[a-f0-9]{64}$/u),
@@ -214,6 +214,92 @@ export const oralReviewGateSchema = z.object({
   verdict: z.enum(["PASS", "REJECT"]),
   returnTo: z.enum(["none", "oral-rewriter", "script-writer", "human-editor"]),
 });
+
+const oralReviewEvidenceSchema = z.object({
+  locator: z.string().min(1),
+  observation: z.string().min(1),
+});
+
+const oralReviewCheckSchema = z.object({
+  result: z.enum(["PASS", "FAIL"]),
+  evidence: z.array(oralReviewEvidenceSchema).min(1),
+});
+
+export const oralReviewV2GateSchema = z.object({
+  rubricVersion: z.literal("oral-review-v2"),
+  promptVersion: z.literal("oral-judge-v2"),
+  reviewedFile: z.literal("story/final-script.md"),
+  reviewedSha256: sha256Schema,
+  sourceDraftFile: z.literal("story/script-draft.md"),
+  sourceDraftSha256: sha256Schema,
+  round: z.number().int().min(1).max(3),
+  scores: z.object({
+    chineseNaturalness: z.number().min(0).max(5),
+    spokenDelivery: z.number().min(0).max(5),
+    informationFidelity: z.number().min(0).max(5),
+  }),
+  minimumScore: z.literal(4),
+  checks: z.object({
+    translatedSyntax: oralReviewCheckSchema,
+    sourceAttributionLanguage: oralReviewCheckSchema,
+    productStageLanguage: oralReviewCheckSchema,
+    turnDirection: oralReviewCheckSchema,
+    sentenceCadence: oralReviewCheckSchema,
+    spokenBreath: oralReviewCheckSchema,
+    informationFidelity: oralReviewCheckSchema,
+  }),
+  styleSamples: z.array(z.string()),
+  blockers: z.array(z.string()),
+  verdict: z.enum(["PASS", "REJECT"]),
+  returnTo: z.enum(["none", "oral-rewriter", "script-writer", "human-editor"]),
+});
+
+export const oralReviewGateSchema = z.discriminatedUnion("rubricVersion", [
+  oralReviewV1GateSchema,
+  oralReviewV2GateSchema,
+]);
+
+type OralReviewGate = z.infer<typeof oralReviewGateSchema>;
+
+export const findOralReviewDecisionErrors = (oralReview: OralReviewGate): string[] => {
+  const decisionErrors: string[] = [];
+  const scoresPass = Object.values(oralReview.scores).every(
+    (score) => score >= oralReview.minimumScore,
+  );
+  const failedChecks =
+    oralReview.rubricVersion === "oral-review-v2"
+      ? Object.entries(oralReview.checks)
+          .filter(([, check]) => check.result === "FAIL")
+          .map(([check]) => check)
+      : [];
+  const checksPass = failedChecks.length === 0;
+  const shouldPass =
+    scoresPass && checksPass && oralReview.blockers.length === 0 && oralReview.returnTo === "none";
+
+  if ((oralReview.verdict === "PASS") !== shouldPass) {
+    decisionErrors.push("Oral Judge verdict 与分数、checks、blockers 或 returnTo 不一致");
+  }
+  if (oralReview.rubricVersion === "oral-review-v2") {
+    if (!scoresPass && checksPass) {
+      decisionErrors.push("Oral Judge v2 低于门槛的分数必须对应至少一项失败检查");
+    }
+    if (failedChecks.length > 0 && oralReview.blockers.length === 0) {
+      decisionErrors.push(`Oral Judge v2 失败检查缺少 blocker：${failedChecks.join("、")}`);
+    }
+  }
+  if (oralReview.verdict === "REJECT" && oralReview.returnTo === "none") {
+    decisionErrors.push("Oral Judge REJECT 必须声明返工角色");
+  }
+  if (
+    oralReview.round === 3 &&
+    oralReview.verdict === "REJECT" &&
+    oralReview.returnTo !== "human-editor"
+  ) {
+    decisionErrors.push("Oral Judge 第三轮 REJECT 必须交给 human-editor");
+  }
+
+  return decisionErrors;
+};
 
 export const factCheckGateSchema = z.object({
   rubricVersion: z.literal("fact-guardian-v1"),

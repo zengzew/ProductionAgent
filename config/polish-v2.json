@@ -1,4 +1,6 @@
 {
+  "promptVersion": "polish-prompt-bundle-v3",
+  "judgeRubricVersion": "polish-judge-v2",
   "execution": {
     "mode": "hosted-llm-api",
     "networkCalls": true,
@@ -13,11 +15,11 @@
     "temperature": 0.4
   },
   "prompts": {
-    "polishSystem": "prompts/v2/polish-system.md",
-    "polishUser": "prompts/v2/polish-user.md",
-    "judgeSystem": "prompts/v2/judge-system.md",
-    "judgeUser": "prompts/v2/judge-user.md",
-    "rewriteUser": "prompts/v2/rewrite-user.md"
+    "polishSystem": "prompts/v3/polish-system.md",
+    "polishUser": "prompts/v3/polish-user.md",
+    "judgeSystem": "prompts/v3/judge-system.md",
+    "judgeUser": "prompts/v3/judge-user.md",
+    "rewriteUser": "prompts/v3/rewrite-user.md"
   },
   "voiceGuide": "style/voice-guide.md",
   "styleRules": "config/polish-v2-style.json",

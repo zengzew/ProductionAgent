@@ -14,7 +14,7 @@
     {
       "id": "seg-002",
       "section": "hook",
-      "narration": "没有卡住。Roost 让虚拟鸟按距离和鸟速送信，地图会显示它飞到哪儿。",
+      "narration": "没有卡住。Roost 会按距离和鸟的速度来送信，地图上还能看到它飞到哪儿。",
       "onScreenText": ["没有卡住", "按距离和鸟速送达", "地图显示飞到哪里"],
       "claimIds": ["claim-roost-003", "claim-roost-004"],
       "scene": "hook-rule-growth",
@@ -24,7 +24,7 @@
     {
       "id": "seg-003",
       "section": "hook",
-      "narration": "有人用伊丽莎白时代的英语等鸟送信。帖子出现后三天，用户从一万升到十万。等待为什么值得讲给别人？",
+      "narration": "有人等鸟送信时，用上了伊丽莎白时代的英语。帖子出现后三天，用户从一万涨到十万。这样的等待，为什么值得讲给别人？",
       "onScreenText": ["有人用伊丽莎白时代英语等鸟送信", "1 万 → 10 万 · 三天", "等待为什么值得？"],
       "claimIds": ["claim-roost-009"],
       "scene": "hook-core-question",
@@ -34,7 +34,7 @@
     {
       "id": "seg-004",
       "section": "problem",
-      "narration": "Mendelsohn 想给不停跳出的通知留个喘息口。消息一飞走，你不用守着手机。一位独立体验者提到，等待让他更认真想要说什么，也开始期待它到达。",
+      "narration": "Mendelsohn 想让不停跳出的通知，先安静一会儿。消息一飞走，你就不用守着手机。有位作者试用 Roost 后说，等待让他更认真地想自己要说什么。他也开始盼着消息送到。",
       "onScreenText": ["通知先停下来", "不用立刻回复", "想清楚，再派出一只鸟"],
       "claimIds": ["claim-roost-003", "claim-roost-007", "claim-roost-008"],
       "scene": "instant-pressure",
@@ -44,7 +44,7 @@
     {
       "id": "seg-005",
       "section": "origin",
-      "narration": "Roost 最早是 Mendelsohn 和朋友做的业余项目。概念视频火了，他做出一个原本没打算公开的应用。朋友喜欢，催他上架。2026 年 4 月 28 日，它进了 App Store。",
+      "narration": "Roost 最早只是个业余项目，是 Mendelsohn 和朋友一起做的。概念视频火了以后，他把应用做了出来。他本来没打算公开。朋友们很喜欢，还催他上架。2026 年 4 月 28 日，Roost 进了 App Store。",
       "onScreenText": ["最早：朋友间的业余项目", "朋友喜欢，催他公开", "2026.04.28 上架"],
       "claimIds": ["claim-roost-002", "claim-roost-005", "claim-roost-006"],
       "scene": "origin-friends-publish",
@@ -54,7 +54,7 @@
     {
       "id": "seg-006",
       "section": "mechanism",
-      "narration": "每只信使的速度不同，双方离得越远，到达也越久。地图把整段路画出来，鸟飞到哪里，一眼就能看见。",
+      "narration": "每只鸟的速度不一样。两个人离得越远，消息到得越慢。整段路线都画在地图上，鸟飞到哪儿，一眼就能看见。",
       "onScreenText": ["每只信使有自己的速度", "距离也会改变到达时间", "路线一直看得见"],
       "claimIds": ["claim-roost-003", "claim-roost-004"],
       "scene": "distance-speed-map",
@@ -64,7 +64,7 @@
     {
       "id": "seg-007",
       "section": "experience",
-      "narration": "等待的时候，你可以收集、训练不同的鸟，或者玩一局小游戏。朋友的鸟还在飞，人可以先离开手机。在那篇体验里，等待慢慢变成了期待。",
+      "narration": "等鸟的时候，你可以收集、训练不同的鸟。你也可以玩一局小游戏。朋友的鸟还在路上，你可以先去做别的事。那位作者等着等着，反而开始盼那只鸟落地了。",
       "onScreenText": ["等待有了形状", "收集和训练不同的鸟", "人可以先离开手机"],
       "claimIds": ["claim-roost-003", "claim-roost-004", "claim-roost-008"],
       "scene": "waiting-becomes-play",
@@ -74,7 +74,7 @@
     {
       "id": "seg-008",
       "section": "user-story",
-      "narration": "最能说明这种等待的，是用户自己玩出的说话方式。TechCrunch 记录的帖子里，一位母亲描述女儿和朋友用伊丽莎白时代的英语通信。每句话真要等鸟送到，聊天有了自己的仪式。帖子出现后的三天里，用户从一万升到十万。",
+      "narration": "用户后来还玩出了自己的说话方式。TechCrunch 记录了这篇帖子。一位母亲在帖子里说起女儿和朋友。他们用伊丽莎白时代的英语聊天。每句话都要等鸟送到，聊天也有了自己的仪式。帖子出现后的三天里，用户从一万涨到十万。",
       "onScreenText": [
         "用户玩出自己的通信仪式",
         "用伊丽莎白时代英语等一只鸟",
@@ -88,7 +88,7 @@
     {
       "id": "seg-009",
       "section": "evidence",
-      "narration": "到 7 月 7 日，Roost 已超过二十五万用户，每天有十万多个活跃对话。广告和付费获客花了零美元。",
+      "narration": "到 7 月 7 日，Roost 已经有二十五万多名用户。每天有十万多个活跃对话。广告和付费获客，一分钱都没花。",
       "onScreenText": ["2026.07.07", "25 万+ 用户", "每天 10 万+ 活跃对话", "付费获客 $0"],
       "claimIds": ["claim-roost-010", "claim-roost-012"],
       "scene": "growth-evidence",
@@ -98,7 +98,7 @@
     {
       "id": "seg-010",
       "section": "support",
-      "narration": "想换一只信使，可以收集和训练，也可以在轮换商店买喜欢的鸟。Roost 还提供支持者订阅，让用户用另一种方式继续支持这个项目。",
+      "narration": "想换一只信使，可以收集和训练。你也可以去轮换商店，买一只喜欢的。Roost 还提供支持者订阅，用户也能用这种方式支持项目。",
       "onScreenText": ["挑一只喜欢的鸟", "收集和训练", "轮换商店 · 支持者订阅"],
       "claimIds": ["claim-roost-004", "claim-roost-013"],
       "scene": "bird-store",
@@ -108,7 +108,7 @@
     {
       "id": "seg-011",
       "section": "location",
-      "narration": "距离需要位置。朋友默认只看到你的城市，精确位置只给你选中的 close friends。Pen Pals 也要双方都接受，对话才会打开。",
+      "narration": "Roost 要用位置来计算距离。默认情况下，朋友只能看到你所在的城市。只有你选中的亲密好友，才能看到精确位置。Pen Pals 也得两边都同意，对话才会打开。",
       "onScreenText": ["距离需要位置", "朋友默认只看城市", "Pen Pals 双方接受后开启"],
       "claimIds": ["claim-roost-015", "claim-roost-022"],
       "scene": "privacy-safety",
@@ -118,7 +118,7 @@
     {
       "id": "seg-012",
       "section": "ending",
-      "narration": "回到开头那句话。Roost 把路程画出来，用不同的鸟和等待，改变一条消息的送达感。到 7 月 10 日，注册用户达到三十万。开头那只鸟，还在地图上飞向朋友。",
+      "narration": "再回到开头那条消息。Roost 把路程画在地图上。不同的鸟，加上等待，改变了消息送达时的感觉。到 7 月 10 日，注册用户到了三十万。开头那只鸟，还在地图上朝朋友飞。",
       "onScreenText": [
         "路线看得见",
         "回复不用马上来",

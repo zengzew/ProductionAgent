@@ -43,14 +43,14 @@
 
 ### Narration
 
-没有卡住。Roost 让虚拟鸟按距离和鸟速送信，地图会显示它飞到哪儿。
+没有卡住。Roost 会按距离和鸟的速度来送信，地图上还能看到它飞到哪儿。
 
 ### Narration units
 
-| Text                                                   | Mode                   | Claim IDs                        | Attribution                  |
-| ------------------------------------------------------ | ---------------------- | -------------------------------- | ---------------------------- |
-| 没有卡住。                                             | editorial-analysis     | claim-roost-003                  | 纠正观众对慢速送达的自然误解 |
-| Roost 让虚拟鸟按距离和鸟速送信，地图会显示它飞到哪儿。 | independently-verified | claim-roost-003, claim-roost-004 | 官网、商店与媒体交叉核对     |
+| Text                                                       | Mode                   | Claim IDs                        | Attribution                  |
+| ---------------------------------------------------------- | ---------------------- | -------------------------------- | ---------------------------- |
+| 没有卡住。                                                 | editorial-analysis     | claim-roost-003                  | 纠正观众对慢速送达的自然误解 |
+| Roost 会按距离和鸟的速度来送信，地图上还能看到它飞到哪儿。 | independently-verified | claim-roost-003, claim-roost-004 | 官网、商店与媒体交叉核对     |
 
 ## seg-003
 
@@ -67,15 +67,15 @@
 
 ### Narration
 
-有人用伊丽莎白时代的英语等鸟送信。帖子出现后三天，用户从一万升到十万。等待为什么值得讲给别人？
+有人等鸟送信时，用上了伊丽莎白时代的英语。帖子出现后三天，用户从一万涨到十万。这样的等待，为什么值得讲给别人？
 
 ### Narration units
 
-| Text                                 | Mode               | Claim IDs       | Attribution                |
-| ------------------------------------ | ------------------ | --------------- | -------------------------- |
-| 有人用伊丽莎白时代的英语等鸟送信。   | founder            | claim-roost-009 | TechCrunch 记录的用户故事  |
-| 帖子出现后三天，用户从一万升到十万。 | founder            | claim-roost-009 | 创始人口径与时间顺序       |
-| 等待为什么值得讲给别人？             | editorial-analysis | claim-roost-009 | 基于可复述用户行为提出问题 |
+| Text                                       | Mode               | Claim IDs       | Attribution                |
+| ------------------------------------------ | ------------------ | --------------- | -------------------------- |
+| 有人等鸟送信时，用上了伊丽莎白时代的英语。 | founder            | claim-roost-009 | TechCrunch 记录的用户故事  |
+| 帖子出现后三天，用户从一万涨到十万。       | founder            | claim-roost-009 | 创始人口径与时间顺序       |
+| 这样的等待，为什么值得讲给别人？           | editorial-analysis | claim-roost-009 | 基于可复述用户行为提出问题 |
 
 ## seg-004
 
@@ -92,15 +92,16 @@
 
 ### Narration
 
-Mendelsohn 想给不停跳出的通知留个喘息口。消息一飞走，你不用守着手机。一位独立体验者提到，等待让他更认真想要说什么，也开始期待它到达。
+Mendelsohn 想让不停跳出的通知，先安静一会儿。消息一飞走，你就不用守着手机。有位作者试用 Roost 后说，等待让他更认真地想自己要说什么。他也开始盼着消息送到。
 
 ### Narration units
 
-| Text                                                             | Mode                   | Claim IDs                        | Attribution              |
-| ---------------------------------------------------------------- | ---------------------- | -------------------------------- | ------------------------ |
-| Mendelsohn 想给不停跳出的通知留个喘息口。                        | founder                | claim-roost-007                  | 创始人口述               |
-| 消息一飞走，你不用守着手机。                                     | editorial-analysis     | claim-roost-003, claim-roost-007 | 基于延迟设计概括可见动作 |
-| 一位独立体验者提到，等待让他更认真想要说什么，也开始期待它到达。 | independently-verified | claim-roost-008                  | 单一媒体体验，不作普遍化 |
+| Text                                                      | Mode                   | Claim IDs                        | Attribution              |
+| --------------------------------------------------------- | ---------------------- | -------------------------------- | ------------------------ |
+| Mendelsohn 想让不停跳出的通知，先安静一会儿。             | founder                | claim-roost-007                  | 创始人口述               |
+| 消息一飞走，你就不用守着手机。                            | editorial-analysis     | claim-roost-003, claim-roost-007 | 基于延迟设计概括可见动作 |
+| 有位作者试用 Roost 后说，等待让他更认真地想自己要说什么。 | independently-verified | claim-roost-008                  | 单一媒体体验，不作普遍化 |
+| 他也开始盼着消息送到。                                    | independently-verified | claim-roost-008                  | 单一媒体体验，不作普遍化 |
 
 ## seg-005
 
@@ -117,16 +118,17 @@ Mendelsohn 想给不停跳出的通知留个喘息口。消息一飞走，你不
 
 ### Narration
 
-Roost 最早是 Mendelsohn 和朋友做的业余项目。概念视频火了，他做出一个原本没打算公开的应用。朋友喜欢，催他上架。2026 年 4 月 28 日，它进了 App Store。
+Roost 最早只是个业余项目，是 Mendelsohn 和朋友一起做的。概念视频火了以后，他把应用做了出来。他本来没打算公开。朋友们很喜欢，还催他上架。2026 年 4 月 28 日，Roost 进了 App Store。
 
 ### Narration units
 
-| Text                                           | Mode                   | Claim IDs       | Attribution        |
-| ---------------------------------------------- | ---------------------- | --------------- | ------------------ |
-| Roost 最早是 Mendelsohn 和朋友做的业余项目。   | founder                | claim-roost-005 | 创始人口述         |
-| 概念视频火了，他做出一个原本没打算公开的应用。 | founder                | claim-roost-005 | 创始人口述         |
-| 朋友喜欢，催他上架。                           | founder                | claim-roost-006 | 创始人口述         |
-| 2026 年 4 月 28 日，它进了 App Store。         | independently-verified | claim-roost-002 | 平台与媒体交叉核对 |
+| Text                                                     | Mode                   | Claim IDs       | Attribution        |
+| -------------------------------------------------------- | ---------------------- | --------------- | ------------------ |
+| Roost 最早只是个业余项目，是 Mendelsohn 和朋友一起做的。 | founder                | claim-roost-005 | 创始人口述         |
+| 概念视频火了以后，他把应用做了出来。                     | founder                | claim-roost-005 | 创始人口述         |
+| 他本来没打算公开。                                       | founder                | claim-roost-005 | 创始人口述         |
+| 朋友们很喜欢，还催他上架。                               | founder                | claim-roost-006 | 创始人口述         |
+| 2026 年 4 月 28 日，Roost 进了 App Store。               | independently-verified | claim-roost-002 | 平台与媒体交叉核对 |
 
 ## seg-006
 
@@ -143,14 +145,15 @@ Roost 最早是 Mendelsohn 和朋友做的业余项目。概念视频火了，�
 
 ### Narration
 
-每只信使的速度不同，双方离得越远，到达也越久。地图把整段路画出来，鸟飞到哪里，一眼就能看见。
+每只鸟的速度不一样。两个人离得越远，消息到得越慢。整段路线都画在地图上，鸟飞到哪儿，一眼就能看见。
 
 ### Narration units
 
-| Text                                           | Mode                   | Claim IDs       | Attribution  |
-| ---------------------------------------------- | ---------------------- | --------------- | ------------ |
-| 每只信使的速度不同，双方离得越远，到达也越久。 | independently-verified | claim-roost-003 | 产品送达规则 |
-| 地图把整段路画出来，鸟飞到哪里，一眼就能看见。 | independently-verified | claim-roost-004 | 地图能力     |
+| Text                                             | Mode                   | Claim IDs       | Attribution  |
+| ------------------------------------------------ | ---------------------- | --------------- | ------------ |
+| 每只鸟的速度不一样。                             | independently-verified | claim-roost-003 | 产品送达规则 |
+| 两个人离得越远，消息到得越慢。                   | independently-verified | claim-roost-003 | 产品送达规则 |
+| 整段路线都画在地图上，鸟飞到哪儿，一眼就能看见。 | independently-verified | claim-roost-004 | 地图能力     |
 
 ## seg-007
 
@@ -167,15 +170,16 @@ Roost 最早是 Mendelsohn 和朋友做的业余项目。概念视频火了，�
 
 ### Narration
 
-等待的时候，你可以收集、训练不同的鸟，或者玩一局小游戏。朋友的鸟还在飞，人可以先离开手机。在那篇体验里，等待慢慢变成了期待。
+等鸟的时候，你可以收集、训练不同的鸟。你也可以玩一局小游戏。朋友的鸟还在路上，你可以先去做别的事。那位作者等着等着，反而开始盼那只鸟落地了。
 
 ### Narration units
 
-| Text                                                     | Mode                   | Claim IDs                        | Attribution            |
-| -------------------------------------------------------- | ---------------------- | -------------------------------- | ---------------------- |
-| 等待的时候，你可以收集、训练不同的鸟，或者玩一局小游戏。 | independently-verified | claim-roost-004                  | 产品机制               |
-| 朋友的鸟还在飞，人可以先离开手机。                       | editorial-analysis     | claim-roost-003, claim-roost-004 | 由可见路线概括用户动作 |
-| 在那篇体验里，等待慢慢变成了期待。                       | independently-verified | claim-roost-008                  | 单一媒体体验           |
+| Text                                       | Mode                   | Claim IDs                        | Attribution            |
+| ------------------------------------------ | ---------------------- | -------------------------------- | ---------------------- |
+| 等鸟的时候，你可以收集、训练不同的鸟。     | independently-verified | claim-roost-004                  | 产品机制               |
+| 你也可以玩一局小游戏。                     | independently-verified | claim-roost-004                  | 产品机制               |
+| 朋友的鸟还在路上，你可以先去做别的事。     | editorial-analysis     | claim-roost-003, claim-roost-004 | 由可见路线概括用户动作 |
+| 那位作者等着等着，反而开始盼那只鸟落地了。 | independently-verified | claim-roost-008                  | 单一媒体体验           |
 
 ## seg-008
 
@@ -192,16 +196,18 @@ Roost 最早是 Mendelsohn 和朋友做的业余项目。概念视频火了，�
 
 ### Narration
 
-最能说明这种等待的，是用户自己玩出的说话方式。TechCrunch 记录的帖子里，一位母亲描述女儿和朋友用伊丽莎白时代的英语通信。每句话真要等鸟送到，聊天有了自己的仪式。帖子出现后的三天里，用户从一万升到十万。
+用户后来还玩出了自己的说话方式。TechCrunch 记录了这篇帖子。一位母亲在帖子里说起女儿和朋友。他们用伊丽莎白时代的英语聊天。每句话都要等鸟送到，聊天也有了自己的仪式。帖子出现后的三天里，用户从一万涨到十万。
 
 ### Narration units
 
-| Text                                                                      | Mode               | Claim IDs                        | Attribution              |
-| ------------------------------------------------------------------------- | ------------------ | -------------------------------- | ------------------------ |
-| 最能说明这种等待的，是用户自己玩出的说话方式。                            | editorial-analysis | claim-roost-009                  | 进入有来源的用户动作     |
-| TechCrunch 记录的帖子里，一位母亲描述女儿和朋友用伊丽莎白时代的英语通信。 | founder            | claim-roost-009                  | 媒体记录用户故事         |
-| 每句话真要等鸟送到，聊天有了自己的仪式。                                  | editorial-analysis | claim-roost-003, claim-roost-009 | 由送达规则与用户行为概括 |
-| 帖子出现后的三天里，用户从一万升到十万。                                  | founder            | claim-roost-009                  | 创始人口径与时序         |
+| Text                                       | Mode               | Claim IDs                        | Attribution              |
+| ------------------------------------------ | ------------------ | -------------------------------- | ------------------------ |
+| 用户后来还玩出了自己的说话方式。           | editorial-analysis | claim-roost-009                  | 进入有来源的用户动作     |
+| TechCrunch 记录了这篇帖子。                | founder            | claim-roost-009                  | 媒体记录用户故事         |
+| 一位母亲在帖子里说起女儿和朋友。           | founder            | claim-roost-009                  | 媒体记录用户故事         |
+| 他们用伊丽莎白时代的英语聊天。             | founder            | claim-roost-009                  | 媒体记录用户故事         |
+| 每句话都要等鸟送到，聊天也有了自己的仪式。 | editorial-analysis | claim-roost-003, claim-roost-009 | 由送达规则与用户行为概括 |
+| 帖子出现后的三天里，用户从一万涨到十万。   | founder            | claim-roost-009                  | 创始人口径与时序         |
 
 ## seg-009
 
@@ -218,14 +224,15 @@ Roost 最早是 Mendelsohn 和朋友做的业余项目。概念视频火了，�
 
 ### Narration
 
-到 7 月 7 日，Roost 已超过二十五万用户，每天有十万多个活跃对话。广告和付费获客花了零美元。
+到 7 月 7 日，Roost 已经有二十五万多名用户。每天有十万多个活跃对话。广告和付费获客，一分钱都没花。
 
 ### Narration units
 
-| Text                                                             | Mode    | Claim IDs       | Attribution |
-| ---------------------------------------------------------------- | ------- | --------------- | ----------- |
-| 到 7 月 7 日，Roost 已超过二十五万用户，每天有十万多个活跃对话。 | founder | claim-roost-010 | 创始人口径  |
-| 广告和付费获客花了零美元。                                       | founder | claim-roost-012 | 创始人口径  |
+| Text                                         | Mode    | Claim IDs       | Attribution |
+| -------------------------------------------- | ------- | --------------- | ----------- |
+| 到 7 月 7 日，Roost 已经有二十五万多名用户。 | founder | claim-roost-010 | 创始人口径  |
+| 每天有十万多个活跃对话。                     | founder | claim-roost-010 | 创始人口径  |
+| 广告和付费获客，一分钱都没花。               | founder | claim-roost-012 | 创始人口径  |
 
 ## seg-010
 
@@ -242,14 +249,15 @@ Roost 最早是 Mendelsohn 和朋友做的业余项目。概念视频火了，�
 
 ### Narration
 
-想换一只信使，可以收集和训练，也可以在轮换商店买喜欢的鸟。Roost 还提供支持者订阅，让用户用另一种方式继续支持这个项目。
+想换一只信使，可以收集和训练。你也可以去轮换商店，买一只喜欢的。Roost 还提供支持者订阅，用户也能用这种方式支持项目。
 
 ### Narration units
 
-| Text                                                         | Mode                   | Claim IDs                        | Attribution            |
-| ------------------------------------------------------------ | ---------------------- | -------------------------------- | ---------------------- |
-| 想换一只信使，可以收集和训练，也可以在轮换商店买喜欢的鸟。   | independently-verified | claim-roost-004, claim-roost-013 | 产品机制与商店事实     |
-| Roost 还提供支持者订阅，让用户用另一种方式继续支持这个项目。 | founder                | claim-roost-013                  | App Store 与创始人采访 |
+| Text                                                 | Mode                   | Claim IDs       | Attribution            |
+| ---------------------------------------------------- | ---------------------- | --------------- | ---------------------- |
+| 想换一只信使，可以收集和训练。                       | independently-verified | claim-roost-004 | 产品机制               |
+| 你也可以去轮换商店，买一只喜欢的。                   | founder                | claim-roost-013 | 商店事实               |
+| Roost 还提供支持者订阅，用户也能用这种方式支持项目。 | founder                | claim-roost-013 | App Store 与创始人采访 |
 
 ## seg-011
 
@@ -266,14 +274,16 @@ Roost 最早是 Mendelsohn 和朋友做的业余项目。概念视频火了，�
 
 ### Narration
 
-距离需要位置。朋友默认只看到你的城市，精确位置只给你选中的 close friends。Pen Pals 也要双方都接受，对话才会打开。
+Roost 要用位置来计算距离。默认情况下，朋友只能看到你所在的城市。只有你选中的亲密好友，才能看到精确位置。Pen Pals 也得两边都同意，对话才会打开。
 
 ### Narration units
 
-| Text                                                                       | Mode    | Claim IDs       | Attribution      |
-| -------------------------------------------------------------------------- | ------- | --------------- | ---------------- |
-| 距离需要位置。朋友默认只看到你的城市，精确位置只给你选中的 close friends。 | company | claim-roost-015 | 当前官方位置说明 |
-| Pen Pals 也要双方都接受，对话才会打开。                                    | company | claim-roost-022 | 当前官方 FAQ     |
+| Text                                     | Mode    | Claim IDs       | Attribution      |
+| ---------------------------------------- | ------- | --------------- | ---------------- |
+| Roost 要用位置来计算距离。               | company | claim-roost-015 | 当前官方位置说明 |
+| 默认情况下，朋友只能看到你所在的城市。   | company | claim-roost-015 | 当前官方位置说明 |
+| 只有你选中的亲密好友，才能看到精确位置。 | company | claim-roost-015 | 当前官方位置说明 |
+| Pen Pals 也得两边都同意，对话才会打开。  | company | claim-roost-022 | 当前官方 FAQ     |
 
 ## seg-012
 
@@ -290,13 +300,14 @@ Roost 最早是 Mendelsohn 和朋友做的业余项目。概念视频火了，�
 
 ### Narration
 
-回到开头那句话。Roost 把路程画出来，用不同的鸟和等待，改变一条消息的送达感。到 7 月 10 日，注册用户达到三十万。开头那只鸟，还在地图上飞向朋友。
+再回到开头那条消息。Roost 把路程画在地图上。不同的鸟，加上等待，改变了消息送达时的感觉。到 7 月 10 日，注册用户到了三十万。开头那只鸟，还在地图上朝朋友飞。
 
 ### Narration units
 
-| Text                                                         | Mode                   | Claim IDs                        | Attribution             |
-| ------------------------------------------------------------ | ---------------------- | -------------------------------- | ----------------------- |
-| 回到开头那句话。                                             | editorial-analysis     | claim-roost-003                  | 回看同一条消息          |
-| Roost 把路程画出来，用不同的鸟和等待，改变一条消息的送达感。 | independently-verified | claim-roost-003, claim-roost-004 | 产品机制与视觉总结      |
-| 到 7 月 10 日，注册用户达到三十万。                          | founder                | claim-roost-020                  | ANSA 报道的阶段注册用户 |
-| 开头那只鸟，还在地图上飞向朋友。                             | independently-verified | claim-roost-003, claim-roost-004 | 回到具体产品动作        |
+| Text                                         | Mode                   | Claim IDs                        | Attribution             |
+| -------------------------------------------- | ---------------------- | -------------------------------- | ----------------------- |
+| 再回到开头那条消息。                         | editorial-analysis     | claim-roost-003                  | 回看同一条消息          |
+| Roost 把路程画在地图上。                     | independently-verified | claim-roost-003, claim-roost-004 | 产品机制与视觉总结      |
+| 不同的鸟，加上等待，改变了消息送达时的感觉。 | independently-verified | claim-roost-003, claim-roost-004 | 产品机制与视觉总结      |
+| 到 7 月 10 日，注册用户到了三十万。          | founder                | claim-roost-020                  | ANSA 报道的阶段注册用户 |
+| 开头那只鸟，还在地图上朝朋友飞。             | independently-verified | claim-roost-003, claim-roost-004 | 回到具体产品动作        |

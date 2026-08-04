@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "warning": "Do not open until the blind-listen form is complete.",
+  "randomizationDraw": 1,
+  "mapping": {
+    "sample-a.mp3": "canonical-delivered-final-script",
+    "sample-b.mp3": "oral-v2-pilot-candidate"
+  },
+  "samples": {
+    "sample-a.mp3": {
+      "sha256": "847a9a551e040ada1fdc884e2afeb861da1daaa586eba132fbd9c79fa2069aff",
+      "durationSeconds": 102.12
+    },
+    "sample-b.mp3": {
+      "sha256": "75c00281aaa19c92a119440f4c9592c0fca6cb3b50f82fc0d2895ed5ce00bc3f",
+      "durationSeconds": 101.544
+    }
+  },
+  "tts": {
+    "provider": "Microsoft Edge neural TTS",
+    "voice": "zh-CN-YunjianNeural",
+    "speed": 1.25,
+    "pitch": "-2Hz",
+    "sampleRate": 48000,
+    "channels": 1,
+    "normalization": "loudnorm I=-16 TP=-1.5 LRA=7"
+  }
+}

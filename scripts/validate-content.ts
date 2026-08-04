@@ -106,6 +106,8 @@ const bannedNarrationPatterns = [
     pattern: /这个口径|口径没有|没有拆分|看不出|回答不了|无法回答/u,
   },
   {label: "元评论", pattern: /听上去[^。！？\n]{0,20}技术|说白了/u},
+  {label: "研究档案身份", pattern: /独立体验者|在那篇体验里/u},
+  {label: "产品阶段直译", pattern: /Beta\s*用户|一般可用状态/u},
 ];
 for (const {label, pattern} of bannedNarrationPatterns) {
   if (pattern.test(scriptNarration)) {

@@ -24,6 +24,8 @@ export const polishStyleSchema = z.object({
 });
 
 const polishConfig = z.object({
+  promptVersion: z.literal("polish-prompt-bundle-v3"),
+  judgeRubricVersion: z.literal("polish-judge-v2"),
   execution: z.object({
     mode: z.literal("hosted-llm-api"),
     networkCalls: z.literal(true),

@@ -2,9 +2,9 @@
 {
   "rubricVersion": "fact-guardian-v1",
   "reviewedFile": "story/final-script.md",
-  "reviewedSha256": "b583b5e45b12e370775e065cd8c17255752fe8a7c1ac9a92b53e7cc1d5d7bbac",
+  "reviewedSha256": "c986e3c8f4fdc7d0bdf5436f0b62563e34622697960670c08a27daf138709648",
   "checkedSegments": 12,
-  "checkedNarrationUnits": 32,
+  "checkedNarrationUnits": 43,
   "blockers": [],
   "verdict": "PASS",
   "returnTo": "none"
@@ -13,58 +13,34 @@
 
 # Roost v2 Fact Guardian Report · Round 3
 
-核查对象：`story/final-script.md`  
-前置 Audience Critic：92 / 100，PASS  
-上一轮：`story/reviews/fact-round-02.md`，SHA-256
-`3f4c4ef303362de2e62615a79ecd159b2d9bd3ce939dd7e85fac002d03e85880`  
-元数据补齐前的本轮 PASS：`story/reviews/fact-round-03-preclaims.md`，SHA-256
-`5270a9a821d5607930ca9696709e37fba091906220e9c9313ac41566f985221a`  
-Hook 压缩前的本轮 PASS：`story/reviews/fact-round-03-pre-hook-timing.md`，SHA-256
-`b323c6284a52c8d3aa8334a3a107d3c482df1e394031601bc3cc6b0921590724`  
-核查范围：12 段、32 个 narration units、Claim Ledger、sources、timeline、完整 story
-lineage 与 Visual Plan  
-结论：**PASS**
+核查范围：当前 `story/final-script.md` 的 12 段、43 个 narration units、Claim Ledger、sources、research timeline、script draft、caption plan 与 visual plan。前置 Audience Critic 对当前 SHA 给出 93/100 PASS。上一份 canonical PASS 已原样归档为 `story/reviews/fact-round-03-pre-caption-delivery-fix.md`，SHA-256 `e9b53902faada9ae3eae7939ff660ad97c966d133bad63b0d875a75a77befe71`。
 
-## Round 2 blocker 关闭证据
+结论：**PASS**。本次拆句和中文化没有改变事实、来源身份、时序、因果、指标或授权边界。
 
-| Round 2 blocker                               | 当前证据                                                                                                                                           | 结论     |
-| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| 地图显示“还要多久”无 Claim 明文               | 当前初稿、定稿和 Visual Plan 均只写飞行路线与位置；seg-006 narration 为“鸟飞到哪里，一眼就能看见”。                                                | RESOLVED |
-| Timeline 把伊丽莎白时代英语写成古英语         | `research/timeline.json` event-roost-004 已精确写为“伊丽莎白时代的英语”，并继续绑定 claim-roost-009。                                              | RESOLVED |
-| Story lineage 残留错误语言名称和鸟舍          | Story Bible、Story Angle、Hook Candidates、三幕结构、Director Brief、Viral Strategy 均已使用准确语言名称，并将机制收敛到地图、收集、训练和小游戏。 | RESOLVED |
-| Final Script visualIntent 与 Visual Plan 冲突 | seg-007 两处现均为“收集、训练与小游戏”；Final Script 与 Visual Plan 当前哈希分别为 `b583b5e4…bbac` 与 `1cb4a3ea…776f`。                            | RESOLVED |
+## 逐项核查
 
-`research/benchmark-lineage.md` 保留“将旧错误词校正”的历史审计说明；它没有把旧词继续
-作为现行事实、事件或故事动作，因此不构成 blocker。
+| 检查               | 结果 | 证据                                                                                                                                               |
+| ------------------ | ---- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Claim 存在与可播性 | PASS | 43 个旁白单元均绑定段落内存在且允许播出的 Claim；无低置信 Claim 进入旁白。                                                                         |
+| 人物与来源身份     | PASS | Mendelsohn 与朋友仍是创始人口述；WhistleOut 作者仍是单一独立体验；TechCrunch 母亲帖子与增长数字保持创始人口径；ANSA 三十万保持媒体转述的注册用户。 |
+| 日期与指标         | PASS | 4 月 28 日公开、帖子后三日一万到十万、7 月 7 日用户与活跃对话、7 月 10 日注册用户均保持日期和定义。                                                |
+| 因果               | PASS | “概念视频火了以后”受 `claim-roost-005` 支持；帖子与增长只写“出现后的三天里”，没有宣布帖子是唯一原因。                                              |
+| 产品机制           | PASS | 距离、现实鸟速、地图路线、收集训练和小游戏仍分别落在 `claim-roost-003/004`。                                                                       |
+| 商业边界           | PASS | 轮换商店和支持者订阅只描述用户动作，不换算价格、收入、转化、利润或现金流。                                                                         |
+| 权限边界           | PASS | 城市级位置、用户主动选择的特定 close friends、Pen Pals 双方同意均保持公司原始口径。                                                                |
+| 结尾边界           | PASS | 三十万仍明确是阶段注册用户；结尾停在飞鸟动作，不推断留存、盈利、市场规模或长期增长。                                                               |
 
-## 逐句核查结果
+## 指定改写保真
 
-| 检查               | 结果 | 说明                                                                                                                                                      |
-| ------------------ | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Claim 存在与可播性 | PASS | 32 个旁白单元引用的 Claim 均存在且允许播出。                                                                                                              |
-| 段落级 Claim 聚合  | PASS | seg-004、007、008 已补入 narration units 原本使用的 claim-roost-003；12 个段落均满足 unit Claim 是 segment Claim 的子集，Visual Plan 同步引用相同 Claim。 |
-| 人物与产品动作     | PASS | 创始人、朋友、体验者、母亲帖子和虚拟鸟动作没有新增身份、动机或生活细节。                                                                                  |
-| 送达机制           | PASS | 距离与物种速度决定时间、地图显示飞行路线、收集训练和小游戏均落在 claim-roost-003、004 内。                                                                |
-| 日期与指标         | PASS | 4 月 28 日公开、三日一万到十万、7 月 7 日用户与活跃对话、7 月 10 日注册用户保持各自日期和定义。                                                           |
-| 来源身份           | PASS | 创始人口径、独立体验、官方功能和 ANSA 媒体转述通过 Source identity 与同期画面区分。                                                                       |
-| 增长因果           | PASS | Threads 帖子与三日增长只写时间相邻；零付费获客没有归因给帖子或单一功能。                                                                                  |
-| 数字换算           | PASS | 没有把用户、活跃对话、订阅、收入、留存或盈利互相换算。                                                                                                    |
-| 权限与商业边界     | PASS | 轮换商店、支持者订阅、城市级位置、close friends 与 Pen Pals 双确认保持 Claim 原强度。                                                                     |
-| 同期视觉证据       | PASS | Hook 标功能演示；App Store、官网、创始人口径、体验者身份和 ANSA 注册口径均在首次强事实时同期计划。                                                        |
-| 认知修正           | PASS | 只纠正“消息卡住”这一由三天送达画面自然产生的误解，没有制造稻草人反转。                                                                                    |
-| 结尾边界           | PASS | 三十万明确是阶段注册用户，最后停在鸟继续飞向朋友，没有回答留存、盈利或赛道胜负。                                                                          |
+- **seg-004 / seg-007：** `claim-roost-008` 只支持一名 WhistleOut 作者。脚本先说“有位作者试用 Roost 后说”，同段用“他”，后段用“那位作者”，三处指向同一人；没有变成“用户们”或总体体验。
+- **seg-005：** 业余项目、概念视频走红、做出应用、原本不公开、朋友鼓励上架分别拆句，但仍来自 `claim-roost-005/006`。省略宾语的“他本来没打算公开”由上一句应用承接，没有新增创始人动机。
+- **seg-008：** “他们”紧邻“女儿和朋友”，语义仍是这两类人通信；母亲只是 Threads 帖子的讲述者。拆成短句没有新增第二篇帖子或第二组用户。
+- **seg-009：** 用户与活跃对话分别成句，准确保留不同指标；“一分钱都没花”只对应创始人披露的广告和付费获客支出为零。
+- **seg-010：** 收集训练绑定 `claim-roost-004`，轮换商店与支持者订阅绑定 `claim-roost-013`，拆句后 Claim 归属更清楚。
+- **seg-012：** 地图与鸟的机制总结仍由 `claim-roost-003/004` 支持；“改变了消息送达时的感觉”没有升级成留存、疗效或普遍心理结果。
 
-上一轮哈希变化只来自 Claim 聚合元数据和 Visual Plan 对应绑定，没有改变旁白、场景、
-时间、视觉动作或 Claim 本身。该轮逐句核查确认 32 个 narration units 的事实边界一致。
+## `亲密好友` 判断
 
-## Delivery timing 复核
+`亲密好友` 在这里是 `close friends` 的自然中文表达，不是新的事实或产品分类。当前句子保留了三个关键限定：由用户主动选择、只针对特定对象、只有这些对象能看到精确位置。visual plan 仍写 `close friends`，Claim Ledger 也保留官方术语，因此审计时仍可回到原始产品设置。没有证据表明系统自动判断关系亲密度，脚本也没有这样说。
 
-当前 Hook 压缩改动只发生在 seg-002、003 的表述：`claim-roost-003`、004 支持按距离和鸟速
-送信及地图显示位置；`claim-roost-009` 支持伊丽莎白时代英语的用户动作，以及帖子出现后
-三日从一万到十万的创始人口径。短句仍只表达时间顺序，没有新增增长归因、指标换算或来源
-升级。Caption Plan 的文本重新拼接后与当前旁白一致，因此 12 段、32 个 narration units 的
-事实 PASS 保持不变；这不是第四轮创意重写。
-
-当前 Fact Guardian PASS 只批准现有证据边界内的故事。Visual Director 与 Retention
-Critic 的 READY/PASS、`validate:story` 以及后续真实 TTS 和 Delivery Critic 仍是独立门禁；
-本报告不等于成片交付批准。
+当前 PASS 只批准现有证据边界内的故事，不等于 Delivery 或真实留存批准。交给 Visual/Retention 门禁。

@@ -66,7 +66,7 @@
         "content/episode-001/v2-goal3/story/reviews/oral-round-01.md",
         "content/episode-001/v2-goal3/story/reviews/oral-round-02.md"
       ],
-      "decision": "确认自然度、口播节奏和信息保真均为 4/5。"
+      "decision": "自然度、口播节奏和信息保真以 5/4/5 通过。"
     },
     {
       "id": "audience-critic",
@@ -76,7 +76,7 @@
         "content/episode-001/v2-goal3/story/reviews/audience-round-01.md",
         "content/episode-001/v2-goal3/story/critic-report.md"
       ],
-      "decision": "Round 1 退回指标口径口播与 Hook 利害，Round 3 以 89 分通过。"
+      "decision": "Round 1 退回指标口径口播与 Hook 利害，Round 3 以 90 分通过。"
     },
     {
       "id": "fact-guardian",
@@ -86,7 +86,7 @@
         "content/episode-001/v2-goal3/story/fact-check-report.md",
         "content/episode-001/v2-goal3/story/reviews/fact-round-02.md"
       ],
-      "decision": "批准 10 段、27 个旁白单元的 Claim 和因果边界。"
+      "decision": "批准 10 段、30 个旁白单元的 Claim 和因果边界。"
     },
     {
       "id": "visual-director",
@@ -103,7 +103,7 @@
       "owner": "retention-critic",
       "status": "complete",
       "artifacts": ["content/episode-001/v2-goal3/story/retention-report.md"],
-      "decision": "以 87 分批准生产，并把 Hook 密度和能力段列为渲染约束。"
+      "decision": "以 88 分批准生产，并把 Hook 密度和能力段列为渲染约束。"
     },
     {
       "id": "delivery-critic",
@@ -114,7 +114,7 @@
         "content/episode-001/v2-goal3/production/output/vertical_9x16.mp4",
         "content/episode-001/v2-goal3/production/output/subtitles_zh.srt"
       ],
-      "decision": "当前 99.925 秒竖版成片通过画面、字幕、音频技术读回和证据复审。"
+      "decision": "当前 109.312 秒竖版成片通过画面、字幕、音频技术读回和证据复审。"
     }
   ],
   "decisions": [
@@ -145,16 +145,16 @@
     {
       "id": "decision-spoken-delivery",
       "owner": "oral-rewriter",
-      "decision": "将旁白压到 598 字并保留具体动作。",
-      "rationale": "减少研究报告口吻，为真实 TTS 和画面留出停顿。",
+      "decision": "将 10 段旁白改成 625 个字符的自然中文，并保留具体动作。",
+      "rationale": "删除研究档案词、英文阶段直译和含混转折，同时保持事实与段落顺序。",
       "artifact": "content/episode-001/v2-goal3/story/final-script.md",
       "claimIds": []
     },
     {
       "id": "decision-audience-clearance",
       "owner": "audience-critic",
-      "decision": "修掉指标口径口播和偏公司沿革的问题后，以 89 分通过。",
-      "rationale": "当前 Hook 利害落到用户愿意交出哪些任务，旁白不再念研究边界。",
+      "decision": "修掉档案词、状态直译和范围越界后，以 90 分通过。",
+      "rationale": "当前 Hook 利害落到用户愿意交出哪些任务，开放节点只保留 Claim 支持的变化。",
       "artifact": "content/episode-001/v2-goal3/story/critic-report.md",
       "claimIds": []
     },
@@ -177,7 +177,7 @@
     {
       "id": "decision-production-readiness",
       "owner": "retention-critic",
-      "decision": "以 87 分批准进入 TTS 与渲染。",
+      "decision": "以 88 分批准进入 TTS 与渲染。",
       "rationale": "四个窗口均过门槛，无 high risk 或 blocker。",
       "artifact": "content/episode-001/v2-goal3/story/retention-report.md",
       "claimIds": []
@@ -185,7 +185,7 @@
     {
       "id": "decision-final-delivery",
       "owner": "delivery-critic",
-      "decision": "批准当前 99.925 秒竖版成片。",
+      "decision": "批准当前 109.312 秒竖版成片。",
       "rationale": "首帧、字幕、证据镜头、音频技术状态和结尾均通过实际成片复审。",
       "artifact": "content/episode-001/v2-goal3/production/delivery-critic-report.md",
       "claimIds": []
@@ -231,7 +231,7 @@
       "critic": "audience-critic",
       "round": 3,
       "reportPath": "content/episode-001/v2-goal3/story/critic-report.md",
-      "reportSha256": "fd8e3e427d0bda857ceb0621f3b9bf563330fd68b903026dc9104240f668e9b5",
+      "reportSha256": "186a92c5a7f2c4d3c65da6ad104915de899e8a7eac9b4c5bc59d33b37fc94441",
       "verdict": "PASS",
       "routes": []
     },
@@ -240,7 +240,7 @@
       "critic": "retention-critic",
       "round": 1,
       "reportPath": "content/episode-001/v2-goal3/story/retention-report.md",
-      "reportSha256": "90dc5bf7e9822d0cc18cc423802dbb90e98e8b415ca7ada42119d3561d6d4c4d",
+      "reportSha256": "e27c74af051faa11fef726a8c359df25cc4cf179b779ec51183bf01f256b5886",
       "verdict": "PASS",
       "routes": []
     },
@@ -249,7 +249,7 @@
       "critic": "delivery-critic",
       "round": 1,
       "reportPath": "content/episode-001/v2-goal3/production/delivery-critic-report.md",
-      "reportSha256": "6b983b1dfaace74dc203a9d5627dc450b489df0e85ebd779acdca6e7c65eaf41",
+      "reportSha256": "aea70c4e18047045121e176d4f3d15343454c5b874e853ee8d5c5b034b34e784",
       "verdict": "PASS",
       "routes": []
     }

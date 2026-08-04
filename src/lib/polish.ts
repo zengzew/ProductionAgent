@@ -11,11 +11,28 @@ import {scriptSchema, type Script} from "../schemas/episode";
 const candidateSchema = z.object({
   segments: z.array(z.object({id: z.string().min(1), narration: z.string().min(1)})),
 });
-const judgeSchema = z.object({
+const polishJudgeEvidenceSchema = z.object({
+  segmentId: z.string().min(1),
+  observation: z.string().min(1),
+});
+const polishJudgeCheckSchema = z.object({
+  result: z.enum(["pass", "fail"]),
+  evidence: z.array(polishJudgeEvidenceSchema).min(1),
+});
+export const polishJudgeSchema = z.object({
   scores: z.object({
     translationese: z.number().min(0).max(10),
     spokenChinese: z.number().min(0).max(10),
     informationFidelity: z.number().min(0).max(10),
+  }),
+  checks: z.object({
+    translatedSyntax: polishJudgeCheckSchema,
+    sourceAttributionLanguage: polishJudgeCheckSchema,
+    productStageLanguage: polishJudgeCheckSchema,
+    turnDirection: polishJudgeCheckSchema,
+    sentenceCadence: polishJudgeCheckSchema,
+    spokenBreath: polishJudgeCheckSchema,
+    informationFidelity: polishJudgeCheckSchema,
   }),
   issues: z.array(z.string()),
   verdict: z.enum(["pass", "rewrite"]),
@@ -184,14 +201,22 @@ export const runPolish = async () => {
     );
     const rounds = [];
     for (let round = 1; round <= config.maxRounds; round += 1) {
-      const judge = judgeSchema.parse(
+      const judge = polishJudgeSchema.parse(
         await chatJson<unknown>(client, [
           {role: "system", content: promptText(config.prompts.judgeSystem)},
           {
             role: "user",
             content: fill(promptText(config.prompts.judgeUser), {
-              ORIGINAL: narration(source),
-              CANDIDATE: narration(candidate),
+              ORIGINAL: JSON.stringify(
+                source.segments.map(({id, narration: text}) => ({id, narration: text})),
+                null,
+                2,
+              ),
+              CANDIDATE: JSON.stringify(
+                candidate.segments.map(({id, narration: text}) => ({id, narration: text})),
+                null,
+                2,
+              ),
             }),
           },
         ]),
@@ -200,6 +225,7 @@ export const runPolish = async () => {
       const passed =
         hardConstraints.passed &&
         judge.verdict === "pass" &&
+        Object.values(judge.checks).every((check) => check.result === "pass") &&
         judge.scores.translationese >= config.thresholds.translationese &&
         judge.scores.spokenChinese >= config.thresholds.spokenChinese &&
         judge.scores.informationFidelity >= config.thresholds.informationFidelity;
@@ -228,6 +254,8 @@ export const runPolish = async () => {
       generatedAt: new Date().toISOString(),
       status,
       model: client.model,
+      promptVersion: config.promptVersion,
+      judgeRubricVersion: config.judgeRubricVersion,
       selectedSamples: samples.map((sample) => sample.file),
       sourceSha256: crypto.createHash("sha256").update(JSON.stringify(source)).digest("hex"),
       candidateSha256: crypto.createHash("sha256").update(JSON.stringify(candidate)).digest("hex"),

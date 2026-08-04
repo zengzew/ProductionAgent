@@ -20,13 +20,13 @@ but an orchestrator MUST consume only the leading JSON gate.
 
 The current report paths and gate markers remain unchanged:
 
-| Critic           | Artifact                               | Existing marker    | Existing rubric version |
-| ---------------- | -------------------------------------- | ------------------ | ----------------------- |
-| Oral Judge       | `story/oral-review.md`                 | `oral-review-gate` | `oral-review-v1`        |
-| Audience Critic  | `story/critic-report.md`               | `critic-gate`      | `product-story-v4`      |
-| Fact Guardian    | `story/fact-check-report.md`           | `fact-check-gate`  | `fact-guardian-v1`      |
-| Retention Critic | `story/retention-report.md`            | `retention-gate`   | `retention-critic-v2`   |
-| Delivery Critic  | `production/delivery-critic-report.md` | `delivery-gate`    | `delivery-critic-v1`    |
+| Critic           | Artifact                               | Existing marker    | Current rubric version |
+| ---------------- | -------------------------------------- | ------------------ | ---------------------- |
+| Oral Judge       | `story/oral-review.md`                 | `oral-review-gate` | `oral-review-v2`       |
+| Audience Critic  | `story/critic-report.md`               | `critic-gate`      | `product-story-v4`     |
+| Fact Guardian    | `story/fact-check-report.md`           | `fact-check-gate`  | `fact-guardian-v1`     |
+| Retention Critic | `story/retention-report.md`            | `retention-gate`   | `retention-critic-v2`  |
+| Delivery Critic  | `production/delivery-critic-report.md` | `delivery-gate`    | `delivery-critic-v1`   |
 
 `critic-output-v1` is an additive envelope inside the existing marker. Existing required fields such
 as `reviewedSha256`, legacy `scores`, `verdict`, and `returnTo` MUST remain until their validators are
@@ -425,12 +425,21 @@ JSON Schema objects for `evaluation`, `issue`, and `route` are not permission to
 
 ### Oral Judge profile
 
-Required legacy fields remain `reviewedFile`, `reviewedSha256`, `sourceDraftFile`,
-`sourceDraftSha256`, three 0..5 `scores`, `minimumScore=4`, and `styleSamples`.
+New reports use `oral-review-v2` and `promptVersion=oral-judge-v2`. Required fields remain
+`reviewedFile`, `reviewedSha256`, `sourceDraftFile`, `sourceDraftSha256`, three 0..5 `scores`,
+`minimumScore=4`, and `styleSamples`. V2 additionally requires all seven named `checks`; every check
+contains `result` plus at least one locator/observation evidence pair.
+
+PASS requires all seven checks to pass in addition to the three score floors and empty blockers. A
+failed check without a blocker is invalid output. A REJECT must route to a repair owner; round-three
+REJECT routes to `human-editor`.
 
 Allowed issue families are `contract.*`, `script.information-selection`, `script.fact-accuracy`, and
 `oral.*`. Factual drift introduced during rewriting uses `oral.information-fidelity`; an error already
-present in the draft uses `script.fact-accuracy`. A third failed round MUST route to `human-editor`.
+present in the draft uses `script.fact-accuracy`.
+
+The parser retains `oral-review-v1` only for already-bound historical reports. Its missing v2 check
+evidence MUST NOT be synthesized from Markdown prose, and v1/v2 scores are not comparable.
 
 ### Audience Critic profile
 

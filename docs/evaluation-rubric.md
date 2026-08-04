@@ -43,7 +43,9 @@ require changed evidence or an explicit rubric migration.
 
 ## Oral Judge
 
-Rubric version remains `oral-review-v1` for current compatibility.
+The current rubric is `oral-review-v2`. Existing `oral-review-v1` reports remain parseable as
+immutable historical artifacts, but new reviews MUST use v2. Scores from v1 and v2 are not directly
+comparable.
 
 | Dimension            | Max | Weight | Floor |
 | -------------------- | --- | ------ | ----- |
@@ -56,27 +58,51 @@ is controlling; a 5 cannot compensate for a 3.
 
 ### Oral score anchors
 
-| Score | Observable standard                                                                                 |
-| ----- | --------------------------------------------------------------------------------------------------- |
-| 5     | No material defect; a native speaker can read it once at configured pace without repair.            |
-| 4     | One or two local, non-blocking imperfections; meaning, breath, and source identity remain clear.    |
-| 3     | Repeated stiffness, breath problem, ambiguity, or fidelity risk requiring revision.                 |
-| 2     | Multiple sections sound translated, cannot be spoken naturally, or materially drift from the draft. |
-| 1     | Most of the script fails the dimension.                                                             |
-| 0     | Missing/unreviewable artifact or direct contradiction of the required contract.                     |
+| Dimension            | 5                                                                                       | 4                                                                                               | 3                                                                                   | 0-2                                                                                 |
+| -------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Chinese naturalness  | Chinese-native order throughout; sources, people, and product stages sound like speech. | One or two local imperfections, with no archive wording, literal stage translation, or blocker. | Repeated written, translated, or record-like phrasing requires rewrite.             | Multiple sections are unnatural, ambiguous, or cannot be understood without repair. |
+| Spoken delivery      | Varied cadence; each sentence carries one idea; turns and pauses are immediately clear. | A local rhythm issue exists, but breath, address, and direction remain clear.                   | Repeated cadence, unclear turn direction, or breath repair is required.             | The script cannot be read naturally at the configured pace.                         |
+| Information fidelity | Every person, action, fact, source level, Claim, and uncertainty boundary is unchanged. | Expression changes are harmless and every source/Claim boundary remains intact.                 | At least one wording choice risks changing audience judgment and requires checking. | A fact, scope, source identity, causality, authorization boundary, or Claim drifts. |
 
-Dimension-specific evidence:
+Missing evidence receives the lower anchor. Scores 0, 1, and 2 distinguish scope: 2 means multiple
+affected sections, 1 means most of the script fails, and 0 means the artifact is missing,
+unreviewable, or directly contradicts the contract.
 
-- `chineseNaturalness`: sentence order, abstract noun density, formulaic contrast, forbidden wording,
-  and whether product terms receive ordinary-language explanation.
-- `spokenDelivery`: breath units, punctuation, sentence-length variation, TTS pronunciation risk, and
-  object of address.
-- `informationFidelity`: people, actions, numbers, dates, source identity, metric scope, causality,
-  rights boundary, and Claim IDs against the draft and research.
+### Mandatory v2 checks
 
-Automatic blockers include any changed fact/number/date/causality/source identity, a new unsupported
-person or scene, a final question replacing a Claim-supported ending, or a third failed round. The
-third failed round routes to human editing regardless of numeric score.
+Every check records at least one reviewed locator and observation in `checks.<name>.evidence`.
+Representative PASS evidence is required; a generic statement without a segment, Claim, or exact
+phrase locator is not evidence.
+
+| Check                       | PASS standard                                                                                                     |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `translatedSyntax`          | No sustained English subject order, long translated modifier, abstract verb-object stack, or manual-like listing. |
+| `sourceAttributionLanguage` | People and feedback use normal Chinese identities/actions; research-file labels do not replace the story action.  |
+| `productStageLanguage`      | Beta/release/availability terms become a sourced identity or user-visible change, not a literal status label.     |
+| `turnDirection`             | “仍、却、反而、不过”等词的预期落差明确；中性授权或核对步骤不被误读成褒贬判断。                                    |
+| `sentenceCadence`           | Sentence lengths and structures vary without poster-like fragments, uniform beats, or fake conversational ticks.  |
+| `spokenBreath`              | Punctuation follows real pauses; one sentence does not require two consecutive breaths at target pace.            |
+| `informationFidelity`       | Draft, final script, Claim IDs, source level, metrics, chronology, causality, and authorization boundary agree.   |
+
+PASS requires every mandatory check to be `PASS`. Any `FAIL` is a blocker and must name the minimum
+required correction. Automatic failures include:
+
+- using labels such as “独立体验者”, “访谈里”, or “在那篇体验里” in place of a concrete speaker
+  or action;
+- reading `Beta users` or `general availability` as “Beta 用户” or “一般可用状态” instead of a
+  Claim-supported Chinese identity or user-visible change;
+- using “仍、却、反而、不过” with no clear expectation and direction;
+- changing a fact, number, date, causality, source identity, authorization boundary, metric, Claim,
+  or uncertainty level;
+- adding an unsupported person, scene, motive, result, or life detail;
+- replacing a Claim-supported ending with a generic question or future doubt.
+
+A third failed round routes to `human-editor` regardless of numeric score. `oral-review-v1` has no
+v2 check evidence and therefore cannot be upgraded or selected as a v2 result by reinterpretation.
+
+The automated polish preflight uses `polish-judge-v2`: it applies the same seven checks on a
+ten-point scoring scale before the artifact review. It does not create `oral-review.md`, cannot mark
+the story oral-pass, and cannot replace an independent `oral-review-v2` execution.
 
 ## Audience Critic
 
