@@ -34,6 +34,9 @@
     "render": "pnpm render:vertical"
   },
   "dependencies": {
+    "@langchain/core": "1.2.4",
+    "@langchain/langgraph": "1.4.9",
+    "@langchain/langgraph-checkpoint-sqlite": "1.0.3",
     "@remotion/media": "4.0.500",
     "react": "19.2.8",
     "react-dom": "19.2.8",
