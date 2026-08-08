@@ -121,6 +121,58 @@ export type RevisionComparisonInput = {
   currentArtifacts?: readonly ArtifactRef[];
 };
 
+export type EvaluationDimensionSelector = {
+  critic: CriticName;
+  dimensionId: string;
+  maxDrop?: number;
+};
+
+export type RevisionSelectionInput = Omit<RevisionComparisonInput, "before"> & {
+  /** The current best. `before` is accepted as the comparison-oriented alias. */
+  best?: readonly ArtifactRef[];
+  before?: readonly ArtifactRef[];
+  currentBest?: readonly ArtifactRef[];
+  /** Defaults to the ADR-003 baseline of 0.5 points. */
+  targetGain?: number;
+  targetedDimensions?: readonly (string | EvaluationDimensionSelector)[];
+  targetedDimensionIds?: readonly string[];
+  protectedDimensions?: readonly (string | EvaluationDimensionSelector)[];
+  protectedDimensionIds?: readonly string[];
+  protectedEvaluationDimensions?: readonly (string | EvaluationDimensionSelector)[];
+};
+
+export type BestSelectionReason =
+  | "selected"
+  | "rubric-incomparable"
+  | "target-issue-open"
+  | "candidate-gate-failed"
+  | "hard-regression"
+  | "protected-dimension-regression"
+  | "no-meaningful-improvement"
+  | "not-pareto-dominant";
+
+export type BestSelectionResult = {
+  decision: "selected" | "retained" | "incomparable";
+  status: "selected" | "rejected" | "incomparable";
+  reason: BestSelectionReason;
+  selected: boolean;
+  promoted: boolean;
+  best: ArtifactRef[];
+  selectedBest: ArtifactRef[];
+  candidate: ArtifactRef[];
+  comparable: boolean;
+  targetIssueClosed: boolean;
+  candidateGatePasses: boolean;
+  noHardRegression: boolean;
+  protectedDimensionsPreserved: boolean;
+  meaningfulImprovement: boolean;
+  paretoDominates: boolean;
+  regression: RegressionReport;
+  incomparableCritics: CriticName[];
+  targetIssueIds: string[];
+  protectedDimensionRegressions: string[];
+};
+
 export type RevisionAssessmentInput = RevisionComparisonInput & {
   history?: readonly RevisionHistoryEntry[];
   ledger?: RevisionLedger;
@@ -650,6 +702,280 @@ export const detectRegression = (input: RevisionComparisonInput): RegressionRepo
     drift,
     findings,
     rejected: hard.length > 0 || score.length > 0,
+  };
+};
+
+type SelectionDimension = {
+  critic: CriticName;
+  dimensionId: string;
+  score: number;
+};
+
+const selectionDimensionKey = (
+  dimension: Pick<SelectionDimension, "critic" | "dimensionId">,
+): string => `${dimension.critic}:${dimension.dimensionId}`;
+
+const selectionDimensions = (
+  evaluations: Map<CriticName, CriticResult>,
+): Map<string, SelectionDimension> => {
+  const dimensions = new Map<string, SelectionDimension>();
+  for (const [critic, result] of evaluations) {
+    for (const dimension of result.evaluation.dimensions) {
+      const value = {critic, dimensionId: dimension.id, score: dimension.score};
+      dimensions.set(selectionDimensionKey(value), value);
+    }
+  }
+  return dimensions;
+};
+
+const selectionSelectorMatches = (
+  selector: string | EvaluationDimensionSelector,
+  dimension: SelectionDimension,
+): boolean => {
+  if (typeof selector === "string") {
+    return selector.includes(":")
+      ? selector === selectionDimensionKey(dimension)
+      : selector === dimension.dimensionId;
+  }
+  return selector.critic === dimension.critic && selector.dimensionId === dimension.dimensionId;
+};
+
+const selectionSelectorDrop = (selector: string | EvaluationDimensionSelector): number => {
+  if (typeof selector === "string") return 0;
+  const maxDrop = selector.maxDrop ?? 0;
+  if (!Number.isFinite(maxDrop) || maxDrop < 0) {
+    throw new Error("REVISION_PROTECTED_DIMENSION_DROP_INVALID");
+  }
+  return maxDrop;
+};
+
+const selectionSelectorsFor = (
+  selectors: readonly (string | EvaluationDimensionSelector)[] | undefined,
+  dimensions: Iterable<SelectionDimension>,
+): {keys: Map<string, number>; unmatched: boolean} => {
+  const entries = [...dimensions];
+  const keys = new Map<string, number>();
+  let matched = 0;
+  for (const selector of selectors ?? []) {
+    const matches = entries.filter((dimension) => selectionSelectorMatches(selector, dimension));
+    if (matches.length === 0) continue;
+    matched += matches.length;
+    const maxDrop = selectionSelectorDrop(selector);
+    for (const dimension of matches) {
+      const key = selectionDimensionKey(dimension);
+      const current = keys.get(key);
+      keys.set(key, current === undefined ? maxDrop : Math.min(current, maxDrop));
+    }
+  }
+  return {
+    keys,
+    unmatched: (selectors?.length ?? 0) > 0 && matched === 0,
+  };
+};
+
+const sameCriticSet = (
+  before: Map<CriticName, CriticResult>,
+  candidate: Map<CriticName, CriticResult>,
+): boolean =>
+  before.size === candidate.size && [...before.keys()].every((critic) => candidate.has(critic));
+
+const candidatePassesSelectionGates = (evaluations: Map<CriticName, CriticResult>): boolean => {
+  if (evaluations.size === 0) return false;
+  return [...evaluations.values()].every((result) => {
+    const floorsPass = result.evaluation.dimensions.every(
+      (dimension) => dimension.score >= (result.evaluation.dimensionFloors[dimension.id] ?? 0),
+    );
+    const hasBlocker =
+      result.blockers.length > 0 ||
+      result.issues.some((issue) => issue.status === "open" && issue.severity === "blocker");
+    return (
+      result.verdict === "PASS" && result.evaluation.passedThresholds && floorsPass && !hasBlocker
+    );
+  });
+};
+
+const targetIssueIsClosed = (
+  targetIssueIds: readonly string[],
+  candidateIssues: readonly RevisionIssue[],
+): boolean => {
+  const candidateById = new Map<string, RevisionIssue[]>();
+  for (const issue of candidateIssues) {
+    const values = candidateById.get(issue.id) ?? [];
+    values.push(issue);
+    candidateById.set(issue.id, values);
+  }
+  return targetIssueIds.every((issueId) =>
+    (candidateById.get(issueId) ?? []).every((issue) => !activeIssue(issue)),
+  );
+};
+
+/**
+ * Selects a candidate with ADR-003's Pareto rule.
+ *
+ * `evaluation.normalizedTotal` is intentionally never read here. It remains a reporting
+ * value; automatic promotion is based on per-dimension comparisons only.
+ */
+export const selectBest = (input: RevisionSelectionInput): BestSelectionResult => {
+  const beforeInput = input.before ?? input.best ?? input.currentBest;
+  if (!beforeInput) throw new Error("REVISION_BEST_MISSING");
+
+  const before = parsedRefs(beforeInput);
+  const candidate = parsedRefs(input.candidate);
+  const targetGain = input.targetGain ?? 0.5;
+  if (!Number.isFinite(targetGain) || targetGain < 0) {
+    throw new Error("REVISION_TARGET_GAIN_INVALID");
+  }
+
+  const beforeEvaluations = evaluationMap(input.beforeEvaluations);
+  const candidateEvaluations = evaluationMap(input.candidateEvaluations);
+  const beforeIssues = input.beforeIssues ?? issueArraysFrom(input.beforeEvaluations);
+  const candidateIssues = input.candidateIssues ?? issueArraysFrom(input.candidateEvaluations);
+  const regression = detectRegression({
+    before,
+    candidate,
+    beforeEvaluations: input.beforeEvaluations,
+    candidateEvaluations: input.candidateEvaluations,
+    beforeIssues,
+    candidateIssues,
+    targetIssueIds: input.targetIssueIds,
+    protectedConstraints: input.protectedConstraints,
+    currentArtifacts: input.currentArtifacts,
+  });
+
+  const sameCritics = sameCriticSet(beforeEvaluations, candidateEvaluations);
+  const rubricComparable =
+    beforeEvaluations.size > 0 &&
+    sameCritics &&
+    [...beforeEvaluations].every(([critic, beforeResult]) => {
+      const candidateResult = candidateEvaluations.get(critic);
+      return candidateResult !== undefined && sameRubric(beforeResult, candidateResult);
+    });
+  const comparable = rubricComparable && regression.comparable;
+
+  const incomparableCriticSet = new Set(regression.incomparableCritics);
+  for (const critic of criticNames) {
+    if (beforeEvaluations.has(critic) !== candidateEvaluations.has(critic)) {
+      incomparableCriticSet.add(critic);
+    }
+  }
+  const incomparableCritics = criticNames.filter((critic) => incomparableCriticSet.has(critic));
+
+  const targetIssueIds = [
+    ...new Set(
+      input.targetIssueIds ??
+        beforeIssues.filter((issue) => activeIssue(issue)).map((issue) => issue.id),
+    ),
+  ];
+  const targetIssueClosed = targetIssueIsClosed(targetIssueIds, candidateIssues);
+  const candidateGatePasses = candidatePassesSelectionGates(candidateEvaluations);
+  const noHardRegression = regression.hard.length === 0;
+
+  const beforeDimensions = selectionDimensions(beforeEvaluations);
+  const candidateDimensions = selectionDimensions(candidateEvaluations);
+  const comparableDimensionPairs = [...beforeDimensions].map(([key, beforeDimension]) => ({
+    key,
+    before: beforeDimension,
+    candidate: candidateDimensions.get(key),
+  }));
+  const paretoHasAllDimensions = comparableDimensionPairs.every(
+    ({candidate: candidateDimension}) => candidateDimension !== undefined,
+  );
+  const paretoNoDimensionDrop = comparableDimensionPairs.every(
+    ({before: beforeDimension, candidate: candidateDimension}) =>
+      candidateDimension !== undefined && candidateDimension.score >= beforeDimension.score,
+  );
+  const paretoHasStrictImprovement = comparableDimensionPairs.some(
+    ({before: beforeDimension, candidate: candidateDimension}) =>
+      candidateDimension !== undefined && candidateDimension.score > beforeDimension.score,
+  );
+  const paretoDominates =
+    comparable &&
+    comparableDimensionPairs.length > 0 &&
+    paretoHasAllDimensions &&
+    paretoNoDimensionDrop &&
+    paretoHasStrictImprovement;
+
+  const targetedSelectors = input.targetedDimensions ?? input.targetedDimensionIds;
+  const targetDimensions =
+    targetedSelectors === undefined
+      ? [...beforeDimensions.values()]
+      : [...beforeDimensions.values()].filter((dimension) =>
+          targetedSelectors.some((selector) => selectionSelectorMatches(selector, dimension)),
+        );
+  const meaningfulImprovement = targetDimensions.some((beforeDimension) => {
+    const candidateDimension = candidateDimensions.get(selectionDimensionKey(beforeDimension));
+    return (
+      candidateDimension !== undefined &&
+      candidateDimension.score > beforeDimension.score &&
+      candidateDimension.score - beforeDimension.score >= targetGain
+    );
+  });
+
+  const configuredProtectedSelectors =
+    input.protectedEvaluationDimensions ?? input.protectedDimensions ?? input.protectedDimensionIds;
+  const protectedSelection = selectionSelectorsFor(
+    configuredProtectedSelectors,
+    beforeDimensions.values(),
+  );
+  const protectedDimensionKeys =
+    configuredProtectedSelectors === undefined
+      ? new Map([...beforeDimensions.keys()].map((key) => [key, 0]))
+      : protectedSelection.keys;
+  const protectedDimensionRegressions: string[] = [];
+  for (const [key, maxDrop] of protectedDimensionKeys) {
+    const beforeDimension = beforeDimensions.get(key);
+    const candidateDimension = candidateDimensions.get(key);
+    if (!beforeDimension || !candidateDimension) {
+      protectedDimensionRegressions.push(key);
+      continue;
+    }
+    if (beforeDimension.score - candidateDimension.score > maxDrop) {
+      protectedDimensionRegressions.push(key);
+    }
+  }
+  const protectedDimensionsPreserved =
+    !protectedSelection.unmatched && protectedDimensionRegressions.length === 0;
+
+  const reasons: BestSelectionReason[] = [];
+  if (!comparable) reasons.push("rubric-incomparable");
+  if (!targetIssueClosed) reasons.push("target-issue-open");
+  if (!candidateGatePasses) reasons.push("candidate-gate-failed");
+  if (!noHardRegression) reasons.push("hard-regression");
+  if (!protectedDimensionsPreserved) reasons.push("protected-dimension-regression");
+  if (!meaningfulImprovement) reasons.push("no-meaningful-improvement");
+  if (!paretoDominates) reasons.push("not-pareto-dominant");
+
+  const selected =
+    comparable &&
+    targetIssueClosed &&
+    candidateGatePasses &&
+    noHardRegression &&
+    protectedDimensionsPreserved &&
+    meaningfulImprovement &&
+    paretoDominates;
+  const best = selected ? candidate : before;
+  const status = selected ? "selected" : comparable ? "rejected" : "incomparable";
+
+  return {
+    decision: selected ? "selected" : comparable ? "retained" : "incomparable",
+    status,
+    reason: selected ? "selected" : (reasons[0] ?? "not-pareto-dominant"),
+    selected,
+    promoted: selected,
+    best,
+    selectedBest: best,
+    candidate,
+    comparable,
+    targetIssueClosed,
+    candidateGatePasses,
+    noHardRegression,
+    protectedDimensionsPreserved,
+    meaningfulImprovement,
+    paretoDominates,
+    regression,
+    incomparableCritics,
+    targetIssueIds,
+    protectedDimensionRegressions,
   };
 };
 
