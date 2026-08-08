@@ -19,7 +19,8 @@ import {
   findMissingHookCandidateFields,
   parseVisualPlanSections,
 } from "../src/lib/story-quality";
-import {episodeRoot, readJson, repoRoot} from "../src/lib/project";
+import {containsProductStageTranslation} from "../src/lib/baseline-gates";
+import {episodeId, episodeRoot, readJson, repoRoot} from "../src/lib/project";
 
 const storyRoot = path.join(episodeRoot, "story");
 const requiredFiles = [
@@ -290,11 +291,13 @@ const bannedNarrationPatterns = [
   {label: "抽象增长词", pattern: /点火事件|增长引擎|价值闭环|生态位/u},
   {label: "广告词", pattern: /沉浸式|极致|史诗级|震撼|完美融合/u},
   {label: "研究档案身份", pattern: /独立体验者|在那篇体验里/u},
-  {label: "产品阶段直译", pattern: /Beta\s*用户|一般可用状态/u},
   {label: "破折号", pattern: /—/u},
 ];
 for (const {label, pattern} of bannedNarrationPatterns) {
   if (pattern.test(narration)) errors.push(`final-script 旁白命中禁用写法：${label}`);
+}
+if (containsProductStageTranslation(episodeId, narration)) {
+  errors.push("final-script 旁白命中禁用写法：产品阶段直译");
 }
 
 const spokenAttributions =

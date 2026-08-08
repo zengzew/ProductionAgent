@@ -21,13 +21,13 @@
 
 ### 1.3 明确的非目标
 
-| 非目标 | 说明 |
-|---|---|
-| 重新设计内容方法论 | Agent 的创意职责与提示词不在本次范围 |
-| 重写 Agent 逻辑 | 只加适配层，Agent 必须可脱离 LangGraph 独立运行与测试 |
-| 改变 artifact 目录结构 | 只增加 manifest 与版本目录，不改已有文件语义 |
-| 引入模型微调 / 历史学习 | 属于 Goal 3.3，且必须依赖发布后真实数据 |
-| 多 episode 的图内并行 | 多 episode 由图外 worker 池解决（见 §14.3） |
+| 非目标                  | 说明                                                  |
+| ----------------------- | ----------------------------------------------------- |
+| 重新设计内容方法论      | Agent 的创意职责与提示词不在本次范围                  |
+| 重写 Agent 逻辑         | 只加适配层，Agent 必须可脱离 LangGraph 独立运行与测试 |
+| 改变 artifact 目录结构  | 只增加 manifest 与版本目录，不改已有文件语义          |
+| 引入模型微调 / 历史学习 | 属于 Goal 3.3，且必须依赖发布后真实数据               |
+| 多 episode 的图内并行   | 多 episode 由图外 worker 池解决（见 §14.3）           |
 
 ### 1.4 职责边界
 
@@ -43,16 +43,16 @@ Artifact 负责：承载全部内容真相
 
 ## 2. 设计原则（可用于裁决争议）
 
-| # | 原则 | 裁决用法 |
-|---|---|---|
-| P1 | Artifact 是唯一事实来源 | State 里出现任何正文内容 → 拒绝 |
-| P2 | 路由是查表，不是推理 | 出现"让 LLM 决定下一个节点" → 拒绝 |
-| P3 | 昂贵操作在冻结点之后 | 任何创意层修改触发渲染 → 拒绝 |
-| P4 | 所有节点幂等 | 出现原地覆盖文件 → 拒绝 |
-| P5 | 交付 best，不交付 last | |
-| P6 | 卡住升级给人，不静默通过 | 出现"轮次耗尽后直接进入下一阶段" → 拒绝 |
-| P7 | 节点薄、Agent 厚 | 节点函数里出现业务逻辑 → 拒绝 |
-| P8 | 一切阈值进配置，不进代码 | |
+| #   | 原则                     | 裁决用法                                |
+| --- | ------------------------ | --------------------------------------- |
+| P1  | Artifact 是唯一事实来源  | State 里出现任何正文内容 → 拒绝         |
+| P2  | 路由是查表，不是推理     | 出现"让 LLM 决定下一个节点" → 拒绝      |
+| P3  | 昂贵操作在冻结点之后     | 任何创意层修改触发渲染 → 拒绝           |
+| P4  | 所有节点幂等             | 出现原地覆盖文件 → 拒绝                 |
+| P5  | 交付 best，不交付 last   |                                         |
+| P6  | 卡住升级给人，不静默通过 | 出现"轮次耗尽后直接进入下一阶段" → 拒绝 |
+| P7  | 节点薄、Agent 厚         | 节点函数里出现业务逻辑 → 拒绝           |
+| P8  | 一切阈值进配置，不进代码 |                                         |
 
 ---
 
@@ -281,20 +281,20 @@ class ProductionState(TypedDict):
 
 > 任何在**同一 superstep**被多于一个节点写入的字段，必须有 reducer，否则 LangGraph 抛 `InvalidUpdateError`。四个 critic 并行时会同时写 `evaluations` / `issues` / `events` / `budget`。
 
-| 字段 | Reducer | 语义 | 并发安全性 |
-|---|---|---|---|
-| `episode_id` / `run_id` / `schema_version` | 首写不可变 | 二次写入抛错 | — |
-| `phase` | last-write-wins，**仅编排节点可写** | Critic 节点禁止写 phase | 由约定保证 |
-| `round` | `max` | | 交换律成立 |
-| `artifacts` | `merge_artifacts` | 按 name 取 version 更大者；同 version 不同 hash → 抛错 | 交换律成立 |
-| `best` | `pick_best` | 按 `weighted_score` 取高；并列取 version 小者 | 交换律成立 |
-| `evaluations` | `append_dedupe("eval_id")` | 按 id 去重追加 | 幂等 |
-| `issues` | `upsert_issues` | 按 id upsert；status 只允许单调迁移 `open→assigned→resolved/wontfix/escalated` | 幂等 |
-| `gates` | `dict_merge` | critic 名为键，互不重叠 | 交换律成立 |
-| `revision_log` / `events` | `append_dedupe(id)` | | 幂等 |
-| `budget` | `merge_budget` | 成本/时长累加，`rounds_used` 按 key 取 max | 交换律成立 |
-| `approvals` | `dict_merge` | | 交换律成立 |
-| `strategy_level` | `max` | | 交换律成立 |
+| 字段                                       | Reducer                             | 语义                                                                           | 并发安全性 |
+| ------------------------------------------ | ----------------------------------- | ------------------------------------------------------------------------------ | ---------- |
+| `episode_id` / `run_id` / `schema_version` | 首写不可变                          | 二次写入抛错                                                                   | —          |
+| `phase`                                    | last-write-wins，**仅编排节点可写** | Critic 节点禁止写 phase                                                        | 由约定保证 |
+| `round`                                    | `max`                               |                                                                                | 交换律成立 |
+| `artifacts`                                | `merge_artifacts`                   | 按 name 取 version 更大者；同 version 不同 hash → 抛错                         | 交换律成立 |
+| `best`                                     | `pick_best`                         | 按 `weighted_score` 取高；并列取 version 小者                                  | 交换律成立 |
+| `evaluations`                              | `append_dedupe("eval_id")`          | 按 id 去重追加                                                                 | 幂等       |
+| `issues`                                   | `upsert_issues`                     | 按 id upsert；status 只允许单调迁移 `open→assigned→resolved/wontfix/escalated` | 幂等       |
+| `gates`                                    | `dict_merge`                        | critic 名为键，互不重叠                                                        | 交换律成立 |
+| `revision_log` / `events`                  | `append_dedupe(id)`                 |                                                                                | 幂等       |
+| `budget`                                   | `merge_budget`                      | 成本/时长累加，`rounds_used` 按 key 取 max                                     | 交换律成立 |
+| `approvals`                                | `dict_merge`                        |                                                                                | 交换律成立 |
+| `strategy_level`                           | `max`                               |                                                                                | 交换律成立 |
 
 > **为什么用 `append_dedupe` 而不是 `operator.add`**：节点内重试与 checkpoint 恢复都可能造成重复写入。裸 `operator.add` 会让事件日志和成本统计悄悄翻倍。**这是本文档中最容易被忽略、且事后最难排查的一条。**
 
@@ -355,30 +355,30 @@ main_graph:
 
 ### 7.2 content_subgraph
 
-| 边 | 类型 | 条件 |
-|---|---|---|
-| START → research | 普通 | |
-| research → story_director | 普通 | |
-| story_director → viral_director | 普通 | |
-| viral_director → script_writer | 普通 | |
-| script_writer → oral_rewriter | 普通 | |
-| oral_rewriter → visual_director | 普通 | |
-| visual_director → **fan-out** | 并行 | 四路并发 |
-| {audience_critic, retention_critic, fact_guardian, compliance_check} → gate_evaluator | 汇聚 | |
-| gate_evaluator → 条件边 | 条件 | `pass` → END(subgraph)；`fail` → issue_router；`budget/stall` → escalate |
-| issue_router → 条件边 | 条件 | 按归属矩阵路由到唯一 owner 节点 |
-| {各 owner 节点} → downstream_refresh | 普通 | 重生成 stale 下游 |
-| downstream_refresh → fan-out | 并行 | 重新全量评估 |
+| 边                                                                                    | 类型 | 条件                                                                     |
+| ------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------ |
+| START → research                                                                      | 普通 |                                                                          |
+| research → story_director                                                             | 普通 |                                                                          |
+| story_director → viral_director                                                       | 普通 |                                                                          |
+| viral_director → script_writer                                                        | 普通 |                                                                          |
+| script_writer → oral_rewriter                                                         | 普通 |                                                                          |
+| oral_rewriter → visual_director                                                       | 普通 |                                                                          |
+| visual_director → **fan-out**                                                         | 并行 | 四路并发                                                                 |
+| {audience_critic, retention_critic, fact_guardian, compliance_check} → gate_evaluator | 汇聚 |                                                                          |
+| gate_evaluator → 条件边                                                               | 条件 | `pass` → END(subgraph)；`fail` → issue_router；`budget/stall` → escalate |
+| issue_router → 条件边                                                                 | 条件 | 按归属矩阵路由到唯一 owner 节点                                          |
+| {各 owner 节点} → downstream_refresh                                                  | 普通 | 重生成 stale 下游                                                        |
+| downstream_refresh → fan-out                                                          | 并行 | 重新全量评估                                                             |
 
 > **注意：修订后必须重跑全部 critic，不能只重跑失败项。** 只重跑失败项 = 看不见回归。四个 critic 并行，成本可接受。
 
 ### 7.3 production_subgraph
 
-| 边 | 条件 |
-|---|---|
-| START → tts → asset_gen → render → delivery_critic | 普通 |
-| delivery_critic → 条件边 | `pass` → END；`L1` → render；`L2` → asset_gen；`L3` → tts；`L4` → unfreeze_review |
-| unfreeze_review | `interrupt()` 人工决策 |
+| 边                                                 | 条件                                                                              |
+| -------------------------------------------------- | --------------------------------------------------------------------------------- |
+| START → tts → asset_gen → render → delivery_critic | 普通                                                                              |
+| delivery_critic → 条件边                           | `pass` → END；`L1` → render；`L2` → asset_gen；`L3` → tts；`L4` → unfreeze_review |
+| unfreeze_review                                    | `interrupt()` 人工决策                                                            |
 
 ### 7.4 关于 LangGraph 版本风险
 
@@ -415,25 +415,25 @@ def script_writer(state: ProductionState) -> dict:
 
 ### 8.2 节点清单
 
-| Node | 循环 | 输入 | 输出 | 成本档 | 可作 owner | 幂等 | 可缓存 |
-|---|---|---|---|---|---|---|---|
-| research_agent | 内容 | product_input | research | 中 | ✅ | ✅ | ✅ |
-| story_director | 内容 | research | story_brief | 低 | ✅ | ✅ | ✅ |
-| viral_director | 内容 | story_brief, research | hook_plan | 低 | ✅ | ✅ | ✅ |
-| script_writer | 内容 | story_brief, hook_plan, research | script | 低 | ✅ | ✅ | ✅ |
-| oral_rewriter | 内容 | script | narration | 低 | ✅ | ✅ | ✅ |
-| visual_director | 内容 | script, narration, story_brief | visual_plan | 低 | ✅ | ✅ | ✅ |
-| audience_critic | 内容 | script, narration | evaluation | 低 | ❌ | ✅ | ❌ |
-| retention_critic | 内容 | hook_plan, script, visual_plan | evaluation | 低 | ❌ | ✅ | ❌ |
-| fact_guardian | 内容 | script, research | evaluation | 低 | ❌ | ✅ | ❌ |
-| compliance_check | 内容 | narration, visual_plan | evaluation | 极低 | ❌ | ✅ | ❌ |
-| gate_evaluator | 内容 | evaluations | gates, decision | 零（纯计算） | ❌ | ✅ | — |
-| issue_router | 内容 | issues | routing decision | 零（纯计算） | ❌ | ✅ | — |
-| downstream_refresh | 内容 | stale artifacts | 重生成 | 低 | ❌ | ✅ | ✅ |
-| tts | 生产 | narration | audio | **高** | ✅ | ✅ | ✅ 段级 |
-| asset_gen | 生产 | visual_plan | assets | **高** | ✅ | ✅ | ✅ 镜级 |
-| render | 生产 | audio, assets | video | **高** | ✅ | ✅ | ✅ |
-| delivery_critic | 生产 | video | evaluation | 中 | ❌ | ✅ | ❌ |
+| Node               | 循环 | 输入                             | 输出             | 成本档       | 可作 owner | 幂等 | 可缓存  |
+| ------------------ | ---- | -------------------------------- | ---------------- | ------------ | ---------- | ---- | ------- |
+| research_agent     | 内容 | product_input                    | research         | 中           | ✅         | ✅   | ✅      |
+| story_director     | 内容 | research                         | story_brief      | 低           | ✅         | ✅   | ✅      |
+| viral_director     | 内容 | story_brief, research            | hook_plan        | 低           | ✅         | ✅   | ✅      |
+| script_writer      | 内容 | story_brief, hook_plan, research | script           | 低           | ✅         | ✅   | ✅      |
+| oral_rewriter      | 内容 | script                           | narration        | 低           | ✅         | ✅   | ✅      |
+| visual_director    | 内容 | script, narration, story_brief   | visual_plan      | 低           | ✅         | ✅   | ✅      |
+| audience_critic    | 内容 | script, narration                | evaluation       | 低           | ❌         | ✅   | ❌      |
+| retention_critic   | 内容 | hook_plan, script, visual_plan   | evaluation       | 低           | ❌         | ✅   | ❌      |
+| fact_guardian      | 内容 | script, research                 | evaluation       | 低           | ❌         | ✅   | ❌      |
+| compliance_check   | 内容 | narration, visual_plan           | evaluation       | 极低         | ❌         | ✅   | ❌      |
+| gate_evaluator     | 内容 | evaluations                      | gates, decision  | 零（纯计算） | ❌         | ✅   | —       |
+| issue_router       | 内容 | issues                           | routing decision | 零（纯计算） | ❌         | ✅   | —       |
+| downstream_refresh | 内容 | stale artifacts                  | 重生成           | 低           | ❌         | ✅   | ✅      |
+| tts                | 生产 | narration                        | audio            | **高**       | ✅         | ✅   | ✅ 段级 |
+| asset_gen          | 生产 | visual_plan                      | assets           | **高**       | ✅         | ✅   | ✅ 镜级 |
+| render             | 生产 | audio, assets                    | video            | **高**       | ✅         | ✅   | ✅      |
+| delivery_critic    | 生产 | video                            | evaluation       | 中           | ❌         | ✅   | ❌      |
 
 > **Critic 节点永远不能作为 owner** —— 评估者不改稿，这是职责分离的硬约束。
 > **gate_evaluator / issue_router 是纯函数节点**，不调 LLM，保证路由 100% 可复现、可单测。
@@ -458,17 +458,17 @@ def script_writer(state: ProductionState) -> dict:
 
 ### 9.1 归属矩阵（issue.category → owner，唯一映射）
 
-| category | owner node | 主 artifact | 触发 stale 的下游 |
-|---|---|---|---|
-| `fact` | research_agent | research | story_brief → … → visual_plan |
-| `research_gap` | research_agent | research | 同上 |
-| `story` | story_director | story_brief | hook_plan → … |
-| `hook` | viral_director | hook_plan | script → … |
-| `script` | script_writer | script | narration, visual_plan |
-| `oral` | oral_rewriter | narration | （audio） |
-| `visual` | visual_director | visual_plan | （assets, render） |
-| `delivery_tech` | production_agent（分级） | audio/assets/render | — |
-| `compliance` | 视 locator 定位到 narration/visual_plan 的 owner；blocker 直接升级人工 | | |
+| category        | owner node                                                             | 主 artifact         | 触发 stale 的下游             |
+| --------------- | ---------------------------------------------------------------------- | ------------------- | ----------------------------- |
+| `fact`          | research_agent                                                         | research            | story_brief → … → visual_plan |
+| `research_gap`  | research_agent                                                         | research            | 同上                          |
+| `story`         | story_director                                                         | story_brief         | hook_plan → …                 |
+| `hook`          | viral_director                                                         | hook_plan           | script → …                    |
+| `script`        | script_writer                                                          | script              | narration, visual_plan        |
+| `oral`          | oral_rewriter                                                          | narration           | （audio）                     |
+| `visual`        | visual_director                                                        | visual_plan         | （assets, render）            |
+| `delivery_tech` | production_agent（分级）                                               | audio/assets/render | —                             |
+| `compliance`    | 视 locator 定位到 narration/visual_plan 的 owner；blocker 直接升级人工 |                     |                               |
 
 > **约束：一个 category 只能映射一个 owner。** 该矩阵是配置文件 `config/ownership.yaml`，不是代码。
 
@@ -552,13 +552,13 @@ def accept(new: Eval, best: Eval, targeted_dims: set[str], cfg) -> bool:
 
 ### 10.3 被拒后的策略升级（v0.1 完全缺失）
 
-| 档位 | 策略 | 触发 |
-|---|---|---|
-| L0 | 原 prompt + issue 指令 | 默认 |
-| L1 | 更强模型 / 提高推理预算 | 第一次被拒 |
-| L2 | 收窄改写范围至 `locator` 命中片段 | 第二次被拒 |
-| L3 | best-of-N（N=3 候选，取评分最高） | 第三次被拒 |
-| L4 | 升级人工 | 第四次被拒 |
+| 档位 | 策略                              | 触发       |
+| ---- | --------------------------------- | ---------- |
+| L0   | 原 prompt + issue 指令            | 默认       |
+| L1   | 更强模型 / 提高推理预算           | 第一次被拒 |
+| L2   | 收窄改写范围至 `locator` 命中片段 | 第二次被拒 |
+| L3   | best-of-N（N=3 候选，取评分最高） | 第三次被拒 |
+| L4   | 升级人工                          | 第四次被拒 |
 
 被拒时 artifact 指针回滚到 `best`，被拒版本保留在磁盘并在 `revision_log` 标记 `rejected`（用于后续分析，不用于交付）。
 
@@ -604,8 +604,8 @@ def accept(new: Eval, best: Eval, targeted_dims: set[str], cfg) -> bool:
   "frozen_at": "2026-...",
   "frozen_by": "human:alice",
   "artifacts": {
-    "script":      {"version": 3, "sha256": "..."},
-    "narration":   {"version": 3, "sha256": "..."},
+    "script": {"version": 3, "sha256": "..."},
+    "narration": {"version": 3, "sha256": "..."},
     "visual_plan": {"version": 2, "sha256": "..."}
   },
   "gate_snapshot": {"audience": 8.1, "retention": 7.8, "fact": 9.5, "compliance": "pass"},
@@ -619,12 +619,12 @@ def accept(new: Eval, best: Eval, targeted_dims: set[str], cfg) -> bool:
 
 Delivery Critic 发现的问题按可修复层级分类：
 
-| 级别 | 问题类型 | 处理 | 是否解冻 |
-|---|---|---|---|
-| L1 | 字幕、转场、时长、封面、平台规格 | 重跑 render（复用 audio+assets） | ❌ |
-| L2 | 单镜头素材质量 | 重生成该镜头 asset + render | ❌ |
-| L3 | 读音、断句、语速 | 仅重跑受影响段落 TTS + render | ❌ |
-| L4 | 故事/脚本/事实层面问题 | **Unfreeze Request** | ✅ 需人工批准 |
+| 级别 | 问题类型                         | 处理                             | 是否解冻      |
+| ---- | -------------------------------- | -------------------------------- | ------------- |
+| L1   | 字幕、转场、时长、封面、平台规格 | 重跑 render（复用 audio+assets） | ❌            |
+| L2   | 单镜头素材质量                   | 重生成该镜头 asset + render      | ❌            |
+| L3   | 读音、断句、语速                 | 仅重跑受影响段落 TTS + render    | ❌            |
+| L4   | 故事/脚本/事实层面问题           | **Unfreeze Request**             | ✅ 需人工批准 |
 
 **解冻要求**：severity == blocker + 人工批准 + `unfreeze_used < max_unfreeze`（默认 1）。解冻后 `phase` 退回 `content_revision`，已产出的生产资产标记 stale 但**保留在磁盘用于缓存复用**。
 
@@ -656,10 +656,10 @@ cache_key = sha256(node_name + prompt_version + model + normalized_input_hash + 
 
 ### 13.1 两个正式闸门
 
-| 闸门 | 位置 | 审查内容 | 可执行动作 |
-|---|---|---|---|
-| Content Approval | 冻结前 | 故事方向、Hook、结构、评分卡 | approve / reject+结构化理由 / 直接编辑 |
-| Final Publication | 发布前 | 成片质量、合规、平台适配 | approve / reject / 打回 L1-L4 |
+| 闸门              | 位置   | 审查内容                     | 可执行动作                             |
+| ----------------- | ------ | ---------------------------- | -------------------------------------- |
+| Content Approval  | 冻结前 | 故事方向、Hook、结构、评分卡 | approve / reject+结构化理由 / 直接编辑 |
+| Final Publication | 发布前 | 成片质量、合规、平台适配     | approve / reject / 打回 L1-L4          |
 
 ### 13.2 升级触发（非计划性人工介入）
 
@@ -684,13 +684,13 @@ cache_key = sha256(node_name + prompt_version + model + normalized_input_hash + 
 
 ### 14.1 错误分类与处置
 
-| 类型 | 例子 | 策略 |
-|---|---|---|
-| transient | 429 / 5xx / 超时 | 指数退避重试 3 次 |
-| content_policy | 模型拒答 | 降级 prompt 或换模型重试 1 次 → 人工 |
-| schema_invalid | Critic 输出不符 schema | 附 schema 错误结构化重试 2 次 → 标记该 eval 失败 → 人工 |
-| deterministic | 缺失上游 artifact / 配置错误 | 立即失败，不重试 |
-| budget_exceeded | | 直接升级人工 |
+| 类型            | 例子                         | 策略                                                    |
+| --------------- | ---------------------------- | ------------------------------------------------------- |
+| transient       | 429 / 5xx / 超时             | 指数退避重试 3 次                                       |
+| content_policy  | 模型拒答                     | 降级 prompt 或换模型重试 1 次 → 人工                    |
+| schema_invalid  | Critic 输出不符 schema       | 附 schema 错误结构化重试 2 次 → 标记该 eval 失败 → 人工 |
+| deterministic   | 缺失上游 artifact / 配置错误 | 立即失败，不重试                                        |
+| budget_exceeded |                              | 直接升级人工                                            |
 
 **所有节点必须幂等**，checkpoint 恢复后重跑不产生副作用（依赖 §4.1 写入协议 + §5.2 去重 reducer）。
 
@@ -712,23 +712,33 @@ cache_key = sha256(node_name + prompt_version + model + normalized_input_hash + 
 
 ### 15.1 双层设计
 
-| 层 | 载体 | 用途 |
-|---|---|---|
-| 恢复层 | Checkpointer | 断点续跑，机器读 |
+| 层     | 载体                                         | 用途                          |
+| ------ | -------------------------------------------- | ----------------------------- |
+| 恢复层 | Checkpointer                                 | 断点续跑，机器读              |
 | 分析层 | `_runs/{run_id}/events.jsonl`（append-only） | 人读 + 统计，独立于 LangGraph |
 
 ### 15.2 事件 schema
 
 ```json
 {
-  "event_id": "...", "ts": "...", "run_id": "...", "episode_id": "015",
-  "round": 2, "node": "viral_director", "action": "revise",
+  "event_id": "...",
+  "ts": "...",
+  "run_id": "...",
+  "episode_id": "015",
+  "round": 2,
+  "node": "viral_director",
+  "action": "revise",
   "reason": "iss-002-01 hook_3s=5.0 < floor 7.0",
   "scores_before": {"hook_3s": 5.0, "weighted": 6.9},
-  "scores_after":  {"hook_3s": 7.6, "weighted": 7.8},
-  "accepted": true, "strategy_level": 0,
-  "model": "...", "prompt_version": "...", "tokens": 4210,
-  "cost_usd": 0.031, "duration_ms": 8100, "cache_hit": false
+  "scores_after": {"hook_3s": 7.6, "weighted": 7.8},
+  "accepted": true,
+  "strategy_level": 0,
+  "model": "...",
+  "prompt_version": "...",
+  "tokens": 4210,
+  "cost_usd": 0.031,
+  "duration_ms": 8100,
+  "cache_hit": false
 }
 ```
 
@@ -762,16 +772,16 @@ config/
 
 ## 17. 测试策略
 
-| 层级 | 内容 | 验收 |
-|---|---|---|
-| Stub 模式 | `AGENT_BACKEND=stub`，全部 agent 返回 fixture | CI 内 < 10s 跑通全部分支，零成本 |
-| Reducer 属性测试 | 交换律 / 幂等 / 序列化 | 100% 覆盖所有 reducer |
-| Routing 表驱动测试 | 归属矩阵每行一 case + 优先级组合 case + 预算耗尽 case | 分支全覆盖 |
-| 依赖传播测试 | 改上游 → 验证下游 stale 递归正确、冻结被正确阻止 | |
-| 收敛仿真 | 注入合成分数序列：单调上升 / 震荡 / 停滞 / 回归 | 验证接受判据、回滚、策略升级、停滞升级 |
-| Replay 测试 | 每个节点后 kill → 恢复 → 比对最终 state | 无重复 append、无重复计费 |
-| HITL 测试 | interrupt 后重启进程 → resume | 状态完整 |
-| 黄金集回归 | 10–15 个历史 episode 跑内容循环 | Critic 打分与人工排序相关性达标 |
+| 层级               | 内容                                                  | 验收                                   |
+| ------------------ | ----------------------------------------------------- | -------------------------------------- |
+| Stub 模式          | `AGENT_BACKEND=stub`，全部 agent 返回 fixture         | CI 内 < 10s 跑通全部分支，零成本       |
+| Reducer 属性测试   | 交换律 / 幂等 / 序列化                                | 100% 覆盖所有 reducer                  |
+| Routing 表驱动测试 | 归属矩阵每行一 case + 优先级组合 case + 预算耗尽 case | 分支全覆盖                             |
+| 依赖传播测试       | 改上游 → 验证下游 stale 递归正确、冻结被正确阻止      |                                        |
+| 收敛仿真           | 注入合成分数序列：单调上升 / 震荡 / 停滞 / 回归       | 验证接受判据、回滚、策略升级、停滞升级 |
+| Replay 测试        | 每个节点后 kill → 恢复 → 比对最终 state               | 无重复 append、无重复计费              |
+| HITL 测试          | interrupt 后重启进程 → resume                         | 状态完整                               |
+| 黄金集回归         | 10–15 个历史 episode 跑内容循环                       | Critic 打分与人工排序相关性达标        |
 
 > **Stub 模式是本节最重要的一项。** 图的分支组合会迅速爆炸，没有零成本的确定性测试就无法做回归。
 
@@ -779,13 +789,13 @@ config/
 
 ## 18. 迁移计划
 
-| 阶段 | 范围 | 回退开关 | 完成判据 |
-|---|---|---|---|
-| M0 | Goal 3.0 契约硬化 + 基线采集 | — | Critic 结构化输出上线；10–15 episode 基线数据成表 |
-| M1 | **影子模式**：LangGraph 跑内容循环，产物写 `_shadow/`，不影响交付 | 默认关闭 | 5 个 episode 影子产物与人工产物完成比对 |
-| M2 | 内容循环正式承接（research→visual→critics→revision），生产仍手工 | `ORCHESTRATOR=manual\|langgraph` | 单入口自动产出通过质量门的冻结包 |
-| M3 | 冻结协议 + 生产循环接入 + 分级重跑 + 缓存 | 同上 | 一次 L1 修订不触发全量重渲染 |
-| M4 | HITL 正式化 + 端到端单入口 | 同上 | 挂起 24h 可恢复；人工编辑不被覆盖 |
+| 阶段 | 范围                                                              | 回退开关                         | 完成判据                                          |
+| ---- | ----------------------------------------------------------------- | -------------------------------- | ------------------------------------------------- |
+| M0   | Goal 3.0 契约硬化 + 基线采集                                      | —                                | Critic 结构化输出上线；10–15 episode 基线数据成表 |
+| M1   | **影子模式**：LangGraph 跑内容循环，产物写 `_shadow/`，不影响交付 | 默认关闭                         | 5 个 episode 影子产物与人工产物完成比对           |
+| M2   | 内容循环正式承接（research→visual→critics→revision），生产仍手工  | `ORCHESTRATOR=manual\|langgraph` | 单入口自动产出通过质量门的冻结包                  |
+| M3   | 冻结协议 + 生产循环接入 + 分级重跑 + 缓存                         | 同上                             | 一次 L1 修订不触发全量重渲染                      |
+| M4   | HITL 正式化 + 端到端单入口                                        | 同上                             | 挂起 24h 可恢复；人工编辑不被覆盖                 |
 
 **每阶段均可独立回退，不允许出现"迁移到一半无法回头"的状态。**
 
@@ -793,14 +803,14 @@ config/
 
 ## 19. 未决问题（Open Questions）
 
-| # | 问题 | 影响 | 建议决策时点 |
-|---|---|---|---|
-| Q1 | 是否允许同轮并行修订多个无依赖关系的 minor issue | 吞吐 vs 归因清晰度 | M2 结束后用数据决定 |
-| Q2 | Critic 是否需要跨 episode 一致性锚点（同一批参考样本） | 分数可比性 | Goal 3.0 |
-| Q3 | Retention Critic 在缺乏真实留存数据前的可信度 | 权重设置 | Goal 3.3b 前保守配权 |
-| Q4 | `max_unfreeze` 是否应为 0（即完全禁止解冻） | 质量 vs 成本 | M3 后评估 |
-| Q5 | 是否需要素材版权/来源合规节点 | 法务风险 | M3 前 |
-| Q6 | 多平台适配（小红书竖版 vs YouTube Shorts）是否需分叉 visual_plan | 图拓扑 | M3 前 |
+| #   | 问题                                                             | 影响               | 建议决策时点         |
+| --- | ---------------------------------------------------------------- | ------------------ | -------------------- |
+| Q1  | 是否允许同轮并行修订多个无依赖关系的 minor issue                 | 吞吐 vs 归因清晰度 | M2 结束后用数据决定  |
+| Q2  | Critic 是否需要跨 episode 一致性锚点（同一批参考样本）           | 分数可比性         | Goal 3.0             |
+| Q3  | Retention Critic 在缺乏真实留存数据前的可信度                    | 权重设置           | Goal 3.3b 前保守配权 |
+| Q4  | `max_unfreeze` 是否应为 0（即完全禁止解冻）                      | 质量 vs 成本       | M3 后评估            |
+| Q5  | 是否需要素材版权/来源合规节点                                    | 法务风险           | M3 前                |
+| Q6  | 多平台适配（小红书竖版 vs YouTube Shorts）是否需分叉 visual_plan | 图拓扑             | M3 前                |
 
 ---
 
@@ -846,14 +856,14 @@ spikes/graph_stub/         ← 纯 stub 的可运行图骨架
 
 ## 21. 风险登记
 
-| 风险 | 概率 | 影响 | 缓解 |
-|---|---|---|---|
-| Critic 打分与真实观众行为不相关 | 高 | **致命**——自动修订在优化噪声 | Goal 3.0 黄金集校准；Goal 3.3b 用真实留存校准 rubric |
-| 修订循环震荡不收敛 | 中 | 高 | 接受判据 + best-of + 策略升级 + 停滞升级人工 |
-| LangGraph API 破坏性升级 | 中 | 中 | 锁版本 + `lg_compat.py` 单点封装 |
-| State 膨胀导致 checkpoint 性能退化 | 中 | 中 | P1 强制；CI 加 checkpoint 体积断言 |
-| 自动化后同质化（都用同一套高分套路） | 中 | 中 | Goal 3.3 保留探索性变体比例；监控开场类型分布 |
-| 迁移期双轨维护成本 | 高 | 中 | 影子模式限时；M2 后即弃用手工路径 |
+| 风险                                 | 概率 | 影响                         | 缓解                                                 |
+| ------------------------------------ | ---- | ---------------------------- | ---------------------------------------------------- |
+| Critic 打分与真实观众行为不相关      | 高   | **致命**——自动修订在优化噪声 | Goal 3.0 黄金集校准；Goal 3.3b 用真实留存校准 rubric |
+| 修订循环震荡不收敛                   | 中   | 高                           | 接受判据 + best-of + 策略升级 + 停滞升级人工         |
+| LangGraph API 破坏性升级             | 中   | 中                           | 锁版本 + `lg_compat.py` 单点封装                     |
+| State 膨胀导致 checkpoint 性能退化   | 中   | 中                           | P1 强制；CI 加 checkpoint 体积断言                   |
+| 自动化后同质化（都用同一套高分套路） | 中   | 中                           | Goal 3.3 保留探索性变体比例；监控开场类型分布        |
+| 迁移期双轨维护成本                   | 高   | 中                           | 影子模式限时；M2 后即弃用手工路径                    |
 
 ---
 
