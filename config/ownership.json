@@ -1,0 +1,241 @@
+{
+  "schemaVersion": "ownership-v1",
+  "policyVersion": "routing-policy-v1",
+  "restartOrder": [
+    "research-analyst",
+    "story-director",
+    "viral-director",
+    "script-writer",
+    "oral-rewriter",
+    "visual-director",
+    "captions",
+    "tts",
+    "timeline",
+    "render"
+  ],
+  "contractOrder": [
+    "research-analyst",
+    "story-director",
+    "viral-director",
+    "script-writer",
+    "oral-rewriter",
+    "oral-judge",
+    "audience-critic",
+    "fact-guardian",
+    "visual-director",
+    "retention-critic",
+    "production-executor",
+    "captions",
+    "tts",
+    "timeline",
+    "render",
+    "delivery-critic"
+  ],
+  "categories": {
+    "contract.invalid-output": {
+      "ownerSource": "artifact-producer",
+      "routeTargetSource": "artifact-producer",
+      "restartAtSource": "artifact-producer"
+    },
+    "contract.stale-input": {
+      "ownerSource": "artifact-producer",
+      "routeTargetSource": "artifact-producer",
+      "restartAtSource": "artifact-producer"
+    },
+    "research.evidence-gap": {
+      "owner": "research-analyst",
+      "routeTarget": "research-analyst",
+      "restartAt": "research-analyst"
+    },
+    "research.source-conflict": {
+      "owner": "research-analyst",
+      "routeTarget": "research-analyst",
+      "restartAt": "research-analyst"
+    },
+    "research.claim-ledger-error": {
+      "owner": "research-analyst",
+      "routeTarget": "research-analyst",
+      "restartAt": "research-analyst"
+    },
+    "story.core-question": {
+      "owner": "story-director",
+      "routeTarget": "story-director",
+      "restartAt": "story-director"
+    },
+    "story.unsupported-premise": {
+      "owner": "story-director",
+      "routeTarget": "story-director",
+      "restartAt": "story-director"
+    },
+    "story.structure": {
+      "owner": "story-director",
+      "routeTarget": "story-director",
+      "restartAt": "story-director"
+    },
+    "story.information-progression": {
+      "owner": "story-director",
+      "routeTarget": "story-director",
+      "restartAt": "story-director"
+    },
+    "story.ending-payoff": {
+      "owner": "story-director",
+      "routeTarget": "story-director",
+      "restartAt": "story-director"
+    },
+    "attention.hook": {
+      "owner": "viral-director",
+      "routeTarget": "viral-director",
+      "restartAt": "viral-director"
+    },
+    "attention.curiosity-gap": {
+      "owner": "viral-director",
+      "routeTarget": "viral-director",
+      "restartAt": "viral-director"
+    },
+    "attention.reveal-order": {
+      "owner": "viral-director",
+      "routeTarget": "viral-director",
+      "restartAt": "viral-director"
+    },
+    "attention.emotional-tension": {
+      "owner": "viral-director",
+      "routeTarget": "viral-director",
+      "restartAt": "viral-director"
+    },
+    "script.information-selection": {
+      "owner": "script-writer",
+      "routeTarget": "script-writer",
+      "restartAt": "script-writer"
+    },
+    "script.claim-binding": {
+      "owner": "script-writer",
+      "routeTarget": "script-writer",
+      "restartAt": "script-writer"
+    },
+    "script.fact-accuracy": {
+      "owner": "script-writer",
+      "routeTarget": "script-writer",
+      "restartAt": "script-writer"
+    },
+    "script.repetition": {
+      "owner": "script-writer",
+      "routeTarget": "script-writer",
+      "restartAt": "script-writer"
+    },
+    "oral.naturalness": {
+      "owner": "oral-rewriter",
+      "routeTarget": "oral-rewriter",
+      "restartAt": "oral-rewriter"
+    },
+    "oral.spoken-delivery": {
+      "owner": "oral-rewriter",
+      "routeTarget": "oral-rewriter",
+      "restartAt": "oral-rewriter"
+    },
+    "oral.information-fidelity": {
+      "owner": "oral-rewriter",
+      "routeTarget": "oral-rewriter",
+      "restartAt": "oral-rewriter"
+    },
+    "visual.evidence": {
+      "owner": "visual-director",
+      "routeTarget": "visual-director",
+      "restartAt": "visual-director"
+    },
+    "visual.asset-rights": {
+      "owner": "visual-director",
+      "routeTarget": "visual-director",
+      "restartAt": "visual-director"
+    },
+    "visual.readability": {
+      "owner": "visual-director",
+      "routeTarget": "visual-director",
+      "restartAt": "visual-director"
+    },
+    "visual.pacing": {
+      "owner": "visual-director",
+      "routeTarget": "visual-director",
+      "restartAt": "visual-director"
+    },
+    "visual.safe-area": {
+      "owner": "visual-director",
+      "routeTarget": "visual-director",
+      "restartAt": "visual-director"
+    },
+    "retention.first-3-seconds": {
+      "owner": "viral-director",
+      "routeTarget": "viral-director",
+      "restartAt": "viral-director"
+    },
+    "retention.first-30-seconds": {
+      "owner": "viral-director",
+      "routeTarget": "viral-director",
+      "restartAt": "viral-director"
+    },
+    "retention.mid-video": {
+      "owner": "script-writer",
+      "routeTarget": "script-writer",
+      "restartAt": "script-writer"
+    },
+    "retention.ending": {
+      "owner": "viral-director",
+      "routeTarget": "viral-director",
+      "restartAt": "viral-director"
+    },
+    "delivery.caption-split": {
+      "owner": "production-executor",
+      "routeTarget": "captions",
+      "restartAt": "captions"
+    },
+    "delivery.caption-timing": {
+      "owner": "production-executor",
+      "routeTarget": "timeline",
+      "restartAt": "timeline"
+    },
+    "delivery.audio": {
+      "owner": "production-executor",
+      "routeTarget": "tts",
+      "restartAt": "tts"
+    },
+    "delivery.timeline": {
+      "owner": "production-executor",
+      "routeTarget": "timeline",
+      "restartAt": "timeline"
+    },
+    "delivery.duration-audio": {
+      "owner": "production-executor",
+      "routeTarget": "tts",
+      "restartAt": "tts"
+    },
+    "delivery.duration-timeline": {
+      "owner": "production-executor",
+      "routeTarget": "timeline",
+      "restartAt": "timeline"
+    },
+    "delivery.duration-render": {
+      "owner": "production-executor",
+      "routeTarget": "render",
+      "restartAt": "render"
+    },
+    "delivery.format": {
+      "owner": "production-executor",
+      "routeTarget": "render",
+      "restartAt": "render"
+    },
+    "delivery.render": {
+      "owner": "production-executor",
+      "routeTarget": "render",
+      "restartAt": "render"
+    },
+    "delivery.evidence-readability": {
+      "owner": "production-executor",
+      "routeTarget": "render",
+      "restartAt": "render"
+    },
+    "delivery.asset-manifest": {
+      "owner": "production-executor",
+      "routeTarget": "render",
+      "restartAt": "render"
+    }
+  }
+}
