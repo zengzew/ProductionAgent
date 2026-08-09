@@ -14,16 +14,22 @@ import timelineRaw from "../poke-timeline.generated.json";
 import captionsRaw from "../poke-captions.generated.json";
 import claimsRaw from "../../content/episode-001/research/facts.json";
 import sourcesRaw from "../../content/episode-001/research/sources.json";
-import type {Claim, Source, Timeline} from "../schemas/episode";
+import {
+  claimSchema,
+  generatedCaptionSchema,
+  sourceSchema,
+  timelineSchema,
+  type Claim,
+  type Timeline,
+} from "../schemas/episode";
+import {assertTimelineMatchesEpisode} from "../lib/render-contract";
+import {fadeSceneOpacity} from "../lib/scene-animation";
 
-const timeline = timelineRaw as Timeline;
-const claims = claimsRaw as Claim[];
-const sources = sourcesRaw as Source[];
-const captions = captionsRaw as Array<{
-  startFrame: number;
-  endFrame: number;
-  text: string;
-}>;
+const timeline = timelineSchema.parse(timelineRaw);
+assertTimelineMatchesEpisode(timeline, "episode-001");
+const claims = claimsRaw.map((claim) => claimSchema.parse(claim));
+const sources = sourcesRaw.map((source) => sourceSchema.parse(source));
+const captions = captionsRaw.map((caption) => generatedCaptionSchema.parse(caption));
 const claimMap = new Map(claims.map((claim) => [claim.id, claim]));
 const sourceMap = new Map(sources.map((source) => [source.id, source]));
 
@@ -55,9 +61,6 @@ const enter = (frame: number, fps: number, delay = 0) =>
     fps,
     config: {damping: 18, stiffness: 115, mass: 0.7},
   });
-
-const fadeScene = (frame: number, duration: number) =>
-  interpolate(frame, [0, 10, Math.max(11, duration - 10), duration], [0, 1, 1, 0], clamp);
 
 const fadeFirstScene = (frame: number, duration: number) =>
   interpolate(frame, [Math.max(0, duration - 10), duration], [1, 0], clamp);
@@ -169,7 +172,7 @@ const SceneShell: React.FC<{
         opacity:
           scene.index === 0
             ? fadeFirstScene(frame, scene.durationFrames)
-            : fadeScene(frame, scene.durationFrames),
+            : fadeSceneOpacity(frame, scene.durationFrames),
       }}
     >
       <PaperBackground isVertical={isVertical} />

@@ -59,6 +59,7 @@ export type RegressionFinding = {
     | "reviewed-artifact-stale"
     | "incomplete-evaluation"
     | "protected-constraint-missing"
+    | "protected-constraint-mismatch"
     | "dimension-drop"
     | "total-drop"
     | "small-score-drift";
@@ -387,7 +388,9 @@ const dimensionMap = (
 
 const sameRubric = (before: CriticResult, candidate: CriticResult): boolean =>
   before.rubricVersion === candidate.rubricVersion &&
-  before.evaluation.threshold === candidate.evaluation.threshold;
+  before.evaluation.threshold === candidate.evaluation.threshold &&
+  stableJson(before.evaluation.dimensionFloors) ===
+    stableJson(candidate.evaluation.dimensionFloors);
 
 const evaluateDimensionRegression = (
   critic: CriticName,
@@ -613,18 +616,23 @@ const checkProtectedConstraints = (
     const evidence = new Map(
       (constraint.candidateEvidence ?? []).map((ref) => [ref.artifactId, ref]),
     );
-    const missing = [...required].some(([artifactId]) => {
+    const mismatched = [...required].some(([artifactId, requiredRef]) => {
       const evidenceRef = evidence.get(artifactId);
-      return !evidenceRef;
+      return (
+        !evidenceRef ||
+        evidenceRef.sha256 !== requiredRef.sha256 ||
+        evidenceRef.revision !== requiredRef.revision ||
+        evidenceRef.path !== requiredRef.path
+      );
     });
-    if (missing) {
+    if (mismatched) {
       pushUnique(
         hard,
         finding({
           kind: "hard",
-          code: "protected-constraint-missing",
+          code: "protected-constraint-mismatch",
           issueIds: [constraint.id],
-          details: `candidate did not provide evidence for protected constraint ${constraint.id}`,
+          details: `candidate evidence did not match protected constraint ${constraint.id}`,
         }),
       );
     }

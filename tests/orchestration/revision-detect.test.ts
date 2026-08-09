@@ -121,6 +121,7 @@ const result = (
     issues?: RevisionIssue[];
     passedThresholds?: boolean;
     rubricVersion?: string;
+    dimensionFloors?: Record<string, number>;
   } = {},
 ): CriticResult => {
   const scoreValues = dimensions[critic].map((dimension) => ({
@@ -158,7 +159,7 @@ const result = (
           : critic === "oral-judge"
             ? 80
             : 100,
-    dimensionFloors: floorByCritic[critic],
+    dimensionFloors: overrides.dimensionFloors ?? floorByCritic[critic],
     passedThresholds: overrides.passedThresholds ?? true,
   };
   return {
@@ -264,6 +265,45 @@ describe("WP-M2-05 revision detection", () => {
     expect(report.comparable).toBe(false);
     expect(report.incomparableCritics).toEqual(["audience-critic"]);
     expect(report.score).toEqual([]);
+  });
+
+  it("treats changed dimension floors as an incomparable rubric", () => {
+    const before = result("audience-critic");
+    const candidate = result("audience-critic", {
+      dimensionFloors: {...floorByCritic["audience-critic"], hook: 10},
+    });
+    const report = detectRegression({
+      before: [ref("script", "a".repeat(64))],
+      candidate: [ref("script", "b".repeat(64), 2)],
+      beforeEvaluations: [before],
+      candidateEvaluations: [candidate],
+    });
+
+    expect(report.comparable).toBe(false);
+    expect(report.incomparableCritics).toEqual(["audience-critic"]);
+    expect(report.findings).toEqual([]);
+  });
+
+  it("rejects protected-constraint evidence with a same-id but different hash", () => {
+    const protectedRef = ref("script", "a".repeat(64));
+    const mismatchedEvidence = ref("script", "b".repeat(64));
+    const report = detectRegression({
+      before: [protectedRef],
+      candidate: [ref("script", "c".repeat(64), 2)],
+      beforeEvaluations: allPassing(),
+      candidateEvaluations: allPassing(),
+      protectedConstraints: [
+        {
+          id: "constraint-story-question",
+          artifactRefs: [protectedRef],
+          candidateEvidence: [mismatchedEvidence],
+        },
+      ],
+    });
+
+    expect(report.hard.some((finding) => finding.code === "protected-constraint-mismatch")).toBe(
+      true,
+    );
   });
 
   it("REVISION-006 warns on A to B to A and retains the best", () => {

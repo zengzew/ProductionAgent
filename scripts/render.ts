@@ -1,7 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import {spawnSync} from "node:child_process";
-import {episodeId, outputEpisodeRoot, repoRoot} from "../src/lib/project";
+import {timelineSchema} from "../src/schemas/episode";
+import {
+  assertTimelineMatchesEpisode,
+  generatedTimelinePath,
+  getRenderContract,
+} from "../src/lib/render-contract";
+import {episodeId, episodeRoot, outputEpisodeRoot, readJson, repoRoot} from "../src/lib/project";
 
 type Mode = "smoke" | "vertical";
 const mode = (process.argv[2] ?? "vertical") as Mode;
@@ -10,6 +16,23 @@ if (!["smoke", "vertical"].includes(mode)) {
 }
 
 fs.mkdirSync(outputEpisodeRoot, {recursive: true});
+
+const contract = getRenderContract(episodeId);
+const currentTimeline = timelineSchema.parse(
+  readJson<unknown>(path.join(episodeRoot, "production/timeline.json")),
+);
+const generatedPath = path.join(repoRoot, generatedTimelinePath(episodeId));
+if (!fs.existsSync(generatedPath)) {
+  throw new Error(`缺少当前 episode 的生成时间轴：${generatedPath}；请先运行 pnpm timeline`);
+}
+const generatedTimeline = timelineSchema.parse(readJson<unknown>(generatedPath));
+assertTimelineMatchesEpisode(currentTimeline, episodeId);
+assertTimelineMatchesEpisode(generatedTimeline, episodeId);
+if (JSON.stringify(generatedTimeline) !== JSON.stringify(currentTimeline)) {
+  throw new Error(
+    `生成时间轴不是当前 episode 的最新版本：${generatedPath}；请先运行 pnpm timeline`,
+  );
+}
 
 const run = (args: string[]): void => {
   const result = spawnSync("pnpm", ["exec", "remotion", ...args], {
@@ -38,16 +61,10 @@ const renderVideo = (composition: string, output: string): void => {
 };
 
 if (mode === "smoke") {
-  renderVideo(
-    episodeId === "episode-002" ? "RoostVerticalSmoke" : "PokeVerticalSmoke",
-    path.join(outputEpisodeRoot, "smoke_9x16.mp4"),
-  );
+  renderVideo(contract.smokeComposition, path.join(outputEpisodeRoot, "smoke_9x16.mp4"));
 }
 if (mode === "vertical") {
-  renderVideo(
-    episodeId === "episode-002" ? "RoostVertical" : "PokeVertical",
-    path.join(outputEpisodeRoot, "vertical_9x16.mp4"),
-  );
+  renderVideo(contract.composition, path.join(outputEpisodeRoot, "vertical_9x16.mp4"));
 }
 
 console.log(`render mode ${mode} complete`);

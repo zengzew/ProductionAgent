@@ -25,6 +25,14 @@ export const DEFAULT_CONTENT_MANIFEST_PRODUCER = "content-freeze";
 export const DEFAULT_CONTENT_MANIFEST_ARTIFACT_ID_SUFFIX = "control:content-manifest";
 
 const activeStatuses = new Set(["open", "assigned", "escalated"]);
+const recognizedStatuses = new Set([
+  "open",
+  "assigned",
+  "escalated",
+  "resolved",
+  "waived",
+  "wontfix",
+]);
 const severityRank: Readonly<Record<string, number>> = {
   info: 0,
   low: 1,
@@ -97,39 +105,70 @@ type NormalizedIssue = {
   status: string;
 };
 
-const issueFromValue = (value: unknown, fallbackId: string): NormalizedIssue[] => {
-  if (!isRecord(value)) return [];
+type IssueNormalization = {
+  issues: NormalizedIssue[];
+  unrecognizedIds: string[];
+};
+
+const issueFromValue = (value: unknown, fallbackId: string): IssueNormalization => {
+  if (!isRecord(value)) return {issues: [], unrecognizedIds: [fallbackId]};
 
   if (Array.isArray(value.issues)) {
     const byId = new Map<string, NormalizedIssue>();
+    const unrecognizedIds: string[] = [];
     for (const [index, issue] of value.issues.entries()) {
-      for (const normalized of issueFromValue(issue, `${fallbackId}-${index + 1}`)) {
-        byId.set(normalized.id, normalized);
+      const normalized = issueFromValue(issue, `${fallbackId}-${index + 1}`);
+      unrecognizedIds.push(...normalized.unrecognizedIds);
+      for (const item of normalized.issues) {
+        byId.set(item.id, item);
       }
     }
 
     // A critic result's blocker list is an explicit active-blocker declaration. Keep it
     // fail-closed even if a malformed result also marks the corresponding issue resolved.
     if (Array.isArray(value.blockers)) {
-      for (const blocker of value.blockers) {
-        if (typeof blocker !== "string" || blocker.length === 0) continue;
+      for (const [index, blocker] of value.blockers.entries()) {
+        if (typeof blocker !== "string" || blocker.length === 0) {
+          unrecognizedIds.push(`${fallbackId}-blocker-${index + 1}`);
+          continue;
+        }
         byId.set(blocker, {id: blocker, severity: "blocker", status: "open"});
       }
     }
-    return [...byId.values()];
+    return {issues: [...byId.values()], unrecognizedIds};
   }
 
   const rawId = value.id ?? value.issueId;
   const id = typeof rawId === "string" && rawId.length > 0 ? rawId : fallbackId;
-  const severity = typeof value.severity === "string" ? value.severity : "info";
-  const status = typeof value.status === "string" ? value.status : "open";
-  return [{id, severity, status}];
+  const severity = typeof value.severity === "string" ? value.severity : "";
+  const status = typeof value.status === "string" ? value.status : "";
+  const unrecognizedIds = [
+    ...(typeof rawId === "string" && rawId.length > 0 ? [] : [id]),
+    ...(severityRank[severity] === undefined ? [id] : []),
+    ...(recognizedStatuses.has(status) ? [] : [id]),
+  ];
+  const valid = unrecognizedIds.length === 0;
+  return {
+    issues: [
+      {
+        id,
+        severity: valid ? severity : "blocker",
+        status: valid ? status : "open",
+      },
+    ],
+    unrecognizedIds,
+  };
 };
 
-const normalizedIssues = (input: ContentFreezeInput): NormalizedIssue[] => {
+const normalizedIssues = (
+  input: ContentFreezeInput,
+): {issues: NormalizedIssue[]; unrecognizedIds: string[]} => {
   const byId = new Map<string, NormalizedIssue>();
+  const unrecognizedIds: string[] = [];
   for (const [index, value] of normalizeIssueValues(input).entries()) {
-    for (const issue of issueFromValue(value, `freeze-issue-${index + 1}`)) {
+    const normalized = issueFromValue(value, `freeze-issue-${index + 1}`);
+    unrecognizedIds.push(...normalized.unrecognizedIds);
+    for (const issue of normalized.issues) {
       const previous = byId.get(issue.id);
       if (!previous) {
         byId.set(issue.id, issue);
@@ -148,7 +187,10 @@ const normalizedIssues = (input: ContentFreezeInput): NormalizedIssue[] => {
       });
     }
   }
-  return [...byId.values()].sort((left, right) => left.id.localeCompare(right.id));
+  return {
+    issues: [...byId.values()].sort((left, right) => left.id.localeCompare(right.id)),
+    unrecognizedIds: uniqueSorted(unrecognizedIds),
+  };
 };
 
 const isOpenBlockingIssue = (issue: NormalizedIssue): boolean =>
@@ -290,6 +332,7 @@ export type ContentFreezePreconditionReport = {
   notSelectedArtifactIds: string[];
   missingArtifactIds: string[];
   hashMismatchedArtifactIds: string[];
+  unrecognizedIssueIds: string[];
   episodeMismatch: boolean;
 };
 
@@ -319,6 +362,9 @@ export class ContentFreezeError extends Error {
     }
     if (report.hashMismatchedArtifactIds.length > 0) {
       reasons.push(`FREEZE_ARTIFACT_HASH_MISMATCH:${report.hashMismatchedArtifactIds.join(",")}`);
+    }
+    if (report.unrecognizedIssueIds.length > 0) {
+      reasons.push(`FREEZE_UNRECOGNIZED_ISSUES:${report.unrecognizedIssueIds.join(",")}`);
     }
     if (report.episodeMismatch) reasons.push("FREEZE_EPISODE_MISMATCH");
     super(`content freeze rejected: ${reasons.join(";") || "FREEZE_PRECONDITION_FAILED"}`);
@@ -377,7 +423,8 @@ export const evaluateContentFreezePreconditions = (
     }
   }
 
-  const issues = normalizedIssues(input);
+  const normalized = normalizedIssues(input);
+  const issues = normalized.issues;
   const openIssueIds = issues
     .filter((issue) => activeStatuses.has(issue.status))
     .map((issue) => issue.id);
@@ -404,6 +451,7 @@ export const evaluateContentFreezePreconditions = (
       notSelectedArtifactIds.size === 0 &&
       missing.length === 0 &&
       mismatched.length === 0 &&
+      normalized.unrecognizedIds.length === 0 &&
       !episodeMismatch,
     selectedArtifactIds,
     duplicateArtifactIds,
@@ -414,6 +462,7 @@ export const evaluateContentFreezePreconditions = (
     notSelectedArtifactIds: uniqueSorted(notSelectedArtifactIds),
     missingArtifactIds: missing,
     hashMismatchedArtifactIds: mismatched,
+    unrecognizedIssueIds: normalized.unrecognizedIds,
     episodeMismatch,
   };
 };

@@ -54,23 +54,6 @@ export const createFoundationGraph = (input: {
     const inputArtifacts = Object.values(state.artifacts);
     const executionId = `${state.runId}:${agentName}:${attempt}`;
     const startedAt = now();
-    const result = await input.runAgent({
-      contractVersion: "agent-execution-v1",
-      executionId,
-      episodeId: state.episodeId,
-      agentName,
-      attempt,
-      revisionRound: state.round,
-      promptRef,
-      inputArtifacts,
-      expectedOutputs: [],
-      upstreamGateRefs: [],
-      revisionBudgetRemaining: 0,
-    });
-    if (result.status !== "SUCCEEDED") {
-      throw new Error(`foundation stub returned ${result.status} for ${agentName}`);
-    }
-    const endedAt = now();
     const baseEvent = {
       schemaVersion: "agent-execution-event-v1" as const,
       episodeId: state.episodeId,
@@ -85,7 +68,6 @@ export const createFoundationGraph = (input: {
       model: null,
       prompt: null,
       inputArtifacts,
-      outputArtifacts: result.outputArtifacts,
       usage: {
         availability: "not-applicable" as const,
         inputTokens: 0,
@@ -108,6 +90,7 @@ export const createFoundationGraph = (input: {
     };
     const startedEvent: ExecutionEvent = {
       ...baseEvent,
+      outputArtifacts: [],
       eventId: stableEventId(executionId, "execution.started"),
       eventType: "execution.started",
       occurredAt: startedAt,
@@ -115,8 +98,27 @@ export const createFoundationGraph = (input: {
       status: "STARTED",
       decision: null,
     };
+    emit(startedEvent);
+    const result = await input.runAgent({
+      contractVersion: "agent-execution-v1",
+      executionId,
+      episodeId: state.episodeId,
+      agentName,
+      attempt,
+      revisionRound: state.round,
+      promptRef,
+      inputArtifacts,
+      expectedOutputs: [],
+      upstreamGateRefs: [],
+      revisionBudgetRemaining: 0,
+    });
+    if (result.status !== "SUCCEEDED") {
+      throw new Error(`foundation stub returned ${result.status} for ${agentName}`);
+    }
+    const endedAt = now();
     const completedEvent: ExecutionEvent = {
       ...baseEvent,
+      outputArtifacts: result.outputArtifacts,
       eventId: stableEventId(executionId, "execution.completed"),
       eventType: "execution.completed",
       occurredAt: endedAt,
@@ -133,7 +135,6 @@ export const createFoundationGraph = (input: {
         criticResultRef: result.criticResultRef ?? null,
       },
     };
-    emit(startedEvent);
     emit(completedEvent);
     return {
       phase: phaseByAgent[agentName],

@@ -5,11 +5,11 @@
   "baselineVideo": "output/episode-001/iterations/publish-v2-2026-07-30/vertical_9x16.mp4",
   "baselineVideoSha256": "672113aeb631f17c97c5d46d45d3c02d7e7003fdec669ef5298729ac81e4b523",
   "directorVideo": "output/episode-001/vertical_9x16.mp4",
-  "directorVideoSha256": "57a02a5de86f188fe260d6295d7e2a38d16ed948f3341b2d44306e3b472040c0",
+  "directorVideoSha256": "788128d4c325e7d93c75542ef8c1786c6284651cea513d3429e58e7aebc88e10",
   "baselineTimeline": "output/episode-001/iterations/publish-v2-2026-07-30/timeline.json",
   "baselineTimelineSha256": "ceae4ae27e97e0def20c51fa134dab9a7d572491dca05b36e51eb9cd4ebe1fa1",
   "directorTimeline": "content/episode-001/production/timeline.json",
-  "directorTimelineSha256": "8974170d35d09317cc521acdf821ac4f68f92bfa2955d20e6665cb221011bbd6",
+  "directorTimelineSha256": "8e14cd40d4813283ccb23a659b14a56980a59f7fcd4d12714ec7e9585a8facec",
   "dimensions": {
     "hookStrength": {
       "baseline": 7,

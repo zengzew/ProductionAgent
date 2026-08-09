@@ -178,6 +178,7 @@ export const runPolish = async () => {
       apiKey,
       model: process.env[config.llm.modelEnv] ?? config.llm.defaultModel,
       temperature: config.llm.temperature,
+      network: config.llm.network,
     };
     const source = sourceFromDraft();
     const samples = selectStyleSamples(repoPath(config.acceptedSamplesDir), config.sampleCount);

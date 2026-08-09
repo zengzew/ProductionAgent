@@ -10,15 +10,14 @@ import {
   scriptSchema,
   timelineSchema,
 } from "../src/schemas/episode";
+import {assertTimelineMatchesEpisode, generatedCaptionsPath} from "../src/lib/render-contract";
 
 const reportPath = path.join(episodeRoot, "production/delivery-critic-report.md");
 const videoPath = path.join(outputEpisodeRoot, "vertical_9x16.mp4");
 const subtitlesPath = path.join(outputEpisodeRoot, "subtitles_zh.srt");
 const timelinePath = path.join(episodeRoot, "production/timeline.json");
 const inspectionPath = path.join(outputEpisodeRoot, "inspection.json");
-const generatedPrefix =
-  episodeId === "episode-001" ? "poke" : episodeId.replace("episode-", "episode-");
-const captionsPath = path.join(repoRoot, `src/${generatedPrefix}-captions.generated.json`);
+const captionsPath = path.join(repoRoot, generatedCaptionsPath(episodeId));
 const captionPlanPath = path.join(episodeRoot, "story/caption-plan.json");
 const errors: string[] = [];
 
@@ -75,6 +74,11 @@ const captionPlanBySegment = new Map(
   captionPlan.segments.map((segment) => [segment.segmentId, segment.cues]),
 );
 const timeline = timelineSchema.parse(readJson<unknown>(timelinePath));
+try {
+  assertTimelineMatchesEpisode(timeline, episodeId);
+} catch (error) {
+  errors.push(error instanceof Error ? error.message : String(error));
+}
 const episodeConfig = episodeConfigSchema.parse(
   readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
 );

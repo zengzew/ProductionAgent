@@ -1,4 +1,6 @@
 {
+  "episodeId": "episode-002",
+  "layoutVariant": "roost-standard",
   "fps": 30,
   "totalFrames": 5017,
   "totalSeconds": 167.23333333333332,

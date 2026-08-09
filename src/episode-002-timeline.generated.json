@@ -1,4 +1,6 @@
 {
+  "episodeId": "episode-002",
+  "layoutVariant": "roost-standard",
   "fps": 30,
   "totalFrames": 5017,
   "totalSeconds": 167.23333333333332,
@@ -9,8 +11,14 @@
       "id": "seg-001",
       "section": "hook",
       "narration": "这条消息已经发出，三天后才到。",
-      "onScreenText": ["周末见 · 已发送", "预计三天后到达", "功能演示"],
-      "claimIds": ["claim-roost-003"],
+      "onScreenText": [
+        "周末见 · 已发送",
+        "预计三天后到达",
+        "功能演示"
+      ],
+      "claimIds": [
+        "claim-roost-003"
+      ],
       "scene": "hook-send-bird",
       "visualIntent": "第一帧显示已发送气泡，虚拟鸟已经离开起点，倒计时正在变化；全程标注“功能演示”。",
       "targetSeconds": 3,
@@ -26,8 +34,15 @@
       "id": "seg-002",
       "section": "hook",
       "narration": "这不是网络卡住。Roost 让鸟按距离和速度送信。路线和剩余时间都能看见。",
-      "onScreenText": ["这是 Roost 的送达规则", "按距离和鸟速送达", "地图可查看路线与剩余时间"],
-      "claimIds": ["claim-roost-003", "claim-roost-004"],
+      "onScreenText": [
+        "这是 Roost 的送达规则",
+        "按距离和鸟速送达",
+        "地图可查看路线与剩余时间"
+      ],
+      "claimIds": [
+        "claim-roost-003",
+        "claim-roost-004"
+      ],
       "scene": "hook-rule-growth",
       "visualIntent": "App Store 真实页面在慢速送达应用截图处停留；旁边同步出现距离、鸟速、路线和剩余时间。",
       "targetSeconds": 7,
@@ -43,8 +58,17 @@
       "id": "seg-003",
       "section": "hook",
       "narration": "Roost 是慢速通讯 App。选一只鸟，看它把消息送到朋友那里。三天，用户从一万涨到十万。慢，为什么让人期待？",
-      "onScreenText": ["慢速通讯 App", "选一只鸟", "看它飞到朋友那里", "为什么反而让人期待？"],
-      "claimIds": ["claim-roost-003", "claim-roost-004", "claim-roost-009"],
+      "onScreenText": [
+        "慢速通讯 App",
+        "选一只鸟",
+        "看它飞到朋友那里",
+        "为什么反而让人期待？"
+      ],
+      "claimIds": [
+        "claim-roost-003",
+        "claim-roost-004",
+        "claim-roost-009"
+      ],
       "scene": "hook-core-question",
       "visualIntent": "官网真实页面建立地图送信心智模型；标注“创始人口径”的数字从一万升到十万，最后留下全片问题。",
       "targetSeconds": 10,
@@ -60,8 +84,16 @@
       "id": "seg-004",
       "section": "problem",
       "narration": "普通聊天总在催你马上回应。Roost 留出另一种节奏。鸟一旦起飞，消息不会立刻抵达。创始人想给人一段不用马上反应的时间。一位体验者也发现，自己会先想清楚，再决定要不要派出这只鸟。",
-      "onScreenText": ["给回复留一点时间", "消息不会立刻抵达", "想清楚，再派出一只鸟"],
-      "claimIds": ["claim-roost-003", "claim-roost-007", "claim-roost-008"],
+      "onScreenText": [
+        "给回复留一点时间",
+        "消息不会立刻抵达",
+        "想清楚，再派出一只鸟"
+      ],
+      "claimIds": [
+        "claim-roost-003",
+        "claim-roost-007",
+        "claim-roost-008"
+      ],
       "scene": "instant-pressure",
       "visualIntent": "消息气泡起飞后，界面只保留飞行路线和到达倒计时；卡片展示回复空间与体验者动作。",
       "targetSeconds": 18,
@@ -77,8 +109,16 @@
       "id": "seg-005",
       "section": "origin",
       "narration": "Roost 从朋友之间的小项目开始。2025 年 5 月，Logan Mendelsohn 和朋友先做了一段虚拟鸟送信的概念视频。能用的版本做好后，身边人玩得很开心，还催他把应用送上商店。2026 年 4 月 28 日，Roost 正式公开。",
-      "onScreenText": ["2025.05 朋友间的小项目", "身边人催他公开", "2026.04.28 正式发布"],
-      "claimIds": ["claim-roost-002", "claim-roost-005", "claim-roost-006"],
+      "onScreenText": [
+        "2025.05 朋友间的小项目",
+        "身边人催他公开",
+        "2026.04.28 正式发布"
+      ],
+      "claimIds": [
+        "claim-roost-002",
+        "claim-roost-005",
+        "claim-roost-006"
+      ],
       "scene": "origin-friends-publish",
       "visualIntent": "概念视频卡交到朋友手里，试用反馈推动上架按钮亮起。",
       "targetSeconds": 18,
@@ -94,8 +134,15 @@
       "id": "seg-006",
       "section": "mechanism",
       "narration": "每只信使都有自己的速度。猎鹰更快，蜂鸟更慢，蜗牛和乌龟会让旅程更长。双方距离也会改变到达时间。地图把整段路画出来，鸟飞到哪里，还要多久，一眼就能看懂。",
-      "onScreenText": ["每只信使都有自己的速度", "距离改变到达时间", "地图显示整段旅程"],
-      "claimIds": ["claim-roost-003", "claim-roost-004"],
+      "onScreenText": [
+        "每只信使都有自己的速度",
+        "距离改变到达时间",
+        "地图显示整段旅程"
+      ],
+      "claimIds": [
+        "claim-roost-003",
+        "claim-roost-004"
+      ],
       "scene": "distance-speed-map",
       "visualIntent": "不同速度的信使沿地图路线出发，画面同步显示剩余时间与鸟舍卡片。",
       "targetSeconds": 18,
@@ -111,8 +158,15 @@
       "id": "seg-007",
       "section": "user-action",
       "narration": "等待也有事情可做。你可以回到鸟舍，收集和训练不同的鸟，或者玩一局小游戏。朋友的鸟正穿过海岸线时，你不必一直盯着手机。那位体验者说，他开始期待鸟落地的时刻。",
-      "onScreenText": ["等待变得可看、可玩", "收集和训练不同的鸟", "期待鸟落地的时刻"],
-      "claimIds": ["claim-roost-004", "claim-roost-008"],
+      "onScreenText": [
+        "等待变得可看、可玩",
+        "收集和训练不同的鸟",
+        "期待鸟落地的时刻"
+      ],
+      "claimIds": [
+        "claim-roost-004",
+        "claim-roost-008"
+      ],
       "scene": "waiting-becomes-play",
       "visualIntent": "飞行中的鸟缩成地图上的点，用户离开手机；鸟舍里有新鸟与小游戏入口。",
       "targetSeconds": 18,
@@ -128,8 +182,14 @@
       "id": "seg-008",
       "section": "turning-point",
       "narration": "有用户把这个规则玩出了自己的仪式感。TechCrunch 报道，一位母亲在 Threads 分享，女儿和朋友用伊丽莎白时代的英语通信，因为每句话真的要等鸟送到。帖子传开后，创始人披露，三天里用户从一万升到十万。",
-      "onScreenText": ["用户玩出自己的通信仪式", "用古英语等一只鸟", "10,000 → 100,000 · 3 天"],
-      "claimIds": ["claim-roost-009"],
+      "onScreenText": [
+        "用户玩出自己的通信仪式",
+        "用古英语等一只鸟",
+        "10,000 → 100,000 · 3 天"
+      ],
+      "claimIds": [
+        "claim-roost-009"
+      ],
       "scene": "threads-elizabethan",
       "visualIntent": "仿纸张消息卡使用古英语问候，Threads 帖子轮廓出现，创始人口径数字随后增长。",
       "targetSeconds": 18,
@@ -145,8 +205,17 @@
       "id": "seg-009",
       "section": "evidence",
       "narration": "到 7 月 7 日，Roost 已超过二十五万用户，每天有十万多个活跃对话。广告和付费获客花了零美元。第二天，创始人更新的用户数字已经接近三十万。",
-      "onScreenText": ["2026.07.07", "25 万+ 用户", "每天 10 万+ 活跃对话", "付费获客 $0"],
-      "claimIds": ["claim-roost-010", "claim-roost-011", "claim-roost-012"],
+      "onScreenText": [
+        "2026.07.07",
+        "25 万+ 用户",
+        "每天 10 万+ 活跃对话",
+        "付费获客 $0"
+      ],
+      "claimIds": [
+        "claim-roost-010",
+        "claim-roost-011",
+        "claim-roost-012"
+      ],
       "scene": "growth-evidence",
       "visualIntent": "用户、活跃对话和付费获客三项数字分开落下，底部始终标明创始人口径。",
       "targetSeconds": 18,
@@ -162,8 +231,15 @@
       "id": "seg-010",
       "section": "business",
       "narration": "喜欢某只鸟，可以在轮换商店单独购买，也可以选择支持者订阅。7 月 7 日时，五十美元的终身支持档卖出约六十到七十份。Roost 没有外部融资，Mendelsohn 仍在用业余时间维护。",
-      "onScreenText": ["挑一只喜欢的鸟", "轮换鸟类商店", "支持者订阅"],
-      "claimIds": ["claim-roost-013", "claim-roost-014"],
+      "onScreenText": [
+        "挑一只喜欢的鸟",
+        "轮换鸟类商店",
+        "支持者订阅"
+      ],
+      "claimIds": [
+        "claim-roost-013",
+        "claim-roost-014"
+      ],
       "scene": "bird-store",
       "visualIntent": "不同鸟类商品卡轮换，50 美元支持者卡与约六十至七十份的创始人口径同步出现。",
       "targetSeconds": 18,
@@ -179,8 +255,15 @@
       "id": "seg-011",
       "section": "safety",
       "narration": "跨城送信需要位置。Roost 默认只向朋友显示城市，精确位置只对你单独选择的 close friends 开启。Pen Pals 是自愿加入的一对一匿名通信，双方都接受后才会打开对话，而且它和朋友列表分开。",
-      "onScreenText": ["位置由你决定分享多少", "朋友默认只看城市", "Pen Pals 双方接受后开启"],
-      "claimIds": ["claim-roost-015", "claim-roost-022"],
+      "onScreenText": [
+        "位置由你决定分享多少",
+        "朋友默认只看城市",
+        "Pen Pals 双方接受后开启"
+      ],
+      "claimIds": [
+        "claim-roost-015",
+        "claim-roost-022"
+      ],
       "scene": "privacy-safety",
       "visualIntent": "精确坐标先变成城市范围，用户再选择可查看精确位置的好友；Pen Pals 卡片按年龄分组。",
       "targetSeconds": 17,

@@ -2,11 +2,11 @@
 {
   "rubricVersion": "delivery-critic-v1",
   "reviewedVideo": "output/episode-001/vertical_9x16.mp4",
-  "reviewedVideoSha256": "57a02a5de86f188fe260d6295d7e2a38d16ed948f3341b2d44306e3b472040c0",
+  "reviewedVideoSha256": "788128d4c325e7d93c75542ef8c1786c6284651cea513d3429e58e7aebc88e10",
   "reviewedSubtitles": "output/episode-001/subtitles_zh.srt",
   "reviewedSubtitlesSha256": "d70b4ab74163d2ec5f5b2ed5cdf082f7f6231d3c0e522b582f5450d7d17876fe",
   "reviewedTimeline": "content/episode-001/production/timeline.json",
-  "reviewedTimelineSha256": "8974170d35d09317cc521acdf821ac4f68f92bfa2955d20e6665cb221011bbd6",
+  "reviewedTimelineSha256": "8e14cd40d4813283ccb23a659b14a56980a59f7fcd4d12714ec7e9585a8facec",
   "metrics": {
     "captionWordBreaks": 0,
     "englishWordBreaks": 0,
@@ -34,9 +34,9 @@ metadata、generated captions 和关键时间点抽帧
 
 | 产物                                               | SHA-256                                                            |
 | -------------------------------------------------- | ------------------------------------------------------------------ |
-| `output/episode-001/vertical_9x16.mp4`             | `57a02a5de86f188fe260d6295d7e2a38d16ed948f3341b2d44306e3b472040c0` |
+| `output/episode-001/vertical_9x16.mp4`             | `788128d4c325e7d93c75542ef8c1786c6284651cea513d3429e58e7aebc88e10` |
 | `output/episode-001/subtitles_zh.srt`              | `d70b4ab74163d2ec5f5b2ed5cdf082f7f6231d3c0e522b582f5450d7d17876fe` |
-| `content/episode-001/production/timeline.json`     | `8974170d35d09317cc521acdf821ac4f68f92bfa2955d20e6665cb221011bbd6` |
+| `content/episode-001/production/timeline.json`     | `8e14cd40d4813283ccb23a659b14a56980a59f7fcd4d12714ec7e9585a8facec` |
 | `content/episode-001/production/tts-metadata.json` | `8143a52c00cffd9510f75f9c77ace10a2d88e26bb1d3558cdaa860b899b12178` |
 | `src/poke-captions.generated.json`                 | `4bdd4fcaad55aeea1026a2ce9cb0376798afcddedb29b91da4495c7a81c118cf` |
 

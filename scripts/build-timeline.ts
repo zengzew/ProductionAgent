@@ -18,7 +18,9 @@ import {
   repoRoot,
   writeJson,
 } from "../src/lib/project";
+import {getRenderContract} from "../src/lib/render-contract";
 
+const renderContract = getRenderContract(episodeId);
 const fps = 30;
 const hookTailSeconds = 0.18;
 const bodyTailSeconds = 0.9;
@@ -136,6 +138,8 @@ const scenes = script.segments.map((segment, index) => {
 
 const totalFrames = Math.ceil(cursorSeconds * fps);
 const timeline = {
+  episodeId,
+  layoutVariant: renderContract.layoutVariant,
   fps,
   totalFrames,
   totalSeconds: totalFrames / fps,
@@ -158,10 +162,14 @@ const srt = captions
   .join("\n");
 
 writeJson(path.join(episodeRoot, "production/timeline.json"), timeline);
-const generatedPrefix =
-  episodeId === "episode-001" ? "poke" : episodeId.replace("episode-", "episode-");
-writeJson(path.join(repoRoot, `src/${generatedPrefix}-timeline.generated.json`), timeline);
-writeJson(path.join(repoRoot, `src/${generatedPrefix}-captions.generated.json`), captions);
+writeJson(
+  path.join(repoRoot, `src/${renderContract.generatedPrefix}-timeline.generated.json`),
+  timeline,
+);
+writeJson(
+  path.join(repoRoot, `src/${renderContract.generatedPrefix}-captions.generated.json`),
+  captions,
+);
 fs.mkdirSync(outputEpisodeRoot, {recursive: true});
 fs.writeFileSync(path.join(outputEpisodeRoot, "subtitles_zh.srt"), srt);
 

@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import {z} from "zod";
 import {readJson, repoRoot} from "./project";
+import type {RetryableFetchOptions} from "./network";
 
 const normalization = z.object({
   integratedLufs: z.number(),
@@ -38,6 +39,11 @@ const polishConfig = z.object({
     modelEnv: z.string().min(1),
     defaultModel: z.string().min(1),
     temperature: z.number().min(0).max(2),
+    network: z.object({
+      timeoutMs: z.number().int().positive(),
+      maxRetries: z.number().int().nonnegative(),
+      retryBaseDelayMs: z.number().int().nonnegative(),
+    }),
   }),
   prompts: z.object({
     polishSystem: z.string(),
@@ -63,6 +69,11 @@ const ttsConfig = z.object({
   fallbackProvider: z.literal("edge"),
   fallbackOnMissingCredential: z.boolean(),
   fallbackOnError: z.boolean(),
+  network: z.object({
+    timeoutMs: z.number().int().positive(),
+    maxRetries: z.number().int().nonnegative(),
+    retryBaseDelayMs: z.number().int().nonnegative(),
+  }),
   normalization,
   providers: z.object({
     minimax: z.object({
@@ -88,6 +99,7 @@ const ttsConfig = z.object({
 
 export type PolishStyle = z.infer<typeof polishStyleSchema>;
 export type TtsV2Config = z.infer<typeof ttsConfig>;
+export type NetworkConfig = RetryableFetchOptions;
 
 export const repoPath = (relative: string): string => {
   const resolved = path.resolve(repoRoot, relative);

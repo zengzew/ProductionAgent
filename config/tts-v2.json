@@ -3,6 +3,11 @@
   "fallbackProvider": "edge",
   "fallbackOnMissingCredential": true,
   "fallbackOnError": true,
+  "network": {
+    "timeoutMs": 30000,
+    "maxRetries": 2,
+    "retryBaseDelayMs": 250
+  },
   "normalization": {
     "integratedLufs": -16,
     "truePeakDb": -1.5,

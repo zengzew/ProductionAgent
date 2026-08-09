@@ -1,4 +1,6 @@
 {
+  "episodeId": "episode-001",
+  "layoutVariant": "poke-standard",
   "fps": 30,
   "totalFrames": 4071,
   "totalSeconds": 135.7,

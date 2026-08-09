@@ -8,6 +8,7 @@ import {
   buildArtifactRef,
   contentManifestSchema,
   createInitialProductionState,
+  evaluateContentFreezePreconditions,
   emptyArtifactIndex,
   freezeContent,
   hashContentSelection,
@@ -146,6 +147,50 @@ describe("WP-M2-07 content freeze foundation", () => {
         frozenAt,
       }),
     ).toThrow(/FREEZE_OPEN_MAJOR_ISSUES:issue-major/u);
+  });
+
+  it("does not release a freeze when an issue cannot be recognized", () => {
+    const repoRoot = temporaryRepo();
+    const script = writeRef(repoRoot, "script", "script v1\n");
+    const index = selectedIndex([script]);
+    const report = evaluateContentFreezePreconditions({
+      repoRoot,
+      episodeId: "episode-freeze",
+      artifactIndex: index,
+      selectedArtifactRefs: [script],
+      issues: [{id: "issue-malformed"}],
+    });
+
+    expect(report.ready).toBe(false);
+    expect(report.unrecognizedIssueIds).toContain("issue-malformed");
+    expect(() =>
+      freezeContent({
+        repoRoot,
+        episodeId: "episode-freeze",
+        artifactIndex: index,
+        selectedArtifactRefs: [script],
+        issues: [{id: "issue-malformed"}],
+        frozenAt,
+      }),
+    ).toThrow(/FREEZE_UNRECOGNIZED_ISSUES:issue-malformed/u);
+  });
+
+  it("rejects selected content whose bytes changed after registry selection", () => {
+    const repoRoot = temporaryRepo();
+    const script = writeRef(repoRoot, "script", "script v1\n");
+    const index = selectedIndex([script]);
+    fs.writeFileSync(path.join(repoRoot, script.path), "script mutated\n");
+
+    expect(() =>
+      freezeContent({
+        repoRoot,
+        episodeId: "episode-freeze",
+        artifactIndex: index,
+        selectedArtifactRefs: [script],
+        issues: [],
+        frozenAt,
+      }),
+    ).toThrow(/FREEZE_ARTIFACT_HASH_MISMATCH:episode-freeze:story:script/u);
   });
 
   it("rejects a selected ref whose registry record is stale", () => {

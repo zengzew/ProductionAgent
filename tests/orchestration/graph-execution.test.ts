@@ -41,6 +41,29 @@ afterEach(() => {
 });
 
 describe("M1.1 minimal LangGraph skeleton", () => {
+  it("emits execution.started before invoking the agent runner", async () => {
+    const {repoRoot, controlRef} = createFixture();
+    const order: string[] = [];
+    const stub = createDeterministicStubAgent();
+    const graph = createFoundationGraph({
+      runAgent: async (request) => {
+        order.push("run-agent");
+        return stub(request);
+      },
+      eventSink: (event) => order.push(event.eventType),
+      checkpointer: createLocalCheckpoint({repoRoot}),
+    });
+    const state = createInitialProductionState({
+      episodeId: "episode-graph",
+      runId: "run-graph-event-order",
+      artifacts: {"control:agent-contract": controlRef},
+    });
+
+    await graph.invoke(state, checkpointConfig(state.episodeId));
+
+    expect(order.slice(0, 3)).toEqual(["execution.started", "run-agent", "execution.completed"]);
+  });
+
   it("executes all deterministic stub roles in the existing contract order", async () => {
     const {repoRoot, controlRef} = createFixture();
     const calls: AgentName[] = [];

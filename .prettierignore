@@ -9,8 +9,10 @@
 /content/*/story/polished-caption-plan.json
 /content/*/production/polish-judge-report.json
 /content/*/production/timeline.json
+reports/code-review-*.md
 src/poke-captions.generated.json
 src/poke-timeline.generated.json
+src/episode-002-timeline.generated.json
 src/GensparkStory.tsx
 src/captions.generated.json
 src/timeline.generated.json

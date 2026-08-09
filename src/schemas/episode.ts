@@ -143,12 +143,20 @@ export const timelineSceneSchema = segmentSchema.extend({
 });
 
 export const timelineSchema = z.object({
+  episodeId: z.string().regex(/^episode-[a-z0-9-]+$/u),
+  layoutVariant: z.enum(["poke-standard", "roost-standard", "roost-goal3"]),
   fps: z.number().int().positive(),
   totalFrames: z.number().int().positive(),
   totalSeconds: z.number().positive(),
   ttsProvider: z.string().min(1),
   captionAlignment: z.enum(["provider-timestamps", "caption-plan-proportional"]).optional(),
   scenes: z.array(timelineSceneSchema).min(1),
+});
+
+export const generatedCaptionSchema = z.object({
+  startFrame: z.number().int().nonnegative(),
+  endFrame: z.number().int().positive(),
+  text: z.string().min(1),
 });
 
 export type Source = z.infer<typeof sourceSchema>;

@@ -12,6 +12,11 @@ import {episodeId, episodeRoot, readJson, repoRoot} from "../src/lib/project";
 import {captionPartsFromPlan, fitCaptionPartsToDuration, visibleLength} from "../src/lib/captions";
 import {containsProductStageTranslation} from "../src/lib/baseline-gates";
 import {containsGenericCta, findVisualAssetContractViolations} from "../src/lib/story-quality";
+import {
+  assertTimelineMatchesEpisode,
+  generatedCaptionsPath,
+  generatedTimelinePath,
+} from "../src/lib/render-contract";
 
 const claims = readJson<unknown[]>(path.join(episodeRoot, "research/facts.json")).map((claim) =>
   claimSchema.parse(claim),
@@ -151,8 +156,15 @@ for (const asset of assets) {
 }
 
 const timelinePath = path.join(episodeRoot, "production/timeline.json");
-if (fs.existsSync(timelinePath)) {
+if (!fs.existsSync(timelinePath)) {
+  errors.push(`缺少当前 episode 的生产时间轴：${timelinePath}`);
+} else {
   const timeline = timelineSchema.parse(readJson<unknown>(timelinePath));
+  try {
+    assertTimelineMatchesEpisode(timeline, episodeId);
+  } catch (error) {
+    errors.push(error instanceof Error ? error.message : String(error));
+  }
   const timelineMatchesScript =
     timeline.scenes.length === script.segments.length &&
     timeline.scenes.every(
@@ -176,10 +188,26 @@ if (fs.existsSync(timelinePath)) {
       errors.push(`Hook 真实音频必须在 20 秒内结束，当前 ${actualHookEnd.toFixed(3)} 秒`);
     }
   }
-  const generatedPrefix =
-    episodeId === "episode-001" ? "poke" : episodeId.replace("episode-", "episode-");
-  const captionPath = path.join(repoRoot, `src/${generatedPrefix}-captions.generated.json`);
-  if (timelineMatchesScript && fs.existsSync(captionPath)) {
+  const generatedTimelineFile = path.join(repoRoot, generatedTimelinePath(episodeId));
+  const captionPath = path.join(repoRoot, generatedCaptionsPath(episodeId));
+  if (!fs.existsSync(generatedTimelineFile)) {
+    errors.push(`缺少当前 episode 的生成时间轴：${generatedTimelineFile}`);
+  } else {
+    const generatedTimeline = timelineSchema.parse(readJson<unknown>(generatedTimelineFile));
+    try {
+      assertTimelineMatchesEpisode(generatedTimeline, episodeId);
+    } catch (error) {
+      errors.push(error instanceof Error ? error.message : String(error));
+    }
+    if (JSON.stringify(generatedTimeline) !== JSON.stringify(timeline)) {
+      errors.push(
+        `生成时间轴不是当前 production/timeline.json 的同一版本：${generatedTimelineFile}`,
+      );
+    }
+  }
+  if (!fs.existsSync(captionPath)) {
+    errors.push(`缺少当前 episode 的生成字幕：${captionPath}`);
+  } else if (timelineMatchesScript) {
     const captions = readJson<Array<{sceneId: string; text: string}>>(captionPath);
     const captionsByScene = new Map<string, string[]>();
     for (const caption of captions) {

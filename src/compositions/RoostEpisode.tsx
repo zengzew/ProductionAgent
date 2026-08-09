@@ -14,19 +14,22 @@ import timelineRaw from "../episode-002-timeline.generated.json";
 import captionsRaw from "../episode-002-captions.generated.json";
 import claimsRaw from "../../content/episode-002/research/facts.json";
 import sourcesRaw from "../../content/episode-002/research/sources.json";
-import type {Claim, Source, Timeline} from "../schemas/episode";
+import {
+  claimSchema,
+  generatedCaptionSchema,
+  sourceSchema,
+  timelineSchema,
+  type Timeline,
+} from "../schemas/episode";
+import {assertTimelineMatchesEpisode} from "../lib/render-contract";
+import {fadeSceneOpacity} from "../lib/scene-animation";
 
-const timeline = timelineRaw as Timeline;
-const isGoal3Benchmark = timeline.scenes[2]?.onScreenText.some((text) =>
-  text.includes("伊丽莎白时代"),
-);
-const claims = claimsRaw as Claim[];
-const sources = sourcesRaw as Source[];
-const captions = captionsRaw as Array<{
-  startFrame: number;
-  endFrame: number;
-  text: string;
-}>;
+const timeline = timelineSchema.parse(timelineRaw);
+assertTimelineMatchesEpisode(timeline, "episode-002");
+const isGoal3Benchmark = timeline.layoutVariant === "roost-goal3";
+const claims = claimsRaw.map((claim) => claimSchema.parse(claim));
+const sources = sourcesRaw.map((source) => sourceSchema.parse(source));
+const captions = captionsRaw.map((caption) => generatedCaptionSchema.parse(caption));
 const claimMap = new Map(claims.map((claim) => [claim.id, claim]));
 const sourceMap = new Map(sources.map((source) => [source.id, source]));
 
@@ -337,8 +340,7 @@ const EvidenceScreenshot: React.FC<{
 
 const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => {
   const frame = useCurrentFrame();
-  const sceneIndex = scene.index;
-  if (sceneIndex === 0) {
+  if (scene.scene === "hook-send-bird") {
     return (
       <div style={{display: "grid", justifyItems: "center", gap: 38}}>
         <div
@@ -382,7 +384,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
       </div>
     );
   }
-  if (sceneIndex === 1) {
+  if (scene.scene === "hook-rule-growth") {
     return (
       <div style={{display: "grid", justifyItems: "center", gap: 30}}>
         <EvidenceScreenshot
@@ -400,7 +402,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
       </div>
     );
   }
-  if (sceneIndex === 2) {
+  if (scene.scene === "hook-core-question") {
     return (
       <div style={{display: "grid", justifyItems: "center", gap: 34}}>
         <EvidenceScreenshot
@@ -417,7 +419,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
       </div>
     );
   }
-  if (sceneIndex === 3) {
+  if (scene.scene === "instant-pressure") {
     return (
       <Cards
         accent={COLORS.rust}
@@ -425,7 +427,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
       />
     );
   }
-  if (sceneIndex === 4) {
+  if (scene.scene === "origin-friends-publish") {
     return (
       <Cards
         items={[
@@ -437,7 +439,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
       />
     );
   }
-  if (sceneIndex === 5) {
+  if (scene.scene === "distance-speed-map") {
     return (
       <div style={{display: "grid", justifyItems: "center", gap: 30}}>
         <FlightMap centerLabel={isGoal3Benchmark ? "距离改变到达时间" : undefined} />
@@ -463,7 +465,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
       </div>
     );
   }
-  if (sceneIndex === 6) {
+  if (scene.scene === "waiting-becomes-play") {
     return (
       <div style={{display: "grid", justifyItems: "center", gap: 46}}>
         <Bird progress={frame / 30} size={340} color={COLORS.green} />
@@ -472,7 +474,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
       </div>
     );
   }
-  if (sceneIndex === 7) {
+  if (scene.scene === "threads-elizabethan") {
     return (
       <div style={{display: "grid", justifyItems: "center", gap: 36}}>
         <div
@@ -501,7 +503,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
       </div>
     );
   }
-  if (sceneIndex === 8) {
+  if (scene.scene === "growth-evidence") {
     return (
       <div style={{display: "grid", justifyItems: "center", gap: 54}}>
         <Metric value="25 万+" label="用户 · 2026.07.07 · 创始人口径" />
@@ -513,7 +515,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
       </div>
     );
   }
-  if (sceneIndex === 9) {
+  if (scene.scene === "bird-store") {
     if (isGoal3Benchmark) {
       return (
         <div style={{display: "grid", justifyItems: "center", gap: 48}}>
@@ -554,7 +556,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
       </div>
     );
   }
-  if (sceneIndex === 10) {
+  if (scene.scene === "privacy-safety") {
     return (
       <div style={{display: "grid", justifyItems: "center", gap: 36}}>
         <div
@@ -581,7 +583,7 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
       </div>
     );
   }
-  if (isGoal3Benchmark) {
+  if (scene.scene === "artist-community-ending" && isGoal3Benchmark) {
     return (
       <div style={{display: "grid", justifyItems: "center", gap: 50, width: 900}}>
         <Metric value="30 万" label="注册用户 · ANSA 7/10" />
@@ -594,27 +596,30 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
       </div>
     );
   }
-  return (
-    <div style={{display: "grid", justifyItems: "center", gap: 50, width: 900}}>
-      <div style={{display: "flex", alignItems: "flex-start", gap: 80}}>
-        <Metric value="30 万" label="注册用户 · ANSA 7/10" />
-        <Metric value="10 万+" label="每日活跃对话 · 创始人口径 7/7" accent={COLORS.green} />
+  if (scene.scene === "artist-community-ending") {
+    return (
+      <div style={{display: "grid", justifyItems: "center", gap: 50, width: 900}}>
+        <div style={{display: "flex", alignItems: "flex-start", gap: 80}}>
+          <Metric value="30 万" label="注册用户 · ANSA 7/10" />
+          <Metric value="10 万+" label="每日活跃对话 · 创始人口径 7/7" accent={COLORS.green} />
+        </div>
+        <Cards
+          accent={COLORS.rust}
+          items={[
+            "缓解每条消息都催人立刻回复的压力",
+            "把等待变成看得见的路线",
+            "慢速社交 · 阶段性市场信号",
+          ]}
+        />
+        <div style={{display: "flex", alignItems: "center", gap: 24, width: "100%"}}>
+          <Bird progress={frame / 30} size={180} color={COLORS.rust} />
+          <div style={{height: 3, flex: 1, borderTop: `3px dashed ${COLORS.gold}`}} />
+          <span style={{fontSize: 31, color: COLORS.rust, fontWeight: 750}}>继续飞向朋友</span>
+        </div>
       </div>
-      <Cards
-        accent={COLORS.rust}
-        items={[
-          "缓解每条消息都催人立刻回复的压力",
-          "把等待变成看得见的路线",
-          "慢速社交 · 阶段性市场信号",
-        ]}
-      />
-      <div style={{display: "flex", alignItems: "center", gap: 24, width: "100%"}}>
-        <Bird progress={frame / 30} size={180} color={COLORS.rust} />
-        <div style={{height: 3, flex: 1, borderTop: `3px dashed ${COLORS.gold}`}} />
-        <span style={{fontSize: 31, color: COLORS.rust, fontWeight: 750}}>继续飞向朋友</span>
-      </div>
-    </div>
-  );
+    );
+  }
+  throw new Error(`Roost 未注册 scene：${scene.scene}`);
 };
 
 const CaptionLayer: React.FC = () => {
@@ -655,12 +660,7 @@ const CaptionLayer: React.FC = () => {
 const RoostScene: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => {
   const frame = useCurrentFrame();
   const dark = false;
-  const opacity = interpolate(
-    frame,
-    [0, 10, Math.max(11, scene.durationFrames - 10), scene.durationFrames],
-    [scene.index === 0 ? 1 : 0, 1, 1, 0],
-    clamp,
-  );
+  const opacity = fadeSceneOpacity(frame, scene.durationFrames, scene.index === 0);
   return (
     <AbsoluteFill style={{opacity, color: dark ? COLORS.white : COLORS.ink, fontFamily: SANS}}>
       <Background dark={dark} />

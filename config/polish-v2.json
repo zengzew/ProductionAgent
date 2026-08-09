@@ -12,7 +12,12 @@
     "apiKeyEnv": "OPENAI_API_KEY",
     "modelEnv": "POLISH_LLM_MODEL",
     "defaultModel": "gpt-5-mini",
-    "temperature": 0.4
+    "temperature": 0.4,
+    "network": {
+      "timeoutMs": 30000,
+      "maxRetries": 2,
+      "retryBaseDelayMs": 250
+    }
   },
   "prompts": {
     "polishSystem": "prompts/v3/polish-system.md",

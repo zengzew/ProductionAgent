@@ -2,11 +2,11 @@
 {
   "rubricVersion": "delivery-critic-v1",
   "reviewedVideo": "output/episode-002/vertical_9x16.mp4",
-  "reviewedVideoSha256": "3edbabc411fc70042c8fec54ab0098765b0ffee09586c25605bba7cd6fb96854",
+  "reviewedVideoSha256": "e25bac79add2111344853db862bc3dad6737fe3a24670822e4ba0d6fcdb29d40",
   "reviewedSubtitles": "output/episode-002/subtitles_zh.srt",
   "reviewedSubtitlesSha256": "655c9764bfec2bc4ef1f599d1397c4f6a686242a4da8a5da2d81bb9e4b68d48f",
   "reviewedTimeline": "content/episode-002/production/timeline.json",
-  "reviewedTimelineSha256": "5b9d5751447de2c42efdc72b97d788b17044717c325fd9aef004dad3c6f7744a",
+  "reviewedTimelineSha256": "bfab0e07963a48876abba6f620aae7424fae58e9302541a9dc5be6347ad44059",
   "metrics": {
     "captionWordBreaks": 0,
     "englishWordBreaks": 0,
@@ -35,9 +35,9 @@ metadata、generated captions，以及开场、官网、当前 Pen Pals 和新�
 
 | 产物                                               | SHA-256                                                            |
 | -------------------------------------------------- | ------------------------------------------------------------------ |
-| `output/episode-002/vertical_9x16.mp4`             | `3edbabc411fc70042c8fec54ab0098765b0ffee09586c25605bba7cd6fb96854` |
+| `output/episode-002/vertical_9x16.mp4`             | `e25bac79add2111344853db862bc3dad6737fe3a24670822e4ba0d6fcdb29d40` |
 | `output/episode-002/subtitles_zh.srt`              | `655c9764bfec2bc4ef1f599d1397c4f6a686242a4da8a5da2d81bb9e4b68d48f` |
-| `content/episode-002/production/timeline.json`     | `5b9d5751447de2c42efdc72b97d788b17044717c325fd9aef004dad3c6f7744a` |
+| `content/episode-002/production/timeline.json`     | `bfab0e07963a48876abba6f620aae7424fae58e9302541a9dc5be6347ad44059` |
 | `content/episode-002/production/tts-metadata.json` | `f0567f29bde01e7a75596b154728010e4d890b23a2713bba0732ac6d738c9d31` |
 | `src/episode-002-captions.generated.json`          | `62bab810378a602a1ae5ddd1dbd21b4ba2c7946f73a445c5ce26822783d80210` |
 

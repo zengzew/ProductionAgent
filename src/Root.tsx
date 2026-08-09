@@ -1,9 +1,13 @@
 import React from "react";
 import {Composition} from "remotion";
-import pokeTimeline from "./poke-timeline.generated.json";
+import pokeTimelineRaw from "./poke-timeline.generated.json";
 import {PokeCover, PokeEpisode} from "./compositions/PokeEpisode";
-import roostTimeline from "./episode-002-timeline.generated.json";
+import roostTimelineRaw from "./episode-002-timeline.generated.json";
 import {RoostCover, RoostEpisode} from "./compositions/RoostEpisode";
+import {timelineSchema} from "./schemas/episode";
+
+const pokeTimeline = timelineSchema.parse(pokeTimelineRaw);
+const roostTimeline = timelineSchema.parse(roostTimelineRaw);
 
 export const RemotionRoot: React.FC = () => {
   return (
