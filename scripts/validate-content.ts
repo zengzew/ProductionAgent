@@ -9,7 +9,12 @@ import {
   timelineSchema,
 } from "../src/schemas/episode";
 import {episodeId, episodeRoot, readJson, repoRoot} from "../src/lib/project";
-import {captionPartsFromPlan, fitCaptionPartsToDuration, visibleLength} from "../src/lib/captions";
+import {
+  captionPartsFromPlan,
+  captionTextsEquivalent,
+  fitCaptionPartsToDuration,
+  visibleLength,
+} from "../src/lib/captions";
 import {containsProductStageTranslation} from "../src/lib/baseline-gates";
 import {containsGenericCta, findVisualAssetContractViolations} from "../src/lib/story-quality";
 import {
@@ -230,7 +235,7 @@ if (!fs.existsSync(timelinePath)) {
         timelineScene?.audioDurationSeconds ?? 0,
       ).map((part) => part.text);
       const actual = captionsByScene.get(segment.id) ?? [];
-      if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+      if (!captionTextsEquivalent(actual, expected)) {
         errors.push(`${segment.id} 字幕未按词边界算法重新生成`);
       }
     }

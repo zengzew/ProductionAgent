@@ -24,6 +24,7 @@ import {
 } from "../schemas/episode";
 import {assertTimelineMatchesEpisode} from "../lib/render-contract";
 import {fadeSceneOpacity} from "../lib/scene-animation";
+import {buildPokeSoundCues} from "../lib/poke-sound-design";
 
 const timeline = timelineSchema.parse(timelineRaw);
 assertTimelineMatchesEpisode(timeline, "episode-001");
@@ -2137,35 +2138,16 @@ const SceneVisual: React.FC<{
 
 export const PokeEpisode: React.FC<{orientation: "landscape" | "vertical"}> = ({orientation}) => {
   const isVertical = orientation === "vertical";
-  const sceneStart = (id: string) =>
-    timeline.scenes.find((scene) => scene.id === id)?.startFrame ?? 0;
+  const soundCues = buildPokeSoundCues(timeline.scenes);
   return (
     <AbsoluteFill style={{background: COLORS.paper, fontFamily: SANS}}>
       <Audio src={staticFile("episodes/episode-001/sound-design/ambient-bed.mp3")} volume={0.72} />
-      <Sequence from={sceneStart("seg-001")} durationInFrames={20}>
-        <Audio
-          src={staticFile("episodes/episode-001/sound-design/message-pop.wav")}
-          volume={0.55}
-        />
-      </Sequence>
-      {["seg-002", "seg-009", "seg-011"].map((id) => (
-        <Sequence key={`impact-${id}`} from={sceneStart(id)} durationInFrames={32}>
-          <Audio src={staticFile("episodes/episode-001/sound-design/impact.wav")} volume={0.42} />
-        </Sequence>
-      ))}
-      <Sequence from={sceneStart("seg-008") + 24} durationInFrames={20}>
-        <Audio
-          src={staticFile("episodes/episode-001/sound-design/message-pop.wav")}
-          volume={0.35}
-        />
-      </Sequence>
-      {[50, 105, 160, 215, 270].map((offset) => (
-        <Sequence
-          key={`pulse-${offset}`}
-          from={sceneStart("seg-010") + offset}
-          durationInFrames={20}
-        >
-          <Audio src={staticFile("episodes/episode-001/sound-design/pulse.wav")} volume={0.3} />
+      {soundCues.map((cue) => (
+        <Sequence key={cue.id} from={cue.from} durationInFrames={cue.durationInFrames}>
+          <Audio
+            src={staticFile(`episodes/episode-001/sound-design/${cue.file}`)}
+            volume={cue.volume}
+          />
         </Sequence>
       ))}
       {timeline.scenes.map((scene) => (

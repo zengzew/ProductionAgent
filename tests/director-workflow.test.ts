@@ -28,6 +28,16 @@ describe("director-driven artifact workflow", () => {
     );
   });
 
+  it("rejects duplicate stage roles even when the stage count is unchanged", () => {
+    const duplicate = {
+      ...workflow,
+      stages: workflow.stages.map((stage, index) =>
+        index === 1 ? {...stage, id: workflow.stages[0]!.id} : stage,
+      ),
+    };
+    expect(directorWorkflowSchema.safeParse(duplicate).success).toBe(false);
+  });
+
   it("closes rejected retention feedback through routed artifact revisions", () => {
     const rejected = workflow.reviewCycles.find((cycle) => cycle.verdict === "REJECT");
     expect(rejected).toBeDefined();

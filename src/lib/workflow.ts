@@ -61,19 +61,30 @@ const reviewCycleSchema = z.object({
   routes: z.array(reviewRouteSchema),
 });
 
-export const directorWorkflowSchema = z.object({
-  schemaVersion: z.literal("director-workflow-v1"),
-  episodeId: z.string().regex(/^episode-[a-z0-9-]+$/u),
-  coreStoryQuestion: z.string().min(1),
-  currentStatus: z.enum(["in-progress", "story-approved", "delivery-approved"]),
-  revisionPolicy: z.object({
-    maximumCreativeRounds: z.number().int().min(1).max(5),
-    scriptChangeRestartsAt: z.literal("oral-judge"),
-    visualChangeRestartsAt: z.literal("retention-critic"),
-  }),
-  stages: z.array(workflowStageSchema).length(orderedStoryRoles.length),
-  decisions: z.array(workflowDecisionSchema).min(8),
-  reviewCycles: z.array(reviewCycleSchema).min(1),
-});
+export const directorWorkflowSchema = z
+  .object({
+    schemaVersion: z.literal("director-workflow-v1"),
+    episodeId: z.string().regex(/^episode-[a-z0-9-]+$/u),
+    coreStoryQuestion: z.string().min(1),
+    currentStatus: z.enum(["in-progress", "story-approved", "delivery-approved"]),
+    revisionPolicy: z.object({
+      maximumCreativeRounds: z.number().int().min(1).max(5),
+      scriptChangeRestartsAt: z.literal("oral-judge"),
+      visualChangeRestartsAt: z.literal("retention-critic"),
+    }),
+    stages: z.array(workflowStageSchema).length(orderedStoryRoles.length),
+    decisions: z.array(workflowDecisionSchema).min(8),
+    reviewCycles: z.array(reviewCycleSchema).min(1),
+  })
+  .superRefine((workflow, context) => {
+    const stageIds = workflow.stages.map((stage) => stage.id);
+    if (new Set(stageIds).size !== orderedStoryRoles.length) {
+      context.addIssue({
+        code: "custom",
+        path: ["stages"],
+        message: "workflow stages 必须让每个正式角色恰好出现一次",
+      });
+    }
+  });
 
 export type DirectorWorkflow = z.infer<typeof directorWorkflowSchema>;

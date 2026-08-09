@@ -18,6 +18,20 @@ export const episodeConfigSchema = z.object({
   publishStatus: z.string().min(1),
   publishBlocker: z.string(),
   asOf: z.iso.date(),
+  captureAssets: z
+    .array(
+      z.object({
+        file: z.string().regex(/^[a-z0-9][a-z0-9._-]*\.png$/u),
+        url: z.string().url(),
+        anchor: z
+          .object({
+            role: z.literal("heading"),
+            name: z.string().min(1),
+          })
+          .optional(),
+      }),
+    )
+    .default([]),
 });
 
 export const sourceSchema = z.object({

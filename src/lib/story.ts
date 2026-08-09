@@ -378,11 +378,11 @@ const parseNarrationUnits = (block: string): NarrationUnit[] => {
 };
 
 export const parseFinalScript = (markdown: string): FinalScriptSegment[] => {
-  const blocks = markdown.split(/(?=^## seg-\d+\s*$)/gmu).slice(1);
+  const blocks = markdown.split(/(?=^## seg-[a-z0-9-]+\s*$)/gmu).slice(1);
   if (blocks.length === 0) throw new Error("final-script contains no segment blocks");
 
   return blocks.map((block) => {
-    const id = block.match(/^## (seg-\d+)\s*$/mu)?.[1];
+    const id = block.match(/^## (seg-[a-z0-9-]+)\s*$/mu)?.[1];
     const narration = block
       .match(/### Narration\n\n([\s\S]*?)\n\n### Narration units/u)?.[1]
       ?.trim();

@@ -2,7 +2,11 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import {measureCaptionDelivery, parseDeliveryGate, parseSrt} from "../src/lib/delivery";
-import {captionPartsFromPlan, fitCaptionPartsToDuration} from "../src/lib/captions";
+import {
+  captionPartsFromPlan,
+  captionTextsEquivalent,
+  fitCaptionPartsToDuration,
+} from "../src/lib/captions";
 import {episodeId, episodeRoot, outputEpisodeRoot, readJson, repoRoot} from "../src/lib/project";
 import {
   captionPlanSchema,
@@ -102,7 +106,7 @@ for (const segment of script.segments) {
     timelineScene?.audioDurationSeconds ?? 0,
   ).map((part) => part.text);
   const actual = actualByScene.get(segment.id) ?? [];
-  if (JSON.stringify(actual) !== JSON.stringify(expected)) {
+  if (!captionTextsEquivalent(actual, expected)) {
     captionPlanMismatches += 1;
     errors.push(`${segment.id} 的成片字幕未按当前词边界算法生成`);
   }

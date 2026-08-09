@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import {spawnSync} from "node:child_process";
 import {parseComparisonGate} from "../src/lib/comparison";
+import {assertSpawnSucceeded, parseFiniteNumber} from "../src/lib/process";
 import {episodeRoot, repoRoot} from "../src/lib/project";
 
 const reportPath = path.join(episodeRoot, "production/comparison-report.md");
@@ -64,8 +65,20 @@ const duration = (filePath: string): number => {
     ],
     {encoding: "utf8"},
   );
-  if (result.status !== 0) throw new Error(`ffprobe 失败：${filePath}`);
-  return Number.parseFloat(result.stdout.trim());
+  assertSpawnSucceeded(
+    "ffprobe",
+    [
+      "-v",
+      "error",
+      "-show_entries",
+      "format=duration",
+      "-of",
+      "default=noprint_wrappers=1:nokey=1",
+      filePath,
+    ],
+    result,
+  );
+  return parseFiniteNumber(result.stdout.trim(), `${filePath} 时长`);
 };
 if (fs.existsSync(absolute(gate.directorVideo))) {
   const directorDuration = duration(absolute(gate.directorVideo));

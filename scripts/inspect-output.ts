@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import {spawnSync} from "node:child_process";
 import {measureCaptionDelivery, parseSrt} from "../src/lib/delivery";
+import {assertSpawnSucceeded, parseFiniteNumber} from "../src/lib/process";
 import {episodeConfigSchema} from "../src/schemas/episode";
 import {episodeRoot, outputEpisodeRoot, readJson, writeJson} from "../src/lib/project";
 
@@ -19,9 +20,7 @@ type Probe = {
 
 const run = (command: string, args: string[]): {stdout: string; stderr: string} => {
   const result = spawnSync(command, args, {encoding: "utf8"});
-  if (result.status !== 0) {
-    throw new Error(`${command} 失败：${result.stderr || result.stdout}`);
-  }
+  assertSpawnSucceeded(command, args, result);
   return {stdout: result.stdout, stderr: result.stderr};
 };
 
@@ -37,9 +36,14 @@ const maxVolume = (filePath: string): number => {
     ["-hide_banner", "-i", filePath, "-af", "volumedetect", "-f", "null", "-"],
     {encoding: "utf8"},
   );
+  assertSpawnSucceeded(
+    "ffmpeg",
+    ["-hide_banner", "-i", filePath, "-af", "volumedetect", "-f", "null", "-"],
+    result,
+  );
   const match = result.stderr.match(/max_volume:\s*(-?[\d.]+)\s*dB/u);
   if (!match?.[1]) throw new Error(`无法读取音频峰值：${filePath}`);
-  return Number.parseFloat(match[1]);
+  return parseFiniteNumber(match[1], `${filePath} 音频峰值`);
 };
 
 const expected = [{file: "vertical_9x16.mp4", width: 1080, height: 1920}];
@@ -60,7 +64,7 @@ for (const item of expected) {
   const metadata = probe(filePath);
   const video = metadata.streams.find((stream) => stream.codec_type === "video");
   const audio = metadata.streams.find((stream) => stream.codec_type === "audio");
-  const duration = Number.parseFloat(metadata.format.duration);
+  const duration = parseFiniteNumber(metadata.format.duration, `${item.file} 时长`);
   const peakDb = maxVolume(filePath);
   if (video?.width !== item.width || video?.height !== item.height) {
     errors.push(`${item.file} 分辨率错误：${video?.width}x${video?.height}`);

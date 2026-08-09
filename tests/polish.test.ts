@@ -2,7 +2,13 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import {describe, expect, it} from "vitest";
-import {evaluateHardConstraints, polishJudgeSchema, selectStyleSamples} from "../src/lib/polish";
+import {
+  createPolishedCaptionPlan,
+  evaluateHardConstraints,
+  fillTemplate,
+  polishJudgeSchema,
+  selectStyleSamples,
+} from "../src/lib/polish";
 import {loadPolishV2Config, polishStyleSchema, promptText} from "../src/lib/pipeline-v2-config";
 import {scriptSchema} from "../src/schemas/episode";
 
@@ -48,6 +54,31 @@ describe("polish constraints", () => {
     expect(report.missingProtectedTerms).toEqual(["Recipe", "Cognition"]);
     expect(report.arabicDigitHits).toEqual(["2026"]);
     expect(report.longSentences.length).toBeGreaterThan(0);
+  });
+
+  it("detects full-width digits after spoken-number normalization", () => {
+    const candidate = scriptSchema.parse({
+      ...script,
+      segments: [{...script.segments[0], narration: "Poke 是个 AI 助手。编号是２０２６。"}],
+    });
+    expect(evaluateHardConstraints(script, candidate, style).arabicDigitHits).toEqual(["2026"]);
+  });
+
+  it("throws on unknown prompt placeholders instead of deleting them", () => {
+    expect(() => fillTemplate("{{KNOWN}} {{TYPO}}", {KNOWN: "ok"})).toThrow(/未知占位符.*TYPO/u);
+  });
+
+  it("fails before writing a caption plan that downstream validation would reject", () => {
+    const candidate = scriptSchema.parse({
+      ...script,
+      segments: [
+        {
+          ...script.segments[0],
+          narration: "Supercalifragilisticexpialidocious",
+        },
+      ],
+    });
+    expect(() => createPolishedCaptionPlan(candidate, 16)).toThrow(/字幕 token 超过 16 字/u);
   });
 
   it("randomly loads accepted manuscripts and excludes README", () => {

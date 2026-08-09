@@ -15,5 +15,12 @@
   "selectionReason": "Episode 001 备选池最高分候选；2026-04-28 发布后有可归因的用户增长、清楚的产品动作与可验证边界。",
   "publishStatus": "production",
   "publishBlocker": "发布前仍需人工确认官方页面引用、App Store 画面与合成语音披露要求。",
-  "asOf": "2026-08-02"
+  "asOf": "2026-08-02",
+  "captureAssets": [
+    {"file": "roost-home.png", "url": "https://roostsocial.app/"},
+    {
+      "file": "roost-app-store.png",
+      "url": "https://apps.apple.com/us/app/roost-social/id6746680855"
+    }
+  ]
 }

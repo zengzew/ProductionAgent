@@ -80,10 +80,13 @@ describe("M1.1 SQLite checkpoint resume", () => {
     expect(resumedCalls).not.toContain("story-director");
     expect(resumed.completedAgents).toEqual(agentNames);
     expect(resumed.phase).toBe("halted");
-    expect(
-      fs
-        .readFileSync(path.join(repoRoot, ".orchestration/checkpoints.sqlite"))
-        .includes(Buffer.from("reference only")),
-    ).toBe(false);
+    const completedSnapshot = await resumedGraph.getState(config);
+    expect(completedSnapshot.values.artifacts).toMatchObject({
+      "control:agent-contract": {
+        artifactId: "episode-resume:control:agent-contract",
+        path: artifactPath,
+      },
+    });
+    expect(JSON.stringify(completedSnapshot.values)).not.toContain("reference only");
   });
 });

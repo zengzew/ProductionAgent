@@ -2,6 +2,7 @@ import {describe, expect, it} from "vitest";
 import {
   alignCaptionPartsToTimestamps,
   captionPartsFromPlan,
+  captionTextsEquivalent,
   fitCaptionPartsToDuration,
   formatSrtTime,
   splitCaptionText,
@@ -80,6 +81,20 @@ describe("caption helpers", () => {
       "问球赛结果",
       "出门前看天气",
     ]);
+  });
+
+  it("merges adjacent Chinese cues without inserting a visible space", () => {
+    expect(
+      fitCaptionPartsToDuration(
+        [
+          {text: "提醒", weight: 2},
+          {text: "吃药", weight: 2},
+        ],
+        1.5,
+      ),
+    ).toEqual([{text: "提醒吃药", weight: 4}]);
+    expect(captionTextsEquivalent(["提醒 吃药"], ["提醒吃药"])).toBe(true);
+    expect(captionTextsEquivalent(["two words"], ["twowords"])).toBe(false);
   });
 
   it("validates a two-line editorial caption plan against its narration", () => {

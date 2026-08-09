@@ -23,6 +23,17 @@ const wordSegmenter = new Intl.Segmenter("zh-CN", {granularity: "word"});
 
 export const visibleLength = (text: string): number => Array.from(text.replace(/\s/gu, "")).length;
 
+const normalizeMergedChineseWhitespace = (text: string): string =>
+  text.replace(/(\p{Script=Han})\s+(?=\p{Script=Han})/gu, "$1");
+
+export const captionTextsEquivalent = (left: string[], right: string[]): boolean =>
+  left.length === right.length &&
+  left.every(
+    (text, index) =>
+      normalizeMergedChineseWhitespace(text) ===
+      normalizeMergedChineseWhitespace(right[index] ?? ""),
+  );
+
 export const stripTrailingCaptionPunctuation = (text: string): string =>
   text.replace(trailingCaptionPunctuation, "").trim();
 
@@ -153,6 +164,12 @@ const captionTokens = (phrase: string, maxChars: number): string[] => {
 };
 
 const splitTokens = (tokens: string[], maxChars: number): string[] => {
+  const oversizedToken = tokens.find((token) => visibleLength(token) > maxChars);
+  if (oversizedToken) {
+    throw new Error(
+      `字幕 token 超过 ${maxChars} 字，无法在不拆词的前提下合法分割：${oversizedToken.trim()}`,
+    );
+  }
   const count = tokens.length;
   const costs = Array<number>(count + 1).fill(Number.POSITIVE_INFINITY);
   const nextBreaks = Array<number>(count + 1).fill(count);
@@ -162,8 +179,7 @@ const splitTokens = (tokens: string[], maxChars: number): string[] => {
     let lineLength = 0;
     for (let end = start + 1; end <= count; end += 1) {
       lineLength += visibleLength(tokens[end - 1] ?? "");
-      const singleOversizedToken = end === start + 1 && lineLength > maxChars;
-      if (lineLength > maxChars && !singleOversizedToken) break;
+      if (lineLength > maxChars) break;
 
       const unusedSpace = Math.max(0, maxChars - lineLength);
       const shortLinePenalty = lineLength < Math.ceil(maxChars * 0.45) ? maxChars * maxChars : 0;
@@ -173,8 +189,6 @@ const splitTokens = (tokens: string[], maxChars: number): string[] => {
         costs[start] = candidateCost;
         nextBreaks[start] = end;
       }
-
-      if (singleOversizedToken) break;
     }
   }
 
@@ -230,7 +244,9 @@ export const fitCaptionPartsToDuration = (
         const left = parts[leftIndex];
         const right = parts[rightIndex];
         if (!left || !right) return undefined;
-        const text = `${left.text} ${right.text}`;
+        const needsWordBoundary =
+          /[A-Za-z0-9]$/u.test(left.text) && /^[A-Za-z0-9]/u.test(right.text);
+        const text = `${left.text}${needsWordBoundary ? " " : ""}${right.text}`;
         return {
           leftIndex,
           rightIndex,

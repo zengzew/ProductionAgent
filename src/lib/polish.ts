@@ -2,7 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import {z} from "zod";
-import {splitCaptionText} from "./captions";
+import {captionPartsFromPlan, splitCaptionText} from "./captions";
 import {chatJson} from "./llm";
 import {loadPolishV2Config, promptText, repoPath, type PolishStyle} from "./pipeline-v2-config";
 import {ensureDir, episodeId, episodeRoot, outputEpisodeRoot, readJson, writeJson} from "./project";
@@ -94,7 +94,7 @@ export const evaluateHardConstraints = (
     })
     .map(([term]) => term);
   const arabicDigitHits = style.numberReading.rejectArabicDigits
-    ? [...new Set(output.match(/\d+/gu) ?? [])]
+    ? [...new Set(output.normalize("NFKC").match(/\d+/gu) ?? [])]
     : [];
   const longSentences = candidate.segments.flatMap((segment) =>
     segment.narration
@@ -161,8 +161,22 @@ const sourceFromDraft = (): Script => {
   });
 };
 
-const fill = (value: string, replacements: Record<string, string>) =>
-  value.replace(/\{\{([A-Z_]+)\}\}/gu, (_, key: string) => replacements[key] ?? "");
+export const fillTemplate = (value: string, replacements: Record<string, string>): string =>
+  value.replace(/\{\{([A-Z_]+)\}\}/gu, (placeholder, key: string) => {
+    const replacement = replacements[key];
+    if (replacement === undefined) {
+      throw new Error(`Prompt 模板包含未知占位符：${placeholder}`);
+    }
+    return replacement;
+  });
+
+export const createPolishedCaptionPlan = (candidate: Script, maxLineChars = 16) => ({
+  segments: candidate.segments.map((segment) => {
+    const cues = splitCaptionText(segment.narration, maxLineChars).map((part) => part.text);
+    captionPartsFromPlan(segment.narration, cues, maxLineChars);
+    return {segmentId: segment.id, cues};
+  }),
+});
 
 export const runPolish = async () => {
   const runId = new Date().toISOString().replace(/[:.]/gu, "-");
@@ -190,7 +204,7 @@ export const runPolish = async () => {
         {role: "system", content: system},
         {
           role: "user",
-          content: fill(promptText(config.prompts.polishUser), {
+          content: fillTemplate(promptText(config.prompts.polishUser), {
             STYLE_RULES: rules,
             FEW_SHOTS:
               samples.map((sample) => `### ${sample.file}\n${sample.content}`).join("\n\n") ||
@@ -207,7 +221,7 @@ export const runPolish = async () => {
           {role: "system", content: promptText(config.prompts.judgeSystem)},
           {
             role: "user",
-            content: fill(promptText(config.prompts.judgeUser), {
+            content: fillTemplate(promptText(config.prompts.judgeUser), {
               ORIGINAL: JSON.stringify(
                 source.segments.map(({id, narration: text}) => ({id, narration: text})),
                 null,
@@ -238,7 +252,7 @@ export const runPolish = async () => {
           {role: "system", content: system},
           {
             role: "user",
-            content: fill(promptText(config.prompts.rewriteUser), {
+            content: fillTemplate(promptText(config.prompts.rewriteUser), {
               STYLE_RULES: rules,
               CANDIDATE: JSON.stringify(candidate, null, 2),
               JUDGE: JSON.stringify(rounds.at(-1), null, 2),
@@ -265,12 +279,10 @@ export const runPolish = async () => {
     writeJson(reportPath, report);
     writeJson(path.join(episodeRoot, "production/polish-judge-report.json"), report);
     writeJson(path.join(episodeRoot, "story/polished-script.json"), candidate);
-    writeJson(path.join(episodeRoot, "story/polished-caption-plan.json"), {
-      segments: candidate.segments.map((segment) => ({
-        segmentId: segment.id,
-        cues: splitCaptionText(segment.narration, 16).map((part) => part.text),
-      })),
-    });
+    writeJson(
+      path.join(episodeRoot, "story/polished-caption-plan.json"),
+      createPolishedCaptionPlan(candidate),
+    );
     return {runId, reportPath, status, source, candidate, rounds};
   } catch (error) {
     writeJson(reportPath, {

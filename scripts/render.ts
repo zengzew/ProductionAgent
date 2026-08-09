@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import {spawnSync} from "node:child_process";
+import {parseRenderMode} from "../src/lib/cli";
+import {assertSpawnSucceeded} from "../src/lib/process";
 import {timelineSchema} from "../src/schemas/episode";
 import {
   assertTimelineMatchesEpisode,
@@ -9,11 +11,7 @@ import {
 } from "../src/lib/render-contract";
 import {episodeId, episodeRoot, outputEpisodeRoot, readJson, repoRoot} from "../src/lib/project";
 
-type Mode = "smoke" | "vertical";
-const mode = (process.argv[2] ?? "vertical") as Mode;
-if (!["smoke", "vertical"].includes(mode)) {
-  throw new Error(`未知渲染模式：${mode}`);
-}
+const mode = parseRenderMode(process.argv);
 
 fs.mkdirSync(outputEpisodeRoot, {recursive: true});
 
@@ -40,9 +38,7 @@ const run = (args: string[]): void => {
     encoding: "utf8",
     stdio: "inherit",
   });
-  if (result.status !== 0) {
-    throw new Error(`Remotion 命令失败：${args.join(" ")}`);
-  }
+  assertSpawnSucceeded("pnpm", ["exec", "remotion", ...args], result);
 };
 
 const renderVideo = (composition: string, output: string): void => {
