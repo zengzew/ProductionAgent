@@ -18,7 +18,7 @@ import {
   type ContentManifest,
   type ContentManifestGateSnapshot,
 } from "./schemas/freeze-manifest";
-import type {CriticResult} from "./schemas/critic-output";
+import {artifactLocatorSchema, type CriticResult} from "./schemas/critic-output";
 import type {ProductionState} from "./state";
 
 export const DEFAULT_CONTENT_MANIFEST_PRODUCER = "content-freeze";
@@ -47,6 +47,85 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null && !Array.isArray(value);
 
 const uniqueSorted = (values: Iterable<string>): string[] => [...new Set(values)].sort();
+
+export const lockedRangeSchema = z
+  .object({
+    lockId: z.string().min(1),
+    artifactRef: artifactRefSchema,
+    locator: artifactLocatorSchema,
+  })
+  .strict();
+
+export type ArtifactLocator = z.infer<typeof artifactLocatorSchema>;
+export type LockedRange = z.infer<typeof lockedRangeSchema>;
+
+const lineInterval = (value: string): readonly [number, number] => {
+  const match = /^(\d+)(?:\s*[-:]\s*(\d+))?$/u.exec(value.trim());
+  if (!match) throw new Error(`LOCKED_RANGE_LINE_LOCATOR_INVALID:${value}`);
+  const start = Number(match[1]);
+  const end = Number(match[2] ?? match[1]);
+  if (start <= 0 || end < start) throw new Error(`LOCKED_RANGE_LINE_LOCATOR_INVALID:${value}`);
+  return [start, end];
+};
+
+const jsonPointerOverlaps = (left: string, right: string): boolean =>
+  left === right || left.startsWith(`${right}/`) || right.startsWith(`${left}/`);
+
+const locatorsOverlap = (left: ArtifactLocator, right: ArtifactLocator): boolean => {
+  if (left.kind === "whole-artifact" || right.kind === "whole-artifact") return true;
+  if (left.kind !== right.kind) return false;
+  if (left.kind === "line-range") {
+    const [leftStart, leftEnd] = lineInterval(left.value);
+    const [rightStart, rightEnd] = lineInterval(right.value);
+    return leftStart <= rightEnd && rightStart <= leftEnd;
+  }
+  if (left.kind === "json-pointer") return jsonPointerOverlaps(left.value, right.value);
+  return left.value === right.value;
+};
+
+/**
+ * Enforces an already-declared lock without creating or interpreting a human edit.
+ * When a changed artifact has locks, callers must provide precise changed locators;
+ * omission is treated as a whole-artifact edit and therefore fails closed.
+ */
+export const assertLockedRangesPreserved = (input: {
+  before: ArtifactRef;
+  candidate: ArtifactRef;
+  lockedRanges?: readonly LockedRange[];
+  changedLocators?: readonly ArtifactLocator[];
+}): void => {
+  const before = artifactRefSchema.parse(input.before);
+  const candidate = artifactRefSchema.parse(input.candidate);
+  if (before.artifactId !== candidate.artifactId) {
+    throw new Error("LOCKED_RANGE_ARTIFACT_MISMATCH");
+  }
+  if (before.sha256 === candidate.sha256) return;
+
+  const locks = (input.lockedRanges ?? [])
+    .map((lock) => lockedRangeSchema.parse(lock))
+    .filter((lock) => lock.artifactRef.artifactId === before.artifactId);
+  if (locks.length === 0) return;
+  for (const lock of locks) {
+    if (
+      lock.artifactRef.sha256 !== before.sha256 ||
+      lock.artifactRef.revision !== before.revision ||
+      lock.artifactRef.path !== before.path
+    ) {
+      throw new Error(`LOCKED_RANGE_BASE_MISMATCH:${lock.lockId}`);
+    }
+  }
+
+  const changedLocators = input.changedLocators?.map((locator) =>
+    artifactLocatorSchema.parse(locator),
+  ) ?? [{kind: "whole-artifact" as const, value: "*"}];
+  const overwritten = locks
+    .filter((lock) => changedLocators.some((changed) => locatorsOverlap(lock.locator, changed)))
+    .map((lock) => lock.lockId)
+    .sort();
+  if (overwritten.length > 0) {
+    throw new Error(`LOCKED_RANGE_OVERWRITE:${overwritten.join(",")}`);
+  }
+};
 
 const normalizeRepositoryPath = (repoRoot: string, repositoryPath: string): string => {
   const root = path.resolve(repoRoot);

@@ -74,12 +74,18 @@ const dimensions: Record<ContentCriticName, Array<{id: string; score: number}>> 
     {id: "causalityInferenceBoundary", score: 1},
     {id: "visualTruthBoundary", score: 1},
   ],
+  "compliance-critic": [
+    {id: "platformPolicy", score: 1},
+    {id: "advertisingLanguage", score: 1},
+    {id: "brandSafety", score: 1},
+  ],
 };
 
 const rubricVersions: Record<ContentCriticName, string> = {
   "audience-critic": "product-story-v4",
   "retention-critic": "retention-critic-v2",
   "fact-guardian": "fact-guardian-v1",
+  "compliance-critic": "compliance-critic-v1",
 };
 
 const issueFor = (
@@ -230,7 +236,7 @@ describe("content subgraph path coverage", () => {
     expect(result.state.phase).toBe("halted");
   });
 
-  it("returns needs-revision when an owned issue remains after one changed revision", async () => {
+  it("runs the bounded loop until the creative budget is exhausted", async () => {
     const {repoRoot, hook, index} = createFixture();
     const state = {
       ...createInitialProductionState({
@@ -268,10 +274,12 @@ describe("content subgraph path coverage", () => {
       },
     });
 
-    expect(result.status).toBe("needs-revision");
+    expect(result.status).toBe("escalated");
     expect(result.gate.verdict).toBe("REJECT");
-    expect(result.nextRoute).toMatchObject({ownerAgent: "viral-director"});
+    expect(result.nextRoute).toMatchObject({reason: "budget-exhausted"});
+    expect(result.revisions).toHaveLength(3);
+    expect(result.revisionLedger.budgets.creativeRoundsUsed).toBe(3);
     expect(result.revision?.changedArtifactIds).toEqual([hook.artifactId]);
-    expect(result.state.phase).toBe("content_revision");
+    expect(result.state.phase).toBe("halted");
   });
 });

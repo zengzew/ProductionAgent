@@ -112,7 +112,12 @@ export type PrimaryRoute = {
 };
 
 export type HumanEscalationReason =
-  "budget-exhausted" | "unknown-provenance" | "ambiguous-provenance" | "unknown-category";
+  | "budget-exhausted"
+  | "oscillation"
+  | "constraint-conflict"
+  | "unknown-provenance"
+  | "ambiguous-provenance"
+  | "unknown-category";
 
 export type HumanEscalation = {
   action: "escalate";

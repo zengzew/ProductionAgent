@@ -15,6 +15,29 @@ import {
 } from "../artifact-registry";
 import {validateCriticResult} from "../evaluation";
 import type {CriticIssue, CriticResult} from "../schemas/critic-output";
+import {assertLockedRangesPreserved, type ArtifactLocator, type LockedRange} from "../freeze";
+import {
+  assessRevision,
+  checkRevisionBudget,
+  checkRevisionResourceBudget,
+  createHumanEscalation,
+  createRevisionLedger,
+  inferRevisionBudgetKind,
+  recordRevisionAttempt,
+  selectBest,
+  strategyForAttempt,
+  strategyLadder,
+  type EvaluationDimensionSelector,
+  type RevisionHistoryEntry,
+  type RevisionStrategyLevel,
+} from "../revision";
+import {
+  defaultRevisionBudgetLimits,
+  revisionLedgerSchema,
+  type RevisionBudgetLimits,
+  type RevisionHumanEscalation,
+  type RevisionLedger,
+} from "../schemas/revision-ledger";
 import {
   defaultOwnershipConfig,
   selectPrimaryRoute,
@@ -27,18 +50,26 @@ import {
 } from "../routing";
 import {assertReferenceOnlyState, type ProductionState} from "../state";
 
-/*
- * The current critic-output-v1 contract has executable profiles for Audience,
- * Retention, and Fact Guardian. Compliance is deliberately not invented here:
- * its profile belongs with the schema/rubric work, while this module owns loop
- * topology and revision control.
- */
-export const contentCriticNames = ["audience-critic", "retention-critic", "fact-guardian"] as const;
+export const contentCriticNames = [
+  "audience-critic",
+  "retention-critic",
+  "fact-guardian",
+  "compliance-critic",
+] as const;
 export type ContentCriticName = (typeof contentCriticNames)[number];
 
 export type ContentArtifactRevision = {
   ref: ArtifactRef;
   dependencies?: readonly ArtifactDependency[];
+  changedLocators?: readonly ArtifactLocator[];
+};
+
+export type ContentRevisionExecution = {
+  revisions: readonly ContentArtifactRevision[] | ContentArtifactRevision | undefined;
+  usage?: {
+    costUsd?: number;
+    wallclockSeconds?: number;
+  };
 };
 
 export type ContentNodeContext = {
@@ -73,6 +104,8 @@ export type OwnerRevisionRequest = {
   issues: readonly CriticIssue[];
   context: ContentNodeContext;
   authorizedArtifactIds: readonly string[];
+  strategyLevel: RevisionStrategyLevel;
+  strategy: (typeof strategyLadder)[keyof typeof strategyLadder];
 };
 
 export type OwnerRevisionRunner = (
@@ -80,8 +113,14 @@ export type OwnerRevisionRunner = (
 ) =>
   | readonly ContentArtifactRevision[]
   | ContentArtifactRevision
+  | ContentRevisionExecution
   | undefined
-  | Promise<readonly ContentArtifactRevision[] | ContentArtifactRevision | undefined>;
+  | Promise<
+      | readonly ContentArtifactRevision[]
+      | ContentArtifactRevision
+      | ContentRevisionExecution
+      | undefined
+    >;
 
 export type DownstreamRefreshRequest = {
   round: number;
@@ -111,6 +150,15 @@ export type ContentLoopInput = {
   nodes: ContentLoopNodes;
   routingConfig?: RoutingConfig;
   provenance?: ProvenanceIndex;
+  revisionLedger?: RevisionLedger;
+  budgetLimits?: RevisionBudgetLimits;
+  lockedRanges?: readonly LockedRange[];
+  selectionPolicy?: {
+    targetGain?: number;
+    targetedDimensions?: readonly (string | EvaluationDimensionSelector)[];
+    protectedDimensions?: readonly (string | EvaluationDimensionSelector)[];
+  };
+  now?: () => number;
 };
 
 export type ContentTraceStep = {
@@ -126,6 +174,9 @@ export type ContentTraceStep = {
   refreshedArtifactIds?: string[];
   ownerAgent?: AgentOwner;
   routeTarget?: string;
+  strategyLevel?: RevisionStrategyLevel;
+  disposition?: "selected" | "rejected" | "human-required";
+  selectionReason?: string;
 };
 
 export type ContentGateEvaluation = {
@@ -147,6 +198,13 @@ export type ContentRevisionRound = {
   refreshedArtifactIds: string[];
   beforeHashes: Record<string, string>;
   afterHashes: Record<string, string>;
+  strategyLevel: RevisionStrategyLevel;
+  disposition: "selected" | "rejected" | "human-required";
+  selectionReason: string;
+  regressionIds: string[];
+  oscillationIds: string[];
+  costUsd: number;
+  wallclockSeconds: number;
 };
 
 export type ContentLoopStatus = "completed" | "needs-revision" | "escalated";
@@ -164,6 +222,9 @@ export type ContentLoopResult = {
   criticReports: Readonly<Record<ContentCriticName, CriticResult>>;
   criticResultRefs: Readonly<Partial<Record<ContentCriticName, ArtifactRef>>>;
   revision?: ContentRevisionRound;
+  revisions: ContentRevisionRound[];
+  revisionLedger: RevisionLedger;
+  humanEscalation?: RevisionHumanEscalation;
   trace: ContentTraceStep[];
 };
 
@@ -189,6 +250,34 @@ const outputArray = (
   return Array.isArray(output)
     ? ([...output] as ContentArtifactRevision[])
     : ([output] as ContentArtifactRevision[]);
+};
+
+const isRevisionExecution = (
+  output:
+    | readonly ContentArtifactRevision[]
+    | ContentArtifactRevision
+    | ContentRevisionExecution
+    | undefined,
+): output is ContentRevisionExecution =>
+  typeof output === "object" && output !== null && !Array.isArray(output) && "revisions" in output;
+
+const normalizeRevisionExecution = (
+  output:
+    | readonly ContentArtifactRevision[]
+    | ContentArtifactRevision
+    | ContentRevisionExecution
+    | undefined,
+): Required<Pick<ContentRevisionExecution, "usage">> & {revisions: ContentArtifactRevision[]} => {
+  if (isRevisionExecution(output)) {
+    return {
+      revisions: outputArray(output.revisions),
+      usage: {
+        costUsd: output.usage?.costUsd ?? 0,
+        wallclockSeconds: output.usage?.wallclockSeconds ?? 0,
+      },
+    };
+  }
+  return {revisions: outputArray(output), usage: {costUsd: 0, wallclockSeconds: 0}};
 };
 
 const selectedRecords = (index: ArtifactIndex): ArtifactRecord[] =>
@@ -434,6 +523,7 @@ const applySelectedRevisions = (input: {
   previousRecords?: ReadonlyMap<string, ArtifactRecord>;
   requireChanged: boolean;
   allowNewArtifactIds: boolean;
+  lockedRanges?: readonly LockedRange[];
 }): {index: ArtifactIndex; changed: ArtifactRef[]} => {
   const outputs = input.outputs.map(normalizedRevision);
   const duplicateIds = duplicateArtifactIds(outputs);
@@ -468,7 +558,21 @@ const applySelectedRevisions = (input: {
     if (output.ref.episodeId !== index.episodeId) {
       throw new Error("CONTENT_REVISION_EPISODE_MISMATCH:" + artifactId);
     }
-    changed.push(output.ref);
+    const canonicalRef =
+      index.artifacts.find(
+        (record) =>
+          record.ref.artifactId === output.ref.artifactId &&
+          record.ref.sha256 === output.ref.sha256,
+      )?.ref ?? output.ref;
+    if (previous) {
+      assertLockedRangesPreserved({
+        before: previous.ref,
+        candidate: canonicalRef,
+        lockedRanges: input.lockedRanges,
+        changedLocators: output.changedLocators,
+      });
+    }
+    changed.push(canonicalRef);
     dependenciesById.set(artifactId, dependenciesFor(index, previous, output));
   }
 
@@ -568,6 +672,7 @@ const refreshDownstream = async (input: {
   nodes: ContentLoopNodes;
   round: number;
   changedArtifactIds: readonly string[];
+  lockedRanges?: readonly LockedRange[];
 }): Promise<{index: ArtifactIndex; refreshed: ArtifactRef[]; stale: ArtifactRecord[]}> => {
   const stale = staleDescendantRecords(input.index, input.changedArtifactIds);
   if (stale.length === 0) return {index: input.index, refreshed: [], stale};
@@ -622,6 +727,7 @@ const refreshDownstream = async (input: {
       previousRecords,
       requireChanged: true,
       allowNewArtifactIds: false,
+      lockedRanges: input.lockedRanges,
     });
     index = applied.index;
     refreshed.push(...applied.changed);
@@ -757,22 +863,24 @@ const buildState = (input: {
     },
     revisionLog: [
       ...input.base.revisionLog,
-      ...(input.revision?.changedArtifactIds.map((artifactId) => {
-        const pointer = input.index.selected[artifactId];
-        const record = pointer
-          ? input.index.artifacts.find(
-              (candidate) =>
-                candidate.ref.artifactId === artifactId &&
-                candidate.ref.revision === pointer.revision &&
-                candidate.ref.sha256 === pointer.sha256,
-            )
-          : undefined;
-        if (!record) throw new Error("CONTENT_REVISION_LOG_REF_MISSING:" + artifactId);
-        return {
-          revisionId: "content:round-" + input.revision!.round + ":" + artifactId,
-          artifactRef: record.ref,
-        };
-      }) ?? []),
+      ...(input.revision?.disposition === "selected"
+        ? input.revision.changedArtifactIds.map((artifactId) => {
+            const pointer = input.index.selected[artifactId];
+            const record = pointer
+              ? input.index.artifacts.find(
+                  (candidate) =>
+                    candidate.ref.artifactId === artifactId &&
+                    candidate.ref.revision === pointer.revision &&
+                    candidate.ref.sha256 === pointer.sha256,
+                )
+              : undefined;
+            if (!record) throw new Error("CONTENT_REVISION_LOG_REF_MISSING:" + artifactId);
+            return {
+              revisionId: "content:round-" + input.revision!.round + ":" + artifactId,
+              artifactRef: record.ref,
+            };
+          })
+        : []),
     ],
     decisions: {
       ...input.base.decisions,
@@ -830,17 +938,114 @@ const runCritics = async (input: {
   return normalized;
 };
 
-/*
- * One invocation performs the initial evaluation and, when necessary, exactly
- * one owner revision round. A failed rerun is returned as structured issues for
- * the next invocation; budgets, oscillation, regression, and best-version
- * selection are intentionally outside this work package.
- */
+const refRecord = (refs: readonly ArtifactRef[]): Record<string, ArtifactRef> =>
+  Object.fromEntries(refs.map((ref) => [ref.artifactId, ref]));
+
+const selectedRefs = (index: ArtifactIndex): ArtifactRef[] =>
+  selectedRecords(index).map((record) => record.ref);
+
+const resultRefs = (critics: NormalizedCritics): ArtifactRef[] =>
+  Object.values(reportRefMap(critics));
+
+const targetDimensionsFor = (
+  issues: readonly CriticIssue[],
+): Array<string | EvaluationDimensionSelector> | undefined => {
+  const selectors = new Set<string>();
+  for (const issue of issues) {
+    if (issue.category === "attention.hook") selectors.add("audience-critic:hook");
+    if (issue.category === "retention.first-3-seconds") {
+      selectors.add("retention-critic:first3Seconds");
+    }
+    if (issue.category === "retention.first-30-seconds") {
+      selectors.add("retention-critic:first30Seconds");
+    }
+    if (issue.category === "retention.mid-video") {
+      selectors.add("retention-critic:midVideoEngagement");
+    }
+    if (issue.category === "retention.ending") {
+      selectors.add("retention-critic:endingSatisfaction");
+    }
+    if (issue.category === "compliance.platform-policy") {
+      selectors.add("compliance-critic:platformPolicy");
+    }
+    if (issue.category === "compliance.advertising-language") {
+      selectors.add("compliance-critic:advertisingLanguage");
+    }
+    if (issue.category === "compliance.brand-safety") {
+      selectors.add("compliance-critic:brandSafety");
+    }
+  }
+  return selectors.size > 0 ? [...selectors].sort() : undefined;
+};
+
+const strategyAt = (level: RevisionStrategyLevel): OwnerRevisionRequest["strategy"] =>
+  strategyLadder[`L${level}` as keyof typeof strategyLadder];
+
+const revisionKindAttempts = (
+  ledger: RevisionLedger,
+  kind: ReturnType<typeof inferRevisionBudgetKind>,
+): number =>
+  ledger.attempts.filter(
+    (attempt) =>
+      attempt.disposition === "rejected" &&
+      inferRevisionBudgetKind({ownerAgent: attempt.ownerAgent}) === kind,
+  ).length;
+
+const routingEscalation = (
+  reason: HumanEscalation["reason"],
+  issueIds: readonly string[],
+): HumanEscalation => ({
+  action: "escalate",
+  kind: "human-escalation",
+  route: null,
+  routeTarget: "human-editor",
+  reason,
+  reasonCode: reason,
+  issueIds: [...issueIds],
+});
+
+const assertLedgerMatchesSelection = (ledger: RevisionLedger, index: ArtifactIndex): void => {
+  const selected = selectedRefMap(index);
+  for (const ref of [...Object.values(ledger.selected), ...Object.values(ledger.best)]) {
+    const current = selected.get(ref.artifactId);
+    if (!current || current.sha256 !== ref.sha256 || current.revision !== ref.revision) {
+      throw new Error(`CONTENT_REVISION_LEDGER_SELECTION_MISMATCH:${ref.artifactId}`);
+    }
+  }
+};
+
+const retainCandidateRecords = (base: ArtifactIndex, candidate: ArtifactIndex): ArtifactIndex => {
+  let retained = base;
+  for (const record of candidate.artifacts) {
+    if (
+      retained.artifacts.some(
+        (existing) =>
+          existing.ref.artifactId === record.ref.artifactId &&
+          existing.ref.sha256 === record.ref.sha256,
+      )
+    ) {
+      continue;
+    }
+    retained = registerCandidate(
+      retained,
+      record.ref,
+      record.producedByExecutionId,
+      record.dependencies,
+    );
+  }
+  return artifactIndexSchema.parse(retained);
+};
+
+/** Runs the bounded M2 single-owner loop until a Pareto-valid candidate passes or escalation fires. */
 export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLoopResult> => {
   const baseState = assertReferenceOnlyState(input.state);
   let index = ensureArtifactIndex(baseState, input.artifactIndex);
   const trace: ContentTraceStep[] = [];
+  const revisions: ContentRevisionRound[] = [];
+  const allCritics: NormalizedCritics[] = [];
   const initialRound = baseState.round;
+  const budgetLimits = input.budgetLimits ?? defaultRevisionBudgetLimits;
+  const now = input.now ?? Date.now;
 
   const visualOutput = input.nodes.visualDirector
     ? outputArray(await input.nodes.visualDirector(contextFor(baseState, index, initialRound)))
@@ -851,6 +1056,7 @@ export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLo
     executionId: baseState.runId + ":visual-director:r" + initialRound,
     requireChanged: false,
     allowNewArtifactIds: true,
+    lockedRanges: input.lockedRanges,
   });
   index = visualApplied.index;
   trace.push({
@@ -861,28 +1067,45 @@ export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLo
     changedArtifactIds: visualApplied.changed.map((ref) => ref.artifactId),
   });
 
-  const firstCritics = await runCritics({
+  let bestCritics = await runCritics({
     state: baseState,
     index,
     nodes: input.nodes,
     round: initialRound,
     trace,
   });
-  const firstGate = evaluateContentGate(firstCritics, index);
+  allCritics.push(bestCritics);
+  let bestGate = evaluateContentGate(bestCritics, index);
   trace.push({
     node: "gate-evaluator",
     round: initialRound,
-    status: firstGate.verdict === "PASS" ? "completed" : "rejected",
-    issueIds: firstGate.issueIds,
+    status: bestGate.verdict === "PASS" ? "completed" : "rejected",
+    issueIds: bestGate.issueIds,
   });
 
-  const allCritics: NormalizedCritics[] = [firstCritics];
-  if (firstGate.verdict === "PASS") {
+  let ledger = input.revisionLedger
+    ? revisionLedgerSchema.parse(input.revisionLedger)
+    : createRevisionLedger({
+        episodeId: baseState.episodeId,
+        selected: refRecord(selectedRefs(index)),
+        best: refRecord(selectedRefs(index)),
+        baseline: {
+          rubricVersions: Object.fromEntries(
+            contentCriticNames.map((name) => [name, bestCritics[name]!.result.rubricVersion]),
+          ),
+        },
+      });
+  if (ledger.episodeId !== baseState.episodeId) {
+    throw new Error("CONTENT_REVISION_LEDGER_EPISODE_MISMATCH");
+  }
+  assertLedgerMatchesSelection(ledger, index);
+
+  if (bestGate.verdict === "PASS") {
     const state = buildState({
       base: baseState,
       index,
       critics: allCritics,
-      finalGate: firstGate,
+      finalGate: bestGate,
       initialRoute: null,
       closedIssueIds: [],
       status: "completed",
@@ -892,194 +1115,403 @@ export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLo
       state,
       artifactIndex: index,
       artifacts: state.artifacts,
-      gate: firstGate,
+      gate: bestGate,
       route: null,
       nextRoute: null,
       closedIssueIds: [],
       newIssues: [],
-      criticReports: reportMap(firstCritics),
-      criticResultRefs: reportRefMap(firstCritics),
+      criticReports: reportMap(bestCritics),
+      criticResultRefs: reportRefMap(bestCritics),
+      revisions,
+      revisionLedger: ledger,
       trace,
     };
   }
 
-  const route = selectPrimaryRoute({
-    issues: firstGate.issues,
-    config: input.routingConfig ?? defaultOwnershipConfig,
-    provenance: input.provenance,
-  });
-  trace.push(
-    route
-      ? {
-          node: "issue-router",
-          round: initialRound,
-          status: humanRoute(route) ? "escalated" : "completed",
-          issueIds: route.issueIds,
-          ownerAgent: primaryRoute(route) ? route.ownerAgent : undefined,
-          routeTarget: route.routeTarget,
-        }
-      : {
-          node: "issue-router",
-          round: initialRound,
-          status: "escalated",
-          issueIds: firstGate.issueIds,
-        },
-  );
+  let firstRoute: RouteSelection = null;
+  let candidateHistory: RevisionHistoryEntry[] = [selectedRefs(index)];
+  let lastCandidateRefs: ArtifactRef[] = [];
 
-  if (!primaryRoute(route)) {
-    const state = buildState({
-      base: baseState,
-      index,
-      critics: allCritics,
-      finalGate: firstGate,
-      initialRoute: route,
-      closedIssueIds: [],
-      status: "escalated",
+  for (;;) {
+    const resourceBudget = checkRevisionResourceBudget(ledger, budgetLimits);
+    let route = selectPrimaryRoute({
+      issues: bestGate.issues,
+      budget: {
+        ...(resourceBudget.remainingCostUsd === undefined
+          ? {}
+          : {remainingCostUsd: resourceBudget.remainingCostUsd}),
+        ...(resourceBudget.remainingWallclockSeconds === undefined
+          ? {}
+          : {remainingWallclockSeconds: resourceBudget.remainingWallclockSeconds}),
+      },
+      config: input.routingConfig ?? defaultOwnershipConfig,
+      provenance: input.provenance,
     });
-    return {
-      status: "escalated",
-      state,
-      artifactIndex: index,
-      artifacts: state.artifacts,
-      gate: firstGate,
-      route,
-      nextRoute: route,
-      closedIssueIds: [],
-      newIssues: firstGate.issues,
-      criticReports: reportMap(firstCritics),
-      criticResultRefs: reportRefMap(firstCritics),
-      trace,
-    };
-  }
+    if (firstRoute === null) firstRoute = route;
 
-  const routeIssues = firstGate.issues.filter((issue) => route.issueIds.includes(issue.id));
-  const authorizedArtifactIds = [
-    ...new Set(routeIssues.map((issue) => issue.affectedArtifact.artifactId)),
-  ].sort();
-  const ownerRunner = input.nodes.reviseOwner ?? input.nodes.ownerRevisions?.[route.ownerAgent];
-  if (!ownerRunner) {
-    throw new Error("CONTENT_OWNER_REVISION_RUNNER_MISSING:" + route.ownerAgent);
-  }
-  const revisionRound = baseState.round + 1;
-  const beforeRefs = selectedRefMap(index);
-  const revisionOutputs = outputArray(
-    await ownerRunner({
+    if (primaryRoute(route)) {
+      const routeIssues = bestGate.issues.filter((issue) => route!.issueIds.includes(issue.id));
+      const budgetKind = inferRevisionBudgetKind({
+        ownerAgent: route.ownerAgent,
+        issueCategories: routeIssues.map((issue) => issue.category),
+      });
+      if (!checkRevisionBudget(ledger, budgetKind, budgetLimits).allowed) {
+        route = routingEscalation("budget-exhausted", bestGate.issueIds);
+      }
+    }
+
+    trace.push(
+      route
+        ? {
+            node: "issue-router",
+            round: baseState.round + revisions.length,
+            status: humanRoute(route) ? "escalated" : "completed",
+            issueIds: route.issueIds,
+            ownerAgent: primaryRoute(route) ? route.ownerAgent : undefined,
+            routeTarget: route.routeTarget,
+          }
+        : {
+            node: "issue-router",
+            round: baseState.round + revisions.length,
+            status: "escalated",
+            issueIds: bestGate.issueIds,
+          },
+    );
+
+    if (!primaryRoute(route)) {
+      const reason =
+        humanRoute(route) && route.reason === "budget-exhausted"
+          ? "budget-exhausted"
+          : "unroutable";
+      const humanEscalation = createHumanEscalation({
+        episodeId: baseState.episodeId,
+        reason,
+        openIssueIds: bestGate.issueIds,
+        selectedBestRefs: Object.values(ledger.best),
+        rejectedCandidateRefs: lastCandidateRefs,
+        decisionNeeded: "Review the unresolved content issues and choose a safe next revision.",
+        forbiddenAutomaticActions: [
+          "do not start production",
+          "do not overwrite selected best artifacts",
+        ],
+      });
+      const lastRevision = revisions.at(-1);
+      const state = buildState({
+        base: baseState,
+        index,
+        critics: allCritics,
+        finalGate: bestGate,
+        initialRoute: route,
+        closedIssueIds: [],
+        revision: lastRevision,
+        status: "escalated",
+      });
+      return {
+        status: "escalated",
+        state,
+        artifactIndex: index,
+        artifacts: state.artifacts,
+        gate: bestGate,
+        route: firstRoute,
+        nextRoute: route,
+        closedIssueIds: [],
+        newIssues: bestGate.issues,
+        criticReports: reportMap(bestCritics),
+        criticResultRefs: reportRefMap(bestCritics),
+        revision: lastRevision,
+        revisions,
+        revisionLedger: ledger,
+        humanEscalation,
+        trace,
+      };
+    }
+
+    const routeIssues = bestGate.issues.filter((issue) => route.issueIds.includes(issue.id));
+    const authorizedArtifactIds = [
+      ...new Set(routeIssues.map((issue) => issue.affectedArtifact.artifactId)),
+    ].sort();
+    const ownerRunner = input.nodes.reviseOwner ?? input.nodes.ownerRevisions?.[route.ownerAgent];
+    if (!ownerRunner) {
+      throw new Error("CONTENT_OWNER_REVISION_RUNNER_MISSING:" + route.ownerAgent);
+    }
+    const budgetKind = inferRevisionBudgetKind({
       ownerAgent: route.ownerAgent,
-      route,
-      issues: routeIssues,
-      context: contextFor(baseState, index, revisionRound),
+      issueCategories: routeIssues.map((issue) => issue.category),
+    });
+    const strategyLevel = strategyForAttempt(revisionKindAttempts(ledger, budgetKind) + 1);
+    const revisionRound = baseState.round + revisions.length + 1;
+    const beforeRefs = selectedRefs(index);
+    const beforeRefMap = new Map(beforeRefs.map((ref) => [ref.artifactId, ref]));
+    const startedAt = now();
+    const execution = normalizeRevisionExecution(
+      await ownerRunner({
+        ownerAgent: route.ownerAgent,
+        route,
+        issues: routeIssues,
+        context: contextFor(baseState, index, revisionRound),
+        authorizedArtifactIds,
+        strategyLevel,
+        strategy: strategyAt(strategyLevel),
+      }),
+    );
+    const measuredWallclockSeconds = Math.max(0, (now() - startedAt) / 1000);
+    const usage = {
+      costUsd: execution.usage.costUsd ?? 0,
+      wallclockSeconds:
+        execution.usage.wallclockSeconds && execution.usage.wallclockSeconds > 0
+          ? execution.usage.wallclockSeconds
+          : measuredWallclockSeconds,
+    };
+
+    const appliedRevision = applySelectedRevisions({
+      index,
+      outputs: execution.revisions,
+      executionId: baseState.runId + ":round-" + revisionRound + ":" + route.ownerAgent,
+      authorizedArtifactIds: new Set(authorizedArtifactIds),
+      requireChanged: false,
+      allowNewArtifactIds: false,
+      lockedRanges: input.lockedRanges,
+    });
+    let candidateIndex = appliedRevision.index;
+    trace.push({
+      node: route.routeTarget,
+      round: revisionRound,
+      status: "completed",
+      ownerAgent: route.ownerAgent,
+      routeTarget: route.routeTarget,
+      issueIds: route.issueIds,
+      changedArtifactIds: appliedRevision.changed.map((ref) => ref.artifactId),
+      strategyLevel,
+    });
+
+    const staleBeforeRefresh = staleDescendantRecords(
+      candidateIndex,
+      appliedRevision.changed.map((ref) => ref.artifactId),
+    );
+    const refreshed = await refreshDownstream({
+      index: candidateIndex,
+      state: baseState,
+      nodes: input.nodes,
+      round: revisionRound,
+      changedArtifactIds: appliedRevision.changed.map((ref) => ref.artifactId),
+      lockedRanges: input.lockedRanges,
+    });
+    candidateIndex = refreshed.index;
+    trace.push({
+      node: "downstream-refresh",
+      round: revisionRound,
+      status: "completed",
+      changedArtifactIds: appliedRevision.changed.map((ref) => ref.artifactId),
+      staleArtifactIds: staleBeforeRefresh.map((record) => record.ref.artifactId),
+      refreshedArtifactIds: refreshed.refreshed.map((ref) => ref.artifactId),
+    });
+
+    const candidateCritics = await runCritics({
+      state: baseState,
+      index: candidateIndex,
+      nodes: input.nodes,
+      round: revisionRound,
+      trace,
+    });
+    allCritics.push(candidateCritics);
+    const candidateGate = evaluateContentGate(candidateCritics, candidateIndex);
+    trace.push({
+      node: "gate-evaluator",
+      round: revisionRound,
+      status: candidateGate.verdict === "PASS" ? "completed" : "rejected",
+      issueIds: candidateGate.issueIds,
+    });
+
+    const candidateRefs = selectedRefs(candidateIndex);
+    lastCandidateRefs = candidateRefs;
+    const history = [...candidateHistory, candidateRefs];
+    const assessment = assessRevision({
+      before: beforeRefs,
+      candidate: candidateRefs,
+      beforeEvaluations: reportMap(bestCritics),
+      candidateEvaluations: reportMap(candidateCritics),
+      beforeIssues: bestGate.issues,
+      candidateIssues: candidateGate.issues,
+      targetIssueIds: route.issueIds,
+      currentArtifacts: candidateRefs,
+      history,
+      ledger,
+      budgetKind,
+      budgetLimits,
+    });
+    const selection = selectBest({
+      before: beforeRefs,
+      candidate: candidateRefs,
+      beforeEvaluations: reportMap(bestCritics),
+      candidateEvaluations: reportMap(candidateCritics),
+      beforeIssues: bestGate.issues,
+      candidateIssues: candidateGate.issues,
+      targetIssueIds: route.issueIds,
+      currentArtifacts: candidateRefs,
+      targetGain: input.selectionPolicy?.targetGain,
+      targetedDimensions:
+        input.selectionPolicy?.targetedDimensions ?? targetDimensionsFor(routeIssues),
+      protectedDimensions: input.selectionPolicy?.protectedDimensions,
+    });
+    const disposition = assessment.requiresHuman
+      ? "human-required"
+      : assessment.disposition === "candidate-eligible" && selection.selected
+        ? "selected"
+        : "rejected";
+    const selectionReason =
+      assessment.oscillation.action === "escalate"
+        ? "oscillation"
+        : assessment.noProgress.detected
+          ? "no-progress"
+          : assessment.regression.rejected
+            ? "regression"
+            : selection.reason;
+    const revision: ContentRevisionRound = {
+      round: revisionRound,
+      ownerAgent: route.ownerAgent,
+      routeTarget: route.routeTarget,
+      issueIds: route.issueIds,
       authorizedArtifactIds,
-    }),
-  );
-  const appliedRevision = applySelectedRevisions({
-    index,
-    outputs: revisionOutputs,
-    executionId: baseState.runId + ":round-" + revisionRound + ":" + route.ownerAgent,
-    authorizedArtifactIds: new Set(authorizedArtifactIds),
-    requireChanged: true,
-    allowNewArtifactIds: false,
-  });
-  index = appliedRevision.index;
-  trace.push({
-    node: route.routeTarget,
-    round: revisionRound,
-    status: "completed",
-    ownerAgent: route.ownerAgent,
-    routeTarget: route.routeTarget,
-    issueIds: route.issueIds,
-    changedArtifactIds: appliedRevision.changed.map((ref) => ref.artifactId),
-  });
+      changedArtifactIds: appliedRevision.changed.map((ref) => ref.artifactId),
+      staleArtifactIds: staleBeforeRefresh.map((record) => record.ref.artifactId),
+      refreshedArtifactIds: refreshed.refreshed.map((ref) => ref.artifactId),
+      beforeHashes: Object.fromEntries(
+        authorizedArtifactIds.map((artifactId) => [
+          artifactId,
+          beforeRefMap.get(artifactId)?.sha256 ?? "",
+        ]),
+      ),
+      afterHashes: Object.fromEntries(
+        authorizedArtifactIds.map((artifactId) => [
+          artifactId,
+          candidateRefs.find((ref) => ref.artifactId === artifactId)?.sha256 ?? "",
+        ]),
+      ),
+      strategyLevel,
+      disposition,
+      selectionReason,
+      regressionIds: assessment.regression.findings.map((finding) => finding.id),
+      oscillationIds: assessment.oscillation.oscillationIds,
+      costUsd: usage.costUsd,
+      wallclockSeconds: usage.wallclockSeconds,
+    };
+    revisions.push(revision);
+    trace.push({
+      node: "candidate-selector",
+      round: revisionRound,
+      status:
+        disposition === "selected"
+          ? "completed"
+          : disposition === "human-required"
+            ? "escalated"
+            : "rejected",
+      issueIds: route.issueIds,
+      changedArtifactIds: revision.changedArtifactIds,
+      strategyLevel,
+      disposition,
+      selectionReason,
+    });
 
-  const staleBeforeRefresh = staleDescendantRecords(
-    index,
-    appliedRevision.changed.map((ref) => ref.artifactId),
-  );
-  const refreshed = await refreshDownstream({
-    index,
-    state: baseState,
-    nodes: input.nodes,
-    round: revisionRound,
-    changedArtifactIds: appliedRevision.changed.map((ref) => ref.artifactId),
-  });
-  index = refreshed.index;
-  trace.push({
-    node: "downstream-refresh",
-    round: revisionRound,
-    status: "completed",
-    changedArtifactIds: appliedRevision.changed.map((ref) => ref.artifactId),
-    staleArtifactIds: staleBeforeRefresh.map((record) => record.ref.artifactId),
-    refreshedArtifactIds: refreshed.refreshed.map((ref) => ref.artifactId),
-  });
+    ledger = recordRevisionAttempt(ledger, {
+      revisionId: baseState.runId + ":revision:" + revisionRound,
+      executionId: baseState.runId + ":round-" + revisionRound + ":" + route.ownerAgent,
+      ownerAgent: route.ownerAgent,
+      issueIds: route.issueIds,
+      before: beforeRefs,
+      candidate: candidateRefs,
+      evaluations: resultRefs(candidateCritics),
+      disposition,
+      regressionIds: revision.regressionIds,
+      oscillationIds: revision.oscillationIds,
+      createdAt: new Date(now()).toISOString(),
+      budgetKind,
+      budgetLimits,
+      costUsd: usage.costUsd,
+      wallclockSeconds: usage.wallclockSeconds,
+    });
 
-  const afterCritics = await runCritics({
-    state: baseState,
-    index,
-    nodes: input.nodes,
-    round: revisionRound,
-    trace,
-  });
-  allCritics.push(afterCritics);
-  const finalGate = evaluateContentGate(afterCritics, index);
-  trace.push({
-    node: "gate-evaluator",
-    round: revisionRound,
-    status: finalGate.verdict === "PASS" ? "completed" : "rejected",
-    issueIds: finalGate.issueIds,
-  });
-  const nextRoute =
-    finalGate.verdict === "PASS"
-      ? null
-      : selectPrimaryRoute({
-          issues: finalGate.issues,
-          config: input.routingConfig ?? defaultOwnershipConfig,
-          provenance: input.provenance,
-        });
-  const closedIssueIds = route.issueIds.filter((issueId) => !finalGate.issueIds.includes(issueId));
-  const status: ContentLoopStatus = finalGate.verdict === "PASS" ? "completed" : "needs-revision";
-  const revision: ContentRevisionRound = {
-    round: revisionRound,
-    ownerAgent: route.ownerAgent,
-    routeTarget: route.routeTarget,
-    issueIds: route.issueIds,
-    authorizedArtifactIds,
-    changedArtifactIds: appliedRevision.changed.map((ref) => ref.artifactId),
-    staleArtifactIds: staleBeforeRefresh.map((record) => record.ref.artifactId),
-    refreshedArtifactIds: refreshed.refreshed.map((ref) => ref.artifactId),
-    beforeHashes: Object.fromEntries(
-      appliedRevision.changed.map((ref) => [
-        ref.artifactId,
-        beforeRefs.get(ref.artifactId)?.sha256 ?? "",
-      ]),
-    ),
-    afterHashes: Object.fromEntries(
-      appliedRevision.changed.map((ref) => [ref.artifactId, ref.sha256]),
-    ),
-  };
-  const state = buildState({
-    base: baseState,
-    index,
-    critics: allCritics,
-    finalGate,
-    initialRoute: route,
-    closedIssueIds,
-    revision,
-    status,
-  });
-  return {
-    status,
-    state,
-    artifactIndex: index,
-    artifacts: state.artifacts,
-    gate: finalGate,
-    route,
-    nextRoute,
-    closedIssueIds,
-    newIssues: finalGate.issues,
-    criticReports: reportMap(afterCritics),
-    criticResultRefs: reportRefMap(afterCritics),
-    revision,
-    trace,
-  };
+    if (disposition === "selected") {
+      index = candidateIndex;
+      bestCritics = candidateCritics;
+      bestGate = candidateGate;
+      const closedIssueIds = route.issueIds.filter(
+        (issueId) => !candidateGate.issueIds.includes(issueId),
+      );
+      const state = buildState({
+        base: baseState,
+        index,
+        critics: allCritics,
+        finalGate: bestGate,
+        initialRoute: firstRoute,
+        closedIssueIds,
+        revision,
+        status: "completed",
+      });
+      return {
+        status: "completed",
+        state,
+        artifactIndex: index,
+        artifacts: state.artifacts,
+        gate: bestGate,
+        route: firstRoute,
+        nextRoute: null,
+        closedIssueIds,
+        newIssues: [],
+        criticReports: reportMap(bestCritics),
+        criticResultRefs: reportRefMap(bestCritics),
+        revision,
+        revisions,
+        revisionLedger: ledger,
+        trace,
+      };
+    }
+
+    index = retainCandidateRecords(index, candidateIndex);
+    candidateHistory = history;
+    if (disposition === "human-required") {
+      const escalationRoute = routingEscalation("oscillation", bestGate.issueIds);
+      const humanEscalation = createHumanEscalation({
+        episodeId: baseState.episodeId,
+        reason: "oscillation",
+        openIssueIds: bestGate.issueIds,
+        selectedBestRefs: Object.values(ledger.best),
+        rejectedCandidateRefs: candidateRefs,
+        decisionNeeded: "Choose a stable content direction after repeated candidate oscillation.",
+        forbiddenAutomaticActions: [
+          "do not dispatch another automatic revision",
+          "do not replace the selected best artifacts",
+        ],
+      });
+      const state = buildState({
+        base: baseState,
+        index,
+        critics: allCritics,
+        finalGate: bestGate,
+        initialRoute: escalationRoute,
+        closedIssueIds: [],
+        revision,
+        status: "escalated",
+      });
+      return {
+        status: "escalated",
+        state,
+        artifactIndex: index,
+        artifacts: state.artifacts,
+        gate: bestGate,
+        route: firstRoute,
+        nextRoute: escalationRoute,
+        closedIssueIds: [],
+        newIssues: bestGate.issues,
+        criticReports: reportMap(bestCritics),
+        criticResultRefs: reportRefMap(bestCritics),
+        revision,
+        revisions,
+        revisionLedger: ledger,
+        humanEscalation,
+        trace,
+      };
+    }
+  }
 };
 
 /** Graph-shaped adapter for callers that prefer invoke semantics. */

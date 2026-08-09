@@ -93,6 +93,11 @@ const passingScores: Record<
     "midVideoEngagement",
     "endingSatisfaction",
   ].map((id) => ({id, score: 20, evidenceIssueIds: [`evidence-${id}`]})),
+  "compliance-critic": ["platformPolicy", "advertisingLanguage", "brandSafety"].map((id) => ({
+    id,
+    score: 1,
+    evidenceIssueIds: [`evidence-${id}`],
+  })),
   "delivery-critic": [
     "artifactIntegrity",
     "durationAndVerticalFormat",
@@ -109,6 +114,7 @@ const versions: Record<CriticName, string> = {
   "audience-critic": "product-story-v4",
   "fact-guardian": "fact-guardian-v1",
   "retention-critic": "retention-critic-v2",
+  "compliance-critic": "compliance-critic-v1",
   "delivery-critic": "delivery-critic-v1",
 };
 
@@ -145,6 +151,21 @@ describe("M2.1 critic output and evaluation", () => {
     expect(
       recomputeDeliveryHardRules({durationSeconds: 180, microCueRatio: 0.100001}).failures,
     ).toEqual(["delivery.duration-render", "delivery.caption-timing"]);
+  });
+
+  it("enforces the Compliance Critic binary profile", () => {
+    const complianceIssue = issue("compliance-critic", "compliance.advertising-language");
+    const result = recomputeCriticEvaluation({
+      critic: "compliance-critic",
+      rubricVersion: "compliance-critic-v1",
+      dimensions: passingScores["compliance-critic"].map((dimension) =>
+        dimension.id === "advertisingLanguage" ? {...dimension, score: 0} : dimension,
+      ),
+      issues: [complianceIssue],
+    });
+    expect(result.verdict).toBe("REJECT");
+    expect(result.blockers).toEqual([complianceIssue.id]);
+    expect(result.evaluation.normalizedTotal).toBe(65);
   });
 
   it("rejects model-authored arithmetic and validates issue structure", () => {

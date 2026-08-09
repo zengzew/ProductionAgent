@@ -45,6 +45,11 @@ export const criticRubrics: Readonly<Record<CriticName, Rubric>> = {
     {id: "midVideoEngagement", maxScore: 25, weight: 0.25, floor: 15},
     {id: "endingSatisfaction", maxScore: 25, weight: 0.25, floor: 15},
   ]),
+  "compliance-critic": rubric("compliance-critic-v1", 100, [
+    {id: "platformPolicy", maxScore: 1, weight: 0.4, floor: 1},
+    {id: "advertisingLanguage", maxScore: 1, weight: 0.35, floor: 1},
+    {id: "brandSafety", maxScore: 1, weight: 0.25, floor: 1},
+  ]),
   "delivery-critic": rubric("delivery-critic-v1", 100, [
     {id: "artifactIntegrity", maxScore: 1, weight: 0.15, floor: 1},
     {id: "durationAndVerticalFormat", maxScore: 1, weight: 0.15, floor: 1},
@@ -70,7 +75,13 @@ const blockingIssueIds = (critic: CriticName, issues: readonly CriticIssue[]): s
   issues
     .filter((issue) => {
       if (issue.status !== "open") return false;
-      if (critic === "fact-guardian" || critic === "delivery-critic") return true;
+      if (
+        critic === "fact-guardian" ||
+        critic === "compliance-critic" ||
+        critic === "delivery-critic"
+      ) {
+        return true;
+      }
       if (critic === "audience-critic" || critic === "retention-critic") {
         return issue.severity === "high" || issue.severity === "blocker";
       }
@@ -92,6 +103,7 @@ const allowedIssuePrefixes: Readonly<Record<CriticName, readonly string[]>> = {
     "visual.asset-rights",
   ],
   "retention-critic": ["contract.", "retention.", "attention.", "story.", "visual."],
+  "compliance-critic": ["contract.", "compliance."],
   "delivery-critic": ["contract.", "delivery."],
 };
 

@@ -32,6 +32,7 @@ const versions: Record<CriticName, string> = {
   "audience-critic": "product-story-v4",
   "fact-guardian": "fact-guardian-v1",
   "retention-critic": "retention-critic-v2",
+  "compliance-critic": "compliance-critic-v1",
   "delivery-critic": "delivery-critic-v1",
 };
 
@@ -64,6 +65,10 @@ const dimensions: Record<CriticName, Array<{id: string; score: number}>> = {
     "midVideoEngagement",
     "endingSatisfaction",
   ].map((id) => ({id, score: 20})),
+  "compliance-critic": ["platformPolicy", "advertisingLanguage", "brandSafety"].map((id) => ({
+    id,
+    score: 1,
+  })),
   "delivery-critic": [
     "artifactIntegrity",
     "durationAndVerticalFormat",
@@ -93,6 +98,7 @@ const floorByCritic: Record<CriticName, Record<string, number>> = {
     midVideoEngagement: 15,
     endingSatisfaction: 15,
   },
+  "compliance-critic": Object.fromEntries(dimensions["compliance-critic"].map(({id}) => [id, 1])),
   "delivery-critic": Object.fromEntries(dimensions["delivery-critic"].map(({id}) => [id, 1])),
 };
 
@@ -135,6 +141,7 @@ const result = (
     ),
     "fact-guardian": Object.fromEntries(dimensions["fact-guardian"].map(({id}) => [id, 1])),
     "retention-critic": Object.fromEntries(dimensions["retention-critic"].map(({id}) => [id, 25])),
+    "compliance-critic": Object.fromEntries(dimensions["compliance-critic"].map(({id}) => [id, 1])),
     "delivery-critic": Object.fromEntries(dimensions["delivery-critic"].map(({id}) => [id, 1])),
   };
   const weighted = scoreValues.reduce(

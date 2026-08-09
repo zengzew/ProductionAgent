@@ -107,6 +107,11 @@ const passingDimensions: Record<
     {id: "midVideoEngagement", score: 20, evidenceIssueIds: []},
     {id: "endingSatisfaction", score: 20, evidenceIssueIds: []},
   ],
+  "compliance-critic": [
+    {id: "platformPolicy", score: 1, evidenceIssueIds: []},
+    {id: "advertisingLanguage", score: 1, evidenceIssueIds: []},
+    {id: "brandSafety", score: 1, evidenceIssueIds: []},
+  ],
   "delivery-critic": [
     {id: "artifactIntegrity", score: 1, evidenceIssueIds: []},
     {id: "durationAndVerticalFormat", score: 1, evidenceIssueIds: []},
@@ -123,6 +128,7 @@ const rubricVersions: Record<CriticName, string> = {
   "audience-critic": "product-story-v4",
   "fact-guardian": "fact-guardian-v1",
   "retention-critic": "retention-critic-v2",
+  "compliance-critic": "compliance-critic-v1",
   "delivery-critic": "delivery-critic-v1",
 };
 
@@ -181,7 +187,11 @@ const makeCriticResult = (input: {
   const computed = recomputeCriticEvaluation({
     critic: input.critic,
     rubricVersion: rubricVersions[input.critic],
-    dimensions: passingDimensions[input.critic],
+    dimensions: passingDimensions[input.critic].map((dimension) =>
+      input.critic === "audience-critic" && input.round > 1 && dimension.id === "hook"
+        ? {...dimension, score: dimension.score + 1}
+        : dimension,
+    ),
     issues: input.issues,
   });
   const route =
@@ -286,11 +296,13 @@ describe("GOLDEN-002 content revision loop", () => {
       "audience-critic": 0,
       "retention-critic": 0,
       "fact-guardian": 0,
+      "compliance-critic": 0,
     };
     const reviewedHashes: Record<ContentCriticName, string[][]> = {
       "audience-critic": [],
       "retention-critic": [],
       "fact-guardian": [],
+      "compliance-critic": [],
     };
     const visualCalls: number[] = [];
     const ownerCalls: Array<{
@@ -311,7 +323,9 @@ describe("GOLDEN-002 content revision loop", () => {
             ? [currentHook, findArtifact(context, "script"), findArtifact(context, "narration")]
             : critic === "retention-critic"
               ? [currentHook, findArtifact(context, "script"), findArtifact(context, "visual-plan")]
-              : [findArtifact(context, "story-brief"), findArtifact(context, "script")];
+              : critic === "fact-guardian"
+                ? [findArtifact(context, "story-brief"), findArtifact(context, "script")]
+                : [findArtifact(context, "narration"), findArtifact(context, "visual-plan")];
         const issues =
           critic === "audience-critic" && criticCalls[critic] === 1 ? [hookIssue(currentHook)] : [];
         return makeCriticResult({
@@ -336,6 +350,7 @@ describe("GOLDEN-002 content revision loop", () => {
           "audience-critic": criticRunner("audience-critic"),
           "retention-critic": criticRunner("retention-critic"),
           "fact-guardian": criticRunner("fact-guardian"),
+          "compliance-critic": criticRunner("compliance-critic"),
         },
         reviseOwner: async (request) => {
           ownerCalls.push({
@@ -451,6 +466,7 @@ describe("GOLDEN-002 content revision loop", () => {
       "audience-critic": 2,
       "retention-critic": 2,
       "fact-guardian": 2,
+      "compliance-critic": 2,
     });
     for (const name of contentCriticNames) {
       expect(reviewedHashes[name]).toHaveLength(2);
@@ -460,7 +476,7 @@ describe("GOLDEN-002 content revision loop", () => {
       result.trace.filter(
         (step) => step.parallel && contentCriticNames.includes(step.node as ContentCriticName),
       ),
-    ).toHaveLength(6);
+    ).toHaveLength(8);
     expect(assertReferenceOnlyState(result.state)).toEqual(result.state);
     expect(JSON.stringify(result.state)).not.toContain("hook v2");
   });

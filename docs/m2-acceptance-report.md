@@ -1,74 +1,89 @@
 # M2 Exit Acceptance Report
 
-- Date: 2026-08-08
+- Date: 2026-08-10
 - Repository: `/Users/zengze/Documents/ProductionAgent`
-- Branch: `master`
+- Verification worktree: `/Users/zengze/.codex/worktrees/d91b/ProductionAgent`
 - Implementation Plan: `docs/langgraph/implementation-plan.md`, M2 / `WP-M2-01..07`
-- Reviewed commit: `e4e6d5e5b25d302e520d86b8f5e3e0f00dc91ede`
-- Final decision: **FAIL**
+- Base commit preserved: `903d0e0` (`Harden episode render contracts and validation`)
+- Final decision: **PASS**
 - M3 started: **No**
 
 ## Decision summary
 
-The implemented pure policy functions and the happy-path content fixture are mostly green, but the
-M2 exit contract is not complete end to end. The content loop does not invoke the revision ledger,
-regression/no-progress/oscillation/budget controls, or `selectBest()`; it directly promotes changed
-artifact refs through the registry. Human direct-edit versioning and locked-range enforcement are
-also absent from the runtime. The planned content topology further names a compliance critic, while
-the implemented loop runs only three content critics. These are acceptance failures, not merely
-documentation gaps.
+M2 now satisfies the implementation plan's bounded content-loop exit contract. `runContentLoop`
+executes the Visual Director followed by parallel Audience, Retention, Fact, and Compliance checks;
+routes one owner; stages a candidate and its refreshed descendants; reruns all four checks; applies
+regression, no-progress, oscillation, budget, and strategy controls; and promotes a candidate only
+when ADR-003 `selectBest()` accepts it. Rejected candidates remain audit references while the ledger's
+selected and best pointers remain unchanged.
 
-The full repository suite also has three non-M2 control-plane failures: TTS cannot reach the
-configured Edge fallback service, and the default Episode 001 delivery/comparison reports bind an
-older MP4 hash than the MP4 produced by this validation run. The final MP4 read-back itself passed.
+WP-M2-07 protects lock metadata that already exists: an automated owner or downstream refresh must
+declare changed locators and cannot overlap a `locked_range`. M2 does not create locks from human
+edits. Formal `HumanDecision`, direct-edit ingestion, approval-epoch transitions, production
+authorization, production subgraphs, unfreeze approval, and publication remain M3 work and are not
+M2 failures.
 
 ## Acceptance matrix
 
-| Acceptance item                                             | Result                            | Evidence                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ----------------------------------------------------------- | --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Deterministic single-owner routing                          | **PASS**                          | `src/orchestration/routing.ts:185-200` validates complete category coverage; `:429-534` sorts one primary route, batches only the selected owner, and escalates unknown/ambiguous provenance. `tests/orchestration/routing.test.ts:31-243` covers category ownership, critic-provided owner rejection, provenance, budget-empty escalation, and permutation invariance.                                                                   |
-| Authorized-artifact-only revision                           | **PASS**                          | `src/orchestration/graph/content-subgraph.ts:955-981` derives `authorizedArtifactIds` from the routed issues and passes them into `applySelectedRevisions`; `:447-450` rejects any other artifact. The golden test asserts that the owner receives only the hook ref at `tests/orchestration/content-loop.test.ts:340-357`.                                                                                                               |
-| Downstream stale propagation and refresh                    | **PASS**                          | `src/orchestration/artifact-registry.ts:124-153` invalidates the transitive dependency closure; `src/orchestration/graph/content-subgraph.ts:565-638` requires the exact stale set, rejects missing/unexpected/no-change refreshes, and verifies dependencies. `tests/orchestration/content-loop.test.ts:358-449` proves the script, narration, and visual descendants are refreshed.                                                     |
-| Critic rerun and issue closure                              | **FAIL (partial implementation)** | `tests/orchestration/content-loop.test.ts:450-466` proves the hook issue closes and the three implemented critics rerun twice. However `src/orchestration/graph/content-subgraph.ts:30-37` explicitly defines only `audience-critic`, `retention-critic`, and `fact-guardian`; `:799-829` reruns that list only. The plan requires the M2 fan-out to include compliance and rerun all planned critics (`implementation-plan.md:242-244`). |
-| Regression, no-progress, oscillation, and budget handling   | **FAIL (unit-only)**              | `tests/orchestration/revision-detect.test.ts:203-398` passes the pure detectors and three-round creative-budget fixtures. But `content-subgraph.ts:1-28` imports no revision assessment/ledger functions, and `runContentLoop` (`:839-1082`) accepts no revision ledger or budget and never calls them. Cost/wall-clock limits are declared in `schemas/revision-ledger.ts:26-40` but are not checked by `checkRevisionBudget`.           |
-| Pareto best-version selection                               | **FAIL (unit-only)**              | `tests/orchestration/revision-select.test.ts:128-230` proves the standalone `selectBest()` Pareto rules, floors, target gain, protected dimensions, and rubric comparability. The content loop does not import or call `selectBest`; `content-subgraph.ts:474-489` directly registers and selects every changed candidate, while `:711-790` carries the base `best` pointer forward without a candidate/best decision.                    |
-| Human direct edits become locked versions                   | **FAIL**                          | No `HumanDecision` schema, direct-edit ingestion function, locked-version producer, or corresponding test exists under `src/orchestration/` or `tests/orchestration/`. The Implementation Plan explicitly assigns this behavior to `WP-M3-04` (`implementation-plan.md:254-261`), so it cannot be claimed as implemented in this M2 run.                                                                                                  |
-| Automated revision cannot overwrite locked ranges           | **FAIL**                          | No `locked_ranges`/`lockedRanges` runtime field or enforcement path exists. `ContentFreezeInput` is defined at `src/orchestration/freeze.ts:250-280` without lock metadata, and `applySelectedRevisions` has no lock check. The planned `locked-range.test.ts` is absent.                                                                                                                                                                 |
-| Freeze rejects stale artifacts or open blocker/major issues | **PASS**                          | `src/orchestration/freeze.ts:330-429` checks exact selected registry refs, transitive staleness, bytes/hashes, open blockers, and open major/high issues before writing. `tests/orchestration/freeze-content.test.ts:123-184` covers blocker, major, stale, and non-selected refs.                                                                                                                                                        |
-| `content_manifest.json` binds exact selected `ArtifactRef`s | **PASS**                          | Freeze accepts only caller-supplied refs (`src/orchestration/freeze.ts:71-80`), writes those refs into the manifest with `hashContentSelection()` (`:460-481`), and `contentManifestSchema` recomputes the binding (`src/orchestration/schemas/freeze-manifest.ts:85-123`). `tests/orchestration/freeze-content.test.ts:61-106` verifies exact selection and hash binding.                                                                |
-| State remains reference-only                                | **PASS**                          | `src/orchestration/state.ts:81-140` stores `ArtifactRef`s and rejects body keys such as `content`, `narration`, and `claimLedger`; freeze state carries only `contentManifestRef` (`src/orchestration/freeze.ts:484-494`). `tests/orchestration/contracts.test.ts:110-122` and `tests/orchestration/freeze-content.test.ts:109-121` cover the guard.                                                                                      |
+| Acceptance item                                      | Result   | Current implementation and evidence                                                                                                                                                                                                                                                                                                                                                      |
+| ---------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Deterministic single-owner routing                   | **PASS** | `selectPrimaryRoute()` remains the only route selector. The loop dispatches only the selected route's issue IDs and `authorizedArtifactIds`; `content-loop.test.ts` and `content-loop-bounded.test.ts` verify Viral Director and Script Writer routes.                                                                                                                                   |
+| Authorized-artifact-only revision                    | **PASS** | `applySelectedRevisions()` rejects an artifact outside the route-derived allowlist. The golden loop asserts that an `attention.hook` issue authorizes only the hook artifact.                                                                                                                                                                                                            |
+| Downstream stale propagation and refresh             | **PASS** | The staged candidate uses `markStaleTransitively()`, requires the exact stale descendant set, verifies dependency hashes, refreshes every descendant, and reruns all critics. `content-loop.test.ts` covers hook → script/narration/visual-plan propagation.                                                                                                                             |
+| Four-way content critic fan-out                      | **PASS** | `contentCriticNames` contains Audience, Retention, Fact, and Compliance. `runCritics()` uses one parallel group before revision and after every candidate. The golden integration test verifies all four run twice.                                                                                                                                                                      |
+| Compliance schema, rubric, and profile               | **PASS** | `critic-output-v1` now includes `compliance-critic` and three `compliance.*` categories; `evaluation.ts` defines the binary `compliance-critic-v1` rubric; `config/ownership.json` maps every new category to one owner. `critic-output.test.ts` and the bounded loop test cover rejection, routing, rerun, and PASS.                                                                    |
+| Revision ledger is part of the loop                  | **PASS** | `runContentLoop` accepts an existing `RevisionLedger`, validates it against the current selection, creates one when absent, records every valid candidate attempt, and returns the updated ledger. Attempts bind before/candidate/evaluation refs, disposition, regression and oscillation IDs, usage, and immutable best/selected refs. The ledger body never enters `ProductionState`. |
+| Creative, cost, and wall-clock budgets               | **PASS** | Creative rounds are checked before dispatch. Cost and wall-clock usage are recorded for every attempt and checked before the next dispatch. Exhaustion produces `human-escalation-v1` and leaves best selected. Integration tests cover creative round 3, exact cost exhaustion, and exact wall-clock exhaustion.                                                                        |
+| Hard/score regression and no-progress                | **PASS** | Each candidate runs through `assessRevision()` and `selectBest()`. Hard or score regression, unchanged bytes, or an unchanged targeted issue records a rejected attempt and cannot advance selected/best. Integration coverage includes a new fact blocker and a higher weighted total with a protected-dimension drop.                                                                  |
+| Oscillation and strategy escalation                  | **PASS** | The loop carries candidate history across rounds. `A→B→A` records a warning and retains best; `A→B→A→B` creates an oscillation escalation. Owner requests receive deterministic L0/L1/L2 strategy metadata within the default three-round budget.                                                                                                                                        |
+| ADR-003 Pareto best selection                        | **PASS** | Candidate review happens in an isolated working index. Only `selectBest()` can commit that index and update ledger best/selected. Eligibility requires closed target issue, all gates/floors, comparable rubrics, no hard/protected regression, target gain, and Pareto dominance. `normalizedTotal` is used only in reports/tests and never by `selectBest()`.                          |
+| Existing `locked_ranges` protected from automation   | **PASS** | `assertLockedRangesPreserved()` binds each lock to exact selected bytes, rejects stale lock metadata, detects line and JSON-pointer overlap, and fails closed when changed locators are omitted. It is called for owner revisions and downstream refreshes. Unit and loop integration tests cover overlapping and non-overlapping edits.                                                 |
+| Freeze preconditions and exact manifest binding      | **PASS** | Existing `freezeContent()` still rejects stale or byte-mismatched artifacts and open blocker/high/major issues, writes atomically, and binds the explicit selected refs through `selectionHash`. Existing freeze tests remain green.                                                                                                                                                     |
+| Reference-only state, byte hashes, and atomic freeze | **PASS** | No artifact body or ledger body is merged into graph state. Candidate, best, evaluation, lock, and manifest data use `ArtifactRef` plus SHA-256. The full state-body-leak, artifact-registry, reducer, checkpoint, and freeze suites pass.                                                                                                                                               |
 
-## Complete test and validation suite
+## M3 boundary (explicitly deferred, not an M2 failure)
 
-The first test invocation exposed a native dependency mismatch: four M1 SQLite/graph tests failed
-because `better-sqlite3` was built for Node ABI 127 while the current Node 24 runtime uses ABI 137.
-After `pnpm rebuild better-sqlite3`, the complete Vitest run passed. The rebuild was an environment
-repair; it changed no repository source files.
+The following remain assigned to `WP-M3-01..04` by the implementation plan:
 
-| Command                    | Result   | Evidence / failure classification                                                                                                                                                                                                                                                                |
-| -------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `pnpm format:check`        | **PASS** | All matched files use Prettier code style.                                                                                                                                                                                                                                                       |
-| `pnpm lint`                | **PASS** | ESLint completed with zero warnings.                                                                                                                                                                                                                                                             |
-| `pnpm typecheck`           | **PASS** | TypeScript completed with no errors.                                                                                                                                                                                                                                                             |
-| `pnpm test`                | **PASS** | 26 test files, 119 tests.                                                                                                                                                                                                                                                                        |
-| `pnpm validate:research`   | **PASS** | 17 sources, 28 facts, 10 events; lineage resolved.                                                                                                                                                                                                                                               |
-| `pnpm validate:workflow`   | **PASS** | 11 owners, 9 decisions, 2 reviews, 1 closed revision; `delivery-approved`.                                                                                                                                                                                                                       |
-| `pnpm validate:story`      | **PASS** | 12 segments; target 150s; oral PASS; critic 95; fact PASS; visual READY; retention 93.                                                                                                                                                                                                           |
-| `pnpm materialize:story`   | **PASS** | 12 segments materialized; hook `calendar-already-changed`; target 150s.                                                                                                                                                                                                                          |
-| `pnpm validate:content`    | **PASS** | 12 segments, 6 assets, 20-second hook.                                                                                                                                                                                                                                                           |
-| `pnpm tts`                 | **FAIL** | Microsoft Edge fallback reached segment 3, then failed to connect to `speech.platform.bing.com:443` with `ClientConnectorError` / connection reset. External dependency failure; no complete fresh TTS run.                                                                                      |
-| `pnpm timeline`            | **PASS** | 12 scenes, 72 captions, 135.700s.                                                                                                                                                                                                                                                                |
-| `pnpm render:smoke`        | **PASS** | `PokeVerticalSmoke`, 300 frames, `output/episode-001/smoke_9x16.mp4`.                                                                                                                                                                                                                            |
-| `pnpm render:vertical`     | **PASS** | `PokeVertical`, 4071 frames, `output/episode-001/vertical_9x16.mp4`.                                                                                                                                                                                                                             |
-| `pnpm inspect:output`      | **PASS** | 135.744s, 1080×1920, 30 fps, H.264/AAC, peak -1.2 dB.                                                                                                                                                                                                                                            |
-| `pnpm validate:delivery`   | **FAIL** | Default Episode 001 Delivery Critic report declares video SHA-256 `57a02a5de86f188fe260d6295d7e2a38d16ed948f3341b2d44306e3b472040c0`; the current rendered MP4 is `788128d4c325e7d93c75542ef8c1786c6284651cea513d3429e58e7aebc88e10`. The validator correctly rejected the stale review binding. |
-| `pnpm validate:comparison` | **FAIL** | Default Episode 001 comparison report has the same old director-video hash and rejected the newly rendered MP4.                                                                                                                                                                                  |
-| `git diff --check`         | **PASS** | No whitespace errors after report creation.                                                                                                                                                                                                                                                      |
+- formal `HumanDecision` payloads and approve/reject/direct-edit handlers;
+- ingestion of a human direct edit as a new locked artifact version;
+- approval-epoch transitions and production-stage authorization;
+- production adapters/subgraph, TTS/render/delivery repair routing, and frozen-manifest-only production;
+- L4 unfreeze approval and final publication gate semantics;
+- any upload, publish, or external side effect.
+
+M2 emits a reference-only `human-escalation-v1` when automation must stop. It does not interpret that
+artifact as a human decision or resume production.
+
+## Verification evidence
+
+The worktree reuses the source repository's installed `node_modules`. pnpm therefore reports that the
+workspace install metadata belongs to another worktree; commands were run with
+`--config.verify-deps-before-run=warn` so pnpm used the existing lockfile-matched packages instead of
+attempting a network install. The warning did not change source or dependency files. The full test
+suite read the source repository's existing ignored Episode 001 MP4 artifacts through temporary
+worktree symlinks; no media was generated or changed, and the links were removed after verification.
+
+| Command                                                       | Result   | Evidence                                                                               |
+| ------------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------- |
+| `pnpm --config.verify-deps-before-run=warn format:check`      | **PASS** | All matched files use Prettier code style.                                             |
+| `pnpm --config.verify-deps-before-run=warn lint`              | **PASS** | ESLint completed with zero warnings.                                                   |
+| `pnpm --config.verify-deps-before-run=warn typecheck`         | **PASS** | TypeScript strict build completed with no errors.                                      |
+| `pnpm --config.verify-deps-before-run=warn test`              | **PASS** | 33 test files, 165 tests.                                                              |
+| `pnpm --config.verify-deps-before-run=warn validate:research` | **PASS** | 17 sources, 28 facts, 10 events; lineage resolved.                                     |
+| `pnpm --config.verify-deps-before-run=warn validate:workflow` | **PASS** | 11 owners, 9 decisions, 2 reviews, 1 closed revision; `delivery-approved`.             |
+| `pnpm --config.verify-deps-before-run=warn validate:story`    | **PASS** | 12 segments; target 150s; oral PASS; critic 95; fact PASS; visual READY; retention 93. |
+| `pnpm --config.verify-deps-before-run=warn validate:content`  | **PASS** | 12 segments, 6 assets, 20-second hook.                                                 |
+| `git diff --check`                                            | **PASS** | No whitespace errors in the implementation and report patch.                           |
+
+The four `tsx` validators initially hit the managed sandbox's IPC-socket restriction (`listen EPERM`)
+and were rerun unchanged outside the sandbox; all passed. Real TTS, hosted model calls, asset capture,
+timeline/materialization, smoke/full rendering, output inspection, delivery validation, and comparison
+validation were not run because this change does not alter episode content or media.
 
 ## Final disposition
 
-**FAIL.** M2 is not exit-accepted. The passing rows establish useful foundations, but the missing
-end-to-end revision controls, direct-edit/lock semantics, and incomplete critic topology prevent the
-required bounded single-owner loop from being considered complete. The TTS and stale delivery /
-comparison bindings are separately recorded as full-suite failures. No M3 implementation or M3
-workflow was started.
+**PASS.** M2 is exit-accepted against `WP-M2-01..07`. The bounded revision loop now retains the best
+valid version, stops predictably on budget or oscillation, protects existing locked ranges, reruns all
+four content critics, and can produce the exact selected reference set required by the atomic content
+freeze. M3 remains unstarted.

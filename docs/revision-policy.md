@@ -51,6 +51,8 @@ type RevisionLedger = {
     oralRoundsUsed: number;
     creativeRoundsUsed: number;
     deliveryRoundsUsed: number;
+    costUsdUsed: number;
+    wallclockSecondsUsed: number;
   };
   selected: Record<string, ArtifactRef>;
   best: Record<string, ArtifactRef>;
@@ -83,6 +85,8 @@ Budgets are independent:
 | Oral review rounds       | 3       | Each valid Oral Judge verdict for the same draft/approval epoch.               |
 | Creative revision rounds | 3       | Each valid REJECT correction cycle initiated by Audience, Fact, or Retention.  |
 | Delivery correction      | 3       | Each valid Delivery REJECT followed by a production correction and new review. |
+| Cost                     | Config  | Every execution attempt, including invalid and operational attempts.           |
+| Wall clock               | Config  | Every execution attempt's measured or adapter-reported elapsed time.           |
 
 The current `maximumCreativeRounds: 3` remains compatible and is the source for the creative maximum.
 
@@ -95,7 +99,7 @@ The following do not consume creative or delivery revision budget:
 - validation failure caused by repository tooling rather than artifact judgment.
 
 These failures have their own retry ceiling in [failure-modes.md](./failure-modes.md). They still
-record execution attempts and cost.
+record execution attempts, cost, and wall-clock use.
 
 Budget is checked before dispatch. A result cannot consume round 4 and then escalate. When remaining
 budget is zero, the runner creates a human-escalation decision and leaves the best selected-valid

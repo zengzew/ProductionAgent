@@ -9,6 +9,7 @@ import {
   defaultRevisionBudgetLimits,
   humanEscalationSchema,
   revisionAttemptSchema,
+  revisionBudgetSchema,
   revisionBudgetKinds,
   revisionBudgetLimitsSchema,
   revisionLedgerSchema,
@@ -212,6 +213,15 @@ export type RevisionBudgetCheck = {
   reason?: "budget-exhausted";
 };
 
+export type RevisionResourceBudgetCheck = {
+  allowed: boolean;
+  costUsdUsed: number;
+  wallclockSecondsUsed: number;
+  remainingCostUsd?: number;
+  remainingWallclockSeconds?: number;
+  exhausted: Array<"cost" | "wallclock">;
+};
+
 export type BestRestorationReport = {
   historical: true;
   restorable: boolean;
@@ -365,6 +375,7 @@ const scoreRegressionThreshold = (critic: CriticName): number | undefined => {
     case "retention-critic":
       return 3;
     case "fact-guardian":
+    case "compliance-critic":
     case "delivery-critic":
       return undefined;
   }
@@ -438,7 +449,11 @@ const evaluateDimensionRegression = (
 
     const drop = prior.score - next.score;
     if (drop <= 0) continue;
-    if (critic === "fact-guardian" || critic === "delivery-critic") {
+    if (
+      critic === "fact-guardian" ||
+      critic === "compliance-critic" ||
+      critic === "delivery-critic"
+    ) {
       if (next.score < (floor ?? 1) && prior.score >= (priorFloor ?? floor ?? 1)) {
         pushUnique(
           hard,
@@ -1248,6 +1263,8 @@ export const createRevisionLedger = (input: {
       oralRoundsUsed: input.budgets?.oralRoundsUsed ?? 0,
       creativeRoundsUsed: input.budgets?.creativeRoundsUsed ?? 0,
       deliveryRoundsUsed: input.budgets?.deliveryRoundsUsed ?? 0,
+      costUsdUsed: input.budgets?.costUsdUsed ?? 0,
+      wallclockSecondsUsed: input.budgets?.wallclockSecondsUsed ?? 0,
     },
     selected,
     best,
@@ -1288,6 +1305,60 @@ export const remainingRevisionBudget = (
   kind: RevisionBudgetKind,
   limits: RevisionBudgetLimits = defaultRevisionBudgetLimits,
 ): number => checkRevisionBudget(ledgerOrBudget, kind, limits).remaining;
+
+export const checkRevisionResourceBudget = (
+  ledgerOrBudget: RevisionLedger | RevisionBudget,
+  limits: RevisionBudgetLimits = defaultRevisionBudgetLimits,
+): RevisionResourceBudgetCheck => {
+  const parsedLimits = revisionBudgetLimitsSchema.parse(limits);
+  const budget = "schemaVersion" in ledgerOrBudget ? ledgerOrBudget.budgets : ledgerOrBudget;
+  const costUsdUsed = budget.costUsdUsed;
+  const wallclockSecondsUsed = budget.wallclockSecondsUsed;
+  const exhausted: RevisionResourceBudgetCheck["exhausted"] = [];
+  if (parsedLimits.maxCostUsd !== undefined && costUsdUsed >= parsedLimits.maxCostUsd) {
+    exhausted.push("cost");
+  }
+  if (
+    parsedLimits.maxWallclockSeconds !== undefined &&
+    wallclockSecondsUsed >= parsedLimits.maxWallclockSeconds
+  ) {
+    exhausted.push("wallclock");
+  }
+  return {
+    allowed: exhausted.length === 0,
+    costUsdUsed,
+    wallclockSecondsUsed,
+    ...(parsedLimits.maxCostUsd === undefined
+      ? {}
+      : {remainingCostUsd: Math.max(0, parsedLimits.maxCostUsd - costUsdUsed)}),
+    ...(parsedLimits.maxWallclockSeconds === undefined
+      ? {}
+      : {
+          remainingWallclockSeconds: Math.max(
+            0,
+            parsedLimits.maxWallclockSeconds - wallclockSecondsUsed,
+          ),
+        }),
+    exhausted,
+  };
+};
+
+export const consumeRevisionResources = (
+  budget: RevisionBudget,
+  usage: {costUsd?: number; wallclockSeconds?: number},
+): RevisionBudget => {
+  const costUsd = usage.costUsd ?? 0;
+  const wallclockSeconds = usage.wallclockSeconds ?? 0;
+  if (!Number.isFinite(costUsd) || costUsd < 0) throw new Error("REVISION_COST_USAGE_INVALID");
+  if (!Number.isFinite(wallclockSeconds) || wallclockSeconds < 0) {
+    throw new Error("REVISION_WALLCLOCK_USAGE_INVALID");
+  }
+  return revisionBudgetSchema.parse({
+    ...budget,
+    costUsdUsed: budget.costUsdUsed + costUsd,
+    wallclockSecondsUsed: budget.wallclockSecondsUsed + wallclockSeconds,
+  });
+};
 
 export const consumeRevisionBudget = (
   budget: RevisionBudget,
@@ -1415,6 +1486,8 @@ type RevisionAttemptOptions = {
   valid?: boolean;
   consumesBudget?: boolean;
   budgetLimits?: RevisionBudgetLimits;
+  costUsd?: number;
+  wallclockSeconds?: number;
 };
 
 export type RecordRevisionAttemptInput =
@@ -1428,6 +1501,8 @@ const attemptFromInput = (input: RecordRevisionAttemptInput): RevisionAttempt =>
   delete attempt.valid;
   delete attempt.consumesBudget;
   delete attempt.budgetLimits;
+  delete attempt.costUsd;
+  delete attempt.wallclockSeconds;
   return revisionAttemptSchema.parse(attempt);
 };
 
@@ -1454,7 +1529,10 @@ export const recordRevisionAttempt = (
   const consumesBudget =
     input.consumesBudget ??
     (valid && (attempt.disposition === "rejected" || attempt.disposition === "selected"));
-  let budgets = current.budgets;
+  let budgets = consumeRevisionResources(current.budgets, {
+    costUsd: input.costUsd,
+    wallclockSeconds: input.wallclockSeconds,
+  });
   if (consumesBudget) {
     budgets = consumeRevisionBudget(
       budgets,

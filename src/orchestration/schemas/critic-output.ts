@@ -7,6 +7,7 @@ export const criticNames = [
   "audience-critic",
   "fact-guardian",
   "retention-critic",
+  "compliance-critic",
   "delivery-critic",
 ] as const;
 
@@ -41,6 +42,9 @@ export const issueCategories = [
   "retention.first-30-seconds",
   "retention.mid-video",
   "retention.ending",
+  "compliance.platform-policy",
+  "compliance.advertising-language",
+  "compliance.brand-safety",
   "delivery.caption-split",
   "delivery.caption-timing",
   "delivery.audio",
@@ -68,7 +72,7 @@ export const issueCategorySchema = z.enum(issueCategories);
 export const agentOwnerSchema = z.enum(agentOwners);
 export const routeTargetSchema = z.enum(routeTargets);
 
-const locatorSchema = z.object({
+export const artifactLocatorSchema = z.object({
   kind: z.enum([
     "json-pointer",
     "line-range",
@@ -93,7 +97,7 @@ export const criticIssueSchema = z
       artifactId: z.string().min(1),
       path: artifactRefSchema.shape.path,
       sha256: artifactRefSchema.shape.sha256,
-      locator: locatorSchema,
+      locator: artifactLocatorSchema,
     }),
     evidence: z
       .array(

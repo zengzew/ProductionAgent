@@ -20,6 +20,8 @@ export const revisionBudgetSchema = z
     oralRoundsUsed: nonNegativeInteger,
     creativeRoundsUsed: nonNegativeInteger,
     deliveryRoundsUsed: nonNegativeInteger,
+    costUsdUsed: z.number().nonnegative().default(0),
+    wallclockSecondsUsed: z.number().nonnegative().default(0),
   })
   .strict();
 
