@@ -1,15 +1,14 @@
 {
+  "schemaVersion": "episode-config-v2",
   "id": "episode-002-v2-goal3",
   "slug": "roost-social-goal3-benchmark",
   "product": "Roost Social",
   "title": "Roost：为什么有人愿意等一只鸟送信？",
   "language": "zh-CN",
-  "fps": 30,
   "targetSeconds": 125,
-  "hardMaximumSeconds": 180,
-  "vertical": {
-    "width": 1080,
-    "height": 1920
+  "production": {
+    "timelineTailSeconds": {"seg-010": 1.2, "seg-011": 1.5, "seg-012": 2.4},
+    "hookAttributionSubjects": ["Roost", "Roost Social"]
   },
   "selection": "benchmark-regeneration",
   "selectionReason": "Goal 3.2 benchmark 复用当前已核验研究包，检验最新编辑契约能否把慢速送达、朋友推动公开与用户通信仪式讲成更集中、更有人味的产品故事。",

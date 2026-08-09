@@ -8,6 +8,10 @@ import {
   sourceSchema,
 } from "../src/schemas/episode";
 import {episodeRoot, readJson} from "../src/lib/project";
+import {
+  assertEpisodeMatchesProductionContract,
+  productionContract,
+} from "../src/lib/production-contract";
 
 describe("episode source data", () => {
   it("matches the research and script schemas", () => {
@@ -24,9 +28,15 @@ describe("episode source data", () => {
   });
 
   it("caps every episode at a strict three-minute maximum", () => {
-    const config = readJson<Record<string, unknown>>(path.join(episodeRoot, "episode.config.json"));
-    expect(episodeConfigSchema.safeParse({...config, hardMaximumSeconds: 180}).success).toBe(true);
-    expect(episodeConfigSchema.safeParse({...config, hardMaximumSeconds: 181}).success).toBe(false);
-    expect(episodeConfigSchema.safeParse({...config, targetSeconds: 181}).success).toBe(false);
+    const config = episodeConfigSchema.parse(
+      readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
+    );
+    expect(() => assertEpisodeMatchesProductionContract(config)).not.toThrow();
+    expect(() =>
+      assertEpisodeMatchesProductionContract({
+        ...config,
+        targetSeconds: productionContract.delivery.hardMaximumSeconds + 1,
+      }),
+    ).toThrow(/超过全局上限/u);
   });
 });

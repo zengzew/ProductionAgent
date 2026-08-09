@@ -1,5 +1,6 @@
 import path from "node:path";
 import type {EpisodeConfig} from "../schemas/episode";
+import {productionContract, type ProductionContract} from "./production-contract";
 
 type CaptureTarget = EpisodeConfig["captureAssets"][number];
 
@@ -20,6 +21,7 @@ export const captureConfiguredAssets = async (
   targets: CaptureTarget[],
   outputDirectory: string,
   newPage: () => Promise<CapturePage>,
+  captureContract: ProductionContract["capture"] = productionContract.capture,
 ): Promise<void> => {
   if (targets.length === 0) {
     throw new Error("当前 episode.config.json 未配置 captureAssets");
@@ -27,9 +29,12 @@ export const captureConfiguredAssets = async (
 
   for (const target of targets) {
     const page = await newPage();
-    await page.goto(target.url, {waitUntil: "domcontentloaded", timeout: 60_000});
+    await page.goto(target.url, {
+      waitUntil: "domcontentloaded",
+      timeout: captureContract.navigationTimeoutMs,
+    });
     await page.waitForLoadState("domcontentloaded");
-    await page.waitForTimeout(4000);
+    await page.waitForTimeout(captureContract.pageSettleMs);
 
     if (target.anchor) {
       const anchor = page.getByRole(target.anchor.role, {
@@ -43,7 +48,7 @@ export const captureConfiguredAssets = async (
         );
       }
       await anchor.scrollIntoViewIfNeeded();
-      await page.waitForTimeout(600);
+      await page.waitForTimeout(captureContract.anchorSettleMs);
     }
 
     await page.screenshot({path: path.join(outputDirectory, target.file), fullPage: false});

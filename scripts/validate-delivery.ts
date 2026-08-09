@@ -8,13 +8,12 @@ import {
   fitCaptionPartsToDuration,
 } from "../src/lib/captions";
 import {episodeId, episodeRoot, outputEpisodeRoot, readJson, repoRoot} from "../src/lib/project";
-import {
-  captionPlanSchema,
-  episodeConfigSchema,
-  scriptSchema,
-  timelineSchema,
-} from "../src/schemas/episode";
+import {captionPlanSchema, scriptSchema, timelineSchema} from "../src/schemas/episode";
 import {assertTimelineMatchesEpisode, generatedCaptionsPath} from "../src/lib/render-contract";
+import {
+  assertTimelineMatchesProductionContract,
+  productionContract,
+} from "../src/lib/production-contract";
 
 const reportPath = path.join(episodeRoot, "production/delivery-critic-report.md");
 const videoPath = path.join(outputEpisodeRoot, "vertical_9x16.mp4");
@@ -80,15 +79,13 @@ const captionPlanBySegment = new Map(
 const timeline = timelineSchema.parse(readJson<unknown>(timelinePath));
 try {
   assertTimelineMatchesEpisode(timeline, episodeId);
+  assertTimelineMatchesProductionContract(timeline);
 } catch (error) {
   errors.push(error instanceof Error ? error.message : String(error));
 }
-const episodeConfig = episodeConfigSchema.parse(
-  readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
-);
-if (timeline.totalSeconds >= episodeConfig.hardMaximumSeconds) {
+if (timeline.totalSeconds >= productionContract.delivery.hardMaximumSeconds) {
   errors.push(
-    `交付视频时长必须小于 ${episodeConfig.hardMaximumSeconds} 秒，当前 ${timeline.totalSeconds.toFixed(3)} 秒`,
+    `交付视频时长必须小于 ${productionContract.delivery.hardMaximumSeconds} 秒，当前 ${timeline.totalSeconds.toFixed(3)} 秒`,
   );
 }
 const generatedCaptions = readJson<Array<{sceneId: string; text: string}>>(captionsPath);
@@ -102,8 +99,14 @@ for (const segment of script.segments) {
   const timelineScene = timeline.scenes.find((scene) => scene.id === segment.id);
   const plannedCues = captionPlanBySegment.get(segment.id) ?? [];
   const expected = fitCaptionPartsToDuration(
-    captionPartsFromPlan(segment.narration, plannedCues),
+    captionPartsFromPlan(
+      segment.narration,
+      plannedCues,
+      productionContract.captions.maximumLineCharacters,
+    ),
     timelineScene?.audioDurationSeconds ?? 0,
+    productionContract.captions.microCueThresholdSeconds,
+    productionContract.captions.maximumLineCharacters,
   ).map((part) => part.text);
   const actual = actualByScene.get(segment.id) ?? [];
   if (!captionTextsEquivalent(actual, expected)) {
@@ -121,7 +124,15 @@ if (gate.metrics.englishWordBreaks !== 0) {
 }
 
 const cues = parseSrt(fs.readFileSync(subtitlesPath, "utf8"));
-const measured = measureCaptionDelivery(cues, gate.metrics.microCueThresholdSeconds);
+if (
+  gate.metrics.microCueThresholdSeconds !== productionContract.captions.microCueThresholdSeconds
+) {
+  errors.push("Delivery Critic microCueThresholdSeconds 与生产契约不一致");
+}
+if (gate.metrics.microCueRatioLimit !== productionContract.captions.microCueRatioLimit) {
+  errors.push("Delivery Critic microCueRatioLimit 与生产契约不一致");
+}
+const measured = measureCaptionDelivery(cues, productionContract.captions.microCueThresholdSeconds);
 const roundedRatio = Number(measured.microCueRatio.toFixed(6));
 const roundedMinimum = Number(measured.minimumCueSeconds.toFixed(3));
 if (gate.metrics.microCueCount !== measured.microCueCount) {
@@ -139,8 +150,10 @@ if (Math.abs(gate.metrics.minimumCueSeconds - roundedMinimum) > 0.001) {
     `Delivery Critic minimumCueSeconds 应为 ${roundedMinimum}，当前 ${gate.metrics.minimumCueSeconds}`,
   );
 }
-if (measured.microCueRatio > gate.metrics.microCueRatioLimit) {
-  errors.push(`小于 1 秒字幕占比 ${(measured.microCueRatio * 100).toFixed(1)}%，超过 10% 上限`);
+if (measured.microCueRatio > productionContract.captions.microCueRatioLimit) {
+  errors.push(
+    `小于 ${productionContract.captions.microCueThresholdSeconds} 秒字幕占比 ${(measured.microCueRatio * 100).toFixed(1)}%，超过 ${(productionContract.captions.microCueRatioLimit * 100).toFixed(0)}% 上限`,
+  );
 }
 
 const shouldPass =
@@ -148,7 +161,7 @@ const shouldPass =
   gate.returnTo === "none" &&
   gate.metrics.captionWordBreaks === 0 &&
   gate.metrics.englishWordBreaks === 0 &&
-  gate.metrics.microCueRatio <= gate.metrics.microCueRatioLimit &&
+  gate.metrics.microCueRatio <= productionContract.captions.microCueRatioLimit &&
   gate.metrics.firstFrameZeroContextReadable &&
   !gate.metrics.speechClippingOrSwallowing;
 if ((gate.verdict === "PASS") !== shouldPass) {

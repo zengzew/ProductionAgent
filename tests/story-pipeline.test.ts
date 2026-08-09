@@ -9,6 +9,7 @@ import {
   parseFinalScript,
   parseOralReviewGate,
 } from "../src/lib/story";
+import {productionContract} from "../src/lib/production-contract";
 
 const scriptDraftPath = path.join(episodeRoot, "story/script-draft.md");
 const finalScriptPath = path.join(episodeRoot, "story/final-script.md");
@@ -34,8 +35,8 @@ describe("product-story short-video pipeline", () => {
 
     expect(segments).toHaveLength(12);
     expect(totalSeconds).toBeGreaterThan(0);
-    expect(totalSeconds).toBeLessThanOrEqual(180);
-    expect(hookSeconds).toBe(20);
+    expect(totalSeconds).toBeLessThanOrEqual(productionContract.delivery.hardMaximumSeconds);
+    expect(hookSeconds).toBe(productionContract.hook.targetSeconds);
     expect(segments.every((segment) => segment.narrationUnits.length > 0)).toBe(true);
   });
 

@@ -3,8 +3,8 @@ import path from "node:path";
 import {spawnSync} from "node:child_process";
 import {measureCaptionDelivery, parseSrt} from "../src/lib/delivery";
 import {assertSpawnSucceeded, parseFiniteNumber} from "../src/lib/process";
-import {episodeConfigSchema} from "../src/schemas/episode";
-import {episodeRoot, outputEpisodeRoot, readJson, writeJson} from "../src/lib/project";
+import {outputEpisodeRoot, writeJson} from "../src/lib/project";
+import {expectedFrameRate, productionContract} from "../src/lib/production-contract";
 
 type Probe = {
   format: {duration: string; format_name: string};
@@ -46,11 +46,14 @@ const maxVolume = (filePath: string): number => {
   return parseFiniteNumber(match[1], `${filePath} 音频峰值`);
 };
 
-const expected = [{file: "vertical_9x16.mp4", width: 1080, height: 1920}];
-const episodeConfig = episodeConfigSchema.parse(
-  readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
-);
-const maximumDuration = episodeConfig.hardMaximumSeconds;
+const expected = [
+  {
+    file: "vertical_9x16.mp4",
+    width: productionContract.delivery.vertical.width,
+    height: productionContract.delivery.vertical.height,
+  },
+];
+const maximumDuration = productionContract.delivery.hardMaximumSeconds;
 const inspections: Array<Record<string, unknown>> = [];
 const errors: string[] = [];
 let captionInspection: Record<string, unknown> | undefined;
@@ -69,7 +72,7 @@ for (const item of expected) {
   if (video?.width !== item.width || video?.height !== item.height) {
     errors.push(`${item.file} 分辨率错误：${video?.width}x${video?.height}`);
   }
-  if (video?.r_frame_rate !== "30/1") {
+  if (video?.r_frame_rate !== expectedFrameRate()) {
     errors.push(`${item.file} 帧率错误：${video?.r_frame_rate}`);
   }
   if (!audio) errors.push(`${item.file} 缺少音轨`);
@@ -97,17 +100,22 @@ if (!fs.existsSync(subtitlesPath)) {
   errors.push("缺少输出 subtitles_zh.srt");
 } else {
   const cues = parseSrt(fs.readFileSync(subtitlesPath, "utf8"));
-  const measured = measureCaptionDelivery(cues);
+  const measured = measureCaptionDelivery(
+    cues,
+    productionContract.captions.microCueThresholdSeconds,
+  );
   captionInspection = {
     cues: cues.length,
-    microCueThresholdSeconds: 1,
+    microCueThresholdSeconds: productionContract.captions.microCueThresholdSeconds,
     microCueCount: measured.microCueCount,
     microCueRatio: Number(measured.microCueRatio.toFixed(6)),
-    microCueRatioLimit: 0.1,
+    microCueRatioLimit: productionContract.captions.microCueRatioLimit,
     minimumCueSeconds: Number(measured.minimumCueSeconds.toFixed(3)),
   };
-  if (measured.microCueRatio > 0.1) {
-    errors.push(`小于 1 秒字幕占比 ${(measured.microCueRatio * 100).toFixed(1)}%，超过 10% 上限`);
+  if (measured.microCueRatio > productionContract.captions.microCueRatioLimit) {
+    errors.push(
+      `小于 ${productionContract.captions.microCueThresholdSeconds} 秒字幕占比 ${(measured.microCueRatio * 100).toFixed(1)}%，超过 ${(productionContract.captions.microCueRatioLimit * 100).toFixed(0)}% 上限`,
+    );
   }
 }
 

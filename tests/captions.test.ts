@@ -94,6 +94,7 @@ describe("caption helpers", () => {
       ),
     ).toEqual([{text: "提醒吃药", weight: 4}]);
     expect(captionTextsEquivalent(["提醒 吃药"], ["提醒吃药"])).toBe(true);
+    expect(captionTextsEquivalent(["订阅 7 月"], ["订阅7 月"])).toBe(true);
     expect(captionTextsEquivalent(["two words"], ["twowords"])).toBe(false);
   });
 

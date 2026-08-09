@@ -27,7 +27,7 @@
     "rewriteUser": "prompts/v3/rewrite-user.md"
   },
   "voiceGuide": "style/voice-guide.md",
-  "styleRules": "config/polish-v2-style.json",
+  "styleRules": "config/editorial-text-rules.json",
   "acceptedSamplesDir": "style/approved",
   "sampleCount": 3,
   "maxRounds": 3,

@@ -181,8 +181,11 @@ pnpm validate:research -- --episode episode-002
 
 - `config/polish-v2.json`: hosted LLM mode, prompt paths, thresholds and
   maximum rounds
-- `config/polish-v2-style.json`: sentence limits, banned terms, protected
-  English terms and spoken-number guidance
+- `config/editorial-text-rules.json`: versioned banned-pattern, sentence-length,
+  protected-term and spoken-number rules shared by polish and validators
+- `config/production-contract.json`: global duration, frame-rate, caption,
+  timeline-padding and asset-capture limits; episode-specific overrides remain
+  in `content/<episode>/episode.config.json`
 - `prompts/v3/`: current Oral Rewriter and polish-judge prompt bundle; earlier prompt directories are
   retained as immutable history
 - `style/approved/`: human-approved few-shot manuscripts

@@ -1,15 +1,14 @@
 {
+  "schemaVersion": "episode-config-v2",
   "id": "episode-002",
   "slug": "roost-slow-messaging",
   "product": "Roost Social",
   "title": "一条消息飞三天，为什么反而让人期待",
   "language": "zh-CN",
-  "fps": 30,
   "targetSeconds": 180,
-  "hardMaximumSeconds": 180,
-  "vertical": {
-    "width": 1080,
-    "height": 1920
+  "production": {
+    "timelineTailSeconds": {"seg-010": 1.2, "seg-011": 1.5, "seg-012": 2.4},
+    "hookAttributionSubjects": ["Roost", "Roost Social"]
   },
   "selection": "selected",
   "selectionReason": "Episode 001 备选池最高分候选；2026-04-28 发布后有可归因的用户增长、清楚的产品动作与可验证边界。",

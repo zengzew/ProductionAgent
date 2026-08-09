@@ -7,7 +7,7 @@ import {
   fitCaptionPartsToDuration,
   formatSrtTime,
 } from "../src/lib/captions";
-import {captionPlanSchema, scriptSchema} from "../src/schemas/episode";
+import {captionPlanSchema, episodeConfigSchema, scriptSchema} from "../src/schemas/episode";
 import type {TtsMetadata} from "../src/lib/tts-providers";
 import {
   episodeId,
@@ -19,11 +19,18 @@ import {
   writeJson,
 } from "../src/lib/project";
 import {getRenderContract} from "../src/lib/render-contract";
+import {
+  assertEpisodeMatchesProductionContract,
+  productionContract,
+  timelineTailSeconds,
+} from "../src/lib/production-contract";
 
 const renderContract = getRenderContract(episodeId);
-const fps = 30;
-const hookTailSeconds = 0.18;
-const bodyTailSeconds = 0.9;
+const fps = productionContract.delivery.fps;
+const episodeConfig = episodeConfigSchema.parse(
+  readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
+);
+assertEpisodeMatchesProductionContract(episodeConfig);
 const script = scriptSchema.parse(readJson<unknown>(path.join(episodeRoot, "story/script.json")));
 const captionPlan = captionPlanSchema.parse(
   readJson<unknown>(path.join(episodeRoot, "story/caption-plan.json")),
@@ -77,24 +84,21 @@ const scenes = script.segments.map((segment, index) => {
   if (!fs.existsSync(absoluteAudio)) throw new Error(`缺少 TTS 音频：${absoluteAudio}`);
   const audioDurationSeconds = probeDuration(absoluteAudio);
   const startSeconds = cursorSeconds;
-  const tailSeconds =
-    segment.section === "hook"
-      ? hookTailSeconds
-      : segment.id === "seg-010"
-        ? 1.2
-        : segment.id === "seg-011"
-          ? 1.5
-          : segment.id === "seg-012"
-            ? 2.4
-            : bodyTailSeconds;
+  const tailSeconds = timelineTailSeconds(episodeConfig, segment);
   const endSeconds = startSeconds + audioDurationSeconds + tailSeconds;
   const startFrame = Math.round(startSeconds * fps);
   const durationFrames = Math.max(1, Math.round((audioDurationSeconds + tailSeconds) * fps));
   const plannedCues = captionPlanBySegment.get(segment.id);
   if (!plannedCues) throw new Error(`字幕规划缺少段落：${segment.id}`);
   const parts = fitCaptionPartsToDuration(
-    captionPartsFromPlan(segment.narration, plannedCues),
+    captionPartsFromPlan(
+      segment.narration,
+      plannedCues,
+      productionContract.captions.maximumLineCharacters,
+    ),
     audioDurationSeconds,
+    productionContract.captions.microCueThresholdSeconds,
+    productionContract.captions.maximumLineCharacters,
   );
   const timestampParts = ttsFilesBySegment.get(segment.id)?.timestamps;
   const providerAligned = timestampParts

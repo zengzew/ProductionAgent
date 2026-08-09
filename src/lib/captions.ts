@@ -24,7 +24,7 @@ const wordSegmenter = new Intl.Segmenter("zh-CN", {granularity: "word"});
 export const visibleLength = (text: string): number => Array.from(text.replace(/\s/gu, "")).length;
 
 const normalizeMergedChineseWhitespace = (text: string): string =>
-  text.replace(/(\p{Script=Han})\s+(?=\p{Script=Han})/gu, "$1");
+  text.replace(/([\p{Script=Han}\d])\s+(?=[\p{Script=Han}\d])/gu, "$1");
 
 export const captionTextsEquivalent = (left: string[], right: string[]): boolean =>
   left.length === right.length &&

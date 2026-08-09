@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "production-contract-v1",
+  "delivery": {
+    "hardMaximumSeconds": 180,
+    "fps": 30,
+    "vertical": {
+      "width": 1080,
+      "height": 1920
+    }
+  },
+  "timeline": {
+    "hookTailSeconds": 0.18,
+    "bodyTailSeconds": 0.9
+  },
+  "captions": {
+    "maximumLineCharacters": 16,
+    "microCueThresholdSeconds": 1,
+    "microCueRatioLimit": 0.1
+  },
+  "hook": {
+    "targetSeconds": 20,
+    "firstSegmentMaximumSeconds": 3,
+    "actionTerms": [
+      "提醒",
+      "打开",
+      "复制",
+      "发送",
+      "回复",
+      "读取",
+      "安排",
+      "查询",
+      "问",
+      "邮件",
+      "日历"
+    ],
+    "attributionVerbs": ["说", "表示", "宣布", "披露", "称", "回忆"]
+  },
+  "capture": {
+    "navigationTimeoutMs": 60000,
+    "pageSettleMs": 4000,
+    "anchorSettleMs": 600
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "editorial-text-rules-v1",
+  "sentenceLength": {
+    "unit": "unicode-code-points-excluding-whitespace",
+    "delimitersPattern": "[。！？!?]",
+    "targetCharacters": 25,
+    "maximumCharacters": 36,
+    "enforcementScopes": ["polish"]
+  },
+  "bannedPatterns": [
+    {
+      "id": "research-report-tone",
+      "label": "研究报告口吻",
+      "pattern": "根据公开资料显示|公开信息没有透露|值得注意的是|从技术角度来看|该产品采用了",
+      "flags": "u",
+      "scopes": ["polish", "story", "content"],
+      "examples": ["根据公开资料显示，这项功能已经上线"]
+    },
+    {
+      "id": "research-process-narration",
+      "label": "研究过程口播",
+      "pattern": "公开资料|资料(没有|未)(给出|披露|说明)|能确认的只有",
+      "flags": "u",
+      "scopes": ["polish", "story", "content"],
+      "examples": ["能确认的只有这次更新"]
+    },
+    {
+      "id": "metric-gap-narration",
+      "label": "数据口径或缺口旁白",
+      "pattern": "这个口径|口径没有|没有拆分|看不出|回答不了|无法回答",
+      "flags": "u",
+      "scopes": ["polish", "story", "content"],
+      "examples": ["这个口径没有拆分用户数"]
+    },
+    {
+      "id": "meta-comment",
+      "label": "元评论",
+      "pattern": "听上去[^。！？\\n]{0,20}技术|说白了",
+      "flags": "u",
+      "scopes": ["polish", "story", "content"],
+      "examples": ["说白了，它就是一个入口"]
+    },
+    {
+      "id": "template-closing",
+      "label": "模板收束",
+      "pattern": "总而言之|不可否认|让我们拭目以待",
+      "flags": "u",
+      "scopes": ["polish", "story", "content"],
+      "examples": ["总而言之，产品已经准备好了"]
+    },
+    {
+      "id": "wave-opening",
+      "label": "浪潮式开场",
+      "pattern": "在[^。！？\\n]{0,20}浪潮中",
+      "flags": "u",
+      "scopes": ["polish", "story", "content"],
+      "examples": ["在人工智能浪潮中，团队开始尝试新入口"]
+    },
+    {
+      "id": "formal-reversal",
+      "label": "工整反转",
+      "pattern": "不是[^。！？\\n]{0,50}而是|并非[^。！？\\n]{0,50}而是",
+      "flags": "u",
+      "scopes": ["polish", "story", "content"],
+      "examples": ["这不是一次更新，而是重新定义产品"]
+    },
+    {
+      "id": "formal-parallel",
+      "label": "工整并列",
+      "pattern": "这不仅是[^。！？\\n]{0,50}更是|既有[^。！？\\n]{0,50}又有|不仅[^。！？\\n]{0,50}而且",
+      "flags": "u",
+      "scopes": ["polish", "story", "content"],
+      "examples": ["这不仅是一个工具，更是一种生活方式"]
+    },
+    {
+      "id": "abstract-growth-language",
+      "label": "抽象增长词",
+      "pattern": "点火事件|增长引擎|价值闭环|生态位",
+      "flags": "u",
+      "scopes": ["polish", "story", "content"],
+      "examples": ["这次发布成了增长引擎"]
+    },
+    {
+      "id": "advertising-language",
+      "label": "广告词",
+      "pattern": "沉浸式|极致|史诗级|震撼|完美融合",
+      "flags": "u",
+      "scopes": ["polish", "story", "content"],
+      "examples": ["它带来极致体验"]
+    },
+    {
+      "id": "layered-template",
+      "label": "三层模板",
+      "pattern": "第一层[^。！？\\n]{0,80}第二层[^。！？\\n]{0,80}第三层",
+      "flags": "u",
+      "scopes": ["polish", "story", "content"],
+      "examples": ["第一层是入口，第二层是动作，第三层是结果"]
+    },
+    {
+      "id": "translated-container-syntax",
+      "label": "英文式装入结构",
+      "pattern": "把[^。！？\\n]{1,25}(?:、|，)[^。！？\\n]{1,25}(?:、|和|与)[^。！？\\n]{1,25}装进",
+      "flags": "u",
+      "scopes": ["polish", "story", "content"],
+      "examples": ["把邮件、日历和提醒装进联系人列表"]
+    },
+    {
+      "id": "research-file-identity",
+      "label": "研究档案身份",
+      "pattern": "独立体验者|在那篇体验里",
+      "flags": "u",
+      "scopes": ["polish", "story", "content"],
+      "examples": ["在那篇体验里，用户提到一次等待"]
+    },
+    {
+      "id": "em-dash-pause",
+      "label": "破折号停顿",
+      "pattern": "—",
+      "flags": "u",
+      "scopes": ["polish", "story", "content"],
+      "examples": ["它先发来消息—然后改了日历"]
+    },
+    {
+      "id": "product-stage-beta-user",
+      "label": "产品阶段直译",
+      "pattern": "Beta\\s*用户|一般可用状态",
+      "flags": "u",
+      "scopes": ["polish", "story", "content"],
+      "examples": ["Beta 用户把用途带出邮箱"]
+    }
+  ],
+  "compatibilityExemptions": [
+    {
+      "id": "episode-001-delivery-bound-beta-wording",
+      "episodeId": "episode-001",
+      "narrationSha256": "65288b451d6e8f0816aa43b9a8f569ea29b9dfb4d4e77014ca09a755581a35f9",
+      "ruleIds": ["product-stage-beta-user"]
+    }
+  ],
+  "protectedTerms": {
+    "Poke": ["AI 助手", "联系人", "邮件助手"],
+    "Recipe": ["分享功能", "分享设置", "链接"],
+    "Cognition": ["公司", "收购方", "开发商"]
+  },
+  "numberReading": {
+    "normalizeForSpeech": true,
+    "rejectArabicDigits": true,
+    "enforcementScopes": ["polish"],
+    "examples": [
+      "2026 年写成二零二六年",
+      "100M+ messages 写成超过一亿条消息",
+      "3 个窗口写成三个窗口"
+    ]
+  }
+}

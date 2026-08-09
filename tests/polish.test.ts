@@ -28,10 +28,32 @@ const script = scriptSchema.parse({
   ],
 });
 const style = polishStyleSchema.parse({
-  maxSentenceChars: 20,
-  bannedTerms: ["总而言之"],
+  schemaVersion: "editorial-text-rules-v1",
+  sentenceLength: {
+    unit: "unicode-code-points-excluding-whitespace",
+    delimitersPattern: "[。！？!?]",
+    targetCharacters: 15,
+    maximumCharacters: 20,
+    enforcementScopes: ["polish"],
+  },
+  bannedPatterns: [
+    {
+      id: "template-closing",
+      label: "模板收束",
+      pattern: "总而言之",
+      flags: "u",
+      scopes: ["polish", "story", "content"],
+      examples: ["总而言之，完成了"],
+    },
+  ],
+  compatibilityExemptions: [],
   protectedTerms: {Poke: ["AI 助手"], Recipe: ["分享功能"], Cognition: ["公司"]},
-  numberReading: {rejectArabicDigits: true, examples: []},
+  numberReading: {
+    normalizeForSpeech: true,
+    rejectArabicDigits: true,
+    enforcementScopes: ["polish"],
+    examples: [],
+  },
 });
 
 describe("polish constraints", () => {
@@ -131,8 +153,9 @@ describe("polish constraints", () => {
     expect(config.judgeRubricVersion).toBe("polish-judge-v2");
     expect(config.prompts.judgeSystem).toBe("prompts/v3/judge-system.md");
     expect(judgePrompt).toContain("`oral-review-v2`");
-    expect(currentStyle.bannedTerms).toEqual(
-      expect.arrayContaining(["独立体验者", "在那篇体验里", "Beta 用户", "一般可用状态"]),
+    expect(currentStyle.schemaVersion).toBe("editorial-text-rules-v1");
+    expect(currentStyle.bannedPatterns.map((rule) => rule.id)).toEqual(
+      expect.arrayContaining(["research-file-identity", "product-stage-beta-user"]),
     );
   });
 });

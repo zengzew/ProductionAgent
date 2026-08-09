@@ -6,6 +6,12 @@ import {captionPartsFromPlan, splitCaptionText} from "./captions";
 import {chatJson} from "./llm";
 import {loadPolishV2Config, promptText, repoPath, type PolishStyle} from "./pipeline-v2-config";
 import {ensureDir, episodeId, episodeRoot, outputEpisodeRoot, readJson, writeJson} from "./project";
+import {
+  findArabicDigitHits,
+  findLongSentences,
+  findTextRuleViolations,
+} from "./editorial-text-rules";
+import {productionContract} from "./production-contract";
 import {scriptSchema, type Script} from "../schemas/episode";
 
 const candidateSchema = z.object({
@@ -80,7 +86,9 @@ export const evaluateHardConstraints = (
 ): HardConstraintReport => {
   const sourceText = narration(source);
   const output = narration(candidate);
-  const bannedTermHits = style.bannedTerms.filter((term) => output.includes(term));
+  const bannedTermHits = findTextRuleViolations(output, style, "polish", episodeId).map(
+    (violation) => violation.match,
+  );
   const missingProtectedTerms = Object.keys(style.protectedTerms).filter(
     (term) => sourceText.includes(term) && !output.includes(term),
   );
@@ -93,20 +101,12 @@ export const evaluateHardConstraints = (
       );
     })
     .map(([term]) => term);
-  const arabicDigitHits = style.numberReading.rejectArabicDigits
-    ? [...new Set(output.normalize("NFKC").match(/\d+/gu) ?? [])]
-    : [];
+  const arabicDigitHits = findArabicDigitHits(output, style, "polish");
   const longSentences = candidate.segments.flatMap((segment) =>
-    segment.narration
-      .split(/[。！？!?]/u)
-      .map((sentence) => sentence.trim())
-      .filter(Boolean)
-      .map((sentence) => ({
-        segmentId: segment.id,
-        sentence,
-        chars: Array.from(sentence.replace(/\s/gu, "")).length,
-      }))
-      .filter(({chars}) => chars > style.maxSentenceChars),
+    findLongSentences(segment.narration, style, "polish").map((sentence) => ({
+      segmentId: segment.id,
+      ...sentence,
+    })),
   );
   return {
     passed:
@@ -170,7 +170,10 @@ export const fillTemplate = (value: string, replacements: Record<string, string>
     return replacement;
   });
 
-export const createPolishedCaptionPlan = (candidate: Script, maxLineChars = 16) => ({
+export const createPolishedCaptionPlan = (
+  candidate: Script,
+  maxLineChars = productionContract.captions.maximumLineCharacters,
+) => ({
   segments: candidate.segments.map((segment) => {
     const cues = splitCaptionText(segment.narration, maxLineChars).map((part) => part.text);
     captionPartsFromPlan(segment.narration, cues, maxLineChars);

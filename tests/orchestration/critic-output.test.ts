@@ -20,6 +20,7 @@ import {
   parseOralReviewGate,
   parseRetentionGate,
 } from "../../src/lib/story";
+import {productionContract} from "../../src/lib/production-contract";
 
 const artifact: ArtifactRef = {
   artifactId: "episode-test:story:final-script",
@@ -145,11 +146,17 @@ describe("M2.1 critic output and evaluation", () => {
       issues: [issue("oral-judge", "oral.information-fidelity")],
     });
     expect(lowFloor).toMatchObject({verdict: "REJECT", evaluation: {normalizedTotal: 86.666667}});
-    expect(recomputeDeliveryHardRules({durationSeconds: 179.999, microCueRatio: 0.1}).passed).toBe(
-      true,
-    );
     expect(
-      recomputeDeliveryHardRules({durationSeconds: 180, microCueRatio: 0.100001}).failures,
+      recomputeDeliveryHardRules({
+        durationSeconds: productionContract.delivery.hardMaximumSeconds - 0.001,
+        microCueRatio: productionContract.captions.microCueRatioLimit,
+      }).passed,
+    ).toBe(true);
+    expect(
+      recomputeDeliveryHardRules({
+        durationSeconds: productionContract.delivery.hardMaximumSeconds,
+        microCueRatio: productionContract.captions.microCueRatioLimit + 0.000001,
+      }).failures,
     ).toEqual(["delivery.duration-render", "delivery.caption-timing"]);
   });
 

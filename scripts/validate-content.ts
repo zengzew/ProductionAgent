@@ -15,8 +15,15 @@ import {
   fitCaptionPartsToDuration,
   visibleLength,
 } from "../src/lib/captions";
-import {containsProductStageTranslation} from "../src/lib/baseline-gates";
 import {containsGenericCta, findVisualAssetContractViolations} from "../src/lib/story-quality";
+import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial-text-rules";
+import {
+  assertEpisodeMatchesProductionContract,
+  assertTimelineMatchesProductionContract,
+  containsConfiguredHookAction,
+  productionContract,
+  startsWithConfiguredAttribution,
+} from "../src/lib/production-contract";
 import {
   assertTimelineMatchesEpisode,
   generatedCaptionsPath,
@@ -29,6 +36,8 @@ const claims = readJson<unknown[]>(path.join(episodeRoot, "research/facts.json")
 const episodeConfig = episodeConfigSchema.parse(
   readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
 );
+assertEpisodeMatchesProductionContract(episodeConfig);
+const editorialTextRules = loadEditorialTextRules();
 const script = scriptSchema.parse(readJson<unknown>(path.join(episodeRoot, "story/script.json")));
 const captionPlan = captionPlanSchema.parse(
   readJson<unknown>(path.join(episodeRoot, "story/caption-plan.json")),
@@ -55,7 +64,11 @@ for (const segment of script.segments) {
     continue;
   }
   try {
-    captionPartsFromPlan(segment.narration, plannedCues);
+    captionPartsFromPlan(
+      segment.narration,
+      plannedCues,
+      productionContract.captions.maximumLineCharacters,
+    );
   } catch (error) {
     errors.push(error instanceof Error ? error.message : String(error));
   }
@@ -80,20 +93,20 @@ for (const segment of script.segments) {
 const hook = script.segments.filter((segment) => segment.section === "hook");
 const hookSeconds = hook.reduce((total, segment) => total + segment.targetSeconds, 0);
 const hookNarration = hook.map((segment) => segment.narration).join(" ");
-if (hookSeconds !== 20) errors.push(`Hook 目标时长应为 20 秒，当前 ${hookSeconds}`);
+if (hookSeconds !== productionContract.hook.targetSeconds) {
+  errors.push(`Hook 目标时长应为 ${productionContract.hook.targetSeconds} 秒，当前 ${hookSeconds}`);
+}
 const firstHook = hook.at(0);
 const firstHookText = `${firstHook?.narration ?? ""} ${firstHook?.onScreenText.join(" ") ?? ""}`;
-if (!firstHook || firstHook.targetSeconds > 3) {
-  errors.push("Hook 第一段必须在 3 秒内给出零背景可懂的核心动作");
+if (!firstHook || firstHook.targetSeconds > productionContract.hook.firstSegmentMaximumSeconds) {
+  errors.push(
+    `Hook 第一段必须在 ${productionContract.hook.firstSegmentMaximumSeconds} 秒内给出零背景可懂的核心动作`,
+  );
 }
-if (!/提醒|打开|复制|发送|回复|读取|安排|查询|问|邮件|日历/u.test(firstHookText)) {
+if (!containsConfiguredHookAction(firstHookText)) {
   errors.push("Hook 第一屏缺少陌生观众能立即理解的具体动作");
 }
-if (
-  /^(?:Cognition|Poke|[\p{Script=Han}A-Za-z0-9·.&-]{2,30}(?:公司)?)(?:说|表示|宣布|披露|称|回忆)/u.test(
-    firstHook?.narration ?? "",
-  )
-) {
+if (startsWithConfiguredAttribution(firstHook?.narration ?? "", episodeConfig)) {
   errors.push("Hook 第一段不得以陌生公司或产品名加来源归因起头");
 }
 if (!/[？?]/u.test(hookNarration)) errors.push("Hook 缺少未解决问题");
@@ -109,23 +122,13 @@ if (sourceNarration !== scriptNarration) {
   errors.push("narration.txt 与 script.json 旁白不一致");
 }
 
-const bannedNarrationPatterns = [
-  {label: "不是……而是……", pattern: /不是[^。！？\n]{0,40}而是/u},
-  {label: "研究过程口播", pattern: /公开资料|资料(没有|未)(给出|披露|说明)|能确认的只有/u},
-  {
-    label: "数据口径或缺口旁白",
-    pattern: /这个口径|口径没有|没有拆分|看不出|回答不了|无法回答/u,
-  },
-  {label: "元评论", pattern: /听上去[^。！？\n]{0,20}技术|说白了/u},
-  {label: "研究档案身份", pattern: /独立体验者|在那篇体验里/u},
-];
-for (const {label, pattern} of bannedNarrationPatterns) {
-  if (pattern.test(scriptNarration)) {
-    errors.push(`旁白命中禁用写法：${label}`);
-  }
-}
-if (containsProductStageTranslation(episodeId, scriptNarration)) {
-  errors.push("旁白命中禁用写法：产品阶段直译");
+for (const violation of findTextRuleViolations(
+  scriptNarration,
+  editorialTextRules,
+  "content",
+  episodeId,
+)) {
+  errors.push(`旁白命中禁用写法：${violation.label}`);
 }
 
 const spokenAttributions =
@@ -167,6 +170,7 @@ if (!fs.existsSync(timelinePath)) {
   const timeline = timelineSchema.parse(readJson<unknown>(timelinePath));
   try {
     assertTimelineMatchesEpisode(timeline, episodeId);
+    assertTimelineMatchesProductionContract(timeline);
   } catch (error) {
     errors.push(error instanceof Error ? error.message : String(error));
   }
@@ -178,7 +182,7 @@ if (!fs.existsSync(timelinePath)) {
         scene.narration === script.segments[index]?.narration,
     );
   if (timelineMatchesScript) {
-    const maximumDuration = episodeConfig.hardMaximumSeconds;
+    const maximumDuration = productionContract.delivery.hardMaximumSeconds;
     if (timeline.totalSeconds >= maximumDuration) {
       errors.push(
         `视频时长必须小于 ${maximumDuration} 秒，当前 ${timeline.totalSeconds.toFixed(3)} 秒`,
@@ -189,8 +193,10 @@ if (!fs.existsSync(timelinePath)) {
         .filter((scene) => scene.section === "hook")
         .map((scene) => scene.endSeconds),
     );
-    if (!Number.isFinite(actualHookEnd) || actualHookEnd > 20) {
-      errors.push(`Hook 真实音频必须在 20 秒内结束，当前 ${actualHookEnd.toFixed(3)} 秒`);
+    if (!Number.isFinite(actualHookEnd) || actualHookEnd > productionContract.hook.targetSeconds) {
+      errors.push(
+        `Hook 真实音频必须在 ${productionContract.hook.targetSeconds} 秒内结束，当前 ${actualHookEnd.toFixed(3)} 秒`,
+      );
     }
   }
   const generatedTimelineFile = path.join(repoRoot, generatedTimelinePath(episodeId));
@@ -201,6 +207,7 @@ if (!fs.existsSync(timelinePath)) {
     const generatedTimeline = timelineSchema.parse(readJson<unknown>(generatedTimelineFile));
     try {
       assertTimelineMatchesEpisode(generatedTimeline, episodeId);
+      assertTimelineMatchesProductionContract(generatedTimeline);
     } catch (error) {
       errors.push(error instanceof Error ? error.message : String(error));
     }
@@ -221,7 +228,9 @@ if (!fs.existsSync(timelinePath)) {
         caption.text,
       ]);
       for (const line of caption.text.split("\n")) {
-        if (visibleLength(line) > 16) errors.push(`字幕超过 16 字：${line}`);
+        if (visibleLength(line) > productionContract.captions.maximumLineCharacters) {
+          errors.push(`字幕超过 ${productionContract.captions.maximumLineCharacters} 字：${line}`);
+        }
         if (/[。！？；：，、,.!?;:]$/u.test(line)) {
           errors.push(`字幕末尾不应保留标点：${line}`);
         }
@@ -231,8 +240,14 @@ if (!fs.existsSync(timelinePath)) {
       const timelineScene = timeline.scenes.find((scene) => scene.id === segment.id);
       const plannedCues = captionPlanBySegment.get(segment.id) ?? [];
       const expected = fitCaptionPartsToDuration(
-        captionPartsFromPlan(segment.narration, plannedCues),
+        captionPartsFromPlan(
+          segment.narration,
+          plannedCues,
+          productionContract.captions.maximumLineCharacters,
+        ),
         timelineScene?.audioDurationSeconds ?? 0,
+        productionContract.captions.microCueThresholdSeconds,
+        productionContract.captions.maximumLineCharacters,
       ).map((part) => part.text);
       const actual = captionsByScene.get(segment.id) ?? [];
       if (!captionTextsEquivalent(actual, expected)) {

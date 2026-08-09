@@ -6,6 +6,7 @@ import {
   type CriticResult,
   type EvaluationResult,
 } from "./schemas/critic-output";
+import {productionContract} from "../lib/production-contract";
 
 type RubricDimension = {id: string; maxScore: number; weight: number; floor: number};
 type Rubric = {version: string; threshold: number; dimensions: readonly RubricDimension[]};
@@ -241,8 +242,12 @@ export const recomputeDeliveryHardRules = (input: {
   englishWordBreaks?: number;
 }): {passed: boolean; failures: string[]} => {
   const failures = [
-    ...(input.durationSeconds >= 180 ? ["delivery.duration-render"] : []),
-    ...(input.microCueRatio > 0.1 ? ["delivery.caption-timing"] : []),
+    ...(input.durationSeconds >= productionContract.delivery.hardMaximumSeconds
+      ? ["delivery.duration-render"]
+      : []),
+    ...(input.microCueRatio > productionContract.captions.microCueRatioLimit
+      ? ["delivery.caption-timing"]
+      : []),
     ...((input.captionWordBreaks ?? 0) > 0 || (input.englishWordBreaks ?? 0) > 0
       ? ["delivery.caption-split"]
       : []),

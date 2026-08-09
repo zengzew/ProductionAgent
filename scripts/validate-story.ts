@@ -1,7 +1,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import {factSchema} from "../src/schemas/episode";
+import {episodeConfigSchema, factSchema} from "../src/schemas/episode";
 import {
   findOralReviewDecisionErrors,
   parseCriticGate,
@@ -19,8 +19,12 @@ import {
   findMissingHookCandidateFields,
   parseVisualPlanSections,
 } from "../src/lib/story-quality";
-import {containsProductStageTranslation} from "../src/lib/baseline-gates";
 import {episodeId, episodeRoot, readJson, repoRoot} from "../src/lib/project";
+import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial-text-rules";
+import {
+  assertEpisodeMatchesProductionContract,
+  productionContract,
+} from "../src/lib/production-contract";
 
 const storyRoot = path.join(episodeRoot, "story");
 const requiredFiles = [
@@ -39,6 +43,11 @@ const requiredFiles = [
   "retention-report.md",
 ];
 const errors: string[] = [];
+const episodeConfig = episodeConfigSchema.parse(
+  readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
+);
+assertEpisodeMatchesProductionContract(episodeConfig);
+const editorialTextRules = loadEditorialTextRules();
 
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(storyRoot, file))) {
@@ -263,41 +272,20 @@ for (const segment of segments) {
   }
 }
 
-if (hookTargetSeconds !== 20) {
-  errors.push(`Hook 目标时长应为 20 秒，当前 ${hookTargetSeconds}`);
+if (hookTargetSeconds !== productionContract.hook.targetSeconds) {
+  errors.push(
+    `Hook 目标时长应为 ${productionContract.hook.targetSeconds} 秒，当前 ${hookTargetSeconds}`,
+  );
 }
-if (totalTargetSeconds > 180) {
-  errors.push(`Final script 目标时长不得超过 180 秒，当前 ${totalTargetSeconds}`);
+if (totalTargetSeconds > productionContract.delivery.hardMaximumSeconds) {
+  errors.push(
+    `Final script 目标时长不得超过 ${productionContract.delivery.hardMaximumSeconds} 秒，当前 ${totalTargetSeconds}`,
+  );
 }
 
 const narration = segments.map((segment) => segment.narration).join("\n");
-const bannedNarrationPatterns = [
-  {
-    label: "研究报告口吻",
-    pattern: /根据公开资料显示|公开信息没有透露|值得注意的是|从技术角度来看|该产品采用了/u,
-  },
-  {label: "研究过程口播", pattern: /公开资料|资料(没有|未)(给出|披露|说明)|能确认的只有/u},
-  {
-    label: "数据口径或缺口旁白",
-    pattern: /这个口径|口径没有|没有拆分|看不出|回答不了|无法回答/u,
-  },
-  {label: "元评论", pattern: /听上去[^。！？\n]{0,20}技术|说白了/u},
-  {label: "模板收束", pattern: /总而言之|不可否认|让我们拭目以待/u},
-  {label: "工整反转", pattern: /不是[^。！？\n]{0,50}而是|并非[^。！？\n]{0,50}而是/u},
-  {
-    label: "工整并列",
-    pattern: /这不仅是[^。！？\n]{0,50}更是|既有[^。！？\n]{0,50}又有|不仅[^。！？\n]{0,50}而且/u,
-  },
-  {label: "抽象增长词", pattern: /点火事件|增长引擎|价值闭环|生态位/u},
-  {label: "广告词", pattern: /沉浸式|极致|史诗级|震撼|完美融合/u},
-  {label: "研究档案身份", pattern: /独立体验者|在那篇体验里/u},
-  {label: "破折号", pattern: /—/u},
-];
-for (const {label, pattern} of bannedNarrationPatterns) {
-  if (pattern.test(narration)) errors.push(`final-script 旁白命中禁用写法：${label}`);
-}
-if (containsProductStageTranslation(episodeId, narration)) {
-  errors.push("final-script 旁白命中禁用写法：产品阶段直译");
+for (const violation of findTextRuleViolations(narration, editorialTextRules, "story", episodeId)) {
+  errors.push(`final-script 旁白命中禁用写法：${violation.label}`);
 }
 
 const spokenAttributions =

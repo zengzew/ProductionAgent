@@ -1,30 +1,29 @@
 # 技术债 Backlog：v1/v2 双轨与共享能力
 
-本清单对应 code review 2026-08-09 的中等项 14–20。当前只完成规划，不在本轮实施。排期应以当前 `v2` 生产链稳定、已有 episode 产物可回归为前提；删除旧链路或抽取组件时，必须保留现有竖版渲染、字幕和门禁证据。
+本清单对应 code review 2026-08-09 的中等项 14–20。TD-001～003 已于 2026-08-10 完成代码与非媒体门禁收敛；TD-004～007 仍待实施。此次没有重新生成 TTS、字幕、时间轴或 MP4，也没有做新的媒体交付验收；历史媒体和 Delivery Critic 结论不因本次配置治理自动续期。
 
 ## TD-001：清理 v1 TTS、pipeline 与旧配置
 
-- 背景：`src/lib/tts.ts`、`src/lib/pipeline-config.ts`、`config/tts.json`、旧 `polish.json` 与 `polish-style.json` 已没有明确调用方，且旧规则与 v2 配置存在漂移。
-- 目标：完成调用关系盘点和迁移确认后，将旧链路标记 deprecated 并删除死代码、旧配置和无效入口；保留 v2 作为唯一生产实现。
-- 影响范围：TTS、polish、配置文件、package scripts、文档、测试夹具和历史运行说明。
-- 预估工作量：1–2 人日。
-- 建议优先级：P1，依赖现有 v2 TTS/交付门禁先保持稳定。
+- 状态：**完成**。
+- 调用关系结论：`src/lib/tts.ts` 只调用 `pipeline-config.ts`，后者只读取 `config/tts.json`；旧 `polish.json` 只引用旧 `polish-style.json`。仓库脚本、测试和生产入口均未调用这五个文件。
+- 迁移决定：删除上述五个死文件，不保留会继续漂移的 deprecated 运行层。TTS 唯一生产实现为 `src/lib/tts-providers.ts` + `config/tts-v2.json`；polish 唯一生产入口为 `src/lib/polish.ts` + `config/polish-v2.json`。继续排除通用 provider/API-key UI 和自部署模型。
+- 兼容边界：历史研究报告保留原文；现役 README 与 LangGraph 实施映射已改指向 v2 文件。
 
 ## TD-002：统一禁用写法与 polish 风格规则的唯一来源
 
-- 背景：`validate-story.ts`、`validate-content.ts` 和 `config/polish-v2-style.json` 各自维护规则，正则集合和长度上限已经不一致。
-- 目标：建立一个带版本号的共享规则模块或规范配置，由 polish、story validator 和 content validator 共同读取；为规则变更保留明确的回归样例。
-- 影响范围：旁白生成、polish judge、Story Pipeline、内容门禁、配置 schema 和相关测试。
-- 预估工作量：1–1.5 人日。
-- 建议优先级：P1，避免同一稿件在不同门禁得到相反结论。
+- 状态：**完成**。
+- 唯一真源：`config/editorial-text-rules.json`（`editorial-text-rules-v1`），由 `src/lib/editorial-text-rules.ts` 统一做 schema、正则、作用范围、字符计数和兼容例外校验。
+- 调用方：polish、`validate-story` 和 `validate-content` 都通过同一 `findTextRuleViolations` 执行禁用规则；规则自带逐规则回归样例，测试保证三个作用域得到相同决定。
+- 长度语义：统一为“去空白后的 Unicode code point 数”；25 字是目标、36 字只在 polish 硬约束中执行。数字口播同样显式限定为 polish 作用域，避免 validator 暗含另一套阈值。
+- 兼容决定：Episode 001 已绑定交付的 `Beta 用户` 旧措辞只按 episode ID + 完整旁白 SHA-256 豁免；文本一旦变化，例外自动失效。
 
 ## TD-003：集中维护全局与 episode 级生产常量
 
-- 背景：180 秒上限、30 fps、字幕/音频尾部留白、Hook 品牌词和若干 episode 特化规则分散在多个脚本中，新 episode 需要改代码才能适配。
-- 目标：区分全局交付约束与 episode 配置，把时长、帧率、尾部留白、Hook 检查和素材锚点纳入可校验的配置契约；所有 validator 和渲染脚本只读取同一来源。
-- 影响范围：`build-timeline`、`validate-content`、`validate-comparison`、`validate-delivery`、`evaluation`、`inspect-output`、episode config schema。
-- 预估工作量：1.5–2 人日。
-- 建议优先级：P1，先于继续增加新 episode。
+- 状态：**完成**。
+- 全局真源：`config/production-contract.json`（`production-contract-v1`）保存严格时长上限、fps、竖版尺寸、默认 Hook/body 尾部留白、字幕行宽与微短 cue 阈值、Hook 时长/动作词/归因动词和素材捕获等待参数。
+- episode 真源：`episode-config-v2` 只保留目标时长、逐段尾部留白覆盖、Hook 归因主体以及素材 URL/文件/可选唯一锚点。全局 fps、硬时长和画幅已从四份 episode 配置删除。
+- 调用方：`build-timeline`、`inspect-output`、`validate-comparison`、`validate-delivery`、`evaluation`、`validate-story`、`validate-content` 和 `capture-assets` 均读取共享契约；通用脚本不再出现 `seg-010/011/012`、Poke/Cognition、180 或 30 fps 的本地判断。
+- 验证边界：已对 Episode 001 和 Episode 002 运行 research/workflow/story/content 非媒体 validator。没有调用真实 TTS、浏览器、渲染、FFprobe 媒体读回或 Delivery Critic，因此不声明媒体重新验收。
 
 ## TD-004：抽取共享 Episode 视觉组件
 
@@ -60,4 +59,4 @@
 
 ## 建议排期
 
-先做 TD-001、TD-002 和 TD-003，形成单一配置与规则来源；随后并行推进 TD-004 的视觉抽取和 TD-005/TD-006 的工程整理；最后处理 TD-007 的兼容层清理。每个条目关闭前都应至少通过 `pnpm typecheck`、`pnpm test`、相关 episode 的 `validate:content`，以及受影响的竖版渲染与交付门禁。
+下一轮只处理 TD-004～007：先评估 TD-004 的共享视觉组件与真实竖版回归成本；TD-005/TD-006 处理 validator 公共模块和测试夹具/评分入口；TD-007 再清理剩余 render contract、旧别名、音效 seg-id 和历史 artifact 命名兼容。媒体相关条目关闭前仍需重新生成受影响产物并完成竖版读回与 Delivery Critic，不能复用本轮非媒体结果代替。

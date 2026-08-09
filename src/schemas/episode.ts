@@ -1,17 +1,16 @@
 import {z} from "zod";
 
 export const episodeConfigSchema = z.object({
+  schemaVersion: z.literal("episode-config-v2"),
   id: z.string().regex(/^episode-[a-z0-9-]+$/u),
   slug: z.string().min(1),
   product: z.string().min(1),
   title: z.string().min(1),
   language: z.string().min(1),
-  fps: z.number().int().positive(),
-  targetSeconds: z.number().positive().max(180),
-  hardMaximumSeconds: z.number().positive().max(180),
-  vertical: z.object({
-    width: z.literal(1080),
-    height: z.literal(1920),
+  targetSeconds: z.number().positive(),
+  production: z.object({
+    timelineTailSeconds: z.record(z.string().regex(/^seg-[a-z0-9-]+$/u), z.number().nonnegative()),
+    hookAttributionSubjects: z.array(z.string().min(1)).min(1),
   }),
   selection: z.string().min(1),
   selectionReason: z.string().min(1),

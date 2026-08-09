@@ -5,6 +5,7 @@ import {spawnSync} from "node:child_process";
 import {parseComparisonGate} from "../src/lib/comparison";
 import {assertSpawnSucceeded, parseFiniteNumber} from "../src/lib/process";
 import {episodeRoot, repoRoot} from "../src/lib/project";
+import {productionContract} from "../src/lib/production-contract";
 
 const reportPath = path.join(episodeRoot, "production/comparison-report.md");
 if (!fs.existsSync(reportPath)) {
@@ -82,8 +83,10 @@ const duration = (filePath: string): number => {
 };
 if (fs.existsSync(absolute(gate.directorVideo))) {
   const directorDuration = duration(absolute(gate.directorVideo));
-  if (directorDuration >= 180) {
-    errors.push(`导演版成片必须严格小于 180 秒，当前 ${directorDuration.toFixed(3)} 秒`);
+  if (directorDuration >= productionContract.delivery.hardMaximumSeconds) {
+    errors.push(
+      `导演版成片必须严格小于 ${productionContract.delivery.hardMaximumSeconds} 秒，当前 ${directorDuration.toFixed(3)} 秒`,
+    );
   }
 }
 

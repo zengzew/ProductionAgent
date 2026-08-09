@@ -7,6 +7,7 @@ import {captureConfiguredAssets, type CapturePage} from "../src/lib/capture-asse
 import {buildPokeSoundCues} from "../src/lib/poke-sound-design";
 import {assertSpawnSucceeded, parseFiniteNumber} from "../src/lib/process";
 import {readJson, resolveEpisodeId} from "../src/lib/project";
+import {productionContract} from "../src/lib/production-contract";
 
 describe("correctness contracts", () => {
   it("parses named episode flags independently from render mode", () => {
@@ -115,6 +116,11 @@ describe("correctness contracts", () => {
       async () => page,
     );
     expect(goto).toHaveBeenCalledWith("https://example.com", expect.any(Object));
+    expect(goto).toHaveBeenCalledWith("https://example.com", {
+      waitUntil: "domcontentloaded",
+      timeout: productionContract.capture.navigationTimeoutMs,
+    });
+    expect(page.waitForTimeout).toHaveBeenCalledWith(productionContract.capture.pageSettleMs);
     expect(screenshot).toHaveBeenCalledWith({
       path: "/tmp/captures/home.png",
       fullPage: false,

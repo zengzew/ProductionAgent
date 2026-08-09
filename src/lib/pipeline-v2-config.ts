@@ -3,6 +3,7 @@ import path from "node:path";
 import {z} from "zod";
 import {readJson, repoRoot} from "./project";
 import type {RetryableFetchOptions} from "./network";
+import {editorialTextRulesSchema, loadEditorialTextRules} from "./editorial-text-rules";
 
 const normalization = z.object({
   integratedLufs: z.number(),
@@ -12,17 +13,7 @@ const normalization = z.object({
   bitrate: z.string().min(1),
 });
 
-export const polishStyleSchema = z.object({
-  targetSentenceChars: z.number().int().positive().optional(),
-  maxSentenceChars: z.number().int().positive(),
-  bannedTerms: z.array(z.string().min(1)),
-  protectedTerms: z.record(z.string(), z.array(z.string().min(1)).min(1)),
-  numberReading: z.object({
-    normalizeForSpeech: z.boolean().optional(),
-    rejectArabicDigits: z.boolean(),
-    examples: z.array(z.string().min(1)),
-  }),
-});
+export const polishStyleSchema = editorialTextRulesSchema;
 
 const polishConfig = z.object({
   promptVersion: z.literal("polish-prompt-bundle-v3"),
@@ -110,7 +101,7 @@ export const repoPath = (relative: string): string => {
 
 export const loadPolishV2Config = () => {
   const config = polishConfig.parse(readJson<unknown>(repoPath("config/polish-v2.json")));
-  const style = polishStyleSchema.parse(readJson<unknown>(repoPath(config.styleRules)));
+  const style = loadEditorialTextRules(config.styleRules);
   for (const value of [
     config.voiceGuide,
     config.acceptedSamplesDir,

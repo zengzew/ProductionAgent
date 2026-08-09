@@ -6,10 +6,12 @@ import {
   sourceSchema,
 } from "../src/schemas/episode";
 import {episodeRoot, readJson} from "../src/lib/project";
+import {assertEpisodeMatchesProductionContract} from "../src/lib/production-contract";
 
 const episodeConfig = episodeConfigSchema.parse(
   readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
 );
+assertEpisodeMatchesProductionContract(episodeConfig);
 const sourcesRaw = readJson<unknown[]>(path.join(episodeRoot, "research/sources.json"));
 const claimsRaw = readJson<unknown[]>(path.join(episodeRoot, "research/facts.json"));
 const researchTimeline = researchTimelineSchema.parse(
