@@ -8,6 +8,7 @@ import {
   routeTargetSchema,
   type CriticIssue,
 } from "./schemas/critic-output";
+import {stableJson} from "./stable-json";
 
 const severityValues = ["info", "low", "medium", "high", "blocker"] as const;
 const issueStatusValues = ["open", "resolved", "waived", "wontfix", "escalated"] as const;
@@ -53,7 +54,6 @@ export type OwnershipRule = StaticOwnershipRule | ProvenanceOwnershipRule;
 export type OwnershipConfig = z.infer<typeof ownershipConfigSchema>;
 
 export const defaultOwnershipConfig: OwnershipConfig = ownershipConfigSchema.parse(ownershipJson);
-export const ownershipConfig = defaultOwnershipConfig;
 
 export type ArtifactProvenance = {
   producer?: string;
@@ -187,7 +187,11 @@ const compareIssues = (left: RoutingIssue, right: RoutingIssue): number => {
 const sortedIssues = (issues: readonly RoutingIssue[]): RoutingIssue[] =>
   [...issues].sort(compareIssues);
 
+const validatedOwnershipConfigs = new WeakMap<OwnershipConfig, string>();
+
 const validateOwnershipConfig = (config: OwnershipConfig): void => {
+  const fingerprint = stableJson(config);
+  if (validatedOwnershipConfigs.get(config) === fingerprint) return;
   const parsed = ownershipConfigSchema.parse(config);
   const knownCategories = new Set(issueCategories);
   const configuredCategories = Object.keys(parsed.categories);
@@ -203,6 +207,7 @@ const validateOwnershipConfig = (config: OwnershipConfig): void => {
   if (new Set(parsed.restartOrder).size !== parsed.restartOrder.length) {
     throw new Error("ROUTING_CONFIG_DUPLICATE_RESTART_ORDER");
   }
+  validatedOwnershipConfigs.set(config, fingerprint);
 };
 
 const issueArtifactId = (issue: RoutingIssue): string | undefined =>
@@ -241,7 +246,7 @@ const provenanceCandidates = (value: unknown): ProvenanceValue[] | undefined => 
 
 const provenanceRecordKey = (value: ProvenanceValue): string => {
   const record = typeof value === "string" ? {producer: value} : value;
-  return JSON.stringify(record, ["producer", "ownerAgent", "routeTarget", "restartAt", "stage"]);
+  return stableJson(record);
 };
 
 const combineProvenance = (candidates: readonly ProvenanceValue[]): ProvenanceResolution => {

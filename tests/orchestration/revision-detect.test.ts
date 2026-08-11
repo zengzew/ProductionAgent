@@ -10,203 +10,50 @@ import {
   detectRegression,
   recordRevisionAttempt,
   strategyForNextDispatch,
-  type RevisionIssue,
 } from "../../src/orchestration";
-import type {ArtifactRef, CriticName, CriticResult} from "../../src/orchestration";
+import type {CriticIssue, CriticName, CriticResult} from "../../src/orchestration";
+import {
+  allPassingCriticResultsFixture,
+  criticIssueFixture,
+  criticResultFixture,
+} from "../helpers/critics";
+import {revisionArtifactFixture, revisionAttemptFixture} from "../helpers/revisions";
 
-const ref = (artifactId: string, sha256: string, revision = 1): ArtifactRef => ({
-  artifactId: `episode-revision:story:${artifactId}`,
-  episodeId: "episode-revision",
-  path: `content/episode-revision/story/${artifactId}.md`,
-  mediaType: "text/markdown",
-  schemaVersion: "fixture-v1",
-  revision,
-  sha256,
-  sizeBytes: 1,
-  producer: "fixture",
-  createdAt: "2026-08-08T00:00:00.000Z",
-});
-
-const versions: Record<CriticName, string> = {
-  "oral-judge": "oral-review-v2",
-  "audience-critic": "product-story-v4",
-  "fact-guardian": "fact-guardian-v1",
-  "retention-critic": "retention-critic-v2",
-  "compliance-critic": "compliance-critic-v1",
-  "delivery-critic": "delivery-critic-v1",
-};
-
-const dimensions: Record<CriticName, Array<{id: string; score: number}>> = {
-  "oral-judge": [
-    {id: "chineseNaturalness", score: 4},
-    {id: "spokenDelivery", score: 4},
-    {id: "informationFidelity", score: 4},
-  ],
-  "audience-critic": [
-    {id: "hook", score: 13},
-    {id: "conflict", score: 13},
-    {id: "humanElement", score: 8},
-    {id: "productClarity", score: 13},
-    {id: "growthLogic", score: 13},
-    {id: "technologyExplanation", score: 13},
-    {id: "naturalChinese", score: 13},
-  ],
-  "fact-guardian": [
-    "claimCoverage",
-    "semanticFidelity",
-    "sourceIdentityAttribution",
-    "metricAndTimeScope",
-    "causalityInferenceBoundary",
-    "visualTruthBoundary",
-  ].map((id) => ({id, score: 1})),
-  "retention-critic": [
-    "first3Seconds",
-    "first30Seconds",
-    "midVideoEngagement",
-    "endingSatisfaction",
-  ].map((id) => ({id, score: 20})),
-  "compliance-critic": ["platformPolicy", "advertisingLanguage", "brandSafety"].map((id) => ({
-    id,
-    score: 1,
-  })),
-  "delivery-critic": [
-    "artifactIntegrity",
-    "durationAndVerticalFormat",
-    "captionIntegrityAndTiming",
-    "audioIntelligibilityAndSync",
-    "firstFrameComprehension",
-    "evidenceRightsReadability",
-    "renderContinuitySafeArea",
-  ].map((id) => ({id, score: 1})),
-};
-
-const floorByCritic: Record<CriticName, Record<string, number>> = {
-  "oral-judge": {chineseNaturalness: 4, spokenDelivery: 4, informationFidelity: 4},
-  "audience-critic": {
-    hook: 9,
-    conflict: 9,
-    humanElement: 6,
-    productClarity: 9,
-    growthLogic: 9,
-    technologyExplanation: 9,
-    naturalChinese: 9,
-  },
-  "fact-guardian": Object.fromEntries(dimensions["fact-guardian"].map(({id}) => [id, 1])),
-  "retention-critic": {
-    first3Seconds: 15,
-    first30Seconds: 15,
-    midVideoEngagement: 15,
-    endingSatisfaction: 15,
-  },
-  "compliance-critic": Object.fromEntries(dimensions["compliance-critic"].map(({id}) => [id, 1])),
-  "delivery-critic": Object.fromEntries(dimensions["delivery-critic"].map(({id}) => [id, 1])),
-};
+const ref = revisionArtifactFixture;
 
 const issue = (
   id: string,
-  severity: RevisionIssue["severity"],
-  status: RevisionIssue["status"] = "open",
-): RevisionIssue => ({
-  id,
-  category: "script.fact-accuracy",
-  severity,
-  status,
-  affectedArtifact: {
-    artifactId: ref("script", "a".repeat(64)).artifactId,
-    path: "content/episode-revision/story/script.md",
-    sha256: "a".repeat(64),
-    locator: {kind: "line-range", value: "1-2"},
-  },
-});
+  severity: CriticIssue["severity"],
+  status: CriticIssue["status"] = "open",
+): CriticIssue =>
+  criticIssueFixture({
+    id,
+    category: "script.fact-accuracy",
+    severity,
+    status,
+    artifact: ref("script", "a".repeat(64)),
+  });
 
 const result = (
   critic: CriticName,
   overrides: {
     scores?: Partial<Record<string, number>>;
     verdict?: "PASS" | "REJECT";
-    issues?: RevisionIssue[];
+    issues?: CriticIssue[];
     passedThresholds?: boolean;
     rubricVersion?: string;
     dimensionFloors?: Record<string, number>;
   } = {},
-): CriticResult => {
-  const scoreValues = dimensions[critic].map((dimension) => ({
-    ...dimension,
-    score: overrides.scores?.[dimension.id] ?? dimension.score,
-  }));
-  const maxScores: Record<CriticName, Record<string, number>> = {
-    "oral-judge": {chineseNaturalness: 5, spokenDelivery: 5, informationFidelity: 5},
-    "audience-critic": Object.fromEntries(
-      dimensions["audience-critic"].map(({id}) => [id, id === "humanElement" ? 10 : 15]),
-    ),
-    "fact-guardian": Object.fromEntries(dimensions["fact-guardian"].map(({id}) => [id, 1])),
-    "retention-critic": Object.fromEntries(dimensions["retention-critic"].map(({id}) => [id, 25])),
-    "compliance-critic": Object.fromEntries(dimensions["compliance-critic"].map(({id}) => [id, 1])),
-    "delivery-critic": Object.fromEntries(dimensions["delivery-critic"].map(({id}) => [id, 1])),
-  };
-  const weighted = scoreValues.reduce(
-    (total, dimension) =>
-      total + (dimension.score / maxScores[critic][dimension.id]!) * (1 / scoreValues.length),
-    0,
-  );
-  const evaluation = {
-    dimensions: scoreValues.map((dimension) => ({
-      ...dimension,
-      maxScore: maxScores[critic][dimension.id]!,
-      weight: 1 / scoreValues.length,
-      evidenceIssueIds: [],
-    })),
-    rawTotal: scoreValues.reduce((total, dimension) => total + dimension.score, 0),
-    normalizedTotal: Number((weighted * 100).toFixed(6)),
-    threshold:
-      critic === "audience-critic"
-        ? 85
-        : critic === "retention-critic"
-          ? 80
-          : critic === "oral-judge"
-            ? 80
-            : 100,
-    dimensionFloors: overrides.dimensionFloors ?? floorByCritic[critic],
-    passedThresholds: overrides.passedThresholds ?? true,
-  };
-  return {
-    schemaVersion: "critic-output-v1",
-    episodeId: "episode-revision",
-    executionId: `exec-${critic}`,
+): CriticResult =>
+  criticResultFixture({
     critic,
-    round: 1,
-    rubricVersion: overrides.rubricVersion ?? versions[critic],
+    episodeId: "episode-revision",
     reviewedArtifacts: [ref("script", "a".repeat(64))],
-    evaluation,
-    issues: (overrides.issues ?? []) as CriticResult["issues"],
-    blockers: (overrides.issues ?? [])
-      .filter((item) => item.severity === "blocker")
-      .map((item) => item.id),
-    verdict: overrides.verdict ?? "PASS",
-    primaryRoute: null,
-    returnTo: "none",
-  };
-};
+    ...overrides,
+  });
 
-const allPassing = (): CriticResult[] =>
-  (Object.keys(versions) as CriticName[]).map((critic) => result(critic));
-
-const attempt = (
-  revisionId: string,
-  disposition: "rejected" | "quarantined" | "selected" = "rejected",
-) => ({
-  revisionId,
-  executionId: `exec-${revisionId}`,
-  ownerAgent: "script-writer" as const,
-  issueIds: ["issue-target"],
-  before: [ref("script", "a".repeat(64))],
-  candidate: [ref("script", disposition === "selected" ? "b".repeat(64) : "c".repeat(64), 2)],
-  evaluations: [],
-  disposition,
-  regressionIds: [],
-  oscillationIds: [],
-  createdAt: "2026-08-08T00:00:00.000Z",
-});
+const allPassing = (): CriticResult[] => allPassingCriticResultsFixture("episode-revision");
+const attempt = revisionAttemptFixture;
 
 describe("WP-M2-05 revision detection", () => {
   it("REVISION-002 rejects a higher-total candidate with a new fact blocker", () => {
@@ -277,7 +124,7 @@ describe("WP-M2-05 revision detection", () => {
   it("treats changed dimension floors as an incomparable rubric", () => {
     const before = result("audience-critic");
     const candidate = result("audience-critic", {
-      dimensionFloors: {...floorByCritic["audience-critic"], hook: 10},
+      dimensionFloors: {...before.evaluation.dimensionFloors, hook: 10},
     });
     const report = detectRegression({
       before: [ref("script", "a".repeat(64))],

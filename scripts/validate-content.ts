@@ -1,20 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
-import {
-  assetSchema,
-  captionPlanSchema,
-  claimSchema,
-  episodeConfigSchema,
-  scriptSchema,
-  timelineSchema,
-} from "../src/schemas/episode";
-import {episodeId, episodeRoot, readJson, repoRoot} from "../src/lib/project";
-import {
-  captionPartsFromPlan,
-  captionTextsEquivalent,
-  fitCaptionPartsToDuration,
-  visibleLength,
-} from "../src/lib/captions";
+import {assetSchema, episodeConfigSchema, factSchema} from "../src/schemas/episode";
+import {episodeId, episodeRoot, repoRoot} from "../src/lib/project";
+import {captionPartsFromPlan, visibleLength} from "../src/lib/captions";
 import {containsGenericCta, findVisualAssetContractViolations} from "../src/lib/story-quality";
 import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial-text-rules";
 import {
@@ -29,49 +17,54 @@ import {
   generatedCaptionsPath,
   generatedTimelinePath,
 } from "../src/lib/render-contract";
+import {captionPlanMismatchIds, validateCaptionPlanCoverage} from "./lib/caption-artifacts";
+import {
+  finishValidation,
+  installCliErrorHandlers,
+  jsonValuesEqual,
+  readCaptionPlan,
+  readGeneratedCaptions,
+  readJsonFile,
+  readScript,
+  readTimeline,
+  ValidationErrors,
+} from "./lib/validation";
 
-const claims = readJson<unknown[]>(path.join(episodeRoot, "research/facts.json")).map((claim) =>
-  claimSchema.parse(claim),
+installCliErrorHandlers();
+
+const claims = readJsonFile<unknown[]>(path.join(episodeRoot, "research/facts.json")).map((claim) =>
+  factSchema.parse(claim),
 );
 const episodeConfig = episodeConfigSchema.parse(
-  readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
+  readJsonFile<unknown>(path.join(episodeRoot, "episode.config.json")),
 );
 assertEpisodeMatchesProductionContract(episodeConfig);
 const editorialTextRules = loadEditorialTextRules();
-const script = scriptSchema.parse(readJson<unknown>(path.join(episodeRoot, "story/script.json")));
-const captionPlan = captionPlanSchema.parse(
-  readJson<unknown>(path.join(episodeRoot, "story/caption-plan.json")),
-);
+const script = readScript(path.join(episodeRoot, "story/script.json"));
+const captionPlan = readCaptionPlan(path.join(episodeRoot, "story/caption-plan.json"));
 const captionPlanBySegment = new Map(
   captionPlan.segments.map((segment) => [segment.segmentId, segment.cues]),
 );
-const assets = readJson<unknown[]>(path.join(episodeRoot, "production/asset-manifest.json")).map(
-  (asset) => assetSchema.parse(asset),
-);
-const errors: string[] = [];
+const assets = readJsonFile<unknown[]>(
+  path.join(episodeRoot, "production/asset-manifest.json"),
+).map((asset) => assetSchema.parse(asset));
+const errors = new ValidationErrors();
 const claimMap = new Map(claims.map((claim) => [claim.id, claim]));
 
-if (
-  captionPlanBySegment.size !== captionPlan.segments.length ||
-  captionPlanBySegment.size !== script.segments.length
-) {
-  errors.push("字幕规划必须与脚本段落一一对应，且 segmentId 不得重复");
-}
+errors.push(...validateCaptionPlanCoverage(script, captionPlan));
 for (const segment of script.segments) {
   const plannedCues = captionPlanBySegment.get(segment.id);
   if (!plannedCues) {
     errors.push(`字幕规划缺少段落：${segment.id}`);
     continue;
   }
-  try {
+  errors.capture(() => {
     captionPartsFromPlan(
       segment.narration,
       plannedCues,
       productionContract.captions.maximumLineCharacters,
     );
-  } catch (error) {
-    errors.push(error instanceof Error ? error.message : String(error));
-  }
+  });
 }
 
 for (const segment of script.segments) {
@@ -167,13 +160,11 @@ const timelinePath = path.join(episodeRoot, "production/timeline.json");
 if (!fs.existsSync(timelinePath)) {
   errors.push(`缺少当前 episode 的生产时间轴：${timelinePath}`);
 } else {
-  const timeline = timelineSchema.parse(readJson<unknown>(timelinePath));
-  try {
+  const timeline = readTimeline(timelinePath);
+  errors.capture(() => {
     assertTimelineMatchesEpisode(timeline, episodeId);
     assertTimelineMatchesProductionContract(timeline);
-  } catch (error) {
-    errors.push(error instanceof Error ? error.message : String(error));
-  }
+  });
   const timelineMatchesScript =
     timeline.scenes.length === script.segments.length &&
     timeline.scenes.every(
@@ -204,14 +195,12 @@ if (!fs.existsSync(timelinePath)) {
   if (!fs.existsSync(generatedTimelineFile)) {
     errors.push(`缺少当前 episode 的生成时间轴：${generatedTimelineFile}`);
   } else {
-    const generatedTimeline = timelineSchema.parse(readJson<unknown>(generatedTimelineFile));
-    try {
+    const generatedTimeline = readTimeline(generatedTimelineFile);
+    errors.capture(() => {
       assertTimelineMatchesEpisode(generatedTimeline, episodeId);
       assertTimelineMatchesProductionContract(generatedTimeline);
-    } catch (error) {
-      errors.push(error instanceof Error ? error.message : String(error));
-    }
-    if (JSON.stringify(generatedTimeline) !== JSON.stringify(timeline)) {
+    });
+    if (!jsonValuesEqual(generatedTimeline, timeline)) {
       errors.push(
         `生成时间轴不是当前 production/timeline.json 的同一版本：${generatedTimelineFile}`,
       );
@@ -220,13 +209,8 @@ if (!fs.existsSync(timelinePath)) {
   if (!fs.existsSync(captionPath)) {
     errors.push(`缺少当前 episode 的生成字幕：${captionPath}`);
   } else if (timelineMatchesScript) {
-    const captions = readJson<Array<{sceneId: string; text: string}>>(captionPath);
-    const captionsByScene = new Map<string, string[]>();
+    const captions = readGeneratedCaptions(captionPath);
     for (const caption of captions) {
-      captionsByScene.set(caption.sceneId, [
-        ...(captionsByScene.get(caption.sceneId) ?? []),
-        caption.text,
-      ]);
       for (const line of caption.text.split("\n")) {
         if (visibleLength(line) > productionContract.captions.maximumLineCharacters) {
           errors.push(`字幕超过 ${productionContract.captions.maximumLineCharacters} 字：${line}`);
@@ -236,32 +220,21 @@ if (!fs.existsSync(timelinePath)) {
         }
       }
     }
-    for (const segment of script.segments) {
-      const timelineScene = timeline.scenes.find((scene) => scene.id === segment.id);
-      const plannedCues = captionPlanBySegment.get(segment.id) ?? [];
-      const expected = fitCaptionPartsToDuration(
-        captionPartsFromPlan(
-          segment.narration,
-          plannedCues,
-          productionContract.captions.maximumLineCharacters,
-        ),
-        timelineScene?.audioDurationSeconds ?? 0,
-        productionContract.captions.microCueThresholdSeconds,
-        productionContract.captions.maximumLineCharacters,
-      ).map((part) => part.text);
-      const actual = captionsByScene.get(segment.id) ?? [];
-      if (!captionTextsEquivalent(actual, expected)) {
-        errors.push(`${segment.id} 字幕未按词边界算法重新生成`);
-      }
+    const captionMismatchIds = captionPlanMismatchIds({
+      script,
+      captionPlan,
+      timeline,
+      generatedCaptions: captions,
+      maximumLineCharacters: productionContract.captions.maximumLineCharacters,
+      microCueThresholdSeconds: productionContract.captions.microCueThresholdSeconds,
+    });
+    for (const segmentId of captionMismatchIds) {
+      errors.push(`${segmentId} 字幕未按词边界算法重新生成`);
     }
   }
 }
 
-if (errors.length > 0) {
-  console.error(errors.join("\n"));
-  process.exit(1);
-}
-
-console.log(
+finishValidation(
+  errors,
   `content validation passed: ${script.segments.length} segments, ${assets.length} assets, hook=${hookSeconds}s`,
 );

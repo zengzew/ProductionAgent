@@ -8,7 +8,6 @@ import {
   createInitialProductionState,
   emptyArtifactIndex,
   evaluateContentGate,
-  recomputeCriticEvaluation,
   registerCandidate,
   runContentLoop,
   selectArtifact,
@@ -18,6 +17,7 @@ import {
   type ContentCriticOutput,
   type CriticIssue,
 } from "../../src/orchestration";
+import {routedCriticResultFixture} from "../helpers/critics";
 
 const temporaryDirectories: string[] = [];
 
@@ -48,44 +48,6 @@ const createFixture = (): {repoRoot: string; hook: ArtifactRef; index: ArtifactI
     hook,
   );
   return {repoRoot, hook, index};
-};
-
-const dimensions: Record<ContentCriticName, Array<{id: string; score: number}>> = {
-  "audience-critic": [
-    {id: "hook", score: 13},
-    {id: "conflict", score: 13},
-    {id: "humanElement", score: 8},
-    {id: "productClarity", score: 13},
-    {id: "growthLogic", score: 13},
-    {id: "technologyExplanation", score: 13},
-    {id: "naturalChinese", score: 13},
-  ],
-  "retention-critic": [
-    {id: "first3Seconds", score: 20},
-    {id: "first30Seconds", score: 20},
-    {id: "midVideoEngagement", score: 20},
-    {id: "endingSatisfaction", score: 20},
-  ],
-  "fact-guardian": [
-    {id: "claimCoverage", score: 1},
-    {id: "semanticFidelity", score: 1},
-    {id: "sourceIdentityAttribution", score: 1},
-    {id: "metricAndTimeScope", score: 1},
-    {id: "causalityInferenceBoundary", score: 1},
-    {id: "visualTruthBoundary", score: 1},
-  ],
-  "compliance-critic": [
-    {id: "platformPolicy", score: 1},
-    {id: "advertisingLanguage", score: 1},
-    {id: "brandSafety", score: 1},
-  ],
-};
-
-const rubricVersions: Record<ContentCriticName, string> = {
-  "audience-critic": "product-story-v4",
-  "retention-critic": "retention-critic-v2",
-  "fact-guardian": "fact-guardian-v1",
-  "compliance-critic": "compliance-critic-v1",
 };
 
 const issueFor = (
@@ -134,36 +96,14 @@ const criticResult = (
   issue?: CriticIssue,
 ): ContentCriticOutput => {
   const issues = issue ? [issue] : [];
-  const computed = recomputeCriticEvaluation({
+  return routedCriticResultFixture({
     critic,
-    rubricVersion: rubricVersions[critic],
-    dimensions: dimensions[critic].map((dimension) => ({...dimension, evidenceIssueIds: []})),
-    issues,
-  });
-  return {
-    schemaVersion: "critic-output-v1",
     episodeId: "episode-paths",
     executionId: `run-content-paths:${critic}:r${round}`,
-    critic,
     round,
-    rubricVersion: rubricVersions[critic],
     reviewedArtifacts: [hook],
-    evaluation: computed.evaluation,
     issues,
-    blockers: computed.blockers,
-    verdict: computed.verdict,
-    primaryRoute:
-      computed.verdict === "PASS"
-        ? null
-        : {
-            ownerAgent: "story-director",
-            routeTarget: "story-director",
-            restartAt: "story-director",
-            reasonCode: issue!.category,
-            issueIds: [issue!.id],
-          },
-    returnTo: computed.verdict === "PASS" ? "none" : "story-director",
-  };
+  });
 };
 
 const criticsFor = (

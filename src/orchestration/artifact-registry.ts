@@ -65,8 +65,12 @@ export const writeArtifactIndex = (filePath: string, index: ArtifactIndex): void
   const validated = artifactIndexSchema.parse(index);
   fs.mkdirSync(path.dirname(filePath), {recursive: true});
   const temporaryPath = `${filePath}.${process.pid}.tmp`;
-  fs.writeFileSync(temporaryPath, `${JSON.stringify(validated, null, 2)}\n`);
-  fs.renameSync(temporaryPath, filePath);
+  try {
+    fs.writeFileSync(temporaryPath, `${JSON.stringify(validated, null, 2)}\n`);
+    fs.renameSync(temporaryPath, filePath);
+  } finally {
+    if (fs.existsSync(temporaryPath)) fs.rmSync(temporaryPath);
+  }
 };
 
 export const registerCandidate = (

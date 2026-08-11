@@ -114,3 +114,24 @@
 - freeze 前的字节级 hash 校验 + 原子写 manifest；
 - reducer 的交换律/幂等性质测试与 reference-only state 约束；
 - 测试不 mock 内部模块、全部依赖注入、时间夹具显式传入——这是正确的测试文化。
+
+---
+
+## 当前修复状态与剩余有意保留项（2026-08-10）
+
+本节只记录当前状态，不改写上面的历史原始发现。前置提交 `ad7b5a6`、`aec7911`、`2f31ba8`、`903d0e0` 已关闭严重项与中等 1–17 的对应问题；本轮继续逐项复核并收敛中等 18–22、轻微 1–19 与 TD-004～007。
+
+| 原条目 | 当前状态与证据 |
+| --- | --- |
+| 中等 18 / TD-004 | **代码关闭，媒体验证待补**。共享 `CaptionLayer`、背景噪点、clamp、来源标签与来源口径已进入 `src/compositions/shared.tsx`；props 注入 episode 事实/色彩/布局，来源优先级统一。两期 9:16 smoke 因本机 Chrome 沙箱 `SIGABRT` 且沙箱外执行被 Codex 用量额度拦截，不能标记 PASS。 |
+| 中等 19、22 / TD-005 | **关闭**。`scripts/lib/` 统一 hash、JSON/schema、timeline/caption、错误收集、`fatal`/`exitCode`、spawn/FFprobe；所有 validator 与相关 CLI 已迁移，无直接 `process.exit(1)`。 |
+| 中等 20 / TD-006 | **关闭**。artifact/critic/revision/freeze fixture 已抽取；评分 fixture 调用生产 `recomputeCriticEvaluation`，不再手写总分公式。 |
+| 中等 21 | **关闭**。`@typescript-eslint/no-explicit-any` 设为 error；当前 TS/TSX 无显式 `any` 类型与局部豁免。 |
+| 轻微 1–7 | **关闭**。severity rank 提升到模块级；删除无调用别名与不可达 hash fallback；统一稳定序列化；routing 配置按对象指纹缓存校验；artifact index 原子写失败清理 tmp；foundation promptRef 按 control role 和 artifact ID 确定性选择。 |
+| 轻微 8–14 | **关闭**。字幕边界查找改二分；TTS 补 `；/;/……` 断句；全角数字 NFKC 检查、中文 cue 无空格合并、segment ID 语义和 workflow 角色唯一性均有生产实现与测试；暗色及未注册横版分支已删除。 |
+| 轻微 15–17 | **关闭**。comparison 支持 `IMPROVED / MIXED / NOT_IMPROVED` 并按六维分数确定性复算；spawn/NaN fail closed；测试回调断言与重复 fixture 已收敛。现有 `IMPROVED` 报告仍有效。 |
+| 轻微 18–19 | **关闭**。Node engine 与 devEngine 均锁定 24.x，匹配当前 better-sqlite3 ABI；删除重复 `workflow:status`；新增 Vitest coverage 脚本、明确 include/exclude 与最低阈值。 |
+
+有意保留三项：`legacy-import.ts` 和 critic envelope adapter 是显式、只读的历史 artifact 入口，不是生产 fallback；Episode 001 的 `poke-*` 文件名由 fail-fast render contract 显式绑定，直接重命名会破坏 Root import、timeline 与既有媒体 hash；不增加自动跨过人工故事审核、联网 TTS 和 Delivery Critic 的聚合 `pipeline`。这三项若改变，必须作为产品范围迁移并重做完整媒体交付审核，当前不属于可直接删除的维护债。
+
+媒体边界：本轮不调用真实 TTS，不生成新的完整竖版交付，不执行独立人工听审；两期历史 delivery validator 均通过，只证明既有已批准 artifact 契约仍完整。当前共享视觉 smoke 未完成，因此本轮只有工程 gate PASS，没有 smoke PASS，更不能表述为新的 `delivery-approved`。

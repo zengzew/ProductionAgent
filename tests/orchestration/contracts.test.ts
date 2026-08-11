@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import {afterEach, describe, expect, it} from "vitest";
+import {afterEach, describe, expect, it, vi} from "vitest";
 import {
   agentExecutionResultSchema,
   artifactRefSchema,
@@ -15,9 +15,7 @@ import {
   mergeCompletedAgents,
   readArtifactIndex,
   registerCandidate,
-  runSelectedOrchestrator,
   selectArtifact,
-  selectOrchestrator,
   writeArtifactIndex,
   type ArtifactDependency,
   type ArtifactRef,
@@ -107,6 +105,20 @@ describe("M1.1 orchestration contracts", () => {
     expect(JSON.stringify(stale)).not.toContain("facts\n");
   });
 
+  it("cleans the artifact index temporary file when atomic replacement fails", () => {
+    const repoRoot = temporaryRepo();
+    const registryPath = path.join(repoRoot, "content/episode-test/artifact-index.json");
+    const rename = vi.spyOn(fs, "renameSync").mockImplementationOnce(() => {
+      throw new Error("rename failed");
+    });
+
+    expect(() => writeArtifactIndex(registryPath, emptyArtifactIndex("episode-test"))).toThrow(
+      /rename failed/u,
+    );
+    expect(fs.existsSync(`${registryPath}.${process.pid}.tmp`)).toBe(false);
+    rename.mockRestore();
+  });
+
   it("rejects artifact bodies and oversized decision summaries in ProductionState", () => {
     const state = createInitialProductionState({episodeId: "episode-test", runId: "run-1"});
     expect(assertReferenceOnlyState(state)).toEqual(state);
@@ -151,21 +163,6 @@ describe("M1.1 orchestration contracts", () => {
     );
 
     await expect(runner(request)).rejects.toThrow(/missing declared outputs/u);
-  });
-
-  it("defaults invalid or absent orchestration modes to manual", async () => {
-    expect(selectOrchestrator(undefined)).toBe("manual");
-    expect(selectOrchestrator("future-mode")).toBe("manual");
-    expect(selectOrchestrator("langgraph")).toBe("langgraph");
-
-    const calls: string[] = [];
-    const selected = await runSelectedOrchestrator({
-      value: "langgraph",
-      manual: () => calls.push("manual"),
-      langgraph: () => calls.push("langgraph"),
-    });
-    expect(selected.mode).toBe("langgraph");
-    expect(calls).toEqual(["langgraph"]);
   });
 
   it("uses deterministic, idempotent reducers for checkpointed reference state", () => {

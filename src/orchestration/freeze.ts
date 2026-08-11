@@ -153,26 +153,20 @@ const referenceBytesMatch = (repoRoot: string, ref: ArtifactRef): boolean => {
   }
 };
 
-type ExplicitArtifactSelection = readonly ArtifactRef[] | Readonly<Record<string, ArtifactRef>>;
-
 /**
  * Returns only caller-supplied selections. In particular, it never reads `artifactIndex.selected`
  * or derives a selection from a generic artifact collection.
  */
 const selectedRefsFromInput = (input: ContentFreezeInput): ArtifactRef[] => {
-  const source: ExplicitArtifactSelection | undefined =
-    input.selectedArtifactRefs ?? input.selectedRefs ?? input.selectedArtifacts ?? input.selected;
-  if (source === undefined) return [];
-  return Array.isArray(source) ? [...source] : Object.values(source);
+  return input.selectedArtifactRefs ? [...input.selectedArtifactRefs] : [];
 };
 
 const normalizeIssueValues = (input: ContentFreezeInput): unknown[] => {
   const values: unknown[] = [];
-  for (const collection of [input.issues, input.openIssues]) {
-    if (collection === undefined) continue;
-    values.push(...(Array.isArray(collection) ? collection : Object.values(collection)));
+  if (input.issues !== undefined) {
+    values.push(...(Array.isArray(input.issues) ? input.issues : Object.values(input.issues)));
   }
-  for (const result of [...(input.criticResults ?? []), ...(input.evaluations ?? [])]) {
+  for (const result of input.criticResults ?? []) {
     values.push(result);
   }
   return values;
@@ -381,14 +375,8 @@ export type ContentFreezeInput = {
   artifactIndex?: ArtifactIndex;
   /** The only artifact refs eligible for this freeze. No latest-pointer lookup is performed. */
   selectedArtifactRefs?: readonly ArtifactRef[];
-  /** Compatibility aliases for callers that still name the explicit selection differently. */
-  selectedRefs?: readonly ArtifactRef[];
-  selectedArtifacts?: readonly ArtifactRef[] | Readonly<Record<string, ArtifactRef>>;
-  selected?: readonly ArtifactRef[] | Readonly<Record<string, ArtifactRef>>;
   issues?: readonly ContentFreezeIssue[] | Readonly<Record<string, ContentFreezeIssue>>;
-  openIssues?: readonly ContentFreezeIssue[] | Readonly<Record<string, ContentFreezeIssue>>;
   criticResults?: readonly Pick<CriticResult, "issues" | "blockers" | "rubricVersion">[];
-  evaluations?: readonly Pick<CriticResult, "issues" | "blockers" | "rubricVersion">[];
   frozenAt?: string;
   frozenBy?: string;
   runId?: string;
@@ -554,8 +542,6 @@ export const assertContentFreezePreconditions = (
   return report;
 };
 
-export const assertFreezeReady = assertContentFreezePreconditions;
-
 export type CreateContentManifestInput = {
   episodeId: string;
   selectedArtifactRefs: readonly ArtifactRef[];
@@ -663,7 +649,6 @@ export const freezeContent = (
 
   const rubricVersions = uniqueSorted([
     ...(input.criticResults ?? []).map((result) => result.rubricVersion),
-    ...(input.evaluations ?? []).map((result) => result.rubricVersion),
   ]);
   const manifest = createContentManifest({
     episodeId: input.episodeId,

@@ -1,28 +1,37 @@
-import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import {parseDirectorBriefGate, parseRetentionGate} from "../src/lib/story";
 import {directorWorkflowSchema, orderedStoryRoles} from "../src/lib/workflow";
-import {episodeId, episodeRoot, readJson, repoRoot} from "../src/lib/project";
+import {episodeId, episodeRoot, repoRoot} from "../src/lib/project";
+import {
+  fatal,
+  finishValidation,
+  hashFile,
+  installCliErrorHandlers,
+  readJsonFile,
+  ValidationErrors,
+} from "./lib/validation";
+
+installCliErrorHandlers();
 
 const workflowPath = path.join(episodeRoot, "story/workflow.json");
-const errors: string[] = [];
-const hashFile = (filePath: string): string =>
-  crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
+const errors = new ValidationErrors();
 const resolveArtifact = (relativePath: string): string => path.join(repoRoot, relativePath);
 
 if (!fs.existsSync(workflowPath)) {
-  console.error(`缺少导演工作流清单：${path.relative(repoRoot, workflowPath)}`);
-  process.exit(1);
+  fatal(`缺少导演工作流清单：${path.relative(repoRoot, workflowPath)}`);
 }
 
-const workflow = directorWorkflowSchema.parse(readJson<unknown>(workflowPath));
+const workflow = directorWorkflowSchema.parse(readJsonFile<unknown>(workflowPath));
 if (workflow.episodeId !== episodeId) {
   errors.push(`workflow episodeId 应为 ${episodeId}，当前 ${workflow.episodeId}`);
 }
 
 const stageIds = workflow.stages.map((stage) => stage.id);
-if (JSON.stringify(stageIds) !== JSON.stringify(orderedStoryRoles)) {
+if (
+  stageIds.length !== orderedStoryRoles.length ||
+  stageIds.some((stageId, index) => stageId !== orderedStoryRoles[index])
+) {
   errors.push("workflow stages 必须按正式角色顺序完整列出");
 }
 for (const stage of workflow.stages) {
@@ -139,12 +148,8 @@ if (
   errors.push("delivery-approved 要求 delivery-critic 为 complete");
 }
 
-if (errors.length > 0) {
-  console.error(errors.join("\n"));
-  process.exit(1);
-}
-
 const rejectedCycles = workflow.reviewCycles.filter((cycle) => cycle.verdict === "REJECT").length;
-console.log(
+finishValidation(
+  errors,
   `workflow validation passed: ${workflow.stages.length} owners, ${workflow.decisions.length} decisions, ${workflow.reviewCycles.length} reviews, ${rejectedCycles} closed revisions, status=${workflow.currentStatus}`,
 );

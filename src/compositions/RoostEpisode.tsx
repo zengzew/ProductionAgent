@@ -15,7 +15,7 @@ import captionsRaw from "../episode-002-captions.generated.json";
 import claimsRaw from "../../content/episode-002/research/facts.json";
 import sourcesRaw from "../../content/episode-002/research/sources.json";
 import {
-  claimSchema,
+  factSchema,
   generatedCaptionSchema,
   sourceSchema,
   timelineSchema,
@@ -23,11 +23,19 @@ import {
 } from "../schemas/episode";
 import {assertTimelineMatchesEpisode} from "../lib/render-contract";
 import {fadeSceneOpacity} from "../lib/scene-animation";
+import {
+  BackgroundCanvas,
+  CaptionLayer,
+  CLAMP,
+  reportingIdentity,
+  SourceLabel,
+  sourcePublishers,
+} from "./shared";
 
 const timeline = timelineSchema.parse(timelineRaw);
 assertTimelineMatchesEpisode(timeline, "episode-002");
 const isGoal3Benchmark = timeline.layoutVariant === "roost-goal3";
-const claims = claimsRaw.map((claim) => claimSchema.parse(claim));
+const claims = claimsRaw.map((claim) => factSchema.parse(claim));
 const sources = sourcesRaw.map((source) => sourceSchema.parse(source));
 const captions = captionsRaw.map((caption) => generatedCaptionSchema.parse(caption));
 const claimMap = new Map(claims.map((claim) => [claim.id, claim]));
@@ -43,56 +51,50 @@ const COLORS = {
   leaf: "#80a36d",
   gold: "#d6a84f",
   rust: "#b86849",
-  night: "#1f3337",
   white: "#fffdf7",
   line: "#a9c0bc",
 };
 
 const SERIF = '"Songti SC", "STSong", "Noto Serif CJK SC", serif';
 const SANS = '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif';
-const clamp = {extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const};
-
-const sourcePublishers = (claimIds: string[]): string => {
-  const sourceIds = new Set(
-    [...claimIds].reverse().flatMap((claimId) => claimMap.get(claimId)?.sourceIds ?? []),
-  );
-  const publishers = Array.from(sourceIds).map(
-    (sourceId) => sourceMap.get(sourceId)?.publisher ?? sourceId,
-  );
-  return Array.from(new Set(publishers)).slice(0, 3).join(" · ");
-};
+const evidencePublishers = (claimIds: string[]): string =>
+  sourcePublishers({
+    claimIds,
+    claimsById: claimMap,
+    sourcesById: sourceMap,
+    reverseClaims: true,
+  });
 
 const reportingLabel = (claimIds: string[]): string => {
-  const types = claimIds.map((claimId) => claimMap.get(claimId)?.reportingType).filter(Boolean);
-  if (types.includes("inference")) return "边界";
-  if (types.includes("founder-reported")) return "创始人口径";
-  if (types.includes("company-reported")) return "官方说明";
-  return "交叉核对";
+  return reportingIdentity({
+    claimIds,
+    claimsById: claimMap,
+    labels: {
+      inference: "边界",
+      company: "官方说明",
+      founder: "创始人口径",
+      verified: "交叉核对",
+    },
+  });
 };
 
-const Background: React.FC<{dark?: boolean}> = ({dark = false}) => {
+const Background: React.FC = () => {
   const frame = useCurrentFrame();
   const drift = interpolate(frame, [0, 6000], [0, 180], {
-    ...clamp,
+    ...CLAMP,
     extrapolateRight: "extend",
   });
   return (
-    <AbsoluteFill
-      style={{
-        background: dark
-          ? `radial-gradient(circle at 78% 12%, #42676c 0%, ${COLORS.night} 42%, #172528 100%)`
-          : `radial-gradient(circle at 76% 12%, ${COLORS.white} 0%, ${COLORS.sky} 44%, #c7dadd 100%)`,
+    <BackgroundCanvas
+      background={`radial-gradient(circle at 76% 12%, ${COLORS.white} 0%, ${COLORS.sky} 44%, #c7dadd 100%)`}
+      noisePlacement="before-content"
+      noise={{
+        baseFrequency: ".72",
+        numOctaves: 4,
+        rectOpacity: ".22",
+        opacity: 0.2,
       }}
     >
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          opacity: dark ? 0.08 : 0.2,
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E\")",
-        }}
-      />
       {[0, 1, 2].map((index) => (
         <div
           key={index}
@@ -101,14 +103,14 @@ const Background: React.FC<{dark?: boolean}> = ({dark = false}) => {
             width: 420 + index * 120,
             height: 130 + index * 28,
             borderRadius: "50%",
-            background: dark ? "rgba(255,255,255,.035)" : "rgba(255,255,255,.34)",
+            background: "rgba(255,255,255,.34)",
             left: -180 + index * 410 + drift * (0.05 + index * 0.015),
             top: 190 + index * 360,
             filter: "blur(16px)",
           }}
         />
       ))}
-    </AbsoluteFill>
+    </BackgroundCanvas>
   );
 };
 
@@ -162,7 +164,7 @@ const FlightMap: React.FC<{
     durationInFrames: fps * 3,
   });
   const progress = initialProgress + animatedProgress * (1 - initialProgress);
-  const x = interpolate(progress, [0, 1], [105, 775], clamp);
+  const x = interpolate(progress, [0, 1], [105, 775], CLAMP);
   const y = 310 - Math.sin(progress * Math.PI) * 190;
   return (
     <div
@@ -622,48 +624,12 @@ const SceneVisual: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => 
   throw new Error(`Roost 未注册 scene：${scene.scene}`);
 };
 
-const CaptionLayer: React.FC = () => {
-  const frame = useCurrentFrame();
-  const caption = captions.find(
-    (candidate) => frame >= candidate.startFrame && frame < candidate.endFrame,
-  );
-  if (!caption) return null;
-  return (
-    <div
-      style={{
-        position: "absolute",
-        left: 68,
-        right: 68,
-        bottom: 240,
-        minHeight: 112,
-        display: "grid",
-        placeItems: "center",
-        padding: "18px 30px",
-        borderRadius: 26,
-        color: COLORS.white,
-        background: "rgba(24,39,42,.9)",
-        fontFamily: SANS,
-        fontSize: 46,
-        lineHeight: 1.28,
-        fontWeight: 700,
-        textAlign: "center",
-        whiteSpace: "pre-line",
-        boxShadow: "0 18px 50px rgba(19,31,33,.24)",
-        zIndex: 30,
-      }}
-    >
-      {caption.text}
-    </div>
-  );
-};
-
 const RoostScene: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => {
   const frame = useCurrentFrame();
-  const dark = false;
   const opacity = fadeSceneOpacity(frame, scene.durationFrames, scene.index === 0);
   return (
-    <AbsoluteFill style={{opacity, color: dark ? COLORS.white : COLORS.ink, fontFamily: SANS}}>
-      <Background dark={dark} />
+    <AbsoluteFill style={{opacity, color: COLORS.ink, fontFamily: SANS}}>
+      <Background />
       <div
         style={{
           position: "absolute",
@@ -675,7 +641,7 @@ const RoostScene: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => {
           alignItems: "center",
           fontSize: 23,
           letterSpacing: 2,
-          color: dark ? "#bcd0cd" : COLORS.muted,
+          color: COLORS.muted,
           fontWeight: 700,
         }}
       >
@@ -689,8 +655,8 @@ const RoostScene: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => {
           style={{
             padding: "9px 15px",
             borderRadius: 999,
-            border: `1px solid ${dark ? "#8fa8a4" : COLORS.line}`,
-            background: dark ? "rgba(255,255,255,.05)" : "rgba(255,253,247,.55)",
+            border: `1px solid ${COLORS.line}`,
+            background: "rgba(255,253,247,.55)",
             letterSpacing: 0,
           }}
         >
@@ -716,7 +682,7 @@ const RoostScene: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => {
         >
           {scene.onScreenText[0]}
         </div>
-        <div style={{marginTop: 18, fontSize: 28, color: dark ? "#bcd0cd" : COLORS.muted}}>
+        <div style={{marginTop: 18, fontSize: 28, color: COLORS.muted}}>
           {scene.onScreenText.slice(1, 3).join(" · ")}
         </div>
       </div>
@@ -733,21 +699,20 @@ const RoostScene: React.FC<{scene: Timeline["scenes"][number]}> = ({scene}) => {
       >
         <SceneVisual scene={scene} />
       </div>
-      <div
+      <SourceLabel
+        label={`来源：${evidencePublishers(scene.claimIds)}`}
         style={{
           position: "absolute",
           left: 68,
           right: 68,
           bottom: 382,
           fontSize: 22,
-          color: dark ? "#a9c2be" : COLORS.muted,
+          color: COLORS.muted,
           whiteSpace: "nowrap",
           overflow: "hidden",
           textOverflow: "ellipsis",
         }}
-      >
-        来源：{sourcePublishers(scene.claimIds)}
-      </div>
+      />
     </AbsoluteFill>
   );
 };
@@ -765,7 +730,30 @@ export const RoostEpisode: React.FC = () => (
         <Audio src={staticFile(scene.audio)} />
       </Sequence>
     ))}
-    <CaptionLayer />
+    <CaptionLayer
+      captions={captions}
+      style={{
+        position: "absolute",
+        left: 68,
+        right: 68,
+        bottom: 240,
+        minHeight: 112,
+        display: "grid",
+        placeItems: "center",
+        padding: "18px 30px",
+        borderRadius: 26,
+        color: COLORS.white,
+        background: "rgba(24,39,42,.9)",
+        fontFamily: SANS,
+        fontSize: 46,
+        lineHeight: 1.28,
+        fontWeight: 700,
+        textAlign: "center",
+        whiteSpace: "pre-line",
+        boxShadow: "0 18px 50px rgba(19,31,33,.24)",
+        zIndex: 30,
+      }}
+    />
   </AbsoluteFill>
 );
 

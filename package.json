@@ -6,7 +6,14 @@
   "description": "A director-driven, artifact-based studio for sourced Chinese AI product-story videos.",
   "packageManager": "pnpm@11.9.0",
   "engines": {
-    "node": ">=22"
+    "node": "24.x"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "24.x",
+      "onFail": "error"
+    }
   },
   "scripts": {
     "preview": "remotion studio src/index.ts",
@@ -15,9 +22,9 @@
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "validate:research": "tsx scripts/validate-research.ts",
     "validate:workflow": "tsx scripts/validate-workflow.ts",
-    "workflow:status": "tsx scripts/validate-workflow.ts",
     "validate:story": "pnpm validate:workflow && tsx scripts/validate-story.ts",
     "materialize:story": "tsx scripts/materialize-story.ts",
     "polish": "tsx scripts/polish-script.ts",
@@ -50,6 +57,7 @@
     "@types/node": "^26.1.1",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
+    "@vitest/coverage-v8": "4.1.10",
     "eslint": "^10.8.0",
     "playwright": "^1.62.0",
     "prettier": "^3.9.6",

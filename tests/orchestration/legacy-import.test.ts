@@ -1,23 +1,26 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import {describe, expect, it} from "vitest";
+import {afterEach, describe, expect, it} from "vitest";
 import {importLegacyEpisode001} from "../../src/orchestration";
+import {legacyEpisodeRepoFixture} from "../helpers/artifacts";
+
+const temporaryDirectories: string[] = [];
+
+afterEach(() => {
+  for (const directory of temporaryDirectories.splice(0)) {
+    fs.rmSync(directory, {recursive: true, force: true});
+  }
+});
 
 const hashFile = (filePath: string): string =>
   crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
 
 describe("M1.2 read-only Episode 001 legacy import", () => {
   it("creates legacy-derived references and explicit unavailable telemetry without changing bytes", () => {
-    const repoRoot = path.resolve(import.meta.dirname, "../..");
-    const workflowPath = path.join(repoRoot, "content/episode-001/story/workflow.json");
-    const workflow = JSON.parse(fs.readFileSync(workflowPath, "utf8")) as {
-      stages: {artifacts: string[]}[];
-    };
-    const sourcePaths = [
-      "content/episode-001/story/workflow.json",
-      ...workflow.stages.flatMap((stage) => stage.artifacts),
-    ];
+    const sourceRoot = path.resolve(import.meta.dirname, "../..");
+    const {repoRoot, sourcePaths} = legacyEpisodeRepoFixture(sourceRoot);
+    temporaryDirectories.push(repoRoot);
     const before = Object.fromEntries(
       sourcePaths.map((sourcePath) => [sourcePath, hashFile(path.join(repoRoot, sourcePath))]),
     );

@@ -28,7 +28,7 @@ export const comparisonGateSchema = z.object({
   }),
   baselineTotal: z.number().min(0).max(60),
   directorCutTotal: z.number().min(0).max(60),
-  verdict: z.literal("IMPROVED"),
+  verdict: z.enum(["IMPROVED", "MIXED", "NOT_IMPROVED"]),
   limitations: z.array(z.string().min(1)).min(1),
 });
 

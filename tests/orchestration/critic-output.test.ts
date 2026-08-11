@@ -9,7 +9,6 @@ import {
   recomputeCriticEvaluation,
   recomputeDeliveryHardRules,
   validateCriticResult,
-  type ArtifactRef,
   type CriticIssue,
   type CriticName,
 } from "../../src/orchestration";
@@ -21,110 +20,27 @@ import {
   parseRetentionGate,
 } from "../../src/lib/story";
 import {productionContract} from "../../src/lib/production-contract";
+import {artifactFixture} from "../helpers/artifacts";
+import {criticIssueFixture, criticScoresFixture, criticVersionFixture} from "../helpers/critics";
 
-const artifact: ArtifactRef = {
-  artifactId: "episode-test:story:final-script",
-  episodeId: "episode-test",
-  path: "content/episode-test/story/final-script.md",
-  mediaType: "text/markdown",
-  schemaVersion: "final-script-v1",
-  revision: 1,
-  sha256: "a".repeat(64),
-  sizeBytes: 10,
-  producer: "test",
-  createdAt: "2026-08-06T00:00:00.000Z",
-};
-
-const issue = (critic: CriticName, category: CriticIssue["category"]): CriticIssue => ({
-  id: `issue-${critic}-r1-01`,
-  category,
-  severity: "blocker",
-  status: "open",
-  ownerAgent: "script-writer",
-  routeTarget: "script-writer",
-  affectedArtifact: {
-    artifactId: artifact.artifactId,
-    path: artifact.path,
-    sha256: artifact.sha256,
-    locator: {kind: "line-range", value: "1-2"},
-  },
-  evidence: [
-    {
-      kind: "artifact-observation",
-      observed: "fixture observation",
-      expected: "fixture expectation",
-      claimIds: [],
-    },
-  ],
-  suggestedCorrection: {objective: "correct the fixture", acceptanceChecks: ["review line 1"]},
-  constraintsNotToBreak: [
-    {id: "fact-1", description: "preserve the fact", artifactRefs: [artifact], claimIds: []},
-  ],
-});
-
-const passingScores: Record<
-  CriticName,
-  Array<{id: string; score: number; evidenceIssueIds: string[]}>
-> = {
-  "oral-judge": [
-    {id: "chineseNaturalness", score: 4, evidenceIssueIds: ["evidence-1"]},
-    {id: "spokenDelivery", score: 4, evidenceIssueIds: ["evidence-2"]},
-    {id: "informationFidelity", score: 4, evidenceIssueIds: ["evidence-3"]},
-  ],
-  "audience-critic": [
-    {id: "hook", score: 13, evidenceIssueIds: ["evidence-1"]},
-    {id: "conflict", score: 13, evidenceIssueIds: ["evidence-2"]},
-    {id: "humanElement", score: 8, evidenceIssueIds: ["evidence-3"]},
-    {id: "productClarity", score: 13, evidenceIssueIds: ["evidence-4"]},
-    {id: "growthLogic", score: 13, evidenceIssueIds: ["evidence-5"]},
-    {id: "technologyExplanation", score: 13, evidenceIssueIds: ["evidence-6"]},
-    {id: "naturalChinese", score: 13, evidenceIssueIds: ["evidence-7"]},
-  ],
-  "fact-guardian": [
-    "claimCoverage",
-    "semanticFidelity",
-    "sourceIdentityAttribution",
-    "metricAndTimeScope",
-    "causalityInferenceBoundary",
-    "visualTruthBoundary",
-  ].map((id) => ({id, score: 1, evidenceIssueIds: [`evidence-${id}`]})),
-  "retention-critic": [
-    "first3Seconds",
-    "first30Seconds",
-    "midVideoEngagement",
-    "endingSatisfaction",
-  ].map((id) => ({id, score: 20, evidenceIssueIds: [`evidence-${id}`]})),
-  "compliance-critic": ["platformPolicy", "advertisingLanguage", "brandSafety"].map((id) => ({
-    id,
-    score: 1,
-    evidenceIssueIds: [`evidence-${id}`],
-  })),
-  "delivery-critic": [
-    "artifactIntegrity",
-    "durationAndVerticalFormat",
-    "captionIntegrityAndTiming",
-    "audioIntelligibilityAndSync",
-    "firstFrameComprehension",
-    "evidenceRightsReadability",
-    "renderContinuitySafeArea",
-  ].map((id) => ({id, score: 1, evidenceIssueIds: [`evidence-${id}`]})),
-};
-
-const versions: Record<CriticName, string> = {
-  "oral-judge": "oral-review-v2",
-  "audience-critic": "product-story-v4",
-  "fact-guardian": "fact-guardian-v1",
-  "retention-critic": "retention-critic-v2",
-  "compliance-critic": "compliance-critic-v1",
-  "delivery-critic": "delivery-critic-v1",
-};
+const artifact = artifactFixture({logicalName: "final-script"});
+const issue = (critic: CriticName, category: CriticIssue["category"]) =>
+  criticIssueFixture({critic, category, severity: "blocker", artifact});
+const criticNames = [
+  "oral-judge",
+  "audience-critic",
+  "fact-guardian",
+  "retention-critic",
+  "compliance-critic",
+  "delivery-critic",
+] as const satisfies readonly CriticName[];
 
 describe("M2.1 critic output and evaluation", () => {
-  it.each(Object.keys(versions) as CriticName[])("recomputes the %s rubric", (critic) => {
+  it.each(criticNames)("recomputes the %s rubric", (critic) => {
     const result = recomputeCriticEvaluation({
       critic,
-      rubricVersion: versions[critic],
-      dimensions: passingScores[critic],
+      rubricVersion: criticVersionFixture(critic),
+      dimensions: criticScoresFixture(critic),
       issues: [],
     });
     expect(result.verdict).toBe("PASS");
@@ -138,7 +54,7 @@ describe("M2.1 critic output and evaluation", () => {
     const lowFloor = recomputeCriticEvaluation({
       critic: "oral-judge",
       rubricVersion: "oral-review-v2",
-      dimensions: passingScores["oral-judge"].map((dimension) =>
+      dimensions: criticScoresFixture("oral-judge").map((dimension) =>
         dimension.id === "informationFidelity"
           ? {...dimension, score: 3}
           : {...dimension, score: 5},
@@ -165,7 +81,7 @@ describe("M2.1 critic output and evaluation", () => {
     const result = recomputeCriticEvaluation({
       critic: "compliance-critic",
       rubricVersion: "compliance-critic-v1",
-      dimensions: passingScores["compliance-critic"].map((dimension) =>
+      dimensions: criticScoresFixture("compliance-critic").map((dimension) =>
         dimension.id === "advertisingLanguage" ? {...dimension, score: 0} : dimension,
       ),
       issues: [complianceIssue],
@@ -179,7 +95,7 @@ describe("M2.1 critic output and evaluation", () => {
     const computed = recomputeCriticEvaluation({
       critic: "audience-critic",
       rubricVersion: "product-story-v4",
-      dimensions: passingScores["audience-critic"],
+      dimensions: criticScoresFixture("audience-critic"),
       issues: [],
     });
     const result = {
@@ -241,7 +157,7 @@ describe("M2.1 critic output and evaluation", () => {
     const computed = recomputeCriticEvaluation({
       critic: "audience-critic",
       rubricVersion: legacy.rubricVersion,
-      dimensions: passingScores["audience-critic"],
+      dimensions: criticScoresFixture("audience-critic"),
       issues: [],
     });
     const combined = addCriticEnvelope(legacy, {

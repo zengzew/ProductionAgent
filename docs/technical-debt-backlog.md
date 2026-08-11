@@ -1,6 +1,6 @@
 # 技术债 Backlog：v1/v2 双轨与共享能力
 
-本清单对应 code review 2026-08-09 的中等项 14–20。TD-001～003 已于 2026-08-10 完成代码与非媒体门禁收敛；TD-004～007 仍待实施。此次没有重新生成 TTS、字幕、时间轴或 MP4，也没有做新的媒体交付验收；历史媒体和 Delivery Critic 结论不因本次配置治理自动续期。
+本清单对应 code review 2026-08-09 的中等项 14–20。TD-001～007 已于 2026-08-10 完成代码收敛；TD-004 仍需补 Episode 001/002 的 9:16 smoke render 验证。本轮本机 Chrome 在沙箱内以 `SIGABRT` 退出，沙箱外执行又被 Codex 用量额度拦截，因此不能把 smoke 标成 PASS。此次没有调用真实 TTS，也没有以工程结果替代独立人工听审和完整 Delivery approval；历史完整 MP4 与 Delivery Critic 结论不因维护性重构自动续期。
 
 ## TD-001：清理 v1 TTS、pipeline 与旧配置
 
@@ -23,40 +23,37 @@
 - 全局真源：`config/production-contract.json`（`production-contract-v1`）保存严格时长上限、fps、竖版尺寸、默认 Hook/body 尾部留白、字幕行宽与微短 cue 阈值、Hook 时长/动作词/归因动词和素材捕获等待参数。
 - episode 真源：`episode-config-v2` 只保留目标时长、逐段尾部留白覆盖、Hook 归因主体以及素材 URL/文件/可选唯一锚点。全局 fps、硬时长和画幅已从四份 episode 配置删除。
 - 调用方：`build-timeline`、`inspect-output`、`validate-comparison`、`validate-delivery`、`evaluation`、`validate-story`、`validate-content` 和 `capture-assets` 均读取共享契约；通用脚本不再出现 `seg-010/011/012`、Poke/Cognition、180 或 30 fps 的本地判断。
-- 验证边界：已对 Episode 001 和 Episode 002 运行 research/workflow/story/content 非媒体 validator。没有调用真实 TTS、浏览器、渲染、FFprobe 媒体读回或 Delivery Critic，因此不声明媒体重新验收。
+- 验证边界：已对 Episode 001 和 Episode 002 运行 research/workflow/story/content，并用两期历史已批准 MP4 复跑 delivery validator；Episode 001 另复跑 comparison。历史 FFprobe/hash 契约均通过，但本轮没有调用真实 TTS、生成新媒体、完成 smoke 画面抽查或独立人工听审，因此不声明媒体重新验收。
 
 ## TD-004：抽取共享 Episode 视觉组件
 
-- 背景：Poke 和 Roost 组件中重复了 `CaptionLayer`、背景/噪点、clamp、来源标签等实现，局部口径还存在差异。
-- 目标：抽出不携带 episode 事实的共享视觉组件和动画工具；事实标签、颜色、布局和场景内容通过显式 props 或 episode 配置注入，并保留两期的竖版视觉回归证据。
-- 影响范围：`src/compositions/PokeEpisode.tsx`、`RoostEpisode.tsx`、共享 UI/动画模块、Root composition、视觉截图与渲染测试。
-- 预估工作量：2–3 人日。
-- 建议优先级：P2，先完成 TD-003，避免把配置问题固化进抽象层。
+- 状态：**完成**。
+- 共享边界：`src/compositions/shared.tsx` 只承载 `CaptionLayer`、`BackgroundCanvas`、噪点、`CLAMP`、`SourceLabel` 和来源身份工具；episode 事实、颜色、字号、位置与布局全部由显式 props 注入。
+- 口径：来源身份统一为 `inference > company-reported > founder-reported > independently-verified`；来源 publisher 按输入顺序去重，不再由两个 Episode 各自决定优先级。
+- 清理：Roost 的固定暗色分支与 Poke 未注册的横版成片分支已物理删除。保留的 3:4 Cover 是当前显式注册的封面 Composition，不属于已删除的横版视频路径。
+- 验证：共享工具测试覆盖口径优先级和来源去重；两期 9:16 smoke render 与首帧、代表帧检查因上述环境阻塞仍待补，不影响代码项关闭，但阻止本轮媒体验收完成。
 
 ## TD-005：抽取校验脚本公共模块
 
-- 背景：多个 `validate-*.ts` 重复实现文件哈希、生成物路径、字幕一致性检查和错误收集/退出逻辑，修复容易只覆盖一处。
-- 目标：建立 `scripts/lib/` 公共校验工具，统一错误格式、退出码、哈希读取、timeline/caption 读取和 episode render contract 使用方式。
-- 影响范围：research、workflow、story、content、comparison、delivery 校验脚本及其入口冒烟测试。
-- 预估工作量：1.5–2.5 人日。
-- 建议优先级：P2，与 TD-003 配套实施。
+- 状态：**完成**。
+- 公共入口：`scripts/lib/validation.ts` 统一 SHA-256、带路径 JSON/schema 读取、artifact 读取、错误收集、`fatal` 与 `exitCode`；`process.ts` 统一 `spawnSync`/stderr/启动失败/有限数字/FFprobe；`caption-artifacts.ts` 统一字幕覆盖与生成字幕一致性。
+- 调用方：所有 `validate-*`、timeline、render 与 inspect CLI 已迁移；生成物路径只通过 render contract 解析，不再复制 `generatedPrefix` 拼接。
+- 错误语义：可聚合校验错误统一设置 `process.exitCode = 1`；未捕获 CLI 错误只输出可操作消息，不打印堆栈；`spawnSync` 的启动失败、非零状态与无效数值都 fail closed。
 
 ## TD-006：统一测试夹具与评分计算入口
 
-- 背景：content loop、critic output 和 revision 测试存在近似重复的 critic/artifact 夹具，部分测试还手工重算生产评分公式。
-- 目标：把 artifact、critic result、revision 和 freeze fixture 放入 `tests/helpers/`，评分统一调用生产侧 `recomputeCriticEvaluation`，并保持失败路径的最小可读样例。
-- 影响范围：`tests/orchestration/*`、critic/revision 测试、后续新增 episode 与门禁测试。
-- 预估工作量：1–1.5 人日。
-- 建议优先级：P2，建议与 TD-005 同一测试整理迭代完成。
+- 状态：**完成**。
+- 共享夹具：`tests/helpers/` 提供 artifact/index、critic、revision、freeze 与历史 Episode 临时仓库 fixture；critic fixture 的总分、floor、blocker 和 verdict 全部调用生产 `recomputeCriticEvaluation`。
+- 独立性：历史导入与 CLI 入口测试不再依赖 worktree 中是否存在 ignored MP4 或其他无关生成文件。
+- 覆盖率：新增 `test:coverage`，只统计可单元测试的 `src/**/*.{ts,tsx}`，排除 generated JSON、Remotion Composition 和注册入口；最低阈值为 statements 60%、branches 55%、functions 65%、lines 60%。Composition 由两期真实 smoke render 补足验证。
 
 ## TD-007：清理单集特化脚本与旧兼容层
 
-- 背景：旧兼容别名、单集 seg-id 判断和旧 artifact 命名约定会让通用脚本继续携带历史分支，新增 episode 时容易出现静默回退。
-- 目标：在 TD-003 完成后逐项迁移到 episode 配置或显式 render contract，删除无调用方的兼容别名；对旧产物提供一次性迁移说明，不保留隐式 fallback。
-- 影响范围：timeline、asset capture、story/content validator、legacy export、历史 output 与文档。
-- 预估工作量：2–3 人日，需先完成依赖盘点。
-- 建议优先级：P2，安排在 TD-001 和 TD-003 之后。
+- 状态：**完成**。
+- 已删除：无调用方的 content-loop graph/revision 别名、freeze 输入/manifest 别名、`claimSchema`/`Claim`、ownership config 别名，以及 best-selection 的多套参数名。
+- 已显式化：通用 timeline/validator/render 脚本不再携带单集 seg-id、品牌或旧生成物拼接；尾部留白、Hook 主体、素材捕获与生成物前缀分别来自 episode config、production contract 和 render contract。Episode 001 的 `poke-*` 生成物前缀仍由显式 render contract 保留，因为当前 Root import、已审计 timeline 与媒体 hash 都绑定该文件名；它不再是隐式 fallback，未知 episode 会 fail fast。
+- 有意保留：`legacy-import.ts` 和 critic envelope adapter 只用于读取不可改写的历史 source-of-truth/旧评审 metadata，并有独立测试；它们不会被当前生产路径自动回退调用。Episode 001 文本兼容例外同样绑定 episode ID 与完整旁白 SHA-256，文本变化即失效。
 
-## 建议排期
+## 当前修复状态与剩余有意保留项
 
-下一轮只处理 TD-004～007：先评估 TD-004 的共享视觉组件与真实竖版回归成本；TD-005/TD-006 处理 validator 公共模块和测试夹具/评分入口；TD-007 再清理剩余 render contract、旧别名、音效 seg-id 和历史 artifact 命名兼容。媒体相关条目关闭前仍需重新生成受影响产物并完成竖版读回与 Delivery Critic，不能复用本轮非媒体结果代替。
+TD-001～007 没有剩余可执行代码项；唯一未闭合的是 TD-004 的双期 smoke 验证环境阻塞。另有三项有意保留的契约边界：历史只读 adapter 保护不可改写 artifact；Episode 001 的显式 `poke-*` 前缀保护当前渲染导入和 hash 绑定；仓库不增加自动跨越人工故事门禁、联网 TTS 和 Delivery Critic 的单命令 `pipeline`，否则会破坏现行阶段审批契约。后续若要迁移这些边界，必须作为带 artifact 迁移、媒体重渲与独立 Delivery 复审的产品范围任务处理。

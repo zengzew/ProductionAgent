@@ -1,121 +1,33 @@
 import {describe, expect, it} from "vitest";
-import {selectBest, type RevisionIssue} from "../../src/orchestration";
-import type {ArtifactRef, CriticResult} from "../../src/orchestration";
+import {selectBest, type CriticResult} from "../../src/orchestration";
+import {criticResultFixture} from "../helpers/critics";
+import {revisionArtifactFixture, revisionIssueFixture} from "../helpers/revisions";
 
-const ref = (artifactId: string, sha256: string, revision = 1): ArtifactRef => ({
-  artifactId: `episode-revision:story:${artifactId}`,
-  episodeId: "episode-revision",
-  path: `content/episode-revision/story/${artifactId}.md`,
-  mediaType: "text/markdown",
-  schemaVersion: "fixture-v1",
-  revision,
-  sha256,
-  sizeBytes: 1,
-  producer: "fixture",
-  createdAt: "2026-08-08T00:00:00.000Z",
-});
+const bestRef = revisionArtifactFixture("script", "a".repeat(64));
+const candidateRef = revisionArtifactFixture("script", "b".repeat(64), 2);
 
-const bestRef = ref("script", "a".repeat(64));
-const candidateRef = ref("script", "b".repeat(64), 2);
-
-const issue = (status: RevisionIssue["status"]): RevisionIssue => ({
-  id: "issue-target",
-  category: "attention.hook",
-  severity: "high",
-  status,
-  affectedArtifact: {
-    artifactId: bestRef.artifactId,
-    path: bestRef.path,
-    sha256: bestRef.sha256,
-    locator: {kind: "whole-artifact", value: "script"},
-  },
-});
-
-const baseScores = {
-  hook: 13,
-  conflict: 13,
-  humanElement: 8,
-  productClarity: 13,
-  growthLogic: 13,
-  technologyExplanation: 13,
-  naturalChinese: 13,
-};
-
-const maxScores = {
-  hook: 15,
-  conflict: 15,
-  humanElement: 10,
-  productClarity: 15,
-  growthLogic: 15,
-  technologyExplanation: 15,
-  naturalChinese: 15,
-};
-
-const floors = {
-  hook: 9,
-  conflict: 9,
-  humanElement: 6,
-  productClarity: 9,
-  growthLogic: 9,
-  technologyExplanation: 9,
-  naturalChinese: 9,
-};
+const issue = (status: "open" | "resolved") => revisionIssueFixture({status});
 
 const audienceResult = (
   overrides: {
-    scores?: Partial<typeof baseScores>;
+    scores?: Partial<Record<string, number>>;
     verdict?: "PASS" | "REJECT";
     passedThresholds?: boolean;
     rubricVersion?: string;
   } = {},
-): CriticResult => {
-  const scores = {...baseScores, ...overrides.scores};
-  const ids = Object.keys(scores) as Array<keyof typeof scores>;
-  const dimensions = ids.map((id) => ({
-    id,
-    score: scores[id],
-    maxScore: maxScores[id],
-    weight: id === "humanElement" ? 0.1 : 0.15,
-    evidenceIssueIds: [],
-  }));
-  const normalizedTotal = Number(
-    (
-      dimensions.reduce(
-        (total, dimension) => total + (dimension.score / dimension.maxScore) * dimension.weight,
-        0,
-      ) * 100
-    ).toFixed(6),
-  );
-  const issues: CriticResult["issues"] = [];
-  return {
-    schemaVersion: "critic-output-v1",
-    episodeId: "episode-revision",
-    executionId: "exec-audience-critic",
+): CriticResult =>
+  criticResultFixture({
     critic: "audience-critic",
-    round: 1,
-    rubricVersion: overrides.rubricVersion ?? "product-story-v4",
+    episodeId: "episode-revision",
     reviewedArtifacts: [bestRef],
-    evaluation: {
-      dimensions,
-      rawTotal: dimensions.reduce((total, dimension) => total + dimension.score, 0),
-      normalizedTotal,
-      threshold: 85,
-      dimensionFloors: floors,
-      passedThresholds: overrides.passedThresholds ?? true,
-    },
-    issues,
-    blockers: [],
-    verdict: overrides.verdict ?? "PASS",
-    primaryRoute: null,
-    returnTo: "none",
-  };
-};
+    ...overrides,
+  });
 
 const selectionInput = (
   candidateEvaluation: CriticResult,
   overrides: Partial<Parameters<typeof selectBest>[0]> = {},
 ) => ({
-  before: [bestRef],
+  best: [bestRef],
   candidate: [candidateRef],
   beforeEvaluations: [audienceResult()],
   candidateEvaluations: [candidateEvaluation],

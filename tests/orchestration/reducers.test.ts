@@ -16,6 +16,7 @@ import {
   mergeRevisionSummaries,
   mergeStrictRecord,
   pickBest,
+  stableJson,
   upsertIssues,
   type ArtifactRef,
 } from "../../src/orchestration";
@@ -44,6 +45,11 @@ const assertProperties = <T>(reducer: (left: T, right: T) => T, left: T, right: 
 };
 
 describe("M1.2 ProductionState reducer properties", () => {
+  it("uses one recursive key-order-insensitive serialization contract", () => {
+    expect(stableJson({b: 2, a: {d: 4, c: 3}})).toBe('{"a":{"c":3,"d":4},"b":2}');
+    expect(firstWriteImmutable({a: 1, b: 2}, {b: 2, a: 1})).toEqual({a: 1, b: 2});
+  });
+
   it("keeps scalar and reference reducers commutative, idempotent and serializable", () => {
     assertProperties(firstWriteImmutable, "episode-reducer", "episode-reducer");
     assertProperties(mergePhase, "story", "visual");

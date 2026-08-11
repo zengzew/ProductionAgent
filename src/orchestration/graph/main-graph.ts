@@ -20,8 +20,17 @@ const phaseByAgent: Record<AgentName, ProductionState["phase"]> = {
   "delivery-critic": "delivery_eval",
 };
 
-const firstArtifact = (artifacts: Record<string, ArtifactRef>): ArtifactRef => {
-  const ref = Object.values(artifacts)[0];
+const promptControlArtifact = (artifacts: Record<string, ArtifactRef>): ArtifactRef => {
+  // The foundation stub has no role-specific prompt registry yet. Prefer an explicit control
+  // artifact, then use artifact identity ordering so object insertion order cannot change traces.
+  const ordered = Object.values(artifacts).sort((left, right) =>
+    left.artifactId.localeCompare(right.artifactId),
+  );
+  const ref =
+    ordered.find(
+      (artifact) =>
+        artifact.artifactId.includes(":control:") || artifact.path.includes("/control/"),
+    ) ?? ordered[0];
   if (!ref) {
     throw new Error("foundation graph requires at least one referenced control artifact");
   }
@@ -40,7 +49,7 @@ export const createFoundationGraph = (input: {
 
   const initialize = (state: ProductionState) => {
     assertReferenceOnlyState(state);
-    firstArtifact(state.artifacts);
+    promptControlArtifact(state.artifacts);
     return {phase: "init" as const};
   };
 
@@ -50,7 +59,7 @@ export const createFoundationGraph = (input: {
       return {};
     }
     const attempt = (state.attempts[agentName] ?? 0) + 1;
-    const promptRef = firstArtifact(state.artifacts);
+    const promptRef = promptControlArtifact(state.artifacts);
     const inputArtifacts = Object.values(state.artifacts);
     const executionId = `${state.runId}:${agentName}:${attempt}`;
     const startedAt = now();

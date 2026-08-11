@@ -2,6 +2,9 @@ import path from "node:path";
 import {scriptSchema} from "../src/schemas/episode";
 import {generateTtsWithProviders} from "../src/lib/tts-providers";
 import {episodeRoot, publicEpisodeRoot, readJson} from "../src/lib/project";
+import {installCliErrorHandlers} from "./lib/validation";
+
+installCliErrorHandlers();
 
 const script = scriptSchema.parse(readJson<unknown>(path.join(episodeRoot, "story/script.json")));
 const audioDir = path.join(publicEpisodeRoot, "audio");

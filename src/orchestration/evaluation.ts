@@ -6,6 +6,7 @@ import {
   type CriticResult,
   type EvaluationResult,
 } from "./schemas/critic-output";
+import {stableJson} from "./stable-json";
 import {productionContract} from "../lib/production-contract";
 
 type RubricDimension = {id: string; maxScore: number; weight: number; floor: number};
@@ -180,15 +181,6 @@ export const recomputeCriticEvaluation = (input: {
   };
 };
 
-const stable = (value: unknown): string =>
-  JSON.stringify(value, (_key, item: unknown) =>
-    item && typeof item === "object" && !Array.isArray(item)
-      ? Object.fromEntries(
-          Object.entries(item).sort(([left], [right]) => left.localeCompare(right)),
-        )
-      : item,
-  );
-
 /** Parses a model/agent result, then rejects any model-authored arithmetic or gate drift. */
 export const validateCriticResult = (raw: unknown): CriticResult => {
   const result = criticResultSchema.parse(raw);
@@ -201,10 +193,10 @@ export const validateCriticResult = (raw: unknown): CriticResult => {
     dimensions: result.evaluation.dimensions,
     issues: result.issues,
   });
-  if (stable(result.evaluation) !== stable(recomputed.evaluation)) {
+  if (stableJson(result.evaluation) !== stableJson(recomputed.evaluation)) {
     throw new Error("CRITIC_EVALUATION_MISMATCH");
   }
-  if (stable([...result.blockers].sort()) !== stable(recomputed.blockers)) {
+  if (stableJson([...result.blockers].sort()) !== stableJson(recomputed.blockers)) {
     throw new Error("CRITIC_BLOCKERS_MISMATCH");
   }
   if (result.verdict !== recomputed.verdict) throw new Error("CRITIC_VERDICT_MISMATCH");
@@ -280,7 +272,7 @@ export const assertNoEvaluationDrift = (previous: CriticResult, current: CriticR
   if (
     previous.critic !== current.critic ||
     previous.rubricVersion !== current.rubricVersion ||
-    stable(previousHashes) !== stable(currentHashes)
+    stableJson(previousHashes) !== stableJson(currentHashes)
   ) {
     return;
   }
@@ -292,7 +284,7 @@ export const assertNoEvaluationDrift = (previous: CriticResult, current: CriticR
   );
   const priorScores = previous.evaluation.dimensions.map(({id, score}) => ({id, score}));
   const currentScores = current.evaluation.dimensions.map(({id, score}) => ({id, score}));
-  if (severityDrift || stable(priorScores) !== stable(currentScores)) {
+  if (severityDrift || stableJson(priorScores) !== stableJson(currentScores)) {
     throw new Error("CRITIC_EVALUATION_DRIFT");
   }
 };

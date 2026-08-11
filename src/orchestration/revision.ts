@@ -26,6 +26,7 @@ import {
   type ArtifactIndex,
   type ArtifactRef,
 } from "./schemas/artifact";
+import {stableJson} from "./stable-json";
 
 export type RevisionEvaluations =
   readonly CriticResult[] | Partial<Readonly<Record<CriticName, CriticResult>>>;
@@ -130,17 +131,11 @@ export type EvaluationDimensionSelector = {
 };
 
 export type RevisionSelectionInput = Omit<RevisionComparisonInput, "before"> & {
-  /** The current best. `before` is accepted as the comparison-oriented alias. */
-  best?: readonly ArtifactRef[];
-  before?: readonly ArtifactRef[];
-  currentBest?: readonly ArtifactRef[];
+  best: readonly ArtifactRef[];
   /** Defaults to the ADR-003 baseline of 0.5 points. */
   targetGain?: number;
   targetedDimensions?: readonly (string | EvaluationDimensionSelector)[];
-  targetedDimensionIds?: readonly string[];
   protectedDimensions?: readonly (string | EvaluationDimensionSelector)[];
-  protectedDimensionIds?: readonly string[];
-  protectedEvaluationDimensions?: readonly (string | EvaluationDimensionSelector)[];
 };
 
 export type BestSelectionReason =
@@ -272,18 +267,6 @@ const budgetMaximumField: Record<RevisionBudgetKind, keyof RevisionBudgetLimits>
 
 const round = (value: number): number => Number(value.toFixed(6));
 
-const stableJson = (value: unknown): string =>
-  JSON.stringify(value, (_key, item: unknown) => {
-    if (item && typeof item === "object" && !Array.isArray(item)) {
-      return Object.fromEntries(
-        Object.entries(item as Record<string, unknown>).sort(([left], [right]) =>
-          left.localeCompare(right),
-        ),
-      );
-    }
-    return item;
-  }) ?? "";
-
 const sha256 = (value: string): string => createHash("sha256").update(value).digest("hex");
 
 const parsedRefs = (refs: readonly ArtifactRef[]): ArtifactRef[] =>
@@ -329,6 +312,14 @@ const issuesById = (issues: readonly RevisionIssue[]): Map<string, RevisionIssue
 
 const activeIssue = (issue: RevisionIssue | undefined): boolean =>
   issue?.status === "open" && issue.severity !== "info";
+
+const severityRank: Readonly<Record<RevisionIssue["severity"], number>> = {
+  info: 0,
+  low: 1,
+  medium: 2,
+  high: 3,
+  blocker: 4,
+};
 
 const issueArraysFrom = (evaluations: RevisionEvaluations | undefined): RevisionIssue[] => {
   if (!evaluations) return [];
@@ -571,13 +562,6 @@ const checkIssueRegressions = (
       continue;
     }
 
-    const severityRank: Record<RevisionIssue["severity"], number> = {
-      info: 0,
-      low: 1,
-      medium: 2,
-      high: 3,
-      blocker: 4,
-    };
     if (severityRank[candidate.severity] > severityRank[priorBySameId.severity]) {
       pushUnique(
         hard,
@@ -839,10 +823,7 @@ const targetIssueIsClosed = (
  * value; automatic promotion is based on per-dimension comparisons only.
  */
 export const selectBest = (input: RevisionSelectionInput): BestSelectionResult => {
-  const beforeInput = input.before ?? input.best ?? input.currentBest;
-  if (!beforeInput) throw new Error("REVISION_BEST_MISSING");
-
-  const before = parsedRefs(beforeInput);
+  const before = parsedRefs(input.best);
   const candidate = parsedRefs(input.candidate);
   const targetGain = input.targetGain ?? 0.5;
   if (!Number.isFinite(targetGain) || targetGain < 0) {
@@ -918,7 +899,7 @@ export const selectBest = (input: RevisionSelectionInput): BestSelectionResult =
     paretoNoDimensionDrop &&
     paretoHasStrictImprovement;
 
-  const targetedSelectors = input.targetedDimensions ?? input.targetedDimensionIds;
+  const targetedSelectors = input.targetedDimensions;
   const targetDimensions =
     targetedSelectors === undefined
       ? [...beforeDimensions.values()]
@@ -934,8 +915,7 @@ export const selectBest = (input: RevisionSelectionInput): BestSelectionResult =
     );
   });
 
-  const configuredProtectedSelectors =
-    input.protectedEvaluationDimensions ?? input.protectedDimensions ?? input.protectedDimensionIds;
+  const configuredProtectedSelectors = input.protectedDimensions;
   const protectedSelection = selectionSelectorsFor(
     configuredProtectedSelectors,
     beforeDimensions.values(),

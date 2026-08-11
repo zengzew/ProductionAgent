@@ -63,10 +63,6 @@ export const factSchema = z.object({
   notes: z.string(),
 });
 
-// Kept as an alias because the rendering layer still uses the established
-// Claim type. The canonical research artifact is research/facts.json.
-export const claimSchema = factSchema;
-
 export const researchTimelineEventSchema = z.object({
   id: z.string().min(1),
   dateLabel: z.string().min(1),
@@ -173,7 +169,6 @@ export const generatedCaptionSchema = z.object({
 });
 
 export type Source = z.infer<typeof sourceSchema>;
-export type Claim = z.infer<typeof factSchema>;
 export type EpisodeConfig = z.infer<typeof episodeConfigSchema>;
 export type ResearchTimeline = z.infer<typeof researchTimelineSchema>;
 export type Script = z.infer<typeof scriptSchema>;

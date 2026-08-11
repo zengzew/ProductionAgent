@@ -7,8 +7,6 @@ import {
   contentCriticNames,
   createInitialProductionState,
   emptyArtifactIndex,
-  legacyReturnTo,
-  recomputeCriticEvaluation,
   registerCandidate,
   runContentLoop,
   selectArtifact,
@@ -21,6 +19,7 @@ import {
   type ContentNodeContext,
   type CriticIssue,
 } from "../../src/orchestration";
+import {routedCriticResultFixture} from "../helpers/critics";
 
 const temporaryDirectories: string[] = [];
 
@@ -29,51 +28,6 @@ afterEach(() => {
     fs.rmSync(directory, {recursive: true, force: true});
   }
 });
-
-const profiles = {
-  "audience-critic": {
-    version: "product-story-v4",
-    dimensions: [
-      {id: "hook", score: 13},
-      {id: "conflict", score: 13},
-      {id: "humanElement", score: 8},
-      {id: "productClarity", score: 13},
-      {id: "growthLogic", score: 13},
-      {id: "technologyExplanation", score: 13},
-      {id: "naturalChinese", score: 13},
-    ],
-  },
-  "retention-critic": {
-    version: "retention-critic-v2",
-    dimensions: [
-      {id: "first3Seconds", score: 20},
-      {id: "first30Seconds", score: 20},
-      {id: "midVideoEngagement", score: 20},
-      {id: "endingSatisfaction", score: 20},
-    ],
-  },
-  "fact-guardian": {
-    version: "fact-guardian-v1",
-    dimensions: [
-      "claimCoverage",
-      "semanticFidelity",
-      "sourceIdentityAttribution",
-      "metricAndTimeScope",
-      "causalityInferenceBoundary",
-      "visualTruthBoundary",
-    ].map((id) => ({id, score: 1})),
-  },
-  "compliance-critic": {
-    version: "compliance-critic-v1",
-    dimensions: ["platformPolicy", "advertisingLanguage", "brandSafety"].map((id) => ({
-      id,
-      score: 1,
-    })),
-  },
-} satisfies Record<
-  ContentCriticName,
-  {version: string; dimensions: Array<{id: string; score: number}>}
->;
 
 type Fixture = {
   repoRoot: string;
@@ -188,41 +142,15 @@ const criticNodes = (initial: ArtifactRef, rule: CriticRule) => {
         if (!current) throw new Error("bounded fixture artifact missing");
         const configured = rule({critic, call: calls[critic], current});
         const issues = configured.issues ?? [];
-        const profile = profiles[critic];
-        const computed = recomputeCriticEvaluation({
+        return routedCriticResultFixture({
           critic,
-          rubricVersion: profile.version,
-          dimensions: profile.dimensions.map((dimension) => ({
-            ...dimension,
-            score: configured.scores?.[dimension.id] ?? dimension.score,
-            evidenceIssueIds: [],
-          })),
-          issues,
-        });
-        const primary = issues[0];
-        const route =
-          computed.verdict === "REJECT" && primary
-            ? {
-                ownerAgent: primary.ownerAgent,
-                routeTarget: primary.routeTarget,
-                restartAt: primary.routeTarget,
-                reasonCode: primary.category,
-                issueIds: issues.map((issue) => issue.id),
-              }
-            : null;
-        return {
-          schemaVersion: "critic-output-v1",
           episodeId: initial.episodeId,
           executionId: `bounded:${critic}:r${calls[critic]}`,
-          critic,
           round: calls[critic],
-          rubricVersion: profile.version,
           reviewedArtifacts: [current],
-          ...computed,
+          scores: configured.scores,
           issues,
-          primaryRoute: route,
-          returnTo: route === null ? "none" : legacyReturnTo(critic, route.routeTarget),
-        };
+        });
       },
     ]),
   ) as Record<ContentCriticName, (context: ContentNodeContext) => Promise<ContentCriticOutput>>;

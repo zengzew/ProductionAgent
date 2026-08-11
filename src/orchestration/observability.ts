@@ -2,6 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import {executionEventSchema, type ExecutionEvent} from "./schemas/execution-event";
+import {stableJson} from "./stable-json";
 
 export const EXECUTION_LOG_PATH = (episodeId: string): string =>
   `content/${episodeId}/observability/executions.jsonl`;
@@ -53,7 +54,7 @@ export const hashArtifactInputs = (artifacts: ExecutionEvent["inputArtifacts"]):
   crypto
     .createHash("sha256")
     .update(
-      JSON.stringify(
+      stableJson(
         [...artifacts]
           .sort((left, right) => left.artifactId.localeCompare(right.artifactId))
           .map(({artifactId, revision, sha256}) => ({artifactId, revision, sha256})),

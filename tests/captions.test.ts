@@ -139,6 +139,19 @@ describe("caption helpers", () => {
     ).toBeUndefined();
   });
 
+  it("keeps timestamp alignment correct across many ordered spans", () => {
+    const timestamps = Array.from({length: 2_000}, (_, index) => ({
+      text: "字",
+      startMs: index * 10,
+      endMs: (index + 1) * 10,
+    }));
+    const parts = Array.from({length: 200}, () => ({text: "字".repeat(10), weight: 10}));
+    const aligned = alignCaptionPartsToTimestamps(parts, timestamps, 20);
+
+    expect(aligned).toHaveLength(200);
+    expect(aligned?.at(-1)).toMatchObject({startSeconds: 19.9, endSeconds: 20});
+  });
+
   it("removes punctuation at the end of every displayed caption", () => {
     expect(stripTrailingCaptionPunctuation("收件箱方案于是被收回去，")).toBe(
       "收件箱方案于是被收回去",

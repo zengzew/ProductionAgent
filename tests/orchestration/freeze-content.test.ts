@@ -1,57 +1,34 @@
 import fs from "node:fs";
-import os from "node:os";
 import path from "node:path";
 import {afterEach, describe, expect, it} from "vitest";
 import {
   assertReferenceOnlyState,
   assertReferenceOnlyFreezeStateUpdate,
-  buildArtifactRef,
   contentManifestSchema,
   createInitialProductionState,
   evaluateContentFreezePreconditions,
-  emptyArtifactIndex,
   freezeContent,
   hashContentSelection,
   markStaleTransitively,
-  registerCandidate,
-  selectArtifact,
   type ArtifactIndex,
-  type ArtifactRef,
 } from "../../src/orchestration";
+import {
+  freezeArtifactFixture,
+  freezeIndexFixture,
+  frozenAtFixture,
+  temporaryFreezeRepoFixture,
+} from "../helpers/freeze";
 
 const temporaryDirectories: string[] = [];
-const frozenAt = "2026-08-08T00:00:00.000Z";
-
 const temporaryRepo = (): string => {
-  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "production-agent-freeze-"));
+  const directory = temporaryFreezeRepoFixture();
   temporaryDirectories.push(directory);
   return directory;
 };
 
-const writeRef = (repoRoot: string, logicalName: string, body: string): ArtifactRef => {
-  const relativePath = `content/episode-freeze/story/${logicalName}.md`;
-  const filePath = path.join(repoRoot, relativePath);
-  fs.mkdirSync(path.dirname(filePath), {recursive: true});
-  fs.writeFileSync(filePath, body);
-  return buildArtifactRef({
-    repoRoot,
-    artifactId: `episode-freeze:story:${logicalName}`,
-    episodeId: "episode-freeze",
-    path: relativePath,
-    mediaType: "text/markdown",
-    schemaVersion: "fixture-v1",
-    producer: "fixture",
-    createdAt: frozenAt,
-  });
-};
-
-const selectedIndex = (refs: readonly ArtifactRef[]): ArtifactIndex => {
-  let index = emptyArtifactIndex("episode-freeze");
-  for (const ref of refs) {
-    index = selectArtifact(registerCandidate(index, ref, `fixture:${ref.artifactId}`, []), ref);
-  }
-  return index;
-};
+const frozenAt = frozenAtFixture;
+const writeRef = freezeArtifactFixture;
+const selectedIndex = freezeIndexFixture;
 
 afterEach(() => {
   for (const directory of temporaryDirectories.splice(0)) {

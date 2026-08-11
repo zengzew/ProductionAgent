@@ -50,6 +50,9 @@ importers:
       "@types/react-dom":
         specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.14)
+      "@vitest/coverage-v8":
+        specifier: 4.1.10
+        version: 4.1.10(vitest@4.1.10)
       eslint:
         specifier: ^10.8.0
         version: 10.8.0
@@ -70,7 +73,7 @@ importers:
         version: 8.65.0(eslint@10.8.0)(typescript@5.9.3)
       vitest:
         specifier: ^4.1.10
-        version: 4.1.10(@types/node@26.1.1)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(terser@5.49.0)(tsx@4.23.1))
+        version: 4.1.10(@types/node@26.1.1)(@vitest/coverage-v8@4.1.10)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(terser@5.49.0)(tsx@4.23.1))
 
 packages:
   "@babel/code-frame@7.29.7":
@@ -202,6 +205,13 @@ packages:
         integrity: sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==,
       }
     engines: {node: ">=6.9.0"}
+
+  "@bcoe/v8-coverage@1.0.2":
+    resolution:
+      {
+        integrity: sha512-6zABk/ECA/QYSCQ1NGiVwwbQerUCZ+TQbp64Q3AgmfNvurHH0j8TtXa1qbShXA6qqkpAj4V5W8pP6mLe1mcMqA==,
+      }
+    engines: {node: ">=18"}
 
   "@cfworker/json-schema@4.1.1":
     resolution:
@@ -1735,6 +1745,18 @@ packages:
       }
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  "@vitest/coverage-v8@4.1.10":
+    resolution:
+      {
+        integrity: sha512-IM49HmthevbgAO4anp1hwtoT9wYe59w0LR00gr+eagHE+ZJ5lK4sLPeO0ubgoJcwLk6dehU3R24N+FbEEKDc8g==,
+      }
+    peerDependencies:
+      "@vitest/browser": 4.1.10
+      vitest: 4.1.10
+    peerDependenciesMeta:
+      "@vitest/browser":
+        optional: true
+
   "@vitest/expect@4.1.10":
     resolution:
       {
@@ -1962,6 +1984,12 @@ packages:
         integrity: sha512-6t10qk83GOG8p0vKmaCr8eiilZwO171AvbROMtvvNiwrTly62t+7XkA8RdIIVbpMhCASAsxgAzdRSwh6nw/5Dg==,
       }
     engines: {node: ">=4"}
+
+  ast-v8-to-istanbul@1.0.5:
+    resolution:
+      {
+        integrity: sha512-UPAgKJFSEGMWSDr3LX4tqnAb4f7KGT8O40Tyx8wbYmmZ/yn58lNCm8h3svs3eXgiGd5AXxz8NDOvXWvicq+rJA==,
+      }
 
   balanced-match@4.0.4:
     resolution:
@@ -2671,6 +2699,12 @@ packages:
         integrity: sha512-biOj/6M5qdgx5TKjDnFT1ymSpM5tbd3ylwDtrQvFQSu0Z7bBYko2dF+W/aUkXUPuk6IVpRxk/3Q2sHOzGlS36g==,
       }
 
+  js-tokens@10.0.0:
+    resolution:
+      {
+        integrity: sha512-lM/UBzQmfJRo9ABXbPWemivdCW8V2G8FHaHdypQaIy523snUjog0W71ayWXTjiR+ixeMyVHN2XcpnTd/liPg/Q==,
+      }
+
   js-tokens@4.0.0:
     resolution:
       {
@@ -2939,6 +2973,12 @@ packages:
     resolution:
       {
         integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==,
+      }
+
+  magicast@0.5.4:
+    resolution:
+      {
+        integrity: sha512-llBEhWm1SacoRwgHUoQJYtwp4PBLF4faQi5TCpIGyGs9n4y5+juI0tDgyKIfpqxckRHaHzouUEph3THklWh03w==,
       }
 
   mediabunny@1.50.8:
@@ -4117,6 +4157,8 @@ snapshots:
       "@babel/helper-string-parser": 7.29.7
       "@babel/helper-validator-identifier": 7.29.7
 
+  "@bcoe/v8-coverage@1.0.2": {}
+
   "@cfworker/json-schema@4.1.1": {}
 
   "@emnapi/core@1.11.1":
@@ -5075,6 +5117,20 @@ snapshots:
       "@typescript-eslint/types": 8.65.0
       eslint-visitor-keys: 5.0.1
 
+  "@vitest/coverage-v8@4.1.10(vitest@4.1.10)":
+    dependencies:
+      "@bcoe/v8-coverage": 1.0.2
+      "@vitest/utils": 4.1.10
+      ast-v8-to-istanbul: 1.0.5
+      istanbul-lib-coverage: 3.2.2
+      istanbul-lib-report: 3.0.1
+      istanbul-reports: 3.2.0
+      magicast: 0.5.4
+      obug: 2.1.4
+      std-env: 4.2.0
+      tinyrainbow: 3.1.0
+      vitest: 4.1.10(@types/node@26.1.1)(@vitest/coverage-v8@4.1.10)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(terser@5.49.0)(tsx@4.23.1))
+
   "@vitest/expect@4.1.10":
     dependencies:
       "@standard-schema/spec": 1.1.0
@@ -5236,6 +5292,12 @@ snapshots:
   ast-types@0.16.1:
     dependencies:
       tslib: 2.8.1
+
+  ast-v8-to-istanbul@1.0.5:
+    dependencies:
+      "@jridgewell/trace-mapping": 0.3.31
+      estree-walker: 3.0.3
+      js-tokens: 10.0.0
 
   balanced-match@4.0.4: {}
 
@@ -5615,6 +5677,8 @@ snapshots:
     dependencies:
       base64-js: 1.5.1
 
+  js-tokens@10.0.0: {}
+
   js-tokens@4.0.0: {}
 
   js-yaml@4.3.0:
@@ -5728,6 +5792,12 @@ snapshots:
   magic-string@0.30.21:
     dependencies:
       "@jridgewell/sourcemap-codec": 1.5.5
+
+  magicast@0.5.4:
+    dependencies:
+      "@babel/parser": 7.29.7
+      "@babel/types": 7.29.7
+      source-map-js: 1.2.1
 
   mediabunny@1.50.8:
     dependencies:
@@ -6227,7 +6297,7 @@ snapshots:
       terser: 5.49.0
       tsx: 4.23.1
 
-  vitest@4.1.10(@types/node@26.1.1)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(terser@5.49.0)(tsx@4.23.1)):
+  vitest@4.1.10(@types/node@26.1.1)(@vitest/coverage-v8@4.1.10)(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(terser@5.49.0)(tsx@4.23.1)):
     dependencies:
       "@vitest/expect": 4.1.10
       "@vitest/mocker": 4.1.10(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(terser@5.49.0)(tsx@4.23.1))

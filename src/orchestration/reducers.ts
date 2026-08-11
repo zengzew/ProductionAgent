@@ -1,12 +1,10 @@
 import {agentNames} from "./schemas/agent";
 import type {ArtifactRef} from "./schemas/artifact";
+import {stableJsonEqual} from "./stable-json";
 import {productionPhases, type ProductionState} from "./state";
 
-const sameJson = (left: unknown, right: unknown): boolean =>
-  JSON.stringify(left) === JSON.stringify(right);
-
 export const firstWriteImmutable = <T>(current: T, update: T): T => {
-  if (!sameJson(current, update)) {
+  if (!stableJsonEqual(current, update)) {
     throw new Error("immutable state field received conflicting values");
   }
   return current;
@@ -31,7 +29,7 @@ const mergeArtifactRecord = (current: ArtifactRef, update: ArtifactRef): Artifac
     if (current.sha256 !== update.sha256) {
       throw new Error(`artifact revision collision for ${current.artifactId}`);
     }
-    if (!sameJson(current, update)) {
+    if (!stableJsonEqual(current, update)) {
       throw new Error(`artifact reference collision for ${current.artifactId}`);
     }
     return current;
@@ -64,7 +62,7 @@ export const appendDedupeBy = <T>(current: T[], update: T[], key: (value: T) => 
   for (const value of [...current, ...update]) {
     const itemKey = key(value);
     const existing = merged.get(itemKey);
-    if (existing && !sameJson(existing, value)) {
+    if (existing && !stableJsonEqual(existing, value)) {
       throw new Error(`state reducer collision for ${itemKey}`);
     }
     merged.set(itemKey, existing ?? value);
@@ -106,7 +104,7 @@ export const mergeStrictRecord = <T>(
     keys.map((key) => {
       const left = current[key];
       const right = update[key];
-      if (left !== undefined && right !== undefined && !sameJson(left, right)) {
+      if (left !== undefined && right !== undefined && !stableJsonEqual(left, right)) {
         throw new Error(`state reducer collision for ${key}`);
       }
       return [key, left ?? (right as T)];
@@ -135,7 +133,7 @@ export const upsertIssues = (
       if (!right) return [key, left];
       const leftIdentity = {...left, status: "open" as const};
       const rightIdentity = {...right, status: "open" as const};
-      if (!sameJson(leftIdentity, rightIdentity)) {
+      if (!stableJsonEqual(leftIdentity, rightIdentity)) {
         throw new Error(`issue reducer collision for ${key}`);
       }
       const leftRank = issueStatusRank[left.status];

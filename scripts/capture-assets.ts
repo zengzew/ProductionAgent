@@ -4,6 +4,9 @@ import {chromium} from "playwright";
 import {captureConfiguredAssets} from "../src/lib/capture-assets";
 import {episodeConfigSchema} from "../src/schemas/episode";
 import {ensureDir, episodeRoot, publicEpisodeRoot, readJson} from "../src/lib/project";
+import {installCliErrorHandlers} from "./lib/validation";
+
+installCliErrorHandlers();
 
 const outputDir = path.join(publicEpisodeRoot, "captured");
 const chromeExecutable = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";

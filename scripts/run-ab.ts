@@ -3,6 +3,9 @@ import path from "node:path";
 import {runPolish} from "../src/lib/polish";
 import {generateTtsWithProviders} from "../src/lib/tts-providers";
 import {episodeId, outputEpisodeRoot, repoRoot, writeJson} from "../src/lib/project";
+import {installCliErrorHandlers} from "./lib/validation";
+
+installCliErrorHandlers();
 
 const polish = await runPolish();
 if (polish.status !== "passed") throw new Error("polish 未通过，A/B 已停止");

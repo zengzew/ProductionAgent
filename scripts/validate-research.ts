@@ -5,17 +5,20 @@ import {
   researchTimelineSchema,
   sourceSchema,
 } from "../src/schemas/episode";
-import {episodeRoot, readJson} from "../src/lib/project";
+import {episodeRoot} from "../src/lib/project";
 import {assertEpisodeMatchesProductionContract} from "../src/lib/production-contract";
+import {finishValidation, installCliErrorHandlers, readJsonFile} from "./lib/validation";
+
+installCliErrorHandlers();
 
 const episodeConfig = episodeConfigSchema.parse(
-  readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
+  readJsonFile<unknown>(path.join(episodeRoot, "episode.config.json")),
 );
 assertEpisodeMatchesProductionContract(episodeConfig);
-const sourcesRaw = readJson<unknown[]>(path.join(episodeRoot, "research/sources.json"));
-const claimsRaw = readJson<unknown[]>(path.join(episodeRoot, "research/facts.json"));
+const sourcesRaw = readJsonFile<unknown[]>(path.join(episodeRoot, "research/sources.json"));
+const claimsRaw = readJsonFile<unknown[]>(path.join(episodeRoot, "research/facts.json"));
 const researchTimeline = researchTimelineSchema.parse(
-  readJson<unknown>(path.join(episodeRoot, "research/timeline.json")),
+  readJsonFile<unknown>(path.join(episodeRoot, "research/timeline.json")),
 );
 const sources = sourcesRaw.map((source) => sourceSchema.parse(source));
 const claims = claimsRaw.map((claim) => factSchema.parse(claim));
@@ -103,11 +106,7 @@ for (const event of researchTimeline.events) {
   }
 }
 
-if (errors.length > 0) {
-  console.error(errors.join("\n"));
-  process.exit(1);
-}
-
-console.log(
+finishValidation(
+  errors,
   `research validation passed: ${sources.length} sources, ${claims.length} facts, ${researchTimeline.events.length} events, all lineage resolved`,
 );

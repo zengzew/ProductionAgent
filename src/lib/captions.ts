@@ -74,10 +74,14 @@ export const alignCaptionPartsToTimestamps = (
         (timestampSpans.at(-1)?.endMs ?? audioDurationSeconds * 1000) / 1000,
       );
     }
-    const span =
-      timestampSpans.find(
-        (candidate) => charOffset >= candidate.startChar && charOffset <= candidate.endChar,
-      ) ?? timestampSpans.at(-1)!;
+    let low = 0;
+    let high = timestampSpans.length - 1;
+    while (low < high) {
+      const middle = Math.floor((low + high) / 2);
+      if (timestampSpans[middle]!.endChar < charOffset) low = middle + 1;
+      else high = middle;
+    }
+    const span = timestampSpans[low]!;
     const ratio = (charOffset - span.startChar) / (span.endChar - span.startChar);
     return Math.min(
       audioDurationSeconds,

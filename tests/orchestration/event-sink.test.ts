@@ -7,6 +7,7 @@ import {
   importLegacyEpisode001,
   type ExecutionEvent,
 } from "../../src/orchestration";
+import {legacyEpisodeRepoFixture} from "../helpers/artifacts";
 
 const temporaryDirectories: string[] = [];
 
@@ -18,7 +19,9 @@ afterEach(() => {
 
 describe("M1.2 append-only execution event sink", () => {
   it("appends JSONL records and sanitizes secret-like error text", () => {
-    const repoRoot = path.resolve(import.meta.dirname, "../..");
+    const sourceRoot = path.resolve(import.meta.dirname, "../..");
+    const {repoRoot} = legacyEpisodeRepoFixture(sourceRoot);
+    temporaryDirectories.push(repoRoot);
     const imported = importLegacyEpisode001({
       repoRoot,
       occurredAt: "2026-08-05T00:00:00.000Z",

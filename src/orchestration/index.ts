@@ -20,3 +20,4 @@ export * from "./schemas/execution-event";
 export * from "./schemas/freeze-manifest";
 export * from "./schemas/revision-ledger";
 export * from "./state";
+export * from "./stable-json";

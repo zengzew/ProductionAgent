@@ -5,6 +5,7 @@ import {spawnSync} from "node:child_process";
 import {loadTtsV2Config, type TtsV2Config} from "./pipeline-v2-config";
 import {fetchWithRetry, type RetryableFetchOptions} from "./network";
 import {ensureDir, repoRoot, writeJson} from "./project";
+import {assertSpawnSucceeded, parseFiniteNumber} from "./process";
 import type {Script} from "../schemas/episode";
 
 export type SpeechTimestamp = {text: string; startMs: number; endMs: number};
@@ -55,11 +56,7 @@ export type TtsMetadata = {
 
 const run = (command: string, args: string[]): void => {
   const result = spawnSync(command, args, {cwd: repoRoot, encoding: "utf8"});
-  if (result.status !== 0) {
-    throw new Error(
-      `${command} 失败：${result.stderr || result.stdout || `exit ${result.status ?? "unknown"}`}`,
-    );
-  }
+  assertSpawnSucceeded(command, args, result);
 };
 
 const durationMs = (file: string): number => {
@@ -76,15 +73,16 @@ const durationMs = (file: string): number => {
     ],
     {encoding: "utf8"},
   );
-  const seconds = Number.parseFloat(result.stdout.trim());
-  if (result.status !== 0 || !Number.isFinite(seconds) || seconds <= 0) {
-    throw new Error(`ffprobe 无法读取音频：${file}`);
-  }
+  assertSpawnSucceeded("ffprobe", [file], result);
+  const seconds = parseFiniteNumber(result.stdout.trim(), `${file} 音频时长`);
+  if (seconds <= 0) throw new Error(`ffprobe 无法读取音频：${file}`);
   return Math.round(seconds * 1000);
 };
 
 export const splitSpeechSentences = (text: string): string[] =>
-  (text.match(/[^。！？!?]+[。！？!?]?/gu) ?? []).map((part) => part.trim()).filter(Boolean);
+  (text.match(/[^。！？!?；;…]+(?:……|[。！？!?；;…])?/gu) ?? [])
+    .map((part) => part.trim())
+    .filter(Boolean);
 
 const numberValue = (record: Record<string, unknown>, keys: string[]) => {
   for (const key of keys) {

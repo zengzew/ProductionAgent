@@ -3,6 +3,9 @@ import path from "node:path";
 import {parseFinalScript} from "../src/lib/story";
 import {episodeRoot, writeJson} from "../src/lib/project";
 import {scriptSchema} from "../src/schemas/episode";
+import {installCliErrorHandlers} from "./lib/validation";
+
+installCliErrorHandlers();
 
 const finalScriptPath = path.join(episodeRoot, "story/final-script.md");
 const markdown = fs.readFileSync(finalScriptPath, "utf8");

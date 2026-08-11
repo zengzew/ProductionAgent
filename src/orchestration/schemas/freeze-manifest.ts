@@ -1,27 +1,15 @@
 import {createHash} from "node:crypto";
 import {z} from "zod";
 import {artifactRefSchema, type ArtifactRef} from "./artifact";
+import {stableJson} from "../stable-json";
 
 export const CONTENT_MANIFEST_SCHEMA_VERSION = "content-manifest-v1" as const;
-export const FREEZE_MANIFEST_SCHEMA_VERSION = CONTENT_MANIFEST_SCHEMA_VERSION;
 
 const episodeIdSchema = z.string().regex(/^episode-[a-z0-9-]+$/u);
 const sha256Schema = z.string().regex(/^[a-f0-9]{64}$/u, "sha256 must be lowercase hex");
 const issueIdSchema = z.string().min(1);
 
 const uniqueStrings = (values: string[]): boolean => new Set(values).size === values.length;
-
-const stableSerialize = (value: unknown): string =>
-  JSON.stringify(value, (_key, item: unknown) => {
-    if (item && typeof item === "object" && !Array.isArray(item)) {
-      return Object.fromEntries(
-        Object.entries(item as Record<string, unknown>).sort(([left], [right]) =>
-          left.localeCompare(right),
-        ),
-      );
-    }
-    return item;
-  }) ?? "";
 
 const canonicalArtifactRefs = (refs: readonly ArtifactRef[]): ArtifactRef[] =>
   refs
@@ -44,7 +32,7 @@ const canonicalArtifactRefs = (refs: readonly ArtifactRef[]): ArtifactRef[] =>
  */
 export const hashContentSelection = (refs: readonly ArtifactRef[]): string =>
   createHash("sha256")
-    .update(stableSerialize(canonicalArtifactRefs(refs)))
+    .update(stableJson(canonicalArtifactRefs(refs)))
     .digest("hex");
 
 export const contentManifestGateSnapshotSchema = z
@@ -123,8 +111,5 @@ export const contentManifestSchema = z
     }
   });
 
-export const freezeManifestSchema = contentManifestSchema;
-
 export type ContentManifestGateSnapshot = z.infer<typeof contentManifestGateSnapshotSchema>;
 export type ContentManifest = z.infer<typeof contentManifestSchema>;
-export type FreezeManifest = ContentManifest;

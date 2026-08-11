@@ -1,10 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
-import {spawnSync} from "node:child_process";
 import {measureCaptionDelivery, parseSrt} from "../src/lib/delivery";
-import {assertSpawnSucceeded, parseFiniteNumber} from "../src/lib/process";
+import {parseFiniteNumber} from "../src/lib/process";
 import {outputEpisodeRoot, writeJson} from "../src/lib/project";
 import {expectedFrameRate, productionContract} from "../src/lib/production-contract";
+import {runCommand} from "./lib/process";
+import {finishValidation, installCliErrorHandlers, parseJsonText} from "./lib/validation";
+
+installCliErrorHandlers();
 
 type Probe = {
   format: {duration: string; format_name: string};
@@ -18,29 +21,16 @@ type Probe = {
   }>;
 };
 
-const run = (command: string, args: string[]): {stdout: string; stderr: string} => {
-  const result = spawnSync(command, args, {encoding: "utf8"});
-  assertSpawnSucceeded(command, args, result);
-  return {stdout: result.stdout, stderr: result.stderr};
-};
-
 const probe = (filePath: string): Probe =>
-  JSON.parse(
-    run("ffprobe", ["-v", "error", "-show_streams", "-show_format", "-of", "json", filePath])
+  parseJsonText<Probe>(
+    runCommand("ffprobe", ["-v", "error", "-show_streams", "-show_format", "-of", "json", filePath])
       .stdout,
-  ) as Probe;
+    `ffprobe 输出 ${filePath}`,
+  );
 
 const maxVolume = (filePath: string): number => {
-  const result = spawnSync(
-    "ffmpeg",
-    ["-hide_banner", "-i", filePath, "-af", "volumedetect", "-f", "null", "-"],
-    {encoding: "utf8"},
-  );
-  assertSpawnSucceeded(
-    "ffmpeg",
-    ["-hide_banner", "-i", filePath, "-af", "volumedetect", "-f", "null", "-"],
-    result,
-  );
+  const args = ["-hide_banner", "-i", filePath, "-af", "volumedetect", "-f", "null", "-"];
+  const result = runCommand("ffmpeg", args, {encoding: "utf8"});
   const match = result.stderr.match(/max_volume:\s*(-?[\d.]+)\s*dB/u);
   if (!match?.[1]) throw new Error(`无法读取音频峰值：${filePath}`);
   return parseFiniteNumber(match[1], `${filePath} 音频峰值`);
@@ -126,10 +116,5 @@ writeJson(path.join(outputEpisodeRoot, "inspection.json"), {
   errors,
 });
 
-if (errors.length > 0) {
-  console.error(errors.join("\n"));
-  process.exit(1);
-}
-
-console.log(JSON.stringify(inspections, null, 2));
-console.log("output inspection passed");
+if (errors.length === 0) console.log(JSON.stringify(inspections, null, 2));
+finishValidation(errors, "output inspection passed");

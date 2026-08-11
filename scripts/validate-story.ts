@@ -1,4 +1,3 @@
-import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import {episodeConfigSchema, factSchema} from "../src/schemas/episode";
@@ -19,12 +18,22 @@ import {
   findMissingHookCandidateFields,
   parseVisualPlanSections,
 } from "../src/lib/story-quality";
-import {episodeId, episodeRoot, readJson, repoRoot} from "../src/lib/project";
+import {episodeId, episodeRoot, repoRoot} from "../src/lib/project";
 import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial-text-rules";
 import {
   assertEpisodeMatchesProductionContract,
   productionContract,
 } from "../src/lib/production-contract";
+import {
+  fatal,
+  finishValidation,
+  installCliErrorHandlers,
+  readJsonFile,
+  sha256,
+  ValidationErrors,
+} from "./lib/validation";
+
+installCliErrorHandlers();
 
 const storyRoot = path.join(episodeRoot, "story");
 const requiredFiles = [
@@ -42,9 +51,9 @@ const requiredFiles = [
   "visual-plan.md",
   "retention-report.md",
 ];
-const errors: string[] = [];
+const errors = new ValidationErrors();
 const episodeConfig = episodeConfigSchema.parse(
-  readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
+  readJsonFile<unknown>(path.join(episodeRoot, "episode.config.json")),
 );
 assertEpisodeMatchesProductionContract(episodeConfig);
 const editorialTextRules = loadEditorialTextRules();
@@ -55,22 +64,18 @@ for (const file of requiredFiles) {
   }
 }
 
-if (errors.length > 0) {
-  console.error(errors.join("\n"));
-  process.exit(1);
-}
+if (errors.length > 0) fatal(errors);
 
 const readStory = (file: string): string => fs.readFileSync(path.join(storyRoot, file), "utf8");
-const facts = readJson<unknown[]>(path.join(episodeRoot, "research/facts.json")).map((fact) =>
+const facts = readJsonFile<unknown[]>(path.join(episodeRoot, "research/facts.json")).map((fact) =>
   factSchema.parse(fact),
 );
 const factMap = new Map(facts.map((fact) => [fact.id, fact]));
 const finalScriptMarkdown = readStory("final-script.md");
 const segments = parseFinalScript(finalScriptMarkdown);
-const finalScriptHash = crypto.createHash("sha256").update(finalScriptMarkdown).digest("hex");
+const finalScriptHash = sha256(finalScriptMarkdown);
 const scriptDraftMarkdown = readStory("script-draft.md");
-const scriptDraftHash = crypto.createHash("sha256").update(scriptDraftMarkdown).digest("hex");
-const sha256 = (value: string): string => crypto.createHash("sha256").update(value).digest("hex");
+const scriptDraftHash = sha256(scriptDraftMarkdown);
 
 const requiredStoryTokens: Record<string, string[]> = {
   "story-bible.md": [
@@ -538,11 +543,7 @@ if (retention.verdict === "REJECT" && retention.returnTo === "none") {
   errors.push("Retention Critic REJECT 必须指定 returnTo");
 }
 
-if (errors.length > 0) {
-  console.error(errors.join("\n"));
-  process.exit(1);
-}
-
-console.log(
+finishValidation(
+  errors,
   `story validation passed: ${segments.length} segments, target=${totalTargetSeconds}s, hook=${hookTargetSeconds}s, viral=${viralStrategy.total}, oral=${oralReview.verdict}, critic=${critic.total}, fact=${factCheck.verdict}, visual=${visualPlan.verdict}, retention=${retention.total}`,
 );

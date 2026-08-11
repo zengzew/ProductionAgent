@@ -31,6 +31,7 @@ import {
   type RevisionHistoryEntry,
   type RevisionStrategyLevel,
 } from "../revision";
+import {stableJson} from "../stable-json";
 import {
   defaultRevisionBudgetLimits,
   revisionLedgerSchema,
@@ -383,7 +384,7 @@ const assertReviewedArtifactsCurrent = (result: CriticResult, index: ArtifactInd
 };
 
 const issueIdentity = (issue: CriticIssue): string =>
-  JSON.stringify({
+  stableJson({
     id: issue.id,
     category: issue.category,
     severity: issue.severity,
@@ -944,6 +945,16 @@ const refRecord = (refs: readonly ArtifactRef[]): Record<string, ArtifactRef> =>
 const selectedRefs = (index: ArtifactIndex): ArtifactRef[] =>
   selectedRecords(index).map((record) => record.ref);
 
+const requireArtifactHash = (
+  refs: ReadonlyMap<string, ArtifactRef>,
+  artifactId: string,
+  phase: "before" | "after",
+): string => {
+  const ref = refs.get(artifactId);
+  if (!ref) throw new Error(`CONTENT_REVISION_${phase.toUpperCase()}_REF_MISSING:${artifactId}`);
+  return ref.sha256;
+};
+
 const resultRefs = (critics: NormalizedCritics): ArtifactRef[] =>
   Object.values(reportRefMap(critics));
 
@@ -1323,6 +1334,7 @@ export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLo
     });
 
     const candidateRefs = selectedRefs(candidateIndex);
+    const candidateRefMap = new Map(candidateRefs.map((ref) => [ref.artifactId, ref]));
     lastCandidateRefs = candidateRefs;
     const history = [...candidateHistory, candidateRefs];
     const assessment = assessRevision({
@@ -1340,7 +1352,7 @@ export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLo
       budgetLimits,
     });
     const selection = selectBest({
-      before: beforeRefs,
+      best: beforeRefs,
       candidate: candidateRefs,
       beforeEvaluations: reportMap(bestCritics),
       candidateEvaluations: reportMap(candidateCritics),
@@ -1378,13 +1390,13 @@ export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLo
       beforeHashes: Object.fromEntries(
         authorizedArtifactIds.map((artifactId) => [
           artifactId,
-          beforeRefMap.get(artifactId)?.sha256 ?? "",
+          requireArtifactHash(beforeRefMap, artifactId, "before"),
         ]),
       ),
       afterHashes: Object.fromEntries(
         authorizedArtifactIds.map((artifactId) => [
           artifactId,
-          candidateRefs.find((ref) => ref.artifactId === artifactId)?.sha256 ?? "",
+          requireArtifactHash(candidateRefMap, artifactId, "after"),
         ]),
       ),
       strategyLevel,
@@ -1518,7 +1530,3 @@ export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLo
 export const createContentSubgraph = (nodes: ContentLoopNodes) => ({
   invoke: (input: Omit<ContentLoopInput, "nodes">) => runContentLoop({...input, nodes}),
 });
-
-export const createContentLoop = createContentSubgraph;
-export const createContentGraph = createContentSubgraph;
-export const runContentRevisionLoop = runContentLoop;

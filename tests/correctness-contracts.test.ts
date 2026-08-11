@@ -8,6 +8,7 @@ import {buildPokeSoundCues} from "../src/lib/poke-sound-design";
 import {assertSpawnSucceeded, parseFiniteNumber} from "../src/lib/process";
 import {readJson, resolveEpisodeId} from "../src/lib/project";
 import {productionContract} from "../src/lib/production-contract";
+import {splitSpeechSentences} from "../src/lib/tts-providers";
 
 describe("correctness contracts", () => {
   it("parses named episode flags independently from render mode", () => {
@@ -136,5 +137,13 @@ describe("correctness contracts", () => {
       assertSpawnSucceeded("tool", ["arg"], {status: 2, stderr: "specific failure"}),
     ).toThrow(/specific failure/u);
     expect(() => parseFiniteNumber("NaN", "duration")).toThrow(/不是有效数字/u);
+  });
+
+  it("splits TTS input at semicolons and ellipses as well as sentence endings", () => {
+    expect(splitSpeechSentences("先打开邮件；再补日历……最后确认。")).toEqual([
+      "先打开邮件；",
+      "再补日历……",
+      "最后确认。",
+    ]);
   });
 });

@@ -1,40 +1,44 @@
 import fs from "node:fs";
 import path from "node:path";
-import {spawnSync} from "node:child_process";
 import {
   alignCaptionPartsToTimestamps,
   captionPartsFromPlan,
   fitCaptionPartsToDuration,
   formatSrtTime,
 } from "../src/lib/captions";
-import {captionPlanSchema, episodeConfigSchema, scriptSchema} from "../src/schemas/episode";
+import {episodeConfigSchema} from "../src/schemas/episode";
 import type {TtsMetadata} from "../src/lib/tts-providers";
 import {
   episodeId,
   episodeRoot,
   outputEpisodeRoot,
   publicEpisodeRoot,
-  readJson,
   repoRoot,
   writeJson,
 } from "../src/lib/project";
-import {getRenderContract} from "../src/lib/render-contract";
+import {
+  generatedCaptionsPath,
+  generatedTimelinePath,
+  getRenderContract,
+} from "../src/lib/render-contract";
 import {
   assertEpisodeMatchesProductionContract,
   productionContract,
   timelineTailSeconds,
 } from "../src/lib/production-contract";
+import {probeMediaDuration} from "./lib/process";
+import {installCliErrorHandlers, readCaptionPlan, readJsonFile, readScript} from "./lib/validation";
+
+installCliErrorHandlers();
 
 const renderContract = getRenderContract(episodeId);
 const fps = productionContract.delivery.fps;
 const episodeConfig = episodeConfigSchema.parse(
-  readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
+  readJsonFile<unknown>(path.join(episodeRoot, "episode.config.json")),
 );
 assertEpisodeMatchesProductionContract(episodeConfig);
-const script = scriptSchema.parse(readJson<unknown>(path.join(episodeRoot, "story/script.json")));
-const captionPlan = captionPlanSchema.parse(
-  readJson<unknown>(path.join(episodeRoot, "story/caption-plan.json")),
-);
+const script = readScript(path.join(episodeRoot, "story/script.json"));
+const captionPlan = readCaptionPlan(path.join(episodeRoot, "story/caption-plan.json"));
 const captionPlanBySegment = new Map(
   captionPlan.segments.map((segment) => [segment.segmentId, segment.cues]),
 );
@@ -44,28 +48,10 @@ if (
 ) {
   throw new Error("字幕规划必须与脚本段落一一对应，且 segmentId 不得重复");
 }
-const ttsMetadata = readJson<TtsMetadata>(path.join(episodeRoot, "production/tts-metadata.json"));
+const ttsMetadata = readJsonFile<TtsMetadata>(
+  path.join(episodeRoot, "production/tts-metadata.json"),
+);
 const ttsFilesBySegment = new Map(ttsMetadata.files.map((file) => [file.segmentId, file]));
-
-const probeDuration = (filePath: string): number => {
-  const result = spawnSync(
-    "ffprobe",
-    [
-      "-v",
-      "error",
-      "-show_entries",
-      "format=duration",
-      "-of",
-      "default=noprint_wrappers=1:nokey=1",
-      filePath,
-    ],
-    {encoding: "utf8"},
-  );
-  if (result.status !== 0) throw new Error(`ffprobe 失败：${filePath}\n${result.stderr}`);
-  const duration = Number.parseFloat(result.stdout.trim());
-  if (!Number.isFinite(duration) || duration <= 0) throw new Error(`无效音频时长：${filePath}`);
-  return duration;
-};
 
 let cursorSeconds = 0;
 let captionIndex = 1;
@@ -82,7 +68,7 @@ const captions: Array<{
 const scenes = script.segments.map((segment, index) => {
   const absoluteAudio = path.join(publicEpisodeRoot, "audio", `${segment.id}.mp3`);
   if (!fs.existsSync(absoluteAudio)) throw new Error(`缺少 TTS 音频：${absoluteAudio}`);
-  const audioDurationSeconds = probeDuration(absoluteAudio);
+  const audioDurationSeconds = probeMediaDuration(absoluteAudio);
   const startSeconds = cursorSeconds;
   const tailSeconds = timelineTailSeconds(episodeConfig, segment);
   const endSeconds = startSeconds + audioDurationSeconds + tailSeconds;
@@ -166,14 +152,8 @@ const srt = captions
   .join("\n");
 
 writeJson(path.join(episodeRoot, "production/timeline.json"), timeline);
-writeJson(
-  path.join(repoRoot, `src/${renderContract.generatedPrefix}-timeline.generated.json`),
-  timeline,
-);
-writeJson(
-  path.join(repoRoot, `src/${renderContract.generatedPrefix}-captions.generated.json`),
-  captions,
-);
+writeJson(path.join(repoRoot, generatedTimelinePath(episodeId)), timeline);
+writeJson(path.join(repoRoot, generatedCaptionsPath(episodeId)), captions);
 fs.mkdirSync(outputEpisodeRoot, {recursive: true});
 fs.writeFileSync(path.join(outputEpisodeRoot, "subtitles_zh.srt"), srt);
 

@@ -18,6 +18,7 @@ import {
   type ArtifactRef,
   type ProductionState,
 } from "../../src/orchestration";
+import {legacyEpisodeRepoFixture} from "../helpers/artifacts";
 
 const temporaryDirectories: string[] = [];
 
@@ -115,8 +116,10 @@ describe("M1 Golden Skeleton", () => {
 
   it("runs the same persistent skeleton from the read-only Episode 001 import", async () => {
     const sourceRoot = path.resolve(import.meta.dirname, "../..");
+    const legacyFixture = legacyEpisodeRepoFixture(sourceRoot);
+    temporaryDirectories.push(legacyFixture.repoRoot);
     const imported = importLegacyEpisode001({
-      repoRoot: sourceRoot,
+      repoRoot: legacyFixture.repoRoot,
       occurredAt: "2026-08-05T00:00:00.000Z",
     });
     const runtimeRoot = fs.mkdtempSync(path.join(os.tmpdir(), "production-agent-legacy-golden-"));
