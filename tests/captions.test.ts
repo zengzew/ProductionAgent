@@ -3,12 +3,97 @@ import {
   alignCaptionPartsToTimestamps,
   captionPartsFromPlan,
   captionTextsEquivalent,
+  findCaptionSemanticBoundaryIssues,
   fitCaptionPartsToDuration,
   formatSrtTime,
   splitCaptionText,
   stripTrailingCaptionPunctuation,
   visibleLength,
 } from "../src/lib/captions";
+
+const rejectedSemanticBoundaryFixtures = [
+  {
+    name: "subject and predicate",
+    narration: "可它一开始，只是邮件工作台。",
+    cues: ["可它一开始", "只是邮件工作台"],
+    expectedKinds: ["subject-predicate"],
+  },
+  {
+    name: "subject and causative predicate",
+    narration: "这些要求，也让 Poke 开始处理更多日常小事。",
+    cues: ["这些要求", "也让 Poke 开始处理更多日常小事"],
+    expectedKinds: ["subject-predicate"],
+  },
+  {
+    name: "modifier, object and predicate",
+    narration: "只有你选中的 close friends，才能看到精确位置。",
+    cues: ["只有你选中的", "close friends", "才能看到精确位置"],
+    expectedKinds: ["modifier-object", "subject-predicate"],
+  },
+  {
+    name: "condition attached to the preceding sentence",
+    narration: "它也能草拟回复。授权以后，它能读邮件、改日历。",
+    cues: ["它也能草拟回复 授权以后", "它能读邮件、改日历"],
+    expectedKinds: ["dangling-condition"],
+  },
+  {
+    name: "transition attached to the preceding sentence",
+    narration: "它也能草拟回复。不过，结果还得由你核对。",
+    cues: ["它也能草拟回复 不过", "结果还得由你核对"],
+    expectedKinds: ["dangling-transition"],
+  },
+  {
+    name: "multi-word English proper noun",
+    narration: "Poke 进入 Apple Messages for Business。",
+    cues: ["Poke 进入 Apple Messages for", "Business"],
+    expectedKinds: ["english-proper-noun"],
+  },
+  {
+    name: "copula and object",
+    narration: "Roost 最早是 Mendelsohn 和朋友做的业余项目。",
+    cues: ["Roost 最早是", "Mendelsohn 和朋友", "做的业余项目"],
+    expectedKinds: ["modifier-object"],
+  },
+  {
+    name: "source verb and object",
+    narration: "TechCrunch 记录了这篇帖子。",
+    cues: ["TechCrunch 记录了", "这篇帖子"],
+    expectedKinds: ["modifier-object"],
+  },
+] as const;
+
+const acceptedSemanticBoundaryFixtures = [
+  {
+    name: "fixed Poke permission and transition cues",
+    narration: "授权以后，它能读邮件、改日历，也能草拟回复。不过，结果还得由你自己核对。",
+    cues: ["授权以后\n它能读邮件、改日历", "也能草拟回复", "不过结果还得\n由你自己核对"],
+  },
+  {
+    name: "fixed Roost permission cue",
+    narration: "默认情况下，朋友只能看到你所在的城市。只有你选中的亲密好友，才能看到精确位置。",
+    cues: ["默认情况下", "朋友只能看到你所在的城市", "只有你选中的亲密好友\n才能看到精确位置"],
+  },
+  {
+    name: "complete temporal clause",
+    narration: "需要连接自己的账户时，再由他亲自确认授权。",
+    cues: ["需要连接自己的账户时", "再由他亲自确认授权"],
+  },
+  {
+    name: "separate sentences beginning with product names",
+    narration: "Poke 能读邮件。Roost 会按距离送信。",
+    cues: ["Poke 能读邮件", "Roost 会按距离送信"],
+  },
+  {
+    name: "separate English names in a list",
+    narration: "Poke、Roost 都放在联系人列表里。",
+    cues: ["Poke", "Roost 都放在联系人列表里"],
+  },
+  {
+    name: "complete English proper noun",
+    narration: "Poke 进入 Apple Messages for Business。",
+    cues: ["Poke 进入", "Apple Messages for Business"],
+  },
+] as const;
 
 describe("caption helpers", () => {
   it("keeps every Chinese caption line inside the configured limit", () => {
@@ -65,6 +150,22 @@ describe("caption helpers", () => {
       ).toBe(true);
     }
   });
+
+  it.each(rejectedSemanticBoundaryFixtures)(
+    "detects rejected semantic boundary: $name",
+    ({narration, cues, expectedKinds}) => {
+      const issues = findCaptionSemanticBoundaryIssues(narration, cues);
+
+      expect(issues.map((issue) => issue.kind)).toEqual(expect.arrayContaining([...expectedKinds]));
+    },
+  );
+
+  it.each(acceptedSemanticBoundaryFixtures)(
+    "accepts complete semantic boundary: $name",
+    ({narration, cues}) => {
+      expect(findCaptionSemanticBoundaryIssues(narration, cues)).toEqual([]);
+    },
+  );
 
   it("merges sub-second fragments without exceeding the display limit", () => {
     const parts = fitCaptionPartsToDuration(

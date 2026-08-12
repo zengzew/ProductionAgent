@@ -6,7 +6,13 @@
 - Implementation Plan: `docs/langgraph/implementation-plan.md`, M2 / `WP-M2-01..07`
 - Base commit preserved: `903d0e0` (`Harden episode render contracts and validation`)
 - Final decision: **PASS**
+- Current production path at this milestone: manual artifact/file handoffs
 - M3 started: **No**
+- M4 started: **No**
+
+This report preserves the M2 exit evidence from the date above. It does not
+certify a later checkout or renew media approval after dependency, code or
+rendering changes.
 
 ## Decision summary
 

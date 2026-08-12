@@ -1,5 +1,9 @@
 对照原稿和改写稿评分，不要补写事实。
 
+先应用 system 中的 calibration：局部拗口但不需要听众修复主语或事实口径时，可以在
+issues 记录但对应 check 保持 pass；听众必须补主语，或时间或指标口径存在两种读法时，
+对应 check 必须 fail，verdict 必须 rewrite。
+
 原稿：
 {{ORIGINAL}}
 

@@ -5,7 +5,7 @@
   "baselineVideo": "output/episode-001/iterations/publish-v2-2026-07-30/vertical_9x16.mp4",
   "baselineVideoSha256": "672113aeb631f17c97c5d46d45d3c02d7e7003fdec669ef5298729ac81e4b523",
   "directorVideo": "output/episode-001/vertical_9x16.mp4",
-  "directorVideoSha256": "788128d4c325e7d93c75542ef8c1786c6284651cea513d3429e58e7aebc88e10",
+  "directorVideoSha256": "207633de6992736d25212f890ee55feb17f54a22a9383e3ddc118e329e74a0ae",
   "baselineTimeline": "output/episode-001/iterations/publish-v2-2026-07-30/timeline.json",
   "baselineTimelineSha256": "ceae4ae27e97e0def20c51fa134dab9a7d572491dca05b36e51eb9cd4ebe1fa1",
   "directorTimeline": "content/episode-001/production/timeline.json",
@@ -84,4 +84,5 @@ production timeline 和关键帧；六维评分使用同一套 10 分制编辑�
 
 导演版在六项代理指标上都高于 publish-v2，且通过当前交付门禁。改善来自问题、揭示顺序、
 反馈路由和实际画面的共同变化，不是仅增加评审文档。下一步真正验证留存提升仍需发布后的
-同平台、同受众或受控 A/B 数据。
+同平台、同受众或受控 A/B 数据。本轮字幕语义修复未改变旁白、事实、镜头结构、时长或
+六维评分；当前导演版 MP4 哈希已绑定到上方 gate。

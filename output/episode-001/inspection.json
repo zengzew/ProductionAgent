@@ -1,5 +1,5 @@
 {
-  "inspectedAt": "2026-08-09T06:50:55.047Z",
+  "inspectedAt": "2026-08-11T04:16:21.330Z",
   "inspections": [
     {
       "file": "vertical_9x16.mp4",
@@ -14,12 +14,12 @@
     }
   ],
   "captionInspection": {
-    "cues": 72,
+    "cues": 61,
     "microCueThresholdSeconds": 1,
     "microCueCount": 0,
     "microCueRatio": 0,
     "microCueRatioLimit": 0.1,
-    "minimumCueSeconds": 1.036
+    "minimumCueSeconds": 1.053
   },
   "errors": []
 }

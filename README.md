@@ -7,8 +7,28 @@ Episode 001 follows Poke through its 2026 general release, product mechanics,
 reported message volume and acquisition. Episode 002 follows Roost Social and
 shows how a slow-message app turns waiting into a visible, playful experience.
 
-The current episode pipeline produces one 9:16 video. Legacy Genspark and
-landscape Poke packages are not part of this repository.
+The current manual episode pipeline produces one 9:16 video. Legacy Genspark
+and landscape Poke packages are not part of this repository.
+
+## Current execution boundary
+
+The production path remains artifact-driven and manual: people or Codex tasks
+update the source-of-truth files, then run the explicit validation, materialize,
+TTS, timeline, render and review commands for each approved stage.
+`ORCHESTRATOR=manual` is the default.
+
+`src/orchestration/` is a real LangGraph-backed foundation, but it is not an
+end-to-end production entry point. M1 and M2 are exit-accepted: they provide the
+reference-only graph/checkpoint skeleton and the bounded content evaluation,
+single-owner revision, best-version selection and freeze foundation. Artifact
+files remain the content source of truth.
+
+M3 and M4 have not started. Formal `HumanDecision` handling, direct-edit locks,
+production authorization, TTS/render/delivery repair orchestration, unfreeze,
+production persistence, caching and full observability hardening therefore are
+not implemented. There is no single command that crosses the human story gates,
+networked TTS and independent Delivery Critic review; approvals and production
+stages remain explicit.
 
 ## Current editorial and duration standard
 
@@ -24,9 +44,11 @@ landscape Poke packages are not part of this repository.
 
 ## Product-story short-video pipeline
 
-The workflow uses eleven gated roles. They are logical roles with
-file handoffs, not a LangGraph or CrewAI runtime. Each role reads the previous
-role's artifacts instead of turning research directly into narration.
+The workflow uses eleven gated roles with file handoffs. The manual artifact
+path remains their current production interface; the M1/M2 LangGraph foundation
+orchestrates only its accepted subset without changing these responsibilities.
+Each role reads the previous role's artifacts instead of turning research
+directly into narration.
 
 1. **Research Analyst** writes facts, sources, research chronology, technology
    boundaries and growth data. This role does not write story conclusions.
@@ -59,10 +81,10 @@ role's artifacts instead of turning research directly into narration.
     zero-context viewer. Word breaks, excessive sub-second cues, an opaque first
     frame or swallowed narration reject delivery.
 
-`story/workflow.json` is the episode control plane. It records the fixed role
+`story/workflow.json` is the episode control artifact. It records the fixed role
 order, current state, every major decision and owner, artifacts, review rounds,
-feedback routes and closure status. It coordinates file handoffs without adding
-an orchestration runtime.
+feedback routes and closure status. LangGraph state and checkpoints carry
+references; they do not replace these files as the source of truth.
 
 Writing roles still support Codex file handoffs. The automated polish stage may
 call a configured hosted LLM API. The project continues to exclude self-hosted
@@ -219,9 +241,9 @@ python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 ```
 
-## Reproduce episode 001
+## Run the manual Episode 001 stages
 
-Requirements: Node.js 22+, pnpm, FFmpeg/ffprobe, Chromium and the Python
+Requirements: Node.js 24.x, pnpm 11.9.0, FFmpeg/ffprobe, Chromium and the Python
 environment above.
 
 ```bash
@@ -240,6 +262,10 @@ pnpm validate:delivery
 pnpm validate:comparison
 ```
 
+These commands are deliberately stage-specific. Run each human review and gate
+before continuing; do not wrap the sequence in a command that automatically
+promotes an episode through approval boundaries.
+
 Run the Remotion Studio with:
 
 ```bash
@@ -247,6 +273,10 @@ pnpm preview
 ```
 
 ## Quality gates
+
+Run the relevant gates against the current checkout. Historical acceptance
+reports do not certify later dependency, code or media changes, and an approved
+older MP4 does not renew approval for current render code.
 
 ```bash
 pnpm format:check

@@ -2,9 +2,9 @@
 {
   "rubricVersion": "delivery-critic-v1",
   "reviewedVideo": "output/episode-001/vertical_9x16.mp4",
-  "reviewedVideoSha256": "788128d4c325e7d93c75542ef8c1786c6284651cea513d3429e58e7aebc88e10",
+  "reviewedVideoSha256": "207633de6992736d25212f890ee55feb17f54a22a9383e3ddc118e329e74a0ae",
   "reviewedSubtitles": "output/episode-001/subtitles_zh.srt",
-  "reviewedSubtitlesSha256": "d70b4ab74163d2ec5f5b2ed5cdf082f7f6231d3c0e522b582f5450d7d17876fe",
+  "reviewedSubtitlesSha256": "07adeac0ff517a47de382994b6c60f6774629c4ec6f4e974d393c1a26d5742a1",
   "reviewedTimeline": "content/episode-001/production/timeline.json",
   "reviewedTimelineSha256": "8e14cd40d4813283ccb23a659b14a56980a59f7fcd4d12714ec7e9585a8facec",
   "metrics": {
@@ -14,7 +14,7 @@
     "microCueCount": 0,
     "microCueRatio": 0,
     "microCueRatioLimit": 0.1,
-    "minimumCueSeconds": 1.036,
+    "minimumCueSeconds": 1.053,
     "firstFrameZeroContextReadable": true,
     "speechClippingOrSwallowing": false
   },
@@ -34,11 +34,12 @@ metadata、generated captions 和关键时间点抽帧
 
 | 产物                                               | SHA-256                                                            |
 | -------------------------------------------------- | ------------------------------------------------------------------ |
-| `output/episode-001/vertical_9x16.mp4`             | `788128d4c325e7d93c75542ef8c1786c6284651cea513d3429e58e7aebc88e10` |
-| `output/episode-001/subtitles_zh.srt`              | `d70b4ab74163d2ec5f5b2ed5cdf082f7f6231d3c0e522b582f5450d7d17876fe` |
+| `output/episode-001/vertical_9x16.mp4`             | `207633de6992736d25212f890ee55feb17f54a22a9383e3ddc118e329e74a0ae` |
+| `output/episode-001/subtitles_zh.srt`              | `07adeac0ff517a47de382994b6c60f6774629c4ec6f4e974d393c1a26d5742a1` |
 | `content/episode-001/production/timeline.json`     | `8e14cd40d4813283ccb23a659b14a56980a59f7fcd4d12714ec7e9585a8facec` |
 | `content/episode-001/production/tts-metadata.json` | `8143a52c00cffd9510f75f9c77ace10a2d88e26bb1d3558cdaa860b899b12178` |
-| `src/poke-captions.generated.json`                 | `4bdd4fcaad55aeea1026a2ce9cb0376798afcddedb29b91da4495c7a81c118cf` |
+| `content/episode-001/story/caption-plan.json`      | `7684e6a926c42d91c2edc15b01b2325c021e658e25156865771e4fc90583cfec` |
+| `src/poke-captions.generated.json`                 | `e791604e692d484cd8888ba04f5435c1e52c40bfce8ce2dd0859b6ba8714dfe4` |
 
 ## 最终复审
 
@@ -46,9 +47,9 @@ metadata、generated captions 和关键时间点抽帧
 | ---------------- | ---- | ------------------------------------------------------------------------------------------------------------ |
 | 首帧零背景可懂   | PASS | 第 0 帧同时出现“已发送”的改会消息和“日历已更新”的周三 15:00 卡片，并标注“功能演示”                           |
 | 前 20 秒心智模型 | PASS | 19.956 秒前完成具体动作、消息规模、联系人入口和唯一故事问题                                                  |
-| 中文字幕语义边界 | PASS | 自动复核 72 个 cue；caption plan 与 generated captions 一致，未检出词组断裂                                  |
+| 中文字幕语义边界 | PASS | 自动复核 61 个 cue；caption plan、generated captions 与 SRT 一致，新语义门禁未检出断裂                       |
 | 英文单词边界     | PASS | `Poke`、`AI`、`Beta`、`Recipe`、`Cognition` 均保持完整                                                       |
-| 微 cue           | PASS | 小于 1.0 秒为 0 条，占比 0；最短 cue 为 1.036 秒                                                             |
+| 微 cue           | PASS | 小于 1.0 秒为 0 条，占比 0；最短 cue 为 1.053 秒                                                             |
 | 字幕安全区       | PASS | 抽查 Hook、权限确认、Recipe、消息规模、收购公告和结尾，字幕未遮挡证据重点                                    |
 | 真实页面镜头     | PASS | Poke Release Notes 与 Cognition 收购公告首次出现时均在 9:16 中可辨认，来源和日期标签可见，并与 manifest 对应 |
 | 视觉推进         | PASS | 完成动作、规模、入口选择、用户请求、权限确认、Recipe、运行代价和收购状态依次增加新信息                       |
@@ -57,6 +58,10 @@ metadata、generated captions 和关键时间点抽帧
 | 音频技术状态     | PASS | AAC 48 kHz；最终混音实测 -14.19 LUFS、LRA 4.70 LU、true peak -1.15 dBFS，无削波或异常截断                    |
 | 旁白完整性       | PASS | 12 段 TTS 全部成功；旁白音频按 `I=-16, TP=-1.5, LRA=7` 归一化；缺少 MiniMax 凭据后按配置回退 Edge            |
 | 音画与字幕同步   | PASS | 末条字幕结束于 133.272 秒，成片 135.744 秒；最后完成状态保留约 2.47 秒                                       |
+
+本轮保持旁白、12 段 TTS、事实和视觉结构不变，只合并了 7 处跨 cue 的语义断裂。最终
+MP4 逐帧抽查确认人工规划的两行字幕被保留，“人们”“入口”“继续工作”等词组没有再因
+自动换行而断开。
 
 ## 对旧版的交付差异
 

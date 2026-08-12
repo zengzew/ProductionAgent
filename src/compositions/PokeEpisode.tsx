@@ -2010,6 +2010,7 @@ export const PokeEpisode: React.FC<{orientation: "vertical"}> = () => {
           lineHeight: 1.3,
           fontWeight: 650,
           letterSpacing: 0.5,
+          whiteSpace: "pre-line",
           zIndex: 20,
         }}
       />

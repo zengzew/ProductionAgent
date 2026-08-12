@@ -68,6 +68,33 @@ Missing evidence receives the lower anchor. Scores 0, 1, and 2 distinguish scope
 affected sections, 1 means most of the script fails, and 0 means the artifact is missing,
 unreviewable, or directly contradicts the contract.
 
+### Oral Judge v2 calibration fixtures
+
+`oral-judge-calibration-v1` clarifies the existing v2 anchors; it does not change the 4/5 floors,
+the blocker rules, or the rubric and Prompt identifiers. Judge the exact candidate sentence before
+using the draft to confirm intent. A low-severity observation is not automatically a failed check.
+
+Use this decision boundary in order:
+
+1. If two grammatically plausible readings change a date, statistics window, metric, source,
+   causality, or authorization boundary, fail `informationFidelity`. Overall preference or an
+   inferable intended reading cannot waive this failure.
+2. Otherwise, if a first-time listener must insert or replace the subject to recover who performs
+   the action, fail `translatedSyntax`.
+3. Otherwise, a local awkward collocation or pause may lower naturalness or delivery to 4 while the
+   relevant check remains `PASS`. Record the exact phrase as a low-severity observation without a
+   blocker.
+
+| Fixture ID                         | Exact candidate                                                                             | Stable classification                                                                                   |
+| ---------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `local-awkwardness-non-blocking`   | 如果你想把这套用法发给朋友，Poke 会把背景设定、开场白和要连接的服务，收进一个 Recipe 链接。 | 4/4/5; all checks `PASS`; no blocker; verdict `PASS`. The object-side comma is local awkwardness only.  |
+| `listener-must-repair-subject`     | 如果这套用法想发给朋友，Poke 会把它收进一个 Recipe 链接。                                   | 3/4/5; `translatedSyntax` `FAIL`; blocker; verdict `REJECT`. The listener must supply “你想把”.         |
+| `time-window-attachment-ambiguity` | 收购前大约三个月，Cognition 说，用户和 Poke 已经发了一亿多条消息。                          | 4/4/3; `informationFidelity` `FAIL`; blocker; verdict `REJECT`. The time can modify two different acts. |
+
+The executable mirror lives at `tests/fixtures/oral-judge-calibration.json`. Repeating a review over
+the same draft, candidate, rubric, and Prompt must preserve each fixture's failed checks and verdict.
+Changing a fixture classification requires an explicit rubric migration, not a reviewer preference.
+
 ### Mandatory v2 checks
 
 Every check records at least one reviewed locator and observation in `checks.<name>.evidence`.
@@ -84,8 +111,9 @@ phrase locator is not evidence.
 | `spokenBreath`              | Punctuation follows real pauses; one sentence does not require two consecutive breaths at target pace.            |
 | `informationFidelity`       | Draft, final script, Claim IDs, source level, metrics, chronology, causality, and authorization boundary agree.   |
 
-PASS requires every mandatory check to be `PASS`. Any `FAIL` is a blocker and must name the minimum
-required correction. Automatic failures include:
+PASS requires every mandatory check to be `PASS`. `FAIL` means a correction is required for
+first-pass comprehension or information fidelity; it is not a synonym for any imperfection. Any
+`FAIL` is a blocker and must name the minimum required correction. Automatic failures include:
 
 - using labels such as “独立体验者”, “访谈里”, or “在那篇体验里” in place of a concrete speaker
   or action;

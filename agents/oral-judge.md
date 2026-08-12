@@ -17,6 +17,7 @@ story/script-draft.md
 story/final-script.md
 style/voice-guide.md
 style/approved/
+docs/evaluation-rubric.md
 ```
 
 ## 输出
@@ -45,6 +46,37 @@ story/oral-review.md
 
 三项都必须不低于 4 分，且 blockers 为空，才能 PASS。
 
+## 校准边界
+
+执行 `oral-judge-calibration-v1`。它只明确 `oral-review-v2` 已有锚点，不改变 4/5
+门槛、blocker 规则、rubricVersion 或 promptVersion。相同初稿、定稿、哈希和 rubric
+必须得到相同的失败检查与 verdict。
+
+按以下顺序判定：
+
+1. 先查信息附着。时间、统计窗口、指标、来源、因果或授权边界只要存在两种合乎语法
+   的读法，而且两种读法会改变观众判断，`informationFidelity` 必须 FAIL。不能因为
+   看过初稿、猜得到原意或整稿盲听更自然而放行。
+2. 再查动作主体。零背景听众如果必须在脑中补入或替换主语，才能知道谁做动作，
+   `translatedSyntax` 必须 FAIL。
+3. 其余局部搭配或停顿即使略拗口，只要首遍就能确认主语、动作、对象和事实口径，
+   可以把自然度或口播节奏降到 4，但对应 check 仍为 PASS。观察写入 evidence 或报告
+   正文，不得把低严重度观察升级为 blocker。
+
+固定样例：
+
+- `local-awkwardness-non-blocking`：
+  “如果你想把这套用法发给朋友，Poke 会把背景设定、开场白和要连接的服务，收进一个
+  Recipe 链接。”固定为 4/4/5、全部 checks PASS、无 blocker、verdict PASS。宾语后的
+  逗号略书面，但无需补主语或改变事实口径。
+- `listener-must-repair-subject`：
+  “如果这套用法想发给朋友，Poke 会把它收进一个 Recipe 链接。”固定为 3/4/5、
+  `translatedSyntax` FAIL、blocker、verdict REJECT。听众必须补出“你想把”。
+- `time-window-attachment-ambiguity`：
+  “收购前大约三个月，Cognition 说，用户和 Poke 已经发了一亿多条消息。”固定为
+  4/4/3、`informationFidelity` FAIL、blocker、verdict REJECT。句首时间可能修饰披露
+  动作，也可能修饰消息统计窗口。
+
 ## 必查项
 
 以下七项必须逐项给出 `segment/Claim/原句` 定位和观察结果，不得只写“整体自然”：
@@ -57,7 +89,8 @@ story/oral-review.md
 - `spokenBreath`：标点、停顿和换气是否能按目标语速自然读出。
 - `informationFidelity`：初稿、最终稿、Claim、来源等级与事实边界是否一致。
 
-任一项 FAIL 都是 blocker，必须 REJECT 并给出最小修改要求。
+FAIL 表示必须修改才能保证首遍理解或信息保真，不表示“存在任何瑕疵”。任一项 FAIL
+都是 blocker，必须 REJECT 并给出最小修改要求。
 
 ## 硬拒绝
 

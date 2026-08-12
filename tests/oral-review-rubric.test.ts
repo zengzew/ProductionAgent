@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import {describe, expect, it} from "vitest";
+import {polishJudgeSchema} from "../src/lib/polish";
 import {findOralReviewDecisionErrors, parseOralReviewGate} from "../src/lib/story";
 
 const hash = "a".repeat(64);
@@ -11,6 +12,60 @@ const passingCheck = (locator: string) => ({
   result: "PASS",
   evidence: [{locator, observation: "已按该检查项核对，未发现阻断问题。"}],
 });
+
+const requiredChecks = [
+  "translatedSyntax",
+  "sourceAttributionLanguage",
+  "productStageLanguage",
+  "turnDirection",
+  "sentenceCadence",
+  "spokenBreath",
+  "informationFidelity",
+] as const;
+
+type CheckName = (typeof requiredChecks)[number];
+type CalibrationScores = {
+  chineseNaturalness: number;
+  spokenDelivery: number;
+  informationFidelity: number;
+};
+type PreflightScores = {
+  translationese: number;
+  spokenChinese: number;
+  informationFidelity: number;
+};
+type CalibrationCase = {
+  id: string;
+  kind: string;
+  draft: string;
+  candidate: string;
+  decisionRule: string;
+  formal: {
+    scores: CalibrationScores;
+    failChecks: CheckName[];
+    blockers: string[];
+    verdict: "PASS" | "REJECT";
+    returnTo: "none" | "oral-rewriter";
+  };
+  preflight: {
+    scores: PreflightScores;
+    failChecks: CheckName[];
+    verdict: "pass" | "rewrite";
+  };
+};
+type CalibrationFixture = {
+  fixtureVersion: string;
+  rubricVersion: string;
+  promptVersion: string;
+  formalMinimumScore: number;
+  polishJudgeRubricVersion: string;
+  polishThresholds: PreflightScores;
+  cases: CalibrationCase[];
+};
+
+const calibrationFixture = JSON.parse(
+  fs.readFileSync(new URL("./fixtures/oral-judge-calibration.json", import.meta.url), "utf8"),
+) as CalibrationFixture;
 
 const v2Gate = {
   rubricVersion: "oral-review-v2",
@@ -107,19 +162,126 @@ describe("oral-review-v2 rubric gate", () => {
       new URL("../agents/oral-rewriter.md", import.meta.url),
       "utf8",
     );
-    const checks = [
-      "translatedSyntax",
-      "sourceAttributionLanguage",
-      "productStageLanguage",
-      "turnDirection",
-      "sentenceCadence",
-      "spokenBreath",
-      "informationFidelity",
-    ];
-
     expect(judgePrompt).toContain('"rubricVersion": "oral-review-v2"');
     expect(judgePrompt).toContain('"promptVersion": "oral-judge-v2"');
-    expect(checks.every((check) => judgePrompt.includes(`"${check}"`))).toBe(true);
+    expect(requiredChecks.every((check) => judgePrompt.includes(`"${check}"`))).toBe(true);
     expect(rewriterPrompt).toContain("`oral-review-v2`");
+  });
+
+  it("locks calibration versions and existing thresholds", () => {
+    const polishConfig = JSON.parse(
+      fs.readFileSync(new URL("../config/polish-v2.json", import.meta.url), "utf8"),
+    ) as {
+      judgeRubricVersion: string;
+      thresholds: PreflightScores;
+    };
+
+    expect(calibrationFixture.fixtureVersion).toBe("oral-judge-calibration-v1");
+    expect(calibrationFixture.rubricVersion).toBe("oral-review-v2");
+    expect(calibrationFixture.promptVersion).toBe("oral-judge-v2");
+    expect(calibrationFixture.formalMinimumScore).toBe(4);
+    expect(calibrationFixture.polishJudgeRubricVersion).toBe("polish-judge-v2");
+    expect(polishConfig.judgeRubricVersion).toBe(calibrationFixture.polishJudgeRubricVersion);
+    expect(polishConfig.thresholds).toEqual(calibrationFixture.polishThresholds);
+  });
+
+  it("covers the three required calibration boundaries", () => {
+    expect(calibrationFixture.cases.map(({kind}) => kind)).toEqual([
+      "local-awkwardness",
+      "translated-subject",
+      "information-scope",
+    ]);
+  });
+
+  it.each(calibrationFixture.cases)(
+    "keeps the formal verdict stable for $id",
+    (calibrationCase) => {
+      const failed = new Set(calibrationCase.formal.failChecks);
+      const gate = {
+        ...structuredClone(v2Gate),
+        scores: calibrationCase.formal.scores,
+        checks: Object.fromEntries(
+          requiredChecks.map((check) => [
+            check,
+            {
+              result: failed.has(check) ? "FAIL" : "PASS",
+              evidence: [
+                {
+                  locator: `${calibrationCase.id} / 原句：${calibrationCase.candidate}`,
+                  observation: calibrationCase.decisionRule,
+                },
+              ],
+            },
+          ]),
+        ),
+        blockers: calibrationCase.formal.blockers,
+        verdict: calibrationCase.formal.verdict,
+        returnTo: calibrationCase.formal.returnTo,
+      };
+
+      const first = parseOralReviewGate(wrapGate(gate));
+      const repeated = parseOralReviewGate(wrapGate(gate));
+
+      expect(repeated).toEqual(first);
+      expect(first.minimumScore).toBe(4);
+      expect(first.verdict).toBe(calibrationCase.formal.verdict);
+      expect(findOralReviewDecisionErrors(first)).toEqual([]);
+    },
+  );
+
+  it.each(calibrationFixture.cases)(
+    "keeps the polish preflight verdict stable for $id",
+    (calibrationCase) => {
+      const failed = new Set(calibrationCase.preflight.failChecks);
+      const judge = polishJudgeSchema.parse({
+        scores: calibrationCase.preflight.scores,
+        checks: Object.fromEntries(
+          requiredChecks.map((check) => [
+            check,
+            {
+              result: failed.has(check) ? "fail" : "pass",
+              evidence: [
+                {segmentId: calibrationCase.id, observation: calibrationCase.decisionRule},
+              ],
+            },
+          ]),
+        ),
+        issues: [calibrationCase.decisionRule],
+        verdict: calibrationCase.preflight.verdict,
+      });
+      const passes =
+        judge.verdict === "pass" &&
+        Object.values(judge.checks).every((check) => check.result === "pass") &&
+        judge.scores.translationese >= calibrationFixture.polishThresholds.translationese &&
+        judge.scores.spokenChinese >= calibrationFixture.polishThresholds.spokenChinese &&
+        judge.scores.informationFidelity >= calibrationFixture.polishThresholds.informationFidelity;
+
+      expect(passes).toBe(calibrationCase.preflight.verdict === "pass");
+    },
+  );
+
+  it("publishes every executable fixture in the formal and preflight instructions", () => {
+    const calibrationArtifacts = [
+      "../docs/evaluation-rubric.md",
+      "../agents/oral-judge.md",
+      "../prompts/v3/judge-system.md",
+    ].map((relativePath) => fs.readFileSync(new URL(relativePath, import.meta.url), "utf8"));
+
+    for (const artifact of calibrationArtifacts) {
+      expect(artifact).toContain(calibrationFixture.fixtureVersion);
+      for (const calibrationCase of calibrationFixture.cases) {
+        expect(artifact).toContain(calibrationCase.id);
+        expect(artifact.replace(/\s+/gu, "")).toContain(
+          calibrationCase.candidate.replace(/\s+/gu, ""),
+        );
+      }
+    }
+
+    const judgeUserPrompt = fs.readFileSync(
+      new URL("../prompts/v3/judge-user.md", import.meta.url),
+      "utf8",
+    );
+    expect(judgeUserPrompt).toContain("局部拗口但不需要听众修复主语或事实口径");
+    expect(judgeUserPrompt).toContain("时间或指标口径存在两种读法");
   });
 });

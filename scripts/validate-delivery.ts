@@ -1,5 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
+import {
+  findCaptionSemanticBoundaryIssues,
+  type CaptionSemanticIssueKind,
+} from "../src/lib/captions";
 import {measureCaptionDelivery, parseDeliveryGate, parseSrt} from "../src/lib/delivery";
 import {episodeId, episodeRoot, outputEpisodeRoot, repoRoot} from "../src/lib/project";
 import {assertTimelineMatchesEpisode, generatedCaptionsPath} from "../src/lib/render-contract";
@@ -11,6 +15,7 @@ import {captionPlanMismatchIds} from "./lib/caption-artifacts";
 import {
   fatal,
   finishValidation,
+  groupCaptionTextsByScene,
   hashFile,
   installCliErrorHandlers,
   readCaptionPlan,
@@ -86,6 +91,15 @@ if (timeline.totalSeconds >= productionContract.delivery.hardMaximumSeconds) {
   );
 }
 const generatedCaptions = readGeneratedCaptions(captionsPath);
+const cues = parseSrt(fs.readFileSync(subtitlesPath, "utf8"));
+const srtMatchesGeneratedCaptions =
+  cues.length === generatedCaptions.length &&
+  cues.every(
+    (cue, index) => cue.index === index + 1 && cue.text === generatedCaptions[index]?.text,
+  );
+if (!srtMatchesGeneratedCaptions) {
+  errors.push("最终 SRT 与当前 generated captions 不一致");
+}
 const captionMismatchIds = captionPlanMismatchIds({
   script,
   captionPlan,
@@ -107,7 +121,44 @@ if (gate.metrics.englishWordBreaks !== 0) {
   errors.push("Delivery Critic 检出英文单词断裂");
 }
 
-const cues = parseSrt(fs.readFileSync(subtitlesPath, "utf8"));
+const semanticIssueLabels: Record<CaptionSemanticIssueKind, string> = {
+  "subject-predicate": "主谓断裂",
+  "modifier-object": "修饰语或对象断裂",
+  "dangling-transition": "转折词悬空",
+  "dangling-condition": "条件词悬空",
+  "english-proper-noun": "英文专名断裂",
+};
+const generatedCaptionsByScene = groupCaptionTextsByScene(generatedCaptions);
+let semanticIssueCount = 0;
+let captionOffset = 0;
+for (const segment of script.segments) {
+  const segmentCaptionTexts = generatedCaptionsByScene.get(segment.id) ?? [];
+  const segmentCaptionOffset = captionOffset;
+  captionOffset += segmentCaptionTexts.length;
+  errors.capture(() => {
+    const issues = findCaptionSemanticBoundaryIssues(segment.narration, segmentCaptionTexts);
+    semanticIssueCount += issues.length;
+    for (const issue of issues) {
+      const leftCueIndex = segmentCaptionOffset + issue.boundaryAfterCue;
+      const rightCueIndex = issue.rightCue ? leftCueIndex + 1 : undefined;
+      const leftSrtCue = cues[leftCueIndex - 1];
+      const rightSrtCue = rightCueIndex ? cues[rightCueIndex - 1] : undefined;
+      const boundary = rightCueIndex
+        ? `SRT cue ${leftCueIndex}-${rightCueIndex}`
+        : `SRT cue ${leftCueIndex}`;
+      const timeRange = leftSrtCue
+        ? `（${leftSrtCue.startSeconds.toFixed(3)}-${(rightSrtCue ?? leftSrtCue).endSeconds.toFixed(3)} 秒）`
+        : "";
+      const displayedBoundary = issue.rightCue
+        ? `“${issue.leftCue.replace(/\s+/gu, " ")}” / “${issue.rightCue.replace(/\s+/gu, " ")}”`
+        : `“${issue.leftCue.replace(/\s+/gu, " ")}”`;
+      errors.push(
+        `${segment.id} ${boundary}${timeRange} 存在${semanticIssueLabels[issue.kind]}：${displayedBoundary}`,
+      );
+    }
+  });
+}
+
 if (
   gate.metrics.microCueThresholdSeconds !== productionContract.captions.microCueThresholdSeconds
 ) {
@@ -143,6 +194,8 @@ if (measured.microCueRatio > productionContract.captions.microCueRatioLimit) {
 const shouldPass =
   gate.blockers.length === 0 &&
   gate.returnTo === "none" &&
+  srtMatchesGeneratedCaptions &&
+  semanticIssueCount === 0 &&
   gate.metrics.captionWordBreaks === 0 &&
   gate.metrics.englishWordBreaks === 0 &&
   gate.metrics.microCueRatio <= productionContract.captions.microCueRatioLimit &&
@@ -157,7 +210,7 @@ if (gate.verdict !== "PASS") {
 
 finishValidation(
   errors,
-  `delivery validation passed: cues=${cues.length}, micro=${measured.microCueCount} (${(
+  `delivery validation passed: cues=${cues.length}, semantic=${semanticIssueCount}, micro=${measured.microCueCount} (${(
     measured.microCueRatio * 100
   ).toFixed(1)}%), minimum=${measured.minimumCueSeconds.toFixed(3)}s, status=delivery-approved`,
 );

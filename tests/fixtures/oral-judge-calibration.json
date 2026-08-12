@@ -1,0 +1,99 @@
+{
+  "fixtureVersion": "oral-judge-calibration-v1",
+  "rubricVersion": "oral-review-v2",
+  "promptVersion": "oral-judge-v2",
+  "formalMinimumScore": 4,
+  "polishJudgeRubricVersion": "polish-judge-v2",
+  "polishThresholds": {
+    "translationese": 8,
+    "spokenChinese": 8,
+    "informationFidelity": 9
+  },
+  "cases": [
+    {
+      "id": "local-awkwardness-non-blocking",
+      "kind": "local-awkwardness",
+      "draft": "如果用户想分享一套用法，Recipe 链接可以包含背景设置、开场白和所需服务。",
+      "candidate": "如果你想把这套用法发给朋友，Poke 会把背景设定、开场白和要连接的服务，收进一个 Recipe 链接。",
+      "decisionRule": "宾语后的逗号略显书面，但主语、动作、对象和事实边界首遍即可理解；记录局部观察，不升级为 FAIL。",
+      "formal": {
+        "scores": {
+          "chineseNaturalness": 4,
+          "spokenDelivery": 4,
+          "informationFidelity": 5
+        },
+        "failChecks": [],
+        "blockers": [],
+        "verdict": "PASS",
+        "returnTo": "none"
+      },
+      "preflight": {
+        "scores": {
+          "translationese": 8,
+          "spokenChinese": 8,
+          "informationFidelity": 10
+        },
+        "failChecks": [],
+        "verdict": "pass"
+      }
+    },
+    {
+      "id": "listener-must-repair-subject",
+      "kind": "translated-subject",
+      "draft": "如果用户想分享这套用法，可以把它发给朋友。",
+      "candidate": "如果这套用法想发给朋友，Poke 会把它收进一个 Recipe 链接。",
+      "decisionRule": "字面主语变成“这套用法”，听众必须补出“你想把”；这不是可放行的局部拗口。",
+      "formal": {
+        "scores": {
+          "chineseNaturalness": 3,
+          "spokenDelivery": 4,
+          "informationFidelity": 5
+        },
+        "failChecks": ["translatedSyntax"],
+        "blockers": [
+          "translatedSyntax: 听众必须补出动作主体；最小修改为“如果你想把这套用法发给朋友”。"
+        ],
+        "verdict": "REJECT",
+        "returnTo": "oral-rewriter"
+      },
+      "preflight": {
+        "scores": {
+          "translationese": 6,
+          "spokenChinese": 8,
+          "informationFidelity": 10
+        },
+        "failChecks": ["translatedSyntax"],
+        "verdict": "rewrite"
+      }
+    },
+    {
+      "id": "time-window-attachment-ambiguity",
+      "kind": "information-scope",
+      "draft": "Cognition 披露，收购前约三个月的消息往来超过一亿条。",
+      "candidate": "收购前大约三个月，Cognition 说，用户和 Poke 已经发了一亿多条消息。",
+      "decisionRule": "句首时间既可能修饰披露动作，也可能修饰消息统计窗口；两种读法会改变日期或指标口径，必须按信息保真失败处理。",
+      "formal": {
+        "scores": {
+          "chineseNaturalness": 4,
+          "spokenDelivery": 4,
+          "informationFidelity": 3
+        },
+        "failChecks": ["informationFidelity"],
+        "blockers": [
+          "informationFidelity: “收购前大约三个月”存在附着歧义；必须明确它是消息统计窗口。"
+        ],
+        "verdict": "REJECT",
+        "returnTo": "oral-rewriter"
+      },
+      "preflight": {
+        "scores": {
+          "translationese": 8,
+          "spokenChinese": 8,
+          "informationFidelity": 6
+        },
+        "failChecks": ["informationFidelity"],
+        "verdict": "rewrite"
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality-and-contracts:
+    name: Quality and contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CI: true
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Install pnpm from packageManager
+        uses: pnpm/action-setup@v6
+
+      - name: Set up Node.js from package.json
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: package.json
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies from lockfile
+        run: pnpm install --frozen-lockfile
+
+      - name: Check formatting
+        run: pnpm format:check
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Enforce coverage thresholds
+        run: pnpm test:coverage
+
+      - name: Validate offline episode contracts
+        shell: bash
+        run: |
+          for episode_id in episode-001 episode-002; do
+            EPISODE_ID="$episode_id" pnpm validate:research
+            EPISODE_ID="$episode_id" pnpm validate:story
+            EPISODE_ID="$episode_id" pnpm validate:content
+          done
