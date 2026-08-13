@@ -273,7 +273,7 @@ Rubric version remains `delivery-critic-v1`. Like Fact Guardian, this is a binar
 | Dimension                      | Weight | Pass standard                                                                      |
 | ------------------------------ | ------ | ---------------------------------------------------------------------------------- |
 | Artifact integrity             | 0.15   | MP4, SRT, timeline paths/hashes match current selected artifacts.                  |
-| Duration and vertical format   | 0.15   | ffprobe reads 1080x1920, 30 fps, and duration strictly below 180 seconds.          |
+| Duration and vertical format   | 0.15   | ffprobe reads 1080x1920, 30 fps, and duration between 40 and 80 seconds.           |
 | Caption integrity and timing   | 0.20   | No English/Chinese word split; micro-cue ratio <= 10%; cues align to narration.    |
 | Audio intelligibility and sync | 0.15   | No swallowing, broken pronunciation, abnormal pause, clipping, or material desync. |
 | First-frame comprehension      | 0.10   | Concrete zero-context action/result is understood within 3 seconds.                |
@@ -285,7 +285,7 @@ and routes to a production stage.
 
 Machine measurements override estimates:
 
-- final MP4 duration `>= 180.000` seconds is a blocker;
+- final MP4 duration below `40.000` or above `80.000` seconds is a blocker;
 - any English or Chinese word split is a blocker;
 - micro cue means duration `< 1.0` second; ratio `> 0.10` is a blocker;
 - wrong resolution, frame rate, orientation, missing stream, or stale hash is a blocker.

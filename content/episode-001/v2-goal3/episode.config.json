@@ -5,7 +5,7 @@
   "product": "Poke",
   "title": "Poke：为什么把 AI 放进联系人列表？",
   "language": "zh-CN",
-  "targetSeconds": 120,
+  "targetSeconds": 60,
   "production": {
     "timelineTailSeconds": {"seg-010": 1.2},
     "hookAttributionSubjects": ["Poke", "Cognition"]

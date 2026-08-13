@@ -1,7 +1,9 @@
 {
   "schemaVersion": "production-contract-v1",
   "delivery": {
-    "hardMaximumSeconds": 180,
+    "targetSeconds": 60,
+    "minimumSeconds": 40,
+    "hardMaximumSeconds": 80,
     "fps": 30,
     "vertical": {
       "width": 1080,

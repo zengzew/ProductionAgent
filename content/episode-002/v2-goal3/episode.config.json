@@ -5,7 +5,7 @@
   "product": "Roost Social",
   "title": "Roost：为什么有人愿意等一只鸟送信？",
   "language": "zh-CN",
-  "targetSeconds": 125,
+  "targetSeconds": 60,
   "production": {
     "timelineTailSeconds": {"seg-010": 1.2, "seg-011": 1.5, "seg-012": 2.4},
     "hookAttributionSubjects": ["Roost", "Roost Social"]

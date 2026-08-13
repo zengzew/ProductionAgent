@@ -60,9 +60,14 @@ if (gate.verdict !== expectedVerdict) {
 
 if (fs.existsSync(absolute(gate.directorVideo))) {
   const directorDuration = probeMediaDuration(absolute(gate.directorVideo));
-  if (directorDuration >= productionContract.delivery.hardMaximumSeconds) {
+  if (directorDuration < productionContract.delivery.minimumSeconds) {
     errors.push(
-      `导演版成片必须严格小于 ${productionContract.delivery.hardMaximumSeconds} 秒，当前 ${directorDuration.toFixed(3)} 秒`,
+      `导演版成片不得低于 ${productionContract.delivery.minimumSeconds} 秒，当前 ${directorDuration.toFixed(3)} 秒`,
+    );
+  }
+  if (directorDuration > productionContract.delivery.hardMaximumSeconds) {
+    errors.push(
+      `导演版成片不得超过 ${productionContract.delivery.hardMaximumSeconds} 秒，当前 ${directorDuration.toFixed(3)} 秒`,
     );
   }
 }

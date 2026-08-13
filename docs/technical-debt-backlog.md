@@ -20,9 +20,9 @@
 ## TD-003：集中维护全局与 episode 级生产常量
 
 - 状态：**完成**。
-- 全局真源：`config/production-contract.json`（`production-contract-v1`）保存严格时长上限、fps、竖版尺寸、默认 Hook/body 尾部留白、字幕行宽与微短 cue 阈值、Hook 时长/动作词/归因动词和素材捕获等待参数。
+- 全局真源：`config/production-contract.json`（`production-contract-v1`）保存目标时长、时长窗口（下限/上限）、fps、竖版尺寸、默认 Hook/body 尾部留白、字幕行宽与微短 cue 阈值、Hook 时长/动作词/归因动词和素材捕获等待参数。
 - episode 真源：`episode-config-v2` 只保留目标时长、逐段尾部留白覆盖、Hook 归因主体以及素材 URL/文件/可选唯一锚点。全局 fps、硬时长和画幅已从四份 episode 配置删除。
-- 调用方：`build-timeline`、`inspect-output`、`validate-comparison`、`validate-delivery`、`evaluation`、`validate-story`、`validate-content` 和 `capture-assets` 均读取共享契约；通用脚本不再出现 `seg-010/011/012`、Poke/Cognition、180 或 30 fps 的本地判断。
+- 调用方：`build-timeline`、`inspect-output`、`validate-comparison`、`validate-delivery`、`evaluation`、`validate-story`、`validate-content` 和 `capture-assets` 均读取共享契约；通用脚本不再出现 `seg-010/011/012`、Poke/Cognition、80/180 或 30 fps 的本地判断。
 - 验证边界：已对 Episode 001 和 Episode 002 运行 research/workflow/story/content，并用两期历史已批准 MP4 复跑 delivery validator；Episode 001 另复跑 comparison。历史 FFprobe/hash 契约均通过，但本轮没有调用真实 TTS、生成新媒体、完成 smoke 画面抽查或独立人工听审，因此不声明媒体重新验收。
 
 ## TD-004：抽取共享 Episode 视觉组件

@@ -5,7 +5,7 @@
   "product": "Roost Social",
   "title": "一条消息飞三天，为什么反而让人期待",
   "language": "zh-CN",
-  "targetSeconds": 180,
+  "targetSeconds": 60,
   "production": {
     "timelineTailSeconds": {"seg-010": 1.2, "seg-011": 1.5, "seg-012": 2.4},
     "hookAttributionSubjects": ["Roost", "Roost Social"]

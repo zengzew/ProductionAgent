@@ -131,7 +131,7 @@ Schema tests MUST assert exact error codes, not only that an exception occurred.
 | `RUBRIC-005` | Retention high risk rejects even with total 100.                                      |
 | `RUBRIC-006` | Fact Guardian receives 100 only when every binary dimension passes.                   |
 | `RUBRIC-007` | Delivery receives 100 only when every binary dimension passes.                        |
-| `RUBRIC-008` | MP4 duration 179.999 passes duration rule; 180.000 rejects.                           |
+| `RUBRIC-008` | MP4 duration 39.999 rejects; 40.000 and 80.000 pass; 80.001 rejects.                  |
 | `RUBRIC-009` | Micro-cue ratio 0.10 passes; any representable value greater than 0.10 rejects.       |
 | `RUBRIC-010` | Score arithmetic supplied by mock model is wrong and validator rejects it.            |
 | `RUBRIC-011` | Same evidence under same rubric cannot change severity/score without a drift error.   |

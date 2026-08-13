@@ -173,10 +173,16 @@ if (!fs.existsSync(timelinePath)) {
         scene.narration === script.segments[index]?.narration,
     );
   if (timelineMatchesScript) {
+    const minimumDuration = productionContract.delivery.minimumSeconds;
     const maximumDuration = productionContract.delivery.hardMaximumSeconds;
-    if (timeline.totalSeconds >= maximumDuration) {
+    if (timeline.totalSeconds < minimumDuration) {
       errors.push(
-        `视频时长必须小于 ${maximumDuration} 秒，当前 ${timeline.totalSeconds.toFixed(3)} 秒`,
+        `视频时长不得低于 ${minimumDuration} 秒，当前 ${timeline.totalSeconds.toFixed(3)} 秒`,
+      );
+    }
+    if (timeline.totalSeconds > maximumDuration) {
+      errors.push(
+        `视频时长不得超过 ${maximumDuration} 秒，当前 ${timeline.totalSeconds.toFixed(3)} 秒`,
       );
     }
     const actualHookEnd = Math.max(

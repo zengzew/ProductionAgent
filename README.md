@@ -39,8 +39,9 @@ stages remain explicit.
   become the default story spine or ending.
 - The last line lands on a claim-supported product state, user action or
   concrete result. It does not question the product's future.
-- The final 1080×1920 MP4 must be strictly shorter than 180 seconds. Validation
-  uses the measured TTS timeline and the rendered file's ffprobe duration.
+- The final 1080×1920 MP4 targets 60 seconds with a ±20-second tolerance: the
+  measured duration must land between 40 and 80 seconds. Validation uses the
+  measured TTS timeline and the rendered file's ffprobe duration.
 
 ## Product-story short-video pipeline
 
@@ -305,7 +306,7 @@ viewer-exit diagnoses, and a Retention Critic PASS bound to the exact script and
 visual plan. The content checks verify source lineage, claim labels, hook timing,
 generic CTA rejection, caption limits and traceable real-asset declarations. Output
 inspection reads the vertical MP4 back with ffprobe and FFmpeg to verify its
-dimensions, strict sub-180-second duration, codecs, sample rate and audio peak. Delivery validation
+dimensions, the 40–80-second duration window, codecs, sample rate and audio peak. Delivery validation
 binds the independent review to the exact video, subtitles and timeline hashes;
 `story-approved` is not a delivery pass.
 Delivery review also checks that official website and in-app screenshots are

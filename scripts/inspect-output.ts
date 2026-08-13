@@ -43,6 +43,7 @@ const expected = [
     height: productionContract.delivery.vertical.height,
   },
 ];
+const minimumDuration = productionContract.delivery.minimumSeconds;
 const maximumDuration = productionContract.delivery.hardMaximumSeconds;
 const inspections: Array<Record<string, unknown>> = [];
 const errors: string[] = [];
@@ -66,8 +67,11 @@ for (const item of expected) {
     errors.push(`${item.file} 帧率错误：${video?.r_frame_rate}`);
   }
   if (!audio) errors.push(`${item.file} 缺少音轨`);
-  if (duration >= maximumDuration) {
-    errors.push(`${item.file} 时长必须小于 ${maximumDuration} 秒：${duration}`);
+  if (duration < minimumDuration) {
+    errors.push(`${item.file} 时长不得低于 ${minimumDuration} 秒：${duration}`);
+  }
+  if (duration > maximumDuration) {
+    errors.push(`${item.file} 时长不得超过 ${maximumDuration} 秒：${duration}`);
   }
   if (peakDb > -0.1) {
     errors.push(`${item.file} 音频可能削波：${peakDb} dB`);

@@ -5,14 +5,25 @@ import type {EpisodeConfig, Timeline} from "../schemas/episode";
 
 export const productionContractSchema = z.object({
   schemaVersion: z.literal("production-contract-v1"),
-  delivery: z.object({
-    hardMaximumSeconds: z.number().positive(),
-    fps: z.number().int().positive(),
-    vertical: z.object({
-      width: z.number().int().positive(),
-      height: z.number().int().positive(),
-    }),
-  }),
+  delivery: z
+    .object({
+      targetSeconds: z.number().positive(),
+      minimumSeconds: z.number().positive(),
+      hardMaximumSeconds: z.number().positive(),
+      fps: z.number().int().positive(),
+      vertical: z.object({
+        width: z.number().int().positive(),
+        height: z.number().int().positive(),
+      }),
+    })
+    .refine(
+      (delivery) =>
+        delivery.minimumSeconds < delivery.targetSeconds &&
+        delivery.targetSeconds < delivery.hardMaximumSeconds,
+      {
+        message: "delivery 必须满足 minimumSeconds < targetSeconds < hardMaximumSeconds",
+      },
+    ),
   timeline: z.object({
     hookTailSeconds: z.number().nonnegative(),
     bodyTailSeconds: z.number().nonnegative(),
@@ -47,9 +58,33 @@ export const assertEpisodeMatchesProductionContract = (
   episode: EpisodeConfig,
   contract: ProductionContract = productionContract,
 ): void => {
+  if (episode.targetSeconds < contract.delivery.minimumSeconds) {
+    throw new Error(
+      `${episode.id} targetSeconds ${episode.targetSeconds} 低于全局下限 ${contract.delivery.minimumSeconds}`,
+    );
+  }
   if (episode.targetSeconds > contract.delivery.hardMaximumSeconds) {
     throw new Error(
       `${episode.id} targetSeconds ${episode.targetSeconds} 超过全局上限 ${contract.delivery.hardMaximumSeconds}`,
+    );
+  }
+};
+
+export const assertScriptTargetSecondsMatchContract = (
+  totalTargetSeconds: number,
+  contract: ProductionContract = productionContract,
+): void => {
+  if (!Number.isFinite(totalTargetSeconds)) {
+    throw new Error("Final script 目标时长必须是有限数值");
+  }
+  if (totalTargetSeconds < contract.delivery.minimumSeconds) {
+    throw new Error(
+      `Final script 目标时长不得低于 ${contract.delivery.minimumSeconds} 秒，当前 ${totalTargetSeconds}`,
+    );
+  }
+  if (totalTargetSeconds > contract.delivery.hardMaximumSeconds) {
+    throw new Error(
+      `Final script 目标时长不得超过 ${contract.delivery.hardMaximumSeconds} 秒，当前 ${totalTargetSeconds}`,
     );
   }
 };
@@ -77,9 +112,17 @@ export const assertTimelineMatchesProductionContract = (
   if (Math.abs(timeline.totalSeconds - expectedSeconds) > Number.EPSILON * timeline.totalFrames) {
     throw new Error("时间轴 totalSeconds 必须由 totalFrames 和生产 fps 计算");
   }
-  if (timeline.totalSeconds >= contract.delivery.hardMaximumSeconds) {
+  if (!Number.isFinite(timeline.totalSeconds)) {
+    throw new Error("时间轴 totalSeconds 必须是有限数值");
+  }
+  if (timeline.totalSeconds < contract.delivery.minimumSeconds) {
     throw new Error(
-      `时间轴必须严格小于 ${contract.delivery.hardMaximumSeconds} 秒，实际 ${timeline.totalSeconds.toFixed(3)} 秒`,
+      `时间轴必须至少 ${contract.delivery.minimumSeconds} 秒，实际 ${timeline.totalSeconds.toFixed(3)} 秒`,
+    );
+  }
+  if (timeline.totalSeconds > contract.delivery.hardMaximumSeconds) {
+    throw new Error(
+      `时间轴不得超过 ${contract.delivery.hardMaximumSeconds} 秒，实际 ${timeline.totalSeconds.toFixed(3)} 秒`,
     );
   }
 };

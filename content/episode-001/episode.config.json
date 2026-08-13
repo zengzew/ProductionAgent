@@ -5,7 +5,7 @@
   "product": "Poke",
   "title": "Poke：AI 助手为什么先给你发消息？",
   "language": "zh-CN",
-  "targetSeconds": 180,
+  "targetSeconds": 60,
   "production": {
     "timelineTailSeconds": {"seg-010": 1.2, "seg-011": 1.5, "seg-012": 2.4},
     "hookAttributionSubjects": ["Poke", "Cognition"]

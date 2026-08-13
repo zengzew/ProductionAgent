@@ -22,6 +22,7 @@ import {episodeId, episodeRoot, repoRoot} from "../src/lib/project";
 import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial-text-rules";
 import {
   assertEpisodeMatchesProductionContract,
+  assertScriptTargetSecondsMatchContract,
   productionContract,
 } from "../src/lib/production-contract";
 import {
@@ -282,11 +283,7 @@ if (hookTargetSeconds !== productionContract.hook.targetSeconds) {
     `Hook 目标时长应为 ${productionContract.hook.targetSeconds} 秒，当前 ${hookTargetSeconds}`,
   );
 }
-if (totalTargetSeconds > productionContract.delivery.hardMaximumSeconds) {
-  errors.push(
-    `Final script 目标时长不得超过 ${productionContract.delivery.hardMaximumSeconds} 秒，当前 ${totalTargetSeconds}`,
-  );
-}
+errors.capture(() => assertScriptTargetSecondsMatchContract(totalTargetSeconds));
 
 const narration = segments.map((segment) => segment.narration).join("\n");
 for (const violation of findTextRuleViolations(narration, editorialTextRules, "story", episodeId)) {

@@ -70,7 +70,25 @@ describe("M2.1 critic output and evaluation", () => {
     ).toBe(true);
     expect(
       recomputeDeliveryHardRules({
+        durationSeconds: productionContract.delivery.minimumSeconds,
+        microCueRatio: productionContract.captions.microCueRatioLimit,
+      }).passed,
+    ).toBe(true);
+    expect(
+      recomputeDeliveryHardRules({
         durationSeconds: productionContract.delivery.hardMaximumSeconds,
+        microCueRatio: productionContract.captions.microCueRatioLimit,
+      }).passed,
+    ).toBe(true);
+    expect(
+      recomputeDeliveryHardRules({
+        durationSeconds: productionContract.delivery.minimumSeconds - 0.001,
+        microCueRatio: productionContract.captions.microCueRatioLimit,
+      }).failures,
+    ).toEqual(["delivery.duration-render"]);
+    expect(
+      recomputeDeliveryHardRules({
+        durationSeconds: productionContract.delivery.hardMaximumSeconds + 0.001,
         microCueRatio: productionContract.captions.microCueRatioLimit + 0.000001,
       }).failures,
     ).toEqual(["delivery.duration-render", "delivery.caption-timing"]);

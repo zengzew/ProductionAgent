@@ -27,11 +27,17 @@ describe("episode source data", () => {
     expect(scriptSchema.safeParse(script).success).toBe(true);
   });
 
-  it("caps every episode at a strict three-minute maximum", () => {
+  it("keeps every episode target inside the one-minute duration window", () => {
     const config = episodeConfigSchema.parse(
       readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
     );
     expect(() => assertEpisodeMatchesProductionContract(config)).not.toThrow();
+    expect(() =>
+      assertEpisodeMatchesProductionContract({
+        ...config,
+        targetSeconds: productionContract.delivery.minimumSeconds - 1,
+      }),
+    ).toThrow(/低于全局下限/u);
     expect(() =>
       assertEpisodeMatchesProductionContract({
         ...config,

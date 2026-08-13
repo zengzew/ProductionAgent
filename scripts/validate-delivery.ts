@@ -85,9 +85,14 @@ errors.capture(() => {
   assertTimelineMatchesEpisode(timeline, episodeId);
   assertTimelineMatchesProductionContract(timeline);
 });
-if (timeline.totalSeconds >= productionContract.delivery.hardMaximumSeconds) {
+if (timeline.totalSeconds < productionContract.delivery.minimumSeconds) {
   errors.push(
-    `交付视频时长必须小于 ${productionContract.delivery.hardMaximumSeconds} 秒，当前 ${timeline.totalSeconds.toFixed(3)} 秒`,
+    `交付视频时长不得低于 ${productionContract.delivery.minimumSeconds} 秒，当前 ${timeline.totalSeconds.toFixed(3)} 秒`,
+  );
+}
+if (timeline.totalSeconds > productionContract.delivery.hardMaximumSeconds) {
+  errors.push(
+    `交付视频时长不得超过 ${productionContract.delivery.hardMaximumSeconds} 秒，当前 ${timeline.totalSeconds.toFixed(3)} 秒`,
   );
 }
 const generatedCaptions = readGeneratedCaptions(captionsPath);

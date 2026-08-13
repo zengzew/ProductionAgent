@@ -234,7 +234,9 @@ export const recomputeDeliveryHardRules = (input: {
   englishWordBreaks?: number;
 }): {passed: boolean; failures: string[]} => {
   const failures = [
-    ...(input.durationSeconds >= productionContract.delivery.hardMaximumSeconds
+    ...(!Number.isFinite(input.durationSeconds) ||
+    input.durationSeconds < productionContract.delivery.minimumSeconds ||
+    input.durationSeconds > productionContract.delivery.hardMaximumSeconds
       ? ["delivery.duration-render"]
       : []),
     ...(input.microCueRatio > productionContract.captions.microCueRatioLimit

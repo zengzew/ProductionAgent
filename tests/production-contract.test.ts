@@ -5,6 +5,7 @@ import {episodeConfigSchema, timelineSchema} from "../src/schemas/episode";
 import {readJson, repoRoot} from "../src/lib/project";
 import {
   assertEpisodeMatchesProductionContract,
+  assertScriptTargetSecondsMatchContract,
   assertTimelineMatchesProductionContract,
   containsConfiguredHookAction,
   expectedFrameRate,
@@ -20,10 +21,12 @@ const loadEpisode = (episodeId: string) =>
   );
 
 describe("production contract", () => {
-  it("owns the global duration, fps, vertical and caption limits", () => {
+  it("owns the global duration window, fps, vertical and caption limits", () => {
     expect(productionContract.schemaVersion).toBe("production-contract-v1");
     expect(productionContract.delivery).toMatchObject({
-      hardMaximumSeconds: 180,
+      targetSeconds: 60,
+      minimumSeconds: 40,
+      hardMaximumSeconds: 80,
       fps: 30,
       vertical: {width: 1080, height: 1920},
     });
@@ -32,6 +35,12 @@ describe("production contract", () => {
       productionContractSchema.safeParse({
         ...productionContract,
         delivery: {...productionContract.delivery, fps: 0},
+      }).success,
+    ).toBe(false);
+    expect(
+      productionContractSchema.safeParse({
+        ...productionContract,
+        delivery: {...productionContract.delivery, minimumSeconds: 70},
       }).success,
     ).toBe(false);
   });
@@ -58,22 +67,49 @@ describe("production contract", () => {
     expect(timelineTailSeconds(episode, {id: "seg-012", section: "ending"})).toBe(2.4);
   });
 
-  it("validates timeline fps, duration arithmetic and the hard maximum", () => {
+  it("validates timeline fps, duration arithmetic and the 40–80 second window", () => {
     const timeline = timelineSchema.parse(
       readJson<unknown>(path.join(repoRoot, "content/episode-001/production/timeline.json")),
     );
-    expect(() => assertTimelineMatchesProductionContract(timeline)).not.toThrow();
+    expect(() =>
+      assertTimelineMatchesProductionContract({
+        ...timeline,
+        totalSeconds: productionContract.delivery.targetSeconds,
+        totalFrames: productionContract.delivery.targetSeconds * productionContract.delivery.fps,
+      }),
+    ).not.toThrow();
     expect(() =>
       assertTimelineMatchesProductionContract({...timeline, fps: timeline.fps + 1}),
     ).toThrow(/fps/u);
     expect(() =>
       assertTimelineMatchesProductionContract({
         ...timeline,
-        totalSeconds: productionContract.delivery.hardMaximumSeconds,
+        totalSeconds: productionContract.delivery.minimumSeconds - 1,
         totalFrames:
-          productionContract.delivery.hardMaximumSeconds * productionContract.delivery.fps,
+          (productionContract.delivery.minimumSeconds - 1) * productionContract.delivery.fps,
       }),
-    ).toThrow(/严格小于/u);
+    ).toThrow(/至少/u);
+    expect(() =>
+      assertTimelineMatchesProductionContract({
+        ...timeline,
+        totalSeconds: productionContract.delivery.hardMaximumSeconds + 1,
+        totalFrames:
+          (productionContract.delivery.hardMaximumSeconds + 1) * productionContract.delivery.fps,
+      }),
+    ).toThrow(/不得超过/u);
+  });
+
+  it("keeps Final script target seconds inside the 40–80 second window", () => {
+    expect(() =>
+      assertScriptTargetSecondsMatchContract(productionContract.delivery.targetSeconds),
+    ).not.toThrow();
+    expect(() =>
+      assertScriptTargetSecondsMatchContract(productionContract.delivery.minimumSeconds - 1),
+    ).toThrow(/不得低于/u);
+    expect(() =>
+      assertScriptTargetSecondsMatchContract(productionContract.delivery.hardMaximumSeconds + 1),
+    ).toThrow(/不得超过/u);
+    expect(() => assertScriptTargetSecondsMatchContract(Number.NaN)).toThrow(/有限数值/u);
   });
 
   it("derives Hook action and attribution checks from the shared and episode contracts", () => {

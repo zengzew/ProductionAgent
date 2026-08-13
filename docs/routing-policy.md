@@ -99,10 +99,10 @@ triage. The model may not choose the most convenient owner.
 Duration failures are categorized from measured artifacts, not model judgment:
 
 ```text
-measured TTS/audio duration reaches the hard maximum   -> delivery.duration-audio
-audio is below the maximum but timeline reaches it     -> delivery.duration-timeline
-timeline is below the maximum but final MP4 reaches it -> delivery.duration-render
-resolution/frame rate/orientation/container is wrong   -> delivery.format
+measured TTS/audio duration leaves the 40–80 second window -> delivery.duration-audio
+audio is inside the window but the timeline leaves it       -> delivery.duration-timeline
+timeline is inside the window but final MP4 leaves it       -> delivery.duration-render
+resolution/frame rate/orientation/container is wrong        -> delivery.format
 ```
 
 ## Critic category permissions
