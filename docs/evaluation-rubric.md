@@ -191,6 +191,22 @@ without feasible synchronous evidence, first 20 seconds without a product mental
 that cannot reconnect to product choice and user-visible result, explicit source attribution more than
 twice, generic CTA ending, unsupported market outcome, and every `high` viewer-exit issue.
 
+### Goal 3.2 Audience evidence calibration
+
+`editorial-policy-v1` clarifies how to apply the existing dimensions; it does not change
+`product-story-v4`, its weights, floors, threshold, blockers, or routes.
+
+- A result-led Hook earns credit when the action is zero-context clear and synchronous evidence has a
+  distinct job. Multiple amounts, screenshots, or labels repeating the same claim do not add evidence.
+- Product clarity and growth logic should expose a traceable need -> product action -> user-visible
+  result -> distribution action -> measured-result chain. Chronology remains chronology unless Claims
+  support causality.
+- Interviews, comments, product UI, distribution material, and result graphics count only when source,
+  context, readability, and the current proposition match. Their quantity or cut rate does not earn
+  credit.
+- A closing model earns credit only when every link was established earlier and the opening action now
+  carries new meaning. A generic market, wealth, or engagement question is not payoff.
+
 ## Fact Guardian
 
 Rubric version remains `fact-guardian-v1`. This is a binary weighted rubric: a dimension receives its
@@ -250,6 +266,23 @@ Window standards:
 
 Any `high` window creates a high issue and blocker. A report cannot label the window low/medium while
 containing a high issue in that time range.
+
+### Goal 3.2 Retention evidence calibration
+
+`editorial-policy-v1` clarifies the existing window observations; it does not change
+`retention-critic-v2`, scores, floors, blockers, or routes.
+
+- First 3 seconds: evaluate the understandable result/action, synchronous proof, and answerable open
+  question—not headline size, money, or edit frequency.
+- First 30 seconds: phase questions must receive timely evidence answers, and a concrete product input,
+  operation, feedback, or rule must establish the mental model within the 40–80 second format.
+- Mid-video: a sourced setback, reversal, or direction change is useful only when it changes viewer
+  judgment. No reversal is required when the evidence does not support one; fabricated crisis and
+  repeated emotional B-roll are risks.
+- Visual density means new action, evidence, choice, scale, consequence, or judgment carried by the
+  interview/product/need/distribution/result material. Cut count and animation are not retention proof.
+- Ending: the opening action/result must gain meaning from the middle and resolve before any optional
+  close. Market forecasts, generic wealth questions, and generic models cannot substitute for payoff.
 
 ## Compliance Critic
 

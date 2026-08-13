@@ -145,13 +145,16 @@ describe("polish constraints", () => {
     ).toThrow();
   });
 
-  it("loads the versioned v3 prompt bundle with the v2 judge rules", () => {
+  it("loads the versioned v4 Oral Rewriter bundle with unchanged v2 judge rules", () => {
     const {config, style: currentStyle} = loadPolishV2Config();
     const judgePrompt = promptText(config.prompts.judgeSystem);
 
-    expect(config.promptVersion).toBe("polish-prompt-bundle-v3");
+    expect(config.promptVersion).toBe("polish-prompt-bundle-v4");
     expect(config.judgeRubricVersion).toBe("polish-judge-v2");
     expect(config.prompts.judgeSystem).toBe("prompts/v3/judge-system.md");
+    expect(config.prompts.polishSystem).toBe("prompts/v4/polish-system.md");
+    expect(config.prompts.rewriteUser).toBe("prompts/v4/rewrite-user.md");
+    expect(promptText(config.prompts.polishSystem)).toContain("editorial-policy-v1");
     expect(judgePrompt).toContain("`oral-review-v2`");
     expect(currentStyle.schemaVersion).toBe("editorial-text-rules-v1");
     expect(currentStyle.bannedPatterns.map((rule) => rule.id)).toEqual(

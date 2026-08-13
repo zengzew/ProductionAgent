@@ -16,7 +16,7 @@ const normalization = z.object({
 export const polishStyleSchema = editorialTextRulesSchema;
 
 const polishConfig = z.object({
-  promptVersion: z.literal("polish-prompt-bundle-v3"),
+  promptVersion: z.literal("polish-prompt-bundle-v4"),
   judgeRubricVersion: z.literal("polish-judge-v2"),
   execution: z.object({
     mode: z.literal("hosted-llm-api"),

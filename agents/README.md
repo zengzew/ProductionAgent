@@ -16,6 +16,11 @@ LangGraph、AutoGen 或 CrewAI。每个角色只修改自己负责的文件，�
 一个核心故事问题、观众承诺、情绪弧线和信息揭示顺序；不能把 Claim Ledger 的排列
 顺序直接当成故事。
 
+Goal 3.2 使用 `editorial-policy-v1`：Story、Viral、Script、Oral 和 Visual 五个生成角色只
+接收各自适用的抽象规则，不接收四条第三方参考的完整上下文。Audience 与 Retention
+只按已有多模态证据澄清现行 rubric；阈值、blocker、路由和 Claim 硬门不变。由于本批
+没有人工听感或评分边界，Oral Judge 继续使用既有 `oral-judge-calibration-v1`。
+
 ## 稳定角色
 
 1. `Research Analyst`：收集事实，不写故事。

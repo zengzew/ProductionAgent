@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "editorial-human-feedback-v1",
+  "feedbackId": "visual-density-narrative-tension",
+  "recordVersion": "1.0.0",
+  "authoredAt": "2026-08-13T18:47:52+08:00",
+  "author": {
+    "kind": "human",
+    "id": "workspace-user"
+  },
+  "language": "zh-CN",
+  "scope": {
+    "kind": "cross-sample",
+    "sampleIds": [
+      "xhs-6a7b007600000000240264dc",
+      "xhs-6a7091e400000000250032e2",
+      "xhs-6a75e71a00000000210235f0",
+      "xhs-6809f616000000000903a1fb"
+    ]
+  },
+  "summary": "用户明确偏好两类共同特征：画面持续充实且包含创作者采访、产品实际演示等有信息量素材；叙事从开头悬念出发，经疑点、挫折和起伏，逐步揭示产品如何解决用户痛点、完成营销并兑现结果。",
+  "signals": [
+    {
+      "signalId": "evidence-rich-visual-density",
+      "dimension": "visual-density",
+      "humanPreference": "画面应持续有可读信息，尤其喜欢产品创造者的采访片段、创作者原始素材、App 或网页的实际演示，以及能证明需求、分发和结果的界面或截图。",
+      "positiveIndicators": [
+        "创作者、团队或相关人物的原始采访与现场素材",
+        "产品 UI、关键交互、输入输出、付费或使用流程的实际演示",
+        "用户评论、后台、媒体报道、传播素材、经营图表等与当前主张对应的证据",
+        "画面类型随故事命题变化，而不是整片重复同类 B-roll"
+      ],
+      "transferGuardrails": [
+        "充实度按叙事与证据功能判断，不按硬切、素材数量或动画频率判断",
+        "采访、产品界面和第三方素材必须有使用依据，不能脱离语境或伪装为 ProductionAgent 自有资产",
+        "画面信息不能快到观众来不及理解当前旁白的核心动作"
+      ],
+      "applicableRoles": ["visual-director", "viral-director", "retention-critic"]
+    },
+    {
+      "signalId": "suspense-reversal-solution-marketing-arc",
+      "dimension": "narrative-tension",
+      "humanPreference": "开头应立即抛出值得追下去的悬念，例如短时间获得显著结果；之后逐步揭示人物经历的疑点和挫折，再说明产品怎样解决用户痛点、怎样营销，最终兑现开场问题，形成有悬念、有疑点、有起伏的完整叙述。",
+      "positiveIndicators": [
+        "前三秒给出反常结果、人物选择或强问题，但保留原因",
+        "每段答案自然产生下一个疑问，而不是一次性解释完所有背景",
+        "中段存在有事实来源的受挫、反转、近失或方向变化",
+        "用户痛点、产品机制、获客或传播方式和结果之间形成可追踪的因果链",
+        "结尾兑现开场悬念，并给出比泛化 CTA 更具体的产品或人物 payoff"
+      ],
+      "transferGuardrails": [
+        "收入、增长速度、挫折、心理状态和成功原因都必须有来源，不能为戏剧性补写",
+        "悬念来自揭示顺序，不来自隐藏会改变事实含义的关键条件",
+        "营销成功不能只用金额表达，必须让观众看懂产品动作、用户动作和传播机制"
+      ],
+      "applicableRoles": ["story-director", "viral-director", "script-writer", "retention-critic"]
+    }
+  ],
+  "sampleGrounding": [
+    {
+      "sampleId": "xhs-6a7b007600000000240264dc",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 20.9},
+          "observation": "产品手机界面直接演示猫上椅子、完成礼物、鱼与解锁；开场结果后先让观众看懂奖励循环。",
+          "modalities": ["video", "captions", "transcript"]
+        },
+        {
+          "timeRange": {"startSeconds": 23.18, "endSeconds": 35.6},
+          "observation": "吊坠/插画来源、Ryan 与 Sara 的人物素材和访谈字幕，把创意来源及分工落到创作者证据。",
+          "modalities": ["video", "captions", "transcript"]
+        },
+        {
+          "timeRange": {"startSeconds": 35.6, "endSeconds": 63.64},
+          "observation": "商业化问句、传播问句、社媒素材、采访和累计结果依次推进，答案不断产生下一层疑问。",
+          "modalities": ["video", "captions", "transcript"]
+        }
+      ]
+    },
+    {
+      "sampleId": "xhs-6a7091e400000000250032e2",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 17.1},
+          "observation": "AI 生成电影与婚礼现场反应交替或同屏出现，在不解释来源时持续增加幻想规模和现实情绪。",
+          "modalities": ["video", "captions", "transcript"]
+        },
+        {
+          "timeRange": {"startSeconds": 17.54, "endSeconds": 27.24},
+          "observation": "真实相遇先回答影片故事，朋友制作婚礼礼物随后回答现实来源，形成相邻但分开的两次揭示。",
+          "modalities": ["video", "captions", "transcript"]
+        }
+      ]
+    },
+    {
+      "sampleId": "xhs-6a75e71a00000000210235f0",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 17.1},
+          "observation": "开场在产品 UI、创始人采访后台、下载量和挂牌信息之间切换，用多种画面证明短期经营结果。",
+          "modalities": ["video", "captions", "transcript"]
+        },
+        {
+          "timeRange": {"startSeconds": 20.68, "endSeconds": 42.84},
+          "observation": "评论截图、输入界面、数据依据和付费墙将用户痛点、产品解法与变现流程逐步可视化。",
+          "modalities": ["video", "captions", "transcript"]
+        },
+        {
+          "timeRange": {"startSeconds": 42.84, "endSeconds": 70.14},
+          "observation": "内容矩阵、现场预测、UGC、广告、收入曲线和流程图依次解释产品怎样获客并兑现开场结果。",
+          "modalities": ["video", "captions", "transcript"]
+        }
+      ]
+    },
+    {
+      "sampleId": "xhs-6809f616000000000903a1fb",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 8.67},
+          "observation": "一百万美元网页与二十亿美元冥想产品两个反差结果被并列，立即建立两者如何相连的悬念。",
+          "modalities": ["video", "captions", "transcript"]
+        },
+        {
+          "timeRange": {"startSeconds": 35.23, "endSeconds": 54.459},
+          "observation": "第一个成功兑现后马上进入复制失败、人物低谷和重新冥想的转折，让故事产生明显起伏。",
+          "modalities": ["video", "captions", "transcript"]
+        },
+        {
+          "timeRange": {"startSeconds": 54.459, "endSeconds": 84.33},
+          "observation": "两分钟网页实际展示交互规则和访问结果，再连接 Calm 的产品 UI、用户范围与规模主张，完成第二段 payoff。",
+          "modalities": ["video", "captions", "transcript"]
+        }
+      ]
+    }
+  ],
+  "boundaries": {
+    "datasetApprovalGranted": false,
+    "promptTuningAuthorized": false,
+    "automaticPromotionAllowed": false,
+    "note": "这是用户确认的跨样本编辑偏好和审核信号，不是对任何 sampleId@recordVersion 的数据集批准，也不授权把反馈加载进 Agent 上下文或开始 Prompt tuning。"
+  }
+}

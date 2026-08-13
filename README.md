@@ -209,8 +209,10 @@ pnpm validate:research -- --episode episode-002
 - `config/production-contract.json`: global duration, frame-rate, caption,
   timeline-padding and asset-capture limits; episode-specific overrides remain
   in `content/<episode>/episode.config.json`
-- `prompts/v3/`: current Oral Rewriter and polish-judge prompt bundle; earlier prompt directories are
-  retained as immutable history
+- `prompts/v4/`: current Goal 3.2 Oral Rewriter prompt files; the unchanged `polish-judge-v2`
+  preflight remains in `prompts/v3/`, and earlier prompt files are immutable history
+- `editorial-calibration/policies/prompt-editorial-policy-v1.json`: human-approved, role-scoped
+  transferable policy; it does not approve intake samples or load them at runtime
 - `style/approved/`: human-approved few-shot manuscripts
 
 Run `pnpm polish` with `OPENAI_API_KEY` (and optionally

@@ -1,0 +1,339 @@
+{
+  "schemaVersion": "editorial-sample-v1",
+  "sampleId": "xhs-6a7b007600000000240264dc",
+  "recordVersion": "1.0.0",
+  "title": "一只猫，让烂大街的番茄钟30天卖了1.8万美元",
+  "language": "zh-CN",
+  "source": {
+    "platform": "xiaohongshu",
+    "canonicalUrl": "https://www.xiaohongshu.com/explore/6a7b007600000000240264dc",
+    "sourceId": "6a7b007600000000240264dc",
+    "pageTitle": "一只猫，让烂大街的番茄钟30天卖了1.8万美金",
+    "authorDisplayName": "JM的赛博空间",
+    "capturedAt": "2026-08-13T17:20:00+08:00",
+    "provenance": {
+      "suppliedBy": "user",
+      "acquisition": "User-supplied Xiaohongshu URL opened in the user's existing Microsoft Edge session; playable media was inspected in-browser and a temporary local copy was decoded for analysis.",
+      "mediaSha256": "ffd984737a40048246068017409aaf27ea3b988d1fbe43c41b57514e85ed073c",
+      "mediaStoredInRepository": false,
+      "notes": [
+        "The temporary media copy is not part of the repository or any dataset.",
+        "Source page and media were accessible on 2026-08-13; future access is not guaranteed."
+      ]
+    }
+  },
+  "origin": {
+    "kind": "third-party"
+  },
+  "durationSeconds": 67.413,
+  "review": {
+    "status": "pending",
+    "submittedAt": "2026-08-13T17:51:22+08:00",
+    "requestedDataset": "reference",
+    "requestedRoles": [
+      "story-director",
+      "viral-director",
+      "script-writer",
+      "visual-director",
+      "retention-critic"
+    ],
+    "note": "用户将其作为高质量候选案例提供，但尚未逐条明确批准它进入 reference，也未确认角色范围。"
+  },
+  "datasetMembership": [],
+  "proposedUse": {
+    "dataset": "reference",
+    "roles": [
+      "story-director",
+      "viral-director",
+      "script-writer",
+      "visual-director",
+      "retention-critic"
+    ],
+    "rationale": "适合校准结果先行、产品机制演示、创作选择、商业化和增长证据的揭示顺序；不应把猫咪机制或个案经营数据迁移给无关角色。"
+  },
+  "modalityChecks": {
+    "video": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T17:35:00+08:00",
+      "method": "Microsoft Edge playback plus local ffmpeg decoding; decoded frames were sampled every 3 seconds across the full runtime and all contact-sheet pages were visually inspected.",
+      "evidence": [
+        "Full-duration samples cover product UI, cat animation, mechanism diagram, founder/source inserts, social distribution evidence, metrics and CTA.",
+        "The source page played successfully in Microsoft Edge."
+      ],
+      "limitations": [
+        "This is full-runtime sampled-frame inspection, not a frame-by-frame edit log.",
+        "Fine easing and sub-three-second transition details were not individually timestamped."
+      ]
+    },
+    "audio": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T17:51:22+08:00",
+      "method": "AAC track decode, EBU R128 loudness measurement, silence detection and use of the decoded track for local ASR.",
+      "evidence": [
+        "Integrated loudness -8.8 LUFS, loudness range 1.7 LU and true peak +0.3 dBFS.",
+        "No interval of at least 0.35 seconds fell below -35 dB during silence detection."
+      ],
+      "limitations": [
+        "No perceptual listening channel was available to the model.",
+        "Music genre, mix balance and individual sound effects were therefore not classified."
+      ]
+    },
+    "transcript": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T17:51:22+08:00",
+      "method": "On-device MLX Whisper small Chinese ASR with timestamped segments, followed by comparison against sampled burned-in captions.",
+      "evidence": [
+        "Timestamped ASR speech spans 0.00-67.10 seconds.",
+        "The narration phases and key numbers were cross-checked against visible captions and source frames."
+      ],
+      "limitations": [
+        "ASR contains occasional proper-noun and homophone errors, including 番茄钟 and Threads.",
+        "Only structured paraphrases and short evidence observations are retained; the full transcript is not stored."
+      ]
+    },
+    "captions": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T17:35:00+08:00",
+      "method": "Visual inspection of burned-in Chinese/English subtitles and the persistent top headline on 3-second samples across the full runtime.",
+      "evidence": [
+        "The top outcome headline remains an anchor across the sampled runtime.",
+        "Bottom captions track the current narration and retain key English names and numeric claims."
+      ],
+      "limitations": [
+        "Captions were visually sampled, not exported or exhaustively OCR-transcribed."
+      ]
+    },
+    "metadata": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T17:35:00+08:00",
+      "method": "Xiaohongshu page inspection, Edge media diagnostics and ffprobe.",
+      "evidence": [
+        "1080x1920 HEVC video at 30 fps with stereo 48 kHz HE-AAC audio.",
+        "Decoded duration 67.413 seconds; page title and author were read from the live page."
+      ],
+      "limitations": [
+        "Platform engagement counts and exact publication timestamp were not captured as stable metadata."
+      ]
+    }
+  },
+  "analysis": {
+    "scriptAndNarration": {
+      "summary": "旁白用结果句开场，随后以短句解释玩法；在商业化和获客段各用一个问题桥接，最后用下载量与九个月销售额兑现开场，再接账号关注 CTA。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 3.66},
+          "observation": "先给出三十天一万八千美元，再立刻纠正“真猫”误解，结果与反差在四秒内同时成立。",
+          "modalities": ["transcript", "captions", "video"]
+        },
+        {
+          "timeRange": {"startSeconds": 35.6, "endSeconds": 47.88},
+          "observation": "“怎么赚钱”和“流量从哪来”把免费/订阅/买断与获客两段清楚分开。",
+          "modalities": ["transcript", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 58.64, "endSeconds": 67.1},
+          "observation": "以超过十二万下载和九个月近八万美元作为累计 payoff，之后才进入关注 CTA。",
+          "modalities": ["transcript", "captions", "video"]
+        }
+      ]
+    },
+    "narrativeArchitecture": {
+      "summary": "揭示顺序是结果与反差（0-4秒）→奖励循环的完整体验（4-21秒）→产品名与两人分工（21-36秒）→商业模式（36-47秒）→分发事件（47-59秒）→累计结果与 CTA（59-67秒）。每段回答上段自然产生的一个问题。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 3.66, "endSeconds": 20.9},
+          "observation": "按下计时、陪伴、礼物、退出惩罚、兑换与解锁依次出现，先让观众理解体验闭环。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 21.32, "endSeconds": 35.6},
+          "observation": "产品名之后才揭示吊坠灵感、情侣动机、四个月制作和 AI/插画分工。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 47.88, "endSeconds": 63.64},
+          "observation": "内测、Instagram 两百万播放、Threads 二次传播和最终经营结果构成因果递进。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "visualLanguage": {
+      "summary": "画面持续保留顶部结果标题，主体在产品 UI/动画、简图、创作者素材、社媒传播和访谈证据之间切换；竖屏中常用居中素材卡片、模糊背景与底部双语字幕，视觉变化服务于当前论证阶段。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 20.9},
+          "observation": "产品手机界面直接展示猫上椅子、完成礼物、鱼与解锁；约十八秒改用机制图总结循环。",
+          "modalities": ["video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 23.18, "endSeconds": 35.6},
+          "observation": "吊坠/插画来源、Ryan 与 Sara 的画面以及访谈字幕承接创作起点和分工。",
+          "modalities": ["video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 47.88, "endSeconds": 63.64},
+          "observation": "社媒账号、传播素材、访谈和量化结果接连替换产品演示，证据类型随旁白命题变化。",
+          "modalities": ["video", "captions"]
+        }
+      ]
+    },
+    "audioAndCaptions": {
+      "summary": "语音轨在检测阈值下几乎连续，短句靠语言停顿而非长静音分段；字幕逐句跟随旁白并保留英文产品/人名。客观响度很高且动态范围小。由于没有人工听辨通道，本次没有判断音乐风格、音乐情绪或具体音效。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 67.1},
+          "observation": "ASR 覆盖整条旁白；-35 dB、0.35 秒阈值下未检测到长静音，综合响度为 -8.8 LUFS。",
+          "modalities": ["audio", "transcript"]
+        },
+        {
+          "timeRange": {"startSeconds": 35.6, "endSeconds": 47.88},
+          "observation": "两个问句对应字幕中的新段落提示，但音轨仍保持连续推进。",
+          "modalities": ["audio", "transcript", "captions"]
+        }
+      ]
+    },
+    "crossModalSync": {
+      "summary": "文案每提出一个可视动作就立即用相应 UI 兑现；进入团队、商业化和增长命题时，画面也同步从玩法演示换为人物、定价和来源证据。顶部标题始终保存最初 stakes，底部字幕负责当前句。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 5.46, "endSeconds": 17.24},
+          "observation": "计时、陪伴、礼物、退出垃圾、换鱼和解锁分别与对应产品画面同段出现。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 36.86, "endSeconds": 46.46},
+          "observation": "免费、订阅、永久买断及买断更畅销的旁白，配合产品/定价/访谈来源画面。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 52.58, "endSeconds": 61.58},
+          "observation": "两百万播放、二次传播和下载翻倍分别使用社媒或来源素材，不以无关装饰画面代替证据。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "retentionAndPayoff": {
+      "summary": "开场的金钱结果制造“普通番茄钟为何能卖”的缺口；产品奖励循环先提供即时趣味，两个问句在中段重开信息缺口，结尾用更长周期的下载和销售结果完成闭环。关注 CTA 是附加项，不替代故事 payoff。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 20.9},
+          "observation": "观众先知道结果，再连续获得礼物、惩罚、解锁等机制答案，但商业答案仍被保留。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 35.6, "endSeconds": 58.2},
+          "observation": "商业化问句解决后立刻抛出流量问句，随后以三次传播节点逐步升级结果。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 58.64, "endSeconds": 63.64},
+          "observation": "超过十二万下载与九个月近八万美元将三十天结果扩展成可复述的最终发现。",
+          "modalities": ["transcript", "captions", "video"]
+        }
+      ]
+    },
+    "transferablePatterns": [
+      {
+        "patternId": "outcome-mechanism-origin-growth",
+        "name": "结果到机制再到增长",
+        "description": "先交付一个高 stakes 结果，再让观众看懂产品体验，之后解释团队选择、商业化和分发，最终回收经营结果。",
+        "evidenceRanges": [
+          {"startSeconds": 0, "endSeconds": 3.66},
+          {"startSeconds": 3.66, "endSeconds": 35.6},
+          {"startSeconds": 35.6, "endSeconds": 63.64}
+        ],
+        "applicableRoles": ["story-director", "viral-director", "script-writer"],
+        "guardrail": "只有来源足以支撑结果和因果关系时才能使用；不能为了结构补写经营数据。"
+      },
+      {
+        "patternId": "persistent-stakes-header",
+        "name": "持续 stakes 标题",
+        "description": "在画面顶部保留开场核心结果，让不断变化的证据素材仍围绕同一个问题。",
+        "evidenceRanges": [{"startSeconds": 0, "endSeconds": 63.64}],
+        "applicableRoles": ["viral-director", "visual-director", "retention-critic"],
+        "guardrail": "标题只能使用已核实事实，且不能遮挡关键产品动作或字幕安全区。"
+      },
+      {
+        "patternId": "question-led-phase-bridges",
+        "name": "问句式阶段桥",
+        "description": "在观众刚理解上一层信息时，用一个自然问题开启商业化或分发的新层级。",
+        "evidenceRanges": [
+          {"startSeconds": 35.6, "endSeconds": 36.86},
+          {"startSeconds": 46.84, "endSeconds": 47.88}
+        ],
+        "applicableRoles": ["story-director", "script-writer", "retention-critic"],
+        "guardrail": "问题必须立即由后续证据回答，不能堆叠空洞悬念。"
+      },
+      {
+        "patternId": "claim-matched-evidence-switching",
+        "name": "命题匹配的证据切换",
+        "description": "玩法用 UI，团队选择用人物/访谈，分发用社媒素材，结果用量化证据；视觉类型随命题切换。",
+        "evidenceRanges": [
+          {"startSeconds": 3.66, "endSeconds": 20.9},
+          {"startSeconds": 21.32, "endSeconds": 35.6},
+          {"startSeconds": 47.88, "endSeconds": 63.64}
+        ],
+        "applicableRoles": ["visual-director", "retention-critic"],
+        "guardrail": "来源画面仍需可读、可追溯；素材变化不能制造未被来源支持的关联。"
+      }
+    ],
+    "productSpecificPatterns": [
+      {
+        "patternId": "cat-reward-loop",
+        "name": "猫咪陪伴与奖励循环",
+        "description": "完成计时获得礼物、换鱼并解锁猫/家具/背景，中途退出留下垃圾。",
+        "evidenceRanges": [{"startSeconds": 5.46, "endSeconds": 20.9}],
+        "applicableRoles": ["story-director", "visual-director"],
+        "guardrail": "这是 Cat on Chair 的具体机制，不能当作其他产品的通用功能或事实。"
+      },
+      {
+        "patternId": "cat-on-chair-commercial-facts",
+        "name": "Cat on Chair 个案经营事实",
+        "description": "免费基础版、订阅/永久买断、内测与社媒传播，以及视频中的下载和销售数字。",
+        "evidenceRanges": [{"startSeconds": 36.86, "endSeconds": 63.64}],
+        "applicableRoles": ["story-director", "script-writer"],
+        "guardrail": "只可在该来源的事实语境中使用，且进入成片前仍需独立 Claim Ledger 核验。"
+      }
+    ]
+  },
+  "roleMappings": [
+    {
+      "role": "story-director",
+      "use": "学习从经营结果进入体验机制，再揭示创作选择、商业化和分发的单问题故事顺序。",
+      "exclusions": ["不迁移猫咪机制", "不迁移个案收入、下载或渠道事实"],
+      "patternIds": ["outcome-mechanism-origin-growth", "question-led-phase-bridges"]
+    },
+    {
+      "role": "viral-director",
+      "use": "学习结果+反差的前三秒，以及持续标题如何保存核心 stakes。",
+      "exclusions": ["不把夸张结果当作无来源 hook", "不复制关注 CTA"],
+      "patternIds": ["outcome-mechanism-origin-growth", "persistent-stakes-header"]
+    },
+    {
+      "role": "script-writer",
+      "use": "学习短句机制解释和商业化/流量问句的段落桥接。",
+      "exclusions": ["不照抄原旁白", "不复用产品名、人物名和经营数字"],
+      "patternIds": ["outcome-mechanism-origin-growth", "question-led-phase-bridges"]
+    },
+    {
+      "role": "visual-director",
+      "use": "学习 UI、简图、人物和社媒证据随命题切换，以及顶部 stakes 的持续锚定。",
+      "exclusions": ["不复制第三方画面资产", "不把来源截图当作装饰性 B-roll"],
+      "patternIds": ["persistent-stakes-header", "claim-matched-evidence-switching"]
+    },
+    {
+      "role": "retention-critic",
+      "use": "检查核心 stakes 是否持续可见、段落桥是否及时被回答、证据形态是否随信息推进。",
+      "exclusions": ["不把高切换频率本身当作留存 PASS", "不以 CTA 代替 payoff"],
+      "patternIds": [
+        "persistent-stakes-header",
+        "question-led-phase-bridges",
+        "claim-matched-evidence-switching"
+      ]
+    }
+  ],
+  "transcriptPolicy": {
+    "fullTranscriptStored": false,
+    "storedMaterial": "Timestamped structural summaries, short paraphrased observations and ASR limitations only; no complete third-party transcript."
+  }
+}

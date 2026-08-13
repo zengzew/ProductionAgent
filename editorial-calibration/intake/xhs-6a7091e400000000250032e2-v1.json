@@ -1,0 +1,300 @@
+{
+  "schemaVersion": "editorial-sample-v1",
+  "sampleId": "xhs-6a7091e400000000250032e2",
+  "recordVersion": "1.0.0",
+  "title": "朋友用AI，把他们的爱情拍成一部电影",
+  "language": "zh-CN",
+  "source": {
+    "platform": "xiaohongshu",
+    "canonicalUrl": "https://www.xiaohongshu.com/explore/6a7091e400000000250032e2",
+    "sourceId": "6a7091e400000000250032e2",
+    "pageTitle": "朋友用AI，把他们的爱情拍成一部电影！",
+    "authorDisplayName": "JM的赛博空间",
+    "capturedAt": "2026-08-13T17:25:00+08:00",
+    "provenance": {
+      "suppliedBy": "user",
+      "acquisition": "User-supplied Xiaohongshu URL opened in the user's existing Microsoft Edge session; playable media was inspected in-browser and a temporary local copy was decoded for analysis.",
+      "mediaSha256": "c590bd650d8dc7b258cfb657d4660d1614ce82e8118d6df46906cd462f64a5e3",
+      "mediaStoredInRepository": false,
+      "notes": [
+        "The temporary media copy is not part of the repository or any dataset.",
+        "Source page and media were accessible on 2026-08-13; future access is not guaranteed."
+      ]
+    }
+  },
+  "origin": {
+    "kind": "third-party"
+  },
+  "durationSeconds": 40.128,
+  "review": {
+    "status": "pending",
+    "submittedAt": "2026-08-13T17:51:22+08:00",
+    "requestedDataset": "reference",
+    "requestedRoles": ["viral-director", "visual-director", "retention-critic"],
+    "note": "用户将其作为高质量候选案例提供，但尚未逐条明确批准它进入 reference，也未确认角色范围。"
+  },
+  "datasetMembership": [],
+  "proposedUse": {
+    "dataset": "reference",
+    "roles": ["viral-director", "visual-director", "retention-critic"],
+    "rationale": "适合学习反应先行的悬念、跨时代重复与晚揭示的情绪回收；它不是产品机制样本，不应默认提供给全部创作角色。"
+  },
+  "modalityChecks": {
+    "video": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T17:38:00+08:00",
+      "method": "Microsoft Edge playback plus local ffmpeg decoding; decoded frames were sampled every 3 seconds across the full runtime and all contact-sheet pages were visually inspected.",
+      "evidence": [
+        "Full-duration samples cover wedding reaction footage, AI-generated historical/fantasy scenes, the real-world meeting reveal, provenance screenshot and CTA.",
+        "The source page played successfully in Microsoft Edge."
+      ],
+      "limitations": [
+        "This is full-runtime sampled-frame inspection, not a frame-by-frame edit log.",
+        "Fine motion and sub-three-second transition details were not individually timestamped."
+      ]
+    },
+    "audio": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T17:51:22+08:00",
+      "method": "AAC track decode, EBU R128 loudness measurement, silence detection and use of the decoded track for local ASR.",
+      "evidence": [
+        "Integrated loudness -20.6 LUFS, loudness range 3.1 LU and true peak -5.1 dBFS.",
+        "Short 0.40-0.58 second low-level intervals occur near 3.81, 9.61, 17.22, 22.53, 27.19, 29.86 and 35.91 seconds."
+      ],
+      "limitations": [
+        "No perceptual listening channel was available to the model.",
+        "Music genre, emotional scoring and individual sound effects were therefore not classified."
+      ]
+    },
+    "transcript": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T17:51:22+08:00",
+      "method": "On-device MLX Whisper small Chinese ASR with timestamped segments, followed by comparison against sampled burned-in captions.",
+      "evidence": [
+        "Timestamped ASR speech spans 0.00-40.00 seconds.",
+        "The mystery, repeated near-miss, real-life reveal and closing interpretation were cross-checked against sampled captions and frames."
+      ],
+      "limitations": [
+        "ASR contains occasional homophone errors in historical-scene wording.",
+        "Only structured paraphrases and short evidence observations are retained; the full transcript is not stored."
+      ]
+    },
+    "captions": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T17:38:00+08:00",
+      "method": "Visual inspection of burned-in headline and subtitles on 3-second samples across the full runtime.",
+      "evidence": [
+        "The opening headline frames the footage as an AI-made love film spanning millennia.",
+        "Subtitles track the narrated near-miss, reveal and emotional interpretation."
+      ],
+      "limitations": [
+        "Captions were visually sampled, not exported or exhaustively OCR-transcribed."
+      ]
+    },
+    "metadata": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T17:38:00+08:00",
+      "method": "Xiaohongshu page inspection, Edge media diagnostics and ffprobe.",
+      "evidence": [
+        "1080x1920 HEVC video at 30 fps with stereo 48 kHz HE-AAC audio.",
+        "Decoded duration 40.128 seconds; page title and author were read from the live page."
+      ],
+      "limitations": [
+        "Platform engagement counts and exact publication timestamp were not captured as stable metadata."
+      ]
+    }
+  },
+  "analysis": {
+    "scriptAndNarration": {
+      "summary": "旁白先描述新娘突然看到的异常事件，不立即解释影片来源；中段用“每换一个时代、总差一点错过”形成重复，约二十二秒才揭示现实相遇和朋友制作的婚礼礼物，最后用一句价值判断把 AI 从工具重新定义为表达载体。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 3.64},
+          "observation": "开场只说新娘在婚礼上看见 AI 把两人送回几千年前，保留“为什么”和“谁做的”。",
+          "modalities": ["transcript", "captions", "video"]
+        },
+        {
+          "timeRange": {"startSeconds": 10.02, "endSeconds": 17.1},
+          "observation": "时代变化、寻找和差一点错过被写成重复句式，并把注意力转向新娘由笑到捂嘴的反应。",
+          "modalities": ["transcript", "captions", "video"]
+        },
+        {
+          "timeRange": {"startSeconds": 22.54, "endSeconds": 35.74},
+          "observation": "先排除商业片，再揭示朋友用 AI 制作婚礼礼物，最后概括为“让心里的想象被看见”。",
+          "modalities": ["transcript", "captions"]
+        }
+      ]
+    },
+    "narrativeArchitecture": {
+      "summary": "结构是神秘事件（0-4秒）→跨时代寻找与近失升级（4-14秒）→观众借新娘反应感受情绪（14-18秒）→幻想停止并回到真实相遇（18-23秒）→制作来源揭示（23-27秒）→意义与 CTA（27-40秒）。来源被刻意延后到情绪已建立之后。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 4.04, "endSeconds": 14.14},
+          "observation": "战场、战争和不同城市不是独立信息点，而是同一“寻找却错过”规则的升级变体。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 17.54, "endSeconds": 27.24},
+          "observation": "幻想突然停止、现实相遇出现，再揭示朋友制作礼物，形成连续两次重构。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 27.24, "endSeconds": 40},
+          "observation": "结尾不增加新情节，而是解释这种 AI 用法为何有温度，再进入关注 CTA。",
+          "modalities": ["transcript", "captions", "video"]
+        }
+      ]
+    },
+    "visualLanguage": {
+      "summary": "主要视觉关系是 AI 生成电影与婚礼现场反应的并置：历史/幻想动作镜头提供规模，新娘反应提供现实情绪；幻想停止后切回真实相遇与制作来源截图，画面层级和信息层级同步收束。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 17.1},
+          "observation": "开场及多处采样把生成电影和婚礼中的新娘/新人反应交替或同屏呈现。",
+          "modalities": ["video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 4.04, "endSeconds": 14.14},
+          "observation": "古代战场、不同年代和城市的动作/幻想镜头快速变化，但都服务于重复的近失母题。",
+          "modalities": ["video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 18.6, "endSeconds": 27.24},
+          "observation": "幻想停止后出现现实相遇画面，随后用社媒/文字截图说明这是朋友制作的婚礼礼物。",
+          "modalities": ["video", "captions"]
+        }
+      ]
+    },
+    "audioAndCaptions": {
+      "summary": "音轨客观响度低于另两条案例，并在多个叙事边界出现约半秒低电平间隔；字幕跟随旁白完成跨时代重复、现实揭示和价值判断。由于没有人工听辨通道，本次没有判断配乐情绪或具体音效。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 40},
+          "observation": "ASR 覆盖整条旁白；综合响度 -20.6 LUFS、LRA 3.1 LU，检测到七个约 0.40-0.58 秒低电平间隔。",
+          "modalities": ["audio", "transcript"]
+        },
+        {
+          "timeRange": {"startSeconds": 17.22, "endSeconds": 22.94},
+          "observation": "幻想停止、回到现实、真正相遇三个句段附近存在短低电平边界，字幕也在此完成语义转折。",
+          "modalities": ["audio", "transcript", "captions"]
+        }
+      ]
+    },
+    "crossModalSync": {
+      "summary": "旁白说“跨越时代、寻找却错过”时，生成影像提供变体；说新娘由笑到捂嘴时，现实反应成为主证据；说幻想停止和真正相遇时，画面从奇观转回现实。文案、画面和反应轨共同完成晚揭示。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 10.02, "endSeconds": 17.1},
+          "observation": "重复的近失文案与跨时代镜头同步，同时插入新娘反应，让抽象情绪有现实反馈。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 18.6, "endSeconds": 22.54},
+          "observation": "“幻想停止—回到现实—真正相遇”与视觉从生成电影转到真实场景一一对应。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 22.54, "endSeconds": 35.74},
+          "observation": "制作来源截图负责 provenance，新人反应和影片片段继续承担情感证明，旁白负责提炼意义。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "retentionAndPayoff": {
+      "summary": "留存核心不是信息密度，而是两个延迟答案：新娘看见了什么、这是谁为谁做的。跨时代近失提供模式重复和变化，新娘反应显示情绪正在升级；真正相遇和朋友礼物构成情节 payoff，“让想象被看见”构成意义 payoff。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 17.1},
+          "observation": "来源未解释，观众只能从越来越大的幻想场面和新娘反应推测事件意义。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 17.54, "endSeconds": 27.24},
+          "observation": "真正相遇回答影片叙事，朋友制作婚礼礼物回答现实来源，两个答案相邻但不同时给出。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 27.24, "endSeconds": 35.74},
+          "observation": "结尾把奇观重述为“让原本藏在心里的想象被真正看见”，形成可复述的情感发现。",
+          "modalities": ["transcript", "captions", "video"]
+        }
+      ]
+    },
+    "transferablePatterns": [
+      {
+        "patternId": "reaction-mystery-open-loop",
+        "name": "反应先行的事件悬念",
+        "description": "先展示一个人的强烈真实反应和异常事件，延后解释来源，让观众同时追问发生了什么和为何重要。",
+        "evidenceRanges": [
+          {"startSeconds": 0, "endSeconds": 3.64},
+          {"startSeconds": 14.44, "endSeconds": 17.1}
+        ],
+        "applicableRoles": ["viral-director", "retention-critic"],
+        "guardrail": "反应必须来自可验证情境，不能重排素材制造人物没有发生过的情绪。"
+      },
+      {
+        "patternId": "repetition-with-escalating-variation",
+        "name": "规则不变、场景升级",
+        "description": "保持同一个叙事规则，每次换时代或场景都给出新视觉变体，使观众迅速理解模式又期待下一次变化。",
+        "evidenceRanges": [{"startSeconds": 4.04, "endSeconds": 14.14}],
+        "applicableRoles": ["visual-director", "retention-critic"],
+        "guardrail": "每次变化必须推进情绪或信息，不能用重复蒙太奇填时长。"
+      },
+      {
+        "patternId": "late-reveal-reframes-footage",
+        "name": "晚揭示重构前文",
+        "description": "先让观众接受影像表层故事，再用现实相遇和制作来源把之前的奇观重构为私人礼物。",
+        "evidenceRanges": [{"startSeconds": 17.54, "endSeconds": 27.24}],
+        "applicableRoles": ["viral-director", "retention-critic"],
+        "guardrail": "被延后的信息必须真正改变理解；不能隐去影响事实准确或合规的关键前提。"
+      },
+      {
+        "patternId": "emotion-through-dual-track",
+        "name": "内容轨与反应轨并置",
+        "description": "一条视觉轨展示作品本身，另一条展示真实观众反应，让内容的情绪效果在画面中被观察。",
+        "evidenceRanges": [{"startSeconds": 0, "endSeconds": 22.54}],
+        "applicableRoles": ["visual-director", "retention-critic"],
+        "guardrail": "反应与内容必须时间和来源对应，不能把无关 reaction shot 当成效果证明。"
+      }
+    ],
+    "productSpecificPatterns": [
+      {
+        "patternId": "wedding-time-travel-gift",
+        "name": "跨时代婚礼电影设定",
+        "description": "新人跨越多个时代彼此寻找，最后回到真实相遇；朋友将其制作为婚礼礼物。",
+        "evidenceRanges": [{"startSeconds": 0, "endSeconds": 27.24}],
+        "applicableRoles": ["viral-director", "visual-director", "retention-critic"],
+        "guardrail": "这是该婚礼作品的具体创意和人物情境，不能改头换面当作 ProductionAgent 原创故事。"
+      }
+    ]
+  },
+  "roleMappings": [
+    {
+      "role": "viral-director",
+      "use": "学习用真实反应和异常事件制造双重悬念，以及晚揭示如何重构前文。",
+      "exclusions": ["不复制婚礼/穿越设定", "不把当事人反应当作产品效果的通用证据"],
+      "patternIds": ["reaction-mystery-open-loop", "late-reveal-reframes-footage"]
+    },
+    {
+      "role": "visual-director",
+      "use": "学习相同叙事规则下的视觉变体，以及内容轨与现实反应轨的因果并置。",
+      "exclusions": ["不复用第三方婚礼或生成影片素材", "不制造不对应的 reaction shot"],
+      "patternIds": ["repetition-with-escalating-variation", "emotion-through-dual-track"]
+    },
+    {
+      "role": "retention-critic",
+      "use": "检查延迟信息是否真正改变理解、重复场景是否升级、情节与意义 payoff 是否都在 CTA 前完成。",
+      "exclusions": ["不把延迟来源自动判为优点", "不以情绪反应替代事实证据"],
+      "patternIds": [
+        "reaction-mystery-open-loop",
+        "repetition-with-escalating-variation",
+        "late-reveal-reframes-footage",
+        "emotion-through-dual-track"
+      ]
+    }
+  ],
+  "transcriptPolicy": {
+    "fullTranscriptStored": false,
+    "storedMaterial": "Timestamped structural summaries, short paraphrased observations and ASR limitations only; no complete third-party transcript."
+  }
+}

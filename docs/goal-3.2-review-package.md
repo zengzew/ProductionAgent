@@ -96,7 +96,8 @@ v2 仍从已经出发、三天后才到的消息开场，但前二十秒加入�
 ## 建议下一步
 
 **Improve evaluation rubric 已完成**：正式 Oral Judge 使用 `oral-review-v2`，自动 polish
-预检使用 `polish-judge-v2`，合同、角色 Prompt、`prompts/v3/`、校验器与回归测试已经对齐；
+预检使用 `polish-judge-v2`；Goal 3.2 Oral Rewriter 使用 `prompts/v4/`，未变的 judge 文件
+继续位于 `prompts/v3/`，合同、角色 Prompt、校验器与回归测试保持对齐；
 历史 v1 报告仅保留只读兼容，暂不迁移 orchestration。
 
 受控 pilot 已完成。真人盲听给当前交付稿 3/5、新 pilot 稿 4/5，选择 pilot 稿，但认为

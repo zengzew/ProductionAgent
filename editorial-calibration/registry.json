@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "editorial-calibration-registry-v1",
+  "systemVersion": "1.2.0",
+  "datasets": {
+    "reference": {
+      "manifest": "datasets/reference/manifest.json",
+      "version": "1.0.0"
+    },
+    "calibration": {
+      "manifest": "datasets/calibration/manifest.json",
+      "version": "1.0.0"
+    },
+    "golden": {
+      "manifest": "datasets/golden/manifest.json",
+      "version": "1.0.0"
+    }
+  },
+  "intakeDirectory": "intake",
+  "humanFeedbackDirectory": "human-feedback",
+  "policyDirectory": "policies",
+  "legacyCompatibility": {
+    "styleApprovedDirectory": "../style/approved",
+    "mappedRole": "oral-rewriter"
+  }
+}

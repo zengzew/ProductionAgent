@@ -1,0 +1,362 @@
+{
+  "schemaVersion": "editorial-sample-v1",
+  "sampleId": "xhs-6a75e71a00000000210235f0",
+  "recordVersion": "1.0.0",
+  "title": "20岁大学生靠AI预测身高，月入10万美金",
+  "language": "zh-CN",
+  "source": {
+    "platform": "xiaohongshu",
+    "canonicalUrl": "https://www.xiaohongshu.com/explore/6a75e71a00000000210235f0",
+    "sourceId": "6a75e71a00000000210235f0",
+    "pageTitle": "20岁大学生靠AI预测身高，月入10万美金",
+    "authorDisplayName": "JM的赛博空间",
+    "capturedAt": "2026-08-13T17:30:00+08:00",
+    "provenance": {
+      "suppliedBy": "user",
+      "acquisition": "User-supplied Xiaohongshu URL opened in the user's existing Microsoft Edge session; playable media was inspected in-browser and a temporary local copy was decoded for analysis.",
+      "mediaSha256": "94c317ba1df683ed54b66359db6233ba7f20f75131d164ab92fbaecb48055a46",
+      "mediaStoredInRepository": false,
+      "notes": [
+        "The fourth URL supplied by the user resolves to this same sourceId and was deduplicated.",
+        "The temporary media copy is not part of the repository or any dataset.",
+        "Source page and media were accessible on 2026-08-13; future access is not guaranteed."
+      ]
+    }
+  },
+  "origin": {
+    "kind": "third-party"
+  },
+  "durationSeconds": 76.5,
+  "review": {
+    "status": "pending",
+    "submittedAt": "2026-08-13T17:51:22+08:00",
+    "requestedDataset": "reference",
+    "requestedRoles": [
+      "story-director",
+      "viral-director",
+      "script-writer",
+      "visual-director",
+      "audience-critic"
+    ],
+    "note": "用户将其作为高质量候选案例提供，但尚未逐条明确批准它进入 reference，也未确认角色范围。"
+  },
+  "datasetMembership": [],
+  "proposedUse": {
+    "dataset": "reference",
+    "roles": [
+      "story-director",
+      "viral-director",
+      "script-writer",
+      "visual-director",
+      "audience-critic"
+    ],
+    "rationale": "适合学习证据先行、从公开需求到产品/内容/订阅的因果链和结尾公式化回收；所有个案指标仍是产品专属事实。"
+  },
+  "modalityChecks": {
+    "video": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T17:42:00+08:00",
+      "method": "Microsoft Edge playback plus local ffmpeg decoding; decoded frames were sampled every 3 seconds across the full runtime and all contact-sheet pages were visually inspected.",
+      "evidence": [
+        "Full-duration samples cover product UI, founder interview/dashboard, startup listing, search and TikTok comments, paywall, content grid, UGC, ads, revenue chart and final business-loop diagram.",
+        "The source page played successfully in Microsoft Edge."
+      ],
+      "limitations": [
+        "This is full-runtime sampled-frame inspection, not a frame-by-frame edit log.",
+        "Fine motion and sub-three-second transition details were not individually timestamped."
+      ]
+    },
+    "audio": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T17:51:22+08:00",
+      "method": "AAC track decode, EBU R128 loudness measurement, silence detection and use of the decoded track for local ASR.",
+      "evidence": [
+        "Integrated loudness -18.2 LUFS, loudness range 2.4 LU and true peak -3.4 dBFS.",
+        "Two 0.40-0.48 second low-level intervals were detected near 50.12 and 61.39 seconds."
+      ],
+      "limitations": [
+        "No perceptual listening channel was available to the model.",
+        "Music genre, mix balance and individual sound effects were therefore not classified."
+      ]
+    },
+    "transcript": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T17:51:22+08:00",
+      "method": "On-device MLX Whisper small Chinese ASR with timestamped segments, followed by comparison against sampled burned-in captions.",
+      "evidence": [
+        "Timestamped ASR speech spans 0.00-76.22 seconds.",
+        "The result proof, demand discovery, product/paywall, content engine and closing formula were cross-checked against sampled captions and frames."
+      ],
+      "limitations": [
+        "ASR misrecognized the product name and occasional terms; visible captions and context were used only to correct the structural interpretation.",
+        "Only structured paraphrases and short evidence observations are retained; the full transcript is not stored."
+      ]
+    },
+    "captions": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T17:42:00+08:00",
+      "method": "Visual inspection of the persistent headline, burned-in Chinese subtitles and source labels on 3-second samples across the full runtime.",
+      "evidence": [
+        "The top headline keeps the founder age, AI height prediction and monthly revenue visible across sampled phases.",
+        "Subtitles track numbers, product steps and the final product-content-subscription formulation."
+      ],
+      "limitations": [
+        "Captions were visually sampled, not exported or exhaustively OCR-transcribed."
+      ]
+    },
+    "metadata": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T17:42:00+08:00",
+      "method": "Xiaohongshu page inspection, Edge media diagnostics and ffprobe.",
+      "evidence": [
+        "1080x1920 HEVC video at 30 fps with stereo 48 kHz HE-AAC audio.",
+        "Decoded duration 76.500 seconds; page title and author were read from the live page."
+      ],
+      "limitations": [
+        "Platform engagement counts and exact publication timestamp were not captured as stable metadata."
+      ]
+    }
+  },
+  "analysis": {
+    "scriptAndNarration": {
+      "summary": "旁白先连给月销售额、创始人身份、后台和下载量，再问点子来源；中段依次说明需求发现、两天上线、输入/预测/付费、TikTok 内容与 UGC/广告，结尾把个案压缩成“问题做产品、回答做内容、好奇变订阅”的三句公式。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 12.72},
+          "observation": "前十一秒堆叠十万美元月销售、二十岁创始人、采访后台和近百万下载，之后才提出点子来源。",
+          "modalities": ["transcript", "captions", "video"]
+        },
+        {
+          "timeRange": {"startSeconds": 28.84, "endSeconds": 45.5},
+          "observation": "用上线时间、用户输入、数据依据、完整结果付费和订阅价格，连续回答产品如何把需求变现。",
+          "modalities": ["transcript", "captions", "video"]
+        },
+        {
+          "timeRange": {"startSeconds": 61.74, "endSeconds": 70.14},
+          "observation": "结尾将案例提炼为去重复提问处找需求，再把问题、回答和好奇分别转成产品、内容和订阅。",
+          "modalities": ["transcript", "captions", "video"]
+        }
+      ]
+    },
+    "narrativeArchitecture": {
+      "summary": "揭示顺序是经营证明（0-12秒）→需求发现（12-29秒）→快速产品与付费墙（29-43秒）→内容分发、UGC 和广告（43-56秒）→收入阶梯（56-61秒）→业务公式与 CTA（62-76秒）。先证明结果，再拆解需求、产品、分发三个因果环节。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 12.72, "endSeconds": 28.84},
+          "observation": "创业网站挂牌、个人搜索记忆和 TikTok 重复评论逐级把一个灵感改写为可见需求。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 28.84, "endSeconds": 42.84},
+          "observation": "两天上线/首单、用户填写、数据依据、预测结果和付费选项形成最小产品闭环。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 42.84, "endSeconds": 61.34},
+          "observation": "每天十条回复视频、多个账号验证、UGC 复制、获胜素材投广告，随后才展示月收入阶梯。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "visualLanguage": {
+      "summary": "顶部结果标题持续锚定；主体依次用产品 UI、访谈后台、创业网站挂牌、搜索/评论截图、付费墙、TikTok 内容矩阵、UGC/广告素材、收入曲线和结尾流程图。画面不是同类 B-roll 蒙太奇，而是随着证据类型切换。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 17.1},
+          "observation": "开场在产品 UI、创始人采访后台、下载量和挂牌信息之间切换，顶部标题保持不变。",
+          "modalities": ["video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 20.68, "endSeconds": 42.84},
+          "observation": "TikTok 评论截图先可视化需求，随后用输入界面、数据来源说明和付费墙可视化产品转换。",
+          "modalities": ["video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 42.84, "endSeconds": 70.14},
+          "observation": "内容网格、现场预测、UGC、广告、收入图和三段式流程图依次对应分发、规模化、结果与总结。",
+          "modalities": ["video", "captions"]
+        }
+      ]
+    },
+    "audioAndCaptions": {
+      "summary": "语音轨几乎连续，只有约五十秒和六十一秒两个短低电平边界，分别接近内容规模化段和总结段的切换；字幕逐句保留数字与英文缩写。客观动态范围较小。由于没有人工听辨通道，本次没有判断音乐风格或具体音效。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 76.22},
+          "observation": "ASR 覆盖整条旁白；综合响度 -18.2 LUFS、LRA 2.4 LU，仅检测到两个约 0.40-0.48 秒低电平间隔。",
+          "modalities": ["audio", "transcript"]
+        },
+        {
+          "timeRange": {"startSeconds": 55.9, "endSeconds": 70.14},
+          "observation": "收入阶梯和三句业务公式由字幕逐句明确，约六十一秒的短边界把个案结果与总结隔开。",
+          "modalities": ["audio", "transcript", "captions"]
+        }
+      ]
+    },
+    "crossModalSync": {
+      "summary": "每个因果主张由最接近的证据画面支撑：需求对应搜索与评论，产品对应输入/预测/付费墙，获客对应内容网格/回复视频/UGC/广告，增长对应曲线，抽象结论对应流程图。字幕承担当前句，顶部标题保存最终 stakes。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 12.72, "endSeconds": 28.84},
+          "observation": "说到挂牌、搜索经历和评论区问题时，画面分别展示对应页面或评论证据。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 32.5, "endSeconds": 42.84},
+          "observation": "用户输入、CDC/论文依据、完整结果和价格的旁白，按步骤匹配产品 UI 与付费画面。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 45.94, "endSeconds": 70.14},
+          "observation": "日更回复、UGC、投放、收入阶梯和最终公式分别匹配内容、传播、图表和流程图。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "retentionAndPayoff": {
+      "summary": "开场用多个可见结果降低“标题党”疑虑，同时保留“点子从哪来、如何做到”的问题；评论区需求、两天首单和逐级收入构成连续小 payoff；结尾把一连串事实压缩为可复述的业务链，随后才进入 CTA。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 12.72},
+          "observation": "月销售额不是唯一钩子，后台和近百万下载紧跟其后，之后用“点子从哪来”开启解释。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 20.68, "endSeconds": 32.5},
+          "observation": "评论区重复问题把需求变得直观，“不到两天第一单”给出第一段因果 payoff。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 55.9, "endSeconds": 70.14},
+          "observation": "三千、一万、三万到十万美元的阶梯兑现开场，随后以产品—内容—订阅链完成认知 payoff。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "transferablePatterns": [
+      {
+        "patternId": "proof-stack-before-explanation",
+        "name": "解释前的多源证明",
+        "description": "先用结果、人物、后台和规模证据建立案例值得听，再提出来源问题进入拆解。",
+        "evidenceRanges": [{"startSeconds": 0, "endSeconds": 12.72}],
+        "applicableRoles": ["story-director", "viral-director", "audience-critic"],
+        "guardrail": "每个证明都必须可追溯且彼此不重复；证据密度不能牺牲前三秒理解速度。"
+      },
+      {
+        "patternId": "comments-as-demand-evidence",
+        "name": "用重复提问展示需求",
+        "description": "把抽象市场需求落到真实用户反复提出的同类问题，再连接创作者自己的历史体验。",
+        "evidenceRanges": [{"startSeconds": 17.54, "endSeconds": 28.84}],
+        "applicableRoles": [
+          "story-director",
+          "script-writer",
+          "visual-director",
+          "audience-critic"
+        ],
+        "guardrail": "评论样本不能被选择性剪辑成市场规模结论，也必须保护账号隐私和来源语境。"
+      },
+      {
+        "patternId": "product-content-subscription-chain",
+        "name": "产品—内容—订阅因果链",
+        "description": "分别说明产品如何回答问题、内容如何公开回答并获客、订阅如何承接好奇心，最后再合并为公式。",
+        "evidenceRanges": [
+          {"startSeconds": 28.84, "endSeconds": 55.9},
+          {"startSeconds": 61.74, "endSeconds": 70.14}
+        ],
+        "applicableRoles": ["story-director", "script-writer", "visual-director"],
+        "guardrail": "只有来源能证明链条各环节时才能使用因果表达；相关性不能写成增长必然性。"
+      },
+      {
+        "patternId": "evidence-modality-ladder",
+        "name": "证据模态阶梯",
+        "description": "随着命题从需求到产品、分发、结果和总结，依次使用评论、UI、内容素材、图表和流程图。",
+        "evidenceRanges": [{"startSeconds": 20.68, "endSeconds": 70.14}],
+        "applicableRoles": ["viral-director", "visual-director", "audience-critic"],
+        "guardrail": "图形总结必须来自前文证据，不能把推断画成已证实的事实。"
+      },
+      {
+        "patternId": "result-restated-as-model",
+        "name": "把结果回收为可复述模型",
+        "description": "在经营数字 payoff 后，把案例压缩成三步业务逻辑，让观众能复述而不只记住收入。",
+        "evidenceRanges": [{"startSeconds": 55.9, "endSeconds": 70.14}],
+        "applicableRoles": ["story-director", "script-writer", "audience-critic"],
+        "guardrail": "模型是对该案例的解释，不得包装成对所有产品有效的增长定律。"
+      }
+    ],
+    "productSpecificPatterns": [
+      {
+        "patternId": "height-prediction-product-flow",
+        "name": "身高预测输入与付费流程",
+        "description": "输入本人/父母身高与发育阶段，结合 CDC 生长数据和论文预测，完整结果通过订阅解锁。",
+        "evidenceRanges": [{"startSeconds": 32.5, "endSeconds": 42.84}],
+        "applicableRoles": ["story-director", "script-writer", "visual-director"],
+        "guardrail": "这是具体产品描述且涉及健康相关预测；不能迁移效果承诺，进入成片前需单独事实与合规审核。"
+      },
+      {
+        "patternId": "height-app-growth-facts",
+        "name": "个案增长与渠道数字",
+        "description": "视频声称的近百万下载、每日十条视频、UGC/广告路径和月销售额阶梯。",
+        "evidenceRanges": [
+          {"startSeconds": 0, "endSeconds": 11.02},
+          {"startSeconds": 45.94, "endSeconds": 61.34}
+        ],
+        "applicableRoles": ["story-director", "viral-director", "script-writer"],
+        "guardrail": "这些是该来源中的个案数字，不能直接视为已独立核验；使用前必须进入 Claim Ledger。"
+      }
+    ]
+  },
+  "roleMappings": [
+    {
+      "role": "story-director",
+      "use": "学习从多源结果证据进入需求、产品、分发，再把结果回收为业务模型的顺序。",
+      "exclusions": ["不迁移身高预测功能", "不迁移个案增长数字或健康效果"],
+      "patternIds": [
+        "proof-stack-before-explanation",
+        "comments-as-demand-evidence",
+        "product-content-subscription-chain",
+        "result-restated-as-model"
+      ]
+    },
+    {
+      "role": "viral-director",
+      "use": "学习前三秒结果后立刻增加后台/规模证明，以及用不同证据类型维持可信推进。",
+      "exclusions": ["不把收入数字作为无来源 hook", "不默认把年轻创始人当作流量标签"],
+      "patternIds": ["proof-stack-before-explanation", "evidence-modality-ladder"]
+    },
+    {
+      "role": "script-writer",
+      "use": "学习把需求、产品、分发写成连续因果段，并在结尾压缩成可口述的三句模型。",
+      "exclusions": ["不照抄原旁白", "不把个案解释写成普遍增长定律"],
+      "patternIds": [
+        "comments-as-demand-evidence",
+        "product-content-subscription-chain",
+        "result-restated-as-model"
+      ]
+    },
+    {
+      "role": "visual-director",
+      "use": "学习评论、UI、内容素材、图表和流程图怎样分别承担不同命题的证据。",
+      "exclusions": ["不复用第三方页面或人物素材", "不把推断图形化为已证实事实"],
+      "patternIds": [
+        "comments-as-demand-evidence",
+        "product-content-subscription-chain",
+        "evidence-modality-ladder"
+      ]
+    },
+    {
+      "role": "audience-critic",
+      "use": "检查结果是否有足够证据、需求是否具体可见、结尾模型是否由前文推出且便于陌生观众复述。",
+      "exclusions": ["不以数字多自动判为可信", "不以公式化结尾替代因果证据"],
+      "patternIds": [
+        "proof-stack-before-explanation",
+        "comments-as-demand-evidence",
+        "evidence-modality-ladder",
+        "result-restated-as-model"
+      ]
+    }
+  ],
+  "transcriptPolicy": {
+    "fullTranscriptStored": false,
+    "storedMaterial": "Timestamped structural summaries, short paraphrased observations and ASR limitations only; no complete third-party transcript."
+  }
+}

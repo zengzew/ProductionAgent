@@ -1,5 +1,5 @@
 {
-  "promptVersion": "polish-prompt-bundle-v3",
+  "promptVersion": "polish-prompt-bundle-v4",
   "judgeRubricVersion": "polish-judge-v2",
   "execution": {
     "mode": "hosted-llm-api",
@@ -20,11 +20,11 @@
     }
   },
   "prompts": {
-    "polishSystem": "prompts/v3/polish-system.md",
-    "polishUser": "prompts/v3/polish-user.md",
+    "polishSystem": "prompts/v4/polish-system.md",
+    "polishUser": "prompts/v4/polish-user.md",
     "judgeSystem": "prompts/v3/judge-system.md",
     "judgeUser": "prompts/v3/judge-user.md",
-    "rewriteUser": "prompts/v3/rewrite-user.md"
+    "rewriteUser": "prompts/v4/rewrite-user.md"
   },
   "voiceGuide": "style/voice-guide.md",
   "styleRules": "config/editorial-text-rules.json",

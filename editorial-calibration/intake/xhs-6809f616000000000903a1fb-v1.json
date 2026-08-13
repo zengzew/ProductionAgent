@@ -1,0 +1,368 @@
+{
+  "schemaVersion": "editorial-sample-v1",
+  "sampleId": "xhs-6809f616000000000903a1fb",
+  "recordVersion": "1.0.0",
+  "title": "硬控我2分钟，还赚我钱，他凭什么？！",
+  "language": "zh-CN",
+  "source": {
+    "platform": "xiaohongshu",
+    "canonicalUrl": "https://www.xiaohongshu.com/explore/6809f616000000000903a1fb",
+    "sourceId": "6809f616000000000903a1fb",
+    "pageTitle": "硬控我2分钟，还赚我钱，他凭什么？！",
+    "authorDisplayName": "wteam",
+    "capturedAt": "2026-08-13T18:37:59+08:00",
+    "provenance": {
+      "suppliedBy": "user",
+      "acquisition": "User-supplied Xiaohongshu URL opened in the user's existing Microsoft Edge session; playable media was inspected in-browser, page subtitle metadata was read, and a temporary platform rendition was decoded for analysis.",
+      "mediaSha256": "8cbb1ebdd60094f5755348230a2040a2e5e824fa6b08cae82c4bba8d5f3a6882",
+      "mediaStoredInRepository": false,
+      "notes": [
+        "The Xiaohongshu page displayed author wteam and an edited date of 2025-05-15.",
+        "The temporary media and subtitle copies are not part of the repository or any dataset.",
+        "Edge media diagnostics reported a 1080x1920 HEVC playback rendition; the temporary analysis rendition was 720x1280 H.264, so the hash identifies only that analysis rendition.",
+        "Source page and media were accessible on 2026-08-13; future access is not guaranteed."
+      ]
+    }
+  },
+  "origin": {
+    "kind": "third-party"
+  },
+  "durationSeconds": 94.319637,
+  "review": {
+    "status": "pending",
+    "submittedAt": "2026-08-13T18:37:59+08:00",
+    "requestedDataset": "reference",
+    "requestedRoles": ["story-director", "viral-director", "visual-director", "retention-critic"],
+    "note": "用户将其作为第 4 条高质量候选案例提供，但尚未逐条明确批准它进入 reference，也未确认角色范围。"
+  },
+  "datasetMembership": [],
+  "proposedUse": {
+    "dataset": "reference",
+    "roles": ["story-director", "viral-director", "visual-director", "retention-critic"],
+    "rationale": "适合学习双结果钩子、两个极简网页实验的镜像关系、成功—受挫—重新定向的转折，以及证据画面随情绪和产品阶段变化的节奏；原片 94.320 秒，超过 ProductionAgent 当前 40–80 秒成片边界，只能提取结构后重新压缩，不能照搬时长或揭示位置。"
+  },
+  "modalityChecks": {
+    "video": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T18:37:59+08:00",
+      "method": "Microsoft Edge playback plus local ffmpeg decoding; 32 full-runtime samples at approximately 3-second intervals and 144 scene-change candidate thumbnails generated with a 0.10 threshold were visually inspected.",
+      "evidence": [
+        "The full-runtime samples cover the Million Dollar Homepage result and mechanics, founder biography, failed follow-up projects, meditation turn, the two-minute ocean interaction, Calm product UI, funding/scale claims and market graphics.",
+        "The source page played successfully in Microsoft Edge.",
+        "Edge reported a 1080x1920 HEVC rendition, while the temporary decoded analysis rendition was 720x1280 H.264 at 30 fps."
+      ],
+      "limitations": [
+        "This is full-runtime sampled-frame and scene-candidate inspection, not a frame-by-frame edit decision list.",
+        "The 144 scene-change candidates include animated crops, pans and near-duplicate frames and must not be interpreted as 144 hard cuts.",
+        "Fine motion and every sub-three-second transition were not individually annotated."
+      ]
+    },
+    "audio": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T18:37:59+08:00",
+      "method": "AAC track decode, EBU R128 loudness measurement, silence detection and use of the decoded track for local ASR.",
+      "evidence": [
+        "Integrated loudness -12.7 LUFS, loudness range 3.2 LU and true peak +2.6 dBFS.",
+        "Two low-level intervals were detected at 91.413-91.867 seconds and 93.695-94.344 seconds, after the narrated body."
+      ],
+      "limitations": [
+        "No perceptual listening channel was available to the model.",
+        "Music genre, music-to-voice balance and individual sound effects were therefore not classified."
+      ]
+    },
+    "transcript": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T18:37:59+08:00",
+      "method": "The page's source zh-CN timed subtitle track was compared with on-device MLX Whisper small Chinese ASR and sampled burned-in captions.",
+      "evidence": [
+        "The platform source subtitle spans 0.000-90.950 seconds, and local timestamped ASR spans 0.000-90.720 seconds.",
+        "The opening dual outcome, first website mechanism and result, failed sequel projects, meditation turn, two-minute site, Calm formation and final market CTA were cross-checked across the two timestamped text sources and sampled frames."
+      ],
+      "limitations": [
+        "Local ASR misrecognized proper nouns including Alex Tew, Pixelotto, Calm and Michael Acton Smith; it was not treated as a verbatim authority.",
+        "The platform transcript is third-party source material, not independent verification of business, mental-health, valuation, user or market claims.",
+        "Only structured paraphrases and short evidence observations are retained; the full transcript is not stored."
+      ]
+    },
+    "captions": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T18:37:59+08:00",
+      "method": "Visual inspection of the persistent series banner and burned-in Chinese captions in all 3-second samples, plus inspection of the page's timed source zh-CN subtitle track.",
+      "evidence": [
+        "A persistent top banner identifies the series as wteam 每天拆解一个创业案例.",
+        "Large bottom captions carry the current claim while webpage labels, dates, amounts and simple diagrams supply visual evidence or context."
+      ],
+      "limitations": [
+        "Burned-in captions were sampled across the full runtime, not exhaustively OCR-transcribed glyph by glyph.",
+        "The platform subtitle track and visible burned-in captions were not assumed to be independently fact-checked."
+      ]
+    },
+    "metadata": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T18:37:59+08:00",
+      "method": "Xiaohongshu page and structured metadata inspection, Edge media diagnostics, file hashing and ffprobe.",
+      "evidence": [
+        "The live page exposed sourceId 6809f616000000000903a1fb, title, author wteam, an edited date of 2025-05-15 and timed subtitle resources.",
+        "The temporary rendition decoded to 94.319637 seconds, 720x1280 H.264 at 30 fps with stereo 44.1 kHz AAC; Edge playback diagnostics showed a 1080x1920 HEVC rendition."
+      ],
+      "limitations": [
+        "The edited date is not treated as an exact original publication timestamp.",
+        "Platform engagement counts were not captured as stable metadata, and rendition-specific technical properties are not generalized to the original upload."
+      ]
+    }
+  },
+  "analysis": {
+    "scriptAndNarration": {
+      "summary": "旁白用“一个网页赚一百万美元”和“后来做出估值二十亿美元的冥想产品”组成双结果钩子；随后按人物背景、百万美元首页机制与结果、后续项目受挫、回到冥想、两分钟什么都不做的网页实验、Calm 产品与规模推进，最后以冥想市场和泛化提问收尾。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 8.67},
+          "observation": "开场先并列一百万美元网页和二十亿美元冥想产品两个相距多年的结果，再给出人物 Alex Tew。",
+          "modalities": ["transcript", "captions", "video"]
+        },
+        {
+          "timeRange": {"startSeconds": 18.2, "endSeconds": 43.02},
+          "observation": "中段解释一百万像素、一美元一个像素、亲友首批购买、媒体扩散、售罄周期和收入结果，形成第一个完整因果段。",
+          "modalities": ["transcript", "captions", "video"]
+        },
+        {
+          "timeRange": {"startSeconds": 43.03, "endSeconds": 75.17},
+          "observation": "失败项目与低谷把叙事转向冥想，之后用两分钟网页的交互规则和访问结果连接到 Calm 的成立与产品定义。",
+          "modalities": ["transcript", "captions", "video"]
+        }
+      ]
+    },
+    "narrativeArchitecture": {
+      "summary": "揭示顺序是双结果（0–9 秒）→早年与学费动机（9–18 秒）→百万美元首页的机制/传播/兑现（18–43 秒）→失败与重新定向（43–54 秒）→两分钟微型实验及流量（54–69 秒）→Calm 产品与规模（69–84 秒）→市场预测和泛化 CTA（84–91 秒）→片尾（91–94 秒）。两个单页实验形成镜像，人物转折负责把它们连接起来。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 18.2, "endSeconds": 43.02},
+          "observation": "第一个网页从机制到媒体传播再到售罄，约四十秒兑现开场的一百万美元结果。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 43.03, "endSeconds": 54.459},
+          "observation": "Pixelotto 等后续项目未能复制成功，人物低谷与重新开始冥想构成明确的方向转折。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 54.459, "endSeconds": 84.33},
+          "observation": "第二个网页先展示两分钟不操作的具体体验及流量，再扩展到 Calm 的联合创办、产品形式、用户范围和商业规模主张。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "visualLanguage": {
+      "summary": "竖屏主体使用黑色纹理底、圆角内容框、顶部系列条和底部大字字幕。前半段以人物抠图、钱币、网页与媒体截图的推拉/裁切制造高密度成功感；受挫段转为低饱和人物和白线插画；两分钟实验后切到海浪、自然、产品 UI，再以人物、融资/用户图形和市场图表表现扩张。视觉模式随故事阶段而换，不把所有段落做成同一种 B-roll。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 43.02},
+          "observation": "开场到第一个结果主要使用像素网页、人物、金额、年份和媒体页面的动态图层与裁切，持续强化创业结果和证据来源。",
+          "modalities": ["video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 43.03, "endSeconds": 54.459},
+          "observation": "失败与低谷段减少钱币和网页拼贴，改用人物状态与简洁线条插画，形成视觉降速。",
+          "modalities": ["video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 54.459, "endSeconds": 90.95},
+          "observation": "海浪网页、倒计时/失败规则、自然画面、Calm UI、人物使用场景和融资/市场图形依次承担体验、产品和规模命题。",
+          "modalities": ["video", "captions"]
+        }
+      ]
+    },
+    "audioAndCaptions": {
+      "summary": "可计算的音轨显示语音覆盖至约 90.7 秒，综合响度 -12.7 LUFS、LRA 3.2 LU，主要低电平区间位于旁白结束后的片尾。字幕用底部大字跟随当前句，顶部系列条稳定，网页原文、数字与图形充当第二层信息。由于没有人工听辨通道，本次不判断音乐风格、配乐情绪或具体音效。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 90.72},
+          "observation": "本地 ASR 在这一时段持续检测到旁白；客观音频测量为 -12.7 LUFS、LRA 3.2 LU、真峰值 +2.6 dBFS。",
+          "modalities": ["audio", "transcript"]
+        },
+        {
+          "timeRange": {"startSeconds": 91.413, "endSeconds": 94.319637},
+          "observation": "检测到两个短低电平区间，位置都在主要旁白结束后的蓝色片尾区域。",
+          "modalities": ["audio", "video"]
+        },
+        {
+          "timeRange": {"startSeconds": 54.459, "endSeconds": 68.92},
+          "observation": "两分钟网页的规则、倒计时、触碰鼠标失败和十天访问结果由旁白、底部字幕与实际网页/自然画面同步表达。",
+          "modalities": ["transcript", "captions", "video"]
+        }
+      ]
+    },
+    "crossModalSync": {
+      "summary": "文案主张通常切换到相近的证据载体：像素售卖对应真实网页与网格，媒体扩散对应报道页面，失败对应后续项目和线稿，冥想转折对应自然画面，两分钟规则对应网页/计时器，Calm 的产品和规模对应 UI、人物使用场景与图表。最强同步点是把抽象的“什么都不做”直接变成可见交互规则。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 18.2, "endSeconds": 43.02},
+          "observation": "一百万像素、一美元定价、首批购买、媒体报道和售罄结果分别匹配网格、金额、页面与人物/媒体材料。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 54.459, "endSeconds": 63.57},
+          "observation": "说到两分钟内不能移动鼠标或按键时，画面展示海浪网页、倒计时和失败反馈，使交互机制无需额外解释。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 68.93, "endSeconds": 84.33},
+          "observation": "联合创办、冥想/自然白噪音、失眠用户和估值/用户规模主张依次匹配联合创始人、产品 UI、使用场景和经营图形。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "retentionAndPayoff": {
+      "summary": "双结果钩子先制造“同一个人如何从像素网页走到冥想独角兽”的跨度；约 35–43 秒兑现第一个收入结果，43–54 秒立即反转为失败与低谷，54–69 秒用可操作的两分钟实验给出新奇机制，69–84 秒兑现第二个产品结果。84 秒后的市场预测和“下一个财富传奇”式提问比 Calm 的具体 payoff 更泛，不宜迁移。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 8.67},
+          "observation": "两个时间跨度大、产品形态相反的结果被压在同一开场，建立贯穿全片的连接问题。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 35.23, "endSeconds": 54.459},
+          "observation": "售罄与一百万美元先兑现第一段，随后马上用复制失败、低谷和冥想转向打开第二段悬念。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 54.459, "endSeconds": 84.33},
+          "observation": "两分钟网页先提供具体玩法和访问量小 payoff，再用 Calm 的产品、用户与估值主张回收开场第二个结果。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "transferablePatterns": [
+      {
+        "patternId": "double-outcome-link-question",
+        "name": "双结果连接问题",
+        "description": "把同一人物相距多年、形态反差大的两个结果并列，让观众追问中间发生了什么。",
+        "evidenceRanges": [{"startSeconds": 0, "endSeconds": 8.67}],
+        "applicableRoles": ["story-director", "viral-director", "retention-critic"],
+        "guardrail": "两个结果都必须可追溯，前三秒仍需让陌生观众理解人物、动作和 stakes，不能只堆金额。"
+      },
+      {
+        "patternId": "mirrored-minimal-product-experiments",
+        "name": "镜像的极简产品实验",
+        "description": "前后各用一个规则极简、可在网页上直观看懂的实验承载不同人生阶段，并让第二个实验回应人物转向。",
+        "evidenceRanges": [
+          {"startSeconds": 18.2, "endSeconds": 35.22},
+          {"startSeconds": 54.459, "endSeconds": 68.92}
+        ],
+        "applicableRoles": ["story-director", "visual-director", "retention-critic"],
+        "guardrail": "结构相似不等于存在必然因果；必须用来源证明人物选择和两个产品之间的真实关系。"
+      },
+      {
+        "patternId": "success-failure-reorientation-turn",
+        "name": "成功—受挫—重新定向",
+        "description": "不把早期成功直接接到更大成功，而是保留复制失败和价值重新选择，让第二个产品有明确的人物原因。",
+        "evidenceRanges": [{"startSeconds": 35.23, "endSeconds": 54.459}],
+        "applicableRoles": ["story-director", "retention-critic"],
+        "guardrail": "心理健康、失败原因和内在动机属于敏感事实；不能从画面情绪或结果倒推，必须有可用来源。"
+      },
+      {
+        "patternId": "interaction-before-platform-scale",
+        "name": "先让观众看懂交互，再讲平台规模",
+        "description": "先展示一个无需术语即可理解的用户动作和失败规则，再扩展到产品形态、用户范围和商业规模。",
+        "evidenceRanges": [{"startSeconds": 54.459, "endSeconds": 84.33}],
+        "applicableRoles": ["story-director", "visual-director", "retention-critic"],
+        "guardrail": "ProductionAgent 的 40–80 秒成片不能照搬本片到约 67 秒才出现 Calm、约 69 秒后才定义产品的延迟。"
+      },
+      {
+        "patternId": "emotion-coded-visual-mode-shift",
+        "name": "随故事情绪切换视觉模式",
+        "description": "用钱币/网页拼贴、线稿/低饱和人物、自然/产品 UI 和经营图形四组画面语言对应成功、受挫、重新定向和扩张。",
+        "evidenceRanges": [{"startSeconds": 0, "endSeconds": 90.95}],
+        "applicableRoles": ["visual-director", "retention-critic"],
+        "guardrail": "视觉氛围只能帮助表达已证实的故事转折，不能单独证明人物情绪、动机或因果。"
+      },
+      {
+        "patternId": "static-evidence-motion-layer",
+        "name": "给静态证据增加运动层",
+        "description": "在网页、报道和图形证据上用推拉、裁切、人物抠图和数字标注维持视觉推进，同时保留原始证据形态。",
+        "evidenceRanges": [
+          {"startSeconds": 18.2, "endSeconds": 43.02},
+          {"startSeconds": 69, "endSeconds": 90.95}
+        ],
+        "applicableRoles": ["viral-director", "visual-director"],
+        "guardrail": "动画、放大和标注不是事实证明；不可遮掉来源语境或把推断做成原页面内容。"
+      }
+    ],
+    "productSpecificPatterns": [
+      {
+        "patternId": "million-dollar-homepage-mechanics",
+        "name": "百万美元首页的像素售卖机制",
+        "description": "来源声称用一百万像素、一美元一个像素、亲友首批购买和媒体曝光，在 138 天售罄并获得约 103.7 万美元。",
+        "evidenceRanges": [{"startSeconds": 18.2, "endSeconds": 43.02}],
+        "applicableRoles": ["story-director", "viral-director", "visual-director"],
+        "guardrail": "尺寸、定价、首批销量、媒体路径、天数和收入都是产品专属主张，使用前必须逐项进入 Claim Ledger 并独立核验。"
+      },
+      {
+        "patternId": "tew-to-calm-case-facts",
+        "name": "Alex Tew 到 Calm 的个案事实链",
+        "description": "来源把后续项目失败、心理低谷、重新冥想、两分钟网页访问量、Calm 联合创办、产品范围、估值、用户量和市场预测连成一条个案链。",
+        "evidenceRanges": [{"startSeconds": 43.03, "endSeconds": 90.95}],
+        "applicableRoles": ["story-director", "visual-director", "retention-critic"],
+        "guardrail": "人物心理、产品先后关系、联合创办、访问量、估值、用户量、盈利能力和市场预测都需要独立来源；不能因视频把它们相邻剪辑就视为因果已证。"
+      }
+    ]
+  },
+  "roleMappings": [
+    {
+      "role": "story-director",
+      "use": "学习用两个极简产品实验串起人物选择，并把早期成功、复制受挫、重新定向和第二个产品结果组织成一个问题。",
+      "exclusions": [
+        "不迁移人物、收入、估值、用户量或心理健康主张",
+        "不照搬 94.320 秒时长；需压进 40–80 秒并更早定义核心产品"
+      ],
+      "patternIds": [
+        "double-outcome-link-question",
+        "mirrored-minimal-product-experiments",
+        "success-failure-reorientation-turn",
+        "interaction-before-platform-scale"
+      ]
+    },
+    {
+      "role": "viral-director",
+      "use": "学习用相反形态的双结果制造连接问题，以及让静态网页和报道证据在不失可读性的前提下持续推进。",
+      "exclusions": [
+        "不把金额、估值或年龄堆叠成无来源 hook",
+        "不迁移结尾“下一个财富传奇”式泛化 CTA"
+      ],
+      "patternIds": ["double-outcome-link-question", "static-evidence-motion-layer"]
+    },
+    {
+      "role": "visual-director",
+      "use": "学习随成功、受挫、冥想转向和规模化切换拼贴、线稿、自然、交互 UI 与图表，并直接展示产品规则。",
+      "exclusions": [
+        "不复用第三方人物、网页、报道、App 或市场图表资产",
+        "不把动画裁切、情绪画面或自制图形当作事实证据"
+      ],
+      "patternIds": [
+        "mirrored-minimal-product-experiments",
+        "interaction-before-platform-scale",
+        "emotion-coded-visual-mode-shift",
+        "static-evidence-motion-layer"
+      ]
+    },
+    {
+      "role": "retention-critic",
+      "use": "检查双结果是否形成一个可追踪问题、第一结果后是否有真正反转、微型交互是否带来新信息，以及第二结果是否在当前 40–80 秒边界内及时兑现。",
+      "exclusions": [
+        "不以剪辑候选数量或镜头运动频率自动判为高留存",
+        "不接受市场预测或泛化财富提问代替具体产品 payoff"
+      ],
+      "patternIds": [
+        "double-outcome-link-question",
+        "mirrored-minimal-product-experiments",
+        "success-failure-reorientation-turn",
+        "interaction-before-platform-scale",
+        "emotion-coded-visual-mode-shift"
+      ]
+    }
+  ],
+  "transcriptPolicy": {
+    "fullTranscriptStored": false,
+    "storedMaterial": "Timestamped structural summaries, short paraphrased observations, platform-subtitle/ASR comparison notes and modality limitations only; no complete third-party transcript."
+  }
+}

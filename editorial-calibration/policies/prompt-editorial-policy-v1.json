@@ -1,0 +1,428 @@
+{
+  "schemaVersion": "editorial-prompt-policy-v1",
+  "policyId": "editorial-policy-v1",
+  "policyVersion": "1.0.0",
+  "effectiveAt": "2026-08-13T18:59:05+08:00",
+  "approval": {
+    "reviewer": {
+      "kind": "human",
+      "id": "workspace-user"
+    },
+    "decisionId": "goal-3-2-prompt-integration-2026-08-13",
+    "scope": "prompt-editorial-policy-integration",
+    "datasetApprovalGranted": false,
+    "promptTuningAuthorized": true,
+    "rationale": "用户明确要求把已审核 findings 整合进指定 Agent 和有清晰证据的 Critic；本决定只批准可迁移编辑政策，不批准任何样本进入 reference、calibration 或 golden。"
+  },
+  "sourceFeedback": {
+    "feedbackId": "visual-density-narrative-tension",
+    "recordVersion": "1.0.0",
+    "path": "../human-feedback/visual-density-narrative-tension-v1.json"
+  },
+  "rules": [
+    {
+      "ruleId": "suspense-reversal-solution-arc",
+      "name": "悬念—转折—解法—兑现",
+      "distilledRule": "先给有证据的异常结果或未解动作，再按来源允许的顺序揭示原因、受挫或方向变化、用户痛点、产品选择、分发动作和结果；每一步都回答上一段问题并产生下一段具体疑问。",
+      "sourceFindings": [
+        {
+          "sampleId": "xhs-6a7b007600000000240264dc",
+          "recordVersion": "1.0.0",
+          "patternIds": ["outcome-mechanism-origin-growth", "question-led-phase-bridges"]
+        },
+        {
+          "sampleId": "xhs-6809f616000000000903a1fb",
+          "recordVersion": "1.0.0",
+          "patternIds": ["double-outcome-link-question", "success-failure-reorientation-turn"]
+        }
+      ],
+      "sourceFeedbackSignalIds": ["suspense-reversal-solution-marketing-arc"],
+      "applicableRoles": ["story-director", "script-writer", "retention-critic"],
+      "guardrails": [
+        "受挫、心理状态、动机、增长原因和结果必须由 Claim 支持，不能为起伏补写。",
+        "不是每期都必须有危机；资料没有反转时用有证据的选择、限制或判断变化推进。"
+      ]
+    },
+    {
+      "ruleId": "result-proof-curiosity-hook",
+      "name": "结果、同期证明与继续观看问题",
+      "distilledRule": "前三秒用零背景可懂的结果、动作或反应建立 stakes，并尽快给出一种不重复的同期证明；保留一个与机制、选择或用户后果有关的问题，而不是只堆金额、年龄或品牌名。",
+      "sourceFindings": [
+        {
+          "sampleId": "xhs-6a7b007600000000240264dc",
+          "recordVersion": "1.0.0",
+          "patternIds": ["outcome-mechanism-origin-growth"]
+        },
+        {
+          "sampleId": "xhs-6a7091e400000000250032e2",
+          "recordVersion": "1.0.0",
+          "patternIds": ["reaction-mystery-open-loop"]
+        },
+        {
+          "sampleId": "xhs-6a75e71a00000000210235f0",
+          "recordVersion": "1.0.0",
+          "patternIds": ["proof-stack-before-explanation"]
+        }
+      ],
+      "sourceFeedbackSignalIds": ["suspense-reversal-solution-marketing-arc"],
+      "applicableRoles": ["viral-director", "audience-critic"],
+      "guardrails": [
+        "证明必须可追溯、彼此承担不同作用，不能用多个数字重复同一主张。",
+        "真实反应只能用于其原始情境，不能重排为产品效果证明。"
+      ]
+    },
+    {
+      "ruleId": "progressive-question-bridges",
+      "name": "逐段回答的疑问桥",
+      "distilledRule": "用自然疑问或未完成动作连接阶段：后段必须及时回答前段留下的问题，并用新增动作、证据或判断继续推进；口播改写需保留这些转折，不把它们抹平成时间线。",
+      "sourceFindings": [
+        {
+          "sampleId": "xhs-6a7b007600000000240264dc",
+          "recordVersion": "1.0.0",
+          "patternIds": ["question-led-phase-bridges"]
+        },
+        {
+          "sampleId": "xhs-6a7091e400000000250032e2",
+          "recordVersion": "1.0.0",
+          "patternIds": ["late-reveal-reframes-footage"]
+        }
+      ],
+      "sourceFeedbackSignalIds": ["suspense-reversal-solution-marketing-arc"],
+      "applicableRoles": ["viral-director", "script-writer", "oral-rewriter", "retention-critic"],
+      "guardrails": [
+        "不能连续堆叠空问题或机械反问；每个问题都要有计划中的证据答案。",
+        "不能延后会改变事实准确、授权或合规判断的关键条件。"
+      ]
+    },
+    {
+      "ruleId": "interaction-before-abstraction",
+      "name": "先看懂用户动作，再讲抽象规模",
+      "distilledRule": "在公司历史、平台规模或市场判断之前，先让观众看懂一个具体痛点、输入、产品动作、反馈或使用规则；抽象结论必须能回到这个可见体验。",
+      "sourceFindings": [
+        {
+          "sampleId": "xhs-6a7b007600000000240264dc",
+          "recordVersion": "1.0.0",
+          "patternIds": ["outcome-mechanism-origin-growth"]
+        },
+        {
+          "sampleId": "xhs-6a75e71a00000000210235f0",
+          "recordVersion": "1.0.0",
+          "patternIds": ["comments-as-demand-evidence", "product-content-subscription-chain"]
+        },
+        {
+          "sampleId": "xhs-6809f616000000000903a1fb",
+          "recordVersion": "1.0.0",
+          "patternIds": ["interaction-before-platform-scale"]
+        }
+      ],
+      "sourceFeedbackSignalIds": ["evidence-rich-visual-density"],
+      "applicableRoles": [
+        "story-director",
+        "script-writer",
+        "visual-director",
+        "audience-critic",
+        "retention-critic"
+      ],
+      "guardrails": [
+        "用户评论只能证明所展示的提问或体验，不能自动代表市场规模。",
+        "当前 40–80 秒边界内必须及时建立产品心智模型，不能照搬长样本的晚揭示。"
+      ]
+    },
+    {
+      "ruleId": "pain-product-distribution-result-chain",
+      "name": "痛点—产品—分发—结果链",
+      "distilledRule": "把用户的具体痛点、团队的产品选择、用户可见动作、获客或传播方式和可验证结果连成一条可追踪链；如果来源只支持先后顺序，就明确写成 sequence-only。",
+      "sourceFindings": [
+        {
+          "sampleId": "xhs-6a7b007600000000240264dc",
+          "recordVersion": "1.0.0",
+          "patternIds": ["outcome-mechanism-origin-growth"]
+        },
+        {
+          "sampleId": "xhs-6a75e71a00000000210235f0",
+          "recordVersion": "1.0.0",
+          "patternIds": ["comments-as-demand-evidence", "product-content-subscription-chain"]
+        }
+      ],
+      "sourceFeedbackSignalIds": ["suspense-reversal-solution-marketing-arc"],
+      "applicableRoles": ["story-director", "script-writer", "audience-critic"],
+      "guardrails": [
+        "渠道事件、内容发布和经营结果不能在没有归因证据时写成必然增长机制。",
+        "不得把产品特定公式包装为普遍创业定律。"
+      ]
+    },
+    {
+      "ruleId": "claim-matched-visual-density",
+      "name": "命题匹配的有效画面密度",
+      "distilledRule": "让采访或人物原始素材、真实产品操作、用户需求、分发证据和结果图形分别承担当前旁白命题；画面类型随信息任务变化，静态证据可用克制运动保持可读性。",
+      "sourceFindings": [
+        {
+          "sampleId": "xhs-6a7b007600000000240264dc",
+          "recordVersion": "1.0.0",
+          "patternIds": ["claim-matched-evidence-switching"]
+        },
+        {
+          "sampleId": "xhs-6a75e71a00000000210235f0",
+          "recordVersion": "1.0.0",
+          "patternIds": ["evidence-modality-ladder"]
+        },
+        {
+          "sampleId": "xhs-6809f616000000000903a1fb",
+          "recordVersion": "1.0.0",
+          "patternIds": ["emotion-coded-visual-mode-shift", "static-evidence-motion-layer"]
+        }
+      ],
+      "sourceFeedbackSignalIds": ["evidence-rich-visual-density"],
+      "applicableRoles": [
+        "viral-director",
+        "visual-director",
+        "audience-critic",
+        "retention-critic"
+      ],
+      "guardrails": [
+        "画面充实度不按硬切、素材数量或动画频率评分，信息必须在 9:16 中可读。",
+        "素材必须有来源和权利依据；运动、情绪 B-roll 与自制图形不能冒充事实证明。"
+      ]
+    },
+    {
+      "ruleId": "reframed-evidence-payoff",
+      "name": "用新增信息重构并兑现开场",
+      "distilledRule": "结尾回到开场动作或结果，但必须因中段的机制、选择、转折或证据获得新含义；先完成具体产品或人物 payoff，再考虑任何非必要收束。",
+      "sourceFindings": [
+        {
+          "sampleId": "xhs-6a7091e400000000250032e2",
+          "recordVersion": "1.0.0",
+          "patternIds": ["late-reveal-reframes-footage"]
+        },
+        {
+          "sampleId": "xhs-6a75e71a00000000210235f0",
+          "recordVersion": "1.0.0",
+          "patternIds": ["result-restated-as-model"]
+        }
+      ],
+      "sourceFeedbackSignalIds": ["suspense-reversal-solution-marketing-arc"],
+      "applicableRoles": [
+        "story-director",
+        "viral-director",
+        "script-writer",
+        "audience-critic",
+        "retention-critic"
+      ],
+      "guardrails": [
+        "结尾模型只能总结前文已证实的个案，不能升级为行业规律。",
+        "不使用泛化财富提问、市场预测或互动 CTA 代替开场承诺的答案。"
+      ]
+    },
+    {
+      "ruleId": "spoken-turn-preservation",
+      "name": "口播保留叙事转折",
+      "distilledRule": "改写时用句长、停顿和自然疑问区分 Hook、解释、转折和 payoff；压缩重复表达，但保留每次揭示的新信息和方向，不能把有起伏的结构改成均匀播报。",
+      "sourceFindings": [
+        {
+          "sampleId": "xhs-6a7b007600000000240264dc",
+          "recordVersion": "1.0.0",
+          "patternIds": ["question-led-phase-bridges"]
+        },
+        {
+          "sampleId": "xhs-6a75e71a00000000210235f0",
+          "recordVersion": "1.0.0",
+          "patternIds": ["result-restated-as-model"]
+        }
+      ],
+      "sourceFeedbackSignalIds": ["suspense-reversal-solution-marketing-arc"],
+      "applicableRoles": ["oral-rewriter"],
+      "guardrails": [
+        "只依据 transcript、captions 和结构证据调整文字节奏；本批样本没有人工听感检查，不能模仿语调、音乐或声音表演。",
+        "不得新增反问、口头禅、情绪、事实或因果来制造起伏。"
+      ]
+    }
+  ],
+  "roleIntegrations": [
+    {
+      "role": "story-director",
+      "promptFiles": ["agents/story-director.md"],
+      "ruleIds": [
+        "suspense-reversal-solution-arc",
+        "interaction-before-abstraction",
+        "pain-product-distribution-result-chain",
+        "reframed-evidence-payoff"
+      ],
+      "sourceSampleIds": [
+        "xhs-6a7b007600000000240264dc",
+        "xhs-6a75e71a00000000210235f0",
+        "xhs-6809f616000000000903a1fb"
+      ],
+      "roleSpecificExample": "把已证实的异常结果作为入口，让观众追问机制；只在 Claim 支持时保留受挫或方向变化，再用产品动作、分发证据和结果回收同一个问题。",
+      "referenceContext": "distilled-policy-only"
+    },
+    {
+      "role": "viral-director",
+      "promptFiles": ["agents/viral-director.md"],
+      "ruleIds": [
+        "result-proof-curiosity-hook",
+        "progressive-question-bridges",
+        "claim-matched-visual-density",
+        "reframed-evidence-payoff"
+      ],
+      "sourceSampleIds": [
+        "xhs-6a7b007600000000240264dc",
+        "xhs-6a7091e400000000250032e2",
+        "xhs-6a75e71a00000000210235f0"
+      ],
+      "roleSpecificExample": "0–3 秒给零背景可懂的结果和一种同期证明，随后留下机制问题；中段每次回答都刷新理解，结尾用新增证据重看开场。",
+      "referenceContext": "distilled-policy-only"
+    },
+    {
+      "role": "script-writer",
+      "promptFiles": ["agents/script-writer.md"],
+      "ruleIds": [
+        "suspense-reversal-solution-arc",
+        "progressive-question-bridges",
+        "interaction-before-abstraction",
+        "pain-product-distribution-result-chain",
+        "reframed-evidence-payoff"
+      ],
+      "sourceSampleIds": [
+        "xhs-6a7b007600000000240264dc",
+        "xhs-6a75e71a00000000210235f0",
+        "xhs-6809f616000000000903a1fb"
+      ],
+      "roleSpecificExample": "先写用户可见的痛点与产品动作，再写团队选择、传播方式和可验证结果；每段只留下一个能被下一段事实回答的问题。",
+      "referenceContext": "distilled-policy-only"
+    },
+    {
+      "role": "oral-rewriter",
+      "promptFiles": [
+        "agents/oral-rewriter.md",
+        "style/voice-guide.md",
+        "prompts/v4/polish-system.md",
+        "prompts/v4/polish-user.md",
+        "prompts/v4/rewrite-user.md"
+      ],
+      "ruleIds": ["progressive-question-bridges", "spoken-turn-preservation"],
+      "sourceSampleIds": ["xhs-6a7b007600000000240264dc", "xhs-6a75e71a00000000210235f0"],
+      "roleSpecificExample": "Hook 用短句落下结果，解释段把动作说清，转折处留自然停顿，payoff 用具体事实收住；不额外添加‘你敢信吗’式口头禅。",
+      "referenceContext": "distilled-policy-only"
+    },
+    {
+      "role": "visual-director",
+      "promptFiles": ["agents/visual-director.md"],
+      "ruleIds": ["interaction-before-abstraction", "claim-matched-visual-density"],
+      "sourceSampleIds": [
+        "xhs-6a7b007600000000240264dc",
+        "xhs-6a75e71a00000000210235f0",
+        "xhs-6809f616000000000903a1fb"
+      ],
+      "roleSpecificExample": "讲痛点时用可追溯的用户或采访证据，讲产品时切真实操作，讲分发时切渠道素材，讲结果时切可读图形；每种画面只承担当前命题。",
+      "referenceContext": "distilled-policy-only"
+    },
+    {
+      "role": "audience-critic",
+      "promptFiles": ["agents/audience-critic.md", "docs/evaluation-rubric.md"],
+      "ruleIds": [
+        "result-proof-curiosity-hook",
+        "interaction-before-abstraction",
+        "pain-product-distribution-result-chain",
+        "claim-matched-visual-density",
+        "reframed-evidence-payoff"
+      ],
+      "sourceSampleIds": ["xhs-6a75e71a00000000210235f0"],
+      "roleSpecificExample": "高分需要开场结果有不同功能的同期证明，用户需求可见，产品动作、分发和结果能追踪，结尾模型由前文推出；数字多或画面多本身不加分。",
+      "referenceContext": "distilled-policy-only"
+    },
+    {
+      "role": "retention-critic",
+      "promptFiles": ["agents/retention-critic.md", "docs/evaluation-rubric.md"],
+      "ruleIds": [
+        "suspense-reversal-solution-arc",
+        "progressive-question-bridges",
+        "interaction-before-abstraction",
+        "claim-matched-visual-density",
+        "reframed-evidence-payoff"
+      ],
+      "sourceSampleIds": [
+        "xhs-6a7b007600000000240264dc",
+        "xhs-6a7091e400000000250032e2",
+        "xhs-6809f616000000000903a1fb"
+      ],
+      "roleSpecificExample": "检查 Hook 问题是否被后续逐段回答、反转是否真的新增判断、产品交互是否及时出现、画面变化是否带来证据，以及结尾是否在 CTA 前兑现。",
+      "referenceContext": "distilled-policy-only"
+    }
+  ],
+  "criticCalibrations": [
+    {
+      "role": "audience-critic",
+      "action": "integrated",
+      "ruleIds": [
+        "result-proof-curiosity-hook",
+        "interaction-before-abstraction",
+        "pain-product-distribution-result-chain",
+        "claim-matched-visual-density",
+        "reframed-evidence-payoff"
+      ],
+      "rationale": "AI 身高预测样本对结果证据、需求可见性、产品流程、分发路径和结尾模型提供了清晰的 video/captions/transcript 对齐证据；只澄清现有维度，不改变 product-story-v4 阈值或 blocker。"
+    },
+    {
+      "role": "retention-critic",
+      "action": "integrated",
+      "ruleIds": [
+        "suspense-reversal-solution-arc",
+        "progressive-question-bridges",
+        "interaction-before-abstraction",
+        "claim-matched-visual-density",
+        "reframed-evidence-payoff"
+      ],
+      "rationale": "三条角色相关样本为前三秒悬念、阶段回答、反转、视觉证据变化和结尾重构提供了跨样本证据；只澄清 retention-critic-v2 的观察标准，不改变分数、窗口或路由。"
+    },
+    {
+      "role": "oral-judge",
+      "action": "unchanged",
+      "ruleIds": [],
+      "rationale": "本批分析没有人工听感通道，也没有带 Oral Judge 分数和 PASS/REJECT 边界的批准 calibration 样本；仅凭 transcript/captions 不能校准中文口播听感，继续使用既有 oral-judge-calibration-v1。"
+    }
+  ],
+  "rejectedPatterns": [
+    {
+      "patternId": "creator-specific-copy-and-facts",
+      "reason": "人物、产品名、年龄、收入、估值、下载量、定价、健康预测、婚礼剧情和猫咪机制属于个案事实或创作者表达，不进入 Prompt。"
+    },
+    {
+      "patternId": "full-third-party-transcripts",
+      "reason": "政策只保留结构化模式和短证据摘要，不把第三方完整 transcript 放入任何 Agent 上下文。"
+    },
+    {
+      "patternId": "cut-count-as-visual-quality",
+      "reason": "采样和 scene-change 候选不能证明硬切数量或留存；画面密度按信息与证据功能判断。"
+    },
+    {
+      "patternId": "music-sfx-and-vocal-performance",
+      "reason": "没有感知式听辨，不能从计算型音频指标推断配乐、音效、语调或声音表演模式。"
+    },
+    {
+      "patternId": "persistent-stakes-header-as-requirement",
+      "reason": "持续标题在个案中有效，但不适合成为通用要求，可能遮挡产品动作、证据或字幕安全区。"
+    },
+    {
+      "patternId": "generic-wealth-or-market-cta",
+      "reason": "财富传奇、市场预测和互动提问会稀释具体 payoff，与现有结尾政策冲突。"
+    },
+    {
+      "patternId": "long-reference-reveal-timing",
+      "reason": "94.320 秒样本的晚揭示不适配当前 40–80 秒交付边界，必须在本项目时长内更早建立产品心智模型。"
+    },
+    {
+      "patternId": "oral-judge-reference-calibration",
+      "reason": "缺少听感盲测和评分边界样本，不能安全改变 Oral Judge 判断。"
+    }
+  ],
+  "invariants": {
+    "factualHardGatesPreserved": true,
+    "claimBoundariesPreserved": true,
+    "validatorsWeakened": false,
+    "m1M2BehaviorChanged": false,
+    "episodeArtifactsChanged": false,
+    "m3Started": false,
+    "runtimeReferenceLoading": false,
+    "rawTranscriptInPrompt": false
+  }
+}
