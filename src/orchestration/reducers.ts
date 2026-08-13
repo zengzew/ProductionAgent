@@ -1,7 +1,8 @@
 import {agentNames} from "./schemas/agent";
 import type {ArtifactRef} from "./schemas/artifact";
 import {stableJsonEqual} from "./stable-json";
-import {productionPhases, type ProductionState} from "./state";
+import {productionRepairStateSchema, productionStageCheckpointSchema} from "./schemas/production";
+import {productionPhases, type ProductionState, type ProductionStageSummary} from "./state";
 
 export const firstWriteImmutable = <T>(current: T, update: T): T => {
   if (!stableJsonEqual(current, update)) {
@@ -110,6 +111,123 @@ export const mergeStrictRecord = <T>(
       return [key, left ?? (right as T)];
     }),
   );
+};
+
+const productionStatusRank: Record<ProductionStageSummary["status"], number> = {
+  FAILED: 0,
+  SKIPPED: 1,
+  SUCCEEDED: 2,
+};
+
+/**
+ * Production stage summaries are retryable checkpoint records. For the same
+ * input-set hash, the latest attempt is authoritative; status only breaks a
+ * same-attempt tie, so an older late write cannot regress a newer checkpoint.
+ */
+export const mergeProductionStageSummaries = (
+  current: ProductionState["productionStages"],
+  update: ProductionState["productionStages"],
+): ProductionState["productionStages"] => {
+  const keys = [...new Set([...Object.keys(current), ...Object.keys(update)])].sort();
+  return Object.fromEntries(
+    keys.map((key) => {
+      const left = current[key];
+      const right = update[key];
+      if (!left) return [key, productionStageCheckpointSchema.parse(right)];
+      if (!right) return [key, left];
+      const validatedRight = productionStageCheckpointSchema.parse(right);
+      if (left.stage !== validatedRight.stage) {
+        throw new Error(`production stage reducer collision for ${key}`);
+      }
+      if (left.inputSetHash !== validatedRight.inputSetHash) {
+        return [key, validatedRight.attempt >= left.attempt ? validatedRight : left];
+      }
+      if (validatedRight.attempt > left.attempt) return [key, validatedRight];
+      if (validatedRight.attempt < left.attempt) return [key, left];
+      if (productionStatusRank[validatedRight.status] > productionStatusRank[left.status]) {
+        return [key, validatedRight];
+      }
+      if (productionStatusRank[validatedRight.status] < productionStatusRank[left.status]) {
+        return [key, left];
+      }
+      if (!stableJsonEqual(left, validatedRight)) {
+        throw new Error(`production stage checkpoint collision for ${key}`);
+      }
+      return [key, left];
+    }),
+  );
+};
+
+const productionIssueStatusRank: Record<
+  ProductionState["productionIssues"][string]["status"],
+  number
+> = {
+  open: 0,
+  resolved: 1,
+  escalated: 2,
+};
+
+export const mergeProductionIssueSummaries = (
+  current: ProductionState["productionIssues"],
+  update: ProductionState["productionIssues"],
+): ProductionState["productionIssues"] => {
+  const keys = [...new Set([...Object.keys(current), ...Object.keys(update)])].sort();
+  return Object.fromEntries(
+    keys.map((key) => {
+      const left = current[key];
+      const right = update[key];
+      if (!left) return [key, right as NonNullable<typeof right>];
+      if (!right) return [key, left];
+      const leftIdentity = {...left, status: "open" as const};
+      const rightIdentity = {...right, status: "open" as const};
+      if (!stableJsonEqual(leftIdentity, rightIdentity)) {
+        throw new Error(`production issue reducer collision for ${key}`);
+      }
+      const leftRank = productionIssueStatusRank[left.status];
+      const rightRank = productionIssueStatusRank[right.status];
+      if (leftRank === rightRank && left.status !== right.status) {
+        throw new Error(`production issue terminal status collision for ${key}`);
+      }
+      return [key, rightRank > leftRank ? right : left];
+    }),
+  );
+};
+
+const productionRepairStatusRank: Record<ProductionState["productionRepair"]["status"], number> = {
+  idle: 0,
+  repairing: 1,
+  "production-ready": 2,
+  "human-escalation": 3,
+};
+
+export const mergeProductionRepair = (
+  current: ProductionState["productionRepair"],
+  update: ProductionState["productionRepair"],
+): ProductionState["productionRepair"] => {
+  const left = productionRepairStateSchema.parse(current);
+  const right = productionRepairStateSchema.parse(update);
+  if (left.status === "idle" && right.status === "idle" && left.round === 0 && right.round === 0) {
+    const leftWithoutBudget = {...left, maxRounds: 0};
+    const rightWithoutBudget = {...right, maxRounds: 0};
+    if (stableJsonEqual(leftWithoutBudget, rightWithoutBudget)) return right;
+  }
+  if (right.round > left.round) return right;
+  if (right.round < left.round) return left;
+  const leftRank = productionRepairStatusRank[left.status];
+  const rightRank = productionRepairStatusRank[right.status];
+  if (rightRank > leftRank) return right;
+  if (rightRank < leftRank) return left;
+  if (left.forceRerunStage !== right.forceRerunStage) {
+    const leftWithoutForce = {...left, forceRerunStage: null};
+    const rightWithoutForce = {...right, forceRerunStage: null};
+    if (stableJsonEqual(leftWithoutForce, rightWithoutForce)) {
+      return left.forceRerunStage === null ? left : right;
+    }
+  }
+  if (!stableJsonEqual(left, right)) {
+    throw new Error("production repair state collision");
+  }
+  return left;
 };
 
 const issueStatusRank: Record<ProductionState["issues"][string]["status"], number> = {

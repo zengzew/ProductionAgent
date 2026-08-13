@@ -1,0 +1,416 @@
+{
+  "schemaVersion": "editorial-sample-v1",
+  "sampleId": "xhs-6a6f5b240000000032030c1f",
+  "recordVersion": "1.0.0",
+  "title": "两个21岁大学生，靠AI记笔记月入百万美金 ❗️",
+  "language": "zh-CN",
+  "source": {
+    "platform": "xiaohongshu",
+    "canonicalUrl": "https://www.xiaohongshu.com/explore/6a6f5b240000000032030c1f",
+    "sourceId": "6a6f5b240000000032030c1f",
+    "pageTitle": "两个21岁大学生，靠AI记笔记月入百万美金 ❗️",
+    "authorDisplayName": "JM的赛博空间",
+    "capturedAt": "2026-08-13T20:43:00+08:00",
+    "provenance": {
+      "suppliedBy": "user",
+      "acquisition": "User-supplied Xiaohongshu URL opened in the user's existing Codex in-app browser; the playable page rendition was inspected in-browser and a temporary local copy of the observed media asset was decoded for analysis.",
+      "mediaSha256": "764e58dc3f831a8daea568132c9a09f9acdb8deabe8775ebabf7caf91bc7ca91",
+      "mediaStoredInRepository": false,
+      "notes": [
+        "The temporary media, sampled frames, contact sheets and ASR output are not part of the repository or any dataset.",
+        "The source page and media were accessible on 2026-08-13; future access is not guaranteed.",
+        "This record is a held-out Golden intake candidate and is not approved for any dataset membership, generation context, Prompt, few-shot reference or Critic calibration."
+      ]
+    }
+  },
+  "origin": {
+    "kind": "third-party"
+  },
+  "durationSeconds": 69.566667,
+  "review": {
+    "status": "pending",
+    "submittedAt": "2026-08-13T21:03:24+08:00",
+    "requestedDataset": "golden",
+    "requestedRoles": [
+      "story-director",
+      "viral-director",
+      "fact-guardian",
+      "visual-director",
+      "retention-critic"
+    ],
+    "note": "用户指定其为 held-out Golden 候选，但明确要求另行批准后才能晋升；当前不构成 membership approval，也不授权 Prompt、editorial policy、few-shot 或 Critic calibration 变更。"
+  },
+  "datasetMembership": [],
+  "proposedUse": {
+    "dataset": "golden",
+    "roles": [
+      "story-director",
+      "viral-director",
+      "fact-guardian",
+      "visual-director",
+      "retention-critic"
+    ],
+    "rationale": "仅作为 held-out regression-evaluation 候选，用于评估产品定义、用户动作、订阅模型、分发证据、创始人时间线与经营主张是否在 40–80 秒内形成一个可追踪问题并保持来源边界；不得进入任何 generation Agent 上下文。"
+  },
+  "modalityChecks": {
+    "video": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T21:03:24+08:00",
+      "method": "Codex in-app browser playback plus local ffmpeg decoding; 23 frames sampled at three-second intervals across the runtime, all three contact-sheet pages visually inspected, and an additional 69.0-second end frame checked.",
+      "evidence": [
+        "Samples cover the founders/result hook, Turbo AI site and interface, PDF/video-to-notes demos, flashcards/quizzes, pricing, TikTok examples, founder-reported growth card, founder history, explanatory diagram and closing CTA.",
+        "The decoded rendition is 1080x1920 HEVC at 30 fps and played successfully in the in-app browser."
+      ],
+      "limitations": [
+        "This is full-runtime sampled-frame inspection, not a frame-by-frame edit decision list.",
+        "Fine motion and transitions shorter than the sampling interval were not individually timestamped."
+      ]
+    },
+    "audio": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T21:03:24+08:00",
+      "method": "HE-AAC track decode, EBU R128 loudness measurement, -45 dB silence detection with a 0.3-second minimum and use of the decoded track for local ASR.",
+      "evidence": [
+        "Integrated loudness is -18.0 LUFS, loudness range 2.8 LU and true peak -3.2 dBFS.",
+        "No interval at or below -45 dB lasting at least 0.3 seconds was detected across the 69.546667-second audio track."
+      ],
+      "limitations": [
+        "No perceptual listening channel was available to the model.",
+        "Music genre, music-to-voice balance and individual sound effects were therefore not classified."
+      ]
+    },
+    "transcript": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T21:03:24+08:00",
+      "method": "On-device MLX Whisper small Chinese ASR with timestamped segments, compared against burned-in Chinese and English captions on the sampled frames.",
+      "evidence": [
+        "Local ASR produced 48 timestamped segments spanning 0.00-69.52 seconds.",
+        "The founder/result hook, Turbo AI definition, source-to-study-material action, freemium subscription, technology-versus-distribution turn, TikTok cadence and demo, pre-ad growth, long partnership and closing demand-plus-traffic thesis were cross-checked against sampled captions and frames."
+      ],
+      "limitations": [
+        "ASR occasionally misrecognized words such as 记笔记 and 风口; visible captions, product UI and source cards were used for structured observations.",
+        "The narration, captions and embedded source cards are third-party source material, not independent verification of ages, revenue, users, views, pre-ad growth or causal claims.",
+        "Only structured paraphrases and short evidence observations are retained; the full transcript is not stored."
+      ]
+    },
+    "captions": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T21:03:24+08:00",
+      "method": "Visual inspection of the persistent headline, burned-in Chinese/English subtitles, section labels, evidence cards and explanatory diagram in all three-second samples plus the final frame.",
+      "evidence": [
+        "A persistent two-line headline keeps founder age, AI-note category and monthly-income framing visible while yellow words emphasize key claims.",
+        "Large bottom Chinese captions with smaller English translations track the narration; upper-left labels distinguish creator source, real interface, flashcard test, distribution material, growth evidence and founder history."
+      ],
+      "limitations": [
+        "Burned-in captions were sampled across the full runtime, not exhaustively OCR-transcribed glyph by glyph.",
+        "Visible citations, founder-reported cards and subtitles preserve provenance context but were not treated as independent fact checking."
+      ]
+    },
+    "metadata": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T21:03:24+08:00",
+      "method": "Xiaohongshu page and Open Graph inspection, in-app player diagnostics, file hashing and ffprobe.",
+      "evidence": [
+        "The live page exposed sourceId 6a6f5b240000000032030c1f, the title, author JM的赛博空间 and a displayed date of 08-02.",
+        "The temporary rendition has SHA-256 764e58dc3f831a8daea568132c9a09f9acdb8deabe8775ebabf7caf91bc7ca91 and decodes to 69.566667 seconds with stereo 48 kHz HE-AAC audio."
+      ],
+      "limitations": [
+        "The displayed month-day is not treated as an exact original publication timestamp without a year.",
+        "Platform engagement counts were not captured as stable metadata, and rendition-specific properties are not generalized to the original upload."
+      ]
+    }
+  },
+  "analysis": {
+    "scriptAndNarration": {
+      "summary": "旁白先用两名二十一岁大学生、月收入和用户规模建立结果钩子，九秒后给出 Turbo AI 名称；随后用课堂录音、PDF 或 YouTube 视频一键变成笔记、闪卡和复习资料说明产品，再交代免费与订阅；二十六秒后把核心问题从技术转向流量，具体讲创始人在学校高频发布三秒可懂的演示短视频，给出播放、用户与收入陈述，最后用多年合作史重构“突然爆红”，并归纳为理解需求和流量。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 19.36},
+          "observation": "结果钩子之后迅速定义产品，并用输入课堂材料、输出笔记/闪卡/复习资料的动作解释用途。",
+          "modalities": ["transcript", "captions", "video"]
+        },
+        {
+          "timeRange": {"startSeconds": 19.36, "endSeconds": 36.4},
+          "observation": "免费与高级订阅后，旁白明确把解释重心从技术转到流量，并把 TikTok 作为关键分发渠道。",
+          "modalities": ["transcript", "captions", "video"]
+        },
+        {
+          "timeRange": {"startSeconds": 36.4, "endSeconds": 65.76},
+          "observation": "发布频率、三秒产品演示、播放/用户/收入主张和中学以来的合作史，组成分发结果与人物准备期的解释链。",
+          "modalities": ["transcript", "captions", "video"]
+        }
+      ]
+    },
+    "narrativeArchitecture": {
+      "summary": "结构是年轻创始人与经营结果（0-10 秒）→产品定义和核心动作（10-19 秒）→免费/订阅（19-27 秒）→技术到分发的观点转折（27-36 秒）→校园短视频方法（36-44 秒）→播放、用户和收入结果（44-51 秒）→长期搭档与多年试错重构（51-60 秒）→需求+流量的结论（60-66 秒）→关注 CTA（66-70 秒）。全片先解释产品，再把更长篇幅给分发和人物积累。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 26.64},
+          "observation": "前二十七秒依次回答是谁、结果多大、产品是什么、用户做什么和如何收费。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 26.64, "endSeconds": 51.16},
+          "observation": "中段把问题改写为“为什么能获得流量”，再用发布频率、演示方式和结果数字推进。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 51.16, "endSeconds": 65.76},
+          "observation": "创始人从中学开始合作与多年项目尝试，反转“只用两年爆红”的表层印象，并导向需求与流量结论。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "visualLanguage": {
+      "summary": "画面使用黑色底、固定顶部结果标题、居中横向或竖向来源素材和底部双语字幕。产品段用 Turbo AI 网站卡、真实界面、PDF/视频转笔记、闪卡测试和价格卡；分发段切换到校园 TikTok 素材与上传演示；结果段用 founder-reported 数字卡；人物史段用采访；最后用“用户需求 + 短视频流量 = 持续订阅收入”解释图形回收。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 26.64},
+          "observation": "创始人采访、官方网站用户卡、产品后台、PDF 对比、闪卡与订阅层依次承担人物、规模、动作与付费信息。",
+          "modalities": ["video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 26.64, "endSeconds": 51.16},
+          "observation": "界面演示切到校园 TikTok、课堂场景、录屏上传和增长数字卡，视觉模式随“产品→分发→结果”变化。",
+          "modalities": ["video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 51.16, "endSeconds": 69.52},
+          "observation": "人物采访与解释图形负责长期积累和结论，结尾再回到真实校园短视频作为 CTA 背景。",
+          "modalities": ["video", "captions"]
+        }
+      ]
+    },
+    "audioAndCaptions": {
+      "summary": "本地 ASR 覆盖至 69.52 秒，音轨综合响度 -18.0 LUFS、LRA 2.8 LU、真峰值 -3.2 dBFS，未检出持续 0.3 秒以上的 -45 dB 低电平区间。字幕逐句跟随旁白，顶部结果标题持续存在；上方分区标签、数据卡与解释图承担来源和第二层信息。由于没有人工听辨通道，本次不判断音乐风格或具体音效。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 69.52},
+          "observation": "48 个 ASR 句段覆盖整条旁白；全轨响度 -18.0 LUFS，未检测到达到阈值的持续低电平区间。",
+          "modalities": ["audio", "transcript"]
+        },
+        {
+          "timeRange": {"startSeconds": 9.72, "endSeconds": 65.76},
+          "observation": "字幕、产品 UI、分区标签、增长卡和解释图分别标出产品、动作、分发、结果与结论，信息层次持续可见。",
+          "modalities": ["transcript", "captions", "video"]
+        }
+      ]
+    },
+    "crossModalSync": {
+      "summary": "说到课堂录音/PDF/YouTube 输入时，画面展示后台和文档转笔记；说到闪卡与复习资料时，画面展示测验与卡片；说到 TikTok 时，画面切到校园原生短视频与上传录屏；说到播放、用户和收入时，画面给出明确标注为 founder-reported 的数字卡；最后用需求、流量和订阅图形概括旁白结论。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 9.72, "endSeconds": 26.64},
+          "observation": "产品名、材料输入、笔记/闪卡输出、免费层和订阅层分别匹配网站卡、真实界面与价格卡。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 32.04, "endSeconds": 51.16},
+          "observation": "分发论点由 TikTok 原生内容、校园拍摄和上传演示承载，经营结果由标记来源性质的数据卡承载。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 60.28, "endSeconds": 65.76},
+          "observation": "“需求和流量”结论被压成三块解释图，但图形是旁白的结构化重述，不是额外事实来源。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "retentionAndPayoff": {
+      "summary": "开场金额和年龄提供强 stakes，九秒内产品名出现，十九秒内完成产品动作定义，避免长期悬置“它到底做什么”。二十七秒把问题从技术转向流量，四十四秒后用播放、用户和收入数字兑现分发段；五十一秒再用多年搭档与试错反转“突然爆红”，六十秒后的需求+流量结论构成意义 payoff，最后四秒转为关注 CTA。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 19.36},
+          "observation": "结果钩子后不拖延产品定义，观众在二十秒内看懂输入、输出与使用场景。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 26.64, "endSeconds": 51.16},
+          "observation": "技术到流量的明确转折打开第二段问题，发布方法之后立即给经营结果陈述作为 payoff。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 51.16, "endSeconds": 65.76},
+          "observation": "多年合作史重构年龄与两年爆红表象，解释图再把人物准备、用户需求、分发与订阅结果合并。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "transferablePatterns": [
+      {
+        "patternId": "define-product-before-distribution-turn",
+        "name": "先定义产品再转向分发",
+        "description": "在结果钩子后尽快让观众看懂产品名、输入、输出和收费，再把第二段问题转向增长来源。",
+        "evidenceRanges": [{"startSeconds": 0, "endSeconds": 32.04}],
+        "applicableRoles": [
+          "story-director",
+          "viral-director",
+          "visual-director",
+          "retention-critic"
+        ],
+        "guardrail": "不能因追求转折而延后影响理解、准确或合规的产品前提；产品动作必须来自可追溯界面或素材。"
+      },
+      {
+        "patternId": "input-transform-output-demo",
+        "name": "输入—转换—输出实演",
+        "description": "把抽象 AI 能力压缩为观众可观察的输入材料、一次操作和具体输出物。",
+        "evidenceRanges": [{"startSeconds": 9.72, "endSeconds": 19.36}],
+        "applicableRoles": ["story-director", "visual-director", "retention-critic"],
+        "guardrail": "演示只能说明被观察到的路径，不能外推准确率、覆盖范围、速度或当前可用性。"
+      },
+      {
+        "patternId": "native-content-as-distribution-evidence",
+        "name": "用原生内容展示分发方法",
+        "description": "讲短视频获客时直接展示发布语境、内容样式和产品录屏，而不是只用平台图标或抽象增长动画。",
+        "evidenceRanges": [{"startSeconds": 32.04, "endSeconds": 46.4}],
+        "applicableRoles": [
+          "story-director",
+          "viral-director",
+          "fact-guardian",
+          "visual-director",
+          "retention-critic"
+        ],
+        "guardrail": "原生内容证明内容形态，不独立证明播放、转化、自然用户、收入或因果归属。"
+      },
+      {
+        "patternId": "method-then-result-then-history",
+        "name": "方法—结果—历史重构",
+        "description": "先展示可复述的方法，再给结果主张，最后用更长时间线纠正突然成功的表象。",
+        "evidenceRanges": [{"startSeconds": 36.4, "endSeconds": 60.28}],
+        "applicableRoles": [
+          "story-director",
+          "viral-director",
+          "fact-guardian",
+          "retention-critic"
+        ],
+        "guardrail": "长期合作和项目史不能被用来倒推特定成功原因；时间线、结果与因果都需分别核验。"
+      },
+      {
+        "patternId": "labeled-claim-provenance-card",
+        "name": "显式标注主张来源性质",
+        "description": "在经营数字卡上标出 founder-reported，使观众看到主张内容的同时保留它来自谁。",
+        "evidenceRanges": [{"startSeconds": 44.16, "endSeconds": 51.16}],
+        "applicableRoles": ["fact-guardian", "visual-director", "retention-critic"],
+        "guardrail": "标注来源性质不是独立核验；Claim Ledger 仍需记录一手出处、日期、口径和当前状态。"
+      },
+      {
+        "patternId": "demand-distribution-business-synthesis",
+        "name": "需求、流量与生意的图形回收",
+        "description": "结尾用三块简单关系图把用户需求、短视频流量和持续订阅收入合并成可复述结论。",
+        "evidenceRanges": [{"startSeconds": 60.28, "endSeconds": 65.76}],
+        "applicableRoles": ["story-director", "visual-director", "retention-critic"],
+        "guardrail": "解释图必须是已展示证据的摘要，不能把相关性或来源观点画成已证实的必然公式。"
+      }
+    ],
+    "productSpecificPatterns": [
+      {
+        "patternId": "turbo-ai-study-material-workflow",
+        "name": "Turbo AI 学习材料工作流",
+        "description": "来源展示把课堂录音、PDF 或 YouTube 视频转换为笔记、闪卡、复习资料和测验，并以免费层加订阅高级功能收费。",
+        "evidenceRanges": [{"startSeconds": 9.72, "endSeconds": 26.64}],
+        "applicableRoles": [
+          "story-director",
+          "fact-guardian",
+          "visual-director",
+          "retention-critic"
+        ],
+        "guardrail": "这是 Turbo AI 专属流程；输入范围、输出质量、速度、价格、用户规模和订阅条件必须读取当前一手资料。"
+      },
+      {
+        "patternId": "turbo-ai-founder-growth-and-history-claims",
+        "name": "Turbo AI 创始人、增长与历史主张",
+        "description": "来源把两名二十一岁创始人、月收入、用户量、TikTok 发布频率与播放、投广告前用户/收入、从中学合作和多年试错连成增长解释。",
+        "evidenceRanges": [
+          {"startSeconds": 0, "endSeconds": 9.72},
+          {"startSeconds": 32.04, "endSeconds": 60.28}
+        ],
+        "applicableRoles": [
+          "story-director",
+          "viral-director",
+          "fact-guardian",
+          "visual-director",
+          "retention-critic"
+        ],
+        "guardrail": "年龄、收入、用户、播放、广告时间点、项目史和增长因果均需一手或独立来源核验；founder-reported 必须保留该限定。"
+      }
+    ]
+  },
+  "roleMappings": [
+    {
+      "role": "story-director",
+      "use": "仅在 regression-evaluation 中检查结果钩子后是否及时定义产品、再转向分发，并用更长人物时间线完成重构。",
+      "exclusions": [
+        "不得把本记录或其模式加载进生成上下文",
+        "不得迁移 Turbo AI 的人物、功能、收入、用户、播放或增长因果"
+      ],
+      "patternIds": [
+        "define-product-before-distribution-turn",
+        "input-transform-output-demo",
+        "native-content-as-distribution-evidence",
+        "method-then-result-then-history",
+        "demand-distribution-business-synthesis"
+      ]
+    },
+    {
+      "role": "viral-director",
+      "use": "仅在 regression-evaluation 中检查产品是否在二十秒内可懂、分发段是否展示原生内容和可复述方法。",
+      "exclusions": [
+        "不得用年龄、收入、用户和播放数字堆叠替代事实来源",
+        "不得把第三方 TikTok 素材或创始人案例作为 few-shot 复用"
+      ],
+      "patternIds": [
+        "define-product-before-distribution-turn",
+        "native-content-as-distribution-evidence",
+        "method-then-result-then-history"
+      ]
+    },
+    {
+      "role": "fact-guardian",
+      "use": "仅在 regression-evaluation 中检查产品实演、原生内容、founder-reported 数字、人物历史与增长因果是否保持证据分层。",
+      "exclusions": [
+        "不得把 UI、TikTok 素材或 founder-reported 卡片等同于规模与因果已核验",
+        "不得把来源字幕当作独立事实来源"
+      ],
+      "patternIds": [
+        "native-content-as-distribution-evidence",
+        "method-then-result-then-history",
+        "labeled-claim-provenance-card"
+      ]
+    },
+    {
+      "role": "visual-director",
+      "use": "仅在 regression-evaluation 中检查产品、分发、结果、人物历史与结论是否由不同且可读的视觉证据层承担。",
+      "exclusions": [
+        "不得复用第三方产品界面、课堂短视频、人物采访、数字卡或解释图",
+        "不得把来源卡与自制解释图当作独立事实证明"
+      ],
+      "patternIds": [
+        "define-product-before-distribution-turn",
+        "input-transform-output-demo",
+        "native-content-as-distribution-evidence",
+        "labeled-claim-provenance-card",
+        "demand-distribution-business-synthesis"
+      ]
+    },
+    {
+      "role": "retention-critic",
+      "use": "仅在 regression-evaluation 中检查产品定义、分发转折、结果兑现、历史重构和结论是否持续回答同一增长问题。",
+      "exclusions": [
+        "不得以大数字、黄色关键词或来源素材切换频率自动判为高留存",
+        "不得接受未经核验的增长数字或解释图代替产品与用户 payoff"
+      ],
+      "patternIds": [
+        "define-product-before-distribution-turn",
+        "input-transform-output-demo",
+        "native-content-as-distribution-evidence",
+        "method-then-result-then-history",
+        "labeled-claim-provenance-card",
+        "demand-distribution-business-synthesis"
+      ]
+    }
+  ],
+  "transcriptPolicy": {
+    "fullTranscriptStored": false,
+    "storedMaterial": "Timestamped structural summaries, short paraphrased observations, ASR/caption comparison notes and modality limitations only; no complete third-party transcript."
+  }
+}

@@ -1,0 +1,390 @@
+{
+  "schemaVersion": "editorial-sample-v1",
+  "sampleId": "xhs-6a6ad1fd000000001003c477",
+  "recordVersion": "1.0.0",
+  "title": "现实版“猫咪宝可梦”！流浪猫秒变SSR卡😍",
+  "language": "zh-CN",
+  "source": {
+    "platform": "xiaohongshu",
+    "canonicalUrl": "https://www.xiaohongshu.com/explore/6a6ad1fd000000001003c477",
+    "sourceId": "6a6ad1fd000000001003c477",
+    "pageTitle": "现实版“猫咪宝可梦”！流浪猫秒变SSR卡😍",
+    "authorDisplayName": "JM的赛博空间",
+    "capturedAt": "2026-08-13T20:43:00+08:00",
+    "provenance": {
+      "suppliedBy": "user",
+      "acquisition": "User-supplied Xiaohongshu URL opened in the user's existing Codex in-app browser; the playable page rendition was inspected in-browser and a temporary local copy of the observed media asset was decoded for analysis.",
+      "mediaSha256": "488902a76c3421ad8a0d548d328b7cc225118b84a86cb3d4f53d385e227826bd",
+      "mediaStoredInRepository": false,
+      "notes": [
+        "The temporary media, sampled frames, contact sheets and ASR output are not part of the repository or any dataset.",
+        "The source page and media were accessible on 2026-08-13; future access is not guaranteed.",
+        "This record is a held-out Golden intake candidate and is not approved for any dataset membership, generation context, Prompt, few-shot reference or Critic calibration."
+      ]
+    }
+  },
+  "origin": {
+    "kind": "third-party"
+  },
+  "durationSeconds": 44.066667,
+  "review": {
+    "status": "pending",
+    "submittedAt": "2026-08-13T21:03:24+08:00",
+    "requestedDataset": "golden",
+    "requestedRoles": [
+      "story-director",
+      "viral-director",
+      "fact-guardian",
+      "visual-director",
+      "retention-critic"
+    ],
+    "note": "用户指定其为 held-out Golden 候选，但明确要求另行批准后才能晋升；当前不构成 membership approval，也不授权 Prompt、editorial policy、few-shot 或 Critic calibration 变更。"
+  },
+  "datasetMembership": [],
+  "proposedUse": {
+    "dataset": "golden",
+    "roles": [
+      "story-director",
+      "viral-director",
+      "fact-guardian",
+      "visual-director",
+      "retention-critic"
+    ],
+    "rationale": "仅作为 held-out regression-evaluation 候选，用于评估产品动作是否逐步可见、画面与叙述是否同步、价值回收是否建立在可观察机制上，以及来源主张是否保持边界；不得进入任何 generation Agent 上下文。"
+  },
+  "modalityChecks": {
+    "video": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T21:03:24+08:00",
+      "method": "Codex in-app browser playback plus local ffmpeg decoding; 15 frames sampled at three-second intervals across the runtime, all contact-sheet pages visually inspected, and an additional 43.5-second end frame checked.",
+      "evidence": [
+        "Samples cover the real-cat scan, validation, food-throw capture, collectible card, battle attributes, shared map, product identity, developer card, album and closing CTA.",
+        "The decoded rendition is 1078x1920 HEVC at 30 fps and played successfully in the in-app browser."
+      ],
+      "limitations": [
+        "This is full-runtime sampled-frame inspection, not a frame-by-frame edit decision list.",
+        "Fine motion and transitions shorter than the sampling interval were not individually timestamped."
+      ]
+    },
+    "audio": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T21:03:24+08:00",
+      "method": "HE-AAC track decode, EBU R128 loudness measurement, -45 dB silence detection with a 0.3-second minimum and use of the decoded track for local ASR.",
+      "evidence": [
+        "Integrated loudness is -17.1 LUFS, loudness range 2.9 LU and true peak -2.7 dBFS.",
+        "No interval at or below -45 dB lasting at least 0.3 seconds was detected across the 44.032-second audio track."
+      ],
+      "limitations": [
+        "No perceptual listening channel was available to the model.",
+        "Music genre, music-to-voice balance and individual sound effects were therefore not classified."
+      ]
+    },
+    "transcript": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T21:03:24+08:00",
+      "method": "On-device MLX Whisper small Chinese ASR with timestamped segments, compared against burned-in Chinese and English captions on the sampled frames.",
+      "evidence": [
+        "Local ASR produced 33 timestamped segments spanning 0.00-44.04 seconds.",
+        "The familiar-game hook, cat validation, capture action, card and map expansion, product/developer reveal, value interpretation and CTA were cross-checked against sampled captions and frames."
+      ],
+      "limitations": [
+        "ASR misrecognized occasional words such as 图鉴 and 稀有度; visible captions and UI were used to resolve those observations.",
+        "The narration and captions are source material, not independent verification of download counts, developer identity, safety or user outcomes.",
+        "Only structured paraphrases and short evidence observations are retained; the full transcript is not stored."
+      ]
+    },
+    "captions": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T21:03:24+08:00",
+      "method": "Visual inspection of the persistent headline and burned-in Chinese/English subtitles in all three-second samples plus the final frame.",
+      "evidence": [
+        "A persistent two-line headline frames the product as a real-world 猫咪宝可梦 and highlights key words in yellow.",
+        "Large bottom Chinese captions with smaller English translations track the current action, claim, interpretation and CTA."
+      ],
+      "limitations": [
+        "Burned-in captions were sampled across the full runtime, not exhaustively OCR-transcribed glyph by glyph.",
+        "Visible subtitles were not treated as an independently fact-checked source."
+      ]
+    },
+    "metadata": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T21:03:24+08:00",
+      "method": "Xiaohongshu page and Open Graph inspection, in-app player diagnostics, file hashing and ffprobe.",
+      "evidence": [
+        "The live page exposed sourceId 6a6ad1fd000000001003c477, the title, author JM的赛博空间 and a displayed date of 07-30.",
+        "The temporary rendition has SHA-256 488902a76c3421ad8a0d548d328b7cc225118b84a86cb3d4f53d385e227826bd and decodes to 44.066667 seconds with stereo 48 kHz HE-AAC audio."
+      ],
+      "limitations": [
+        "The displayed month-day is not treated as an exact original publication timestamp without a year.",
+        "Platform engagement counts were not captured as stable metadata, and rendition-specific properties are not generalized to the original upload."
+      ]
+    }
+  },
+  "analysis": {
+    "scriptAndNarration": {
+      "summary": "旁白先用“现实版猫咪宝可梦”建立熟悉隐喻，随后按用户动作逐步解释识别、投掷猫粮、收进图鉴、生成卡牌与地图发现；约二十六秒才给出 Catch Cat 名称和独立开发者信息，最后把产品机制重述为让人走出屏幕、注意身边小生命的价值。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 8.44},
+          "observation": "开场先给熟悉类比，再立即说明路边遇猫、举起手机和 AI 验证真实猫三个可复述动作。",
+          "modalities": ["transcript", "captions", "video"]
+        },
+        {
+          "timeRange": {"startSeconds": 8.44, "endSeconds": 26.32},
+          "observation": "识别成功后连续展示猫粮投掷、捕捉、收藏卡、属性与共享地图，每个新信息都有新的 UI 结果。",
+          "modalities": ["transcript", "captions", "video"]
+        },
+        {
+          "timeRange": {"startSeconds": 26.32, "endSeconds": 39.2},
+          "observation": "产品名、独立开发者和下载量陈述晚于玩法演示出现，随后转为“不困在屏幕前”的价值解释。",
+          "modalities": ["transcript", "captions", "video"]
+        }
+      ]
+    },
+    "narrativeArchitecture": {
+      "summary": "结构是熟悉隐喻钩子（0-4 秒）→真实猫验证（4-8 秒）→捕捉动作（8-15 秒）→卡牌奖励（15-21 秒）→地图把单点玩法扩成城市寻宝（21-26 秒）→名称/开发者/规模主张（26-31 秒）→价值回收（31-39 秒）→关注 CTA（39-44 秒）。产品身份延后，但核心体验从开场即持续可见。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 3.68, "endSeconds": 20.88},
+          "observation": "故事推进单位不是抽象功能列表，而是“用户动作—系统反馈—下一层奖励”的连续链。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 20.88, "endSeconds": 31.12},
+          "observation": "共享地图先扩大玩法尺度，再用产品名、开发者和下载量把体验连接到现实产品身份。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 31.12, "endSeconds": 44.04},
+          "observation": "结尾从机制转到价值判断，再以继续发现全球案例的 CTA 收束。",
+          "modalities": ["transcript", "captions", "video"]
+        }
+      ]
+    },
+    "visualLanguage": {
+      "summary": "画面以手机竖屏实演为主体，外层使用暗色模糊背景、固定顶部标题和底部双语字幕。扫描框、识别状态、猫粮投掷、卡牌、属性与地图都保留真实 UI 形态；中后段插入猫图标、开发者身份卡与收藏页，使产品从单次操作扩展到系统与制作者。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 15.36},
+          "observation": "镜头持续围绕同一只现实猫和手机 UI，识别框、处理状态、猫粮道具与捕捉反馈按动作顺序出现。",
+          "modalities": ["video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 15.36, "endSeconds": 26.32},
+          "observation": "收藏卡、名字、稀有度、战斗属性和地图用不同界面承接旁白中的奖励升级与世界扩展。",
+          "modalities": ["video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 26.32, "endSeconds": 44.04},
+          "observation": "产品名之后出现猫图标、独立开发者卡、继续扫描与收藏页面，结尾 CTA 仍保持产品 UI 可见。",
+          "modalities": ["video", "captions"]
+        }
+      ]
+    },
+    "audioAndCaptions": {
+      "summary": "本地 ASR 覆盖至 44.04 秒，音轨综合响度 -17.1 LUFS、LRA 2.9 LU、真峰值 -2.7 dBFS，未检出持续 0.3 秒以上的 -45 dB 低电平区间。固定标题建立主题，底部中英字幕逐句跟随动作并用黄色词强调猫、猫粮、手指、属性、地图与价值判断。由于没有人工听辨通道，本次不判断音乐风格或具体音效。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 44.04},
+          "observation": "33 个 ASR 句段覆盖整条旁白；全轨响度 -17.1 LUFS，未检测到达到阈值的持续低电平区间。",
+          "modalities": ["audio", "transcript"]
+        },
+        {
+          "timeRange": {"startSeconds": 3.68, "endSeconds": 26.32},
+          "observation": "字幕逐句标出遇猫、确认、投掷、收藏卡、属性与地图，和 UI 中出现的动作及结果同步。",
+          "modalities": ["transcript", "captions", "video"]
+        }
+      ]
+    },
+    "crossModalSync": {
+      "summary": "旁白几乎每提出一个动作，画面就展示对应操作或结果：说“确认是真猫”时显示扫描与处理，说“扔猫粮”时出现道具与投掷，说“收藏卡”时切到属性卡，说“地图”时切到城市位置。价值段仍以现实猫、扫描和收藏页承接，不单独用抽象口号画面。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 3.68, "endSeconds": 15.36},
+          "observation": "遇猫、举起手机、验证、出现猫粮、手指投掷和捕捉反馈在旁白、字幕与 UI 中依次对应。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 15.36, "endSeconds": 26.32},
+          "observation": "照片生成卡牌、属性信息和共享地图分别由可读界面承担，避免只靠旁白列功能。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 31.12, "endSeconds": 39.2},
+          "observation": "“走出屏幕、发现小生命”的解释继续配现实猫与捕捉页面，但该价值效果仍是来源观点而非独立验证结果。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "retentionAndPayoff": {
+      "summary": "留存主要来自熟悉隐喻后的机制阶梯：验证解决“它怎么认猫”，投掷解决“怎么玩”，卡牌解决“得到什么”，地图解决“为什么能持续”。约二十六秒的产品身份揭示是小回收，三十一秒后的“让人走出去”把机制提升为价值 payoff；最后五秒转为系列 CTA。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 26.32},
+          "observation": "每个动作在数秒内得到视觉反馈，并立即打开下一层问题，形成稳定的短回报链。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 26.32, "endSeconds": 39.2},
+          "observation": "名称、开发者与规模陈述回答“这是什么”，价值解释回答“为什么值得在意”。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 39.2, "endSeconds": 44.04},
+          "observation": "结尾不再增加产品机制，而是从本例切换到账号关注承诺。",
+          "modalities": ["transcript", "captions", "video"]
+        }
+      ]
+    },
+    "transferablePatterns": [
+      {
+        "patternId": "familiar-metaphor-fast-onboarding",
+        "name": "熟悉隐喻快速上手",
+        "description": "用观众已知的游戏关系压缩解释成本，并立即用真实产品动作证明这个类比对应什么。",
+        "evidenceRanges": [{"startSeconds": 0, "endSeconds": 8.44}],
+        "applicableRoles": ["story-director", "viral-director", "retention-critic"],
+        "guardrail": "类比只能帮助理解，不能暗示授权、合作、同等能力或未证实的品牌关系。"
+      },
+      {
+        "patternId": "action-consequence-demo-ladder",
+        "name": "动作—结果演示阶梯",
+        "description": "让每个用户动作在数秒内获得可见结果，再用该结果自然引出下一层功能。",
+        "evidenceRanges": [{"startSeconds": 3.68, "endSeconds": 20.88}],
+        "applicableRoles": ["story-director", "visual-director", "retention-critic"],
+        "guardrail": "演示必须来自可追溯产品状态，不能用概念动画冒充真实可用功能。"
+      },
+      {
+        "patternId": "single-object-to-world-expansion",
+        "name": "从单个对象扩成世界",
+        "description": "先让观众理解一次具体交互，再用收藏与共享地图把单点动作扩展为可持续系统。",
+        "evidenceRanges": [{"startSeconds": 15.36, "endSeconds": 26.32}],
+        "applicableRoles": [
+          "story-director",
+          "viral-director",
+          "visual-director",
+          "retention-critic"
+        ],
+        "guardrail": "规模扩展必须由真实功能或证据支持，不能从单次演示推断社区规模或使用频率。"
+      },
+      {
+        "patternId": "mechanism-before-product-identity",
+        "name": "先看懂机制再给产品身份",
+        "description": "先用完整体验建立理解和兴趣，再补产品名称、制作者与规模主张。",
+        "evidenceRanges": [{"startSeconds": 0, "endSeconds": 31.12}],
+        "applicableRoles": ["story-director", "viral-director", "retention-critic"],
+        "guardrail": "延后名称不能延后影响事实准确、安全、隐私或合规的关键前提。"
+      },
+      {
+        "patternId": "observed-demo-versus-stated-scale-boundary",
+        "name": "演示事实与规模陈述分界",
+        "description": "把可从画面观察的产品动作与随后出现的开发者、下载量和价值效果陈述视为不同证据层。",
+        "evidenceRanges": [
+          {"startSeconds": 3.68, "endSeconds": 26.32},
+          {"startSeconds": 26.32, "endSeconds": 39.2}
+        ],
+        "applicableRoles": [
+          "story-director",
+          "fact-guardian",
+          "visual-director",
+          "retention-critic"
+        ],
+        "guardrail": "UI 演示不证明下载量、安全性、社区效果或社会价值；这些主张必须独立进入 Claim Ledger。"
+      }
+    ],
+    "productSpecificPatterns": [
+      {
+        "patternId": "catch-cat-capture-and-card-loop",
+        "name": "Catch Cat 捕捉与卡牌循环",
+        "description": "来源展示对准现实猫、验证、投掷猫粮、捕捉、生成命名卡牌和属性的产品流程。",
+        "evidenceRanges": [{"startSeconds": 3.68, "endSeconds": 20.88}],
+        "applicableRoles": ["story-director", "visual-director", "retention-critic"],
+        "guardrail": "这是 Catch Cat 专属界面和机制，不得迁移为其他产品事实，也不能从演示推断识别准确率。"
+      },
+      {
+        "patternId": "catch-cat-map-scale-and-value-claims",
+        "name": "Catch Cat 地图、规模与价值主张",
+        "description": "来源把他人发现的猫、城市地图、独立开发者、十万次下载和重新发现小生命连成产品意义链。",
+        "evidenceRanges": [{"startSeconds": 20.88, "endSeconds": 39.2}],
+        "applicableRoles": [
+          "story-director",
+          "viral-director",
+          "fact-guardian",
+          "visual-director",
+          "retention-critic"
+        ],
+        "guardrail": "地图范围、下载量、开发者身份、隐私与安全影响、是否促使用户出门都需要独立来源；相邻剪辑不等于因果已证。"
+      }
+    ]
+  },
+  "roleMappings": [
+    {
+      "role": "story-director",
+      "use": "仅在 regression-evaluation 中检查候选故事是否从单次动作逐层扩到收藏、地图、产品身份和价值回收。",
+      "exclusions": [
+        "不得把本记录或其模式加载进生成上下文",
+        "不得迁移 Catch Cat 名称、机制、下载量或社会价值主张"
+      ],
+      "patternIds": [
+        "familiar-metaphor-fast-onboarding",
+        "action-consequence-demo-ladder",
+        "single-object-to-world-expansion",
+        "mechanism-before-product-identity",
+        "observed-demo-versus-stated-scale-boundary"
+      ]
+    },
+    {
+      "role": "viral-director",
+      "use": "仅在 regression-evaluation 中检查熟悉隐喻是否迅速落到真实动作、每层回报是否打开下一问题。",
+      "exclusions": [
+        "不得把品牌类比写成授权或合作关系",
+        "不得把猫咪题材、第三方 UI 或 CTA 作为 few-shot 复用"
+      ],
+      "patternIds": [
+        "familiar-metaphor-fast-onboarding",
+        "single-object-to-world-expansion",
+        "mechanism-before-product-identity"
+      ]
+    },
+    {
+      "role": "fact-guardian",
+      "use": "仅在 regression-evaluation 中检查可观察 UI、来源自述规模和价值推断是否被明确分层。",
+      "exclusions": [
+        "不得把画面可见等同于下载量、准确率、安全或效果已核验",
+        "不得把来源字幕当作独立事实来源"
+      ],
+      "patternIds": ["observed-demo-versus-stated-scale-boundary"]
+    },
+    {
+      "role": "visual-director",
+      "use": "仅在 regression-evaluation 中检查关键动作是否由可读 UI 直接承担，以及单点体验是否视觉上扩成系统。",
+      "exclusions": [
+        "不得复用第三方猫照片、界面、地图、卡牌或开发者身份素材",
+        "不得用概念动画冒充产品实演"
+      ],
+      "patternIds": [
+        "action-consequence-demo-ladder",
+        "single-object-to-world-expansion",
+        "observed-demo-versus-stated-scale-boundary"
+      ]
+    },
+    {
+      "role": "retention-critic",
+      "use": "仅在 regression-evaluation 中检查机制阶梯是否持续给出新结果、身份揭示与价值回收是否真正回答前文。",
+      "exclusions": [
+        "不得以切换 UI 的频率自动判为高留存",
+        "不得接受未经验证的下载量或价值口号代替产品 payoff"
+      ],
+      "patternIds": [
+        "familiar-metaphor-fast-onboarding",
+        "action-consequence-demo-ladder",
+        "single-object-to-world-expansion",
+        "mechanism-before-product-identity",
+        "observed-demo-versus-stated-scale-boundary"
+      ]
+    }
+  ],
+  "transcriptPolicy": {
+    "fullTranscriptStored": false,
+    "storedMaterial": "Timestamped structural summaries, short paraphrased observations, ASR/caption comparison notes and modality limitations only; no complete third-party transcript."
+  }
+}

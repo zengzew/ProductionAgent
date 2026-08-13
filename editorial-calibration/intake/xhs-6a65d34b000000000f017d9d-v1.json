@@ -1,0 +1,419 @@
+{
+  "schemaVersion": "editorial-sample-v1",
+  "sampleId": "xhs-6a65d34b000000000f017d9d",
+  "recordVersion": "1.0.0",
+  "title": "两个19岁高中生靠AI拍照月入200万美金！",
+  "language": "zh-CN",
+  "source": {
+    "platform": "xiaohongshu",
+    "canonicalUrl": "https://www.xiaohongshu.com/explore/6a65d34b000000000f017d9d",
+    "sourceId": "6a65d34b000000000f017d9d",
+    "pageTitle": "两个19岁高中生靠AI拍照月入200万美金！",
+    "authorDisplayName": "JM的赛博空间",
+    "capturedAt": "2026-08-13T20:43:00+08:00",
+    "provenance": {
+      "suppliedBy": "user",
+      "acquisition": "User-supplied Xiaohongshu URL opened in the user's existing Codex in-app browser; the playable page rendition was inspected in-browser and a temporary local copy of the observed media asset was decoded for analysis.",
+      "mediaSha256": "022f5bd208dd97661b5434d0515f111863d1c38d038771af942bc0ff71e9bd1d",
+      "mediaStoredInRepository": false,
+      "notes": [
+        "The temporary media, sampled frames, contact sheets and ASR output are not part of the repository or any dataset.",
+        "The source page and media were accessible on 2026-08-13; future access is not guaranteed.",
+        "This record is a held-out Golden intake candidate and is not approved for any dataset membership, generation context, Prompt, few-shot reference or Critic calibration."
+      ]
+    }
+  },
+  "origin": {
+    "kind": "third-party"
+  },
+  "durationSeconds": 53.533333,
+  "review": {
+    "status": "pending",
+    "submittedAt": "2026-08-13T21:03:24+08:00",
+    "requestedDataset": "golden",
+    "requestedRoles": [
+      "story-director",
+      "viral-director",
+      "fact-guardian",
+      "visual-director",
+      "retention-critic"
+    ],
+    "note": "用户指定其为 held-out Golden 候选，但明确要求另行批准后才能晋升；当前不构成 membership approval，也不授权 Prompt、editorial policy、few-shot 或 Critic calibration 变更。"
+  },
+  "datasetMembership": [],
+  "proposedUse": {
+    "dataset": "golden",
+    "roles": [
+      "story-director",
+      "viral-director",
+      "fact-guardian",
+      "visual-director",
+      "retention-critic"
+    ],
+    "rationale": "仅作为 held-out regression-evaluation 候选，用于评估结果钩子是否落到产品动作、用户痛点与订阅机制，传播逻辑是否有可见证据，以及高额经营主张是否保持来源边界；不得进入任何 generation Agent 上下文。"
+  },
+  "modalityChecks": {
+    "video": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T21:03:24+08:00",
+      "method": "Codex in-app browser playback plus local ffmpeg decoding; 18 frames sampled at three-second intervals across the runtime, both contact-sheet pages visually inspected, and an additional 53.0-second end frame checked.",
+      "evidence": [
+        "Samples cover the revenue/acquisition hook, Cal AI interface, free-trial and subscription cards, manual logging steps, photo-to-macros demo, marketing quote, short-video funnel and closing thesis.",
+        "The decoded rendition is 1080x1920 HEVC at 30 fps and played successfully in the in-app browser."
+      ],
+      "limitations": [
+        "This is full-runtime sampled-frame inspection, not a frame-by-frame edit decision list.",
+        "Fine motion and transitions shorter than the sampling interval were not individually timestamped."
+      ]
+    },
+    "audio": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T21:03:24+08:00",
+      "method": "HE-AAC track decode, EBU R128 loudness measurement, -45 dB silence detection with a 0.3-second minimum and use of the decoded track for local ASR.",
+      "evidence": [
+        "Integrated loudness is -17.7 LUFS, loudness range 3.2 LU and true peak -2.4 dBFS.",
+        "No interval at or below -45 dB lasting at least 0.3 seconds was detected across the 53.504-second audio track."
+      ],
+      "limitations": [
+        "No perceptual listening channel was available to the model.",
+        "Music genre, music-to-voice balance and individual sound effects were therefore not classified."
+      ]
+    },
+    "transcript": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T21:03:24+08:00",
+      "method": "On-device MLX Whisper small Chinese ASR with timestamped segments, compared against burned-in Chinese and English captions on the sampled frames.",
+      "evidence": [
+        "Local ASR produced 38 timestamped segments spanning 0.00-53.44 seconds.",
+        "The founder/result hook, Cal AI identity, free-trial subscription, manual logging pain, one-photo action, distribution thesis, TikTok comprehensibility, monetization chain and closing payoff were cross-checked against sampled captions and frames."
+      ],
+      "limitations": [
+        "ASR misrecognized proper nouns including Cal AI, MyFitnessPal, Zach and Forbes; visible title, UI and source cards were used for structured observations.",
+        "The narration, captions and embedded source cards are third-party source material, not independent verification of ages, revenue, acquisition, accuracy or causal claims.",
+        "Only structured paraphrases and short evidence observations are retained; the full transcript is not stored."
+      ]
+    },
+    "captions": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T21:03:24+08:00",
+      "method": "Visual inspection of the persistent headline, burned-in Chinese/English subtitles, formula bars and source/quote cards in all three-second samples plus the final frame.",
+      "evidence": [
+        "A persistent two-line headline keeps the founder age and monthly-income framing visible while yellow words emphasize product and business terms.",
+        "Large bottom Chinese captions with smaller English translations track each claim; separate overlays label the manual workflow, subscription funnel and cited source cards."
+      ],
+      "limitations": [
+        "Burned-in captions were sampled across the full runtime, not exhaustively OCR-transcribed glyph by glyph.",
+        "Visible citations and subtitles preserve provenance context but were not treated as independent fact checking."
+      ]
+    },
+    "metadata": {
+      "status": "checked",
+      "checkedAt": "2026-08-13T21:03:24+08:00",
+      "method": "Xiaohongshu page and Open Graph inspection, in-app player diagnostics, file hashing and ffprobe.",
+      "evidence": [
+        "The live page exposed sourceId 6a65d34b000000000f017d9d, the title, author JM的赛博空间 and a displayed date of 07-26.",
+        "The temporary rendition has SHA-256 022f5bd208dd97661b5434d0515f111863d1c38d038771af942bc0ff71e9bd1d and decodes to 53.533333 seconds with stereo 48 kHz HE-AAC audio."
+      ],
+      "limitations": [
+        "The displayed month-day is not treated as an exact original publication timestamp without a year.",
+        "Platform engagement counts were not captured as stable metadata, and rendition-specific properties are not generalized to the original upload."
+      ]
+    }
+  },
+  "analysis": {
+    "scriptAndNarration": {
+      "summary": "旁白用高中生、年收入与收购三个结果快速建立 stakes，十秒后说明产品名与订阅模式；中段先把传统饮食记录拆成搜索、估重、逐项输入，再用一次拍照展示替代动作；后半把“围绕营销设计”作为解释核心，用 TikTok 三秒可懂、免费试用和周期订阅串成商业链，最后归纳为用户少一步、市场少解释一句。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 10.28},
+          "observation": "开场把人物年龄、产品类别、年收入和收购陈述压成连续结果钩子，但这些经营信息仍是来源主张。",
+          "modalities": ["transcript", "captions", "video"]
+        },
+        {
+          "timeRange": {"startSeconds": 10.28, "endSeconds": 32.72},
+          "observation": "产品名和订阅模式后，旁白先列传统记录步骤，再用拍照后直接出现热量与宏量营养信息完成痛点—动作—结果对照。",
+          "modalities": ["transcript", "captions", "video"]
+        },
+        {
+          "timeRange": {"startSeconds": 32.72, "endSeconds": 53.44},
+          "observation": "后半从产品动作转向传播与变现，把三秒可懂、免费试用、周期订阅和少一步/少一句组织成同一解释。",
+          "modalities": ["transcript", "captions", "video"]
+        }
+      ]
+    },
+    "narrativeArchitecture": {
+      "summary": "结构是高额结果与收购钩子（0-10 秒）→产品名/订阅（10-18 秒）→传统记录痛点（18-23 秒）→一次拍照与营养结果（23-33 秒）→围绕营销设计的创始人观点（33-42 秒）→短视频/试用/订阅因果链（42-47 秒）→“少一步、少一句”的产品与分发 payoff（47-53 秒）。片子没有展开人物成长线，而是围绕“为什么这个工具能成为生意”推进。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 17.76},
+          "observation": "先给外部结果，再快速补产品名、免费试用和周期订阅，明确要解释的不只是功能。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 17.76, "endSeconds": 32.72},
+          "observation": "传统多步骤与一次拍照形成全片最具体的用户体验对比，且旁白保留“不一定百分百准”的限制。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 32.72, "endSeconds": 53.44},
+          "observation": "产品差异之后才给分发解释，并在结尾把用户动作成本与市场解释成本并列回收。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "visualLanguage": {
+      "summary": "画面采用黑色底、固定顶部结果标题、居中手机实演和底部双语字幕。前十秒用产品 UI 与 TechCrunch/收购卡片表现结果；中段用黑底公式条列出搜索、估重、输入，再展示拍照和宏量营养结果；后段插入 Forbes 引语卡与“短视频→免费试用→周期订阅”流程条，最终回到手机 UI 和并列结论。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 17.76},
+          "observation": "Cal AI 手机界面、年收入卡、MyFitnessPal 收购卡、免费试用与 App Store 订阅卡依次承担结果和商业模式陈述。",
+          "modalities": ["video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 17.76, "endSeconds": 32.72},
+          "observation": "传统步骤被压进可读公式条，随后连续展示食物照片、扫描结果和营养数字，使少操作的差异可视化。",
+          "modalities": ["video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 32.72, "endSeconds": 53.44},
+          "observation": "创始人观点用带来源卡片呈现，传播与变现用三段流程条呈现，最后把少操作一步和少解释一句并排。",
+          "modalities": ["video", "captions"]
+        }
+      ]
+    },
+    "audioAndCaptions": {
+      "summary": "本地 ASR 覆盖至 53.44 秒，音轨综合响度 -17.7 LUFS、LRA 3.2 LU、真峰值 -2.4 dBFS，未检出持续 0.3 秒以上的 -45 dB 低电平区间。字幕逐句跟随旁白，顶部结果标题持续存在；黑底公式、黄色关键词和来源卡承担第二层信息。由于没有人工听辨通道，本次不判断音乐风格或具体音效。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 53.44},
+          "observation": "38 个 ASR 句段覆盖整条旁白；全轨响度 -17.7 LUFS，未检测到达到阈值的持续低电平区间。",
+          "modalities": ["audio", "transcript"]
+        },
+        {
+          "timeRange": {"startSeconds": 17.76, "endSeconds": 47.24},
+          "observation": "字幕、步骤公式、来源卡和漏斗条分别标出痛点、动作、创始人观点与商业链，使不同信息层可区分。",
+          "modalities": ["transcript", "captions", "video"]
+        }
+      ]
+    },
+    "crossModalSync": {
+      "summary": "旁白说传统记录繁琐时，画面列出搜索、估重、逐项输入；说一次拍照时，画面展示食物、扫描和营养结果；说围绕营销设计与三秒可懂时，画面切到带来源引语和 TikTok 语境；说试用与订阅时，流程条和订阅 UI 同步出现。高额经营结果有来源卡语境，但视觉引用本身不等于独立核验。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 17.76, "endSeconds": 32.72},
+          "observation": "多步骤痛点与一次拍照结果形成旁白、字幕、公式条和真实 UI 的四层对应。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 32.72, "endSeconds": 41.52},
+          "observation": "“围绕营销设计”和“三秒看懂”由创始人引语卡、手机演示与字幕共同承担。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 41.52, "endSeconds": 53.44},
+          "observation": "短视频、免费试用、周期订阅的三段链先用流程条总结，再以产品 UI 和少一步/少一句结论收尾。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "retentionAndPayoff": {
+      "summary": "开场用年龄、收入与收购把 stakes 拉高，但真正的持续问题是“一个拍照功能为什么能变成订阅生意”。十七秒后的传统步骤制造可感知阻力，二十三秒的一次拍照给体验 payoff，三十三秒后再用分发设计与商业链解释规模，最后把“少操作一步、少解释一句”提炼成可复述发现。",
+      "evidence": [
+        {
+          "timeRange": {"startSeconds": 0, "endSeconds": 17.76},
+          "observation": "高额结果、收购和订阅依次出现，提出功能与商业结果之间的解释缺口。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 17.76, "endSeconds": 32.72},
+          "observation": "传统步骤与一次拍照的直接对照兑现产品层问题，并用“不一定百分百准”保留限制。",
+          "modalities": ["transcript", "video", "captions"]
+        },
+        {
+          "timeRange": {"startSeconds": 32.72, "endSeconds": 53.44},
+          "observation": "分发设计、三秒可懂和订阅链回答商业层问题；最后一句把产品与传播统一到降低理解成本。",
+          "modalities": ["transcript", "video", "captions"]
+        }
+      ]
+    },
+    "transferablePatterns": [
+      {
+        "patternId": "outcome-stack-to-mechanism-question",
+        "name": "结果堆叠后追问机制",
+        "description": "先并列人物、收入和收购结果建立 stakes，再把叙事重心转到具体产品动作与变现方式。",
+        "evidenceRanges": [{"startSeconds": 0, "endSeconds": 17.76}],
+        "applicableRoles": [
+          "story-director",
+          "viral-director",
+          "fact-guardian",
+          "retention-critic"
+        ],
+        "guardrail": "年龄、收入、收购和时间范围必须逐项可追溯；不能让多个大数字互相充当证明。"
+      },
+      {
+        "patternId": "manual-steps-to-single-action-demo",
+        "name": "多步骤压成一个动作",
+        "description": "先把旧流程拆成具体步骤，再直接展示产品如何用一次可见动作替代它们。",
+        "evidenceRanges": [{"startSeconds": 17.76, "endSeconds": 32.72}],
+        "applicableRoles": ["story-director", "visual-director", "retention-critic"],
+        "guardrail": "简化必须来自真实体验；准确率、遗漏步骤和订阅前提不能因演示顺滑而被隐藏。"
+      },
+      {
+        "patternId": "distribution-built-into-product-thesis",
+        "name": "把传播写进产品解释",
+        "description": "不把分发作为片尾补充，而是用创始人观点和三秒可懂的产品展示解释产品为何容易传播。",
+        "evidenceRanges": [{"startSeconds": 32.72, "endSeconds": 42.64}],
+        "applicableRoles": [
+          "story-director",
+          "viral-director",
+          "fact-guardian",
+          "visual-director",
+          "retention-critic"
+        ],
+        "guardrail": "传播策略、创始人原话与增长因果必须有来源；易展示不等于它必然带来收入。"
+      },
+      {
+        "patternId": "three-beat-acquisition-monetization-chain",
+        "name": "三拍获客变现链",
+        "description": "用短视频让人看懂、免费试用让人上手、周期订阅形成收入三个动作压缩商业模型。",
+        "evidenceRanges": [{"startSeconds": 41.52, "endSeconds": 47.24}],
+        "applicableRoles": [
+          "story-director",
+          "viral-director",
+          "visual-director",
+          "retention-critic"
+        ],
+        "guardrail": "这是来源提出的解释模型，不得把相邻环节直接写成已证实的唯一因果链。"
+      },
+      {
+        "patternId": "fewer-steps-fewer-explanations-payoff",
+        "name": "少一步、少一句的双重回收",
+        "description": "用用户操作成本和市场理解成本的平行句，把前面的产品体验与分发机制合成一个可复述结论。",
+        "evidenceRanges": [{"startSeconds": 47.24, "endSeconds": 53.44}],
+        "applicableRoles": ["story-director", "viral-director", "retention-critic"],
+        "guardrail": "结论必须由本片已展示的动作支持，不能泛化为所有 AI 产品的成功公式。"
+      },
+      {
+        "patternId": "source-card-versus-verification-boundary",
+        "name": "来源卡与独立核验分界",
+        "description": "报道、商店和创始人引语卡保留主张来自哪里，但仍需把来源陈述与独立验证分开。",
+        "evidenceRanges": [
+          {"startSeconds": 2.4, "endSeconds": 10.28},
+          {"startSeconds": 32.72, "endSeconds": 41.52}
+        ],
+        "applicableRoles": ["fact-guardian", "visual-director", "retention-critic"],
+        "guardrail": "视觉上出现媒体或商店名称不自动证明摘录完整、日期当前、数字准确或因果成立。"
+      }
+    ],
+    "productSpecificPatterns": [
+      {
+        "patternId": "cal-ai-photo-nutrition-subscription-loop",
+        "name": "Cal AI 拍照、营养结果与订阅流程",
+        "description": "来源展示用食物照片生成热量、蛋白质、碳水和脂肪结果，并以免费试用后周期订阅变现。",
+        "evidenceRanges": [{"startSeconds": 10.28, "endSeconds": 32.72}],
+        "applicableRoles": [
+          "story-director",
+          "fact-guardian",
+          "visual-director",
+          "retention-critic"
+        ],
+        "guardrail": "这是 Cal AI 专属产品与商业流程；营养准确率、试用条款和订阅条件必须读取当前一手资料。"
+      },
+      {
+        "patternId": "cal-ai-founder-revenue-acquisition-claims",
+        "name": "Cal AI 创始人、收入与收购主张",
+        "description": "来源把两名高中生、两年内超过三千万美元年收入、MyFitnessPal 收购、围绕营销设计和 TikTok 分发连成增长解释。",
+        "evidenceRanges": [
+          {"startSeconds": 0, "endSeconds": 10.28},
+          {"startSeconds": 32.72, "endSeconds": 47.24}
+        ],
+        "applicableRoles": [
+          "story-director",
+          "viral-director",
+          "fact-guardian",
+          "visual-director",
+          "retention-critic"
+        ],
+        "guardrail": "年龄、收入、时间范围、收购方、交易状态、创始人原话、TikTok 作用和增长因果均需一手或独立来源核验。"
+      }
+    ]
+  },
+  "roleMappings": [
+    {
+      "role": "story-director",
+      "use": "仅在 regression-evaluation 中检查结果钩子是否落到用户痛点、单一动作、分发与订阅机制，并形成可复述回收。",
+      "exclusions": [
+        "不得把本记录或其模式加载进生成上下文",
+        "不得迁移 Cal AI 的人物、功能、收入、收购或增长因果"
+      ],
+      "patternIds": [
+        "outcome-stack-to-mechanism-question",
+        "manual-steps-to-single-action-demo",
+        "distribution-built-into-product-thesis",
+        "three-beat-acquisition-monetization-chain",
+        "fewer-steps-fewer-explanations-payoff"
+      ]
+    },
+    {
+      "role": "viral-director",
+      "use": "仅在 regression-evaluation 中检查高额结果是否迅速转入可懂机制、三秒产品展示与变现链是否承担新信息。",
+      "exclusions": [
+        "不得用年龄和金额堆叠替代事实来源",
+        "不得把第三方创始人原话、报道卡或 TikTok 结论作为 few-shot 复用"
+      ],
+      "patternIds": [
+        "outcome-stack-to-mechanism-question",
+        "distribution-built-into-product-thesis",
+        "three-beat-acquisition-monetization-chain",
+        "fewer-steps-fewer-explanations-payoff"
+      ]
+    },
+    {
+      "role": "fact-guardian",
+      "use": "仅在 regression-evaluation 中检查产品实演、来源卡、经营数字、创始人观点和因果推断是否保持证据分层。",
+      "exclusions": [
+        "不得把引用卡或 UI 可见等同于收入、收购、准确率或增长原因已核验",
+        "不得把来源字幕当作独立事实来源"
+      ],
+      "patternIds": [
+        "outcome-stack-to-mechanism-question",
+        "distribution-built-into-product-thesis",
+        "source-card-versus-verification-boundary"
+      ]
+    },
+    {
+      "role": "visual-director",
+      "use": "仅在 regression-evaluation 中检查旧流程、单次拍照、订阅与分发链是否由不同且可读的视觉载体承担。",
+      "exclusions": [
+        "不得复用第三方手机界面、食物照片、媒体卡、创始人影像或商店页面",
+        "不得把流程条或来源卡当作独立事实证明"
+      ],
+      "patternIds": [
+        "manual-steps-to-single-action-demo",
+        "distribution-built-into-product-thesis",
+        "three-beat-acquisition-monetization-chain",
+        "source-card-versus-verification-boundary"
+      ]
+    },
+    {
+      "role": "retention-critic",
+      "use": "仅在 regression-evaluation 中检查结果、痛点、一次动作、分发解释和最终双重回收是否持续回答同一商业问题。",
+      "exclusions": [
+        "不得以大数字、黄色关键词或手机切镜频率自动判为高留存",
+        "不得接受未经核验的经营结果代替产品与用户 payoff"
+      ],
+      "patternIds": [
+        "outcome-stack-to-mechanism-question",
+        "manual-steps-to-single-action-demo",
+        "distribution-built-into-product-thesis",
+        "three-beat-acquisition-monetization-chain",
+        "fewer-steps-fewer-explanations-payoff",
+        "source-card-versus-verification-boundary"
+      ]
+    }
+  ],
+  "transcriptPolicy": {
+    "fullTranscriptStored": false,
+    "storedMaterial": "Timestamped structural summaries, short paraphrased observations, ASR/caption comparison notes and modality limitations only; no complete third-party transcript."
+  }
+}

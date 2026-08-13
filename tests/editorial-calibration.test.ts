@@ -469,7 +469,7 @@ describe("editorial calibration datasets", () => {
     ).not.toContain("editorial-policy-v1");
   });
 
-  it("parses the repository registry, empty manifests, and four pending intake records", () => {
+  it("parses the repository registry, empty manifests, and pending intake records", () => {
     const repositoryRoot = path.resolve(import.meta.dirname, "..");
     const calibrationRoot = path.join(repositoryRoot, "editorial-calibration");
     const registry = editorialRegistrySchema.parse(
@@ -489,16 +489,38 @@ describe("editorial calibration datasets", () => {
       .readdirSync(path.join(calibrationRoot, registry.intakeDirectory))
       .filter((file) => file.endsWith(".json"))
       .sort();
-    expect(intakeFiles).toHaveLength(4);
-    for (const file of intakeFiles) {
-      const sample = editorialSampleSchema.parse(
+    expect(intakeFiles).toHaveLength(7);
+    const intakeSamples = intakeFiles.map((file) =>
+      editorialSampleSchema.parse(
         JSON.parse(
           fs.readFileSync(path.join(calibrationRoot, registry.intakeDirectory, file), "utf8"),
         ),
-      );
+      ),
+    );
+    for (const sample of intakeSamples) {
       expect(sample.review.status).toBe("pending");
       expect(sample.datasetMembership).toEqual([]);
       expect(sample.transcriptPolicy.fullTranscriptStored).toBe(false);
+    }
+
+    const heldOutGoldenIds = [
+      "xhs-6a65d34b000000000f017d9d",
+      "xhs-6a6ad1fd000000001003c477",
+      "xhs-6a6f5b240000000032030c1f",
+    ];
+    const heldOutGoldenSamples = intakeSamples.filter((sample) =>
+      heldOutGoldenIds.includes(sample.sampleId),
+    );
+    expect(heldOutGoldenSamples.map((sample) => sample.sampleId).sort()).toEqual(heldOutGoldenIds);
+    for (const sample of heldOutGoldenSamples) {
+      expect(sample.proposedUse.dataset).toBe("golden");
+      expect(sample.review).toMatchObject({
+        status: "pending",
+        requestedDataset: "golden",
+      });
+      expect(
+        Object.values(sample.modalityChecks).every((check) => check.status === "checked"),
+      ).toBe(true);
     }
   });
 });

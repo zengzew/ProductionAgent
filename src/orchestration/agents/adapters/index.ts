@@ -14,3 +14,4 @@ export const createContentAgentAdapter = (options: ContentAgentAdapterOptions): 
 
 export * from "./hosted-polish";
 export * from "./manual-file";
+export * from "./deterministic-tool";

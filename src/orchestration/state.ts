@@ -1,6 +1,12 @@
 import {z} from "zod";
 import {agentNameSchema} from "./schemas/agent";
 import {artifactRefSchema, type ArtifactRef} from "./schemas/artifact";
+import {artifactLocatorSchema} from "./schemas/critic-output";
+import {
+  DEFAULT_PRODUCTION_REPAIR_ROUNDS,
+  productionRepairStateSchema,
+  productionStageCheckpointSchema,
+} from "./schemas/production";
 
 export const PRODUCTION_STATE_SCHEMA_VERSION = "production-state-v1" as const;
 
@@ -19,6 +25,7 @@ export const productionPhases = [
   "production",
   "delivery_eval",
   "production_revision",
+  "production_ready",
   "unfreeze_review",
   "final_approval",
   "published",
@@ -48,6 +55,28 @@ const issueSummarySchema = z.object({
   status: z.enum(["open", "assigned", "resolved", "wontfix", "escalated"]),
   owner: z.string().min(1),
 });
+
+const productionIssueSummarySchema = z
+  .object({
+    issueId: z.string().min(1),
+    issueRef: artifactRefSchema,
+    status: z.enum(["open", "resolved", "escalated"]),
+    owner: z.literal("production-executor"),
+    category: z.string().min(1),
+    severity: z.enum(["low", "medium", "high", "blocker"]),
+    routeTarget: z.enum(["captions", "timeline", "tts", "render"]),
+    restartAt: z.string().min(1),
+    affectedArtifactId: z.string().min(1),
+    affectedArtifactSha256: z.string().regex(/^[a-f0-9]{64}$/u),
+    locator: artifactLocatorSchema,
+    summary: z
+      .string()
+      .min(1)
+      .refine((value) => Buffer.byteLength(value, "utf8") <= 500, {
+        message: "production issue summary must not exceed 500 UTF-8 bytes",
+      }),
+  })
+  .strict();
 
 const revisionSummarySchema = z.object({
   revisionId: z.string().min(1),
@@ -99,10 +128,25 @@ export const productionStateSchema = z.object({
   attempts: z.record(z.string(), z.number().int().nonnegative()),
   decisions: z.record(z.string(), controlledDecisionSchema),
   haltReason: z.string().max(500).optional(),
+  productionStages: z.record(z.string(), productionStageCheckpointSchema).default({}),
+  productionIssues: z.record(z.string(), productionIssueSummarySchema).default({}),
+  productionRepair: productionRepairStateSchema.default({
+    status: "idle",
+    round: 0,
+    maxRounds: DEFAULT_PRODUCTION_REPAIR_ROUNDS,
+    route: null,
+    forceRerunStage: null,
+    issueIds: [],
+    authorizedArtifactIds: [],
+    staleArtifactIds: [],
+    decision: {code: "PRODUCTION_REPAIR_IDLE", summary: "production repair loop is idle"},
+  }),
 });
 
 export type ProductionState = z.infer<typeof productionStateSchema>;
 export type ProductionStateUpdate = Partial<ProductionState>;
+export type ProductionStageSummary = ProductionState["productionStages"][string];
+export type ProductionIssueSummary = ProductionState["productionIssues"][string];
 
 const forbiddenBodyKeys = new Set([
   "body",
@@ -174,6 +218,19 @@ export const createInitialProductionState = (input: {
     completedAgents: [],
     attempts: {},
     decisions: {},
+    productionStages: {},
+    productionIssues: {},
+    productionRepair: {
+      status: "idle",
+      round: 0,
+      maxRounds: DEFAULT_PRODUCTION_REPAIR_ROUNDS,
+      route: null,
+      forceRerunStage: null,
+      issueIds: [],
+      authorizedArtifactIds: [],
+      staleArtifactIds: [],
+      decision: {code: "PRODUCTION_REPAIR_IDLE", summary: "production repair loop is idle"},
+    },
   });
 
 export {
@@ -189,6 +246,8 @@ export {
   mergeOptionalArtifactRef,
   mergeOptionalImmutable,
   mergePhase,
+  mergeProductionIssueSummaries,
+  mergeProductionRepair,
   mergeRevisionSummaries,
   mergeStrictRecord,
   pickBest,

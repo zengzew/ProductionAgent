@@ -17,18 +17,23 @@ update the source-of-truth files, then run the explicit validation, materialize,
 TTS, timeline, render and review commands for each approved stage.
 `ORCHESTRATOR=manual` is the default.
 
-`src/orchestration/` is a real LangGraph-backed foundation, but it is not an
-end-to-end production entry point. M1 and M2 are exit-accepted: they provide the
-reference-only graph/checkpoint skeleton and the bounded content evaluation,
-single-owner revision, best-version selection and freeze foundation. Artifact
-files remain the content source of truth.
+`src/orchestration/` is a real LangGraph-backed foundation, but it is not a
+single command that crosses human approval boundaries. M1 and M2 are
+exit-accepted: they provide the reference-only graph/checkpoint skeleton and
+the bounded content evaluation, single-owner revision, best-version selection
+and freeze foundation. WP-M3-01 adds opt-in deterministic adapters for the
+existing production scripts, and WP-M3-02 adds an opt-in LangGraph production
+subgraph with bounded delivery repair; artifact files remain the content source
+of truth.
 
-M3 and M4 have not started. Formal `HumanDecision` handling, direct-edit locks,
-production authorization, TTS/render/delivery repair orchestration, unfreeze,
-production persistence, caching and full observability hardening therefore are
-not implemented. There is no single command that crosses the human story gates,
-networked TTS and independent Delivery Critic review; approvals and production
-stages remain explicit.
+Formal `HumanDecision` handling, direct-edit locks, approval-epoch production
+authorization, unfreeze, final approval, publication, production persistence
+and M4 cache/observability hardening are not implemented. The production
+subgraph starts from a current frozen content manifest, routes Delivery Critic
+REJECTs through the deterministic production owner, and stops at
+`production-ready` or human escalation; it does not add approval or publication
+semantics. The default `ORCHESTRATOR=manual` path is unchanged. See
+[`docs/production-adapters.md`](docs/production-adapters.md).
 
 ## Current editorial and duration standard
 
