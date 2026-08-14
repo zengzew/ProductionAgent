@@ -3,38 +3,76 @@ import {agentNameSchema} from "./agent";
 import {artifactRefSchema} from "./artifact";
 
 const nullableUsageNumber = z.number().int().nonnegative().nullable();
+const sha256Schema = z.string().regex(/^[a-f0-9]{64}$/u);
+
+export const executionEventTypes = [
+  "execution.started",
+  "model.completed",
+  "artifact.validated",
+  "evaluation.completed",
+  "route.decided",
+  "checkpoint.committed",
+  "execution.completed",
+  "execution.skipped",
+  "execution.failed",
+  "execution.recovered",
+  "retry.scheduled",
+  "repair.started",
+  "repair.completed",
+  "unfreeze.requested",
+  "unfreeze.approved",
+  "unfreeze.rejected",
+  "human-decision.recorded",
+  "approval.blocked",
+  "observability.degraded",
+] as const;
+
+export const executionEventTypeSchema = z.enum(executionEventTypes);
+export const terminalStatusSchema = z.enum(["succeeded", "failed", "skipped"]);
+
+/** A reference-only checkpoint envelope. It never contains state or artifact bodies. */
+export const checkpointReferenceSchema = z
+  .object({
+    checkpointId: z.string().min(1),
+    artifactIndexSha256: sha256Schema.nullable(),
+    workflowSha256: sha256Schema.nullable(),
+    revisionLedgerSha256: sha256Schema.nullable(),
+    stateSha256: sha256Schema.nullable().optional(),
+  })
+  .strict();
 
 export const executionEventSchema = z.object({
-  schemaVersion: z.literal("agent-execution-event-v1"),
+  /** M1–M3 records remain readable; M4-04 records use the strict version below. */
+  schemaVersion: z.enum(["agent-execution-event-v1", "observability-event-v1"]),
   eventId: z.string().min(1),
-  eventType: z.enum([
-    "execution.started",
-    "model.completed",
-    "artifact.validated",
-    "evaluation.completed",
-    "route.decided",
-    "checkpoint.committed",
-    "execution.completed",
-    "execution.failed",
-    "execution.recovered",
-  ]),
+  /** Canonical M4-04 events bind the complete redacted envelope, not only execution identity. */
+  eventHash: sha256Schema.optional(),
+  eventType: executionEventTypeSchema,
   occurredAt: z.string().datetime({offset: true}),
   episodeId: z.string().regex(/^episode-[a-z0-9-]+$/u),
+  /** Required by observability-event-v1, absent only on compatibility records. */
+  runId: z.string().min(1).optional(),
+  stage: z.string().min(1).optional(),
   traceId: z.string().min(1),
   executionId: z.string().min(1),
   parentExecutionId: z.string().min(1).nullable(),
   agentName: z.union([agentNameSchema, z.literal("orchestrator")]),
   executionKind: z.enum(["model", "deterministic-tool", "human-decision"]),
   attempt: z.number().int().positive(),
+  nextAttempt: z.number().int().positive().optional(),
   revisionRound: z.number().int().nonnegative(),
   approvalEpoch: z.number().int().nonnegative(),
+  decisionId: z.string().min(1).optional(),
+  checkpointVersion: z.string().min(1).optional(),
+  inputSetHash: sha256Schema.optional(),
+  terminalStatus: terminalStatusSchema.nullable().optional(),
   model: z
     .object({
       provider: z.string().min(1),
       model: z.string().min(1),
       version: z.string().min(1),
       deployment: z.string().nullable(),
-      configurationHash: z.string().regex(/^[a-f0-9]{64}$/u),
+      configurationHash: sha256Schema,
     })
     .nullable(),
   prompt: z
@@ -42,7 +80,7 @@ export const executionEventSchema = z.object({
       promptId: z.string().min(1),
       promptVersion: z.string().min(1),
       path: z.string().min(1),
-      sha256: z.string().regex(/^[a-f0-9]{64}$/u),
+      sha256: sha256Schema,
       policyRefs: z.array(artifactRefSchema),
     })
     .nullable(),
@@ -69,7 +107,7 @@ export const executionEventSchema = z.object({
     queueMs: z.number().nonnegative().nullable(),
     providerMs: z.number().nonnegative().nullable(),
   }),
-  status: z.enum(["STARTED", "SUCCEEDED", "REJECTED", "FAILED", "RECOVERED"]),
+  status: z.enum(["STARTED", "SUCCEEDED", "SKIPPED", "REJECTED", "FAILED", "RECOVERED"]),
   decision: z
     .object({
       code: z.string().min(1),
@@ -101,27 +139,80 @@ export const executionEventSchema = z.object({
       message: z.string(),
       providerRequestId: z.string().nullable(),
       retryAfterMs: z.number().nonnegative().nullable(),
-      invalidOutputHash: z
-        .string()
-        .regex(/^[a-f0-9]{64}$/u)
-        .nullable(),
+      invalidOutputHash: sha256Schema.nullable(),
     })
     .nullable(),
-  checkpoint: z
-    .object({
-      checkpointId: z.string().min(1),
-      artifactIndexSha256: z.string().regex(/^[a-f0-9]{64}$/u),
-      workflowSha256: z.string().regex(/^[a-f0-9]{64}$/u),
-      revisionLedgerSha256: z.string().regex(/^[a-f0-9]{64}$/u),
-    })
-    .nullable(),
+  checkpoint: checkpointReferenceSchema.nullable(),
   environment: z.object({
     repositoryCommit: z.string().nullable(),
     worktreeState: z.enum(["clean", "dirty", "unknown"]),
-    inputSetHash: z.string().regex(/^[a-f0-9]{64}$/u),
+    inputSetHash: sha256Schema,
     runtime: z.string().min(1),
     runnerVersion: z.string().min(1),
   }),
 });
 
 export type ExecutionEvent = z.infer<typeof executionEventSchema>;
+
+const strictCheckpointReferenceSchema = checkpointReferenceSchema.extend({
+  stateSha256: sha256Schema,
+});
+
+/**
+ * M4-04's canonical envelope. The compatibility schema above intentionally remains permissive so
+ * existing M1/M3 replay/import records do not change shape; approval gates parse through this one.
+ */
+export const observabilityEventSchema = executionEventSchema
+  .extend({
+    schemaVersion: z.literal("observability-event-v1"),
+    runId: z.string().min(1),
+    stage: z.string().min(1),
+    checkpointVersion: z.string().min(1),
+    inputSetHash: sha256Schema,
+    eventHash: sha256Schema,
+    terminalStatus: terminalStatusSchema.nullable(),
+    checkpoint: strictCheckpointReferenceSchema,
+  })
+  .strict()
+  .superRefine((event, context) => {
+    const terminalType =
+      event.eventType === "execution.completed"
+        ? "succeeded"
+        : event.eventType === "execution.failed"
+          ? "failed"
+          : event.eventType === "execution.skipped"
+            ? "skipped"
+            : event.eventType === "execution.recovered"
+              ? "succeeded"
+              : null;
+    if (terminalType && event.terminalStatus !== terminalType) {
+      context.addIssue({
+        code: "custom",
+        path: ["terminalStatus"],
+        message: `${event.eventType} must declare terminalStatus=${terminalType}`,
+      });
+    }
+    if (!terminalType && event.terminalStatus !== null) {
+      context.addIssue({
+        code: "custom",
+        path: ["terminalStatus"],
+        message: "non-terminal events must set terminalStatus to null",
+      });
+    }
+    if (event.eventType === "human-decision.recorded" && !event.decisionId) {
+      context.addIssue({
+        code: "custom",
+        path: ["decisionId"],
+        message: "human-decision.recorded requires decisionId",
+      });
+    }
+    if (event.eventType === "retry.scheduled" && event.nextAttempt === undefined) {
+      context.addIssue({
+        code: "custom",
+        path: ["nextAttempt"],
+        message: "retry.scheduled requires nextAttempt",
+      });
+    }
+  });
+
+export type ObservabilityEvent = z.infer<typeof observabilityEventSchema>;

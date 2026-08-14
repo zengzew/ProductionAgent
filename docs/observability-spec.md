@@ -1,7 +1,8 @@
 # Observability Specification
 
 - Status: normative engineering contract
-- Schema: `agent-execution-event-v1`
+- Compatibility schema: `agent-execution-event-v1`
+- Canonical approval schema: `observability-event-v1` (WP-M4-04)
 
 ## Objective
 
@@ -286,6 +287,40 @@ execution.recovered (after a later successful attempt)
 An execution is considered trace-complete only after exactly one terminal `execution.completed` or
 `execution.failed` event. A checkpoint event must precede successful completion when state changed.
 
+## WP-M4-04 canonical contract
+
+Approval-facing events use `observability-event-v1`. In addition to the compatibility envelope, every
+event has `runId`, `stage`, `checkpointVersion`, `inputSetHash`, a non-null reference-only checkpoint,
+and `eventHash`. `eventHash` is SHA-256 over the complete redacted event with `eventHash` omitted; the
+stable `eventId` remains the execution/event-type identity. Terminal events are exactly one of
+`execution.completed` (`succeeded`), `execution.failed` (`failed`), or `execution.skipped` (`skipped`),
+and set `terminalStatus` accordingly. Each executed `(executionId, stage, attempt)` must have one
+`execution.started`, one terminal event, and one matching `checkpoint.committed` event. Retry, repair,
+unfreeze, `human-decision`, approval-blocked, degraded, and cache actions are structured control
+events; they carry ArtifactRefs and hashes only, never artifact bodies.
+
+The completeness gate is fail-closed. It rejects missing or duplicate lifecycle events, event/content
+hash mismatches, episode/run or input-set mismatches, checkpoint conflicts, unverifiable ArtifactRefs,
+missing retry/repair/unfreeze/HumanDecision/cache evidence, non-zero cache-hit cost, and redaction
+failures. It returns `observability-complete` only when approval is allowed; all other cases return
+`observability-degraded` and approval must wait until the evidence is repaired. Replay remains based on
+checkpoints and ArtifactRefs; the gate and report are derived views and do not become state authority.
+
+Usage is recorded as `reported`, `estimated`, `unavailable`, or `not-applicable`. Unknown model/tool
+usage is `null`/`unavailable`, never a fabricated zero. Deterministic local work is
+`not-applicable` with cost `0`; a cache hit is always zero-cost and is reported separately from a
+skipped stage.
+
+## Run report
+
+`content/<episode>/observability/run-report.md` is generated from the canonical event and cache logs,
+plus reference-only checkpoint/state data. It includes run/episode/schema/checkpoint hashes, stage
+timeline, ArtifactRef revisions and hashes, retries/repairs, cache hit/miss, HumanDecision and approval
+epoch, usage/cost availability, failures/escalations, and the final observability status. It is
+rebuildable and is never a source of truth. Deterministic redaction removes credential-like values
+from free text and rejects forbidden body/secret fields or secrets in identity fields; redaction
+failure blocks approval.
+
 ## Trace completeness gate
 
 Before `story-approved` or `delivery-approved`, validation MUST confirm:
@@ -315,6 +350,17 @@ Existing manually run episodes do not have complete event logs. A compatibility 
 
 This allows the current production workflow to remain usable while making missing historical
 telemetry explicit rather than fabricating it.
+
+## M4-03 cache telemetry boundary
+
+Segment TTS and shot asset lookups may append a separate
+`content/<episode>/observability/cache-events.jsonl` stream using
+`cache-event-v1`. Each record carries the stage, logical item, SHA-256 cache
+key, lookup/hit/miss/invalidation event, bounded reason, and cost. Cache hits
+have zero token usage and cost. These records contain no narration, prompt, source body, binary
+payload, credential, or selected Artifact Registry pointer. They are
+optimization evidence only; M4-04 remains responsible for execution-log
+completeness and approval blocking.
 
 ## Privacy, security, and retention
 

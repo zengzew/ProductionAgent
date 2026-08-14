@@ -25,6 +25,84 @@ const resolveRepositoryPath = (repoRoot: string, repositoryPath: string): string
   return absolutePath;
 };
 
+export const artifactRefBytesMatch = (repoRoot: string, ref: ArtifactRef): boolean => {
+  try {
+    const bytes = fs.readFileSync(resolveRepositoryPath(repoRoot, ref.path));
+    return (
+      bytes.byteLength === ref.sizeBytes &&
+      crypto.createHash("sha256").update(bytes).digest("hex") === ref.sha256
+    );
+  } catch {
+    return false;
+  }
+};
+
+/** Fails closed when a persisted state reference no longer names its recorded bytes. */
+export const assertArtifactRefBytes = (repoRoot: string, ref: ArtifactRef): void => {
+  if (!artifactRefBytesMatch(repoRoot, ref)) {
+    throw new Error(`ARTIFACT_HASH_MISMATCH:${ref.artifactId}`);
+  }
+};
+
+export const assertArtifactRefsBytes = (repoRoot: string, refs: readonly ArtifactRef[]): void => {
+  for (const ref of refs) assertArtifactRefBytes(repoRoot, ref);
+};
+
+const artifactIndexPath = (repoRoot: string, episodeId: string): string =>
+  resolveRepositoryPath(repoRoot, `content/${episodeId}/artifact-index.json`);
+
+/** Returns false for missing, malformed, stale, superseded, or pointer-mismatched selections. */
+export const artifactRefSelectionMatches = (repoRoot: string, ref: ArtifactRef): boolean => {
+  try {
+    const index = readArtifactIndex(artifactIndexPath(repoRoot, ref.episodeId));
+    const pointer = index.selected[ref.artifactId];
+    return Boolean(
+      pointer &&
+      pointer.revision === ref.revision &&
+      pointer.sha256 === ref.sha256 &&
+      pointer.path === ref.path &&
+      index.artifacts.some(
+        (record) =>
+          record.state === "selected" &&
+          record.ref.artifactId === ref.artifactId &&
+          record.ref.revision === ref.revision &&
+          record.ref.sha256 === ref.sha256 &&
+          record.ref.path === ref.path,
+      ),
+    );
+  } catch {
+    return false;
+  }
+};
+
+/** Distinguishes an unregistered fixture ref from a registered ref that became stale. */
+export const artifactRefIsIndexed = (repoRoot: string, ref: ArtifactRef): boolean => {
+  const indexPath = artifactIndexPath(repoRoot, ref.episodeId);
+  if (!fs.existsSync(indexPath)) return false;
+  const index = readArtifactIndex(indexPath);
+  return index.artifacts.some(
+    (record) =>
+      record.ref.artifactId === ref.artifactId &&
+      record.ref.revision === ref.revision &&
+      record.ref.sha256 === ref.sha256,
+  );
+};
+
+/** Strict replay guard: an explicit ref must still be the selected, non-stale registry version. */
+export const assertArtifactRefsSelected = (
+  repoRoot: string,
+  refs: readonly ArtifactRef[],
+): void => {
+  for (const ref of refs) {
+    if (!fs.existsSync(artifactIndexPath(repoRoot, ref.episodeId))) {
+      throw new Error(`ARTIFACT_INDEX_MISSING:${ref.episodeId}`);
+    }
+    if (!artifactRefSelectionMatches(repoRoot, ref)) {
+      throw new Error(`ARTIFACT_STALE_OR_NOT_SELECTED:${ref.artifactId}`);
+    }
+  }
+};
+
 export const buildArtifactRef = (input: {
   repoRoot: string;
   artifactId: string;

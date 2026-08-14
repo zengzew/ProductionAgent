@@ -3,10 +3,23 @@ import type {AgentRunner} from "../agents/run-agent";
 import type {ArtifactIndex, ArtifactRef} from "../schemas/artifact";
 import {hashArtifactInputs, stableEventId, type ExecutionEventSink} from "../observability";
 import type {ExecutionEvent} from "../schemas/execution-event";
+import type {CacheEvent} from "../schemas/cache-event";
 import {assertReferenceOnlyState, type ProductionState} from "../state";
+import {
+  assertApprovalObservability,
+  createObservabilityCheckpoint,
+  createObservabilityControlEvent,
+  createStageStartedEvent,
+  createStageTerminalEvent,
+  ObservabilityDegradedError,
+  type ObservabilityEvent,
+  type ObservabilityEventSink,
+} from "../observability-gate";
 import {
   ensureArtifactIndexForRefs,
   applyHumanDirectEdits,
+  assertHumanDecisionArtifactRefsCurrent,
+  assertHumanDecisionReplay,
   persistHumanDecision,
   persistHumanIssue,
 } from "../human-decision";
@@ -163,6 +176,11 @@ const approvalSummaryFor = (
 const humanDecisionIsProcessed = (state: ProductionState, decisionId: string): boolean =>
   state.processedDecisionIds.includes(decisionId);
 
+const refsForDecisionCurrentBytes = (decision: HumanDecision): ArtifactRef[] =>
+  decision.decision === "direct-edit"
+    ? decision.edits.map((edit) => edit.after)
+    : decision.artifactRefs;
+
 const issueStateUpdate = (
   issueResult: ReturnType<typeof persistHumanIssue>,
 ): Pick<ProductionState, "issues" | "pendingHumanRoute"> => ({
@@ -182,6 +200,20 @@ const issueStateUpdate = (
   },
 });
 
+export type FoundationObservabilityOptions = {
+  /** Canonical M4-04 runs opt in; legacy M1-M3 graphs keep their existing event shape. */
+  eventSink: ObservabilityEventSink;
+  events?: () => readonly ExecutionEvent[];
+  eventLogPath?: string;
+  expectedEventLogSha256?: string;
+  cacheEvents?: () => readonly CacheEvent[];
+  cacheEventLogPath?: string;
+  expectedCacheEventLogSha256?: string;
+  repoRoot?: string;
+  checkpointVersion?: string;
+  enforce?: boolean;
+};
+
 export const createFoundationGraph = (input: {
   runAgent: AgentRunner;
   checkpointer: LocalCheckpointer;
@@ -194,6 +226,7 @@ export const createFoundationGraph = (input: {
     artifactIndex?: ArtifactIndex;
     now?: () => string;
   };
+  observability?: FoundationObservabilityOptions;
   production?: FoundationNode;
 }) => {
   const now = input.now ?? (() => new Date().toISOString());
@@ -202,6 +235,83 @@ export const createFoundationGraph = (input: {
   const decisionNow = input.humanDecision?.now ?? now;
 
   const emit = (event: ExecutionEvent): void => input.eventSink?.(event);
+
+  const observabilitySummary = (events: readonly ObservabilityEvent[]): ProductionState["events"] =>
+    events.map((event) => ({
+      eventId: event.eventId,
+      executionId: event.executionId,
+      status: event.status,
+    }));
+
+  const assertApprovalObservabilityIfEnabled = (state: ProductionState): void => {
+    if (!input.observability || input.observability.enforce === false) return;
+    try {
+      assertApprovalObservability({
+        episodeId: state.episodeId,
+        runId: state.runId,
+        state,
+        events: input.observability.events?.(),
+        eventLogPath: input.observability.eventLogPath,
+        expectedEventLogSha256: input.observability.expectedEventLogSha256,
+        cacheEvents: input.observability.cacheEvents?.(),
+        cacheEventLogPath: input.observability.cacheEventLogPath,
+        expectedCacheEventLogSha256: input.observability.expectedCacheEventLogSha256,
+        repoRoot: input.observability.repoRoot ?? formalRepoRoot ?? input.repoRoot,
+      });
+    } catch (error) {
+      if (error instanceof ObservabilityDegradedError) {
+        const occurredAt = now();
+        const inputArtifacts = Object.values(state.artifacts);
+        const reason = error.result.reasons.join("; ").slice(0, 490);
+        for (const eventType of ["observability.degraded", "approval.blocked"] as const) {
+          input.observability.eventSink(
+            createObservabilityControlEvent({
+              state,
+              eventType,
+              stage: `approval:${state.phase}`,
+              executionId: `${state.runId}:approval:${state.phase}:${state.approvalEpoch}:${eventType}`,
+              inputArtifacts,
+              occurredAt,
+              decisionCode:
+                eventType === "observability.degraded"
+                  ? "OBSERVABILITY_DEGRADED"
+                  : "APPROVAL_BLOCKED",
+              decisionSummary: reason || "observability completeness gate blocked approval",
+            }),
+          );
+        }
+      }
+      throw error;
+    }
+  };
+
+  const recordHumanDecisionEvent = (
+    inputState: ProductionState,
+    decision: HumanDecision,
+  ): ObservabilityEvent | undefined => {
+    if (!input.observability) return undefined;
+    const event = createObservabilityControlEvent({
+      state: inputState,
+      eventType: "human-decision.recorded",
+      stage: `human-decision:${decision.gate}`,
+      executionId: `${inputState.runId}:human-decision:${decision.decisionId}`,
+      attempt: 1,
+      decisionId: decision.decisionId,
+      checkpoint: createObservabilityCheckpoint({
+        state: inputState,
+        checkpointId: `${inputState.runId}:checkpoint:human-decision:${decision.decisionId}`,
+        checkpointVersion: input.observability.checkpointVersion,
+        committedAt: decision.timestamp,
+      }),
+      inputArtifacts: decision.artifactRefs,
+      occurredAt: decision.timestamp,
+      executionKind: "human-decision",
+      decisionCode: `HUMAN_${decision.gate.toUpperCase().replaceAll("-", "_")}_${decision.decision.toUpperCase().replaceAll("-", "_")}`,
+      decisionSummary: decision.reason,
+    });
+    input.observability.eventSink(event);
+    return event;
+  };
 
   const initialize = (state: ProductionState) => {
     assertReferenceOnlyState(state);
@@ -225,6 +335,211 @@ export const createFoundationGraph = (input: {
     const inputArtifacts = Object.values(state.artifacts);
     const executionId = `${state.runId}:${agentName}:${attempt}`;
     const startedAt = now();
+    if (input.observability) {
+      const inputSetHash = hashArtifactInputs(inputArtifacts);
+      const startedEvent = createStageStartedEvent({
+        state,
+        stage: `agent:${agentName}`,
+        executionId,
+        attempt,
+        inputArtifacts,
+        checkpoint: createObservabilityCheckpoint({
+          state,
+          checkpointId: `${state.runId}:checkpoint:agent:${agentName}:${attempt}:start`,
+          checkpointVersion: input.observability.checkpointVersion,
+          committedAt: startedAt,
+        }),
+        occurredAt: startedAt,
+        executionKind: "deterministic-tool",
+        agentName,
+        inputSetHash,
+      });
+      input.observability.eventSink(startedEvent);
+      const request: Parameters<AgentRunner>[0] = {
+        contractVersion: "agent-execution-v1",
+        executionId,
+        episodeId: state.episodeId,
+        agentName,
+        attempt,
+        revisionRound: state.round,
+        promptRef,
+        inputArtifacts,
+        expectedOutputs: [],
+        upstreamGateRefs: [],
+        revisionBudgetRemaining: 0,
+      };
+      let agentError: unknown;
+      let result: Awaited<ReturnType<AgentRunner>> | undefined;
+      try {
+        result = await input.runAgent(request);
+      } catch (error) {
+        agentError = error;
+      }
+      if (agentError !== undefined || !result || result.status !== "SUCCEEDED") {
+        const failureCode =
+          result?.failure?.code ?? (result ? `AGENT_${result.status}` : "AGENT_RUNNER_THROWN");
+        const failureMessage =
+          result?.failure?.detail ??
+          (agentError instanceof Error
+            ? agentError.message
+            : `foundation agent ${agentName} failed`);
+        const endedAt = now();
+        const failureCheckpoint = createObservabilityCheckpoint({
+          state,
+          checkpointId: `${state.runId}:checkpoint:agent:${agentName}:${attempt}:failed`,
+          checkpointVersion: input.observability.checkpointVersion,
+          committedAt: endedAt,
+        });
+        const checkpointEvent = createObservabilityControlEvent({
+          state,
+          eventType: "checkpoint.committed",
+          stage: `agent:${agentName}`,
+          executionId,
+          attempt,
+          checkpoint: failureCheckpoint,
+          inputArtifacts,
+          outputArtifacts: [],
+          occurredAt: endedAt,
+          executionKind: "deterministic-tool",
+          agentName,
+          decisionCode: "CHECKPOINT_COMMITTED",
+          decisionSummary: `failed checkpoint committed for agent:${agentName}`,
+        });
+        input.observability.eventSink(checkpointEvent);
+        input.observability.eventSink(
+          createStageTerminalEvent({
+            state,
+            stage: `agent:${agentName}`,
+            executionId,
+            attempt,
+            status: "failed",
+            inputArtifacts,
+            outputArtifacts: [],
+            checkpoint: failureCheckpoint,
+            occurredAt: endedAt,
+            startedAt,
+            executionKind: "deterministic-tool",
+            agentName,
+            inputSetHash,
+            decision: result
+              ? {
+                  code: result.decision.code,
+                  summary: result.decision.summary,
+                  rubricVersion: null,
+                  score: null,
+                  verdict: "REJECT",
+                  issueIds: [],
+                  route: null,
+                  criticResultRef: result.criticResultRef ?? null,
+                }
+              : null,
+            error: {
+              code: failureCode,
+              class: "tooling",
+              retryable: result?.failure?.retryable ?? false,
+              message: failureMessage,
+              providerRequestId: null,
+              retryAfterMs: null,
+              invalidOutputHash: null,
+            },
+          }),
+        );
+        if (agentError !== undefined) throw agentError;
+        throw new Error(`foundation stub returned ${result?.status ?? "UNKNOWN"} for ${agentName}`);
+      }
+      const endedAt = now();
+      const canonicalEventSummaries = [
+        {
+          eventId: stableEventId(executionId, "execution.started"),
+          executionId,
+          status: "STARTED",
+        },
+        {
+          eventId: stableEventId(executionId, "checkpoint.committed"),
+          executionId,
+          status: "SUCCEEDED",
+        },
+        {
+          eventId: stableEventId(executionId, "execution.completed"),
+          executionId,
+          status: "SUCCEEDED",
+        },
+      ];
+      const committedState = {
+        ...state,
+        phase: phaseByAgent[agentName],
+        completedAgents: [...new Set([...state.completedAgents, agentName])],
+        attempts: {...state.attempts, [agentName]: attempt},
+        decisions: {...state.decisions, [agentName]: result.decision},
+        artifacts: {
+          ...state.artifacts,
+          ...Object.fromEntries(
+            result.outputArtifacts.map((artifact) => [artifact.artifactId, artifact]),
+          ),
+        },
+        events: [...state.events, ...canonicalEventSummaries],
+        ...(routedAgent ? {pendingHumanRoute: null} : {}),
+      } as ProductionState;
+      const terminalCheckpoint = createObservabilityCheckpoint({
+        state: committedState,
+        checkpointId: `${state.runId}:checkpoint:agent:${agentName}:${attempt}`,
+        checkpointVersion: input.observability.checkpointVersion,
+        committedAt: endedAt,
+      });
+      const checkpointEvent = createObservabilityControlEvent({
+        state: committedState,
+        eventType: "checkpoint.committed",
+        stage: `agent:${agentName}`,
+        executionId,
+        attempt,
+        checkpoint: terminalCheckpoint,
+        inputArtifacts,
+        outputArtifacts: result.outputArtifacts,
+        occurredAt: endedAt,
+        executionKind: "deterministic-tool",
+        agentName,
+        decisionCode: "CHECKPOINT_COMMITTED",
+        decisionSummary: `checkpoint committed for agent:${agentName}`,
+      });
+      input.observability.eventSink(checkpointEvent);
+      const terminalEvent = createStageTerminalEvent({
+        state: committedState,
+        stage: `agent:${agentName}`,
+        executionId,
+        attempt,
+        status: "succeeded",
+        inputArtifacts,
+        outputArtifacts: result.outputArtifacts,
+        checkpoint: terminalCheckpoint,
+        occurredAt: endedAt,
+        startedAt,
+        executionKind: "deterministic-tool",
+        agentName,
+        inputSetHash,
+        decision: {
+          code: result.decision.code,
+          summary: result.decision.summary,
+          rubricVersion: null,
+          score: null,
+          verdict: "PASS",
+          issueIds: [],
+          route: null,
+          criticResultRef: result.criticResultRef ?? null,
+        },
+      });
+      input.observability.eventSink(terminalEvent);
+      return {
+        phase: phaseByAgent[agentName],
+        completedAgents: [agentName],
+        attempts: {[agentName]: attempt},
+        decisions: {[agentName]: result.decision},
+        events: observabilitySummary([startedEvent, checkpointEvent, terminalEvent]),
+        artifacts: Object.fromEntries(
+          result.outputArtifacts.map((artifact) => [artifact.artifactId, artifact]),
+        ),
+        ...(routedAgent ? {pendingHumanRoute: null} : {}),
+      };
+    }
     const baseEvent = {
       schemaVersion: "agent-execution-event-v1" as const,
       episodeId: state.episodeId,
@@ -342,7 +657,18 @@ export const createFoundationGraph = (input: {
       state,
       artifactRefs,
     });
-    if (humanDecisionIsProcessed(state, decision.decisionId)) return {};
+    assertHumanDecisionArtifactRefsCurrent({
+      repoRoot: formalRepoRoot!,
+      refs: refsForDecisionCurrentBytes(decision),
+    });
+    if (humanDecisionIsProcessed(state, decision.decisionId)) {
+      const decisionRef = state.approvals[decision.decisionId]?.decisionRef;
+      if (!decisionRef) throw new Error("HUMAN_DECISION_REPLAY_REFERENCE_MISSING");
+      assertHumanDecisionReplay({repoRoot: formalRepoRoot!, decision, decisionRef});
+      return {};
+    }
+    if (decision.decision === "approve") assertApprovalObservabilityIfEnabled(state);
+    const decisionEvent = recordHumanDecisionEvent(state, decision);
     const seededIndex = ensureArtifactIndexForRefs({
       repoRoot: formalRepoRoot!,
       episodeId: state.episodeId,
@@ -367,6 +693,7 @@ export const createFoundationGraph = (input: {
         },
       },
       processedDecisionIds: [decision.decisionId],
+      ...(decisionEvent ? {events: observabilitySummary([decisionEvent])} : {}),
     };
     if (decision.decision === "reject") {
       const issue = persistHumanIssue({
@@ -474,7 +801,18 @@ export const createFoundationGraph = (input: {
       state,
       artifactRefs,
     });
-    if (humanDecisionIsProcessed(state, decision.decisionId)) return {};
+    assertHumanDecisionArtifactRefsCurrent({
+      repoRoot: formalRepoRoot!,
+      refs: refsForDecisionCurrentBytes(decision),
+    });
+    if (humanDecisionIsProcessed(state, decision.decisionId)) {
+      const decisionRef = state.approvals[decision.decisionId]?.decisionRef;
+      if (!decisionRef) throw new Error("HUMAN_DECISION_REPLAY_REFERENCE_MISSING");
+      assertHumanDecisionReplay({repoRoot: formalRepoRoot!, decision, decisionRef});
+      return {};
+    }
+    if (decision.decision === "approve") assertApprovalObservabilityIfEnabled(state);
+    const decisionEvent = recordHumanDecisionEvent(state, decision);
     const seededIndex = ensureArtifactIndexForRefs({
       repoRoot: formalRepoRoot!,
       episodeId: state.episodeId,
@@ -499,6 +837,7 @@ export const createFoundationGraph = (input: {
         },
       },
       processedDecisionIds: [decision.decisionId],
+      ...(decisionEvent ? {events: observabilitySummary([decisionEvent])} : {}),
     };
     if (decision.decision === "reject") {
       const issue = persistHumanIssue({

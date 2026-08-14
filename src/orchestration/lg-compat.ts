@@ -43,6 +43,7 @@ import {
   type CheckpointMetadataWithSchema,
 } from "./schemas/migrations";
 import {stableJsonEqual} from "./stable-json";
+import {assertCheckpointControlHash, productionStateControlHash} from "./checkpoint-integrity";
 import {
   DEFAULT_PRODUCTION_REPAIR_ROUNDS,
   productionStageNames,
@@ -227,6 +228,10 @@ export class VersionedCheckpointSaver extends BaseCheckpointSaver {
       stateResult.state as unknown as StateChannelValues,
     );
     assertReferenceOnlyState(stateResult.state);
+    assertCheckpointControlHash({
+      state: stateResult.state,
+      expectedHash: metadataResult.metadata.productionStateSha256,
+    });
     return {
       ...tuple,
       checkpoint: {
@@ -256,6 +261,7 @@ export class VersionedCheckpointSaver extends BaseCheckpointSaver {
       stateResult.state as unknown as StateChannelValues,
     );
     assertReferenceOnlyState(stateResult.state);
+    const controlHash = productionStateControlHash(stateResult.state);
     const migratedValues = {
       ...values,
       ...stateResult.state,
@@ -275,7 +281,10 @@ export class VersionedCheckpointSaver extends BaseCheckpointSaver {
         ...checkpoint,
         channel_values: migratedValues,
       },
-      metadata: checkpointMetadataFor(metadataResult.metadata),
+      metadata: checkpointMetadataFor({
+        ...metadataResult.metadata,
+        productionStateSha256: controlHash,
+      }),
       newVersions: versions,
     };
   }

@@ -265,6 +265,30 @@ export const readHumanDecision = (repoRoot: string, decisionRef: ArtifactRef): H
     humanDecisionSchema.parse(value),
   );
 
+/** Verifies that a replayed decisionId is the same immutable decision, not merely the same key. */
+export const assertHumanDecisionReplay = (input: {
+  repoRoot: string;
+  decision: HumanDecision;
+  decisionRef: ArtifactRef;
+}): HumanDecision => {
+  const decision = normalizedDecision(input.decision);
+  const persisted = readHumanDecision(input.repoRoot, artifactRefSchema.parse(input.decisionRef));
+  if (!stableJsonEqual(persisted, decision)) {
+    throw new Error(`HUMAN_DECISION_REPLAY_CONFLICT:${decision.decisionId}`);
+  }
+  return persisted;
+};
+
+/** Approval gates must verify the current bytes before accepting any reference-only decision. */
+export const assertHumanDecisionArtifactRefsCurrent = (input: {
+  repoRoot: string;
+  refs: readonly ArtifactRef[];
+}): void => {
+  for (const ref of input.refs.map((value) => artifactRefSchema.parse(value))) {
+    assertCurrentBytes(input.repoRoot, ref, "HUMAN_DECISION_ARTIFACT_HASH_MISMATCH");
+  }
+};
+
 const locatorOverlaps = (left: ArtifactLocator, right: ArtifactLocator): boolean => {
   if (left.kind === "whole-artifact" || right.kind === "whole-artifact") return true;
   if (left.kind !== right.kind) return false;

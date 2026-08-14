@@ -168,3 +168,35 @@ if (result.phase !== "production_ready") {
 
 The default `ORCHESTRATOR=manual` path and all existing `pnpm` production
 commands remain unchanged. The adapter layer is opt-in from orchestration code.
+
+## WP-M4-03 fine-grained production caches
+
+When the deterministic adapter is using its real tool runner, it enables the
+episode-local optimization cache at `.orchestration/cache/<episode>/`. TTS
+entries are keyed by normalized narration plus the effective provider/model,
+voice, speed, pitch, public TTS configuration hash, schema/version, and
+implementation/dependency hashes. Each entry contains the final normalized
+audio bytes, their SHA-256, and timestamp metadata. A changed segment misses
+only its own key; a valid unchanged entry is copied into the isolated stage
+workspace without calling the provider.
+
+Capture entries use a key made from the complete screenshot request, source and
+provenance, capture contract/browser profile, tool version, and dependency
+hashes. The mutable output filename and episode-selected registry pointer are
+not part of the identity. A changed request misses only that request.
+
+Every lookup verifies the entry schema and the actual payload size/SHA-256.
+Missing, corrupt, or incompatible entries are misses and are safely replaced
+by an atomic entry-directory write. Cache files are never registered as
+artifacts: the deterministic adapter still publishes canonical outputs through
+the Artifact Registry, writes stage receipts, and verifies aggregate content,
+timeline, and delivery contracts. `validate:content`, `timeline`, and
+`validate:delivery` are rerun when fine-grained caching is active, even when
+all item-level entries hit.
+
+Best-effort structured cache events are appended to
+`content/<episode>/observability/cache-events.jsonl`. They include the stage,
+logical item, cache key, hit/miss result, reason, and a zero cost for hits.
+Cache event usage counters and cost are all zero on a hit.
+This is cache telemetry only; the M4-04 observability completeness gate is not
+implemented here.

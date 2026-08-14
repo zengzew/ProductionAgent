@@ -57,6 +57,7 @@ export type DeterministicToolRunInput = {
   args: string[];
   cwd: string;
   episodeId: string;
+  environment?: Record<string, string>;
 };
 
 export type DeterministicToolRunResult = {
@@ -85,6 +86,9 @@ export type DeterministicToolAdapterOptions = {
   createWorkspace?: ProductionWorkspaceFactory;
   createdAt?: () => string;
   fixedStage?: ProductionStageName;
+  /** Fine-grained caches are enabled for the real deterministic runner by default. */
+  enableFineGrainedCache?: boolean;
+  cacheRoot?: string;
 };
 
 export type ProductionStageAdapter = (
@@ -549,7 +553,11 @@ const defaultRunTool: DeterministicToolRunner = (input) => {
   const args = [input.scriptPath, ...input.args, "--episode", input.episodeId];
   const result = spawnSync(executable, args, {
     cwd: input.cwd,
-    env: {...process.env, EPISODE_ID: input.episodeId},
+    env: {
+      ...process.env,
+      EPISODE_ID: input.episodeId,
+      ...(input.environment ?? {}),
+    },
     encoding: "utf8",
   });
   if (result.error) throw result.error;
@@ -639,6 +647,14 @@ const cacheIsValid = (input: {
     })
   );
 };
+
+const aggregateValidationStages = new Set<ProductionStageName>([
+  "validate:content",
+  "capture",
+  "tts",
+  "timeline",
+  "validate:delivery",
+]);
 
 type Promotion = {
   commit: () => void;
@@ -1116,6 +1132,8 @@ export const createDeterministicToolAdapter = (
   const runTool = options.runTool ?? defaultRunTool;
   const createWorkspace = options.createWorkspace ?? createDefaultWorkspace;
   const createdAt = options.createdAt ?? (() => new Date().toISOString());
+  const fineGrainedCacheEnabled = options.enableFineGrainedCache ?? options.runTool === undefined;
+  const cacheRoot = options.cacheRoot ?? path.join(options.repoRoot, ".orchestration", "cache");
 
   return async (rawRequest) => {
     const request = productionStageRequestSchema.parse(rawRequest);
@@ -1162,6 +1180,7 @@ export const createDeterministicToolAdapter = (
       calculatedInputSetHash = inputSetHash(request.stage, normalizedInputs);
       if (
         !request.forceRerun &&
+        (!fineGrainedCacheEnabled || !aggregateValidationStages.has(request.stage)) &&
         request.cached &&
         cacheIsValid({
           repoRoot: options.repoRoot,
@@ -1198,6 +1217,18 @@ export const createDeterministicToolAdapter = (
             args: [...definition.args(request.episodeId)],
             cwd: workspace.root,
             episodeId: request.episodeId,
+            environment: fineGrainedCacheEnabled
+              ? {
+                  PRODUCTION_CACHE_DIR: cacheRoot,
+                  PRODUCTION_CACHE_EVENT_PATH: resolveRepositoryPath(
+                    options.repoRoot,
+                    `content/${request.episodeId}/observability/cache-events.jsonl`,
+                  ),
+                  PRODUCTION_CACHE_TRACE_ID:
+                    request.executionId.split(":production:")[0] ?? request.executionId,
+                  PRODUCTION_CACHE_EXECUTION_ID: request.executionId,
+                }
+              : undefined,
           });
         } catch (error) {
           if (request.stage === "validate:delivery") {

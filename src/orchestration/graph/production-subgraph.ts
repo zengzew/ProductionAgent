@@ -19,6 +19,7 @@ import {
   assertProductionStart,
   createProductionStageNode,
   productionStageInputArtifacts,
+  type ProductionObservabilityOptions,
 } from "../production";
 import {
   DEFAULT_PRODUCTION_REPAIR_ROUNDS,
@@ -29,7 +30,13 @@ import {
   type ProductionStageName,
 } from "../schemas/production";
 import type {ArtifactRef} from "../schemas/artifact";
-import {markStaleTransitively, readArtifactIndex} from "../artifact-registry";
+import {
+  artifactRefIsIndexed,
+  artifactRefSelectionMatches,
+  markStaleTransitively,
+  readArtifactIndex,
+} from "../artifact-registry";
+import type {BoundedRetryPolicy, FailureClock} from "../failure-replay";
 import {
   selectPrimaryRoute,
   type PrimaryRoute,
@@ -62,6 +69,11 @@ import {
   type UnfreezeRequest,
 } from "../schemas/unfreeze";
 import type {ArtifactIndex} from "../schemas/artifact";
+import {
+  createObservabilityCheckpoint,
+  createObservabilityControlEvent,
+  type ObservabilityEvent,
+} from "../observability-gate";
 
 export type ProductionSubgraphOptions = {
   repoRoot: string;
@@ -70,6 +82,9 @@ export type ProductionSubgraphOptions = {
   adapterOptions?: Omit<DeterministicToolAdapterOptions, "repoRoot">;
   maxRepairRounds?: number;
   requireFormalApproval?: boolean;
+  retryPolicy?: Partial<BoundedRetryPolicy>;
+  retryClock?: FailureClock;
+  observability?: ProductionObservabilityOptions;
   unfreeze?: ProductionUnfreezeOptions;
 };
 
@@ -156,7 +171,10 @@ const checkpointIsReusable = (
   return (
     currentRefMatches(repoRoot, state.contentManifestRef!) &&
     inputs.every((ref) => currentRefMatches(repoRoot, ref)) &&
-    checkpoint.outputArtifacts.every((ref) => currentRefMatches(repoRoot, ref))
+    checkpoint.outputArtifacts.every((ref) => currentRefMatches(repoRoot, ref)) &&
+    [...inputs, ...checkpoint.outputArtifacts].every(
+      (ref) => !artifactRefIsIndexed(repoRoot, ref) || artifactRefSelectionMatches(repoRoot, ref),
+    )
   );
 };
 
@@ -530,6 +548,50 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
   );
   const maxRepairRounds = input.maxRepairRounds ?? DEFAULT_PRODUCTION_REPAIR_ROUNDS;
 
+  const emitControl = (control: {
+    state: ProductionState;
+    eventType: Parameters<typeof createObservabilityControlEvent>[0]["eventType"];
+    stage: string;
+    executionId: string;
+    attempt?: number;
+    decisionId?: string;
+    inputArtifacts?: readonly ArtifactRef[];
+    decisionCode?: string;
+    decisionSummary?: string;
+  }): ObservabilityEvent | undefined => {
+    if (!input.observability) return undefined;
+    const occurredAt = input.observability.now?.() ?? new Date().toISOString();
+    const event = createObservabilityControlEvent({
+      state: control.state,
+      eventType: control.eventType,
+      stage: control.stage,
+      executionId: control.executionId,
+      attempt: control.attempt ?? 1,
+      decisionId: control.decisionId,
+      inputArtifacts:
+        control.inputArtifacts ??
+        (control.state.contentManifestRef ? [control.state.contentManifestRef] : []),
+      checkpoint: createObservabilityCheckpoint({
+        state: control.state,
+        checkpointId: `${control.state.runId}:checkpoint:control:${control.eventType}:${control.executionId}`,
+        checkpointVersion: input.observability.checkpointVersion,
+        committedAt: occurredAt,
+      }),
+      occurredAt,
+      decisionCode: control.decisionCode,
+      decisionSummary: control.decisionSummary,
+    });
+    input.observability.eventSink(event);
+    return event;
+  };
+
+  const eventSummary = (event: ObservabilityEvent | undefined): ProductionState["events"] =>
+    event ? [{eventId: event.eventId, executionId: event.executionId, status: event.status}] : [];
+
+  const eventSummaries = (
+    events: readonly (ObservabilityEvent | undefined)[],
+  ): ProductionState["events"] => events.flatMap((event) => eventSummary(event));
+
   const initialize: FoundationNode = (state) => {
     assertReferenceOnlyState(state);
     assertProductionStart(state, {requireFormalApproval: input.requireFormalApproval});
@@ -596,6 +658,9 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
             state.productionRepair.status === "unfreeze-approved" ||
             state.productionRepair.status === "unfreeze-complete") &&
           state.productionRepair.forceRerunStage === stage,
+        retryPolicy: input.retryPolicy,
+        retryClock: input.retryClock,
+        observability: input.observability,
       }),
     ]),
   ) as Record<ProductionStageName, FoundationNode>;
@@ -661,7 +726,20 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
         const authorizedOwners = [
           ...new Set(created.request.authorizedEdits.map((authorization) => authorization.owner)),
         ].sort();
+        const unfreezeEvent = emitControl({
+          state,
+          eventType: "unfreeze.requested",
+          stage: "unfreeze",
+          executionId: `${state.runId}:unfreeze:${created.request.requestId}`,
+          attempt: state.budget.unfreezeUsed + 1,
+          inputArtifacts: [state.contentManifestRef, created.requestRef].filter(
+            (ref): ref is ArtifactRef => Boolean(ref),
+          ),
+          decisionCode: "UNFREEZE_REQUESTED",
+          decisionSummary: "unfreeze request requires explicit human approval",
+        });
         return {
+          events: eventSummary(unfreezeEvent),
           phase: "unfreeze_review" as const,
           artifacts: {[created.requestRef.artifactId]: created.requestRef},
           decisions: {
@@ -724,6 +802,16 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
     const changedIds = issues.map((issue) => issue.affectedArtifact.artifactId);
     const authorizedArtifactIds = authorizedArtifactsForRepair(state, route.restartAt, changedIds);
     const staleArtifactIds = predictedStaleArtifacts(input.repoRoot, state.episodeId, changedIds);
+    const repairEvent = emitControl({
+      state,
+      eventType: "repair.started",
+      stage: route.restartAt,
+      executionId: `${state.runId}:repair:${repair.round + 1}:${route.restartAt}`,
+      attempt: repair.round + 1,
+      inputArtifacts: productionStageInputArtifacts(state, route.restartAt),
+      decisionCode: "PRODUCTION_REPAIR_STARTED",
+      decisionSummary: `${route.ownerAgent}/${route.routeTarget} reruns from ${route.restartAt}`,
+    });
     const nextRepair = productionRepairStateSchema.parse({
       status: "repairing",
       round: repair.round + 1,
@@ -741,6 +829,7 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
       },
     });
     return {
+      events: eventSummary(repairEvent),
       phase: "production_revision",
       productionRepair: nextRepair,
       productionIssues: summaries,
@@ -966,6 +1055,28 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
         formalDecision?.decision === "approve" || formalDecision?.decision === "direct-edit"
           ? state.approvalEpoch + 1
           : state.approvalEpoch;
+      const humanDecisionEvent = formalDecision
+        ? emitControl({
+            state,
+            eventType: "human-decision.recorded",
+            stage: "unfreeze-approval",
+            executionId: `${state.runId}:human-decision:${formalDecision.decisionId}`,
+            decisionId: formalDecision.decisionId,
+            inputArtifacts: unfreezeAuditRefs(request, requestRef),
+            decisionCode: `HUMAN_UNFREEZE_${formalDecision.decision.toUpperCase().replaceAll("-", "_")}`,
+            decisionSummary: formalDecision.reason,
+          })
+        : undefined;
+      const unfreezeDecisionEvent = emitControl({
+        state,
+        eventType: resume.decision === "reject" ? "unfreeze.rejected" : "unfreeze.approved",
+        stage: "unfreeze",
+        executionId: `${state.runId}:unfreeze:${request.requestId}:${resume.decision}`,
+        attempt: state.budget.unfreezeUsed + 1,
+        inputArtifacts: unfreezeAuditRefs(request, requestRef),
+        decisionCode: resume.decision === "reject" ? "UNFREEZE_REJECTED" : "UNFREEZE_APPROVED",
+        decisionSummary: resume.reason,
+      });
       const base = {
         artifacts: {
           [decisionRef.artifactId]: decisionRef,
@@ -1006,6 +1117,9 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
           },
         },
         ...(formalDecision ? {processedDecisionIds: [formalDecision.decisionId]} : {}),
+        ...(humanDecisionEvent || unfreezeDecisionEvent
+          ? {events: eventSummaries([humanDecisionEvent, unfreezeDecisionEvent])}
+          : {}),
       };
       if (resume.decision === "reject") {
         if (formalDecision && formalPersisted) {
@@ -1263,7 +1377,18 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
       .filter((issue) => issue.status === "open")
       .map((issue) => issue.issueId)
       .sort();
+    const repairEvent = emitControl({
+      state,
+      eventType: "repair.completed",
+      stage: "production",
+      executionId: `${state.runId}:repair:${state.productionRepair.round}:completed`,
+      attempt: Math.max(1, state.productionRepair.round),
+      inputArtifacts: state.contentManifestRef ? [state.contentManifestRef] : [],
+      decisionCode: "PRODUCTION_REPAIR_COMPLETED",
+      decisionSummary: "production and delivery validation completed",
+    });
     return {
+      events: eventSummary(repairEvent),
       phase: "production_ready",
       gates: {production: "pass", delivery: "pass"},
       productionIssues: Object.fromEntries(

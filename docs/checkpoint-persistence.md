@@ -75,5 +75,7 @@ saver instance, and backend configuration. The PostgreSQL factory is exercised
 without requiring a live database; live database provisioning and deployment are
 outside WP-M4-01.
 
-WP-M4-02 failure/replay, M4-03 cache, M4-04 observability, M4-05 legacy backfill,
-and M4-06 concurrency are intentionally not implemented here.
+WP-M4-02 is documented and tested separately in
+[`m4-02-failure-replay.md`](m4-02-failure-replay.md). M4-03 cache, M4-04
+observability completeness, M4-05 legacy backfill, and M4-06 concurrency remain
+outside this checkpoint-persistence work package.

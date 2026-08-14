@@ -11,6 +11,8 @@ import {
   type CheckpointBackend,
   type ResolvedCheckpointConfig,
 } from "./config/checkpoint";
+import {assertCheckpointControlHash} from "./checkpoint-integrity";
+import {assertReferenceOnlyState, productionStateFieldNames, type ProductionState} from "./state";
 
 export const DEFAULT_CHECKPOINT_PATH = ".orchestration/checkpoints.sqlite";
 
@@ -88,3 +90,32 @@ export const checkpointConfig = (episodeId: string) => ({
 // The concrete Command generic includes graph node names and must not leak past
 // lg-compat. `never` keeps callers framework-neutral while preserving the runtime value.
 export const resumeCheckpoint = (value: unknown): never => resumeAfterStubApproval(value) as never;
+
+export type VerifiedCheckpoint = {
+  tuple: NonNullable<Awaited<ReturnType<LocalCheckpointer["getTuple"]>>>;
+  state: ProductionState;
+};
+
+/**
+ * Strict replay entry point. Legacy M1/M3 callers may continue to read a checkpoint without a
+ * control hash, but a replay must prove that the persisted state is the state being resumed.
+ */
+export const restoreVerifiedCheckpoint = async (input: {
+  checkpointer: LocalCheckpointer;
+  config: Parameters<LocalCheckpointer["getTuple"]>[0];
+}): Promise<VerifiedCheckpoint> => {
+  const tuple = await input.checkpointer.getTuple(input.config);
+  if (!tuple) throw new Error("REPLAY_CHECKPOINT_MISSING");
+  const values = tuple.checkpoint.channel_values as Record<string, unknown>;
+  const state = assertReferenceOnlyState(
+    Object.fromEntries(
+      Object.entries(values).filter(([key]) => productionStateFieldNames.includes(key)),
+    ),
+  );
+  assertCheckpointControlHash({
+    state,
+    expectedHash: (tuple.metadata as Record<string, unknown>).productionStateSha256,
+    requireHash: true,
+  });
+  return {tuple, state};
+};

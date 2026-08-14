@@ -3,7 +3,11 @@ import path from "node:path";
 import {chromium} from "playwright";
 import {captureConfiguredAssets} from "../src/lib/capture-assets";
 import {episodeConfigSchema} from "../src/schemas/episode";
-import {ensureDir, episodeRoot, publicEpisodeRoot, readJson} from "../src/lib/project";
+import {
+  createFineGrainedCacheFromEnvironment,
+  hashRepositoryFiles,
+} from "../src/lib/fine-grained-cache";
+import {ensureDir, episodeRoot, publicEpisodeRoot, readJson, repoRoot} from "../src/lib/project";
 import {installCliErrorHandlers} from "./lib/validation";
 
 installCliErrorHandlers();
@@ -19,6 +23,10 @@ ensureDir(outputDir);
 const episodeConfig = episodeConfigSchema.parse(
   readJson<unknown>(path.join(episodeRoot, "episode.config.json")),
 );
+const cache = createFineGrainedCacheFromEnvironment({
+  episodeId: episodeConfig.id,
+  stage: "capture",
+});
 
 const browser = await chromium.launch({
   executablePath: chromeExecutable,
@@ -32,7 +40,21 @@ const context = await browser.newContext({
 });
 
 try {
-  await captureConfiguredAssets(episodeConfig.captureAssets, outputDir, () => context.newPage());
+  await captureConfiguredAssets(
+    episodeConfig.captureAssets,
+    outputDir,
+    () => context.newPage(),
+    undefined,
+    {
+      cache,
+      dependencyHashes: hashRepositoryFiles(repoRoot, [
+        "config/production-contract.json",
+        "src/lib/capture-assets.ts",
+        "scripts/capture-assets.ts",
+      ]),
+      toolVersion: "capture-assets-v1",
+    },
+  );
 } finally {
   await context.close();
   await browser.close();

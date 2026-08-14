@@ -7,6 +7,7 @@ import {
 import {
   productionStageCheckpointSchema,
   productionStageRequestSchema,
+  productionStageResultSchema,
   type ProductionStageCheckpoint,
   type ProductionStageName,
   type ProductionStageRequest,
@@ -14,11 +15,32 @@ import {
 } from "./schemas/production";
 import {
   createDeterministicToolAdapter,
+  productionStageInputSetHash,
   productionStageOrder,
   type DeterministicToolAdapterOptions,
   type ProductionStageAdapter,
 } from "./agents/adapters/deterministic-tool";
+import {assertArtifactRefsBytes} from "./artifact-registry";
+import {stableEventId} from "./observability";
+import {
+  defaultBoundedRetryPolicy,
+  resolveBoundedRetryPolicy,
+  retryDelayMilliseconds,
+  type BoundedRetryPolicy,
+  type FailureClock,
+} from "./failure-replay";
 import type {ArtifactRef} from "./schemas/artifact";
+import type {CacheEvent} from "./schemas/cache-event";
+import {
+  createCheckpointCommittedEvent,
+  createObservabilityCheckpoint,
+  createStageStartedEvent,
+  createStageTerminalEvent,
+  createObservabilityControlEvent,
+  writeRunReport,
+  type ObservabilityEvent,
+  type ObservabilityEventSink,
+} from "./observability-gate";
 
 const boundedSummary = (value: string, maxBytes = 500): string => {
   if (Buffer.byteLength(value, "utf8") <= maxBytes) return value;
@@ -33,6 +55,26 @@ export type ProductionPipelineInput = {
   adapter?: ProductionStageAdapter;
   adapterOptions?: Omit<DeterministicToolAdapterOptions, "repoRoot">;
   requireFormalApproval?: boolean;
+  retryPolicy?: Partial<BoundedRetryPolicy>;
+  retryClock?: FailureClock;
+  onRetry?: (input: {
+    stage: ProductionStageName;
+    attempt: number;
+    nextAttempt: number;
+    delayMs: number;
+    code: string;
+  }) => void | Promise<void>;
+  observability?: ProductionObservabilityOptions;
+};
+
+export type ProductionObservabilityOptions = {
+  eventSink: ObservabilityEventSink;
+  now?: () => string;
+  checkpointVersion?: string;
+  runnerVersion?: string;
+  reportPath?: string;
+  cacheEvents?: () => readonly CacheEvent[];
+  cacheEventLogPath?: string;
 };
 
 export type ProductionPipelineResult = {
@@ -183,9 +225,290 @@ const applyStateUpdate = (
     productionStages: {...state.productionStages, ...(update.productionStages ?? {})},
     productionIssues: {...state.productionIssues, ...(update.productionIssues ?? {})},
     productionRepair: update.productionRepair ?? state.productionRepair,
+    events: update.events
+      ? [...state.events, ...update.events]
+          .reduce(
+            (merged, event) => {
+              const existing = merged.find((candidate) => candidate.eventId === event.eventId);
+              if (existing && JSON.stringify(existing) !== JSON.stringify(event)) {
+                throw new Error(`PRODUCTION_EVENT_SUMMARY_COLLISION:${event.eventId}`);
+              }
+              return existing ? merged : [...merged, event];
+            },
+            [] as ProductionState["events"],
+          )
+          .sort((left, right) => left.eventId.localeCompare(right.eventId))
+      : state.events,
   };
   if (!update.haltReason && update.phase !== "halted") delete next.haltReason;
   return productionStateSchema.parse(assertReferenceOnlyState(next));
+};
+
+export type ProductionStageRetryResult = {
+  state: ProductionState;
+  request: ProductionStageRequest;
+  result: ProductionStageResult;
+  results: readonly ProductionStageResult[];
+  delaysMs: readonly number[];
+  observabilityEvents: readonly ObservabilityEvent[];
+};
+
+/** Runs one stage with a total-attempt cap; failed attempts never publish partial outputs. */
+export const runProductionStageWithRetry = async (input: {
+  state: ProductionState;
+  stage: ProductionStageName;
+  adapter: ProductionStageAdapter;
+  upstreamArtifacts?: readonly ArtifactRef[];
+  authorizedArtifactIds?: readonly string[];
+  forceRerun?: boolean;
+  retryPolicy?: Partial<BoundedRetryPolicy>;
+  retryClock?: FailureClock;
+  enableDeliveryRepair?: boolean;
+  onRetry?: ProductionPipelineInput["onRetry"];
+  observability?: ProductionObservabilityOptions;
+}): Promise<ProductionStageRetryResult> => {
+  const policy = resolveBoundedRetryPolicy({...defaultBoundedRetryPolicy, ...input.retryPolicy});
+  let state = input.state;
+  const results: ProductionStageResult[] = [];
+  const delaysMs: number[] = [];
+  const observabilityEvents: ObservabilityEvent[] = [];
+  const upstreamArtifacts = [
+    ...(input.upstreamArtifacts ?? priorStageArtifacts(state, input.stage)),
+  ];
+
+  for (let dispatch = 0; dispatch < policy.maxAttempts; dispatch += 1) {
+    const request = productionStageRequestForState({
+      state,
+      stage: input.stage,
+      upstreamArtifacts,
+      authorizedArtifactIds: input.authorizedArtifactIds,
+      forceRerun: input.forceRerun,
+    });
+    const inputSetHash = productionStageInputSetHash(input.stage, request.inputArtifacts);
+    const startedAt = input.observability?.now?.() ?? new Date().toISOString();
+    if (input.observability) {
+      const startCheckpoint = createObservabilityCheckpoint({
+        state,
+        checkpointId: `${state.runId}:checkpoint:${input.stage}:${request.attempt}:start`,
+        checkpointVersion: input.observability.checkpointVersion,
+        committedAt: startedAt,
+      });
+      const startedEvent = createStageStartedEvent({
+        state,
+        stage: input.stage,
+        executionId: request.executionId,
+        attempt: request.attempt,
+        inputArtifacts: request.inputArtifacts,
+        checkpoint: startCheckpoint,
+        occurredAt: startedAt,
+        inputSetHash,
+      });
+      input.observability.eventSink(startedEvent);
+      observabilityEvents.push(startedEvent);
+    }
+    let adapterError: unknown;
+    let result: ProductionStageResult;
+    try {
+      result = await input.adapter(request);
+    } catch (error) {
+      adapterError = error;
+      const detail = boundedSummary(error instanceof Error ? error.message : String(error));
+      result = productionStageResultSchema.parse({
+        contractVersion: "production-stage-result-v1",
+        executionId: request.executionId,
+        episodeId: request.episodeId,
+        stage: request.stage,
+        status: "FAILED",
+        attempt: request.attempt,
+        inputSetHash,
+        inputArtifacts: request.inputArtifacts,
+        outputArtifacts: [],
+        issues: [],
+        decision: {code: "PRODUCTION_ADAPTER_THROWN", summary: detail},
+        failure: {code: "PRODUCTION_ADAPTER_THROWN", retryable: false, detail},
+      });
+    }
+    results.push(result);
+    state = applyStateUpdate(
+      state,
+      productionStageStateUpdate(request, result, {
+        enableDeliveryRepair: input.enableDeliveryRepair,
+      }),
+    );
+    if (input.observability) {
+      const terminalAt = input.observability.now?.() ?? new Date().toISOString();
+      const observabilityState = productionStateSchema.parse({
+        ...state,
+        events: [
+          ...state.events,
+          {
+            eventId: stableEventId(request.executionId, "execution.started"),
+            executionId: request.executionId,
+            status: "STARTED",
+          },
+          {
+            eventId: stableEventId(request.executionId, "checkpoint.committed"),
+            executionId: request.executionId,
+            status: "SUCCEEDED",
+          },
+          {
+            eventId: stableEventId(
+              request.executionId,
+              result.status === "SUCCEEDED"
+                ? "execution.completed"
+                : result.status === "FAILED"
+                  ? "execution.failed"
+                  : "execution.skipped",
+            ),
+            executionId: request.executionId,
+            status:
+              result.status === "SUCCEEDED"
+                ? "SUCCEEDED"
+                : result.status === "FAILED"
+                  ? "FAILED"
+                  : "SKIPPED",
+          },
+        ],
+      });
+      const terminalCheckpoint = createObservabilityCheckpoint({
+        state: observabilityState,
+        checkpointId: `${state.runId}:checkpoint:${input.stage}:${request.attempt}`,
+        checkpointVersion: input.observability.checkpointVersion,
+        committedAt: terminalAt,
+      });
+      const checkpointEvent = createCheckpointCommittedEvent({
+        state,
+        stage: input.stage,
+        executionId: request.executionId,
+        attempt: request.attempt,
+        inputArtifacts: result.inputArtifacts,
+        outputArtifacts: result.outputArtifacts,
+        checkpoint: terminalCheckpoint,
+        status:
+          result.status === "SUCCEEDED"
+            ? "succeeded"
+            : result.status === "FAILED"
+              ? "failed"
+              : "skipped",
+        occurredAt: terminalAt,
+        inputSetHash: result.inputSetHash,
+      });
+      input.observability.eventSink(checkpointEvent);
+      observabilityEvents.push(checkpointEvent);
+      const terminalEvent = createStageTerminalEvent({
+        state: observabilityState,
+        stage: input.stage,
+        executionId: request.executionId,
+        attempt: request.attempt,
+        status:
+          result.status === "SUCCEEDED"
+            ? "succeeded"
+            : result.status === "FAILED"
+              ? "failed"
+              : "skipped",
+        inputArtifacts: result.inputArtifacts,
+        outputArtifacts: result.outputArtifacts,
+        checkpoint: terminalCheckpoint,
+        occurredAt: terminalAt,
+        startedAt,
+        inputSetHash: result.inputSetHash,
+        decision: {
+          code: result.decision.code,
+          summary: result.decision.summary,
+          rubricVersion: null,
+          score: null,
+          verdict:
+            result.status === "SUCCEEDED" ? "PASS" : result.status === "FAILED" ? "REJECT" : null,
+          issueIds: result.issues.map((issue) => issue.issueId),
+          route: null,
+          criticResultRef: null,
+        },
+        ...(result.failure
+          ? {
+              error: {
+                code: result.failure.code,
+                class: "tooling" as const,
+                retryable: result.failure.retryable,
+                message: result.failure.detail,
+                providerRequestId: null,
+                retryAfterMs: null,
+                invalidOutputHash: null,
+              },
+            }
+          : {}),
+        runnerVersion: input.observability.runnerVersion,
+      });
+      input.observability.eventSink(terminalEvent);
+      observabilityEvents.push(terminalEvent);
+      state = applyStateUpdate(state, {
+        events: [
+          ...observabilityEvents.map((event) => ({
+            eventId: event.eventId,
+            executionId: event.executionId,
+            status: event.status,
+          })),
+        ],
+      });
+    }
+    if (adapterError !== undefined) throw adapterError;
+    if (result.status !== "FAILED") {
+      return {state, request, result, results, delaysMs, observabilityEvents};
+    }
+
+    const shouldRetry = Boolean(result.failure?.retryable) && dispatch + 1 < policy.maxAttempts;
+    if (!shouldRetry) return {state, request, result, results, delaysMs, observabilityEvents};
+
+    const failure = {
+      code: result.failure?.code ?? "PRODUCTION_STAGE_FAILED",
+      class: "transient-api" as const,
+      retryable: true,
+      message: result.failure?.detail ?? `${input.stage} failed`,
+      retryAfterMs: null,
+    };
+    const delayMs = retryDelayMilliseconds({
+      failure,
+      failedAttempt: request.attempt,
+      policy,
+    });
+    delaysMs.push(delayMs);
+    await input.onRetry?.({
+      stage: input.stage,
+      attempt: request.attempt,
+      nextAttempt: request.attempt + 1,
+      delayMs,
+      code: failure.code,
+    });
+    if (input.retryClock) await input.retryClock.sleep(delayMs);
+    state = applyStateUpdate(state, {phase: "production"});
+    if (input.observability) {
+      const retryAt = input.observability.now?.() ?? new Date().toISOString();
+      const retryEvent = createObservabilityControlEvent({
+        state,
+        eventType: "retry.scheduled",
+        stage: input.stage,
+        executionId: request.executionId,
+        attempt: request.attempt,
+        nextAttempt: request.attempt + 1,
+        inputArtifacts: request.inputArtifacts,
+        occurredAt: retryAt,
+        decisionCode: "RETRY_SCHEDULED",
+        decisionSummary: `${input.stage} retry scheduled after ${failure.code}`,
+      });
+      input.observability.eventSink(retryEvent);
+      observabilityEvents.push(retryEvent);
+      state = applyStateUpdate(state, {
+        events: [
+          {
+            eventId: retryEvent.eventId,
+            executionId: retryEvent.executionId,
+            status: retryEvent.status,
+          },
+        ],
+      });
+    }
+  }
+
+  throw new Error("PRODUCTION_RETRY_LOOP_INTERNAL_ERROR");
 };
 
 export type ProductionStartOptions = {
@@ -248,6 +571,10 @@ export const runProductionPipeline = async (
   input: ProductionPipelineInput,
 ): Promise<ProductionPipelineResult> => {
   assertProductionStart(input.state, {requireFormalApproval: input.requireFormalApproval});
+  assertArtifactRefsBytes(input.repoRoot, [
+    ...(input.state.contentManifestRef ? [input.state.contentManifestRef] : []),
+    ...stateArtifactRefs(input.state),
+  ]);
   const adapter =
     input.adapter ??
     createDeterministicToolAdapter({
@@ -257,17 +584,52 @@ export const runProductionPipeline = async (
   let state = input.state;
   let upstreamArtifacts: ArtifactRef[] = [];
   const results: ProductionStageResult[] = [];
+  const observabilityEvents: ObservabilityEvent[] = [];
+
+  const recordObservabilityEvents = (events: readonly ObservabilityEvent[]): void => {
+    for (const event of events) {
+      if (!observabilityEvents.some((candidate) => candidate.eventId === event.eventId)) {
+        observabilityEvents.push(event);
+      }
+    }
+  };
+
+  const writeReport = (finalState: ProductionState): void => {
+    if (!input.observability) return;
+    writeRunReport({
+      repoRoot: input.repoRoot,
+      episodeId: finalState.episodeId,
+      runId: finalState.runId,
+      state: finalState,
+      events: observabilityEvents,
+      cacheEvents: input.observability.cacheEvents?.(),
+      cacheEventLogPath: input.observability.cacheEventLogPath,
+      reportPath: input.observability.reportPath,
+    });
+  };
 
   for (const stage of productionStageOrder) {
-    const request = productionStageRequestForState({state, stage, upstreamArtifacts});
-    const result = await adapter(request);
-    results.push(result);
-    state = applyStateUpdate(state, productionStageStateUpdate(request, result));
-    if (result.status === "FAILED") {
+    const execution = await runProductionStageWithRetry({
+      state,
+      stage,
+      adapter,
+      upstreamArtifacts,
+      retryPolicy: input.retryPolicy,
+      retryClock: input.retryClock,
+      enableDeliveryRepair: false,
+      onRetry: input.onRetry,
+      observability: input.observability,
+    });
+    state = execution.state;
+    recordObservabilityEvents(execution.observabilityEvents);
+    results.push(...execution.results);
+    if (execution.result.status === "FAILED") {
+      writeReport(state);
       return {status: "FAILED", state, results, failedStage: stage};
     }
-    upstreamArtifacts = [...result.outputArtifacts];
+    upstreamArtifacts = [...execution.result.outputArtifacts];
   }
+  writeReport(state);
   return {status: "SUCCEEDED", state, results};
 };
 
@@ -278,17 +640,28 @@ export const createProductionStageNode =
     authorizedArtifactIds?: (state: ProductionState) => readonly string[] | undefined;
     forceRerun?: (state: ProductionState) => boolean | undefined;
     requireFormalApproval?: boolean;
+    retryPolicy?: Partial<BoundedRetryPolicy>;
+    retryClock?: FailureClock;
+    onRetry?: ProductionPipelineInput["onRetry"];
+    observability?: ProductionObservabilityOptions;
   }) =>
   async (state: ProductionState): Promise<ProductionStateUpdate> => {
     assertProductionStart(state, {requireFormalApproval: input.requireFormalApproval});
-    const request = productionStageRequestForState({
+    const execution = await runProductionStageWithRetry({
       state,
       stage: input.stage,
+      adapter: input.adapter,
       upstreamArtifacts: priorStageArtifacts(state, input.stage),
       authorizedArtifactIds: input.authorizedArtifactIds?.(state),
       forceRerun: input.forceRerun?.(state),
+      retryPolicy: input.retryPolicy,
+      retryClock: input.retryClock,
+      enableDeliveryRepair: true,
+      onRetry: input.onRetry,
+      observability: input.observability,
     });
-    const result = await input.adapter(request);
+    const request = execution.request;
+    const result = execution.result;
     const update = productionStageStateUpdate(request, result, {enableDeliveryRepair: true});
     if (
       request.forceRerun &&
@@ -301,6 +674,13 @@ export const createProductionStageNode =
         ...state.productionRepair,
         forceRerunStage: null,
       };
+    }
+    if (execution.observabilityEvents.length > 0) {
+      update.events = execution.observabilityEvents.map((event) => ({
+        eventId: event.eventId,
+        executionId: event.executionId,
+        status: event.status,
+      }));
     }
     return update;
   };
