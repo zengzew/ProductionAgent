@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "checkpoint-config-v1",
+  "backend": "sqlite",
+  "sqlite": {
+    "path": ".orchestration/checkpoints.sqlite"
+  },
+  "postgres": {
+    "connectionStringEnv": "CHECKPOINT_POSTGRES_URL",
+    "schema": "production_checkpoints"
+  }
+}

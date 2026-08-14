@@ -2,9 +2,18 @@ import {createHash} from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import {z} from "zod";
-import {buildArtifactRef} from "./artifact-registry";
+import {
+  buildArtifactRef,
+  emptyArtifactIndex,
+  markStaleTransitively,
+  registerCandidate,
+  readArtifactIndex,
+  selectArtifact,
+  writeArtifactIndex,
+} from "./artifact-registry";
 import {
   artifactIndexSchema,
+  type ArtifactDependency,
   artifactRefSchema,
   type ArtifactIndex,
   type ArtifactRecord,
@@ -19,6 +28,25 @@ import {
   type ContentManifestGateSnapshot,
 } from "./schemas/freeze-manifest";
 import {artifactLocatorSchema, type CriticResult} from "./schemas/critic-output";
+import {assertLockedRangesPreserved} from "./human-decision";
+import {humanLockedRangeSchema, type HumanLockedRange} from "./schemas/human-decision";
+import {
+  productionStageNames,
+  type ProductionStageName,
+  type ProductionIssue,
+} from "./schemas/production";
+import {
+  unfreezeDecisionSchema,
+  unfreezeEditSchema,
+  unfreezeRequestSchema,
+  type UnfreezeAuthorization,
+  type UnfreezeBlocker,
+  type UnfreezeContentGateResult,
+  type UnfreezeDecision,
+  type UnfreezeEdit,
+  type UnfreezeRequest,
+} from "./schemas/unfreeze";
+import {stableJson} from "./stable-json";
 import type {ProductionState} from "./state";
 
 export const DEFAULT_CONTENT_MANIFEST_PRODUCER = "content-freeze";
@@ -48,84 +76,10 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
 
 const uniqueSorted = (values: Iterable<string>): string[] => [...new Set(values)].sort();
 
-export const lockedRangeSchema = z
-  .object({
-    lockId: z.string().min(1),
-    artifactRef: artifactRefSchema,
-    locator: artifactLocatorSchema,
-  })
-  .strict();
-
+export const lockedRangeSchema = humanLockedRangeSchema;
 export type ArtifactLocator = z.infer<typeof artifactLocatorSchema>;
-export type LockedRange = z.infer<typeof lockedRangeSchema>;
-
-const lineInterval = (value: string): readonly [number, number] => {
-  const match = /^(\d+)(?:\s*[-:]\s*(\d+))?$/u.exec(value.trim());
-  if (!match) throw new Error(`LOCKED_RANGE_LINE_LOCATOR_INVALID:${value}`);
-  const start = Number(match[1]);
-  const end = Number(match[2] ?? match[1]);
-  if (start <= 0 || end < start) throw new Error(`LOCKED_RANGE_LINE_LOCATOR_INVALID:${value}`);
-  return [start, end];
-};
-
-const jsonPointerOverlaps = (left: string, right: string): boolean =>
-  left === right || left.startsWith(`${right}/`) || right.startsWith(`${left}/`);
-
-const locatorsOverlap = (left: ArtifactLocator, right: ArtifactLocator): boolean => {
-  if (left.kind === "whole-artifact" || right.kind === "whole-artifact") return true;
-  if (left.kind !== right.kind) return false;
-  if (left.kind === "line-range") {
-    const [leftStart, leftEnd] = lineInterval(left.value);
-    const [rightStart, rightEnd] = lineInterval(right.value);
-    return leftStart <= rightEnd && rightStart <= leftEnd;
-  }
-  if (left.kind === "json-pointer") return jsonPointerOverlaps(left.value, right.value);
-  return left.value === right.value;
-};
-
-/**
- * Enforces an already-declared lock without creating or interpreting a human edit.
- * When a changed artifact has locks, callers must provide precise changed locators;
- * omission is treated as a whole-artifact edit and therefore fails closed.
- */
-export const assertLockedRangesPreserved = (input: {
-  before: ArtifactRef;
-  candidate: ArtifactRef;
-  lockedRanges?: readonly LockedRange[];
-  changedLocators?: readonly ArtifactLocator[];
-}): void => {
-  const before = artifactRefSchema.parse(input.before);
-  const candidate = artifactRefSchema.parse(input.candidate);
-  if (before.artifactId !== candidate.artifactId) {
-    throw new Error("LOCKED_RANGE_ARTIFACT_MISMATCH");
-  }
-  if (before.sha256 === candidate.sha256) return;
-
-  const locks = (input.lockedRanges ?? [])
-    .map((lock) => lockedRangeSchema.parse(lock))
-    .filter((lock) => lock.artifactRef.artifactId === before.artifactId);
-  if (locks.length === 0) return;
-  for (const lock of locks) {
-    if (
-      lock.artifactRef.sha256 !== before.sha256 ||
-      lock.artifactRef.revision !== before.revision ||
-      lock.artifactRef.path !== before.path
-    ) {
-      throw new Error(`LOCKED_RANGE_BASE_MISMATCH:${lock.lockId}`);
-    }
-  }
-
-  const changedLocators = input.changedLocators?.map((locator) =>
-    artifactLocatorSchema.parse(locator),
-  ) ?? [{kind: "whole-artifact" as const, value: "*"}];
-  const overwritten = locks
-    .filter((lock) => changedLocators.some((changed) => locatorsOverlap(lock.locator, changed)))
-    .map((lock) => lock.lockId)
-    .sort();
-  if (overwritten.length > 0) {
-    throw new Error(`LOCKED_RANGE_OVERWRITE:${overwritten.join(",")}`);
-  }
-};
+export type LockedRange = HumanLockedRange;
+export {assertLockedRangesPreserved};
 
 const normalizeRepositoryPath = (repoRoot: string, repositoryPath: string): string => {
   const root = path.resolve(repoRoot);
@@ -379,6 +333,7 @@ export type ContentFreezeInput = {
   criticResults?: readonly Pick<CriticResult, "issues" | "blockers" | "rubricVersion">[];
   frozenAt?: string;
   frozenBy?: string;
+  approvalEpoch?: number;
   runId?: string;
   manifestPath?: string;
   manifestArtifactId?: string;
@@ -386,6 +341,8 @@ export type ContentFreezeInput = {
   previousManifestRef?: ArtifactRef;
   /** Defaults to true when a repository root is supplied. */
   verifyArtifactBytes?: boolean;
+  /** Optional rubric snapshot supplied by an external content-gate runner. */
+  rubricVersions?: readonly string[];
 };
 
 export type ContentFreezePreconditionReport = {
@@ -547,6 +504,7 @@ export type CreateContentManifestInput = {
   selectedArtifactRefs: readonly ArtifactRef[];
   frozenAt?: string;
   frozenBy?: string;
+  approvalEpoch?: number;
   runId?: string;
   gateSnapshot?: ContentManifestGateSnapshot;
 };
@@ -588,6 +546,7 @@ export const createContentManifest = (input: CreateContentManifestInput): Conten
     episodeId: input.episodeId,
     frozenAt: input.frozenAt ?? new Date().toISOString(),
     frozenBy: input.frozenBy ?? "system:content-freeze",
+    approvalEpoch: input.approvalEpoch ?? 0,
     selectionHash: hashContentSelection(artifacts),
     artifacts,
     gateSnapshot,
@@ -649,12 +608,14 @@ export const freezeContent = (
 
   const rubricVersions = uniqueSorted([
     ...(input.criticResults ?? []).map((result) => result.rubricVersion),
+    ...(input.rubricVersions ?? []),
   ]);
   const manifest = createContentManifest({
     episodeId: input.episodeId,
     selectedArtifactRefs,
     frozenAt: input.frozenAt,
     frozenBy: input.frozenBy,
+    approvalEpoch: input.approvalEpoch,
     runId: input.runId,
     gateSnapshot: {
       contentGate: "pass",
@@ -699,3 +660,662 @@ export const freezeContent = (
 };
 
 export const freezeContentManifest = freezeContent;
+
+export type CreateUnfreezeRequestInput = {
+  repoRoot: string;
+  episodeId: string;
+  runId: string;
+  contentManifestRef: ArtifactRef;
+  issues: readonly ProductionIssue[];
+  authorizedEdits: readonly UnfreezeAuthorization[];
+  restartAt: ProductionStageName;
+  approvalEpoch: number;
+  unfreezeUsed: number;
+  maxUnfreeze: number;
+  requestedAt?: string;
+  requestId?: string;
+};
+
+export type CreateUnfreezeRequestResult = {
+  request: UnfreezeRequest;
+  requestRef: ArtifactRef;
+  artifactIndex: ArtifactIndex;
+};
+
+export type PersistUnfreezeDecisionInput = {
+  repoRoot: string;
+  request: UnfreezeRequest;
+  requestRef: ArtifactRef;
+  decision: "approve" | "reject";
+  actorId: string;
+  authorizations?: readonly {artifactId: string; owner: UnfreezeAuthorization["owner"]}[];
+  reason: string;
+  decidedAt?: string;
+};
+
+export type PersistUnfreezeDecisionResult = {
+  decision: UnfreezeDecision;
+  decisionRef: ArtifactRef;
+  artifactIndex: ArtifactIndex;
+};
+
+export type ApplyUnfreezeEditsInput = {
+  repoRoot: string;
+  request: UnfreezeRequest;
+  decision: UnfreezeDecision;
+  edits: readonly UnfreezeEdit[];
+  artifactIndex?: ArtifactIndex;
+  executionId: string;
+};
+
+export type ApplyUnfreezeEditsResult = {
+  artifactIndex: ArtifactIndex;
+  changedArtifactRefs: ArtifactRef[];
+  staleArtifactIds: string[];
+};
+
+export type RefreezeAfterUnfreezeInput = {
+  repoRoot: string;
+  request: UnfreezeRequest;
+  decision: UnfreezeDecision;
+  validation: UnfreezeContentGateResult;
+  runId: string;
+  approvalEpoch: number;
+  previousManifestRef: ArtifactRef;
+  frozenAt?: string;
+  frozenBy?: string;
+};
+
+export type RefreezeAfterUnfreezeResult = ContentFreezeResult & {
+  artifactIndex: ArtifactIndex;
+};
+
+const unfreezeRegistryPath = (repoRoot: string, episodeId: string): string =>
+  path.resolve(repoRoot, `content/${episodeId}/artifact-index.json`);
+
+const unfreezeRequestPath = (episodeId: string, requestId: string): string =>
+  `content/${episodeId}/production/unfreeze-requests/${requestId}.json`;
+
+const unfreezeDecisionPath = (episodeId: string, requestId: string, decisionId: string): string =>
+  `content/${episodeId}/production/unfreeze-requests/${requestId}/${decisionId}.json`;
+
+const writeJsonAtomically = (filePath: string, value: unknown): void => {
+  const temporaryPath = `${filePath}.${process.pid}.tmp`;
+  fs.mkdirSync(path.dirname(filePath), {recursive: true});
+  try {
+    fs.writeFileSync(temporaryPath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
+    fs.renameSync(temporaryPath, filePath);
+  } finally {
+    if (fs.existsSync(temporaryPath)) fs.rmSync(temporaryPath, {force: true});
+  }
+};
+
+const readJsonArtifact = <T>(
+  repoRoot: string,
+  ref: ArtifactRef,
+  parser: (value: unknown) => T,
+): T => {
+  const bytes = fs.readFileSync(resolveRepositoryPath(repoRoot, ref.path));
+  if (bytes.byteLength !== ref.sizeBytes || sha256Bytes(bytes) !== ref.sha256) {
+    throw new Error(`UNFREEZE_ARTIFACT_HASH_MISMATCH:${ref.artifactId}`);
+  }
+  return parser(JSON.parse(bytes.toString("utf8")) as unknown);
+};
+
+const assertCurrentArtifactBytes = (repoRoot: string, ref: ArtifactRef, code: string): void => {
+  let bytes: Buffer;
+  try {
+    bytes = fs.readFileSync(resolveRepositoryPath(repoRoot, ref.path));
+  } catch (error) {
+    throw new Error(`${code}:${ref.artifactId}`, {cause: error});
+  }
+  if (bytes.byteLength !== ref.sizeBytes || sha256Bytes(bytes) !== ref.sha256) {
+    throw new Error(`${code}:${ref.artifactId}`);
+  }
+};
+
+const contentManifestFromRef = (repoRoot: string, ref: ArtifactRef): ContentManifest =>
+  readJsonArtifact(repoRoot, ref, (value) => contentManifestSchema.parse(value));
+
+const dependencyFromRef = (
+  ref: ArtifactRef,
+  relation: ArtifactDependency["relation"],
+): ArtifactDependency => ({
+  artifactId: ref.artifactId,
+  path: ref.path,
+  sha256: ref.sha256,
+  relation,
+});
+
+const sortedUnique = (values: Iterable<string>): string[] => [...new Set(values)].sort();
+
+const stageIndexFor = (stage: ProductionStageName): number => productionStageNames.indexOf(stage);
+
+/**
+ * Any content artifact in the frozen manifest is an input to materialization. A content
+ * unfreeze therefore always restarts at the first production stage; it never resumes from
+ * a later stage using a manifest whose selection hash has changed.
+ */
+export const minimumProductionRestartAtForUnfreeze = (): ProductionStageName => "materialize:story";
+
+const assertMinimumProductionRestart = (restartAt: ProductionStageName): void => {
+  if (stageIndexFor(restartAt) > stageIndexFor(minimumProductionRestartAtForUnfreeze())) {
+    throw new Error(`UNFREEZE_RESTART_NOT_MINIMAL:${restartAt}`);
+  }
+};
+
+const assertManifestAuthorization = (
+  repoRoot: string,
+  manifest: ContentManifest,
+  authorizations: readonly UnfreezeAuthorization[],
+): void => {
+  const manifestById = new Map(manifest.artifacts.map((ref) => [ref.artifactId, ref]));
+  for (const authorization of authorizations) {
+    const frozen = manifestById.get(authorization.artifactRef.artifactId);
+    if (
+      !frozen ||
+      frozen.sha256 !== authorization.artifactRef.sha256 ||
+      frozen.revision !== authorization.artifactRef.revision ||
+      frozen.path !== authorization.artifactRef.path
+    ) {
+      throw new Error(
+        `UNFREEZE_ARTIFACT_NOT_IN_FROZEN_MANIFEST:${authorization.artifactRef.artifactId}`,
+      );
+    }
+    assertCurrentArtifactBytes(
+      repoRoot,
+      authorization.artifactRef,
+      "UNFREEZE_FROZEN_ARTIFACT_HASH_MISMATCH",
+    );
+  }
+};
+
+const blockerForIssue = (issue: ProductionIssue): UnfreezeBlocker => {
+  if (issue.severity !== "blocker" || issue.status !== "open") {
+    throw new Error(`UNFREEZE_BLOCKER_REQUIRED:${issue.issueId}`);
+  }
+  if (!issue.category.startsWith("delivery.")) {
+    throw new Error(`UNFREEZE_PRODUCTION_ISSUE_REQUIRED:${issue.issueId}`);
+  }
+  return {
+    issueId: issue.issueId,
+    issueRef: artifactRefSchema.parse(issue.issueRef),
+    category: issue.category,
+    severity: "blocker",
+    status: "open",
+    ownerAgent: "production-executor",
+    routeTarget: issue.routeTarget,
+    affectedArtifactId: issue.affectedArtifact.artifactId,
+    affectedArtifactSha256: issue.affectedArtifact.sha256,
+    locator: artifactLocatorSchema.parse(issue.locator),
+    summary: issue.summary,
+  };
+};
+
+export const assertUnfreezeRequestEligible = (input: {
+  repoRoot: string;
+  contentManifest: ContentManifest;
+  issues: readonly ProductionIssue[];
+  authorizedEdits: readonly UnfreezeAuthorization[];
+  restartAt: ProductionStageName;
+  unfreezeUsed: number;
+  maxUnfreeze: number;
+}): {blockerIssues: UnfreezeBlocker[]; authorizedEdits: UnfreezeAuthorization[]} => {
+  if (!Number.isInteger(input.unfreezeUsed) || input.unfreezeUsed < 0) {
+    throw new Error("UNFREEZE_COUNTER_INVALID");
+  }
+  if (!Number.isInteger(input.maxUnfreeze) || input.maxUnfreeze < 0) {
+    throw new Error("UNFREEZE_MAX_INVALID");
+  }
+  if (input.unfreezeUsed >= input.maxUnfreeze) {
+    throw new Error("UNFREEZE_BUDGET_EXHAUSTED");
+  }
+  assertMinimumProductionRestart(input.restartAt);
+  if (input.issues.length === 0) throw new Error("UNFREEZE_BLOCKER_REQUIRED");
+  const blockerIssues = input.issues.map(blockerForIssue);
+  const authorizedEdits = input.authorizedEdits.map((authorization) =>
+    unfreezeRequestSchema.shape.authorizedEdits.element.parse(authorization),
+  );
+  assertManifestAuthorization(input.repoRoot, input.contentManifest, authorizedEdits);
+  return {blockerIssues, authorizedEdits};
+};
+
+const defaultUnfreezeRequestId = (input: {
+  episodeId: string;
+  approvalEpoch: number;
+  contentManifestRef: ArtifactRef;
+  issues: readonly ProductionIssue[];
+  authorizedEdits: readonly UnfreezeAuthorization[];
+}): string =>
+  `unfreeze-${createHash("sha256")
+    .update(
+      stableJson({
+        approvalEpoch: input.approvalEpoch,
+        artifactIds: input.authorizedEdits
+          .map((authorization) => authorization.artifactRef.artifactId)
+          .sort(),
+        episodeId: input.episodeId,
+        issueIds: input.issues.map((issue) => issue.issueId).sort(),
+        manifestSha256: input.contentManifestRef.sha256,
+      }),
+    )
+    .digest("hex")
+    .slice(0, 24)}`;
+
+const addAuditArtifact = (input: {
+  repoRoot: string;
+  episodeId: string;
+  index: ArtifactIndex;
+  ref: ArtifactRef;
+  executionId: string;
+  dependencies: readonly ArtifactDependency[];
+}): ArtifactIndex => {
+  let index = registerCandidate(input.index, input.ref, input.executionId, [...input.dependencies]);
+  index = selectArtifact(index, input.ref);
+  writeArtifactIndex(unfreezeRegistryPath(input.repoRoot, input.episodeId), index);
+  return index;
+};
+
+const seedManifestArtifacts = (input: {
+  repoRoot: string;
+  manifest: ContentManifest;
+  manifestRef: ArtifactRef;
+  index?: ArtifactIndex;
+}): ArtifactIndex => {
+  let index = artifactIndexSchema.parse(
+    input.index ?? emptyArtifactIndex(input.manifest.episodeId),
+  );
+  if (index.episodeId !== input.manifest.episodeId) {
+    throw new Error("UNFREEZE_ARTIFACT_INDEX_EPISODE_MISMATCH");
+  }
+  const refs = [input.manifestRef, ...input.manifest.artifacts];
+  for (const ref of refs) {
+    const existing = index.artifacts.find(
+      (record) =>
+        record.ref.artifactId === ref.artifactId &&
+        record.ref.revision === ref.revision &&
+        record.ref.sha256 === ref.sha256,
+    );
+    if (existing) continue;
+    index = registerCandidate(
+      index,
+      ref,
+      `unfreeze:seed:${ref.artifactId}`,
+      ref.artifactId === input.manifestRef.artifactId
+        ? input.manifest.artifacts.map((artifact) => dependencyFromRef(artifact, "reads"))
+        : [],
+    );
+    index = selectArtifact(index, ref);
+  }
+  writeArtifactIndex(unfreezeRegistryPath(input.repoRoot, input.manifest.episodeId), index);
+  return index;
+};
+
+export const createUnfreezeRequest = (
+  input: CreateUnfreezeRequestInput,
+): CreateUnfreezeRequestResult => {
+  const contentManifestRef = artifactRefSchema.parse(input.contentManifestRef);
+  if (contentManifestRef.episodeId !== input.episodeId) {
+    throw new Error("UNFREEZE_MANIFEST_EPISODE_MISMATCH");
+  }
+  const contentManifest = contentManifestFromRef(input.repoRoot, contentManifestRef);
+  if (contentManifest.episodeId !== input.episodeId) {
+    throw new Error("UNFREEZE_MANIFEST_EPISODE_MISMATCH");
+  }
+  if ((contentManifest.approvalEpoch ?? 0) !== input.approvalEpoch) {
+    throw new Error("UNFREEZE_APPROVAL_EPOCH_MISMATCH");
+  }
+  const eligible = assertUnfreezeRequestEligible({
+    repoRoot: input.repoRoot,
+    contentManifest,
+    issues: input.issues,
+    authorizedEdits: input.authorizedEdits,
+    restartAt: input.restartAt,
+    unfreezeUsed: input.unfreezeUsed,
+    maxUnfreeze: input.maxUnfreeze,
+  });
+  const requestId =
+    input.requestId ??
+    defaultUnfreezeRequestId({
+      episodeId: input.episodeId,
+      approvalEpoch: input.approvalEpoch,
+      contentManifestRef,
+      issues: input.issues,
+      authorizedEdits: input.authorizedEdits,
+    });
+  const request = unfreezeRequestSchema.parse({
+    schemaVersion: "unfreeze-request-v1",
+    requestId,
+    episodeId: input.episodeId,
+    runId: input.runId,
+    requestedAt: input.requestedAt ?? new Date().toISOString(),
+    requestedBy: "production-executor",
+    approvalEpoch: input.approvalEpoch,
+    contentManifestRef,
+    blockerIssues: eligible.blockerIssues,
+    authorizedEdits: eligible.authorizedEdits,
+    restartAt: input.restartAt,
+    unfreezeUsed: input.unfreezeUsed,
+    maxUnfreeze: input.maxUnfreeze,
+    forbiddenAutomaticActions: [
+      "production must not edit story, fact, or content artifacts",
+      "production must not modify an artifact outside authorizedEdits",
+      "production must not continue before an approved unfreeze decision",
+    ],
+  });
+  const requestPath = unfreezeRequestPath(input.episodeId, request.requestId);
+  const absoluteRequestPath = resolveRepositoryPath(input.repoRoot, requestPath);
+  writeJsonAtomically(absoluteRequestPath, request);
+  const requestRef = artifactRefSchema.parse(
+    buildArtifactRef({
+      repoRoot: input.repoRoot,
+      artifactId: `${input.episodeId}:production:unfreeze-request-${request.requestId.replace(/^unfreeze-/u, "")}`,
+      episodeId: input.episodeId,
+      path: requestPath,
+      mediaType: "application/json",
+      schemaVersion: "unfreeze-request-v1",
+      producer: "production-unfreeze-gate",
+      createdAt: request.requestedAt,
+    }),
+  );
+  const registryPath = unfreezeRegistryPath(input.repoRoot, input.episodeId);
+  let index = seedManifestArtifacts({
+    repoRoot: input.repoRoot,
+    manifest: contentManifest,
+    manifestRef: contentManifestRef,
+    index: fs.existsSync(registryPath) ? readArtifactIndex(registryPath) : undefined,
+  });
+  index = addAuditArtifact({
+    repoRoot: input.repoRoot,
+    episodeId: input.episodeId,
+    index,
+    ref: requestRef,
+    executionId: `${input.runId}:unfreeze-request`,
+    dependencies: [
+      dependencyFromRef(contentManifestRef, "reads"),
+      ...eligible.blockerIssues.map((issue) => dependencyFromRef(issue.issueRef, "reviews")),
+      ...eligible.authorizedEdits.map((authorization) =>
+        dependencyFromRef(authorization.artifactRef, "reads"),
+      ),
+    ],
+  });
+  return {request, requestRef, artifactIndex: index};
+};
+
+export const readUnfreezeRequest = (repoRoot: string, requestRef: ArtifactRef): UnfreezeRequest =>
+  readJsonArtifact(repoRoot, artifactRefSchema.parse(requestRef), (value) =>
+    unfreezeRequestSchema.parse(value),
+  );
+
+export const assertUnfreezeDecisionMatchesRequest = (
+  request: UnfreezeRequest,
+  decision: UnfreezeDecision,
+): void => {
+  const parsedRequest = unfreezeRequestSchema.parse(request);
+  const parsedDecision = unfreezeDecisionSchema.parse(decision);
+  if (
+    parsedDecision.requestId !== parsedRequest.requestId ||
+    parsedDecision.episodeId !== parsedRequest.episodeId ||
+    parsedDecision.requestedApprovalEpoch !== parsedRequest.approvalEpoch ||
+    parsedDecision.requestRef.artifactId !==
+      `${parsedRequest.episodeId}:production:unfreeze-request-${parsedRequest.requestId.replace(/^unfreeze-/u, "")}`
+  ) {
+    throw new Error("UNFREEZE_AUTHORIZATION_MISMATCH");
+  }
+  if (parsedDecision.decision === "reject") return;
+
+  const requested = new Map(
+    parsedRequest.authorizedEdits.map((authorization) => [
+      authorization.artifactRef.artifactId,
+      authorization.owner,
+    ]),
+  );
+  for (const authorization of parsedDecision.authorizations) {
+    const requestedOwner = requested.get(authorization.artifactId);
+    if (!requestedOwner || requestedOwner !== authorization.owner) {
+      throw new Error(`UNFREEZE_AUTHORIZATION_MISMATCH:${authorization.artifactId}`);
+    }
+  }
+};
+
+const decisionIdFor = (input: {
+  requestId: string;
+  decision: "approve" | "reject";
+  actorId: string;
+  authorizations: readonly {artifactId: string; owner: UnfreezeAuthorization["owner"]}[];
+  decidedAt: string;
+}): string =>
+  `unfreeze-decision-${createHash("sha256").update(stableJson(input)).digest("hex").slice(0, 24)}`;
+
+export const persistUnfreezeDecision = (
+  input: PersistUnfreezeDecisionInput,
+): PersistUnfreezeDecisionResult => {
+  const request = unfreezeRequestSchema.parse(input.request);
+  const requestRef = artifactRefSchema.parse(input.requestRef);
+  const persistedRequest = readUnfreezeRequest(input.repoRoot, requestRef);
+  if (stableJson(persistedRequest) !== stableJson(request)) {
+    throw new Error("UNFREEZE_AUTHORIZATION_MISMATCH");
+  }
+  const authorizations = [...(input.authorizations ?? [])].sort((left, right) =>
+    left.artifactId.localeCompare(right.artifactId),
+  );
+  const decidedAt = input.decidedAt ?? new Date().toISOString();
+  const decision = unfreezeDecisionSchema.parse({
+    schemaVersion: "unfreeze-decision-v1",
+    decisionId: decisionIdFor({
+      requestId: request.requestId,
+      decision: input.decision,
+      actorId: input.actorId,
+      authorizations,
+      decidedAt,
+    }),
+    requestId: request.requestId,
+    requestRef,
+    episodeId: request.episodeId,
+    requestedApprovalEpoch: request.approvalEpoch,
+    decision: input.decision,
+    actorId: input.actorId,
+    decidedAt,
+    authorizations,
+    reason: input.reason,
+  });
+  assertUnfreezeDecisionMatchesRequest(request, decision);
+  const decisionPath = unfreezeDecisionPath(
+    request.episodeId,
+    request.requestId,
+    decision.decisionId,
+  );
+  writeJsonAtomically(resolveRepositoryPath(input.repoRoot, decisionPath), decision);
+  const decisionRef = artifactRefSchema.parse(
+    buildArtifactRef({
+      repoRoot: input.repoRoot,
+      artifactId: `${request.episodeId}:production:${decision.decisionId}`,
+      episodeId: request.episodeId,
+      path: decisionPath,
+      mediaType: "application/json",
+      schemaVersion: "unfreeze-decision-v1",
+      producer: "human:unfreeze-decision",
+      createdAt: decision.decidedAt,
+    }),
+  );
+  const registryPath = unfreezeRegistryPath(input.repoRoot, request.episodeId);
+  const index = fs.existsSync(registryPath)
+    ? readArtifactIndex(registryPath)
+    : emptyArtifactIndex(request.episodeId);
+  const artifactIndex = addAuditArtifact({
+    repoRoot: input.repoRoot,
+    episodeId: request.episodeId,
+    index,
+    ref: decisionRef,
+    executionId: `${request.runId}:unfreeze-decision`,
+    dependencies: [dependencyFromRef(requestRef, "reads")],
+  });
+  return {decision, decisionRef, artifactIndex};
+};
+
+export const readUnfreezeDecision = (
+  repoRoot: string,
+  decisionRef: ArtifactRef,
+): UnfreezeDecision =>
+  readJsonArtifact(repoRoot, artifactRefSchema.parse(decisionRef), (value) =>
+    unfreezeDecisionSchema.parse(value),
+  );
+
+const selectedRecordFor = (index: ArtifactIndex, ref: ArtifactRef): ArtifactRecord | undefined => {
+  const pointer = index.selected[ref.artifactId];
+  return index.artifacts.find(
+    (record) =>
+      record.state === "selected" &&
+      record.ref.artifactId === ref.artifactId &&
+      record.ref.revision === ref.revision &&
+      record.ref.sha256 === ref.sha256 &&
+      record.ref.path === ref.path &&
+      pointer?.revision === ref.revision &&
+      pointer.sha256 === ref.sha256 &&
+      pointer.path === ref.path,
+  );
+};
+
+export const applyUnfreezeEdits = (input: ApplyUnfreezeEditsInput): ApplyUnfreezeEditsResult => {
+  const request = unfreezeRequestSchema.parse(input.request);
+  const decision = unfreezeDecisionSchema.parse(input.decision);
+  assertUnfreezeDecisionMatchesRequest(request, decision);
+  if (decision.decision !== "approve") throw new Error("UNFREEZE_DECISION_NOT_APPROVED");
+  if (input.edits.length === 0) throw new Error("UNFREEZE_NO_EDIT");
+
+  const registryPath = unfreezeRegistryPath(input.repoRoot, request.episodeId);
+  let index = artifactIndexSchema.parse(
+    input.artifactIndex ??
+      (fs.existsSync(registryPath)
+        ? readArtifactIndex(registryPath)
+        : emptyArtifactIndex(request.episodeId)),
+  );
+  const authorizations = new Map(
+    request.authorizedEdits.map((authorization) => [
+      authorization.artifactRef.artifactId,
+      authorization,
+    ]),
+  );
+  const approved = new Map(
+    decision.authorizations.map((authorization) => [authorization.artifactId, authorization.owner]),
+  );
+  const seen = new Set<string>();
+  const changedArtifactRefs: ArtifactRef[] = [];
+
+  for (const rawEdit of input.edits) {
+    const edit = unfreezeEditSchema.parse(rawEdit);
+    if (seen.has(edit.artifactId)) throw new Error(`UNFREEZE_DUPLICATE_EDIT:${edit.artifactId}`);
+    seen.add(edit.artifactId);
+    const authorization = authorizations.get(edit.artifactId);
+    if (!authorization || approved.get(edit.artifactId) !== edit.owner) {
+      throw new Error(`UNFREEZE_AUTHORIZATION_MISMATCH:${edit.artifactId}`);
+    }
+    if (
+      edit.before.artifactId !== authorization.artifactRef.artifactId ||
+      edit.before.sha256 !== authorization.artifactRef.sha256 ||
+      edit.before.revision !== authorization.artifactRef.revision ||
+      edit.before.path !== authorization.artifactRef.path
+    ) {
+      throw new Error(`UNFREEZE_BEFORE_REF_MISMATCH:${edit.artifactId}`);
+    }
+    if (
+      edit.after.artifactId !== edit.artifactId ||
+      edit.after.episodeId !== request.episodeId ||
+      edit.after.sha256 === edit.before.sha256 ||
+      edit.after.revision <= edit.before.revision
+    ) {
+      throw new Error(`UNFREEZE_EDIT_NOT_NEW:${edit.artifactId}`);
+    }
+    if (
+      !edit.after.path.startsWith(`content/${request.episodeId}/`) ||
+      edit.after.path.includes("/production/")
+    ) {
+      throw new Error(`UNFREEZE_CONTENT_ARTIFACT_REQUIRED:${edit.artifactId}`);
+    }
+    assertCurrentArtifactBytes(input.repoRoot, edit.after, "UNFREEZE_AFTER_HASH_MISMATCH");
+    const previous = selectedRecordFor(index, edit.before);
+    if (!previous) throw new Error(`UNFREEZE_BEFORE_NOT_SELECTED:${edit.artifactId}`);
+    changedArtifactRefs.push(edit.after);
+  }
+
+  for (const artifactId of approved.keys()) {
+    if (!seen.has(artifactId)) throw new Error(`UNFREEZE_APPROVED_SCOPE_NOT_EDITED:${artifactId}`);
+  }
+
+  const changedIds = changedArtifactRefs.map((ref) => ref.artifactId);
+  index = markStaleTransitively(index, changedIds);
+  for (const ref of changedArtifactRefs) {
+    const previous = input.artifactIndex
+      ? input.artifactIndex.artifacts.find(
+          (record) =>
+            record.ref.artifactId === ref.artifactId &&
+            record.ref.revision ===
+              request.authorizedEdits.find((item) => item.artifactRef.artifactId === ref.artifactId)
+                ?.artifactRef.revision,
+        )
+      : undefined;
+    const previousSelected =
+      previous ?? index.artifacts.find((record) => record.ref.artifactId === ref.artifactId);
+    const dependencies = previousSelected?.dependencies ?? [];
+    index = registerCandidate(index, ref, input.executionId, dependencies);
+    index = selectArtifact(index, ref);
+  }
+  const staleArtifactIds = sortedUnique(
+    index.artifacts
+      .filter((record) => record.state === "stale")
+      .map((record) => record.ref.artifactId),
+  );
+  writeArtifactIndex(registryPath, index);
+  return {artifactIndex: index, changedArtifactRefs, staleArtifactIds};
+};
+
+export const refreezeAfterUnfreeze = (
+  input: RefreezeAfterUnfreezeInput,
+): RefreezeAfterUnfreezeResult => {
+  const request = unfreezeRequestSchema.parse(input.request);
+  const decision = unfreezeDecisionSchema.parse(input.decision);
+  assertUnfreezeDecisionMatchesRequest(request, decision);
+  if (decision.decision !== "approve") throw new Error("UNFREEZE_DECISION_NOT_APPROVED");
+  if (input.approvalEpoch <= request.approvalEpoch) {
+    throw new Error("UNFREEZE_APPROVAL_EPOCH_NOT_ADVANCED");
+  }
+  const validation = input.validation;
+  if (validation.gate !== "pass") throw new Error("UNFREEZE_CONTENT_GATE_FAILED");
+  if (validation.artifactIndex.episodeId !== request.episodeId) {
+    throw new Error("UNFREEZE_VALIDATION_INDEX_EPISODE_MISMATCH");
+  }
+  const approvedIds = new Set(
+    decision.authorizations.map((authorization) => authorization.artifactId),
+  );
+  const selectedById = new Map(
+    validation.selectedArtifactRefs.map((ref) => [ref.artifactId, artifactRefSchema.parse(ref)]),
+  );
+  for (const artifactId of approvedIds) {
+    if (!selectedById.has(artifactId)) throw new Error(`UNFREEZE_EDIT_NOT_SELECTED:${artifactId}`);
+  }
+  const freeze = freezeContent({
+    repoRoot: input.repoRoot,
+    episodeId: request.episodeId,
+    artifactIndex: validation.artifactIndex,
+    selectedArtifactRefs: validation.selectedArtifactRefs,
+    issues: validation.issues,
+    rubricVersions: validation.rubricVersions,
+    frozenAt: input.frozenAt,
+    frozenBy: input.frozenBy ?? `human-unfreeze:${decision.actorId}`,
+    approvalEpoch: input.approvalEpoch,
+    runId: input.runId,
+    previousManifestRef: input.previousManifestRef,
+  });
+
+  const registryPath = unfreezeRegistryPath(input.repoRoot, request.episodeId);
+  let artifactIndex = validation.artifactIndex;
+  artifactIndex = registerCandidate(
+    artifactIndex,
+    freeze.manifestRef,
+    `${input.runId}:unfreeze-refreeze`,
+    validation.selectedArtifactRefs.map((ref) => dependencyFromRef(ref, "reads")),
+  );
+  artifactIndex = selectArtifact(artifactIndex, freeze.manifestRef);
+  writeArtifactIndex(registryPath, artifactIndex);
+  return {...freeze, artifactIndex};
+};

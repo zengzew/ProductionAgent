@@ -1050,6 +1050,7 @@ const retainCandidateRecords = (base: ArtifactIndex, candidate: ArtifactIndex): 
 /** Runs the bounded M2 single-owner loop until a Pareto-valid candidate passes or escalation fires. */
 export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLoopResult> => {
   const baseState = assertReferenceOnlyState(input.state);
+  const lockedRanges = input.lockedRanges ?? baseState.lockedRanges;
   let index = ensureArtifactIndex(baseState, input.artifactIndex);
   const trace: ContentTraceStep[] = [];
   const revisions: ContentRevisionRound[] = [];
@@ -1067,7 +1068,7 @@ export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLo
     executionId: baseState.runId + ":visual-director:r" + initialRound,
     requireChanged: false,
     allowNewArtifactIds: true,
-    lockedRanges: input.lockedRanges,
+    lockedRanges,
   });
   index = visualApplied.index;
   trace.push({
@@ -1281,7 +1282,7 @@ export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLo
       authorizedArtifactIds: new Set(authorizedArtifactIds),
       requireChanged: false,
       allowNewArtifactIds: false,
-      lockedRanges: input.lockedRanges,
+      lockedRanges,
     });
     let candidateIndex = appliedRevision.index;
     trace.push({
@@ -1305,7 +1306,7 @@ export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLo
       nodes: input.nodes,
       round: revisionRound,
       changedArtifactIds: appliedRevision.changed.map((ref) => ref.artifactId),
-      lockedRanges: input.lockedRanges,
+      lockedRanges,
     });
     candidateIndex = refreshed.index;
     trace.push({

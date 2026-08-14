@@ -32,6 +32,7 @@ export type ProductionPipelineInput = {
   state: ProductionState;
   adapter?: ProductionStageAdapter;
   adapterOptions?: Omit<DeterministicToolAdapterOptions, "repoRoot">;
+  requireFormalApproval?: boolean;
 };
 
 export type ProductionPipelineResult = {
@@ -86,6 +87,7 @@ export const productionStageRequestForState = (input: {
     stage: input.stage,
     attempt: (input.state.attempts[input.stage] ?? 0) + 1,
     revisionRound: input.state.round,
+    approvalEpoch: input.state.approvalEpoch,
     contentManifestRef: input.state.contentManifestRef,
     inputArtifacts: [input.state.contentManifestRef, ...input.upstreamArtifacts],
     previousArtifacts: stateArtifactRefs(input.state),
@@ -186,9 +188,46 @@ const applyStateUpdate = (
   return productionStateSchema.parse(assertReferenceOnlyState(next));
 };
 
-export const assertProductionStart = (state: ProductionState): void => {
+export type ProductionStartOptions = {
+  /** M3.4 callers opt in; legacy M3.1-M3.3 fixture APIs remain framework-compatible. */
+  requireFormalApproval?: boolean;
+};
+
+export const assertProductionAuthorization = (state: ProductionState): void => {
+  const authorization = state.productionAuthorization;
+  if (!authorization) throw new Error("PRODUCTION_HUMAN_APPROVAL_REQUIRED");
+  if (authorization.approvalEpoch !== state.approvalEpoch) {
+    throw new Error(
+      `PRODUCTION_APPROVAL_EPOCH_STALE:${authorization.approvalEpoch}:${state.approvalEpoch}`,
+    );
+  }
+  if (
+    authorization.manifestRef.artifactId !== state.contentManifestRef?.artifactId ||
+    authorization.manifestRef.revision !== state.contentManifestRef?.revision ||
+    authorization.manifestRef.sha256 !== state.contentManifestRef?.sha256 ||
+    authorization.manifestRef.path !== state.contentManifestRef?.path
+  ) {
+    throw new Error("PRODUCTION_AUTHORIZATION_MANIFEST_MISMATCH");
+  }
+  const approval = state.approvals[authorization.decisionId];
+  if (
+    !approval ||
+    approval.status !== "approved" ||
+    approval.decision !== "approve" ||
+    approval.gate !== authorization.gate ||
+    approval.approvalEpoch !== authorization.approvalEpoch
+  ) {
+    throw new Error("PRODUCTION_HUMAN_APPROVAL_RECORD_MISSING");
+  }
+};
+
+export const assertProductionStart = (
+  state: ProductionState,
+  options: ProductionStartOptions = {},
+): void => {
   assertReferenceOnlyState(state);
   if (!state.contentManifestRef) throw new Error("PRODUCTION_CONTENT_MANIFEST_REQUIRED");
+  if (options.requireFormalApproval) assertProductionAuthorization(state);
   if (!(
     state.phase === "frozen" ||
     state.phase === "production" ||
@@ -208,7 +247,7 @@ export const assertProductionStart = (state: ProductionState): void => {
 export const runProductionPipeline = async (
   input: ProductionPipelineInput,
 ): Promise<ProductionPipelineResult> => {
-  assertProductionStart(input.state);
+  assertProductionStart(input.state, {requireFormalApproval: input.requireFormalApproval});
   const adapter =
     input.adapter ??
     createDeterministicToolAdapter({
@@ -238,9 +277,10 @@ export const createProductionStageNode =
     adapter: ProductionStageAdapter;
     authorizedArtifactIds?: (state: ProductionState) => readonly string[] | undefined;
     forceRerun?: (state: ProductionState) => boolean | undefined;
+    requireFormalApproval?: boolean;
   }) =>
   async (state: ProductionState): Promise<ProductionStateUpdate> => {
-    assertProductionStart(state);
+    assertProductionStart(state, {requireFormalApproval: input.requireFormalApproval});
     const request = productionStageRequestForState({
       state,
       stage: input.stage,
@@ -250,7 +290,13 @@ export const createProductionStageNode =
     });
     const result = await input.adapter(request);
     const update = productionStageStateUpdate(request, result, {enableDeliveryRepair: true});
-    if (request.forceRerun && state.productionRepair.forceRerunStage === input.stage) {
+    if (
+      request.forceRerun &&
+      state.productionRepair.forceRerunStage === input.stage &&
+      ["repairing", "unfreeze-approved", "unfreeze-complete"].includes(
+        state.productionRepair.status,
+      )
+    ) {
       update.productionRepair = {
         ...state.productionRepair,
         forceRerunStage: null,

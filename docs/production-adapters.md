@@ -95,9 +95,62 @@ stage, or exhausted budget ends in `human-escalation`. A Delivery PASS resolves
 open production issues and ends in `production-ready`. Resume is idempotent for
 valid completed stages, including an already completed production-ready state.
 
-This scope deliberately does not add `HumanDecision`, unfreeze, final approval,
-publication, M4 persistence/cache/observability, or any Goal 3.2 editorial
-policy or calibration changes.
+## WP-M3-03 L4 unfreeze
+
+When the bounded production repair budget is exhausted, the subgraph may create
+`content/<episode>/production/unfreeze-requests/<request-id>.json`. The request
+is hash-bound to the current content manifest and contains only blocker issue
+summaries plus explicit frozen content `ArtifactRef`/owner/locator authorizations.
+It is rejected when any trigger is non-blocker, `unfreezeUsed >= maxUnfreeze`,
+the target is not in the manifest, the owner is `production-executor`, or the
+requested restart is later than `materialize:story`.
+
+The graph then pauses at `production_unfreeze_review` with a reference-only
+interrupt payload. Resume input is normalized to the formal
+`human-decision-v1` `unfreeze-approval` decision (the legacy
+`approve`/`reject` payload remains accepted for checkpoint compatibility).
+Approval writes both the formal decision audit artifact and the legacy request
+decision needed by the editor, increments `approvalEpoch` and
+`budget.unfreezeUsed`, and calls the explicitly configured content editor. A
+formal direct edit may provide already-materialized human versions instead;
+the same locked-range and stale-closure rules apply. The editor must return
+only new hash-bound revisions for the approved artifact/owner pairs. The
+configured content gate runner must return a passing gate plus validator and
+critic artifact refs; otherwise the graph stops closed. Downstream registry
+records are marked stale transitively, while old production files/checkpoints
+remain available for audit or cache reuse. A successful gate writes a new
+frozen manifest carrying the new approval epoch and resumes from
+`materialize:story`.
+
+No production adapter is allowed to edit story, fact, or content artifacts.
+Formal final approval is documented below; publication, M4
+persistence/cache/observability, and Goal 3.2 editorial policy or calibration
+changes remain out of scope.
+
+## WP-M3-04 Formal HumanDecision and final approval
+
+`src/orchestration/schemas/human-decision.ts` defines the canonical
+`HumanDecision` envelope. It accepts `approve`, `reject`, and `direct-edit`
+for `content-approval`, `unfreeze-approval`, and `final-approval`. The
+persisted decision contains only references and bounded metadata; its artifact
+is registered in `artifact-index.json` and replaying the same `decisionId` is
+idempotent.
+
+`createFoundationGraph({repoRoot})` enables the formal content and final
+interrupt handlers. Content approval freezes the explicit refs and produces a
+current-epoch `productionAuthorization`; `assertProductionStart(state,
+{requireFormalApproval: true})` rejects missing or stale authorization. Final
+approval ends in the internal `published` state with an explicit
+`no external publication performed` marker. It does not call upload, network,
+or platform-publish code.
+
+Rejects are stored as structured Issue artifacts and routed through the
+ownership table. Direct edits use a new hash-bound artifact revision, record
+human provenance, stale dependent selections transitively, and add locked
+ranges. Content-loop callers inherit `ProductionState.lockedRanges` when no
+override is supplied, so an automated revision that overlaps a lock fails
+closed. State/checkpoint values continue to carry refs and controlled
+summaries only.
 
 Example shape:
 

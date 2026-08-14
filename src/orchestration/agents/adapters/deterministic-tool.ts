@@ -1132,6 +1132,11 @@ export const createDeterministicToolAdapter = (
     let calculatedInputSetHash = inputSetHash(request.stage, [request.contentManifestRef]);
     try {
       const manifest = readFrozenManifest(options.repoRoot, request.contentManifestRef);
+      if ((manifest.approvalEpoch ?? 0) !== (request.approvalEpoch ?? 0)) {
+        throw new Error(
+          `PRODUCTION_APPROVAL_EPOCH_MISMATCH:${request.approvalEpoch ?? 0}:${manifest.approvalEpoch ?? 0}`,
+        );
+      }
       const frozenById = new Map(
         manifest.artifacts.map((artifact) => [artifact.artifactId, artifact]),
       );

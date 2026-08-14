@@ -76,6 +76,7 @@ export const contentManifestSchema = z
     episodeId: episodeIdSchema,
     frozenAt: z.string().datetime({offset: true}),
     frozenBy: z.string().min(1),
+    approvalEpoch: z.number().int().nonnegative().default(0),
     selectionHash: sha256Schema,
     artifacts: z.array(artifactRefSchema).min(1),
     gateSnapshot: contentManifestGateSnapshotSchema,

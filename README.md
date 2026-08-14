@@ -26,14 +26,25 @@ existing production scripts, and WP-M3-02 adds an opt-in LangGraph production
 subgraph with bounded delivery repair; artifact files remain the content source
 of truth.
 
-Formal `HumanDecision` handling, direct-edit locks, approval-epoch production
-authorization, unfreeze, final approval, publication, production persistence
-and M4 cache/observability hardening are not implemented. The production
-subgraph starts from a current frozen content manifest, routes Delivery Critic
-REJECTs through the deterministic production owner, and stops at
-`production-ready` or human escalation; it does not add approval or publication
-semantics. The default `ORCHESTRATOR=manual` path is unchanged. See
-[`docs/production-adapters.md`](docs/production-adapters.md).
+WP-M3-04 now provides the formal `human-decision-v1` protocol for content,
+unfreeze and final approval: every decision is persisted as a hash-bound
+artifact with reviewer/time/reason, related refs and an approval epoch.
+Rejects create deterministic Issue artifacts; direct edits create new
+hash-bound versions, lock their ranges and stale downstream selections; and
+current-epoch content approval is required by the opt-in production path.
+Final approval records only internal state and never uploads or publishes.
+WP-M3-03 remains the bounded L4 unfreeze path, now normalized to the same
+formal decision artifact while retaining its legacy request/editor contract.
+The default `ORCHESTRATOR=manual` path is unchanged. See
+[`docs/production-adapters.md`](docs/production-adapters.md) and
+[`docs/human-decision.md`](docs/human-decision.md).
+
+WP-M4-01 adds a versioned checkpoint persistence boundary. SQLite remains the
+local/dev backend; PostgreSQL is selected explicitly through
+`CHECKPOINT_BACKEND=postgres` and `CHECKPOINT_POSTGRES_URL`. Minor state and
+checkpoint versions migrate deterministically, while incompatible major
+versions fail closed and in-flight episodes cannot be auto-migrated. See
+[`docs/checkpoint-persistence.md`](docs/checkpoint-persistence.md).
 
 ## Current editorial and duration standard
 

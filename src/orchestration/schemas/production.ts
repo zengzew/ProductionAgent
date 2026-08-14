@@ -149,7 +149,15 @@ export const productionRepairRouteSchema = z
 
 export const productionRepairStateSchema = z
   .object({
-    status: z.enum(["idle", "repairing", "human-escalation", "production-ready"]),
+    status: z.enum([
+      "idle",
+      "repairing",
+      "unfreeze-review",
+      "unfreeze-approved",
+      "unfreeze-complete",
+      "human-escalation",
+      "production-ready",
+    ]),
     round: z.number().int().nonnegative(),
     maxRounds: z.number().int().nonnegative(),
     route: productionRepairRouteSchema.nullable(),
@@ -230,6 +238,7 @@ export const productionStageRequestSchema = z
     stage: productionStageSchema,
     attempt: z.number().int().positive(),
     revisionRound: z.number().int().nonnegative(),
+    approvalEpoch: z.number().int().nonnegative().optional(),
     contentManifestRef: artifactRefSchema,
     inputArtifacts: z.array(artifactRefSchema),
     previousArtifacts: z.array(artifactRefSchema),

@@ -2,6 +2,8 @@ import {agentNames} from "./schemas/agent";
 import type {ArtifactRef} from "./schemas/artifact";
 import {stableJsonEqual} from "./stable-json";
 import {productionRepairStateSchema, productionStageCheckpointSchema} from "./schemas/production";
+import {humanLockedRangeSchema, productionAuthorizationSchema} from "./schemas/human-decision";
+import {unfreezeStateSchema, type UnfreezeState} from "./schemas/unfreeze";
 import {productionPhases, type ProductionState, type ProductionStageSummary} from "./state";
 
 export const firstWriteImmutable = <T>(current: T, update: T): T => {
@@ -15,6 +17,14 @@ export const mergePhase = (
   current: ProductionState["phase"],
   update: ProductionState["phase"],
 ): ProductionState["phase"] => {
+  if (current === "unfreeze_review" && update === "frozen") return update;
+  if (
+    current === "content_approval" &&
+    (update === "content_eval" || update === "content_revision")
+  ) {
+    return update;
+  }
+  if (current === "final_approval" && update === "production_revision") return update;
   const currentRank = productionPhases.indexOf(current);
   const updateRank = productionPhases.indexOf(update);
   return updateRank > currentRank ? update : current;
@@ -95,6 +105,45 @@ export const mergeEventSummaries = (
   current: ProductionState["events"],
   update: ProductionState["events"],
 ): ProductionState["events"] => appendDedupeBy(current, update, (item) => item.eventId);
+
+export const mergeLockedRanges = (
+  current: ProductionState["lockedRanges"],
+  update: ProductionState["lockedRanges"],
+): ProductionState["lockedRanges"] =>
+  appendDedupeBy(
+    current.map((lock) => humanLockedRangeSchema.parse(lock)),
+    update.map((lock) => humanLockedRangeSchema.parse(lock)),
+    (lock) => lock.lockId,
+  );
+
+export const mergeProcessedDecisionIds = (
+  current: ProductionState["processedDecisionIds"],
+  update: ProductionState["processedDecisionIds"],
+): ProductionState["processedDecisionIds"] => [...new Set([...current, ...update])].sort();
+
+export const mergeProductionAuthorization = (
+  current: ProductionState["productionAuthorization"],
+  update: ProductionState["productionAuthorization"],
+): ProductionState["productionAuthorization"] => {
+  const left = current === null ? null : productionAuthorizationSchema.parse(current);
+  const right = update === null ? null : productionAuthorizationSchema.parse(update);
+  if (!left) return right;
+  if (!right) return left;
+  if (stableJsonEqual(left, right)) return left;
+  if (right.approvalEpoch > left.approvalEpoch) return right;
+  if (right.approvalEpoch < left.approvalEpoch) return left;
+  throw new Error("production authorization collision");
+};
+
+export const mergePendingHumanRoute = (
+  current: ProductionState["pendingHumanRoute"],
+  update: ProductionState["pendingHumanRoute"],
+): ProductionState["pendingHumanRoute"] => {
+  if (!current) return update;
+  if (!update) return null;
+  if (stableJsonEqual(current, update)) return current;
+  throw new Error("pending human route collision");
+};
 
 export const mergeStrictRecord = <T>(
   current: Record<string, T>,
@@ -196,8 +245,11 @@ export const mergeProductionIssueSummaries = (
 const productionRepairStatusRank: Record<ProductionState["productionRepair"]["status"], number> = {
   idle: 0,
   repairing: 1,
-  "production-ready": 2,
-  "human-escalation": 3,
+  "unfreeze-review": 2,
+  "unfreeze-approved": 3,
+  "unfreeze-complete": 4,
+  "production-ready": 5,
+  "human-escalation": 6,
 };
 
 export const mergeProductionRepair = (
@@ -227,6 +279,29 @@ export const mergeProductionRepair = (
   if (!stableJsonEqual(left, right)) {
     throw new Error("production repair state collision");
   }
+  return left;
+};
+
+const unfreezeStatusRank: Record<UnfreezeState["status"], number> = {
+  idle: 0,
+  pending: 1,
+  approved: 2,
+  completed: 3,
+  rejected: 4,
+  escalated: 5,
+};
+
+export const mergeUnfreezeState = (
+  current: ProductionState["unfreeze"],
+  update: ProductionState["unfreeze"],
+): ProductionState["unfreeze"] => {
+  const left = unfreezeStateSchema.parse(current);
+  const right = unfreezeStateSchema.parse(update);
+  const leftRank = unfreezeStatusRank[left.status];
+  const rightRank = unfreezeStatusRank[right.status];
+  if (rightRank > leftRank) return right;
+  if (rightRank < leftRank) return left;
+  if (!stableJsonEqual(left, right)) throw new Error("unfreeze state collision");
   return left;
 };
 
