@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "concurrency-config-v1",
+  "global": {
+    "maxConcurrentRuns": 2,
+    "admission": "reject",
+    "pollIntervalMs": 25,
+    "waitTimeoutMs": 30000
+  },
+  "episodeLock": {
+    "admission": "reject",
+    "staleAfterMs": 60000,
+    "heartbeatIntervalMs": 10000
+  }
+}

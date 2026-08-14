@@ -3,10 +3,14 @@ import fs from "node:fs";
 import path from "node:path";
 import {
   artifactIndexSchema,
+  artifactRefSchema,
   type ArtifactDependency,
   type ArtifactIndex,
+  type LegacyArtifactProvenance,
   type ArtifactRef,
 } from "./schemas/artifact";
+import {withOptimisticFileCasSync} from "./concurrency";
+import {stableJson} from "./stable-json";
 
 export const emptyArtifactIndex = (episodeId: string): ArtifactIndex =>
   artifactIndexSchema.parse({
@@ -50,6 +54,14 @@ export const assertArtifactRefsBytes = (repoRoot: string, refs: readonly Artifac
 
 const artifactIndexPath = (repoRoot: string, episodeId: string): string =>
   resolveRepositoryPath(repoRoot, `content/${episodeId}/artifact-index.json`);
+
+const assertIndexFileEpisode = (filePath: string, episodeId: string): void => {
+  const normalized = path.resolve(filePath).split(path.sep).join("/");
+  const match = /\/content\/(episode-[a-z0-9-]+)\/artifact-index\.json$/u.exec(normalized);
+  if (match?.[1] && match[1] !== episodeId) {
+    throw new Error(`ARTIFACT_INDEX_EPISODE_MISMATCH:${episodeId}:${match[1]}`);
+  }
+};
 
 /** Returns false for missing, malformed, stale, superseded, or pointer-mismatched selections. */
 export const artifactRefSelectionMatches = (repoRoot: string, ref: ArtifactRef): boolean => {
@@ -113,6 +125,7 @@ export const buildArtifactRef = (input: {
   producer: string;
   previous?: ArtifactRef;
   createdAt?: string;
+  legacyProvenance?: LegacyArtifactProvenance;
 }): ArtifactRef => {
   const bytes = fs.readFileSync(resolveRepositoryPath(input.repoRoot, input.path));
   const sha256 = crypto.createHash("sha256").update(bytes).digest("hex");
@@ -122,7 +135,7 @@ export const buildArtifactRef = (input: {
   }
   const revision = previous ? previous.revision + Number(previous.sha256 !== sha256) : 1;
 
-  return {
+  return artifactRefSchema.parse({
     artifactId: input.artifactId,
     episodeId: input.episodeId,
     path: input.path.split(path.sep).join("/"),
@@ -133,7 +146,8 @@ export const buildArtifactRef = (input: {
     sizeBytes: bytes.byteLength,
     producer: input.producer,
     createdAt: input.createdAt ?? new Date().toISOString(),
-  };
+    ...(input.legacyProvenance ? {legacyProvenance: input.legacyProvenance} : {}),
+  });
 };
 
 export const readArtifactIndex = (filePath: string): ArtifactIndex =>
@@ -141,6 +155,7 @@ export const readArtifactIndex = (filePath: string): ArtifactIndex =>
 
 export const writeArtifactIndex = (filePath: string, index: ArtifactIndex): void => {
   const validated = artifactIndexSchema.parse(index);
+  assertIndexFileEpisode(filePath, validated.episodeId);
   fs.mkdirSync(path.dirname(filePath), {recursive: true});
   const temporaryPath = `${filePath}.${process.pid}.tmp`;
   try {
@@ -151,6 +166,48 @@ export const writeArtifactIndex = (filePath: string, index: ArtifactIndex): void
   }
 };
 
+export const artifactIndexControlHash = (index: ArtifactIndex): string =>
+  crypto.createHash("sha256").update(stableJson(artifactIndexSchema.parse(index)), "utf8").digest("hex");
+
+export const readArtifactIndexVersion = (filePath: string): string | null =>
+  fs.existsSync(filePath) ? artifactIndexControlHash(readArtifactIndex(filePath)) : null;
+
+const repositoryRootForIndexPath = (filePath: string): string => {
+  const absolute = path.resolve(filePath);
+  const marker = `${path.sep}content${path.sep}`;
+  const markerIndex = absolute.indexOf(marker);
+  return markerIndex >= 0 ? absolute.slice(0, markerIndex) : path.dirname(path.dirname(absolute));
+};
+
+/** Writes an artifact registry only when the caller still owns the expected index version. */
+export const writeArtifactIndexCas = (input: {
+  filePath: string;
+  index: ArtifactIndex;
+  expectedVersion?: string | null;
+  casRoot?: string;
+}): string => {
+  const validated = artifactIndexSchema.parse(input.index);
+  assertIndexFileEpisode(input.filePath, validated.episodeId);
+  const expected = input.expectedVersion ?? null;
+  const root = input.casRoot ?? repositoryRootForIndexPath(input.filePath);
+  // The file mutex is intentionally separate from the long-lived episode lock. It protects
+  // registry compare-and-swap even when a caller bypasses orchestration admission.
+  return withOptimisticFileCasSync({
+    root,
+    key: `artifact-index:${path.resolve(input.filePath)}`,
+    run: () => {
+      const current = readArtifactIndexVersion(input.filePath);
+      if (current !== expected) {
+        throw new Error(
+          `ARTIFACT_INDEX_CAS_CONFLICT:expected=${expected ?? "none"}:current=${current ?? "none"}`,
+        );
+      }
+      writeArtifactIndex(input.filePath, validated);
+      return artifactIndexControlHash(validated);
+    },
+  });
+};
+
 export const registerCandidate = (
   index: ArtifactIndex,
   ref: ArtifactRef,
@@ -159,6 +216,11 @@ export const registerCandidate = (
 ): ArtifactIndex => {
   if (index.episodeId !== ref.episodeId) {
     throw new Error("artifact and index episode IDs differ");
+  }
+  for (const dependency of dependencies) {
+    if (!dependency.artifactId.startsWith(`${index.episodeId}:`)) {
+      throw new Error("artifact dependency belongs to another episode");
+    }
   }
   const duplicate = index.artifacts.find(
     (record) => record.ref.artifactId === ref.artifactId && record.ref.sha256 === ref.sha256,

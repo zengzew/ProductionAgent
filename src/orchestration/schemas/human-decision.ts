@@ -78,6 +78,7 @@ export const humanDecisionBaseSchema = z
   .object({
     schemaVersion: z.literal("human-decision-v1").default("human-decision-v1"),
     decisionId: humanDecisionIdSchema,
+    runId: z.string().min(1).optional(),
     gate: humanDecisionGateSchema,
     decision: humanDecisionKindSchema,
     reviewer: z.string().min(1).max(200),

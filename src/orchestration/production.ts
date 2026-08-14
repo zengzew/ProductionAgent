@@ -4,6 +4,7 @@ import {
   type ProductionState,
   type ProductionStateUpdate,
 } from "./state";
+import {withControlledOrchestrationRun, type ConcurrencyConfig} from "./concurrency";
 import {
   productionStageCheckpointSchema,
   productionStageRequestSchema,
@@ -65,6 +66,7 @@ export type ProductionPipelineInput = {
     code: string;
   }) => void | Promise<void>;
   observability?: ProductionObservabilityOptions;
+  concurrency?: ConcurrencyConfig;
 };
 
 export type ProductionObservabilityOptions = {
@@ -289,7 +291,7 @@ export const runProductionStageWithRetry = async (input: {
     if (input.observability) {
       const startCheckpoint = createObservabilityCheckpoint({
         state,
-        checkpointId: `${state.runId}:checkpoint:${input.stage}:${request.attempt}:start`,
+        checkpointId: `${state.episodeId}:${state.runId}:checkpoint:${input.stage}:${request.attempt}:start`,
         checkpointVersion: input.observability.checkpointVersion,
         committedAt: startedAt,
       });
@@ -372,7 +374,7 @@ export const runProductionStageWithRetry = async (input: {
       });
       const terminalCheckpoint = createObservabilityCheckpoint({
         state: observabilityState,
-        checkpointId: `${state.runId}:checkpoint:${input.stage}:${request.attempt}`,
+      checkpointId: `${state.episodeId}:${state.runId}:checkpoint:${input.stage}:${request.attempt}`,
         checkpointVersion: input.observability.checkpointVersion,
         committedAt: terminalAt,
       });
@@ -567,7 +569,7 @@ export const assertProductionStart = (
  * Framework-neutral sequential production execution. A graph may call this as
  * one node or use `createProductionStageNode` for one checkpoint per stage.
  */
-export const runProductionPipeline = async (
+const runProductionPipelineInternal = async (
   input: ProductionPipelineInput,
 ): Promise<ProductionPipelineResult> => {
   assertProductionStart(input.state, {requireFormalApproval: input.requireFormalApproval});
@@ -632,6 +634,21 @@ export const runProductionPipeline = async (
   writeReport(state);
   return {status: "SUCCEEDED", state, results};
 };
+
+export const runProductionPipeline = async (
+  input: ProductionPipelineInput,
+): Promise<ProductionPipelineResult> =>
+  withControlledOrchestrationRun({
+    repoRoot: input.repoRoot,
+    identity: {
+      episodeId: input.state.episodeId,
+      runId: input.state.runId,
+      threadId: input.state.episodeId,
+      traceId: `${input.state.episodeId}:run:${input.state.runId}`,
+    },
+    config: input.concurrency,
+    run: () => runProductionPipelineInternal(input),
+  });
 
 export const createProductionStageNode =
   (input: {

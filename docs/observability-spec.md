@@ -255,6 +255,15 @@ type CheckpointRef = {
   workflowSha256: string;
   revisionLedgerSha256: string;
 };
+
+type LegacyUnavailableCheckpointRef = {
+  checkpointId: "unavailable";
+  availability: "unavailable";
+  artifactIndexSha256: null;
+  workflowSha256: null;
+  revisionLedgerSha256: null;
+  stateSha256: null;
+};
 ```
 
 `inputSetHash` is SHA-256 of canonical JSON containing sorted input ArtifactRefs. It is safe to log and
@@ -350,6 +359,14 @@ Existing manually run episodes do not have complete event logs. A compatibility 
 
 This allows the current production workflow to remain usable while making missing historical
 telemetry explicit rather than fabricating it.
+
+WP-M4-05 records those legacy executions with the canonical `observability-event-v1` envelope. Since
+the old runs have no trustworthy checkpoint, the envelope carries a reference-only checkpoint whose
+`availability` is `unavailable` and whose checkpoint/state hashes are `null`; this is an explicit
+absence marker, not a synthetic checkpoint. The importer does not write workflow state, approval
+records, final status, registry files, or legacy source bytes. The unavailable marker remains readable
+by the current event-log reader and replay projections, while a new approval must still wait for
+current checkpoint evidence.
 
 ## M4-03 cache telemetry boundary
 

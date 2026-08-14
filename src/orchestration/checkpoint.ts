@@ -13,6 +13,7 @@ import {
 } from "./config/checkpoint";
 import {assertCheckpointControlHash} from "./checkpoint-integrity";
 import {assertReferenceOnlyState, productionStateFieldNames, type ProductionState} from "./state";
+import {episodeIdSchema} from "./identity";
 
 export const DEFAULT_CHECKPOINT_PATH = ".orchestration/checkpoints.sqlite";
 
@@ -27,17 +28,21 @@ export const createLocalCheckpoint = (input: {
     throw new Error("checkpoint path must stay inside the repository");
   }
   fs.mkdirSync(path.dirname(absolutePath), {recursive: true});
-  return createSqliteCheckpointer(absolutePath);
+  return createSqliteCheckpointer(absolutePath, {casRoot: input.repoRoot});
 };
 
 export const createPostgresCheckpoint = (input: {
   connectionString: string;
   schema?: string;
+  casRoot?: string;
 }): LocalCheckpointer => {
   if (!input.connectionString.trim()) {
     throw new Error("CHECKPOINT_POSTGRES_CONNECTION_REQUIRED");
   }
-  return createPostgresCheckpointer(input.connectionString, {schema: input.schema});
+  return createPostgresCheckpointer(input.connectionString, {
+    schema: input.schema,
+    casRoot: input.casRoot,
+  });
 };
 
 export const createConfiguredCheckpoint = (input: {
@@ -66,6 +71,7 @@ export const createConfiguredCheckpoint = (input: {
   return createPostgresCheckpoint({
     connectionString: config.postgresConnectionString,
     schema: config.postgresSchema,
+    casRoot: input.repoRoot,
   });
 };
 
@@ -83,9 +89,60 @@ export const closeCheckpointBackend = async (checkpointer: LocalCheckpointer): P
 
 export type {ResolvedCheckpointConfig};
 
-export const checkpointConfig = (episodeId: string) => ({
-  configurable: {thread_id: episodeId},
-});
+export type RuntimeCheckpointConfig = {
+  configurable: {
+    thread_id: string;
+    episode_id?: string;
+    run_id?: string;
+    trace_id?: string;
+    checkpoint_id?: string;
+    checkpoint_ns?: string;
+    [key: string]: unknown;
+  };
+};
+
+export const checkpointConfig = (
+  input:
+    | string
+    | {
+        episodeId: string;
+        runId: string;
+        threadId?: string;
+        traceId?: string;
+      },
+): RuntimeCheckpointConfig => {
+  const identity =
+    typeof input === "string"
+      ? {episodeId: input, threadId: input}
+      : {
+          ...input,
+          threadId: input.threadId,
+        };
+  const episodeId = episodeIdSchema.parse(identity.episodeId);
+  const threadId = identity.threadId ?? episodeId;
+  return {
+    configurable: {
+      thread_id: threadId,
+      episode_id: episodeId,
+      ...(typeof input === "string" ? {} : {run_id: input.runId}),
+      ...(typeof input === "string"
+        ? {}
+        : {trace_id: input.traceId ?? `${episodeId}:run:${input.runId}`}),
+    },
+  };
+};
+
+export const checkpointIdentityFromConfig = (
+  config: Parameters<LocalCheckpointer["getTuple"]>[0],
+): {episodeId?: string; runId?: string; threadId?: string; traceId?: string} => {
+  const configurable = (config.configurable ?? {}) as Record<string, unknown>;
+  return {
+    ...(typeof configurable.episode_id === "string" ? {episodeId: configurable.episode_id} : {}),
+    ...(typeof configurable.run_id === "string" ? {runId: configurable.run_id} : {}),
+    ...(typeof configurable.thread_id === "string" ? {threadId: configurable.thread_id} : {}),
+    ...(typeof configurable.trace_id === "string" ? {traceId: configurable.trace_id} : {}),
+  };
+};
 
 // The concrete Command generic includes graph node names and must not leak past
 // lg-compat. `never` keeps callers framework-neutral while preserving the runtime value.
@@ -112,6 +169,13 @@ export const restoreVerifiedCheckpoint = async (input: {
       Object.entries(values).filter(([key]) => productionStateFieldNames.includes(key)),
     ),
   );
+  const identity = checkpointIdentityFromConfig(input.config);
+  if (identity.episodeId && identity.episodeId !== state.episodeId) {
+    throw new Error(`CHECKPOINT_EPISODE_MISMATCH:${identity.episodeId}:${state.episodeId}`);
+  }
+  if (identity.runId && identity.runId !== state.runId) {
+    throw new Error(`CHECKPOINT_RUN_MISMATCH:${identity.runId}:${state.runId}`);
+  }
   assertCheckpointControlHash({
     state,
     expectedHash: (tuple.metadata as Record<string, unknown>).productionStateSha256,

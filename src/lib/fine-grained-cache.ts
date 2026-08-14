@@ -2,6 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import {cacheEventSchema, type CacheEvent} from "../orchestration/schemas/cache-event";
+import {episodeIdSchema} from "../orchestration/identity";
 import {z} from "zod";
 
 export const FINE_CACHE_ENTRY_SCHEMA_VERSION = "fine-cache-entry-v1" as const;
@@ -237,8 +238,24 @@ export const cacheEntryPath = (
   kind: CacheKind,
   key: string,
 ): string => {
+  episodeIdSchema.parse(episodeId);
   if (!sha256Schema(key)) throw new Error("cache key must be a SHA-256 digest");
   return path.join(cacheKindDirectory(root, episodeId, kind), key);
+};
+
+const assertMetadataEpisode = (value: unknown, episodeId: string, location = "metadata"): void => {
+  if (!value || typeof value !== "object") return;
+  if (Array.isArray(value)) {
+    value.forEach((entry, index) => assertMetadataEpisode(entry, episodeId, `${location}[${index}]`));
+    return;
+  }
+  const record = value as Record<string, unknown>;
+  if (typeof record.episodeId === "string" && record.episodeId !== episodeId) {
+    throw new Error(`CACHE_EPISODE_MISMATCH:${location}:${record.episodeId}:${episodeId}`);
+  }
+  for (const [key, entry] of Object.entries(record)) {
+    assertMetadataEpisode(entry, episodeId, `${location}.${key}`);
+  }
 };
 
 const entryFilePath = (directory: string): string => path.join(directory, "entry.json");
@@ -293,7 +310,7 @@ export class FineGrainedCacheStore {
 
   constructor(options: FineGrainedCacheStoreOptions) {
     this.root = path.resolve(options.root);
-    this.episodeId = options.episodeId;
+    this.episodeId = episodeIdSchema.parse(options.episodeId);
     this.eventSink = options.eventSink;
     this.now = options.now ?? (() => new Date().toISOString());
     this.traceId = options.traceId ?? `cache:${options.episodeId}`;
@@ -418,6 +435,7 @@ export class FineGrainedCacheStore {
     }
     let metadata: T;
     try {
+      assertMetadataEpisode(entry.metadata, this.episodeId);
       metadata = input.validateMetadata
         ? input.validateMetadata(entry.metadata)
         : (entry.metadata as T);
@@ -446,6 +464,7 @@ export class FineGrainedCacheStore {
     createdAt?: string;
   }): CacheEntry {
     if (!sha256Schema(input.cacheKey)) throw new Error("cache key must be a SHA-256 digest");
+    assertMetadataEpisode(input.metadata, this.episodeId);
     const bytes = Buffer.from(input.bytes);
     const entry = fineGrainedCacheEntrySchema.parse({
       schemaVersion: FINE_CACHE_ENTRY_SCHEMA_VERSION,

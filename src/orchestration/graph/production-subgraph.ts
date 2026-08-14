@@ -69,6 +69,7 @@ import {
   type UnfreezeRequest,
 } from "../schemas/unfreeze";
 import type {ArtifactIndex} from "../schemas/artifact";
+import type {ConcurrencyConfig} from "../concurrency";
 import {
   createObservabilityCheckpoint,
   createObservabilityControlEvent,
@@ -86,11 +87,21 @@ export type ProductionSubgraphOptions = {
   retryClock?: FailureClock;
   observability?: ProductionObservabilityOptions;
   unfreeze?: ProductionUnfreezeOptions;
+  concurrency?: ConcurrencyConfig;
 };
 
 export type ProductionSubgraphRunInput = ProductionSubgraphOptions & {
   state: ProductionState;
-  config?: {configurable: {thread_id: string}};
+  config?: {
+    configurable: {
+      thread_id: string;
+      episode_id?: string;
+      run_id?: string;
+      trace_id?: string;
+      checkpoint_id?: string;
+      [key: string]: unknown;
+    };
+  };
 };
 
 export type UnfreezeRequestPlanInput = {
@@ -432,6 +443,7 @@ const parseFormalUnfreezeDecision = (input: {
   const raw: Record<string, unknown> = {
     schemaVersion: value.schemaVersion,
     decisionId: value.decisionId,
+    runId: value.runId ?? input.request.runId,
     gate: "unfreeze-approval",
     decision: value.decision ?? value.action,
     reviewer: value.reviewer ?? value.actorId,
@@ -450,6 +462,9 @@ const parseFormalUnfreezeDecision = (input: {
   if (decision.gate !== "unfreeze-approval") throw new Error("HUMAN_DECISION_GATE_MISMATCH");
   if (decision.approvalEpoch !== input.request.approvalEpoch) {
     throw new Error("UNFREEZE_APPROVAL_EPOCH_MISMATCH");
+  }
+  if (decision.runId && decision.runId !== input.request.runId) {
+    throw new Error("HUMAN_DECISION_RUN_MISMATCH");
   }
   if (decision.artifactRefs.some((ref) => ref.episodeId !== input.request.episodeId)) {
     throw new Error("HUMAN_DECISION_EPISODE_MISMATCH");
@@ -573,7 +588,7 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
         (control.state.contentManifestRef ? [control.state.contentManifestRef] : []),
       checkpoint: createObservabilityCheckpoint({
         state: control.state,
-        checkpointId: `${control.state.runId}:checkpoint:control:${control.eventType}:${control.executionId}`,
+        checkpointId: `${control.state.episodeId}:${control.state.runId}:checkpoint:control:${control.eventType}:${control.executionId}`,
         checkpointVersion: input.observability.checkpointVersion,
         committedAt: occurredAt,
       }),
@@ -1241,7 +1256,12 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
       const decision = readUnfreezeDecision(input.repoRoot, decisionRef);
       if (decision.decision !== "approve") throw new Error("UNFREEZE_DECISION_NOT_APPROVED");
       const formalDecision = state.unfreeze.humanDecisionRef
-        ? readHumanDecision(input.repoRoot, state.unfreeze.humanDecisionRef)
+        ? readHumanDecision(
+            input.repoRoot,
+            state.unfreeze.humanDecisionRef,
+            state.episodeId,
+            state.runId,
+          )
         : undefined;
       let applied: {
         artifactIndex: ArtifactIndex;
@@ -1466,6 +1486,8 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
     afterRepairRoute,
     afterUnfreezeReview,
     checkpointer: input.checkpointer,
+    repoRoot: input.repoRoot,
+    concurrency: input.concurrency,
   });
 };
 
@@ -1473,5 +1495,15 @@ export const createLangGraphProductionSubgraph = createProductionSubgraph;
 
 export const runProductionSubgraph = async (input: ProductionSubgraphRunInput) => {
   const graph = createProductionSubgraph(input);
-  return graph.invoke(input.state, input.config ?? {configurable: {thread_id: input.state.runId}});
+  return graph.invoke(
+    input.state,
+    input.config ?? {
+      configurable: {
+        thread_id: input.state.episodeId,
+        episode_id: input.state.episodeId,
+        run_id: input.state.runId,
+        trace_id: `${input.state.episodeId}:run:${input.state.runId}`,
+      },
+    },
+  );
 };

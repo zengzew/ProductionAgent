@@ -25,8 +25,20 @@ type ArtifactRef = {
   sizeBytes: number;
   producer: string;
   createdAt: string; // RFC 3339 UTC
+  legacyProvenance?: {
+    packageId: string;
+    packageName: string;
+    packageVersion: string;
+    canonicalSourcePath: string;
+    canonicalRelativePath: string;
+    aliases: string[];
+  };
 };
 ```
+
+`legacyProvenance` is only present on references synthesized by the read-only legacy backfill. Its
+canonical source and repository-relative path are provenance, not a second identity. Alias or
+symlink paths may locate the package but MUST NOT be stored as `path` or used to derive `artifactId`.
 
 Normative rules:
 

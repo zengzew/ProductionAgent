@@ -20,6 +20,7 @@ import {
   type ObservabilityEvent,
 } from "./schemas/execution-event";
 import {cacheEventSchema, type CacheEvent} from "./schemas/cache-event";
+import {concurrencyEventSchema, type ConcurrencyEvent} from "./concurrency";
 import {productionStageNames, type ProductionStageName} from "./schemas/production";
 import {PRODUCTION_CHECKPOINT_SCHEMA_VERSION} from "./schemas/migrations/versions";
 import {stableJson} from "./stable-json";
@@ -62,6 +63,8 @@ export type ObservabilityGateInput = {
   cacheEvents?: readonly CacheEvent[];
   cacheEventLogPath?: string;
   expectedCacheEventLogSha256?: string;
+  concurrencyEvents?: readonly ConcurrencyEvent[];
+  concurrencyEventLogPath?: string;
   repoRoot?: string;
   artifactVerifier?: ObservabilityArtifactVerifier;
   executedStages?: readonly string[];
@@ -80,6 +83,7 @@ export type ObservabilityGateResult = {
   artifactVerification: "bytes" | "custom-verifier" | "reference-only" | "failed";
   events: ObservabilityEvent[];
   cacheEvents: CacheEvent[];
+  concurrencyEvents: ConcurrencyEvent[];
 };
 
 export class ObservabilityDegradedError extends Error {
@@ -180,7 +184,7 @@ const checkpointForState = (input: {
   observabilityCheckpointSchema.parse({
     checkpointId:
       input.checkpointId ??
-      `${input.state.runId}:checkpoint:${input.state.phase}:${input.state.round}`,
+      `${input.state.episodeId}:${input.state.runId}:checkpoint:${input.state.phase}:${input.state.round}`,
     checkpointVersion: input.checkpointVersion ?? PRODUCTION_CHECKPOINT_SCHEMA_VERSION,
     stateSha256: productionStateControlHash(input.state),
     artifactIndexSha256: null,
@@ -256,7 +260,7 @@ const baseEventInput = (input: {
     episodeId: input.state.episodeId,
     runId: input.state.runId,
     stage: input.stage,
-    traceId: input.state.runId,
+    traceId: `${input.state.episodeId}:run:${input.state.runId}`,
     executionId: input.executionId,
     parentExecutionId: input.parentExecutionId ?? null,
     agentName: input.agentName ?? "orchestrator",
@@ -424,13 +428,21 @@ export const createObservabilityControlEvent = (input: {
   decisionCode?: string;
   decisionSummary?: string;
 }): ObservabilityEvent =>
-  baseEventInput({
+  (() => {
+    const inputArtifacts = input.inputArtifacts ?? [];
+    const outputArtifacts = input.outputArtifacts ?? [];
+    for (const ref of [...inputArtifacts, ...outputArtifacts]) {
+      if (ref.episodeId !== input.state.episodeId) {
+        throw new Error(`OBSERVABILITY_ARTIFACT_EPISODE_MISMATCH:${ref.artifactId}`);
+      }
+    }
+    return baseEventInput({
     ...input,
     attempt: input.attempt ?? 1,
     eventType: input.eventType,
     checkpoint: input.checkpoint ?? checkpointForState({state: input.state}),
-    inputArtifacts: input.inputArtifacts ?? [],
-    outputArtifacts: input.outputArtifacts ?? [],
+    inputArtifacts,
+    outputArtifacts,
     executionKind: input.executionKind,
     agentName: input.agentName,
     terminalStatus: null,
@@ -446,7 +458,8 @@ export const createObservabilityControlEvent = (input: {
       route: null,
       criticResultRef: null,
     },
-  });
+    });
+  })();
 
 const addReason = (reasons: string[], reason: string): void => {
   if (!reasons.includes(reason)) reasons.push(reason);
@@ -558,6 +571,56 @@ const parseCacheEvents = (input: ObservabilityGateInput, reasons: string[]): Cac
   return output;
 };
 
+const concurrencyEventWithoutId = (event: ConcurrencyEvent): Omit<ConcurrencyEvent, "eventId"> => {
+  const withoutId = {...event};
+  Reflect.deleteProperty(withoutId, "eventId");
+  return withoutId;
+};
+
+const parseConcurrencyEvents = (
+  input: ObservabilityGateInput,
+  reasons: string[],
+): ConcurrencyEvent[] => {
+  let source: readonly ConcurrencyEvent[] = input.concurrencyEvents ?? [];
+  if (input.concurrencyEventLogPath) {
+    try {
+      source = readJsonLines(input.concurrencyEventLogPath, (value) =>
+        concurrencyEventSchema.parse(value),
+      );
+    } catch (error) {
+      addReason(reasons, error instanceof Error ? error.message : String(error));
+      return [];
+    }
+  }
+  const output: ConcurrencyEvent[] = [];
+  const eventIds = new Set<string>();
+  for (const raw of source) {
+    try {
+      const event = concurrencyEventSchema.parse(raw);
+      if (eventIds.has(event.eventId)) addReason(reasons, `CONCURRENCY_EVENT_DUPLICATE:${event.eventId}`);
+      eventIds.add(event.eventId);
+      const expected = crypto
+        .createHash("sha256")
+        .update(stableJson(concurrencyEventWithoutId(event)), "utf8")
+        .digest("hex");
+      if (expected !== event.eventId) addReason(reasons, `CONCURRENCY_EVENT_TAMPERED:${event.eventId}`);
+      if (input.episodeId && event.episodeId !== input.episodeId) {
+        addReason(reasons, `CONCURRENCY_EVENT_EPISODE_MISMATCH:${event.eventId}`);
+      }
+      if (input.runId && event.runId !== input.runId) {
+        addReason(reasons, `CONCURRENCY_EVENT_RUN_MISMATCH:${event.eventId}`);
+      }
+      output.push(event);
+    } catch (error) {
+      addReason(
+        reasons,
+        `CONCURRENCY_EVENT_INVALID:${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
+  }
+  return output;
+};
+
 const checkEventIdentity = (
   events: readonly ObservabilityEvent[],
   input: ObservabilityGateInput,
@@ -596,6 +659,15 @@ const checkLifecycle = (
   input: ObservabilityGateInput,
   reasons: string[],
 ): void => {
+  if (
+    events.some(
+      (event) =>
+        event.environment.runnerVersion === "legacy-derived" &&
+        event.checkpoint.availability === "unavailable",
+    )
+  ) {
+    addReason(reasons, "CHECKPOINT_UNAVAILABLE:legacy-derived");
+  }
   const lifecycle = new Map<
     string,
     {starts: ObservabilityEvent[]; terminals: ObservabilityEvent[]}
@@ -841,6 +913,7 @@ export const evaluateObservabilityCompleteness = (
   const warnings: string[] = [];
   const events = parseCanonicalEvents(input, reasons);
   const cacheEvents = parseCacheEvents(input, reasons);
+  const concurrencyEvents = parseConcurrencyEvents(input, reasons);
   const episodeId = input.episodeId ?? input.state?.episodeId ?? events[0]?.episodeId ?? null;
   const runId = input.runId ?? input.state?.runId ?? events[0]?.runId ?? null;
 
@@ -855,6 +928,14 @@ export const evaluateObservabilityCompleteness = (
   checkLifecycle(events, input.state, scopedInput, reasons);
   checkRetriesRepairsDecisions(events, input.state, reasons);
   checkCache(cacheEvents, scopedInput, reasons);
+  for (const event of concurrencyEvents) {
+    if (episodeId && event.episodeId !== episodeId) {
+      addReason(reasons, `CONCURRENCY_EVENT_EPISODE_MISMATCH:${event.eventId}`);
+    }
+    if (runId && event.runId !== runId) {
+      addReason(reasons, `CONCURRENCY_EVENT_RUN_MISMATCH:${event.eventId}`);
+    }
+  }
 
   if (input.committedCheckpoints) {
     for (const value of input.committedCheckpoints) {
@@ -905,6 +986,7 @@ export const evaluateObservabilityCompleteness = (
     artifactVerification,
     events,
     cacheEvents,
+    concurrencyEvents,
   };
 };
 
@@ -957,6 +1039,21 @@ const reportUsageSummary = (
     `- skipped stages: ${skippedStages}`,
     `- cache hits: ${cacheHits}`,
     `- cache misses: ${cacheMisses}`,
+  ];
+};
+
+const concurrencyReportLines = (events: readonly ConcurrencyEvent[]): string[] => {
+  const counts = new Map<ConcurrencyEvent["eventType"], number>();
+  for (const event of events) counts.set(event.eventType, (counts.get(event.eventType) ?? 0) + 1);
+  const limits = [...new Set(events.map((event) => event.concurrencyLimit).filter(Boolean))];
+  const threads = [...new Set(events.map((event) => event.threadId))];
+  return [
+    `- thread identities: ${threads.length > 0 ? threads.map(redactObservabilityText).join(", ") : "none"}`,
+    `- global concurrency cap: ${limits.length > 0 ? limits.join(", ") : "not recorded"}`,
+    `- lock acquired/released: ${counts.get("lock.acquired") ?? 0}/${counts.get("lock.released") ?? 0}`,
+    `- lock contention: ${counts.get("lock.contention") ?? 0}`,
+    `- stale lock recovery: ${counts.get("lock.stale-recovery") ?? 0}`,
+    `- queued/admitted/rejected: ${counts.get("concurrency.queued") ?? 0}/${counts.get("concurrency.admitted") ?? 0}/${counts.get("concurrency.rejected") ?? 0}`,
   ];
 };
 
@@ -1081,6 +1178,16 @@ export const generateRunReport = (input: RunReportInput): RunReportResult => {
       ? []
       : ["- none"]),
     "",
+    "## Episode isolation / concurrency",
+    "",
+    ...concurrencyReportLines(result.concurrencyEvents),
+    ...(result.concurrencyEvents.length > 0
+      ? result.concurrencyEvents.map(
+          (event) =>
+            `- ${event.occurredAt} ${event.eventType} ${event.status} episode=${redactObservabilityText(event.episodeId)} run=${redactObservabilityText(event.runId)}${event.slotId ? ` slot=${event.slotId}` : ""} reason=${redactObservabilityText(event.reason)}`,
+        )
+      : ["- no concurrency events recorded"]),
+    "",
     "## Usage / cost availability",
     "",
     ...reportUsage(events),
@@ -1132,14 +1239,29 @@ export const buildRunReport = generateRunReport;
 export const renderRunReport = (input: RunReportInput): string => generateRunReport(input).report;
 
 export const writeRunReport = (input: RunReportInput & {repoRoot: string}): RunReportResult => {
-  const generated = generateRunReport(input);
+  const episodeId = input.episodeId ?? input.state?.episodeId;
+  const defaultConcurrencyLogPath = episodeId
+    ? path.resolve(input.repoRoot, `content/${episodeId}/observability/concurrency-events.jsonl`)
+    : undefined;
+  const generated = generateRunReport({
+    ...input,
+    ...(defaultConcurrencyLogPath &&
+    !input.concurrencyEvents &&
+    !input.concurrencyEventLogPath &&
+    fs.existsSync(defaultConcurrencyLogPath)
+      ? {concurrencyEventLogPath: defaultConcurrencyLogPath}
+      : {}),
+  });
   const reportPath =
     input.reportPath ??
-    `content/${input.episodeId ?? input.state?.episodeId ?? "unknown"}/observability/run-report.md`;
+    `content/${episodeId ?? "unknown"}/observability/run-report.md`;
   const absolute = path.resolve(input.repoRoot, reportPath);
   const relative = path.relative(path.resolve(input.repoRoot), absolute);
   if (relative.startsWith("..") || path.isAbsolute(relative)) {
     throw new Error("RUN_REPORT_PATH_ESCAPES_REPOSITORY");
+  }
+  if (episodeId && !relative.startsWith(`content/${episodeId}/`)) {
+    throw new Error("RUN_REPORT_EPISODE_SCOPE_MISMATCH");
   }
   fs.mkdirSync(path.dirname(absolute), {recursive: true});
   const temporary = `${absolute}.${process.pid}.tmp`;

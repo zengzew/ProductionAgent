@@ -207,6 +207,27 @@ const forbiddenBodyKeys = new Set([
   "sourcePassage",
 ]);
 
+const assertEpisodeScopedReferences = (value: unknown, episodeId: string, location = "state"): void => {
+  if (!value || typeof value !== "object") return;
+  if (Array.isArray(value)) {
+    value.forEach((entry, index) => assertEpisodeScopedReferences(entry, episodeId, `${location}[${index}]`));
+    return;
+  }
+  const record = value as Record<string, unknown>;
+  if (
+    typeof record.artifactId === "string" &&
+    typeof record.episodeId === "string" &&
+    typeof record.sha256 === "string" &&
+    typeof record.path === "string" &&
+    record.episodeId !== episodeId
+  ) {
+    throw new Error(`STATE_ARTIFACT_EPISODE_MISMATCH:${location}:${record.episodeId}:${episodeId}`);
+  }
+  for (const [key, entry] of Object.entries(record)) {
+    assertEpisodeScopedReferences(entry, episodeId, `${location}.${key}`);
+  }
+};
+
 export const assertReferenceOnlyState = (value: unknown): ProductionState => {
   const scan = (current: unknown, trail: string[]): void => {
     if (Array.isArray(current)) {
@@ -227,7 +248,9 @@ export const assertReferenceOnlyState = (value: unknown): ProductionState => {
   };
 
   scan(value, []);
-  return productionStateSchema.parse(value);
+  const parsed = productionStateSchema.parse(value);
+  assertEpisodeScopedReferences(parsed, parsed.episodeId);
+  return parsed;
 };
 
 export const createInitialProductionState = (input: {

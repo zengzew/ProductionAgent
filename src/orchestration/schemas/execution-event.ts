@@ -34,6 +34,7 @@ export const terminalStatusSchema = z.enum(["succeeded", "failed", "skipped"]);
 export const checkpointReferenceSchema = z
   .object({
     checkpointId: z.string().min(1),
+    availability: z.literal("unavailable").optional(),
     artifactIndexSha256: sha256Schema.nullable(),
     workflowSha256: sha256Schema.nullable(),
     revisionLedgerSha256: sha256Schema.nullable(),
@@ -158,6 +159,18 @@ const strictCheckpointReferenceSchema = checkpointReferenceSchema.extend({
   stateSha256: sha256Schema,
 });
 
+/** Explicit absence is different from a fabricated checkpoint hash on legacy records. */
+export const unavailableCheckpointReferenceSchema = z
+  .object({
+    checkpointId: z.literal("unavailable"),
+    availability: z.literal("unavailable"),
+    artifactIndexSha256: z.null(),
+    workflowSha256: z.null(),
+    revisionLedgerSha256: z.null(),
+    stateSha256: z.null(),
+  })
+  .strict();
+
 /**
  * M4-04's canonical envelope. The compatibility schema above intentionally remains permissive so
  * existing M1/M3 replay/import records do not change shape; approval gates parse through this one.
@@ -171,7 +184,7 @@ export const observabilityEventSchema = executionEventSchema
     inputSetHash: sha256Schema,
     eventHash: sha256Schema,
     terminalStatus: terminalStatusSchema.nullable(),
-    checkpoint: strictCheckpointReferenceSchema,
+    checkpoint: z.union([strictCheckpointReferenceSchema, unavailableCheckpointReferenceSchema]),
   })
   .strict()
   .superRefine((event, context) => {

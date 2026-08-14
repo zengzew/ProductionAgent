@@ -14,9 +14,10 @@ import {
   emptyArtifactIndex,
   markStaleTransitively,
   readArtifactIndex,
+  readArtifactIndexVersion,
   registerCandidate,
   selectArtifact,
-  writeArtifactIndex,
+  writeArtifactIndexCas,
 } from "../../artifact-registry";
 import {contentManifestSchema, type ContentManifest} from "../../schemas/freeze-manifest";
 import {
@@ -758,6 +759,7 @@ const publishProductionIssue = (input: {
   const previousIndexBytes = fs.existsSync(registryFile)
     ? fs.readFileSync(registryFile)
     : undefined;
+  const previousIndexVersion = readArtifactIndexVersion(registryFile);
   const index = loadIndex(input.repoRoot, input.episodeId);
   const previous = selectedRefFromIndex(index, declaration.artifactId);
   const ref = buildArtifactRef({
@@ -782,7 +784,12 @@ const publishProductionIssue = (input: {
   try {
     let nextIndex = registerCandidate(index, ref, input.executionId, dependencies);
     nextIndex = selectArtifact(nextIndex, ref);
-    writeArtifactIndex(registryFile, nextIndex);
+    writeArtifactIndexCas({
+      filePath: registryFile,
+      index: nextIndex,
+      expectedVersion: previousIndexVersion,
+      casRoot: input.repoRoot,
+    });
     assertCurrentBytes(input.repoRoot, ref, `published production issue ${input.issue.issueId}`);
     promotion.commit();
     return productionIssueSchema.parse({...input.issue, issueRef: ref});
@@ -970,6 +977,7 @@ const publish = (input: {
   const previousIndexBytes = fs.existsSync(registryFile)
     ? fs.readFileSync(registryFile)
     : undefined;
+  const previousIndexVersion = readArtifactIndexVersion(registryFile);
   const index = loadIndex(input.repoRoot, input.episodeId);
   const previousById = new Map<string, ArtifactRef>();
   for (const ref of input.previousArtifacts) previousById.set(ref.artifactId, ref);
@@ -1051,7 +1059,12 @@ const publish = (input: {
       );
     }
     snapshots.commit();
-    writeArtifactIndex(registryFile, nextIndex);
+    writeArtifactIndexCas({
+      filePath: registryFile,
+      index: nextIndex,
+      expectedVersion: previousIndexVersion,
+      casRoot: input.repoRoot,
+    });
     for (const ref of selectedRefs) {
       assertCurrentBytes(input.repoRoot, ref, `published artifact ${ref.artifactId}`);
     }

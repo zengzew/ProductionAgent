@@ -49,6 +49,8 @@ import {
   productionStageNames,
   type ProductionStageName,
 } from "./schemas/production";
+import {withControlledOrchestrationRun, withOptimisticFileCas, type ConcurrencyConfig} from "./concurrency";
+import {createRuntimeIdentity} from "./identity";
 
 export type FoundationNode = (
   state: ProductionState,
@@ -179,6 +181,10 @@ type CheckpointBackend = BaseCheckpointSaver & {
   end?: () => void | Promise<void>;
 };
 
+export type VersionedCheckpointSaverOptions = {
+  casRoot?: string;
+};
+
 type StateChannelValues = Record<string, unknown>;
 
 const looksLikeProductionState = (values: StateChannelValues): boolean =>
@@ -198,11 +204,13 @@ const checkpointMetadataFor = (migrated: CheckpointMetadataWithSchema): Checkpoi
  */
 export class VersionedCheckpointSaver extends BaseCheckpointSaver {
   private readonly backend: CheckpointBackend;
+  private readonly casRoot: string;
   private setupPromise: Promise<void> | undefined;
 
-  constructor(backend: CheckpointBackend) {
+  constructor(backend: CheckpointBackend, options: VersionedCheckpointSaverOptions = {}) {
     super(backend.serde);
     this.backend = backend;
+    this.casRoot = options.casRoot ?? process.cwd();
   }
 
   private async ensureSetup(): Promise<void> {
@@ -243,6 +251,32 @@ export class VersionedCheckpointSaver extends BaseCheckpointSaver {
       },
       metadata: checkpointMetadataFor(metadataResult.metadata),
     };
+  }
+
+  private validateConfigIdentity(
+    config: CheckpointConfig,
+    values?: StateChannelValues,
+  ): void {
+    const configurable = (config.configurable ?? {}) as Record<string, unknown>;
+    const episodeId = configurable.episode_id;
+    const threadId = configurable.thread_id;
+    const runId = configurable.run_id;
+    if (typeof episodeId === "string" && typeof threadId === "string" && episodeId !== threadId) {
+      throw new Error(`CHECKPOINT_THREAD_EPISODE_MISMATCH:${threadId}:${episodeId}`);
+    }
+    if (!values || !looksLikeProductionState(values)) return;
+    if (typeof episodeId === "string" && values.episodeId !== episodeId) {
+      throw new Error(`CHECKPOINT_EPISODE_MISMATCH:${values.episodeId}:${episodeId}`);
+    }
+    if (typeof runId === "string" && values.runId !== runId) {
+      throw new Error(`CHECKPOINT_RUN_MISMATCH:${values.runId}:${runId}`);
+    }
+  }
+
+  private async currentTuple(config: CheckpointConfig): Promise<CheckpointTuple | undefined> {
+    const configurable = {...((config.configurable ?? {}) as Record<string, unknown>)};
+    Reflect.deleteProperty(configurable, "checkpoint_id");
+    return this.backend.getTuple({...config, configurable});
   }
 
   private normalizeForWrite(
@@ -292,6 +326,7 @@ export class VersionedCheckpointSaver extends BaseCheckpointSaver {
   async getTuple(config: CheckpointConfig): Promise<CheckpointTuple | undefined> {
     await this.ensureSetup();
     const tuple = await this.backend.getTuple(config);
+    if (tuple) this.validateConfigIdentity(config, tuple.checkpoint.channel_values as StateChannelValues);
     return tuple ? this.normalizeTuple(tuple) : undefined;
   }
 
@@ -301,6 +336,7 @@ export class VersionedCheckpointSaver extends BaseCheckpointSaver {
   ): AsyncGenerator<CheckpointTuple> {
     await this.ensureSetup();
     for await (const tuple of this.backend.list(config, options)) {
+      this.validateConfigIdentity(config, tuple.checkpoint.channel_values as StateChannelValues);
       yield this.normalizeTuple(tuple);
     }
   }
@@ -312,17 +348,53 @@ export class VersionedCheckpointSaver extends BaseCheckpointSaver {
     newVersions: CheckpointPutVersions,
   ): Promise<ReturnType<BaseCheckpointSaver["put"]> extends Promise<infer T> ? T : never> {
     await this.ensureSetup();
+    const values = checkpoint.channel_values as StateChannelValues;
+    this.validateConfigIdentity(config, values);
     const normalized = this.normalizeForWrite(checkpoint, metadata, newVersions);
-    return this.backend.put(
-      config,
-      normalized.checkpoint,
-      normalized.metadata,
-      normalized.newVersions,
-    );
+    if (!looksLikeProductionState(productionStateValues(values))) {
+      return this.backend.put(
+        config,
+        normalized.checkpoint,
+        normalized.metadata,
+        normalized.newVersions,
+      );
+    }
+    const configurable = (config.configurable ?? {}) as Record<string, unknown>;
+    const expectedCheckpointId =
+      typeof configurable.checkpoint_id === "string" ? configurable.checkpoint_id : undefined;
+    const threadId =
+      typeof configurable.thread_id === "string"
+        ? configurable.thread_id
+        : String(values.episodeId ?? "unknown");
+    return withOptimisticFileCas({
+      root: this.casRoot,
+      key: `checkpoint:${threadId}:${String(configurable.checkpoint_ns ?? "")}`,
+      run: async () => {
+        const current = await this.currentTuple(config);
+        const currentCheckpointId = current
+          ? String(
+              ((current.config.configurable ?? {}) as Record<string, unknown>).checkpoint_id ??
+                current.checkpoint.id,
+            )
+          : undefined;
+        if (currentCheckpointId !== expectedCheckpointId) {
+          throw new Error(
+            `CHECKPOINT_CAS_CONFLICT:${threadId}:expected=${expectedCheckpointId ?? "none"}:current=${currentCheckpointId ?? "none"}`,
+          );
+        }
+        return this.backend.put(
+          config,
+          normalized.checkpoint,
+          normalized.metadata,
+          normalized.newVersions,
+        );
+      },
+    });
   }
 
   async putWrites(config: CheckpointConfig, writes: PendingWrite[], taskId: string): Promise<void> {
     await this.ensureSetup();
+    this.validateConfigIdentity(config);
     await this.backend.putWrites(config, writes, taskId);
   }
 
@@ -337,17 +409,24 @@ export class VersionedCheckpointSaver extends BaseCheckpointSaver {
   }
 }
 
-export const createSqliteCheckpointer = (databasePath: string): LocalCheckpointer =>
-  new VersionedCheckpointSaver(SqliteSaver.fromConnString(databasePath));
+export const createSqliteCheckpointer = (
+  databasePath: string,
+  options: VersionedCheckpointSaverOptions = {},
+): LocalCheckpointer =>
+  new VersionedCheckpointSaver(SqliteSaver.fromConnString(databasePath), {
+    ...options,
+    casRoot: options.casRoot ?? (databasePath.replace(/[/\\][^/\\]+$/u, "") || process.cwd()),
+  });
 
 export const createPostgresCheckpointer = (
   connectionString: string,
-  options: {schema?: string} = {},
+  options: VersionedCheckpointSaverOptions & {schema?: string} = {},
 ): LocalCheckpointer =>
   new VersionedCheckpointSaver(
     PostgresSaver.fromConnString(connectionString, {
       schema: options.schema ?? "production_checkpoints",
     }),
+    options,
   );
 
 export const pauseForStubApproval = <T>(payload: T): unknown => interrupt(payload);
@@ -367,6 +446,8 @@ export const compileFoundationGraph = (input: {
   afterContentApproval?: (state: ProductionState) => "production" | "execute_agent";
   afterFinalApproval?: (state: ProductionState) => "final_approval" | "finalize";
   checkpointer: LocalCheckpointer;
+  repoRoot?: string;
+  concurrency?: ConcurrencyConfig;
 }) => {
   const productionNode: FoundationNode = input.production ?? (() => ({}));
   const graph = new StateGraph(ProductionStateAnnotation)
@@ -394,7 +475,12 @@ export const compileFoundationGraph = (input: {
     })
     .addEdge("finalize", END);
   graph.addEdge("production", "final_approval");
-  return graph.compile({checkpointer: input.checkpointer});
+  const compiled = graph.compile({checkpointer: input.checkpointer});
+  return wrapGraphWithOrchestrationConcurrency(compiled, {
+    repoRoot: input.repoRoot,
+    checkpointer: input.checkpointer,
+    config: input.concurrency,
+  });
 };
 
 const productionStageNodeNames = {
@@ -444,6 +530,8 @@ export const compileProductionGraph = (input: {
     state: ProductionState,
   ) => "production_unfreeze_apply" | "production_human_escalation";
   checkpointer: LocalCheckpointer;
+  repoRoot?: string;
+  concurrency?: ConcurrencyConfig;
 }) => {
   const destinations: Record<ProductionGraphDestination, ProductionGraphNodeName> = {
     production_ready: "production_ready",
@@ -494,5 +582,97 @@ export const compileProductionGraph = (input: {
     );
   }
   graph = graph.addEdge(START, "production_start");
-  return graph.compile({checkpointer: input.checkpointer});
+  const compiled = graph.compile({checkpointer: input.checkpointer});
+  return wrapGraphWithOrchestrationConcurrency(compiled, {
+    repoRoot: input.repoRoot,
+    checkpointer: input.checkpointer,
+    config: input.concurrency,
+  });
+};
+
+const stateIdentity = (value: unknown): {episodeId?: string; runId?: string} => {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+  const record = value as Record<string, unknown>;
+  return {
+    ...(typeof record.episodeId === "string" ? {episodeId: record.episodeId} : {}),
+    ...(typeof record.runId === "string" ? {runId: record.runId} : {}),
+  };
+};
+
+const configIdentity = (config: unknown): {
+  episodeId?: string;
+  runId?: string;
+  threadId?: string;
+  traceId?: string;
+} => {
+  if (!config || typeof config !== "object") return {};
+  const configurable = (config as {configurable?: unknown}).configurable;
+  if (!configurable || typeof configurable !== "object") return {};
+  const values = configurable as Record<string, unknown>;
+  return {
+    ...(typeof values.episode_id === "string" ? {episodeId: values.episode_id} : {}),
+    ...(typeof values.run_id === "string" ? {runId: values.run_id} : {}),
+    ...(typeof values.thread_id === "string" ? {threadId: values.thread_id} : {}),
+    ...(typeof values.trace_id === "string" ? {traceId: values.trace_id} : {}),
+  };
+};
+
+const resolveGraphIdentity = async (input: {
+  value: unknown;
+  config: unknown;
+  checkpointer: LocalCheckpointer;
+}): Promise<ReturnType<typeof createRuntimeIdentity>> => {
+  const state = stateIdentity(input.value);
+  const configured = configIdentity(input.config);
+  let restored: {episodeId?: string; runId?: string} = {};
+  if (!state.episodeId || !state.runId) {
+    const tuple = await input.checkpointer.getTuple(input.config as Parameters<LocalCheckpointer["getTuple"]>[0]);
+    restored = stateIdentity(tuple?.checkpoint.channel_values);
+  }
+  const episodeId = state.episodeId ?? configured.episodeId ?? restored.episodeId ?? configured.threadId;
+  const runId = state.runId ?? configured.runId ?? restored.runId;
+  if (!episodeId || !runId) throw new Error("RUNTIME_IDENTITY_REQUIRED_FOR_ORCHESTRATION");
+  if (configured.episodeId && configured.episodeId !== episodeId) {
+    throw new Error(`RUNTIME_EPISODE_MISMATCH:${configured.episodeId}:${episodeId}`);
+  }
+  if (configured.runId && configured.runId !== runId) {
+    throw new Error(`RUNTIME_RUN_MISMATCH:${configured.runId}:${runId}`);
+  }
+  if (configured.threadId && configured.episodeId && configured.threadId !== configured.episodeId) {
+    throw new Error(`RUNTIME_THREAD_MISMATCH:${configured.threadId}:${configured.episodeId}`);
+  }
+  return createRuntimeIdentity({
+    episodeId,
+    runId,
+    // M1-M4.05 accepted arbitrary legacy LangGraph thread ids. Once the explicit episode_id
+    // field is present it must equal the episode; otherwise derive the runtime thread identity
+    // from the state without turning a legacy fixture into cross-episode state.
+    threadId: configured.episodeId ? configured.threadId ?? episodeId : episodeId,
+    traceId: configured.traceId ?? `${episodeId}:run:${runId}`,
+  });
+};
+
+export const wrapGraphWithOrchestrationConcurrency = <T extends object>(
+  graph: T,
+  input: {repoRoot?: string; checkpointer: LocalCheckpointer; config?: ConcurrencyConfig},
+): T => {
+  if (!input.repoRoot) return graph;
+  const controlledGraph = graph as T & {
+    invoke: (value: unknown, config?: unknown) => Promise<unknown>;
+  };
+  const originalInvoke = controlledGraph.invoke.bind(graph);
+  controlledGraph.invoke = (async (value: unknown, config?: unknown) => {
+    const identity = await resolveGraphIdentity({
+      value,
+      config: config ?? {configurable: {}},
+      checkpointer: input.checkpointer,
+    });
+    return withControlledOrchestrationRun({
+      repoRoot: input.repoRoot!,
+      identity,
+      config: input.config,
+      run: () => originalInvoke(value, config),
+    });
+  }) as typeof controlledGraph.invoke;
+  return graph;
 };

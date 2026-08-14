@@ -93,6 +93,7 @@ export const legacyEpisodeRepoFixture = (
   const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), "production-agent-legacy-"));
   const workflowPath = "content/episode-001/story/workflow.json";
   const workflowBody = fs.readFileSync(path.join(sourceRoot, workflowPath), "utf8");
+  const configPath = "content/episode-001/episode.config.json";
   const workflow = JSON.parse(workflowBody) as {stages: {artifacts: string[]}[]};
   const sourcePaths = [
     ...new Set([workflowPath, ...workflow.stages.flatMap((stage) => stage.artifacts)]),
@@ -105,5 +106,8 @@ export const legacyEpisodeRepoFixture = (
       sourcePath === workflowPath ? workflowBody : `legacy fixture bytes: ${sourcePath}\n`,
     );
   }
+  const configTarget = path.join(repoRoot, configPath);
+  fs.mkdirSync(path.dirname(configTarget), {recursive: true});
+  fs.copyFileSync(path.join(sourceRoot, configPath), configTarget);
   return {repoRoot, sourcePaths};
 };

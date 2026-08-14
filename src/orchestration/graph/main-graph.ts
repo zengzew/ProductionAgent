@@ -18,6 +18,7 @@ import {
 import {
   ensureArtifactIndexForRefs,
   applyHumanDirectEdits,
+  assertHumanDecisionForEpisode,
   assertHumanDecisionArtifactRefsCurrent,
   assertHumanDecisionReplay,
   persistHumanDecision,
@@ -35,6 +36,7 @@ import {
   type FoundationNode,
   type LocalCheckpointer,
 } from "../lg-compat";
+import type {ConcurrencyConfig} from "../concurrency";
 
 const phaseByAgent: Record<AgentName, ProductionState["phase"]> = {
   "research-analyst": "research",
@@ -125,6 +127,7 @@ const readFormalDecision = (input: {
   if (raw.gate === undefined) raw.gate = input.gate;
   if (raw.artifactRefs === undefined) raw.artifactRefs = input.artifactRefs;
   if (raw.approvalEpoch === undefined) raw.approvalEpoch = input.state.approvalEpoch;
+  if (raw.runId === undefined) raw.runId = input.state.runId;
   const decisionKind = raw.decision ?? raw.action;
   if (decisionKind === "reject" && raw.issue === undefined) {
     const firstRef = input.artifactRefs[0];
@@ -138,6 +141,12 @@ const readFormalDecision = (input: {
       `HUMAN_DECISION_APPROVAL_EPOCH_STALE:${decision.approvalEpoch}:${input.state.approvalEpoch}`,
     );
   }
+  assertHumanDecisionForEpisode({
+    decision,
+    episodeId: input.state.episodeId,
+    runId: input.state.runId,
+    approvalEpoch: input.state.approvalEpoch,
+  });
   if (decision.artifactRefs.some((ref) => ref.episodeId !== input.state.episodeId)) {
     throw new Error("HUMAN_DECISION_EPISODE_MISMATCH");
   }
@@ -228,6 +237,7 @@ export const createFoundationGraph = (input: {
   };
   observability?: FoundationObservabilityOptions;
   production?: FoundationNode;
+  concurrency?: ConcurrencyConfig;
 }) => {
   const now = input.now ?? (() => new Date().toISOString());
   const formalRepoRoot = input.humanDecision?.repoRoot ?? input.repoRoot;
@@ -299,7 +309,7 @@ export const createFoundationGraph = (input: {
       decisionId: decision.decisionId,
       checkpoint: createObservabilityCheckpoint({
         state: inputState,
-        checkpointId: `${inputState.runId}:checkpoint:human-decision:${decision.decisionId}`,
+        checkpointId: `${inputState.episodeId}:${inputState.runId}:checkpoint:human-decision:${decision.decisionId}`,
         checkpointVersion: input.observability.checkpointVersion,
         committedAt: decision.timestamp,
       }),
@@ -345,7 +355,7 @@ export const createFoundationGraph = (input: {
         inputArtifacts,
         checkpoint: createObservabilityCheckpoint({
           state,
-          checkpointId: `${state.runId}:checkpoint:agent:${agentName}:${attempt}:start`,
+          checkpointId: `${state.episodeId}:${state.runId}:checkpoint:agent:${agentName}:${attempt}:start`,
           checkpointVersion: input.observability.checkpointVersion,
           committedAt: startedAt,
         }),
@@ -386,7 +396,7 @@ export const createFoundationGraph = (input: {
         const endedAt = now();
         const failureCheckpoint = createObservabilityCheckpoint({
           state,
-          checkpointId: `${state.runId}:checkpoint:agent:${agentName}:${attempt}:failed`,
+          checkpointId: `${state.episodeId}:${state.runId}:checkpoint:agent:${agentName}:${attempt}:failed`,
           checkpointVersion: input.observability.checkpointVersion,
           committedAt: endedAt,
         });
@@ -482,7 +492,7 @@ export const createFoundationGraph = (input: {
       } as ProductionState;
       const terminalCheckpoint = createObservabilityCheckpoint({
         state: committedState,
-        checkpointId: `${state.runId}:checkpoint:agent:${agentName}:${attempt}`,
+        checkpointId: `${state.episodeId}:${state.runId}:checkpoint:agent:${agentName}:${attempt}`,
         checkpointVersion: input.observability.checkpointVersion,
         committedAt: endedAt,
       });
@@ -936,5 +946,7 @@ export const createFoundationGraph = (input: {
         : "final_approval",
     production: input.production,
     checkpointer: input.checkpointer,
+    repoRoot: formalRepoRoot,
+    concurrency: input.concurrency,
   });
 };

@@ -7,9 +7,10 @@ import {
   emptyArtifactIndex,
   markStaleTransitively,
   readArtifactIndex,
+  readArtifactIndexVersion,
   registerCandidate,
   selectArtifact,
-  writeArtifactIndex,
+  writeArtifactIndexCas,
 } from "./artifact-registry";
 import {
   artifactDependencySchema,
@@ -150,6 +151,8 @@ export const ensureArtifactIndexForRefs = (input: {
   artifactIndex?: ArtifactIndex;
   executionId?: string;
 }): ArtifactIndex => {
+  const filePath = registryPath(input.repoRoot, input.episodeId);
+  const expectedVersion = readArtifactIndexVersion(filePath);
   let index = readOrCreateIndex(input.repoRoot, input.episodeId, input.artifactIndex);
   for (const ref of input.refs.map((value) => artifactRefSchema.parse(value))) {
     if (ref.episodeId !== input.episodeId) throw new Error("HUMAN_DECISION_EPISODE_MISMATCH");
@@ -168,7 +171,12 @@ export const ensureArtifactIndexForRefs = (input: {
       dependencies: previous?.dependencies,
     });
   }
-  writeArtifactIndex(registryPath(input.repoRoot, input.episodeId), index);
+  writeArtifactIndexCas({
+    filePath,
+    index,
+    expectedVersion,
+    casRoot: input.repoRoot,
+  });
   return index;
 };
 
@@ -217,11 +225,49 @@ const normalizedDecision = (input: HumanDecision): HumanDecision => {
   });
 };
 
+/** Checks the full decision payload before it can be consumed by a run or persisted. */
+export const assertHumanDecisionForEpisode = (input: {
+  decision: HumanDecision;
+  episodeId: string;
+  runId?: string;
+  approvalEpoch?: number;
+  decisionRef?: ArtifactRef;
+}): HumanDecision => {
+  const decision = humanDecisionSchema.parse(input.decision);
+  if (decision.artifactRefs.some((ref) => ref.episodeId !== input.episodeId)) {
+    throw new Error("HUMAN_DECISION_EPISODE_MISMATCH");
+  }
+  for (const edit of decision.edits) {
+    if (
+      edit.before.episodeId !== input.episodeId ||
+      edit.after.episodeId !== input.episodeId
+    ) {
+      throw new Error("HUMAN_DECISION_EDIT_EPISODE_MISMATCH");
+    }
+  }
+  if (input.approvalEpoch !== undefined && decision.approvalEpoch !== input.approvalEpoch) {
+    throw new Error(
+      `HUMAN_DECISION_APPROVAL_EPOCH_STALE:${decision.approvalEpoch}:${input.approvalEpoch}`,
+    );
+  }
+  if (input.runId && decision.runId && decision.runId !== input.runId) {
+    throw new Error(`HUMAN_DECISION_RUN_MISMATCH:${decision.runId}:${input.runId}`);
+  }
+  if (input.decisionRef && input.decisionRef.episodeId !== input.episodeId) {
+    throw new Error("HUMAN_DECISION_REF_EPISODE_MISMATCH");
+  }
+  return decision;
+};
+
 /** Persists one immutable, hash-bound HumanDecision and safely replays the same decisionId. */
 export const persistHumanDecision = (
   input: PersistHumanDecisionInput,
 ): PersistHumanDecisionResult => {
   const decision = normalizedDecision(input.decision);
+  assertHumanDecisionForEpisode({
+    decision,
+    episodeId: decision.artifactRefs[0]!.episodeId,
+  });
   const decisionPath = decisionArtifactPath(
     decision.artifactRefs[0]!.episodeId,
     decision.decisionId,
@@ -249,6 +295,8 @@ export const persistHumanDecision = (
       createdAt: decision.timestamp,
     }),
   );
+  const registryFile = registryPath(input.repoRoot, decisionRef.episodeId);
+  const expectedVersion = readArtifactIndexVersion(registryFile);
   let index = readOrCreateIndex(input.repoRoot, decisionRef.episodeId, input.artifactIndex);
   index = addSelectedArtifact({
     index,
@@ -256,14 +304,32 @@ export const persistHumanDecision = (
     executionId: input.executionId ?? `human-decision:${decision.decisionId}`,
     dependencies: decision.artifactRefs.map((ref) => dependencyFromRef(ref)),
   });
-  writeArtifactIndex(registryPath(input.repoRoot, decisionRef.episodeId), index);
+  writeArtifactIndexCas({
+    filePath: registryFile,
+    index,
+    expectedVersion,
+    casRoot: input.repoRoot,
+  });
   return {decision, decisionRef, artifactIndex: index};
 };
 
-export const readHumanDecision = (repoRoot: string, decisionRef: ArtifactRef): HumanDecision =>
-  readHashBoundJson(repoRoot, artifactRefSchema.parse(decisionRef), (value) =>
-    humanDecisionSchema.parse(value),
-  );
+export const readHumanDecision = (
+  repoRoot: string,
+  decisionRef: ArtifactRef,
+  expectedEpisodeId?: string,
+  expectedRunId?: string,
+): HumanDecision => {
+  const ref = artifactRefSchema.parse(decisionRef);
+  const episodeId = expectedEpisodeId ?? ref.episodeId;
+  if (ref.episodeId !== episodeId) throw new Error("HUMAN_DECISION_REF_EPISODE_MISMATCH");
+  const decision = readHashBoundJson(repoRoot, ref, (value) => humanDecisionSchema.parse(value));
+  return assertHumanDecisionForEpisode({
+    decision,
+    episodeId,
+    ...(expectedRunId ? {runId: expectedRunId} : {}),
+    decisionRef: ref,
+  });
+};
 
 /** Verifies that a replayed decisionId is the same immutable decision, not merely the same key. */
 export const assertHumanDecisionReplay = (input: {
@@ -272,7 +338,14 @@ export const assertHumanDecisionReplay = (input: {
   decisionRef: ArtifactRef;
 }): HumanDecision => {
   const decision = normalizedDecision(input.decision);
-  const persisted = readHumanDecision(input.repoRoot, artifactRefSchema.parse(input.decisionRef));
+  const decisionRef = artifactRefSchema.parse(input.decisionRef);
+  const persisted = readHumanDecision(input.repoRoot, decisionRef, decision.artifactRefs[0]!.episodeId);
+  assertHumanDecisionForEpisode({
+    decision,
+    episodeId: decisionRef.episodeId,
+    ...(decision.runId ? {runId: decision.runId} : {}),
+    decisionRef,
+  });
   if (!stableJsonEqual(persisted, decision)) {
     throw new Error(`HUMAN_DECISION_REPLAY_CONFLICT:${decision.decisionId}`);
   }
@@ -414,6 +487,11 @@ export const persistHumanIssue = (input: PersistHumanIssueInput): PersistHumanIs
   const decision = humanDecisionSchema.parse(input.decision);
   if (decision.decision !== "reject") throw new Error("HUMAN_ISSUE_REQUIRES_REJECT");
   const decisionRef = artifactRefSchema.parse(input.decisionRef);
+  assertHumanDecisionForEpisode({
+    decision,
+    episodeId: decisionRef.episodeId,
+    decisionRef,
+  });
   const proposed = decision.issue ?? defaultIssueForGate(decision.gate);
   const affectedArtifact = proposed.affectedArtifactRef ?? decision.artifactRefs[0]!;
   if (affectedArtifact.episodeId !== decisionRef.episodeId) {
@@ -472,6 +550,8 @@ export const persistHumanIssue = (input: PersistHumanIssueInput): PersistHumanIs
       createdAt: decision.timestamp,
     }),
   );
+  const registryFile = registryPath(input.repoRoot, issue.episodeId);
+  const expectedVersion = readArtifactIndexVersion(registryFile);
   let artifactIndex = readOrCreateIndex(input.repoRoot, issue.episodeId, input.artifactIndex);
   artifactIndex = addSelectedArtifact({
     index: artifactIndex,
@@ -479,7 +559,12 @@ export const persistHumanIssue = (input: PersistHumanIssueInput): PersistHumanIs
     executionId: input.executionId ?? `human-issue:${issueId}`,
     dependencies: [dependencyFromRef(decisionRef), dependencyFromRef(affectedArtifact, "reviews")],
   });
-  writeArtifactIndex(registryPath(input.repoRoot, issue.episodeId), artifactIndex);
+  writeArtifactIndexCas({
+    filePath: registryFile,
+    index: artifactIndex,
+    expectedVersion,
+    casRoot: input.repoRoot,
+  });
   return {issue, issueRef, route, artifactIndex};
 };
 
@@ -510,6 +595,13 @@ export const applyHumanDirectEdits = (
 ): ApplyHumanDirectEditsResult => {
   const decision = humanDecisionSchema.parse(input.decision);
   if (decision.decision !== "direct-edit") throw new Error("HUMAN_DIRECT_EDIT_REQUIRED");
+  assertHumanDecisionForEpisode({
+    decision,
+    episodeId: decision.artifactRefs[0]!.episodeId,
+    ...(input.decisionRef ? {decisionRef: input.decisionRef} : {}),
+  });
+  const registryFile = registryPath(input.repoRoot, decision.artifactRefs[0]!.episodeId);
+  const expectedVersion = readArtifactIndexVersion(registryFile);
   let index = readOrCreateIndex(
     input.repoRoot,
     decision.artifactRefs[0]!.episodeId,
@@ -627,7 +719,12 @@ export const applyHumanDirectEdits = (
         .map((record) => record.ref.artifactId),
     ),
   ].sort();
-  writeArtifactIndex(registryPath(input.repoRoot, decision.artifactRefs[0]!.episodeId), index);
+  writeArtifactIndexCas({
+    filePath: registryFile,
+    index,
+    expectedVersion,
+    casRoot: input.repoRoot,
+  });
   return {
     artifactIndex: index,
     changedArtifactRefs,
