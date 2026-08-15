@@ -1296,6 +1296,10 @@ export const refreezeAfterUnfreeze = (
   const freeze = freezeContent({
     repoRoot: input.repoRoot,
     episodeId: request.episodeId,
+    // A refreeze must preserve the byte identity of the previous manifest referenced by
+    // earlier execution events. The initial freeze keeps the canonical filename; subsequent
+    // approval epochs get immutable manifest paths so historical hashes remain verifiable.
+    manifestPath: `content/${request.episodeId}/_manifest/content_manifest.r${input.approvalEpoch}.json`,
     artifactIndex: validation.artifactIndex,
     selectedArtifactRefs: validation.selectedArtifactRefs,
     issues: validation.issues,

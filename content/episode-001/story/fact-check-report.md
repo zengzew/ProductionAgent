@@ -2,9 +2,9 @@
 {
   "rubricVersion": "fact-guardian-v1",
   "reviewedFile": "story/final-script.md",
-  "reviewedSha256": "b86c56c74ba0a616ed1eb87631a1411cd6d07d20adae7c8c044ed4072a60e620",
-  "checkedSegments": 12,
-  "checkedNarrationUnits": 36,
+  "reviewedSha256": "d56ce759e7e0ebb6a21fe1e49fd8ddbe3af715bf7e836a5825572f23af2a5b28",
+  "checkedSegments": 6,
+  "checkedNarrationUnits": 12,
   "blockers": [],
   "verdict": "PASS",
   "returnTo": "none"
@@ -19,10 +19,10 @@
 
 | 检查       | 结果 | 说明                                                       |
 | ---------- | ---- | ---------------------------------------------------------- |
-| Claim 绑定 | PASS | 12 段、36 个旁白单元均绑定允许播出的 Claim                 |
+| Claim 绑定 | PASS | 6 段、12 个旁白单元均绑定允许播出的 Claim                  |
 | 产品定义   | PASS | “联系人列表里的 AI 助手”描述主要入口，没有排除其他设置界面 |
 | 团队选择   | PASS | 用户拒绝新界面与团队随后转向消息入口来自创始人口述         |
-| 用户动作   | PASS | 吃药、天气与球赛请求保持 Beta 用户行为边界                 |
+| 用户动作   | PASS | 吃药、天气与球赛请求保持内测用户行为边界                   |
 | 产品能力   | PASS | 主动消息、授权执行与 Recipe 没有超过官方说明               |
 | 消息规模   | PASS | 保留约三个月和一亿多条消息，不换算用户或留存               |
 | 成本解释   | PASS | 新邮件与航班刷新来自创始人口述，不推算金额                 |

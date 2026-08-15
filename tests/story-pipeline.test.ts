@@ -33,7 +33,7 @@ describe("product-story short-video pipeline", () => {
       .filter((segment) => segment.section === "hook")
       .reduce((total, segment) => total + segment.targetSeconds, 0);
 
-    expect(segments).toHaveLength(12);
+    expect(segments).toHaveLength(6);
     expect(totalSeconds).toBeGreaterThan(0);
     // 40–80 秒时长窗口的边界在 tests/production-contract.test.ts 中验证；
     // 旧标准 episode 内容包在新规则下不再合规，需按新规则重新生成后再回到此断言。

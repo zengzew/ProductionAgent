@@ -4,7 +4,7 @@
   "providerId": "edge",
   "fallbackUsed": true,
   "fallbackReason": "missing MINIMAX_API_KEY",
-  "generatedAt": "2026-08-02T15:10:28.576Z",
+  "generatedAt": "2026-08-14T17:33:46.098Z",
   "voice": "zh-CN-YunjianNeural",
   "speed": 1.25,
   "pitch": "-2Hz",
@@ -36,30 +36,6 @@
     {
       "segmentId": "seg-006",
       "file": "episodes/episode-001/audio/seg-006.mp3"
-    },
-    {
-      "segmentId": "seg-007",
-      "file": "episodes/episode-001/audio/seg-007.mp3"
-    },
-    {
-      "segmentId": "seg-008",
-      "file": "episodes/episode-001/audio/seg-008.mp3"
-    },
-    {
-      "segmentId": "seg-009",
-      "file": "episodes/episode-001/audio/seg-009.mp3"
-    },
-    {
-      "segmentId": "seg-010",
-      "file": "episodes/episode-001/audio/seg-010.mp3"
-    },
-    {
-      "segmentId": "seg-011",
-      "file": "episodes/episode-001/audio/seg-011.mp3"
-    },
-    {
-      "segmentId": "seg-012",
-      "file": "episodes/episode-001/audio/seg-012.mp3"
     }
   ]
 }

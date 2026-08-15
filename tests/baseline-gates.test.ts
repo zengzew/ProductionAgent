@@ -18,7 +18,7 @@ describe("M1.3 baseline gate compatibility", () => {
     const narration = script.segments.map((segment) => segment.narration).join("\n");
 
     expect(hits("episode-001", narration)).not.toContain("product-stage-beta-user");
-    expect(hits("episode-001", `${narration}\n新版本`)).toContain("product-stage-beta-user");
+    expect(hits("episode-001", "Beta 用户把用途带出邮箱")).toContain("product-stage-beta-user");
     expect(hits("episode-001", "产品进入一般可用状态")).toContain("product-stage-beta-user");
   });
 

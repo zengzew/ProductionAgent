@@ -4,7 +4,10 @@ import path from "node:path";
 import {afterEach, describe, expect, it} from "vitest";
 import {
   buildArtifactRef,
+  checkpointConfig,
   createDeterministicToolAdapter,
+  createDeterministicStubAgent,
+  createFoundationGraph,
   createInitialProductionState,
   createLocalCheckpoint,
   createProductionSubgraph,
@@ -16,6 +19,7 @@ import {
   productionStageOrder,
   productionStageRequestForState,
   createProductionStageNode,
+  resumeCheckpoint,
   runProductionPipeline,
   selectArtifact,
   registerCandidate,
@@ -405,6 +409,79 @@ describe("WP-M3-01 deterministic production adapters", () => {
       Object.values(result.productionStages).every((stage) => stage.status === "SUCCEEDED"),
     ).toBe(true);
     expect(JSON.stringify(result)).not.toContain("fixture audio bytes");
+  });
+
+  it("reuses the foundation outer lease when a composed node calls the standalone pipeline", async () => {
+    const fixture = createFixture();
+    const adapter = createDeterministicToolAdapter({
+      repoRoot: fixture.repoRoot,
+      createWorkspace: copyWorkspace,
+      createdAt: () => "2026-08-13T00:00:00.000Z",
+      runTool: async (input) => {
+        writeStageOutputs(input);
+        return {stdout: "ok", stderr: ""};
+      },
+    });
+    const graph = createFoundationGraph({
+      runAgent: createDeterministicStubAgent(),
+      repoRoot: fixture.repoRoot,
+      humanDecision: {repoRoot: fixture.repoRoot},
+      checkpointer: createLocalCheckpoint({
+        repoRoot: fixture.repoRoot,
+        databasePath: "composed-foundation.sqlite",
+      }),
+      production: async (state) => {
+        const result = await runProductionPipeline({
+          repoRoot: fixture.repoRoot,
+          state,
+          adapter,
+          requireFormalApproval: true,
+        });
+        expect(result.status).toBe("SUCCEEDED");
+        return result.state;
+      },
+    });
+    const config = checkpointConfig(fixture.state.episodeId);
+    const first = await graph.invoke(fixture.state, config);
+    const contentPayload = (first as {__interrupt__?: {value: Record<string, unknown>}[]})
+      .__interrupt__?.[0]?.value;
+    expect(contentPayload?.gate).toBe("content-approval");
+
+    const production = await graph.invoke(
+      resumeCheckpoint({
+        decisionId: "composed-content-approve-1",
+        gate: "content-approval",
+        decision: "approve",
+        reviewer: "composed-reviewer",
+        timestamp: "2026-08-13T00:10:00.000Z",
+        reason: "composed production is authorized",
+        artifactRefs: contentPayload?.artifactRefs,
+        approvalEpoch: contentPayload?.approvalEpoch,
+      }),
+      config,
+    );
+    expect(production.phase).toBe("delivery_eval");
+    expect(production.productionStages["validate:delivery"]?.status).toBe("SUCCEEDED");
+
+    const finalPayload = (production as {__interrupt__?: {value: Record<string, unknown>}[]})
+      .__interrupt__?.[0]?.value;
+    const final = await graph.invoke(
+      resumeCheckpoint({
+        decisionId: "composed-final-approve-1",
+        gate: "final-approval",
+        decision: "approve",
+        reviewer: "composed-reviewer",
+        timestamp: "2026-08-13T00:11:00.000Z",
+        reason: "composed production is finally approved",
+        artifactRefs: finalPayload?.artifactRefs,
+        approvalEpoch: finalPayload?.approvalEpoch,
+      }),
+      config,
+    );
+    expect(final.phase).toBe("published");
+    expect(
+      fs.existsSync(path.join(fixture.repoRoot, ".orchestration", "locks", "episode-001.json")),
+    ).toBe(false);
   });
 
   it("publishes a structured Delivery REJECT issue without storing report body in state", async () => {

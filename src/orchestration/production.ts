@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import {
   productionStateSchema,
   assertReferenceOnlyState,
@@ -22,7 +24,7 @@ import {
   type ProductionStageAdapter,
 } from "./agents/adapters/deterministic-tool";
 import {assertArtifactRefsBytes} from "./artifact-registry";
-import {stableEventId} from "./observability";
+import {readExecutionEventLog, stableEventId} from "./observability";
 import {
   defaultBoundedRetryPolicy,
   resolveBoundedRetryPolicy,
@@ -74,6 +76,7 @@ export type ProductionObservabilityOptions = {
   now?: () => string;
   checkpointVersion?: string;
   runnerVersion?: string;
+  eventLogPath?: string;
   reportPath?: string;
   cacheEvents?: () => readonly CacheEvent[];
   cacheEventLogPath?: string;
@@ -119,17 +122,19 @@ export const productionStageRequestForState = (input: {
   upstreamArtifacts: readonly ArtifactRef[];
   authorizedArtifactIds?: readonly string[];
   forceRerun?: boolean;
+  attempt?: number;
 }): ProductionStageRequest => {
   if (!input.state.contentManifestRef) {
     throw new Error("PRODUCTION_CONTENT_MANIFEST_REQUIRED");
   }
   const cached = input.state.productionStages[input.stage];
+  const attempt = input.attempt ?? (input.state.attempts[input.stage] ?? 0) + 1;
   return productionStageRequestSchema.parse({
     contractVersion: "production-stage-v1",
-    executionId: `${input.state.runId}:production:${input.stage}:${(input.state.attempts[input.stage] ?? 0) + 1}`,
+    executionId: `${input.state.runId}:production:${input.stage}:${attempt}`,
     episodeId: input.state.episodeId,
     stage: input.stage,
-    attempt: (input.state.attempts[input.stage] ?? 0) + 1,
+    attempt,
     revisionRound: input.state.round,
     approvalEpoch: input.state.approvalEpoch,
     contentManifestRef: input.state.contentManifestRef,
@@ -246,6 +251,28 @@ const applyStateUpdate = (
   return productionStateSchema.parse(assertReferenceOnlyState(next));
 };
 
+const persistedStageAttempt = (input: {
+  state: ProductionState;
+  stage: ProductionStageName;
+  eventLogPath?: string;
+}): number => {
+  if (!input.eventLogPath) return 0;
+  const eventLogPath = path.resolve(input.eventLogPath);
+  if (!fs.existsSync(eventLogPath)) return 0;
+  const executionPrefix = `${input.state.runId}:production:${input.stage}:`;
+  return Math.max(
+    0,
+    ...readExecutionEventLog(eventLogPath)
+      .filter(
+        (event) =>
+          event.episodeId === input.state.episodeId &&
+          event.stage === input.stage &&
+          event.executionId.startsWith(executionPrefix),
+      )
+      .map((event) => event.attempt),
+  );
+};
+
 export type ProductionStageRetryResult = {
   state: ProductionState;
   request: ProductionStageRequest;
@@ -277,6 +304,14 @@ export const runProductionStageWithRetry = async (input: {
   const upstreamArtifacts = [
     ...(input.upstreamArtifacts ?? priorStageArtifacts(state, input.stage)),
   ];
+  const stateAttempt = (state.attempts[input.stage] ?? 0) + 1;
+  const persistedAttempt = persistedStageAttempt({
+    state,
+    stage: input.stage,
+    eventLogPath: input.observability?.eventLogPath,
+  });
+  const recoveryAttempt = Math.max(stateAttempt, persistedAttempt + 1);
+  let restartEventPending = recoveryAttempt > stateAttempt || stateAttempt > 1;
 
   for (let dispatch = 0; dispatch < policy.maxAttempts; dispatch += 1) {
     const request = productionStageRequestForState({
@@ -285,10 +320,43 @@ export const runProductionStageWithRetry = async (input: {
       upstreamArtifacts,
       authorizedArtifactIds: input.authorizedArtifactIds,
       forceRerun: input.forceRerun,
+      attempt: dispatch === 0 ? recoveryAttempt : undefined,
     });
     const inputSetHash = productionStageInputSetHash(input.stage, request.inputArtifacts);
     const startedAt = input.observability?.now?.() ?? new Date().toISOString();
     if (input.observability) {
+      if (restartEventPending) {
+        const restartEvent = createObservabilityControlEvent({
+          state,
+          eventType: "retry.scheduled",
+          stage: input.stage,
+          executionId: `${state.runId}:restart:${input.stage}:${recoveryAttempt}`,
+          attempt: recoveryAttempt - 1,
+          nextAttempt: recoveryAttempt,
+          inputArtifacts: request.inputArtifacts,
+          occurredAt: startedAt,
+          decisionCode:
+            recoveryAttempt > stateAttempt
+              ? "EXECUTION_RECOVERY_SCHEDULED"
+              : "PRODUCTION_STAGE_RESTART_SCHEDULED",
+          decisionSummary:
+            recoveryAttempt > stateAttempt
+              ? `${input.stage} resumed after persisted interruption at attempt ${persistedAttempt}`
+              : `${input.stage} restarted from persisted attempt ${recoveryAttempt - 1}`,
+        });
+        input.observability.eventSink(restartEvent);
+        observabilityEvents.push(restartEvent);
+        state = applyStateUpdate(state, {
+          events: [
+            {
+              eventId: restartEvent.eventId,
+              executionId: restartEvent.executionId,
+              status: restartEvent.status,
+            },
+          ],
+        });
+        restartEventPending = false;
+      }
       const startCheckpoint = createObservabilityCheckpoint({
         state,
         checkpointId: `${state.episodeId}:${state.runId}:checkpoint:${input.stage}:${request.attempt}:start`,
@@ -374,7 +442,7 @@ export const runProductionStageWithRetry = async (input: {
       });
       const terminalCheckpoint = createObservabilityCheckpoint({
         state: observabilityState,
-      checkpointId: `${state.episodeId}:${state.runId}:checkpoint:${input.stage}:${request.attempt}`,
+        checkpointId: `${state.episodeId}:${state.runId}:checkpoint:${input.stage}:${request.attempt}`,
         checkpointVersion: input.observability.checkpointVersion,
         committedAt: terminalAt,
       });

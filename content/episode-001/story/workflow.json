@@ -47,14 +47,14 @@
       "owner": "script-writer",
       "status": "complete",
       "artifacts": ["content/episode-001/story/script-draft.md"],
-      "decision": "删除 Apple 编年支线并把目标时长压到 150 秒。"
+      "decision": "删除 Apple 编年支线并把目标时长压到当前 60 秒目标。"
     },
     {
       "id": "oral-rewriter",
       "owner": "oral-rewriter",
       "status": "complete",
       "artifacts": ["content/episode-001/story/final-script.md"],
-      "decision": "把信息稿改成可直接口播的 12 段中文。"
+      "decision": "把信息稿改成可直接口播的 6 段中文。"
     },
     {
       "id": "oral-judge",
@@ -103,7 +103,7 @@
         "output/episode-001/vertical_9x16.mp4",
         "output/episode-001/subtitles_zh.srt"
       ],
-      "decision": "当前竖版成片以 135.744 秒通过首帧、字幕、真实页面、音频和结尾兑现复审。"
+      "decision": "当前竖版成片以 43.648 秒通过 40–80 秒时长、首帧、字幕、音频和结尾兑现复审。"
     }
   ],
   "decisions": [
@@ -134,8 +134,8 @@
     {
       "id": "decision-spoken-delivery",
       "owner": "oral-rewriter",
-      "decision": "将目标压到 150 秒并用具体动作连接段落。",
-      "rationale": "为真实 TTS 留出严格小于 180 秒的余量。",
+      "decision": "将目标压到 60 秒并用具体动作连接段落。",
+      "rationale": "让真实 TTS 和最终 MP4 落入当前 40–80 秒交付契约。",
       "artifact": "content/episode-001/story/final-script.md",
       "claimIds": []
     },
@@ -174,8 +174,8 @@
     {
       "id": "decision-final-delivery",
       "owner": "delivery-critic",
-      "decision": "批准当前 135.744 秒竖版成片交付。",
-      "rationale": "当前 MP4 严格小于 180 秒，第 0 帧展示已完成动作，字幕、证据镜头、音频和结尾均通过实际成片复审。",
+      "decision": "批准当前 43.648 秒竖版成片交付。",
+      "rationale": "当前 MP4 落在 40–80 秒契约内，第 0 帧展示已完成动作，字幕、音频和结尾均通过实际成片复审。",
       "artifact": "content/episode-001/production/delivery-critic-report.md",
       "claimIds": []
     }
@@ -220,7 +220,7 @@
       "critic": "retention-critic",
       "round": 2,
       "reportPath": "content/episode-001/story/retention-report.md",
-      "reportSha256": "0f3a195b1d8be73da25854bdf0d04d8bc052f6af70eacb4dabf9cfcaa3cf257a",
+      "reportSha256": "82631b4fdfaa53bd05bdfcc5a8819f47bf9a6a9ad86e68d42d97d6de454fa4a2",
       "verdict": "PASS",
       "routes": []
     }

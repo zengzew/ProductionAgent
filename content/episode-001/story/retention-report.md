@@ -2,9 +2,9 @@
 {
   "rubricVersion": "retention-critic-v2",
   "reviewedFile": "story/final-script.md",
-  "reviewedSha256": "b86c56c74ba0a616ed1eb87631a1411cd6d07d20adae7c8c044ed4072a60e620",
+  "reviewedSha256": "d56ce759e7e0ebb6a21fe1e49fd8ddbe3af715bf7e836a5825572f23af2a5b28",
   "visualPlanFile": "story/visual-plan.md",
-  "visualPlanSha256": "d95f645318ace0c3edcac7b1f27c4ee03de7023cf406ddfea0736a09fc5c7658",
+  "visualPlanSha256": "2fb15503fea9f3b0918cfa0abc6c5294d3e79432257a0abd082b95ca32d989d6",
   "round": 2,
   "scores": {
     "first3Seconds": 24,
@@ -35,11 +35,11 @@
   "viewerExitRisks": [
     {
       "id": "feedback-retention-tech-window",
-      "timeRange": "1:48-2:01",
+      "timeRange": "0:34-0:48",
       "severity": "low",
-      "whyViewerStops": "持续运行仍是全片最接近技术解释的窗口。",
-      "evidence": "这一段不再承担结尾，但如果状态卡停止变化，仍可能像说明书。",
-      "requestedChange": "渲染时保持一条用户消息和两个实时状态持续变化。",
+      "whyViewerStops": "Recipe 如果只剩设置字段，可能短暂像产品说明。",
+      "evidence": "这一段承担从联系人选择到公开节点的硬切，需要保持链接传递动作。",
+      "requestedChange": "渲染时连续展示联系人、Recipe 链接和真实 Release Notes。",
       "returnTo": "visual-director"
     }
   ],
@@ -51,13 +51,13 @@
     {
       "feedbackId": "feedback-retention-payoff",
       "owner": "story-director",
-      "change": "核心问题从成本与未来质疑改为团队入口选择和 Beta 用户动作，结尾改成完成后的日历状态。",
+      "change": "核心问题从成本与未来质疑改为团队入口选择和内测用户动作，结尾改成完成后的日历状态。",
       "artifacts": [
         {
           "beforeFile": "output/episode-001/iterations/publish-v2-2026-07-30/final-script.md",
           "beforeSha256": "ede415f75308a713ce17424ee11a23c757c042ebf4d488931209c8b13d2384f7",
           "afterFile": "content/episode-001/story/final-script.md",
-          "afterSha256": "b86c56c74ba0a616ed1eb87631a1411cd6d07d20adae7c8c044ed4072a60e620"
+          "afterSha256": "d56ce759e7e0ebb6a21fe1e49fd8ddbe3af715bf7e836a5825572f23af2a5b28"
         }
       ]
     },
@@ -70,7 +70,7 @@
           "beforeFile": "output/episode-001/iterations/publish-v2-2026-07-30/final-script.md",
           "beforeSha256": "ede415f75308a713ce17424ee11a23c757c042ebf4d488931209c8b13d2384f7",
           "afterFile": "content/episode-001/story/final-script.md",
-          "afterSha256": "b86c56c74ba0a616ed1eb87631a1411cd6d07d20adae7c8c044ed4072a60e620"
+          "afterSha256": "d56ce759e7e0ebb6a21fe1e49fd8ddbe3af715bf7e836a5825572f23af2a5b28"
         }
       ]
     },
@@ -83,7 +83,7 @@
           "beforeFile": "content/episode-001/story/reviews/retention-round-01-visual-snapshot.md",
           "beforeSha256": "f073561ef6cd14b5fedfe52ebad656ee2f4cbdfafca176f967314351b6d2bfce",
           "afterFile": "content/episode-001/story/visual-plan.md",
-          "afterSha256": "d95f645318ace0c3edcac7b1f27c4ee03de7023cf406ddfea0736a09fc5c7658"
+          "afterSha256": "2fb15503fea9f3b0918cfa0abc6c5294d3e79432257a0abd082b95ca32d989d6"
         }
       ]
     }

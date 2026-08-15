@@ -12,6 +12,7 @@ import {
   createStageStartedEvent,
   createStageTerminalEvent,
   ObservabilityDegradedError,
+  writeRunReport,
   type ObservabilityEvent,
   type ObservabilityEventSink,
 } from "../observability-gate";
@@ -218,6 +219,7 @@ export type FoundationObservabilityOptions = {
   cacheEvents?: () => readonly CacheEvent[];
   cacheEventLogPath?: string;
   expectedCacheEventLogSha256?: string;
+  reportPath?: string;
   repoRoot?: string;
   checkpointVersion?: string;
   enforce?: boolean;
@@ -321,6 +323,23 @@ export const createFoundationGraph = (input: {
     });
     input.observability.eventSink(event);
     return event;
+  };
+
+  const persistFinalApprovalReport = (state: ProductionState): void => {
+    if (!input.observability || !formalRepoRoot) return;
+    writeRunReport({
+      repoRoot: formalRepoRoot,
+      episodeId: state.episodeId,
+      runId: state.runId,
+      state,
+      events: input.observability.events?.(),
+      eventLogPath: input.observability.eventLogPath,
+      expectedEventLogSha256: input.observability.expectedEventLogSha256,
+      cacheEvents: input.observability.cacheEvents?.(),
+      cacheEventLogPath: input.observability.cacheEventLogPath,
+      expectedCacheEventLogSha256: input.observability.expectedCacheEventLogSha256,
+      reportPath: input.observability.reportPath,
+    });
   };
 
   const initialize = (state: ProductionState) => {
@@ -891,6 +910,18 @@ export const createFoundationGraph = (input: {
         lockedRanges: applied.lockedRanges,
       };
     }
+    const approvedState = {
+      ...state,
+      phase: "published" as const,
+      gates: {...state.gates, "final-approval": "pass" as const},
+      artifacts: {...state.artifacts, ...base.artifacts},
+      approvals: {...state.approvals, ...base.approvals},
+      decisions: {...state.decisions, ...base.decisions},
+      processedDecisionIds: [...state.processedDecisionIds, decision.decisionId],
+      events: [...state.events, ...(decisionEvent ? observabilitySummary([decisionEvent]) : [])],
+      haltReason: "FINAL_APPROVED_INTERNAL_ONLY:no external publication performed",
+    };
+    persistFinalApprovalReport(approvedState);
     return {
       ...base,
       phase: "published" as const,

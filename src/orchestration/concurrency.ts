@@ -1,4 +1,5 @@
 import crypto from "node:crypto";
+import {AsyncLocalStorage} from "node:async_hooks";
 import fs from "node:fs";
 import path from "node:path";
 import {z} from "zod";
@@ -42,6 +43,22 @@ export type ConcurrencyConfig = z.infer<typeof concurrencyConfigSchema>;
 
 export const defaultConcurrencyConfig = concurrencyConfigSchema.parse(concurrencyFile);
 
+type ControlledOrchestrationContext = {
+  repoRoot: string;
+  identity: RuntimeIdentity;
+  config: ConcurrencyConfig;
+  slot: LeaseHandle;
+  episode: LeaseHandle;
+};
+
+const controlledOrchestrationContext = new AsyncLocalStorage<ControlledOrchestrationContext>();
+
+const sameRuntimeIdentity = (left: RuntimeIdentity, right: RuntimeIdentity): boolean =>
+  left.episodeId === right.episodeId &&
+  left.runId === right.runId &&
+  left.threadId === right.threadId &&
+  left.traceId === right.traceId;
+
 const positiveInteger = (value: string | undefined, fallback: number): number => {
   if (value === undefined) return fallback;
   const parsed = Number(value);
@@ -51,13 +68,15 @@ const positiveInteger = (value: string | undefined, fallback: number): number =>
   return parsed;
 };
 
-export const resolveConcurrencyConfig = (input: {
-  config?: Partial<ConcurrencyConfig> & {
-    global?: Partial<ConcurrencyConfig["global"]>;
-    episodeLock?: Partial<ConcurrencyConfig["episodeLock"]>;
-  };
-  env?: NodeJS.ProcessEnv;
-} = {}): ConcurrencyConfig => {
+export const resolveConcurrencyConfig = (
+  input: {
+    config?: Partial<ConcurrencyConfig> & {
+      global?: Partial<ConcurrencyConfig["global"]>;
+      episodeLock?: Partial<ConcurrencyConfig["episodeLock"]>;
+    };
+    env?: NodeJS.ProcessEnv;
+  } = {},
+): ConcurrencyConfig => {
   const env = input.env ?? process.env;
   const configured = input.config ?? {};
   return concurrencyConfigSchema.parse({
@@ -136,7 +155,11 @@ export const concurrencyEventSchema = z
   .strict()
   .superRefine((value, context) => {
     if (value.lockOwner && value.lockOwner.episodeId !== value.episodeId) {
-      context.addIssue({code: "custom", path: ["lockOwner"], message: "lock owner episode mismatch"});
+      context.addIssue({
+        code: "custom",
+        path: ["lockOwner"],
+        message: "lock owner episode mismatch",
+      });
     }
     if (value.recoveredOwner && value.recoveredOwner.episodeId !== value.episodeId) {
       context.addIssue({
@@ -200,7 +223,10 @@ export const createConcurrencyEvent = (input: {
 
 const eventPathFor = (repoRoot: string, episodeId: string): string => {
   const root = path.resolve(repoRoot);
-  const filePath = path.resolve(root, `content/${episodeId}/observability/concurrency-events.jsonl`);
+  const filePath = path.resolve(
+    root,
+    `content/${episodeId}/observability/concurrency-events.jsonl`,
+  );
   const relative = path.relative(root, filePath);
   if (relative.startsWith("..") || path.isAbsolute(relative)) {
     throw new Error("CONCURRENCY_EVENT_PATH_ESCAPES_REPOSITORY");
@@ -212,7 +238,8 @@ export const appendConcurrencyEvent = (filePath: string, rawEvent: ConcurrencyEv
   const event = concurrencyEventSchema.parse(rawEvent);
   const withoutId = {...event};
   Reflect.deleteProperty(withoutId, "eventId");
-  if (eventIdFor(withoutId) !== event.eventId) throw new Error(`CONCURRENCY_EVENT_TAMPERED:${event.eventId}`);
+  if (eventIdFor(withoutId) !== event.eventId)
+    throw new Error(`CONCURRENCY_EVENT_TAMPERED:${event.eventId}`);
   fs.mkdirSync(path.dirname(filePath), {recursive: true});
   if (fs.existsSync(filePath)) {
     for (const line of fs.readFileSync(filePath, "utf8").split(/\r?\n/u).filter(Boolean)) {
@@ -225,15 +252,14 @@ export const appendConcurrencyEvent = (filePath: string, rawEvent: ConcurrencyEv
   fs.appendFileSync(filePath, `${stableJson(event)}\n`, "utf8");
 };
 
-export const createConcurrencyEventSink = (input: {
-  repoRoot: string;
-  episodeId?: string;
-}): ConcurrencyEventSink => (event) => {
-  if (input.episodeId && input.episodeId !== event.episodeId) {
-    throw new Error(`CONCURRENCY_EVENT_EPISODE_MISMATCH:${event.episodeId}:${input.episodeId}`);
-  }
-  appendConcurrencyEvent(eventPathFor(input.repoRoot, event.episodeId), event);
-};
+export const createConcurrencyEventSink =
+  (input: {repoRoot: string; episodeId?: string}): ConcurrencyEventSink =>
+  (event) => {
+    if (input.episodeId && input.episodeId !== event.episodeId) {
+      throw new Error(`CONCURRENCY_EVENT_EPISODE_MISMATCH:${event.episodeId}:${input.episodeId}`);
+    }
+    appendConcurrencyEvent(eventPathFor(input.repoRoot, event.episodeId), event);
+  };
 
 export const readConcurrencyEvents = (filePath: string): ConcurrencyEvent[] => {
   if (!fs.existsSync(filePath)) return [];
@@ -462,12 +488,14 @@ abstract class BaseLeaseManager {
       }
 
       const current = readLease(input.filePath);
-      if (staleLease({
-        record: current,
-        filePath: input.filePath,
-        nowMs: this.now(),
-        staleAfterMs: this.config.episodeLock.staleAfterMs,
-      })) {
+      if (
+        staleLease({
+          record: current,
+          filePath: input.filePath,
+          nowMs: this.now(),
+          staleAfterMs: this.config.episodeLock.staleAfterMs,
+        })
+      ) {
         const recoveredOwner = current ? ownerFromRecord(current) : undefined;
         const before = current?.token;
         const latest = readLease(input.filePath);
@@ -516,7 +544,9 @@ abstract class BaseLeaseManager {
           ...(input.activeCount !== undefined ? {activeCount: input.activeCount} : {}),
           ...(input.eventType === "lock" && current ? {lockOwner: ownerFromRecord(current)} : {}),
         });
-        throw new Error(input.eventType === "lock" ? "EPISODE_LOCK_HELD" : "CONCURRENCY_LIMIT_REACHED");
+        throw new Error(
+          input.eventType === "lock" ? "EPISODE_LOCK_HELD" : "CONCURRENCY_LIMIT_REACHED",
+        );
       }
       if (this.now() - started >= this.config.global.waitTimeoutMs) {
         this.emit({
@@ -529,7 +559,9 @@ abstract class BaseLeaseManager {
           ...(input.limit !== undefined ? {concurrencyLimit: input.limit} : {}),
           ...(input.activeCount !== undefined ? {activeCount: input.activeCount} : {}),
         });
-        throw new Error(input.eventType === "lock" ? "EPISODE_LOCK_WAIT_TIMEOUT" : "CONCURRENCY_WAIT_TIMEOUT");
+        throw new Error(
+          input.eventType === "lock" ? "EPISODE_LOCK_WAIT_TIMEOUT" : "CONCURRENCY_WAIT_TIMEOUT",
+        );
       }
       await sleep(this.config.global.pollIntervalMs);
     }
@@ -592,12 +624,14 @@ export class GlobalConcurrencyController extends BaseLeaseManager {
           return this.createHandle(record, filePath);
         }
         const current = readLease(filePath);
-        if (staleLease({
-          record: current,
-          filePath,
-          nowMs: this.now(),
-          staleAfterMs: this.config.episodeLock.staleAfterMs,
-        })) {
+        if (
+          staleLease({
+            record: current,
+            filePath,
+            nowMs: this.now(),
+            staleAfterMs: this.config.episodeLock.staleAfterMs,
+          })
+        ) {
           const before = current?.token;
           const latest = readLease(filePath);
           if ((!before || latest?.token === before) && fs.existsSync(filePath)) {
@@ -675,15 +709,27 @@ export const withControlledOrchestrationRun = async <T>(input: {
   eventSink?: ConcurrencyEventSink;
   run: () => Promise<T> | T;
 }): Promise<T> => {
+  const repoRoot = path.resolve(input.repoRoot);
   const config = input.config ?? defaultConcurrencyConfig;
+  const active = controlledOrchestrationContext.getStore();
+  if (
+    active &&
+    active.repoRoot === repoRoot &&
+    sameRuntimeIdentity(active.identity, input.identity)
+  ) {
+    // Foundation graphs commonly compose a production graph or pipeline as a node. The
+    // outermost run owns the global slot, episode lease, heartbeat and release; nested
+    // composition must not acquire the same episode lease again.
+    return await input.run();
+  }
   const eventSink = input.eventSink ?? createConcurrencyEventSink({repoRoot: input.repoRoot});
   const global = new GlobalConcurrencyController({
-    repoRoot: input.repoRoot,
+    repoRoot,
     config,
     eventSink,
   });
   const episode = new EpisodeLockManager({
-    repoRoot: input.repoRoot,
+    repoRoot,
     config,
     eventSink,
   });
@@ -696,7 +742,10 @@ export const withControlledOrchestrationRun = async <T>(input: {
       void Promise.all([slot.heartbeat(), lock!.heartbeat()]).catch(() => undefined);
     }, config.episodeLock.heartbeatIntervalMs);
     heartbeat.unref?.();
-    return await input.run();
+    return await controlledOrchestrationContext.run(
+      {repoRoot, identity: input.identity, config, slot, episode: lock},
+      input.run,
+    );
   } finally {
     if (heartbeat) clearInterval(heartbeat);
     await lock?.release();
@@ -708,7 +757,11 @@ export const withControlledOrchestrationRun = async <T>(input: {
           identity: input.identity,
           status: "succeeded",
           reason: "episode lock released",
-          lockOwner: {episodeId: input.identity.episodeId, runId: input.identity.runId, acquiredAt: lock.acquiredAt},
+          lockOwner: {
+            episodeId: input.identity.episodeId,
+            runId: input.identity.runId,
+            acquiredAt: lock.acquiredAt,
+          },
         }),
       );
     }

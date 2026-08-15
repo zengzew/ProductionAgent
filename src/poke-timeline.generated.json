@@ -2,8 +2,8 @@
   "episodeId": "episode-001",
   "layoutVariant": "poke-standard",
   "fps": 30,
-  "totalFrames": 4071,
-  "totalSeconds": 135.7,
+  "totalFrames": 1308,
+  "totalSeconds": 43.6,
   "ttsProvider": "Microsoft Edge neural TTS",
   "captionAlignment": "caption-plan-proportional",
   "scenes": [
@@ -21,7 +21,7 @@
         "claim-poke-011"
       ],
       "scene": "hook-calendar-action",
-      "visualIntent": "第 0 帧同时出现已发送消息与已更新日历，持续标“功能演示”；随后只做轻微确认动效。",
+      "visualIntent": "第 0 帧同时出现已发送消息与已更新日历，持续标“功能演示”；随后只做一次轻微确认动效。",
       "targetSeconds": 3,
       "index": 0,
       "startFrame": 0,
@@ -34,282 +34,133 @@
     {
       "id": "seg-002",
       "section": "hook",
-      "narration": "Cognition 披露，约三个月里，这样的消息超过一亿条。一个小动作，被放大成了一个产品问题。",
+      "narration": "Cognition 披露，约三个月，一亿多条消息。为什么放进联系人列表？",
       "onScreenText": [
         "约三个月",
         "1 亿+ 条消息",
-        "消息数，不是用户数"
+        "消息数，不是用户数",
+        "为什么放进联系人列表？"
       ],
       "claimIds": [
+        "claim-poke-010",
         "claim-poke-015"
       ],
       "scene": "hook-metric-cost",
-      "visualIntent": "一亿数字由开场消息扩展开，来源标签与统计口径同时出现，不再用成本警示切断正面结果。",
+      "visualIntent": "开场消息扩展成一亿数字，来源标签和“消息数，不是用户数”同时出现，最后停在联系人入口问题。",
       "targetSeconds": 7,
       "index": 1,
       "startFrame": 86,
-      "durationFrames": 211,
+      "durationFrames": 163,
       "startSeconds": 2.8680000000000003,
-      "endSeconds": 9.911999999999999,
-      "audioDurationSeconds": 6.864,
+      "endSeconds": 8.304,
+      "audioDurationSeconds": 5.256,
       "audio": "episodes/episode-001/audio/seg-002.mp3"
     },
     {
       "id": "seg-003",
       "section": "hook",
-      "narration": "Poke 是联系人列表里的 AI 助手。它能读邮件、改日历，还会主动找你。团队为什么收起工作台，Beta 用户又怎样把它带出邮箱？",
+      "narration": "Poke 把 AI 放进联系人列表：能读邮件、改日历，还会主动找你。",
       "onScreenText": [
         "联系人列表里的 AI",
         "读邮件",
         "改日历",
-        "主动来找你",
-        "为什么收起工作台？"
+        "主动来找你"
       ],
       "claimIds": [
-        "claim-poke-006",
-        "claim-poke-008",
         "claim-poke-010",
         "claim-poke-011"
       ],
-      "scene": "hook-core-question",
-      "visualIntent": "联系人连接邮件、日历与主动提醒，最后停在团队选择和 Beta 用户动作的唯一问题。",
+      "scene": "decision-messaging",
+      "visualIntent": "联系人卡连接邮件、日历和主动提醒，工作台轮廓退到背景，只保留入口选择。",
       "targetSeconds": 10,
       "index": 2,
-      "startFrame": 297,
-      "durationFrames": 301,
-      "startSeconds": 9.911999999999999,
-      "endSeconds": 19.956,
-      "audioDurationSeconds": 9.864,
+      "startFrame": 249,
+      "durationFrames": 165,
+      "startSeconds": 8.304,
+      "endSeconds": 13.788,
+      "audioDurationSeconds": 5.304,
       "audio": "episodes/episode-001/audio/seg-003.mp3"
     },
     {
       "id": "seg-004",
-      "section": "problem",
-      "narration": "先看旧办法。会议改期，你要从邮件复制时间，打开日历挪日程，再补一条提醒。邮件又变，三处还得重新核对。",
+      "section": "user-pull",
+      "narration": "团队最早想做邮件客户端；用户却说，别再让我学一套界面。内测用户又让它提醒吃药、查天气、报球赛。",
       "onScreenText": [
-        "会议改期",
-        "复制时间",
-        "挪日历",
-        "补提醒",
-        "重新核对"
+        "早期：邮件客户端",
+        "别再让我学新界面",
+        "提醒吃药",
+        "天气",
+        "球赛"
       ],
       "claimIds": [
-        "claim-poke-007"
+        "claim-poke-006",
+        "claim-poke-008"
       ],
-      "scene": "problem-fragmentation",
-      "visualIntent": "邮件日期依次搬到日历和待办；原邮件变化后，三处同时出现待核对状态并标“流程示意、功能演示”。",
+      "scene": "beta-user-pull",
+      "visualIntent": "邮件工作台因用户反馈收起，三条 Beta 请求随后穿过邮箱边界，画面扩到日常任务。",
       "targetSeconds": 14,
       "index": 3,
-      "startFrame": 599,
-      "durationFrames": 325,
-      "startSeconds": 19.956,
-      "endSeconds": 30.791999999999998,
-      "audioDurationSeconds": 9.936,
+      "startFrame": 414,
+      "durationFrames": 277,
+      "startSeconds": 13.788,
+      "endSeconds": 23.016,
+      "audioDurationSeconds": 8.328,
       "audio": "episodes/episode-001/audio/seg-004.mp3"
     },
     {
       "id": "seg-005",
-      "section": "decision",
-      "narration": "团队最早想做邮件客户端和自动化。访谈里，用户的反馈很直接：别再让我学一套界面。团队随后收起工作台，把 Poke 放进现成的消息列表。需要时，发一句就行。",
-      "onScreenText": [
-        "最早：邮件客户端与自动化",
-        "用户：别再让我学新界面",
-        "工作台收起",
-        "联系人留下"
-      ],
-      "claimIds": [
-        "claim-poke-006",
-        "claim-poke-010"
-      ],
-      "scene": "decision-messaging",
-      "visualIntent": "邮件工作台先占满画面，用户反馈出现后界面组件依次退出，只留下联系人气泡。",
-      "targetSeconds": 15,
-      "index": 4,
-      "startFrame": 924,
-      "durationFrames": 420,
-      "startSeconds": 30.791999999999998,
-      "endSeconds": 44.796,
-      "audioDurationSeconds": 13.104,
-      "audio": "episodes/episode-001/audio/seg-005.mp3"
-    },
-    {
-      "id": "seg-006",
-      "section": "user-pull",
-      "narration": "Beta 用户又把边界推开。有人让它提醒吃药，有人问天气和球赛。原本的邮件助手，被这些真实请求带进了日常任务。",
-      "onScreenText": [
-        "Beta 用户继续往外推",
-        "提醒吃药",
-        "天气",
-        "球赛结果",
-        "带出邮箱"
-      ],
-      "claimIds": [
-        "claim-poke-008"
-      ],
-      "scene": "beta-user-pull",
-      "visualIntent": "三条来源支持的请求依次穿过“邮件助手”边界，画面从收件箱扩到日常任务。",
-      "targetSeconds": 14,
-      "index": 5,
-      "startFrame": 1344,
-      "durationFrames": 311,
-      "startSeconds": 44.796,
-      "endSeconds": 55.151999999999994,
-      "audioDurationSeconds": 9.456,
-      "audio": "episodes/episode-001/audio/seg-006.mp3"
-    },
-    {
-      "id": "seg-007",
-      "section": "product-value",
-      "narration": "联系人入口还让 Poke 先开口。时间到了，它提醒；邮件变了，它跟进。授权之后，它能读邮件、改日历、草拟回复。少切窗口的同时，真实账户里的结果也要由用户核对。",
-      "onScreenText": [
-        "它能先开口",
-        "授权后读邮件、改日历",
-        "少切窗口",
-        "结果仍需核对"
-      ],
-      "claimIds": [
-        "claim-poke-010",
-        "claim-poke-011",
-        "claim-poke-024"
-      ],
-      "scene": "proactive-permission-risk",
-      "visualIntent": "联系人主动提醒，授权门打开后日历移动并出现核对状态；合成操作持续标“功能演示”。",
-      "targetSeconds": 17,
-      "index": 6,
-      "startFrame": 1655,
-      "durationFrames": 444,
-      "startSeconds": 55.151999999999994,
-      "endSeconds": 69.94800000000001,
-      "audioDurationSeconds": 13.896,
-      "audio": "episodes/episode-001/audio/seg-007.mp3"
-    },
-    {
-      "id": "seg-008",
       "section": "sharing",
-      "narration": "Recipe 再把背景、开场白和要连接的服务做成链接。朋友点开，可以从配好的设置开始，账户仍要自己授权。2026 年 3 月 19 日，候补名单取消，Recipe 同时开放。",
+      "narration": "所以，工作台收起了，消息入口留下来。Recipe 把背景和服务做成链接，账户仍要自己授权。2026 年 3 月 19 日，候补名单取消，Recipe 开放。",
       "onScreenText": [
+        "工作台收起",
+        "联系人留下",
         "Recipe：把设置做成链接",
-        "从配好的设置开始",
         "账户仍需授权",
         "2026.03.19 全面开放"
       ],
       "claimIds": [
         "claim-poke-004",
+        "claim-poke-006",
+        "claim-poke-010",
         "claim-poke-012"
       ],
       "scene": "recipe-release",
-      "visualIntent": "Recipe 设置卡传给下一位联系人，随后硬切真实 Release Notes 并放大 3 月 19 日。",
+      "visualIntent": "工作台退出后只留下联系人，再把 Recipe 设置卡传给下一位用户，最后硬切真实 Release Notes。",
       "targetSeconds": 14,
-      "index": 7,
-      "startFrame": 2098,
-      "durationFrames": 410,
-      "startSeconds": 69.94800000000001,
-      "endSeconds": 83.61600000000001,
-      "audioDurationSeconds": 12.768,
-      "audio": "episodes/episode-001/audio/seg-008.mp3"
+      "index": 4,
+      "startFrame": 690,
+      "durationFrames": 366,
+      "startSeconds": 23.016,
+      "endSeconds": 35.22,
+      "audioDurationSeconds": 11.304,
+      "audio": "episodes/episode-001/audio/seg-005.mp3"
     },
     {
-      "id": "seg-009",
-      "section": "evidence",
-      "narration": "公开范围扩大以后，到收购前约三个月，人们与 Poke 往来超过一亿条消息。这个数字只代表消息规模，也让同一个入口承载了多少往来变得可见。",
+      "id": "seg-006",
+      "section": "ending-payoff",
+      "narration": "到收购前约三个月，往来超过一亿条消息。入口变了，动作没变：发一句话，日历已经改好了。",
       "onScreenText": [
         "约三个月",
         "1 亿+ 条消息",
-        "同一个联系人入口",
-        "消息规模，不是用户数"
-      ],
-      "claimIds": [
-        "claim-poke-010",
-        "claim-poke-015"
-      ],
-      "scene": "growth-cost-counter",
-      "visualIntent": "一亿消息第二次出现，但这次收拢到单一联系人入口；统计口径和来源持续可见。",
-      "targetSeconds": 14,
-      "index": 8,
-      "startFrame": 2508,
-      "durationFrames": 350,
-      "startSeconds": 83.61600000000001,
-      "endSeconds": 95.29200000000002,
-      "audioDurationSeconds": 10.776,
-      "audio": "episodes/episode-001/audio/seg-009.mp3"
-    },
-    {
-      "id": "seg-010",
-      "section": "tradeoff",
-      "narration": "这份便利也有代价。新邮件一到，自动化就会再跑；盯航班时，状态还要不断刷新。用户只发一句，后台的模型和工具可能继续工作。",
-      "onScreenText": [
-        "新邮件到达：再运行一次",
-        "航班未落地：继续刷新",
-        "用户只发一句",
-        "后台仍在工作"
-      ],
-      "claimIds": [
-        "claim-poke-021"
-      ],
-      "scene": "cost-call-chain",
-      "visualIntent": "一条用户消息保持不动，邮件监听与航班刷新脉冲继续运行；不画未披露金额或架构。",
-      "targetSeconds": 13,
-      "index": 9,
-      "startFrame": 2859,
-      "durationFrames": 359,
-      "startSeconds": 95.29200000000002,
-      "endSeconds": 107.26800000000001,
-      "audioDurationSeconds": 10.776,
-      "audio": "episodes/episode-001/audio/seg-010.mp3"
-    },
-    {
-      "id": "seg-011",
-      "section": "current-state",
-      "narration": "2026 年 7 月 23 日，Cognition 宣布收购开发 Poke 的公司。公告里的下一步，是接入自己的模型和基础设施。Poke 当时继续照常使用。",
-      "onScreenText": [
-        "2026.07.23 Cognition 收购",
-        "计划接入模型与基础设施",
-        "Poke 当时照常使用"
-      ],
-      "claimIds": [
-        "claim-poke-019",
-        "claim-poke-022"
-      ],
-      "scene": "acquisition-infrastructure",
-      "visualIntent": "持续调用画面短暂静音，随后硬切 Cognition 真实公告与下一步计划。",
-      "targetSeconds": 13,
-      "index": 10,
-      "startFrame": 3218,
-      "durationFrames": 358,
-      "startSeconds": 107.26800000000001,
-      "endSeconds": 119.20800000000001,
-      "audioDurationSeconds": 10.44,
-      "audio": "episodes/episode-001/audio/seg-011.mp3"
-    },
-    {
-      "id": "seg-012",
-      "section": "ending-payoff",
-      "narration": "回到开场。团队收起了新工作台，把 AI 放进联系人列表。Beta 用户再用提醒、天气和球赛把它带出邮箱。到收购前，约三个月的往来超过一亿条。发一句话，日历已经改好了。",
-      "onScreenText": [
-        "工作台收起",
-        "联系人留下",
-        "用户把它带出邮箱",
-        "约三个月 1 亿+ 条消息",
+        "联系人入口",
         "日历已更新",
         "功能演示"
       ],
       "claimIds": [
-        "claim-poke-006",
-        "claim-poke-008",
         "claim-poke-010",
         "claim-poke-011",
         "claim-poke-015"
       ],
       "scene": "ending-known-edge",
-      "visualIntent": "工作台、Beta 请求和消息规模依次收拢到开场的联系人与日历；最后两秒只保留已完成动作并标“功能演示”。",
-      "targetSeconds": 16,
-      "index": 11,
-      "startFrame": 3576,
-      "durationFrames": 494,
-      "startSeconds": 119.20800000000001,
-      "endSeconds": 135.67200000000003,
-      "audioDurationSeconds": 14.064,
-      "audio": "episodes/episode-001/audio/seg-012.mp3"
+      "visualIntent": "一亿消息收拢到联系人入口，最后回到开场的已更新日历并持续标“功能演示”。",
+      "targetSeconds": 12,
+      "index": 5,
+      "startFrame": 1057,
+      "durationFrames": 251,
+      "startSeconds": 35.22,
+      "endSeconds": 43.583999999999996,
+      "audioDurationSeconds": 7.464,
+      "audio": "episodes/episode-001/audio/seg-006.mp3"
     }
   ]
 }
