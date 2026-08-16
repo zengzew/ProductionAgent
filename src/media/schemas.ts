@@ -319,16 +319,46 @@ export const mediaClipRefSchema = z
     }
   });
 
-export const mediaVerificationVerdictSchema = z.enum(["pass", "fail", "review-required"]);
+export const mediaVerificationVerdictSchema = z.enum(["pass", "reject", "uncertain"]);
+export type MediaVerificationVerdictValue = z.infer<typeof mediaVerificationVerdictSchema>;
+
+export const MEDIA_VERIFICATION_SCHEMA_VERSION = "media-verification-v1" as const;
 
 const zeroToOne = z.number().min(0).max(1);
+const claimIdSchema = z.string().regex(/^claim-[a-z0-9-]+$/u);
 
+/**
+ * WP-M5.06 formal `media-verification-v1` record.
+ *
+ * A verification is a VLM observation/score record over ONE short candidate
+ * clip plus optional keyframes — never over a whole long video. It answers
+ * only "what did this short clip actually show, and does it fit the current
+ * narration/claim/visualIntent?" — it does NOT grant rights, does NOT modify
+ * the Claim Ledger, and is NOT a factual-truth authorization. The embedded
+ * `artifactRef.sha256` is the content hash of the record body without the
+ * self-referential `artifactRef` field; the authoritative file binding is the
+ * external ArtifactRef returned by the pipeline and stored in the registry.
+ */
 export const mediaVerificationSchema = z
   .object({
+    schemaVersion: z.literal(MEDIA_VERIFICATION_SCHEMA_VERSION),
     verificationId: z.string().min(1),
     episodeId: episodeIdSchema,
+    /** Final-script segment this verification serves. */
+    segmentId: z.string().regex(/^seg-[a-z0-9-]+$/u),
     clipId: z.string().min(1),
+    /** Candidate MediaClipRef (candidate range = clipRef.startMs..endMs). */
     clipRef: mediaClipRefSchema,
+    /** Hash-bound original MediaAsset the candidate was retrieved from. */
+    mediaRef: artifactRefSchema,
+    /** Hash-bound `media-retrieval-result-v1` artifact the candidate came from. */
+    retrievalResultRef: artifactRefSchema,
+    /** Hash-bound bytes of the short verification clip the VLM actually saw. */
+    clipArtifactRef: artifactRefSchema,
+    /** Claim Ledger ids this verification was run against (sorted, unique). */
+    claimIds: z.array(claimIdSchema).min(1),
+    /** M4 fine-grained cache key of this verification run. */
+    cacheKey: z.string().regex(/^[a-f0-9]{64}$/u),
     verdict: mediaVerificationVerdictSchema,
     relevance: zeroToOne,
     claimMatch: zeroToOne,
@@ -336,13 +366,18 @@ export const mediaVerificationSchema = z
     misleadingRisk: zeroToOne,
     observedActions: z.array(z.string().min(1)).default([]),
     observedEntities: z.array(z.string().min(1)).default([]),
+    observedText: z.array(z.string().min(1)).default([]),
+    /** Must lie strictly inside the candidate range (clipRef.startMs..endMs). */
     recommendedStartMs: z.number().int().nonnegative(),
     recommendedEndMs: z.number().int().positive(),
     reasons: z.array(z.string().min(1)).min(1),
     provider: z.string().min(1),
     model: z.string().min(1).nullable(),
+    verificationVersion: z.string().min(1),
     promptVersion: z.string().min(1),
     toolVersion: z.string().min(1),
+    /** SHA-256 of the original media bytes this verification describes. */
+    sourceSha256: z.string().regex(/^[a-f0-9]{64}$/u),
     artifactRef: artifactRefSchema,
     createdAt: isoDateTimeSchema,
   })
@@ -362,11 +397,71 @@ export const mediaVerificationSchema = z
         message: "clipRef must match verification episode and clipId",
       });
     }
+    if (
+      value.claimIds.length !== value.clipRef.claimIds.length ||
+      [...value.claimIds].sort().join("\u0000") !==
+        [...value.clipRef.claimIds].sort().join("\u0000")
+    ) {
+      context.addIssue({
+        code: "custom",
+        path: ["claimIds"],
+        message: "claimIds must equal clipRef.claimIds",
+      });
+    }
+    if (
+      value.mediaRef.episodeId !== value.episodeId ||
+      value.mediaRef.artifactId !== value.clipRef.mediaId ||
+      value.mediaRef.sha256 !== value.clipRef.sourceMediaRef.sha256
+    ) {
+      context.addIssue({
+        code: "custom",
+        path: ["mediaRef"],
+        message: "mediaRef must be the hash-bound source media of clipRef",
+      });
+    }
+    if (value.sourceSha256 !== value.mediaRef.sha256) {
+      context.addIssue({
+        code: "custom",
+        path: ["sourceSha256"],
+        message: "sourceSha256 must equal mediaRef.sha256",
+      });
+    }
+    if (
+      value.retrievalResultRef.episodeId !== value.episodeId ||
+      !value.retrievalResultRef.artifactId.startsWith(`${value.episodeId}:media-retrieval:`)
+    ) {
+      context.addIssue({
+        code: "custom",
+        path: ["retrievalResultRef"],
+        message: "retrievalResultRef must be this episode media-retrieval artifact",
+      });
+    }
+    if (
+      value.clipArtifactRef.episodeId !== value.episodeId ||
+      !value.clipArtifactRef.artifactId.startsWith(`${value.episodeId}:media-verification-clip:`)
+    ) {
+      context.addIssue({
+        code: "custom",
+        path: ["clipArtifactRef"],
+        message: "clipArtifactRef must be this episode media-verification-clip artifact",
+      });
+    }
     if (value.recommendedEndMs <= value.recommendedStartMs) {
       context.addIssue({
         code: "custom",
         path: ["recommendedEndMs"],
         message: "recommendedEndMs must be greater than recommendedStartMs",
+      });
+    }
+    // The recommended range must lie inside the candidate range.
+    if (
+      value.recommendedStartMs < value.clipRef.startMs ||
+      value.recommendedEndMs > value.clipRef.endMs
+    ) {
+      context.addIssue({
+        code: "custom",
+        path: ["recommendedEndMs"],
+        message: "recommended range must lie inside the candidate clip range",
       });
     }
     if (value.verdict === "pass" && (value.relevance < 0.5 || value.claimMatch < 0.5)) {

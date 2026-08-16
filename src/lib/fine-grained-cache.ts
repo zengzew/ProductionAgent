@@ -134,6 +134,9 @@ const cacheKindSchema = z.enum([
   "media-scenes",
   "media-keyframes",
   "media-clip-index",
+  "media-retrieve",
+  "media-verify-clip",
+  "media-verify",
 ]);
 export type CacheKind = z.infer<typeof cacheKindSchema>;
 

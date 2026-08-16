@@ -13,3 +13,5 @@ export * from "./keyframes";
 export * from "./semantic";
 export * from "./clip-index";
 export * from "./understanding";
+export * from "./retrieve";
+export * from "./verify";

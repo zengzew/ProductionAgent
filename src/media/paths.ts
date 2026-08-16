@@ -114,6 +114,78 @@ export const mediaUnderstandingStatusRepositoryPath = (
   mediaSlug: string,
 ): string => `${mediaIndexDirectoryRepositoryPath(episodeId, mediaSlug)}/status.json`;
 
+const retrievalSegmentPattern = /^seg-[a-z0-9-]+$/u;
+
+/**
+ * `media/candidates/<segmentId>.json` — one hash-bound WP-M5.05 retrieval
+ * result artifact per final-script segment.
+ */
+export const mediaRetrievalCandidateRepositoryPath = (
+  episodeId: string,
+  segmentId: string,
+): string => {
+  assertEpisodeId(episodeId);
+  if (!retrievalSegmentPattern.test(segmentId)) {
+    throw new Error(`Invalid retrieval segment id: ${segmentId}`);
+  }
+  return `${mediaCandidatesRepositoryPath(episodeId)}/${segmentId}.json`;
+};
+
+const verificationClipIdPattern = /^episode-[a-z0-9-]+:media-clip:[a-f0-9]+$/u;
+
+/**
+ * Deterministic filename slug for a clip id: `episode-<id>-media-clip-<hex>`.
+ * Clip ids contain colons, so the slug is the id with colons replaced.
+ */
+export const mediaVerificationFilenameSlug = (clipId: string): string => {
+  if (!verificationClipIdPattern.test(clipId)) {
+    throw new Error(`Invalid verification clip id: ${clipId}`);
+  }
+  return clipId.replace(/:/gu, "-");
+};
+
+const assertVerificationSegmentClip = (
+  episodeId: string,
+  segmentId: string,
+  clipId: string,
+): void => {
+  assertEpisodeId(episodeId);
+  if (!retrievalSegmentPattern.test(segmentId)) {
+    throw new Error(`Invalid verification segment id: ${segmentId}`);
+  }
+  mediaVerificationFilenameSlug(clipId);
+};
+
+/**
+ * `media/verifications/<segmentId>/<clipId>.json` — one hash-bound WP-M5.06
+ * `media-verification-v1` artifact per verified candidate clip.
+ */
+export const mediaVerificationRepositoryPath = (
+  episodeId: string,
+  segmentId: string,
+  clipId: string,
+): string => {
+  assertVerificationSegmentClip(episodeId, segmentId, clipId);
+  return `${mediaVerificationsRepositoryPath(episodeId)}/${segmentId}/${mediaVerificationFilenameSlug(clipId)}.json`;
+};
+
+/**
+ * `media/verifications/<segmentId>/<clipId>-clip.<ext>` — the hash-bound short
+ * verification clip bytes the VLM actually saw (never the whole long video).
+ */
+export const mediaVerificationClipRepositoryPath = (
+  episodeId: string,
+  segmentId: string,
+  clipId: string,
+  extension: string,
+): string => {
+  assertVerificationSegmentClip(episodeId, segmentId, clipId);
+  if (!/^[a-z0-9][a-z0-9.+-]{0,8}$/u.test(extension)) {
+    throw new Error(`Invalid verification clip extension: ${extension}`);
+  }
+  return `${mediaVerificationsRepositoryPath(episodeId)}/${segmentId}/${mediaVerificationFilenameSlug(clipId)}-clip.${extension}`;
+};
+
 export const resolveMediaRepositoryPath = (repoRoot: string, repositoryPath: string): string => {
   const absolutePath = path.resolve(repoRoot, repositoryPath);
   const repoRelative = path.relative(path.resolve(repoRoot), absolutePath);

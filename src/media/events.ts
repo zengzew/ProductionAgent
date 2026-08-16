@@ -38,6 +38,16 @@ export const mediaEventTypes = [
   "media.index.failed",
   "media.understanding.cache.hit",
   "media.understanding.cache.miss",
+  "media.retrieval.started",
+  "media.retrieval.completed",
+  "media.retrieval.failed",
+  "media.retrieval.cache.hit",
+  "media.retrieval.cache.miss",
+  "media.verification.started",
+  "media.verification.completed",
+  "media.verification.failed",
+  "media.verification.cache.hit",
+  "media.verification.cache.miss",
 ] as const;
 
 export const mediaEventTypeSchema = z.enum(mediaEventTypes);
@@ -67,6 +77,18 @@ export const mediaEventSchema = z
     artifactRef: artifactRefSchema.optional(),
     cacheKey: sha256Schema.optional(),
     availability: mediaEventAvailabilitySchema.optional(),
+    /** WP-M5.05: final-script segment this retrieval query serves. */
+    segmentId: z.string().min(1).optional(),
+    /** WP-M5.05: Claim Ledger ids that were the primary query keys. */
+    claimIds: z.array(z.string().min(1)).optional(),
+    /** WP-M5.05: number of ranked candidates returned (may be < topK). */
+    candidateCount: z.number().int().nonnegative().optional(),
+    /** WP-M5.05: compact rank summary (rank:clipId:score list), never transcript bodies. */
+    rankSummary: z.string().max(1000).optional(),
+    /** WP-M5.06: candidate clip id under verification. */
+    clipId: z.string().min(1).optional(),
+    /** WP-M5.06: VLM verdict recorded on verification events. */
+    verdict: z.enum(["pass", "reject", "uncertain"]).optional(),
     reason: z.string().max(500).optional(),
   })
   .strict();
@@ -90,6 +112,12 @@ export type CreateMediaEventInput = {
   artifactRef?: unknown;
   cacheKey?: string;
   availability?: MediaEventAvailability;
+  segmentId?: string;
+  claimIds?: string[];
+  candidateCount?: number;
+  rankSummary?: string;
+  clipId?: string;
+  verdict?: "pass" | "reject" | "uncertain";
   reason?: string;
 };
 
@@ -115,6 +143,12 @@ export const createMediaEvent = (input: CreateMediaEventInput): MediaEvent => {
     ...(input.artifactRef ? {artifactRef: input.artifactRef} : {}),
     ...(input.cacheKey ? {cacheKey: input.cacheKey} : {}),
     ...(input.availability ? {availability: input.availability} : {}),
+    ...(input.segmentId ? {segmentId: input.segmentId} : {}),
+    ...(input.claimIds && input.claimIds.length > 0 ? {claimIds: input.claimIds} : {}),
+    ...(input.candidateCount !== undefined ? {candidateCount: input.candidateCount} : {}),
+    ...(input.rankSummary ? {rankSummary: redactObservabilityText(input.rankSummary)} : {}),
+    ...(input.clipId ? {clipId: input.clipId} : {}),
+    ...(input.verdict ? {verdict: input.verdict} : {}),
     ...(input.reason ? {reason: redactObservabilityText(input.reason)} : {}),
   };
   const redacted = redactObservabilityValue(withoutId);
