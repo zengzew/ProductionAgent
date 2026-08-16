@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "admission-episode-004-official-demo-intro",
+  "gate": "media-admission",
+  "decision": "approve",
+  "reviewer": "human-approver",
+  "timestamp": "2026-08-16T12:00:00.000Z",
+  "reason": "episode-004 人工批准素材准入：Introducing Devin, the first AI software engineer — https://www.youtube.com/watch?v=fjHtjT7GO1c ，上传 2024-03-12，播放 122 万+",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-004:media:source-manifest",
+      "episodeId": "episode-004",
+      "path": "content/episode-004/media/source-manifest.json",
+      "mediaType": "application/json",
+      "schemaVersion": "media-source-manifest-v1",
+      "revision": 1,
+      "sha256": "3ae9703bc91504f6afad4978cdde1124c6913cf7c1b191db3113925e88f4f603",
+      "sizeBytes": 5575,
+      "producer": "episode-004-media-pipeline",
+      "createdAt": "2026-08-16T12:00:00.000Z"
+    }
+  ],
+  "approvalEpoch": 0,
+  "authorizations": [],
+  "edits": []
+}

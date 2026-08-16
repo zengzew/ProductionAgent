@@ -1,0 +1,111 @@
+{
+  "segmentId": "seg-004",
+  "claimIds": [
+    "claim-devin-005",
+    "claim-devin-006"
+  ],
+  "claims": [
+    {
+      "id": "claim-devin-005",
+      "claim": "2025 年 4 月 3 日，Cognition 发布 Devin 2.0，个人套餐起价从 500 美元/月降到 20 美元/月。"
+    },
+    {
+      "id": "claim-devin-006",
+      "claim": "Devin 2.0 可以同时启动多个平行 Devin，各自带独立的云端 IDE，并行处理多个任务。"
+    }
+  ],
+  "narration": "团队做了一个选择：Devin 2.0 把价格从每月 500 美元降到 20 美元，一个任务可以同时开多个 Devin 并行干。",
+  "visualIntent": "官方演示收成价格对比卡，随后“20 美元”落下，多个平行 Devin 的执行画面铺开，标“功能演示”。",
+  "candidates": [
+    {
+      "candidate": {
+        "clipId": "episode-004:media-clip:655a765fd76992848d3052a5",
+        "mediaId": "episode-004:media:official-upwork-demo",
+        "startMs": 4000,
+        "endMs": 8000,
+        "score": 0.434833,
+        "matchedClaimIds": [
+          "claim-devin-005",
+          "claim-devin-006"
+        ],
+        "reasons": [
+          "claim evidence claim-devin-005 fit 0.222",
+          "claim evidence claim-devin-006 fit 0.400",
+          "narration overlap 0.111",
+          "metadata overlap 0.083",
+          "visual intent overlap 0.111",
+          "source preference local-approved (3/5)",
+          "duration proximity 0.500 (4000ms)"
+        ],
+        "observedText": "here at cognition AI we were playing around with whether or not Devin could start a side hustle on upwork so here's",
+        "textSummary": "here at cognition AI we were playing around with whether or not Devin could start a side hustle on upwork so here's"
+      },
+      "keyframes": [
+        {
+          "path": "/Users/zengze/Documents/ProductionAgent-episode-004/content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-1-6000.jpg",
+          "relative": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-1-6000.jpg"
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "clipId": "episode-004:media-clip:56a3b613fa7d6878750c8d34",
+        "mediaId": "episode-004:media:official-mercedes-interview",
+        "startMs": 16000,
+        "endMs": 20000,
+        "score": 0.396583,
+        "matchedClaimIds": [
+          "claim-devin-005",
+          "claim-devin-006"
+        ],
+        "reasons": [
+          "claim evidence claim-devin-005 fit 0.111",
+          "claim evidence claim-devin-006 fit 0.200",
+          "narration overlap 0.111",
+          "metadata overlap 0.042",
+          "visual intent overlap 0.111",
+          "source preference local-approved (3/5)",
+          "duration proximity 0.500 (4000ms)"
+        ],
+        "observedText": "that's quite something, right? I mean, we're rolling out Devin and Wintermute to all of our software engineering teams",
+        "textSummary": "that's quite something, right? I mean, we're rolling out Devin and Wintermute to all of our software engineering teams"
+      },
+      "keyframes": [
+        {
+          "path": "/Users/zengze/Documents/ProductionAgent-episode-004/content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-4-18000.jpg",
+          "relative": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-4-18000.jpg"
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "clipId": "episode-004:media-clip:99faf2d74c1b9d53b300d5fa",
+        "mediaId": "episode-004:media:official-parallel-devin",
+        "startMs": 236000,
+        "endMs": 240000,
+        "score": 0.396583,
+        "matchedClaimIds": [
+          "claim-devin-005",
+          "claim-devin-006"
+        ],
+        "reasons": [
+          "claim evidence claim-devin-005 fit 0.111",
+          "claim evidence claim-devin-006 fit 0.200",
+          "narration overlap 0.111",
+          "metadata overlap 0.042",
+          "visual intent overlap 0.111",
+          "source preference local-approved (3/5)",
+          "duration proximity 0.500 (4000ms)"
+        ],
+        "observedText": "you please devise three different ways to build this? And then spin up three Devins to build",
+        "textSummary": "you please devise three different ways to build this? And then spin up three Devins to build"
+      },
+      "keyframes": [
+        {
+          "path": "/Users/zengze/Documents/ProductionAgent-episode-004/content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-59-238000.jpg",
+          "relative": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-59-238000.jpg"
+        }
+      ]
+    }
+  ]
+}

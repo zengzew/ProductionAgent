@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "admission-episode-004-official-mercedes-interview",
+  "gate": "media-admission",
+  "decision": "approve",
+  "reviewer": "human-approver",
+  "timestamp": "2026-08-16T12:00:00.000Z",
+  "reason": "episode-004 人工批准素材准入：How Cognition is Partnering with Mercedes Benz to Accelerate Software Engineering — https://www.youtube.com/watch?v=IPI6",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-004:media:source-manifest",
+      "episodeId": "episode-004",
+      "path": "content/episode-004/media/source-manifest.json",
+      "mediaType": "application/json",
+      "schemaVersion": "media-source-manifest-v1",
+      "revision": 1,
+      "sha256": "eaed155686deb4a769ea2087eb282b3acacf9f21d2d45c729193ad62a925bc6f",
+      "sizeBytes": 10227,
+      "producer": "episode-004-media-pipeline",
+      "createdAt": "2026-08-16T12:00:00.000Z"
+    }
+  ],
+  "approvalEpoch": 0,
+  "authorizations": [],
+  "edits": []
+}

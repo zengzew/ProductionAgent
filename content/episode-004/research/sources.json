@@ -1,0 +1,152 @@
+[
+  {
+    "id": "src-devin-001",
+    "title": "Introducing Devin, the first AI software engineer",
+    "publisher": "Cognition (official blog)",
+    "url": "https://cognition.com/blog/introducing-devin",
+    "publishedAt": "2024-03-12",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方发布博客，datePublished 2024-03-12。原文：Devin 具备长期推理与规划能力、可回忆上下文；配备 shell、代码编辑器、浏览器（sandboxed compute environment）；官方称工程师可把任务交给它并审查结果（independently complete tasks for you to review）；SWE-bench 端到端解决 13.86% 的 issue，超过此前最佳无辅助基线 1.96%。Upwork 接单演示。"
+  },
+  {
+    "id": "src-devin-002",
+    "title": "Introducing Devin, the first AI software engineer (official demo video)",
+    "publisher": "Cognition (official YouTube channel)",
+    "url": "https://www.youtube.com/watch?v=fjHtjT7GO1c",
+    "publishedAt": "2024-03-12",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方首发演示视频，Cognition 频道，上传日期 2024-03-12，播放 122 万+ 次（2026-08-16 读取）。演示 Devin 接受任务后在自带界面里规划、写代码、跑测试。本地已下载 640×360 mp4 与 en 自动字幕（yt-dlp android client，2026-08-16）。"
+  },
+  {
+    "id": "src-devin-003",
+    "title": "Getting Started with Devin in 8 Minutes (official tutorial)",
+    "publisher": "Cognition (official YouTube channel)",
+    "url": "https://www.youtube.com/watch?v=KdanG1kICxg",
+    "publishedAt": "2026-03-16",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方上手教程，Cognition 频道，上传日期 2026-03-16。展示会话、任务输入、Devin 云端 IDE 与执行过程。本地已下载 640×360 mp4 与 en 自动字幕（2026-08-16）。"
+  },
+  {
+    "id": "src-devin-004",
+    "title": "Devin 2.0",
+    "publisher": "Cognition (official blog)",
+    "url": "https://cognition.com/blog/devin-2",
+    "publishedAt": "2025-04-03",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方博客，datePublished 2025-04-03。原文：Devin 2.0 提供 agent-native IDE 体验、新套餐起价 20 美元；可同时启动多个 parallel Devins，各自带独立的云端 IDE，并行处理多个任务。"
+  },
+  {
+    "id": "src-devin-005",
+    "title": "Devin 2.0 is here: Cognition slashes price of AI software engineer to $20 per month from $500",
+    "publisher": "VentureBeat",
+    "url": "https://venturebeat.com/ai/devin-2-0-is-here-cognition-slashes-price-of-ai-software-engineer-to-20-per-month-from-500",
+    "publishedAt": "2025-04-03",
+    "accessedAt": "2026-08-16",
+    "sourceType": "media",
+    "notes": "媒体报道：Devin 2.0 个人版从 500 美元/月降至 20 美元/月；并行 Devin 与云端 IDE。与官方博客口径一致。"
+  },
+  {
+    "id": "src-devin-006",
+    "title": "Engineering in the fast lane: Mercedes-Benz partners with Cognition",
+    "publisher": "Cognition (official blog)",
+    "url": "https://cognition.com/blog/mercedes-benz-cognition",
+    "publishedAt": "2026-04-27",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方博客，datePublished 2026-04-27。原文：四周围观试点中，Devin 分析了超过 20 万行 COBOL 代码，把现代化改造时间从预计 8 个月缩短到 8 天；奔驰随后在研发与 IT 部门部署完整产品套件。"
+  },
+  {
+    "id": "src-devin-007",
+    "title": "AI coding startup Cognition raises $1B at $25B pre-money valuation",
+    "publisher": "TechCrunch",
+    "url": "https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/",
+    "publishedAt": "2026-05-27",
+    "accessedAt": "2026-08-16",
+    "sourceType": "media",
+    "notes": "媒体报道：Cognition 以 25 亿美元 pre-money（26 亿美元 post-money）估值融资超 10 亿美元；较 2025 年 9 月的 102 亿美元估值大幅提升。"
+  },
+  {
+    "id": "src-devin-008",
+    "title": "More Devins in More Places",
+    "publisher": "Cognition (official blog)",
+    "url": "https://cognition.com/blog/series-d",
+    "publishedAt": "2026-05-27",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方博客，datePublished 2026-05-27。原文：在公司内部，工程师提交的代码中 89% 由 Devin 提交（其余由 Windsurf 本地 agent 提交）。"
+  },
+  {
+    "id": "src-devin-009",
+    "title": "Devin is now generally available",
+    "publisher": "Cognition (official blog)",
+    "url": "https://cognition.com/blog/devin-generally-available",
+    "publishedAt": "2024-12-10",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方博客：Devin GA，团队版 500 美元/月、不限席位；含 Slack、IDE 扩展与 API。用于价格对比口径。"
+  },
+  {
+    "id": "src-devin-010",
+    "title": "Devin's 2025 Performance Review",
+    "publisher": "Cognition (official blog)",
+    "url": "https://cognition.com/blog/devin-annual-performance-review-2025",
+    "publishedAt": "2025-11-14",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方绩效报告：Devin 解题速度约为上一年的 4 倍；PR 合并率从 34% 升至 67%；客户测试覆盖率从 50–60% 提到 80–90%。仅作研究背景，不进入旁白。"
+  },
+  {
+    "id": "src-devin-011",
+    "title": "How Cognition is Partnering with Mercedes Benz to Accelerate Software Engineering (official video)",
+    "publisher": "Cognition (official YouTube channel)",
+    "url": "https://www.youtube.com/watch?v=IPI6VvDQqJg",
+    "publishedAt": "2026-04-27",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方客户访谈视频，Cognition 频道。奔驰研发部门负责人与 Cognition 团队对谈。本地已下载 640×360 mp4 与 en 自动字幕（2026-08-16）。"
+  },
+  {
+    "id": "src-devin-012",
+    "title": "Working with Devin in your IDE (official video)",
+    "publisher": "Cognition (official YouTube channel)",
+    "url": "https://www.youtube.com/watch?v=OH1oEUnhdwI",
+    "publishedAt": "2024-11-19",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方视频：Devin 开发团队使用 Devin 开发 Devin 的 VS Code 扩展。本地已下载 640×360 mp4 与 en 自动字幕（2026-08-16）。"
+  },
+  {
+    "id": "src-devin-013",
+    "title": "Devin's Upwork Side Hustle (official video)",
+    "publisher": "Cognition (official YouTube channel)",
+    "url": "https://www.youtube.com/watch?v=UTS2Hz96HYQ",
+    "publishedAt": "2024-03-15",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方演示：Devin 在 Upwork 上接下真实外包任务，自己打开浏览器、写代码并调试计算机视觉模型。本地已下载 640×360 mp4 与 en 自动字幕（2026-08-16）。"
+  },
+  {
+    "id": "src-devin-014",
+    "title": "How to Run 10 Devins in Parallel (Agent Fan Out Explained, official video)",
+    "publisher": "Cognition (official YouTube channel)",
+    "url": "https://www.youtube.com/watch?v=ns1ifgYEGl0",
+    "publishedAt": "2025-04-24",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方视频：演示同时运行多个平行 Devin、各自执行不同任务。本地已下载 mp4 与 en 自动字幕（2026-08-16）。"
+  },
+  {
+    "id": "src-devin-015",
+    "title": "Introduction to Devin - Overview (official video)",
+    "publisher": "Cognition (official YouTube channel)",
+    "url": "https://www.youtube.com/watch?v=jaI4qdVKTKU",
+    "publishedAt": "2026-06-11",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方概览：Devin 是自主 AI 软件工程师，把工程任务变成已测试、可审查的 pull request；云端或本地两种工作方式。本地已下载 640×360 mp4 与 en 自动字幕（2026-08-16）。"
+  }
+]

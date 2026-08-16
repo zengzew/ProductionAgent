@@ -1,0 +1,108 @@
+{
+  "segmentId": "seg-005",
+  "claimIds": [
+    "claim-devin-007",
+    "claim-devin-008"
+  ],
+  "claims": [
+    {
+      "id": "claim-devin-007",
+      "claim": "2026 年 4 月 27 日，Cognition 宣布与奔驰合作：Devin 分析了超过 20 万行 COBOL 代码，把现代化改造从预计 8 个月缩短到 8 天。"
+    },
+    {
+      "id": "claim-devin-008",
+      "claim": "Cognition 官方称，公司工程师提交的代码中 89% 由 Devin 提交。"
+    }
+  ],
+  "narration": "奔驰把 20 万行老代码的改造，从预计 8 个月压到 8 天。Cognition 说，公司 89% 的代码现在由 Devin 提交。",
+  "visualIntent": "官方客户访谈画面收成案例卡，随后 20 万行 COBOL 与 8 天数字落下，再切到 89% 自用代码卡。",
+  "candidates": [
+    {
+      "candidate": {
+        "clipId": "episode-004:media-clip:655a765fd76992848d3052a5",
+        "mediaId": "episode-004:media:official-upwork-demo",
+        "startMs": 4000,
+        "endMs": 8000,
+        "score": 0.425808,
+        "matchedClaimIds": [
+          "claim-devin-007",
+          "claim-devin-008"
+        ],
+        "reasons": [
+          "claim evidence claim-devin-007 fit 0.167",
+          "claim evidence claim-devin-008 fit 0.333",
+          "narration overlap 0.182",
+          "metadata overlap 0.074",
+          "source preference local-approved (3/5)",
+          "duration proximity 0.500 (4000ms)"
+        ],
+        "observedText": "here at cognition AI we were playing around with whether or not Devin could start a side hustle on upwork so here's",
+        "textSummary": "here at cognition AI we were playing around with whether or not Devin could start a side hustle on upwork so here's"
+      },
+      "keyframes": [
+        {
+          "path": "/Users/zengze/Documents/ProductionAgent-episode-004/content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-1-6000.jpg",
+          "relative": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-1-6000.jpg"
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "clipId": "episode-004:media-clip:f0cc88c4c37cfea72d221ee9",
+        "mediaId": "episode-004:media:official-mercedes-interview",
+        "startMs": 8000,
+        "endMs": 12000,
+        "score": 0.375404,
+        "matchedClaimIds": [
+          "claim-devin-007",
+          "claim-devin-008"
+        ],
+        "reasons": [
+          "claim evidence claim-devin-007 fit 0.083",
+          "claim evidence claim-devin-008 fit 0.167",
+          "narration overlap 0.091",
+          "metadata overlap 0.037",
+          "source preference local-approved (3/5)",
+          "duration proximity 0.500 (4000ms)"
+        ],
+        "observedText": "for having us, Scott. Very excited to be here. So, today we announced the partnership of Cognition and Mercedes-Benz, and",
+        "textSummary": "for having us, Scott. Very excited to be here. So, today we announced the partnership of Cognition and Mercedes-Benz, and"
+      },
+      "keyframes": [
+        {
+          "path": "/Users/zengze/Documents/ProductionAgent-episode-004/content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-2-10000.jpg",
+          "relative": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-2-10000.jpg"
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "clipId": "episode-004:media-clip:f473e058ec688bff3e829a34",
+        "mediaId": "episode-004:media:official-mercedes-interview",
+        "startMs": 12000,
+        "endMs": 16000,
+        "score": 0.375404,
+        "matchedClaimIds": [
+          "claim-devin-007",
+          "claim-devin-008"
+        ],
+        "reasons": [
+          "claim evidence claim-devin-007 fit 0.083",
+          "claim evidence claim-devin-008 fit 0.167",
+          "narration overlap 0.091",
+          "metadata overlap 0.037",
+          "source preference local-approved (3/5)",
+          "duration proximity 0.500 (4000ms)"
+        ],
+        "observedText": "of Cognition and Mercedes-Benz, and that's quite something, right? I mean,",
+        "textSummary": "of Cognition and Mercedes-Benz, and that's quite something, right? I mean,"
+      },
+      "keyframes": [
+        {
+          "path": "/Users/zengze/Documents/ProductionAgent-episode-004/content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-3-14000.jpg",
+          "relative": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-3-14000.jpg"
+        }
+      ]
+    }
+  ]
+}

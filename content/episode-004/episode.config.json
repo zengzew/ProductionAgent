@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "episode-config-v2",
+  "id": "episode-004",
+  "slug": "devin-ai-software-engineer",
+  "product": "Devin",
+  "title": "把任务交给它，剩下的它自己干",
+  "language": "zh-CN",
+  "targetSeconds": 60,
+  "production": {
+    "timelineTailSeconds": {
+      "seg-002": 0.189,
+      "seg-005": 0.9007
+    },
+    "hookAttributionSubjects": [
+      "Devin",
+      "Cognition"
+    ]
+  },
+  "selection": "selected",
+  "selectionReason": "Devin 有可下载的官方演示、上手教程与客户访谈素材（自带浏览器、编辑器和终端的自主执行画面），可核验的发布、价格与融资节点，以及奔驰案例与 89% 自有代码口径；核心动作“把任务交给它，它自己打开浏览器去办”适合 40–80 秒中文产品故事。",
+  "publishStatus": "evaluation",
+  "publishBlocker": "本集是 evaluation run。不写入 HumanDecision、final approval 或 published 状态。发布前仍需人工确认官方视频权利、YouTube 自动字幕转写使用与合成语音披露。",
+  "asOf": "2026-08-16",
+  "captureAssets": []
+}

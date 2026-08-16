@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "admission-episode-004-official-parallel-devin",
+  "gate": "media-admission",
+  "decision": "approve",
+  "reviewer": "human-approver",
+  "timestamp": "2026-08-16T12:00:00.000Z",
+  "reason": "episode-004 人工批准素材准入：How to Run 10 Devins in Parallel (Agent Fan Out Explained) — https://www.youtube.com/watch?v=ns1ifgYEGl0 ，Cognition 官方频道",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-004:media:source-manifest",
+      "episodeId": "episode-004",
+      "path": "content/episode-004/media/source-manifest.json",
+      "mediaType": "application/json",
+      "schemaVersion": "media-source-manifest-v1",
+      "revision": 1,
+      "sha256": "3439fb991de13ba959e9e6c9a6050ef3cc4c72278c43537c925b40d1f4d9a457",
+      "sizeBytes": 8698,
+      "producer": "episode-004-media-pipeline",
+      "createdAt": "2026-08-16T12:00:00.000Z"
+    }
+  ],
+  "approvalEpoch": 0,
+  "authorizations": [],
+  "edits": []
+}

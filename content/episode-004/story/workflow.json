@@ -1,0 +1,233 @@
+{
+  "schemaVersion": "director-workflow-v1",
+  "episodeId": "episode-004",
+  "coreStoryQuestion": "把一个编程任务交给 Devin 之后，它是怎样自己打开浏览器、写代码、跑测试，让工程师开始“派活”而不是自己写代码的？",
+  "currentStatus": "delivery-approved",
+  "revisionPolicy": {
+    "maximumCreativeRounds": 3,
+    "scriptChangeRestartsAt": "oral-judge",
+    "visualChangeRestartsAt": "retention-critic"
+  },
+  "stages": [
+    {
+      "id": "research-analyst",
+      "owner": "research-analyst",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-004/research/facts.json",
+        "content/episode-004/research/sources.json",
+        "content/episode-004/research/timeline.json"
+      ],
+      "decision": "确定自主执行、工具链、价格与自用代码的来源边界。"
+    },
+    {
+      "id": "story-director",
+      "owner": "story-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-004/story/director-brief.md",
+        "content/episode-004/story/story-bible.md",
+        "content/episode-004/story/story-angle.md",
+        "content/episode-004/story/three-act-structure.md"
+      ],
+      "decision": "围绕把任务交给它之后如何自己打开浏览器执行组织全片。"
+    },
+    {
+      "id": "viral-director",
+      "owner": "viral-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-004/story/hook-candidates.md",
+        "content/episode-004/story/viral-strategy.md"
+      ],
+      "decision": "选择任务已经交出去、浏览器已经打开的 Hook。"
+    },
+    {
+      "id": "script-writer",
+      "owner": "script-writer",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-004/story/script-draft.md"
+      ],
+      "decision": "按自主执行、身份、工具链、价格与接受证据推进。"
+    },
+    {
+      "id": "oral-rewriter",
+      "owner": "oral-rewriter",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-004/story/final-script.md"
+      ],
+      "decision": "完成 60 秒自然中文口播。"
+    },
+    {
+      "id": "oral-judge",
+      "owner": "oral-judge",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-004/story/oral-review.md"
+      ],
+      "decision": "口播三项与七项检查通过。"
+    },
+    {
+      "id": "audience-critic",
+      "owner": "audience-critic",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-004/story/critic-report.md"
+      ],
+      "decision": "识别价格段说明书风险。"
+    },
+    {
+      "id": "fact-guardian",
+      "owner": "fact-guardian",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-004/story/fact-check-report.md"
+      ],
+      "decision": "事实与公司口径通过。"
+    },
+    {
+      "id": "visual-director",
+      "owner": "visual-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-004/story/visual-plan.md"
+      ],
+      "decision": "用可见的自主执行串起全片，优先 real-media。"
+    },
+    {
+      "id": "retention-critic",
+      "owner": "retention-critic",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-004/story/retention-report.md"
+      ],
+      "decision": "以 92 分批准进入生产并保留中段动作提示。"
+    },
+    {
+      "id": "delivery-critic",
+      "owner": "delivery-critic",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-004/production/delivery-critic-report.md",
+        "output/episode-004/vertical_9x16.mp4",
+        "output/episode-004/subtitles_zh.srt"
+      ],
+      "decision": "当前竖版成片通过交付门（6/6 real-media shot，44.033 秒）。"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "decision-core-story-question",
+      "owner": "story-director",
+      "decision": "解释把任务交给它之后如何自己打开浏览器执行。",
+      "rationale": "工具链、价格与接受证据都能接回同一条任务。",
+      "artifact": "content/episode-004/story/director-brief.md",
+      "claimIds": [
+        "claim-devin-001",
+        "claim-devin-003",
+        "claim-devin-007"
+      ]
+    },
+    {
+      "id": "decision-attention-strategy",
+      "owner": "viral-director",
+      "decision": "首帧显示任务已交出去且浏览器已经打开。",
+      "rationale": "执行中的结果无需产品背景。",
+      "artifact": "content/episode-004/story/viral-strategy.md",
+      "claimIds": [
+        "claim-devin-001"
+      ]
+    },
+    {
+      "id": "decision-information-draft",
+      "owner": "script-writer",
+      "decision": "从执行动作推进到工具链、价格与接受证据。",
+      "rationale": "避免把自主执行写成功能目录。",
+      "artifact": "content/episode-004/story/script-draft.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-spoken-delivery",
+      "owner": "oral-rewriter",
+      "decision": "使用自然中文口播。",
+      "rationale": "让陌生观众在二十秒内建立心智模型。",
+      "artifact": "content/episode-004/story/final-script.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-audience-clearance",
+      "owner": "audience-critic",
+      "decision": "脚本通过，价格段不得做成静态数字卡。",
+      "rationale": "机制窗口是最可能划走的位置。",
+      "artifact": "content/episode-004/story/critic-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-factual-clearance",
+      "owner": "fact-guardian",
+      "decision": "事实与公司口径通过。",
+      "rationale": "奔驰与 89% 不换算成功率，融资与基准不进旁白。",
+      "artifact": "content/episode-004/story/fact-check-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-visual-language",
+      "owner": "visual-director",
+      "decision": "用可见的自主执行画面串起全片，优先 real-media。",
+      "rationale": "打开浏览器与执行过程本身成为可见动作。",
+      "artifact": "content/episode-004/story/visual-plan.md",
+      "claimIds": [
+        "claim-devin-001",
+        "claim-devin-003",
+        "claim-devin-007"
+      ]
+    },
+    {
+      "id": "decision-production-readiness",
+      "owner": "retention-critic",
+      "decision": "以 92 分批准生产。",
+      "rationale": "四个时间窗口均过门槛，无 high risk。",
+      "artifact": "content/episode-004/story/retention-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-final-delivery",
+      "owner": "delivery-critic",
+      "decision": "批准当前竖版 MP4 通过交付门。",
+      "rationale": "真实时长、字幕、首屏、real-media 追溯与来源证据通过交付检查；不构成 HumanDecision 或 published。",
+      "artifact": "content/episode-004/production/delivery-critic-report.md",
+      "claimIds": []
+    }
+  ],
+  "reviewCycles": [
+    {
+      "id": "review-audience-round-01",
+      "critic": "audience-critic",
+      "round": 1,
+      "reportPath": "content/episode-004/story/critic-report.md",
+      "reportSha256": "70747dca81ef3d3e7fb6a4b9201263e916c024aac51d9123920c92cfebfae9f8",
+      "verdict": "PASS",
+      "routes": []
+    },
+    {
+      "id": "review-retention-round-01",
+      "critic": "retention-critic",
+      "round": 1,
+      "reportPath": "content/episode-004/story/retention-report.md",
+      "reportSha256": "5d4f73e4f45af13b0494e1f001f7f049b94277ab9096511dc82c4d8f4dc508de",
+      "verdict": "PASS",
+      "routes": []
+    },
+    {
+      "id": "review-delivery-round-01",
+      "critic": "delivery-critic",
+      "round": 1,
+      "reportPath": "content/episode-004/production/delivery-critic-report.md",
+      "reportSha256": "d93e9553ab89c1d1161f1ca329cfc0785104de799d4de59553f71a8d203d0dfe",
+      "verdict": "PASS",
+      "routes": []
+    }
+  ]
+}

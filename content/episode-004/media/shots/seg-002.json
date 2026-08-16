@@ -1,0 +1,247 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-004:media-shot:seg-002",
+    "createdAt": "2026-08-16T16:33:22.275Z",
+    "episodeId": "episode-004",
+    "mediaType": "application/json",
+    "path": "content/episode-004/media/shots/seg-002.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-shot-v1",
+    "sha256": "73e58edb54369f929313e8ec0eff3b70c0bbab3380892bfeb2ffca237af138c5",
+    "sizeBytes": 8203
+  },
+  "audio": {
+    "ducking": {
+      "attackMs": 80,
+      "enabled": true,
+      "reductionDb": 10,
+      "releaseMs": 240
+    },
+    "fadeInMs": 0,
+    "fadeOutMs": 0,
+    "narrationGain": 0.740741,
+    "originalAudioGain": 0.259259
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "timelineSha256": "e9c961bce7a0ee9cbd0e8e5cd7ce5c7099f78816b913bfc39fb5a91ddcf243a0",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-08-16T16:33:22.275Z",
+  "crossfadeMs": 0,
+  "durationFrames": 238,
+  "endSeconds": 11.697,
+  "episodeId": "episode-004",
+  "fade": {
+    "inMs": 200,
+    "outMs": 200
+  },
+  "fallbackImagePath": null,
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "clipVerified": true,
+    "episodeIsolated": true,
+    "hashesValid": true,
+    "rightsApproved": true,
+    "slotValid": true,
+    "timestampsValid": true
+  },
+  "lineage": {
+    "clipArtifactRef": {
+      "artifactId": "episode-004:media-verification-clip:episode-004-media-clip-0c99d3720ab2d924d4c07759",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "video/mp4",
+      "path": "content/episode-004/media/verifications/seg-002/episode-004-media-clip-0c99d3720ab2d924d4c07759-clip.mp4",
+      "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+      "revision": 1,
+      "schemaVersion": "media-verification-clip-v1",
+      "sha256": "72184a05d17d79babf7b154e36448626094309bdd53a0e3f2499e8c5a8ff720b",
+      "sizeBytes": 456031
+    },
+    "clipId": "episode-004:media-clip:0c99d3720ab2d924d4c07759",
+    "clipIndexRef": {
+      "artifactId": "episode-004:media-clip-index:official-demo-intro",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "application/json",
+      "path": "content/episode-004/media/indexes/official-demo-intro/clip-index.json",
+      "producer": "media-understanding-v1:index:semantic-adapter-v1",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "3e995d916e75fc1c5b7c9bdede964a7290efbccf90f1231628eb2d8d90c67fd1",
+      "sizeBytes": 87998
+    },
+    "cutSourceRef": {
+      "artifactId": "episode-004:media:official-demo-intro-proxy",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "video/mp4",
+      "path": "content/episode-004/media/assets/official-demo-intro-proxy.mp4",
+      "producer": "media-ingest-v1:normalize",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "bd5181b965a002cd58ad12b0ab637bad76acffdd5d17464dff015790a91aeec3",
+      "sizeBytes": 3121649
+    },
+    "sourceEndMs": 8000,
+    "sourceMediaId": "episode-004:media:official-demo-intro",
+    "sourceMediaRef": {
+      "artifactId": "episode-004:media:official-demo-intro",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "video/mp4",
+      "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "sizeBytes": 2572402
+    },
+    "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+    "sourceStartMs": 5000,
+    "verificationRef": {
+      "artifactId": "episode-004:media-verification:episode-004-media-clip-0c99d3720ab2d924d4c07759",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "application/json",
+      "path": "content/episode-004/media/verifications/seg-002/episode-004-media-clip-0c99d3720ab2d924d4c07759.json",
+      "producer": "media-verification-v1:human-keyframe-review:human-keyframe-review-v1",
+      "revision": 1,
+      "schemaVersion": "media-verification-v1",
+      "sha256": "a2a64a80c8848dabb630465b283879e42a794474eec08cb1095f47332d22650c",
+      "sizeBytes": 5197
+    }
+  },
+  "overlays": {
+    "badge": {
+      "text": "真实画面",
+      "tone": "real"
+    },
+    "captionsEnabled": true,
+    "sourceLabel": "Cognition (official YouTube channel) · 真实画面"
+  },
+  "reasons": [
+    "scene seg-002 at frame 113 (238 frames, 30 fps)",
+    "real media episode-004:media-clip:0c99d3720ab2d924d4c07759 trimmed 5000..8000ms (recommended 5000..8000ms)",
+    "render proxy episode-004:media-render-proxy:seg-002 (video/mp4)",
+    "audio mix original 0.259259 / narration 0.740741 duck 10dB"
+  ],
+  "renderProxyMediaType": "video/mp4",
+  "renderProxyRef": {
+    "artifactId": "episode-004:media-render-proxy:seg-002",
+    "createdAt": "2026-08-16T16:33:22.217Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/render/seg-002.mp4",
+    "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-proxy-v1",
+    "sha256": "98a2fb7bbc648cf2bd410bc312b45c952a04824c51989059e325f26717dff2e7",
+    "sizeBytes": 122561
+  },
+  "sceneIndex": 1,
+  "schemaVersion": "media-shot-v1",
+  "segmentId": "seg-002",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-devin-002"
+    ],
+    "clipId": "episode-004:media-clip:0c99d3720ab2d924d4c07759",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "endMs": 8000,
+    "episodeId": "episode-004",
+    "mediaId": "episode-004:media:official-demo-intro",
+    "sourceMediaRef": {
+      "artifactId": "episode-004:media:official-demo-intro",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "video/mp4",
+      "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "sizeBytes": 2572402
+    },
+    "startMs": 4000,
+    "transcriptRefs": [
+      {
+        "artifactId": "episode-004:media-transcript:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+        "sizeBytes": 8236
+      }
+    ],
+    "visualIntent": "官方演示里 Scott Wu 的发布口播收成标题卡,随后“第一个 AI 软件工程师·官方称”落下,再留下唯一问题。"
+  },
+  "shotId": "episode-004:media-shot:seg-002",
+  "startFrame": 113,
+  "startSeconds": 3.7800000000000002,
+  "staticFilePath": "episodes/episode-004/media/seg-002.mp4",
+  "transform": {
+    "freezeFrameMs": null,
+    "pip": null,
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "reframe": {
+      "crop": {
+        "height": 1,
+        "width": 1,
+        "x": 0,
+        "y": 0
+      },
+      "mode": "cover"
+    },
+    "scale": 1,
+    "zoomPan": {
+      "end": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "start": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "type": "none"
+    }
+  },
+  "trim": {
+    "endMs": 8000,
+    "startMs": 5000
+  },
+  "verificationRef": {
+    "artifactId": "episode-004:media-verification:episode-004-media-clip-0c99d3720ab2d924d4c07759",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "application/json",
+    "path": "content/episode-004/media/verifications/seg-002/episode-004-media-clip-0c99d3720ab2d924d4c07759.json",
+    "producer": "media-verification-v1:human-keyframe-review:human-keyframe-review-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "a2a64a80c8848dabb630465b283879e42a794474eec08cb1095f47332d22650c",
+    "sizeBytes": 5197
+  },
+  "visualType": "real-media"
+}

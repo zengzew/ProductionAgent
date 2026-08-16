@@ -1,0 +1,248 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-004:media-shot:seg-003",
+    "createdAt": "2026-08-16T16:33:22.582Z",
+    "episodeId": "episode-004",
+    "mediaType": "application/json",
+    "path": "content/episode-004/media/shots/seg-003.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-shot-v1",
+    "sha256": "ad02c4cbcbca811c225b78fd8184fe4f041499a2c9512f0dd7a0a91d7e0ce601",
+    "sizeBytes": 8298
+  },
+  "audio": {
+    "ducking": {
+      "attackMs": 80,
+      "enabled": true,
+      "reductionDb": 10,
+      "releaseMs": 240
+    },
+    "fadeInMs": 0,
+    "fadeOutMs": 0,
+    "narrationGain": 0.740741,
+    "originalAudioGain": 0.259259
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "timelineSha256": "e9c961bce7a0ee9cbd0e8e5cd7ce5c7099f78816b913bfc39fb5a91ddcf243a0",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-08-16T16:33:22.582Z",
+  "crossfadeMs": 0,
+  "durationFrames": 185,
+  "endSeconds": 17.877,
+  "episodeId": "episode-004",
+  "fade": {
+    "inMs": 200,
+    "outMs": 200
+  },
+  "fallbackImagePath": null,
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "clipVerified": true,
+    "episodeIsolated": true,
+    "hashesValid": true,
+    "rightsApproved": true,
+    "slotValid": true,
+    "timestampsValid": true
+  },
+  "lineage": {
+    "clipArtifactRef": {
+      "artifactId": "episode-004:media-verification-clip:episode-004-media-clip-1c1db356472d0d93d4ff36ac",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "video/mp4",
+      "path": "content/episode-004/media/verifications/seg-003/episode-004-media-clip-1c1db356472d0d93d4ff36ac-clip.mp4",
+      "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+      "revision": 1,
+      "schemaVersion": "media-verification-clip-v1",
+      "sha256": "943ada54e3f86c918a4207ab6aff14f625f53dd7ced55483297dd4ab389e5f90",
+      "sizeBytes": 545291
+    },
+    "clipId": "episode-004:media-clip:1c1db356472d0d93d4ff36ac",
+    "clipIndexRef": {
+      "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "application/json",
+      "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+      "producer": "media-understanding-v1:index:semantic-adapter-v1",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+      "sizeBytes": 302753
+    },
+    "cutSourceRef": {
+      "artifactId": "episode-004:media:official-parallel-devin-proxy",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "video/mp4",
+      "path": "content/episode-004/media/assets/official-parallel-devin-proxy.mp4",
+      "producer": "media-ingest-v1:normalize",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "46b2c403a17ff68c59fe861f127e5100a81fcb44a8eb6e786a1a6da1437fd5d3",
+      "sizeBytes": 15353692
+    },
+    "sourceEndMs": 336000,
+    "sourceMediaId": "episode-004:media:official-parallel-devin",
+    "sourceMediaRef": {
+      "artifactId": "episode-004:media:official-parallel-devin",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "video/mp4",
+      "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+      "sizeBytes": 16115192
+    },
+    "sourceSha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+    "sourceStartMs": 332000,
+    "verificationRef": {
+      "artifactId": "episode-004:media-verification:episode-004-media-clip-1c1db356472d0d93d4ff36ac",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "application/json",
+      "path": "content/episode-004/media/verifications/seg-003/episode-004-media-clip-1c1db356472d0d93d4ff36ac.json",
+      "producer": "media-verification-v1:human-keyframe-review:human-keyframe-review-v1",
+      "revision": 1,
+      "schemaVersion": "media-verification-v1",
+      "sha256": "729e5454cd4acd4fcb8e3dde1865f2780184436aca09a798b168311770137ae2",
+      "sizeBytes": 5585
+    }
+  },
+  "overlays": {
+    "badge": {
+      "text": "真实画面",
+      "tone": "real"
+    },
+    "captionsEnabled": true,
+    "sourceLabel": "Cognition (official YouTube channel) · 真实画面"
+  },
+  "reasons": [
+    "scene seg-003 at frame 351 (185 frames, 30 fps)",
+    "real media episode-004:media-clip:1c1db356472d0d93d4ff36ac trimmed 332000..336000ms (recommended 332000..336000ms)",
+    "render proxy episode-004:media-render-proxy:seg-003 (video/mp4)",
+    "audio mix original 0.259259 / narration 0.740741 duck 10dB"
+  ],
+  "renderProxyMediaType": "video/mp4",
+  "renderProxyRef": {
+    "artifactId": "episode-004:media-render-proxy:seg-003",
+    "createdAt": "2026-08-16T16:33:22.526Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/render/seg-003.mp4",
+    "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-proxy-v1",
+    "sha256": "bb08272020f844bc43fc148a645fd5d3d60d3355e58db83776ae28fc41e023d5",
+    "sizeBytes": 205139
+  },
+  "sceneIndex": 2,
+  "schemaVersion": "media-shot-v1",
+  "segmentId": "seg-003",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-devin-003",
+      "claim-devin-004"
+    ],
+    "clipId": "episode-004:media-clip:1c1db356472d0d93d4ff36ac",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "endMs": 336000,
+    "episodeId": "episode-004",
+    "mediaId": "episode-004:media:official-parallel-devin",
+    "sourceMediaRef": {
+      "artifactId": "episode-004:media:official-parallel-devin",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "video/mp4",
+      "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+      "sizeBytes": 16115192
+    },
+    "startMs": 332000,
+    "transcriptRefs": [
+      {
+        "artifactId": "episode-004:media-transcript:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "ad891031dead52ceecc43d233c612e731650ce7fe35e0abd4691e08a509ba6af",
+        "sizeBytes": 35311
+      }
+    ],
+    "visualIntent": "官方演示里 Devin 的计划列表、浏览器、编辑器与终端依次进入画面,随后每一步操作持续可见,标“功能演示”。"
+  },
+  "shotId": "episode-004:media-shot:seg-003",
+  "startFrame": 351,
+  "startSeconds": 11.697,
+  "staticFilePath": "episodes/episode-004/media/seg-003.mp4",
+  "transform": {
+    "freezeFrameMs": null,
+    "pip": null,
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "reframe": {
+      "crop": {
+        "height": 1,
+        "width": 1,
+        "x": 0,
+        "y": 0
+      },
+      "mode": "cover"
+    },
+    "scale": 1,
+    "zoomPan": {
+      "end": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "start": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "type": "none"
+    }
+  },
+  "trim": {
+    "endMs": 336000,
+    "startMs": 332000
+  },
+  "verificationRef": {
+    "artifactId": "episode-004:media-verification:episode-004-media-clip-1c1db356472d0d93d4ff36ac",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "application/json",
+    "path": "content/episode-004/media/verifications/seg-003/episode-004-media-clip-1c1db356472d0d93d4ff36ac.json",
+    "producer": "media-verification-v1:human-keyframe-review:human-keyframe-review-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "729e5454cd4acd4fcb8e3dde1865f2780184436aca09a798b168311770137ae2",
+    "sizeBytes": 5585
+  },
+  "visualType": "real-media"
+}

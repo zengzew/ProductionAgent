@@ -1,0 +1,109 @@
+{
+  "selectedHook": "task-delegated-browser-open",
+  "segments": [
+    {
+      "id": "seg-001",
+      "section": "hook",
+      "narration": "任务交出去，它自己打开浏览器，开始干活。",
+      "onScreenText": [
+        "任务已交出去",
+        "它自己打开浏览器",
+        "功能演示"
+      ],
+      "claimIds": [
+        "claim-devin-001"
+      ],
+      "scene": "hook-delegated-open",
+      "visualIntent": "第 0 帧官方演示画面已在进行中：任务已输入，Devin 随后开始规划并打开自带浏览器执行，持续标“功能演示”。",
+      "targetSeconds": 3
+    },
+    {
+      "id": "seg-002",
+      "section": "hook",
+      "narration": "2024 年 3 月，Cognition 发布 Devin，称它是第一个 AI 软件工程师。为什么写代码要它自己开浏览器？",
+      "onScreenText": [
+        "2024.03.12 发布",
+        "第一个 AI 软件工程师·官方称",
+        "为什么写代码要它自己开浏览器？"
+      ],
+      "claimIds": [
+        "claim-devin-002"
+      ],
+      "scene": "hook-identity-question",
+      "visualIntent": "官方演示里 Scott Wu 的发布口播收成标题卡，随后“第一个 AI 软件工程师·官方称”落下，再留下唯一问题。",
+      "targetSeconds": 7
+    },
+    {
+      "id": "seg-003",
+      "section": "hook",
+      "narration": "它有浏览器、编辑器和终端，先列计划，再一步步执行，每一步都看得见。",
+      "onScreenText": [
+        "自带浏览器",
+        "编辑器",
+        "终端",
+        "先列计划，再执行"
+      ],
+      "claimIds": [
+        "claim-devin-003",
+        "claim-devin-004"
+      ],
+      "scene": "hook-toolchain-visible",
+      "visualIntent": "官方演示里 Devin 的计划列表、浏览器、编辑器与终端依次进入画面，随后每一步操作持续可见，标“功能演示”。",
+      "targetSeconds": 10
+    },
+    {
+      "id": "seg-004",
+      "section": "choice",
+      "narration": "团队做了一个选择：Devin 2.0 把价格从每月 500 美元降到 20 美元，一个任务可以同时开多个 Devin 并行干。",
+      "onScreenText": [
+        "Devin 2.0",
+        "500 → 20 美元",
+        "公司披露",
+        "多个 Devin 并行干"
+      ],
+      "claimIds": [
+        "claim-devin-005",
+        "claim-devin-006"
+      ],
+      "scene": "choice-price-parallel",
+      "visualIntent": "官方演示收成价格对比卡，随后“20 美元”落下，多个平行 Devin 的执行画面铺开，标“功能演示”。",
+      "targetSeconds": 14
+    },
+    {
+      "id": "seg-005",
+      "section": "body",
+      "narration": "奔驰把 20 万行老代码的改造，从预计 8 个月压到 8 天。Cognition 说，公司 89% 的代码现在由 Devin 提交。",
+      "onScreenText": [
+        "奔驰案例",
+        "20 万行 COBOL",
+        "8 个月 → 8 天",
+        "官方口径",
+        "公司自报：89%"
+      ],
+      "claimIds": [
+        "claim-devin-007",
+        "claim-devin-008"
+      ],
+      "scene": "body-acceptance-evidence",
+      "visualIntent": "官方客户访谈画面收成案例卡，随后 20 万行 COBOL 与 8 天数字落下，再切到 89% 自用代码卡。",
+      "targetSeconds": 14
+    },
+    {
+      "id": "seg-006",
+      "section": "ending-payoff",
+      "narration": "现在，工程师把任务交给它，负责检查结果。开头那个任务，还在它自己的浏览器里往下做。",
+      "onScreenText": [
+        "工程师负责派活和验收",
+        "功能演示",
+        "任务还在跑"
+      ],
+      "claimIds": [
+        "claim-devin-009",
+        "claim-devin-001"
+      ],
+      "scene": "ending-still-running",
+      "visualIntent": "官方定位卡落下后，回到开场同一条仍在执行的任务画面：它还在自己的浏览器里往下做，持续标“功能演示”。",
+      "targetSeconds": 12
+    }
+  ]
+}

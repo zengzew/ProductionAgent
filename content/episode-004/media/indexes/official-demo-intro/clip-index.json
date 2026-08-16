@@ -1,0 +1,2216 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-004:media:official-demo-intro-proxy",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-demo-intro-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "bd5181b965a002cd58ad12b0ab637bad76acffdd5d17464dff015790a91aeec3",
+    "sizeBytes": 3121649
+  },
+  "asrModel": null,
+  "asrProvider": "youtube-captions",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-004",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-004:media-clip:c27bfff1914f799105902f91",
+      "endMs": 4000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-0-2000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-0-2000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "392ae7cb37b294e0472571fe6f6a2622dc26b9b82a6af0318c552c7f1e1ec4cd",
+          "sizeBytes": 5894
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:0c99d3720ab2d924d4c07759",
+      "endMs": 8000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-1-6000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-1-6000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "8ed59300025676a87671f11fcd7fdef068cca308134103a57644436033cd3bc3",
+          "sizeBytes": 23480
+        }
+      ],
+      "keywords": [
+        "to",
+        "AI",
+        "Devon",
+        "excited",
+        "first",
+        "introduce",
+        "really",
+        "software",
+        "the",
+        "today",
+        "you"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "today I'm really excited to introduce you to Devon the first AI software",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 4000,
+      "textSummary": "today I'm really excited to introduce you to Devon the first AI software",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:7c62912613b75d11563c7cb7",
+      "endMs": 12000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-2-10000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-2-10000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "4c9c11ce4cb66963ce5eb5d8b8c984d9f526e463d106c63dc665c20e171b8722",
+          "sizeBytes": 7227
+        }
+      ],
+      "keywords": [
+        "Devon",
+        "you",
+        "AI",
+        "an",
+        "engineer",
+        "example",
+        "first",
+        "in",
+        "let",
+        "me",
+        "of",
+        "show"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "you to Devon the first AI software engineer let me show you an example of Devon in",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 8000,
+      "textSummary": "you to Devon the first AI software engineer let me show you an example of Devon in",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:ea5ce805faf0c7c383672da3",
+      "endMs": 16000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-3-14000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-3-14000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "9acaab963ba51ea30a0dc1db9e55023f78d0bb8199e65d9d0613251e3319e33a",
+          "sizeBytes": 12877
+        }
+      ],
+      "keywords": [
+        "Devon",
+        "to",
+        "action",
+        "and",
+        "ask",
+        "Benchmark",
+        "going",
+        "in",
+        "llama",
+        "of",
+        "performance",
+        "the"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "Devon in action I'm going to ask Devon to Benchmark the performance of llama and a",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 12000,
+      "textSummary": "Devon in action I'm going to ask Devon to Benchmark the performance of llama and a",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:1c125e555077c878f1555f73",
+      "endMs": 20000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-4-18000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-4-18000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "bdb4de8ecc1010a5f8fcaf4d6452b1367d62606f315a5a69767407cb9006510e",
+          "sizeBytes": 14762
+        }
+      ],
+      "keywords": [
+        "the",
+        "and",
+        "API",
+        "Benchmark",
+        "couple",
+        "Devon",
+        "different",
+        "from",
+        "in",
+        "is",
+        "llama",
+        "now"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "Benchmark the performance of llama and a couple different API providers from now on Devon is in the",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 16000,
+      "textSummary": "Benchmark the performance of llama and a couple different API providers from now on Devon is in the",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:7a7085e0fdf82c5e8f1eec11",
+      "endMs": 24000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-5-22000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-5-22000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "16ce87a4256bf901871403618c26bd9ac9776e3462b9f8678dbfbb8662ea033e",
+          "sizeBytes": 23789
+        }
+      ],
+      "keywords": [
+        "Devon",
+        "step",
+        "the",
+        "by",
+        "driver",
+        "first",
+        "from",
+        "how",
+        "in",
+        "is",
+        "makes",
+        "now"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "providers from now on Devon is in the driver's seat first Devon makes a step-by-step plan of how to tackle the",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 20000,
+      "textSummary": "providers from now on Devon is in the driver's seat first Devon makes a step-by-step plan of how to tackle the",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:fc91a2c0a12d74a0954ed911",
+      "endMs": 28000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-6-26000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-6-26000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "e1878feb3a8f2520303b0661c4f2579bb2372e900e82850b9f892a02fee4534c",
+          "sizeBytes": 23246
+        }
+      ],
+      "keywords": [
+        "how",
+        "of",
+        "plan",
+        "tackle",
+        "the",
+        "to"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "plan of how to tackle the",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 24000,
+      "textSummary": "plan of how to tackle the",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:6a34fe1e0a6963ed0767cd00",
+      "endMs": 32000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-7-30000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-7-30000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "0609d8038d89689d25fa15f096d2fd49d6fad624c9120f51457e0b8bea613803",
+          "sizeBytes": 21004
+        }
+      ],
+      "keywords": [
+        "all",
+        "Devon",
+        "engineer",
+        "human",
+        "project",
+        "same",
+        "software",
+        "that",
+        "the",
+        "tools",
+        "use",
+        "using"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "project using all the same tools that human software engineer would use Devon",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 28000,
+      "textSummary": "project using all the same tools that human software engineer would use Devon",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:3cdb9e56f1788033124c6159",
+      "endMs": 36000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-8-34000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-8-34000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "3aab26c516d96122065e738a6d097235d2c0ba6ebbf98094200d06b40a20e7a9",
+          "sizeBytes": 14444
+        }
+      ],
+      "keywords": [
+        "its",
+        "own",
+        "code",
+        "command",
+        "Devon",
+        "engineer",
+        "has",
+        "human",
+        "line",
+        "software",
+        "use",
+        "would"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "human software engineer would use Devon has its own command line its own code",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 32000,
+      "textSummary": "human software engineer would use Devon has its own command line its own code",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:10ea66c6813cc665844db633",
+      "endMs": 40000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-9-38000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-9-38000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "02bcfb7f337d5f8d0e671e2f8821bc6db1d46da026f58b7c7465eb73da7f08e8",
+          "sizeBytes": 19209
+        }
+      ],
+      "keywords": [
+        "code",
+        "its",
+        "line",
+        "own"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "line its own code",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 36000,
+      "textSummary": "line its own code",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:3ff7d7bec43d49bd9ef8577e",
+      "endMs": 44000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-10-42000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-10-42000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "3fcf2656e149ba13fc885d17e81d40adc858bafefb01d4239a0acbcf97b6f2d6",
+          "sizeBytes": 16545
+        }
+      ],
+      "keywords": [
+        "browser",
+        "case",
+        "decides",
+        "Devon",
+        "in",
+        "this",
+        "to"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "browser in this case Devon decides to",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 40000,
+      "textSummary": "browser in this case Devon decides to",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:75d693d356561551356356a3",
+      "endMs": 48000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-11-46000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-11-46000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "f34291a8e0d50f18d15029e80c2565cec61f77ae63781fe38eb0cd2bd54aad19",
+          "sizeBytes": 20672
+        }
+      ],
+      "keywords": [
+        "to",
+        "browser",
+        "up",
+        "and",
+        "API",
+        "can",
+        "case",
+        "decides",
+        "Devon",
+        "documentation",
+        "each",
+        "how"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "browser in this case Devon decides to use the browser to pull up API documentation so that it can read up and learn how to plug into each of these",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 44000,
+      "textSummary": "browser in this case Devon decides to use the browser to pull up API documentation so that it can read up and learn how to plug into each of these",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:fbdb52f77b87353b134d89d0",
+      "endMs": 52000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-12-50000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-12-50000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "264969e9a53892075777bea77f830b20da78632c94f39ce1dbda9abbf359d57c",
+          "sizeBytes": 21294
+        }
+      ],
+      "keywords": [
+        "each",
+        "how",
+        "into",
+        "learn",
+        "of",
+        "plug",
+        "these",
+        "to"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "learn how to plug into each of these",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 48000,
+      "textSummary": "learn how to plug into each of these",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:469e976e57f9982856903651",
+      "endMs": 56000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-13-54000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-13-54000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "bbcd352ece84727120d9c3fc546447861e07d888e3d149917541e43546b83cb3",
+          "sizeBytes": 25432
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": null,
+      "startMs": 52000,
+      "textSummary": "",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:67479efd3699a0d7e09c44bc",
+      "endMs": 60000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-14-58000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-14-58000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "66525cbf2dafd4a851b2ddf3ae008f4d74747b8769682e3b9ddcc09446b5502c",
+          "sizeBytes": 30640
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": null,
+      "startMs": 56000,
+      "textSummary": "",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:cadb9de76a2564f4077c6c67",
+      "endMs": 64000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-15-62000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-15-62000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "4b5c259783d7741187d96129b00d4b19f5ecb878207fed3eed6b9fcaab404e37",
+          "sizeBytes": 31077
+        }
+      ],
+      "keywords": [
+        "the",
+        "code",
+        "debugging",
+        "print",
+        "reruns",
+        "statement",
+        "with"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "debugging print statement reruns the code with the",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 60000,
+      "textSummary": "debugging print statement reruns the code with the",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:a7a233649b6ce71d274a77b4",
+      "endMs": 68000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-16-66000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-16-66000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "faea9e4f5e3c6f11ec12fe589bfa265ea7ffb25484617d2e8d6ce93ce8a24a77",
+          "sizeBytes": 31123
+        }
+      ],
+      "keywords": [
+        "the",
+        "statement",
+        "and",
+        "code",
+        "debugging",
+        "error",
+        "figure",
+        "how",
+        "in",
+        "logs",
+        "out",
+        "print"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "statement reruns the code with the debugging print statement and then uses the error in the logs to figure out how",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 64000,
+      "textSummary": "statement reruns the code with the debugging print statement and then uses the error in the logs to figure out how",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:d1272ee84f9bb3537e295012",
+      "endMs": 72000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-17-70000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-17-70000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "60af7d3a0d474ba717c1423528719fa370c54eba9abb495432a6b41d824567b3",
+          "sizeBytes": 31672
+        }
+      ],
+      "keywords": [
+        "the",
+        "to",
+        "error",
+        "figure",
+        "fix",
+        "how",
+        "in",
+        "logs",
+        "out"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "the error in the logs to figure out how to fix the",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 68000,
+      "textSummary": "the error in the logs to figure out how to fix the",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:23d9adda024ce755e24949c7",
+      "endMs": 76000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-18-74000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-18-74000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "87abad351311c63c40275994747a3b7ae1c55ec146d05134c42204c80859fabd",
+          "sizeBytes": 27552
+        }
+      ],
+      "keywords": [
+        "fix",
+        "the",
+        "to"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "to fix the",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 72000,
+      "textSummary": "to fix the",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:53e9ad4d3090f63d796dd927",
+      "endMs": 80000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-19-78000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-19-78000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "4ce1b8df37e2e79e47b455e102da44272737d39d064bbccc7e9a0ab8ac5c1aea",
+          "sizeBytes": 23060
+        }
+      ],
+      "keywords": [
+        "as",
+        "deploy",
+        "full",
+        "styling",
+        "the",
+        "website",
+        "with"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "deploy a website with full styling as the",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 76000,
+      "textSummary": "deploy a website with full styling as the",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:61200edaf77774166d5bc231",
+      "endMs": 84000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-20-82000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-20-82000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "c6445ca743bc2da0f093e2eeb2ff47b92cf7fb92d644486c0924c23285d3a0c3",
+          "sizeBytes": 14246
+        }
+      ],
+      "keywords": [
+        "the",
+        "all",
+        "can",
+        "here",
+        "is",
+        "of",
+        "possible",
+        "see",
+        "this",
+        "today",
+        "visualization",
+        "website"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "the visualization you can see the website here all of this is possible today",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 80000,
+      "textSummary": "the visualization you can see the website here all of this is possible today",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:880a66cbba4fce26a1f78402",
+      "endMs": 88000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-21-86000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-21-86000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "528c9a132d55d2bae8e248f133f7e38a43fd05cb6e8ff66382746f767230a2b2",
+          "sizeBytes": 22986
+        }
+      ],
+      "keywords": [
+        "of",
+        "advancements",
+        "all",
+        "and",
+        "because",
+        "both",
+        "here",
+        "in",
+        "is",
+        "long",
+        "made",
+        "possible"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "here all of this is possible today because of the advancements that we've made in both reasoning and long-term",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 84000,
+      "textSummary": "here all of this is possible today because of the advancements that we've made in both reasoning and long-term",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:03c037f336ea52dc22d094ac",
+      "endMs": 92000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-22-90000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-22-90000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "a89e0de2a8f018b2ac274d7df4b1ca90821a62ef6862064e9ea1e3bc99cb3ceb",
+          "sizeBytes": 20461
+        }
+      ],
+      "keywords": [
+        "and",
+        "we",
+        "both",
+        "but",
+        "hard",
+        "in",
+        "it",
+        "just",
+        "long",
+        "made",
+        "only",
+        "planning"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "made in both reasoning and long-term planning it's hard problem and we've only just started but we're super",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 88000,
+      "textSummary": "made in both reasoning and long-term planning it's hard problem and we've only just started but we're super",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:e9c490ce743e5cc6b577997b",
+      "endMs": 96000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-23-94000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-23-94000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "5561a266edb6a9f8ee74b9610f129bc70d556861360efd16f8c6737e202baa12",
+          "sizeBytes": 20932
+        }
+      ],
+      "keywords": [
+        "the",
+        "we",
+        "about",
+        "but",
+        "excited",
+        "far",
+        "if",
+        "in",
+        "just",
+        "like",
+        "made",
+        "meantime"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "only just started but we're super excited about the progress that we've made so far in the meantime if you'd like to try",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 92000,
+      "textSummary": "only just started but we're super excited about the progress that we've made so far in the meantime if you'd like to try",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:5843595b1f5c63626e41a450",
+      "endMs": 100000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-24-98000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-24-98000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "5dcfbc15c6449a212c0e35d9f55b0072c016c4c149586512bef0b78d41b18169",
+          "sizeBytes": 19687
+        }
+      ],
+      "keywords": [
+        "Devon",
+        "far",
+        "if",
+        "in",
+        "like",
+        "meantime",
+        "on",
+        "out",
+        "own",
+        "real",
+        "tasks",
+        "the"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "far in the meantime if you'd like to try out Devon on your own real world tasks",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 96000,
+      "textSummary": "far in the meantime if you'd like to try out Devon on your own real world tasks",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:ce34c30b9b2a32d6fa490f76",
+      "endMs": 104000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-25-102000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-25-102000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "631bc8480249845bb58d11f3991014eebc65678de8ca2f7651e7f6a3a7a4e803",
+          "sizeBytes": 19168
+        }
+      ],
+      "keywords": [
+        "to",
+        "and",
+        "be",
+        "below",
+        "Devon",
+        "forward",
+        "happy",
+        "it",
+        "on",
+        "out",
+        "own",
+        "real"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "out Devon on your own real world tasks send us a request below and we'd be happy to forward it to",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 100000,
+      "textSummary": "out Devon on your own real world tasks send us a request below and we'd be happy to forward it to",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:5525d4aa21c2bca3dda76477",
+      "endMs": 108000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-26-106000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-26-106000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "3e5eb745fe57d915d6089007bc5438e36490c12edb4816d8d8871d69982d0dab",
+          "sizeBytes": 4464
+        }
+      ],
+      "keywords": [
+        "to",
+        "forward",
+        "happy",
+        "it"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "happy to forward it to",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 104000,
+      "textSummary": "happy to forward it to",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:b2f362c133c01b7fbd9bdf5b",
+      "endMs": 109459,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-demo-intro-27-108729",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-demo-intro/keyframes/keyframe-27-108729.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "62a070f1d0470e2db1c93a8eea3c1fd6a9134008772534549e13837d1a1681ea",
+          "sizeBytes": 1606
+        }
+      ],
+      "keywords": [
+        "to",
+        "forward",
+        "happy",
+        "it"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-demo-intro",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+        "sizeBytes": 2572402
+      },
+      "observedText": "happy to forward it to",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "8429a23afc3055020cf77b5fbf8c0dfda95c51bc495c10cd3a823b397e04c1a1",
+          "sizeBytes": 3669
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 108000,
+      "textSummary": "happy to forward it to",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-demo-intro",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-demo-intro/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "58fc5385d7e1d39da96b8e92f415dbbb82a7bcdd72b5dfc94ec01d6d0ea80818",
+          "sizeBytes": 8236
+        }
+      ]
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-004:media:official-demo-intro",
+  "mediaRef": {
+    "artifactId": "episode-004:media:official-demo-intro",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+    "sizeBytes": 2572402
+  },
+  "sceneDetector": "deterministic-boundaries",
+  "sceneDetectorVersion": "scene-detector-v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "deterministic-content",
+  "semanticAdapterVersion": "semantic-adapter-v1",
+  "semanticAvailability": "available",
+  "sourceSha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+  "transcriptAvailability": "available"
+}

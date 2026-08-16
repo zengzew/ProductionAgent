@@ -1,0 +1,100 @@
+{
+  "segmentId": "seg-002",
+  "claimIds": [
+    "claim-devin-002"
+  ],
+  "claims": [
+    {
+      "id": "claim-devin-002",
+      "claim": "2024 年 3 月 12 日，Cognition 发布 Devin，官方称其为第一位 AI 软件工程师。"
+    }
+  ],
+  "narration": "2024 年 3 月，Cognition 发布 Devin，称它是第一个 AI 软件工程师。为什么写代码要它自己开浏览器？",
+  "visualIntent": "官方演示里 Scott Wu 的发布口播收成标题卡，随后“第一个 AI 软件工程师·官方称”落下，再留下唯一问题。",
+  "candidates": [
+    {
+      "candidate": {
+        "clipId": "episode-004:media-clip:655a765fd76992848d3052a5",
+        "mediaId": "episode-004:media:official-upwork-demo",
+        "startMs": 4000,
+        "endMs": 8000,
+        "score": 0.492775,
+        "matchedClaimIds": [
+          "claim-devin-002"
+        ],
+        "reasons": [
+          "claim evidence claim-devin-002 fit 0.375",
+          "narration overlap 0.375",
+          "metadata overlap 0.158",
+          "visual intent overlap 0.091",
+          "source preference local-approved (3/5)",
+          "duration proximity 0.500 (4000ms)"
+        ],
+        "observedText": "here at cognition AI we were playing around with whether or not Devin could start a side hustle on upwork so here's",
+        "textSummary": "here at cognition AI we were playing around with whether or not Devin could start a side hustle on upwork so here's"
+      },
+      "keyframes": [
+        {
+          "path": "/Users/zengze/Documents/ProductionAgent-episode-004/content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-1-6000.jpg",
+          "relative": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-1-6000.jpg"
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "clipId": "episode-004:media-clip:1c1db356472d0d93d4ff36ac",
+        "mediaId": "episode-004:media:official-parallel-devin",
+        "startMs": 332000,
+        "endMs": 336000,
+        "score": 0.43988,
+        "matchedClaimIds": [
+          "claim-devin-002"
+        ],
+        "reasons": [
+          "claim evidence claim-devin-002 fit 0.250",
+          "narration overlap 0.250",
+          "metadata overlap 0.105",
+          "visual intent overlap 0.091",
+          "source preference local-approved (3/5)",
+          "duration proximity 0.500 (4000ms)"
+        ],
+        "observedText": "main thing I want to demo here is just agent fan out. I have this Devin session that",
+        "textSummary": "main thing I want to demo here is just agent fan out. I have this Devin session that"
+      },
+      "keyframes": [
+        {
+          "path": "/Users/zengze/Documents/ProductionAgent-episode-004/content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-83-334000.jpg",
+          "relative": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-83-334000.jpg"
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "clipId": "episode-004:media-clip:fbe47b1f18a3ebfcd1df056d",
+        "mediaId": "episode-004:media:official-tutorial-getting-started",
+        "startMs": 8000,
+        "endMs": 12000,
+        "score": 0.43988,
+        "matchedClaimIds": [
+          "claim-devin-002"
+        ],
+        "reasons": [
+          "claim evidence claim-devin-002 fit 0.250",
+          "narration overlap 0.250",
+          "metadata overlap 0.105",
+          "visual intent overlap 0.091",
+          "source preference local-approved (3/5)",
+          "duration proximity 0.500 (4000ms)"
+        ],
+        "observedText": "We'll start by diving right in. After you create an account, you'll be redirected to app.devin.ai,",
+        "textSummary": "We'll start by diving right in. After you create an account, you'll be redirected to app.devin.ai,"
+      },
+      "keyframes": [
+        {
+          "path": "/Users/zengze/Documents/ProductionAgent-episode-004/content/episode-004/media/indexes/official-tutorial-getting-started/keyframes/keyframe-2-10000.jpg",
+          "relative": "content/episode-004/media/indexes/official-tutorial-getting-started/keyframes/keyframe-2-10000.jpg"
+        }
+      ]
+    }
+  ]
+}

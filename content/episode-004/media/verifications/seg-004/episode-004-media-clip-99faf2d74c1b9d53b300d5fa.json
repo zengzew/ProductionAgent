@@ -1,0 +1,132 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-004:media-verification:episode-004-media-clip-99faf2d74c1b9d53b300d5fa",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "application/json",
+    "path": "content/episode-004/media/verifications/seg-004/episode-004-media-clip-99faf2d74c1b9d53b300d5fa.json",
+    "producer": "media-verification-v1:human-keyframe-review:human-keyframe-review-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "2161b51e9034593ffc388267e42faa64f4828f2d0aca28c32e891bd4015494ed",
+    "sizeBytes": 4734
+  },
+  "cacheKey": "30f0525c47d7c5a69b7093c8cdf07099937b28841c4682971741dee16df4b417",
+  "claimIds": [
+    "claim-devin-005",
+    "claim-devin-006"
+  ],
+  "claimMatch": 0.9,
+  "clipArtifactRef": {
+    "artifactId": "episode-004:media-verification-clip:episode-004-media-clip-99faf2d74c1b9d53b300d5fa",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/verifications/seg-004/episode-004-media-clip-99faf2d74c1b9d53b300d5fa-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "9eff7098a4e3824c362eaf6fb10c44d258c6865978163897de6a0f10d4dc4f30",
+    "sizeBytes": 790266
+  },
+  "clipId": "episode-004:media-clip:99faf2d74c1b9d53b300d5fa",
+  "clipRef": {
+    "claimIds": [
+      "claim-devin-005",
+      "claim-devin-006"
+    ],
+    "clipId": "episode-004:media-clip:99faf2d74c1b9d53b300d5fa",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "endMs": 240000,
+    "episodeId": "episode-004",
+    "mediaId": "episode-004:media:official-parallel-devin",
+    "sourceMediaRef": {
+      "artifactId": "episode-004:media:official-parallel-devin",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "video/mp4",
+      "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+      "sizeBytes": 16115192
+    },
+    "startMs": 236000,
+    "transcriptRefs": [
+      {
+        "artifactId": "episode-004:media-transcript:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "ad891031dead52ceecc43d233c612e731650ce7fe35e0abd4691e08a509ba6af",
+        "sizeBytes": 35311
+      }
+    ],
+    "visualIntent": "官方演示收成价格对比卡,随后“20 美元”落下,多个平行 Devin 的执行画面铺开,标“功能演示”。"
+  },
+  "createdAt": "2026-08-16T12:00:00.000Z",
+  "episodeId": "episode-004",
+  "mediaRef": {
+    "artifactId": "episode-004:media:official-parallel-devin",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+    "sizeBytes": 16115192
+  },
+  "misleadingRisk": 0.05,
+  "model": null,
+  "observedActions": [
+    "Devin 会话界面显示 parallel builds - Keep the best 与 Approach 01/02/03 并行构建卡片",
+    "同段字幕：spin up three Devins to build those three separate ways in their own branches"
+  ],
+  "observedEntities": [
+    "Devin"
+  ],
+  "observedText": [
+    "parallel builds - Keep the best",
+    "Approach 01",
+    "Approach 02",
+    "Approach 03",
+    "Dictating to AI"
+  ],
+  "promptVersion": "media-verification-prompt-v1",
+  "provider": "human-keyframe-review",
+  "reasons": [
+    "OCR 读到 parallel builds 并行构建 UI 与三个 Approach 卡片，直接对应“同时开多个 Devin 并行干”",
+    "官方平行 Devin 教程画面",
+    "画面与旁白高度一致"
+  ],
+  "recommendedEndMs": 240000,
+  "recommendedStartMs": 236000,
+  "relevance": 0.95,
+  "retrievalResultRef": {
+    "artifactId": "episode-004:media-retrieval:seg-004",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "application/json",
+    "path": "content/episode-004/media/candidates/seg-004.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 1,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "c36c57396b5c04d33ba6ad69bfb8f16616b3cbf2f32f076bc31f63e3f07fb544",
+    "sizeBytes": 57358
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-004",
+  "sourceSha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-004:media-verification:episode-004-media-clip-99faf2d74c1b9d53b300d5fa",
+  "verificationVersion": "human-keyframe-review-v1",
+  "visualQuality": 0.55
+}

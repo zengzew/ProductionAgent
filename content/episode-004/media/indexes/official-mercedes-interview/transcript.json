@@ -1,0 +1,549 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-004:media:official-mercedes-interview-proxy",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-mercedes-interview-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "7d0b39e5fbcde332e578143681068c9e0454c2992b53e339f7c883e6a671f226",
+    "sizeBytes": 4502257
+  },
+  "asrVersion": "youtube-caption-track-v1",
+  "availability": "available",
+  "durationMs": 137555,
+  "episodeId": "episode-004",
+  "mediaId": "episode-004:media:official-mercedes-interview",
+  "model": null,
+  "provider": "youtube-captions",
+  "schemaVersion": "media-transcript-v1",
+  "segments": [
+    {
+      "confidence": null,
+      "endMs": 2790,
+      "index": 0,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 1400,
+      "text": "the office. It was great to give you a"
+    },
+    {
+      "confidence": null,
+      "endMs": 4230,
+      "index": 1,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 2800,
+      "text": "quick tour and get to show you around"
+    },
+    {
+      "confidence": null,
+      "endMs": 4750,
+      "index": 2,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 4240,
+      "text": "today."
+    },
+    {
+      "confidence": null,
+      "endMs": 6710,
+      "index": 3,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 4760,
+      "text": ">> Yeah, you have beautiful offices. Thanks"
+    },
+    {
+      "confidence": null,
+      "endMs": 8710,
+      "index": 4,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 6720,
+      "text": "for having us, Scott. Very excited to be"
+    },
+    {
+      "confidence": null,
+      "endMs": 9590,
+      "index": 5,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 8720,
+      "text": "here."
+    },
+    {
+      "confidence": null,
+      "endMs": 11710,
+      "index": 6,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 9600,
+      "text": "So, today we announced the partnership"
+    },
+    {
+      "confidence": null,
+      "endMs": 14750,
+      "index": 7,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 11720,
+      "text": "of Cognition and Mercedes-Benz, and"
+    },
+    {
+      "confidence": null,
+      "endMs": 16510,
+      "index": 8,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 14760,
+      "text": "that's quite something, right? I mean,"
+    },
+    {
+      "confidence": null,
+      "endMs": 18390,
+      "index": 9,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 16520,
+      "text": "we're rolling out Devin and Wintermute"
+    },
+    {
+      "confidence": null,
+      "endMs": 20150,
+      "index": 10,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 18400,
+      "text": "to all of our software engineering teams"
+    },
+    {
+      "confidence": null,
+      "endMs": 22150,
+      "index": 11,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 20160,
+      "text": "around the world. So, we are very"
+    },
+    {
+      "confidence": null,
+      "endMs": 24070,
+      "index": 12,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 22160,
+      "text": "excited to go on that journey with you."
+    },
+    {
+      "confidence": null,
+      "endMs": 25510,
+      "index": 13,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 24080,
+      "text": ">> Yeah. And we've been working together on"
+    },
+    {
+      "confidence": null,
+      "endMs": 26990,
+      "index": 14,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 25520,
+      "text": "this for for quite some time now, so"
+    },
+    {
+      "confidence": null,
+      "endMs": 28710,
+      "index": 15,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 27000,
+      "text": "it's fun to to finally get to share what"
+    },
+    {
+      "confidence": null,
+      "endMs": 30030,
+      "index": 16,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 28720,
+      "text": "we're working on."
+    },
+    {
+      "confidence": null,
+      "endMs": 31710,
+      "index": 17,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 30040,
+      "text": "I'd love to hear in your words because"
+    },
+    {
+      "confidence": null,
+      "endMs": 33830,
+      "index": 18,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 31720,
+      "text": "Mercedes is has always been such a tech"
+    },
+    {
+      "confidence": null,
+      "endMs": 36110,
+      "index": 19,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 33840,
+      "text": "forward and innovation forward business,"
+    },
+    {
+      "confidence": null,
+      "endMs": 37590,
+      "index": 20,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 36120,
+      "text": "how you thought about evaluating these"
+    },
+    {
+      "confidence": null,
+      "endMs": 38870,
+      "index": 21,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 37600,
+      "text": "different tools and how you're thinking"
+    },
+    {
+      "confidence": null,
+      "endMs": 40990,
+      "index": 22,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 38880,
+      "text": "about your technology strategy."
+    },
+    {
+      "confidence": null,
+      "endMs": 43790,
+      "index": 23,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 41000,
+      "text": ">> So, Mercedes-Benz invented the car 140"
+    },
+    {
+      "confidence": null,
+      "endMs": 46870,
+      "index": 24,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 43800,
+      "text": "years ago. So, Karl Benz was actually"
+    },
+    {
+      "confidence": null,
+      "endMs": 49270,
+      "index": 25,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 46880,
+      "text": "the one who who came up with that idea"
+    },
+    {
+      "confidence": null,
+      "endMs": 52670,
+      "index": 26,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 49280,
+      "text": "of a car, and his his wife, Bertha,"
+    },
+    {
+      "confidence": null,
+      "endMs": 54350,
+      "index": 27,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 52680,
+      "text": "actually took it into action on the"
+    },
+    {
+      "confidence": null,
+      "endMs": 56990,
+      "index": 28,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 54360,
+      "text": "first long road trip,"
+    },
+    {
+      "confidence": null,
+      "endMs": 59550,
+      "index": 29,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 57000,
+      "text": "and this was in 1888, so quite an"
+    },
+    {
+      "confidence": null,
+      "endMs": 62430,
+      "index": 30,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 59560,
+      "text": "amazing story. So, we have a lot of"
+    },
+    {
+      "confidence": null,
+      "endMs": 65070,
+      "index": 31,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 62440,
+      "text": "innovative history in our company"
+    },
+    {
+      "confidence": null,
+      "endMs": 67790,
+      "index": 32,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 65080,
+      "text": "history. And now we're taking it to the"
+    },
+    {
+      "confidence": null,
+      "endMs": 69950,
+      "index": 33,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 67800,
+      "text": "next level with software engineering and"
+    },
+    {
+      "confidence": null,
+      "endMs": 72870,
+      "index": 34,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 69960,
+      "text": "AI, and we do that together with you."
+    },
+    {
+      "confidence": null,
+      "endMs": 75390,
+      "index": 35,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 72880,
+      "text": "And we took a look at quite a number of"
+    },
+    {
+      "confidence": null,
+      "endMs": 78430,
+      "index": 36,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 75400,
+      "text": "different solutions, but yours was the"
+    },
+    {
+      "confidence": null,
+      "endMs": 80790,
+      "index": 37,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 78440,
+      "text": "most convincing one. So, one of the most"
+    },
+    {
+      "confidence": null,
+      "endMs": 83750,
+      "index": 38,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 80800,
+      "text": "complex problems we had with some very"
+    },
+    {
+      "confidence": null,
+      "endMs": 85550,
+      "index": 39,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 83760,
+      "text": "old legacy code"
+    },
+    {
+      "confidence": null,
+      "endMs": 88030,
+      "index": 40,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 85560,
+      "text": "that was planned to be replaced within 8"
+    },
+    {
+      "confidence": null,
+      "endMs": 91350,
+      "index": 41,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 88040,
+      "text": "months took us 8 days. So, that's quite"
+    },
+    {
+      "confidence": null,
+      "endMs": 93630,
+      "index": 42,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 91360,
+      "text": "amazing. The teams were blown away by"
+    },
+    {
+      "confidence": null,
+      "endMs": 95590,
+      "index": 43,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 93640,
+      "text": "those results, and now everyone wants to"
+    },
+    {
+      "confidence": null,
+      "endMs": 97830,
+      "index": 44,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 95600,
+      "text": "be trained and wants to be able to work"
+    },
+    {
+      "confidence": null,
+      "endMs": 100350,
+      "index": 45,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 97840,
+      "text": "with your tools on a day-to-day basis in"
+    },
+    {
+      "confidence": null,
+      "endMs": 101430,
+      "index": 46,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 100360,
+      "text": "our software engineering."
+    },
+    {
+      "confidence": null,
+      "endMs": 103030,
+      "index": 47,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 101440,
+      "text": ">> Amazing. Amazing. And And how do you"
+    },
+    {
+      "confidence": null,
+      "endMs": 104510,
+      "index": 48,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 103040,
+      "text": "think about it with respect to your"
+    },
+    {
+      "confidence": null,
+      "endMs": 106230,
+      "index": 49,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 104520,
+      "text": "customers in terms of being able to pull"
+    },
+    {
+      "confidence": null,
+      "endMs": 107830,
+      "index": 50,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 106240,
+      "text": "the road map forward and get things done"
+    },
+    {
+      "confidence": null,
+      "endMs": 109470,
+      "index": 51,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 107840,
+      "text": "in in days instead of months?"
+    },
+    {
+      "confidence": null,
+      "endMs": 110830,
+      "index": 52,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 109480,
+      "text": ">> Yeah, that's amazing. I mean, our"
+    },
+    {
+      "confidence": null,
+      "endMs": 113350,
+      "index": 53,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 110840,
+      "text": "customers will benefit from it along the"
+    },
+    {
+      "confidence": null,
+      "endMs": 116630,
+      "index": 54,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 113360,
+      "text": "whole customer journey, and and this is"
+    },
+    {
+      "confidence": null,
+      "endMs": 118550,
+      "index": 55,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 116640,
+      "text": "what Mercedes is known for. So, we're"
+    },
+    {
+      "confidence": null,
+      "endMs": 121230,
+      "index": 56,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 118560,
+      "text": "very excited to build the most desirable"
+    },
+    {
+      "confidence": null,
+      "endMs": 123830,
+      "index": 57,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 121240,
+      "text": "cars for our customers and support that"
+    },
+    {
+      "confidence": null,
+      "endMs": 126230,
+      "index": 58,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 123840,
+      "text": "from an IT perspective. So, very excited"
+    },
+    {
+      "confidence": null,
+      "endMs": 127910,
+      "index": 59,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 126240,
+      "text": "to go on that journey with you."
+    },
+    {
+      "confidence": null,
+      "endMs": 129550,
+      "index": 60,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 127920,
+      "text": ">> Amazing. Yeah, excited to do much much"
+    },
+    {
+      "confidence": null,
+      "endMs": 130950,
+      "index": 61,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 129560,
+      "text": "more together. It's just the start now."
+    },
+    {
+      "confidence": null,
+      "endMs": 132390,
+      "index": 62,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 130960,
+      "text": ">> Absolutely. Thanks so much, Scott."
+    },
+    {
+      "confidence": null,
+      "endMs": 134840,
+      "index": 63,
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 132400,
+      "text": ">> Thank you."
+    }
+  ],
+  "sourceMediaRef": {
+    "artifactId": "episode-004:media:official-mercedes-interview",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+    "sizeBytes": 3862455
+  },
+  "toolVersion": "media-asr-vtt-v1"
+}

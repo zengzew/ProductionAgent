@@ -1,0 +1,133 @@
+{
+  "asOf": "2026-08-16",
+  "events": [
+    {
+      "id": "evt-devin-001",
+      "dateLabel": "2024-03-12",
+      "sortDate": "2024-03-12",
+      "datePrecision": "day",
+      "event": "Cognition 发布 Devin，官方称其为第一位 AI 软件工程师；同日发布官方演示视频与 SWE-bench 技术报告。",
+      "eventType": "product",
+      "factIds": [
+        "claim-devin-002",
+        "claim-devin-001",
+        "claim-devin-003"
+      ],
+      "sourceIds": [
+        "src-devin-001",
+        "src-devin-002"
+      ],
+      "relationToPrevious": "not-applicable",
+      "storyFunction": "problem",
+      "notes": "官方博客与视频同日发布（datePublished / 上传日期均为 2024-03-12）。"
+    },
+    {
+      "id": "evt-devin-002",
+      "dateLabel": "2024-12-10",
+      "sortDate": "2024-12-10",
+      "datePrecision": "day",
+      "event": "Devin 正式 GA，团队版定价 500 美元/月、不限席位，提供 Slack、IDE 扩展与 API。",
+      "eventType": "distribution",
+      "factIds": [
+        "claim-devin-005"
+      ],
+      "sourceIds": [
+        "src-devin-009"
+      ],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "distribution-event",
+      "notes": "企业优先的获取方式：高客单价、团队订阅。"
+    },
+    {
+      "id": "evt-devin-003",
+      "dateLabel": "2025-04-03",
+      "sortDate": "2025-04-03",
+      "datePrecision": "day",
+      "event": "Devin 2.0 发布：agent-native IDE、个人套餐起价 20 美元/月，支持多个平行 Devin 各自带独立云端 IDE 并行工作。",
+      "eventType": "product",
+      "factIds": [
+        "claim-devin-005",
+        "claim-devin-006"
+      ],
+      "sourceIds": [
+        "src-devin-004",
+        "src-devin-005"
+      ],
+      "relationToPrevious": "source-supported-influence",
+      "storyFunction": "turning-point",
+      "notes": "公司官方博客把价格与并行能力作为 2.0 的核心选择；媒体（VentureBeat）交叉报道同一口径。"
+    },
+    {
+      "id": "evt-devin-004",
+      "dateLabel": "2025-11-14",
+      "sortDate": "2025-11-14",
+      "datePrecision": "day",
+      "event": "官方发布 Devin 2025 年度绩效报告：PR 合并率 34% 升至 67%，解题速度约为上一年 4 倍。",
+      "eventType": "company",
+      "factIds": [
+        "claim-devin-011"
+      ],
+      "sourceIds": [
+        "src-devin-010"
+      ],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "validation",
+      "notes": "公司自报绩效口径。"
+    },
+    {
+      "id": "evt-devin-005",
+      "dateLabel": "2026-04-27",
+      "sortDate": "2026-04-27",
+      "datePrecision": "day",
+      "event": "官方宣布与奔驰合作：四周围观试点中 Devin 分析超过 20 万行 COBOL 代码，把现代化改造从预计 8 个月缩短到 8 天；奔驰随后部署完整产品套件。",
+      "eventType": "company",
+      "factIds": [
+        "claim-devin-007"
+      ],
+      "sourceIds": [
+        "src-devin-006",
+        "src-devin-011"
+      ],
+      "relationToPrevious": "source-supported-influence",
+      "storyFunction": "turning-point",
+      "notes": "公司官方案例博客与官方客户访谈视频交叉出现同一数字。"
+    },
+    {
+      "id": "evt-devin-006",
+      "dateLabel": "2026-05-27",
+      "sortDate": "2026-05-27",
+      "datePrecision": "day",
+      "event": "Cognition 以 25 亿美元 pre-money 估值融资超 10 亿美元；同日官方博客披露公司 89% 的自有代码由 Devin 提交。",
+      "eventType": "growth",
+      "factIds": [
+        "claim-devin-008"
+      ],
+      "sourceIds": [
+        "src-devin-007",
+        "src-devin-008"
+      ],
+      "relationToPrevious": "source-supported-influence",
+      "storyFunction": "public-expansion",
+      "notes": "公司博客与 TechCrunch 同日披露；融资与自用代码数据来自公司/媒体来源。"
+    },
+    {
+      "id": "evt-devin-007",
+      "dateLabel": "2026-08-16",
+      "sortDate": "2026-08-16",
+      "datePrecision": "as-of",
+      "event": "截至本集基准日：官方持续更新教程与概览视频（Getting Started 2026-03-16、Overview 2026-06-11），Devin 自主执行画面仍可从官方素材直接核验。",
+      "eventType": "product",
+      "factIds": [
+        "claim-devin-001",
+        "claim-devin-004"
+      ],
+      "sourceIds": [
+        "src-devin-003",
+        "src-devin-015"
+      ],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "durability-test",
+      "notes": "as-of 事件：素材可核验状态，不构成增长声明。"
+    }
+  ]
+}

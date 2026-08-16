@@ -1,0 +1,301 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-004:media:official-ide-demo-proxy",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-ide-demo-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "dbaa09a4efeeed6328d5dcf2294d32fa98e4cbe49ea12f27d241a83b8d3ad172",
+    "sizeBytes": 3557055
+  },
+  "asrVersion": "youtube-caption-track-v1",
+  "availability": "available",
+  "durationMs": 84683,
+  "episodeId": "episode-004",
+  "mediaId": "episode-004:media:official-ide-demo",
+  "model": null,
+  "provider": "youtube-captions",
+  "schemaVersion": "media-transcript-v1",
+  "segments": [
+    {
+      "confidence": null,
+      "endMs": 4190,
+      "index": 0,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 2240,
+      "text": "show you how we use Devon in our daily"
+    },
+    {
+      "confidence": null,
+      "endMs": 6110,
+      "index": 1,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 4200,
+      "text": "development workflow and in particular"
+    },
+    {
+      "confidence": null,
+      "endMs": 8270,
+      "index": 2,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 6120,
+      "text": "how we use Devon to develop the Devon vs"
+    },
+    {
+      "confidence": null,
+      "endMs": 11150,
+      "index": 3,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 8280,
+      "text": "code extension so now it's possible to"
+    },
+    {
+      "confidence": null,
+      "endMs": 12749,
+      "index": 4,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 11160,
+      "text": "launch de sessions from right within"
+    },
+    {
+      "confidence": null,
+      "endMs": 15430,
+      "index": 5,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 12759,
+      "text": "your IDE which is sometimes pretty nice"
+    },
+    {
+      "confidence": null,
+      "endMs": 17510,
+      "index": 6,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 15440,
+      "text": "for example in this case I was working"
+    },
+    {
+      "confidence": null,
+      "endMs": 20150,
+      "index": 7,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 17520,
+      "text": "on a feature and you know I noticed a"
+    },
+    {
+      "confidence": null,
+      "endMs": 22509,
+      "index": 8,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 20160,
+      "text": "bunch of refactors and Bug fixes I"
+    },
+    {
+      "confidence": null,
+      "endMs": 25589,
+      "index": 9,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 22519,
+      "text": "wanted to make along the way and um in"
+    },
+    {
+      "confidence": null,
+      "endMs": 27390,
+      "index": 10,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 25599,
+      "text": "this case I was looking at this file and"
+    },
+    {
+      "confidence": null,
+      "endMs": 28950,
+      "index": 11,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 27400,
+      "text": "I noticed oh yeah this pattern is kind"
+    },
+    {
+      "confidence": null,
+      "endMs": 31269,
+      "index": 12,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 28960,
+      "text": "of nice I um really wanted this to be"
+    },
+    {
+      "confidence": null,
+      "endMs": 34030,
+      "index": 13,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 31279,
+      "text": "used all across the code base but I"
+    },
+    {
+      "confidence": null,
+      "endMs": 36030,
+      "index": 14,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 34040,
+      "text": "don't have time for this right now so I"
+    },
+    {
+      "confidence": null,
+      "endMs": 38950,
+      "index": 15,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 36040,
+      "text": "use command G to start a new Devon"
+    },
+    {
+      "confidence": null,
+      "endMs": 41430,
+      "index": 16,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 38960,
+      "text": "session um and I um yeah give it a quick"
+    },
+    {
+      "confidence": null,
+      "endMs": 43549,
+      "index": 17,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 41440,
+      "text": "instruction and now Devon is booting up"
+    },
+    {
+      "confidence": null,
+      "endMs": 45270,
+      "index": 18,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 43559,
+      "text": "its own machine it's working on this in"
+    },
+    {
+      "confidence": null,
+      "endMs": 48389,
+      "index": 19,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 45280,
+      "text": "the background um and I can focus on my"
+    },
+    {
+      "confidence": null,
+      "endMs": 50670,
+      "index": 20,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 48399,
+      "text": "feature in the meantime so in this case"
+    },
+    {
+      "confidence": null,
+      "endMs": 53470,
+      "index": 21,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 50680,
+      "text": "I'm looking at the actual session from"
+    },
+    {
+      "confidence": null,
+      "endMs": 57150,
+      "index": 22,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 53480,
+      "text": "two weeks ago looks like um Devon"
+    },
+    {
+      "confidence": null,
+      "endMs": 58709,
+      "index": 23,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 57160,
+      "text": "acknowledged the task really quickly and"
+    },
+    {
+      "confidence": null,
+      "endMs": 60630,
+      "index": 24,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 58719,
+      "text": "then um 8 minutes later came back to me"
+    },
+    {
+      "confidence": null,
+      "endMs": 63790,
+      "index": 25,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 60640,
+      "text": "with a PR so looking at the pr seems"
+    },
+    {
+      "confidence": null,
+      "endMs": 66870,
+      "index": 26,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 63800,
+      "text": "like yeah Deon was um implementing a"
+    },
+    {
+      "confidence": null,
+      "endMs": 69550,
+      "index": 27,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 66880,
+      "text": "small utility function and then um found"
+    },
+    {
+      "confidence": null,
+      "endMs": 71270,
+      "index": 28,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 69560,
+      "text": "all the places in the code base that"
+    },
+    {
+      "confidence": null,
+      "endMs": 74270,
+      "index": 29,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 71280,
+      "text": "applied um and made the change and yeah"
+    },
+    {
+      "confidence": null,
+      "endMs": 76749,
+      "index": 30,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 74280,
+      "text": "the pr um I was able to merge it without"
+    },
+    {
+      "confidence": null,
+      "endMs": 79070,
+      "index": 31,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 76759,
+      "text": "any changes and um I needed to make"
+    },
+    {
+      "confidence": null,
+      "endMs": 80950,
+      "index": 32,
+      "speaker": "OH1oEUnhdwI",
+      "startMs": 79080,
+      "text": "changes I can use the checkout PR"
+    }
+  ],
+  "sourceMediaRef": {
+    "artifactId": "episode-004:media:official-ide-demo",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-ide-demo.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "96770873596f7d625051b6429c1f24aae638dc5595fabb2420d849a912a1f47f",
+    "sizeBytes": 4079169
+  },
+  "toolVersion": "media-asr-vtt-v1"
+}

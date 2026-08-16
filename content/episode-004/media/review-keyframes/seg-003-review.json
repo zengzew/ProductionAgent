@@ -1,0 +1,108 @@
+{
+  "segmentId": "seg-003",
+  "claimIds": [
+    "claim-devin-003",
+    "claim-devin-004"
+  ],
+  "claims": [
+    {
+      "id": "claim-devin-003",
+      "claim": "Devin 的界面包含任务规划、自带浏览器、代码编辑器和终端；官方演示中它能自主上网查资料、写代码并运行命令。"
+    },
+    {
+      "id": "claim-devin-004",
+      "claim": "官方演示中，Devin 的每一步操作都以可见形式显示：打开网页、修改文件、执行命令都能实时看到。"
+    }
+  ],
+  "narration": "它有浏览器、编辑器和终端，先列计划，再一步步执行，每一步都看得见。",
+  "visualIntent": "官方演示里 Devin 的计划列表、浏览器、编辑器与终端依次进入画面，随后每一步操作持续可见，标“功能演示”。",
+  "candidates": [
+    {
+      "candidate": {
+        "clipId": "episode-004:media-clip:56a3b613fa7d6878750c8d34",
+        "mediaId": "episode-004:media:official-mercedes-interview",
+        "startMs": 16000,
+        "endMs": 20000,
+        "score": 0.372771,
+        "matchedClaimIds": [
+          "claim-devin-003",
+          "claim-devin-004"
+        ],
+        "reasons": [
+          "claim evidence claim-devin-003 fit 0.167",
+          "claim evidence claim-devin-004 fit 0.167",
+          "metadata overlap 0.045",
+          "visual intent overlap 0.143",
+          "source preference local-approved (3/5)",
+          "duration proximity 0.500 (4000ms)"
+        ],
+        "observedText": "that's quite something, right? I mean, we're rolling out Devin and Wintermute to all of our software engineering teams",
+        "textSummary": "that's quite something, right? I mean, we're rolling out Devin and Wintermute to all of our software engineering teams"
+      },
+      "keyframes": [
+        {
+          "path": "/Users/zengze/Documents/ProductionAgent-episode-004/content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-4-18000.jpg",
+          "relative": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-4-18000.jpg"
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "clipId": "episode-004:media-clip:99faf2d74c1b9d53b300d5fa",
+        "mediaId": "episode-004:media:official-parallel-devin",
+        "startMs": 236000,
+        "endMs": 240000,
+        "score": 0.372771,
+        "matchedClaimIds": [
+          "claim-devin-003",
+          "claim-devin-004"
+        ],
+        "reasons": [
+          "claim evidence claim-devin-003 fit 0.167",
+          "claim evidence claim-devin-004 fit 0.167",
+          "metadata overlap 0.045",
+          "visual intent overlap 0.143",
+          "source preference local-approved (3/5)",
+          "duration proximity 0.500 (4000ms)"
+        ],
+        "observedText": "you please devise three different ways to build this? And then spin up three Devins to build",
+        "textSummary": "you please devise three different ways to build this? And then spin up three Devins to build"
+      },
+      "keyframes": [
+        {
+          "path": "/Users/zengze/Documents/ProductionAgent-episode-004/content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-59-238000.jpg",
+          "relative": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-59-238000.jpg"
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "clipId": "episode-004:media-clip:616accba2b83c24d7621afeb",
+        "mediaId": "episode-004:media:official-parallel-devin",
+        "startMs": 240000,
+        "endMs": 244000,
+        "score": 0.372771,
+        "matchedClaimIds": [
+          "claim-devin-003",
+          "claim-devin-004"
+        ],
+        "reasons": [
+          "claim evidence claim-devin-003 fit 0.167",
+          "claim evidence claim-devin-004 fit 0.167",
+          "metadata overlap 0.045",
+          "visual intent overlap 0.143",
+          "source preference local-approved (3/5)",
+          "duration proximity 0.500 (4000ms)"
+        ],
+        "observedText": "And then spin up three Devins to build those three separate ways in their own branches. And then when they're all",
+        "textSummary": "And then spin up three Devins to build those three separate ways in their own branches. And then when they're all"
+      },
+      "keyframes": [
+        {
+          "path": "/Users/zengze/Documents/ProductionAgent-episode-004/content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-60-242000.jpg",
+          "relative": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-60-242000.jpg"
+        }
+      ]
+    }
+  ]
+}

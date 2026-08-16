@@ -1,0 +1,248 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-004:media-shot:seg-004",
+    "createdAt": "2026-08-16T16:33:22.894Z",
+    "episodeId": "episode-004",
+    "mediaType": "application/json",
+    "path": "content/episode-004/media/shots/seg-004.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-shot-v1",
+    "sha256": "e05f7c85c39391bc24d244d01cd104b4c65ab24856e5edfeb5937dda89feb98d",
+    "sizeBytes": 8290
+  },
+  "audio": {
+    "ducking": {
+      "attackMs": 80,
+      "enabled": true,
+      "reductionDb": 10,
+      "releaseMs": 240
+    },
+    "fadeInMs": 0,
+    "fadeOutMs": 0,
+    "narrationGain": 0.740741,
+    "originalAudioGain": 0.259259
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "timelineSha256": "e9c961bce7a0ee9cbd0e8e5cd7ce5c7099f78816b913bfc39fb5a91ddcf243a0",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-08-16T16:33:22.894Z",
+  "crossfadeMs": 0,
+  "durationFrames": 259,
+  "endSeconds": 26.504999999999995,
+  "episodeId": "episode-004",
+  "fade": {
+    "inMs": 200,
+    "outMs": 200
+  },
+  "fallbackImagePath": null,
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "clipVerified": true,
+    "episodeIsolated": true,
+    "hashesValid": true,
+    "rightsApproved": true,
+    "slotValid": true,
+    "timestampsValid": true
+  },
+  "lineage": {
+    "clipArtifactRef": {
+      "artifactId": "episode-004:media-verification-clip:episode-004-media-clip-99faf2d74c1b9d53b300d5fa",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "video/mp4",
+      "path": "content/episode-004/media/verifications/seg-004/episode-004-media-clip-99faf2d74c1b9d53b300d5fa-clip.mp4",
+      "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+      "revision": 1,
+      "schemaVersion": "media-verification-clip-v1",
+      "sha256": "9eff7098a4e3824c362eaf6fb10c44d258c6865978163897de6a0f10d4dc4f30",
+      "sizeBytes": 790266
+    },
+    "clipId": "episode-004:media-clip:99faf2d74c1b9d53b300d5fa",
+    "clipIndexRef": {
+      "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "application/json",
+      "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+      "producer": "media-understanding-v1:index:semantic-adapter-v1",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+      "sizeBytes": 302753
+    },
+    "cutSourceRef": {
+      "artifactId": "episode-004:media:official-parallel-devin-proxy",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "video/mp4",
+      "path": "content/episode-004/media/assets/official-parallel-devin-proxy.mp4",
+      "producer": "media-ingest-v1:normalize",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "46b2c403a17ff68c59fe861f127e5100a81fcb44a8eb6e786a1a6da1437fd5d3",
+      "sizeBytes": 15353692
+    },
+    "sourceEndMs": 240000,
+    "sourceMediaId": "episode-004:media:official-parallel-devin",
+    "sourceMediaRef": {
+      "artifactId": "episode-004:media:official-parallel-devin",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "video/mp4",
+      "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+      "sizeBytes": 16115192
+    },
+    "sourceSha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+    "sourceStartMs": 236000,
+    "verificationRef": {
+      "artifactId": "episode-004:media-verification:episode-004-media-clip-99faf2d74c1b9d53b300d5fa",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "application/json",
+      "path": "content/episode-004/media/verifications/seg-004/episode-004-media-clip-99faf2d74c1b9d53b300d5fa.json",
+      "producer": "media-verification-v1:human-keyframe-review:human-keyframe-review-v1",
+      "revision": 1,
+      "schemaVersion": "media-verification-v1",
+      "sha256": "f7fb3ae59f96c43ab93e105e4a696867d133662ace187a7c45545efbc1ea798e",
+      "sizeBytes": 5345
+    }
+  },
+  "overlays": {
+    "badge": {
+      "text": "真实画面",
+      "tone": "real"
+    },
+    "captionsEnabled": true,
+    "sourceLabel": "Cognition (official YouTube channel) · 真实画面"
+  },
+  "reasons": [
+    "scene seg-004 at frame 536 (259 frames, 30 fps)",
+    "real media episode-004:media-clip:99faf2d74c1b9d53b300d5fa trimmed 236000..240000ms (recommended 236000..240000ms)",
+    "render proxy episode-004:media-render-proxy:seg-004 (video/mp4)",
+    "audio mix original 0.259259 / narration 0.740741 duck 10dB"
+  ],
+  "renderProxyMediaType": "video/mp4",
+  "renderProxyRef": {
+    "artifactId": "episode-004:media-render-proxy:seg-004",
+    "createdAt": "2026-08-16T16:33:22.838Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/render/seg-004.mp4",
+    "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-proxy-v1",
+    "sha256": "b843b1bb4bdd46e982337d36af4b1c5bc927f4c90c2477c0cd934ea07fbb5bd3",
+    "sizeBytes": 227973
+  },
+  "sceneIndex": 3,
+  "schemaVersion": "media-shot-v1",
+  "segmentId": "seg-004",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-devin-005",
+      "claim-devin-006"
+    ],
+    "clipId": "episode-004:media-clip:99faf2d74c1b9d53b300d5fa",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "endMs": 240000,
+    "episodeId": "episode-004",
+    "mediaId": "episode-004:media:official-parallel-devin",
+    "sourceMediaRef": {
+      "artifactId": "episode-004:media:official-parallel-devin",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "video/mp4",
+      "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+      "sizeBytes": 16115192
+    },
+    "startMs": 236000,
+    "transcriptRefs": [
+      {
+        "artifactId": "episode-004:media-transcript:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "ad891031dead52ceecc43d233c612e731650ce7fe35e0abd4691e08a509ba6af",
+        "sizeBytes": 35311
+      }
+    ],
+    "visualIntent": "官方演示收成价格对比卡,随后“20 美元”落下,多个平行 Devin 的执行画面铺开,标“功能演示”。"
+  },
+  "shotId": "episode-004:media-shot:seg-004",
+  "startFrame": 536,
+  "startSeconds": 17.877,
+  "staticFilePath": "episodes/episode-004/media/seg-004.mp4",
+  "transform": {
+    "freezeFrameMs": null,
+    "pip": null,
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "reframe": {
+      "crop": {
+        "height": 1,
+        "width": 1,
+        "x": 0,
+        "y": 0
+      },
+      "mode": "cover"
+    },
+    "scale": 1,
+    "zoomPan": {
+      "end": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "start": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "type": "none"
+    }
+  },
+  "trim": {
+    "endMs": 240000,
+    "startMs": 236000
+  },
+  "verificationRef": {
+    "artifactId": "episode-004:media-verification:episode-004-media-clip-99faf2d74c1b9d53b300d5fa",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "application/json",
+    "path": "content/episode-004/media/verifications/seg-004/episode-004-media-clip-99faf2d74c1b9d53b300d5fa.json",
+    "producer": "media-verification-v1:human-keyframe-review:human-keyframe-review-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "f7fb3ae59f96c43ab93e105e4a696867d133662ace187a7c45545efbc1ea798e",
+    "sizeBytes": 5345
+  },
+  "visualType": "real-media"
+}
