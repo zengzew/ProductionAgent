@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "media-discovery-config-v1",
+  "allowedHosts": [
+    "example.com",
+    "www.example.com",
+    "cdn.example.com"
+  ],
+  "allowedSourceTypes": [
+    "official",
+    "founder",
+    "product-demo",
+    "media",
+    "platform",
+    "analysis",
+    "social",
+    "local-approved"
+  ],
+  "maxCandidatesPerEpisode": 50,
+  "requireHttps": true
+}

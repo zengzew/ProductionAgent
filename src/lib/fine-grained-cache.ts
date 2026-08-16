@@ -246,7 +246,9 @@ export const cacheEntryPath = (
 const assertMetadataEpisode = (value: unknown, episodeId: string, location = "metadata"): void => {
   if (!value || typeof value !== "object") return;
   if (Array.isArray(value)) {
-    value.forEach((entry, index) => assertMetadataEpisode(entry, episodeId, `${location}[${index}]`));
+    value.forEach((entry, index) =>
+      assertMetadataEpisode(entry, episodeId, `${location}[${index}]`),
+    );
     return;
   }
   const record = value as Record<string, unknown>;

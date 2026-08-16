@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "episode-config-v2",
+  "id": "episode-003",
+  "slug": "manus-action-engine",
+  "product": "Manus",
+  "title": "任务发出后，它自己打开网页去办",
+  "language": "zh-CN",
+  "targetSeconds": 60,
+  "production": {
+    "timelineTailSeconds": {"seg-006": 1.8},
+    "hookAttributionSubjects": ["Manus", "Manus AI", "Meta"]
+  },
+  "selection": "selected",
+  "selectionReason": "Manus 有可截取的官方站点与桌面页、可核验的 2026 年桌面能力节点，以及公司披露的虚拟电脑规模；核心动作“发出任务后自己打开网页和文件去办”适合 40–80 秒中文产品故事。",
+  "publishStatus": "evaluation",
+  "publishBlocker": "本集是 evaluation run。不写入 HumanDecision、final approval 或 published 状态。发布前仍需人工确认官方截图权利与合成语音披露。",
+  "asOf": "2026-08-16",
+  "captureAssets": [
+    {"file": "manus-home.png", "url": "https://manus.im/"},
+    {"file": "manus-desktop.png", "url": "https://manus.im/desktop"},
+    {
+      "file": "manus-my-computer.png",
+      "url": "https://manus.im/blog/manus-my-computer-desktop",
+      "anchor": {"role": "heading", "name": "Introducing My Computer: When Manus Meets Your Desktop"}
+    }
+  ]
+}

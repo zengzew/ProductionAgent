@@ -333,4 +333,37 @@ describe("WP-M3-04 formal human decisions", () => {
     expect(final.processedDecisionIds).toEqual(["content-approve-1", "final-approve-1"]);
     expect(assertReferenceOnlyState(final)).toEqual(final);
   });
+
+  it("fails closed when a reject omits the structured issue", async () => {
+    const fixture = createFixture();
+    const graph = createFoundationGraph({
+      runAgent: createDeterministicStubAgent(),
+      repoRoot: fixture.repoRoot,
+      requireFormalHumanDecision: true,
+      checkpointer: createLocalCheckpoint({
+        repoRoot: fixture.repoRoot,
+        databasePath: "hitl-reject.sqlite",
+      }),
+      now: () => "2026-08-14T00:10:00.000Z",
+    });
+    const config = checkpointConfig(fixture.episodeId);
+    const first = await graph.invoke(fixture.state, config);
+    const contentPayload = (first as {__interrupt__?: {value: Record<string, unknown>}[]})
+      .__interrupt__?.[0]?.value;
+    await expect(
+      graph.invoke(
+        resumeCheckpoint({
+          decisionId: "content-reject-missing-issue",
+          gate: "content-approval",
+          decision: "reject",
+          reviewer: "human-reviewer-1",
+          timestamp: "2026-08-14T00:11:00.000Z",
+          reason: "reject without an issue must not be invented",
+          artifactRefs: contentPayload?.artifactRefs,
+          approvalEpoch: contentPayload?.approvalEpoch,
+        }),
+        config,
+      ),
+    ).rejects.toThrow(/HUMAN_DECISION_REJECT_ISSUE_REQUIRED|require structured issue/u);
+  });
 });

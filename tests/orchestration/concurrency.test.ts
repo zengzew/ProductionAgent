@@ -253,20 +253,32 @@ describe("WP-M4-06 isolation, locks, CAS, and controlled concurrency", () => {
     const saverA = createLocalCheckpoint({repoRoot, databasePath});
     const saverB = createLocalCheckpoint({repoRoot, databasePath});
     const results = await Promise.allSettled([
-      saverA.put(checkpointConfig({episodeId: "episode-cas", runId: "run-a"}), makeCheckpoint(stateA), {
-        source: "input",
-        step: -1,
-        parents: {},
-      }, {}),
-      saverB.put(checkpointConfig({episodeId: "episode-cas", runId: "run-b"}), makeCheckpoint(stateB), {
-        source: "input",
-        step: -1,
-        parents: {},
-      }, {}),
+      saverA.put(
+        checkpointConfig({episodeId: "episode-cas", runId: "run-a"}),
+        makeCheckpoint(stateA),
+        {
+          source: "input",
+          step: -1,
+          parents: {},
+        },
+        {},
+      ),
+      saverB.put(
+        checkpointConfig({episodeId: "episode-cas", runId: "run-b"}),
+        makeCheckpoint(stateB),
+        {
+          source: "input",
+          step: -1,
+          parents: {},
+        },
+        {},
+      ),
     ]);
     expect(results.filter((result) => result.status === "fulfilled")).toHaveLength(1);
     expect(results.filter((result) => result.status === "rejected")[0]).toMatchObject({
-      reason: expect.objectContaining({message: expect.stringMatching(/CHECKPOINT_CAS_CONFLICT|OPTIMISTIC_CONCURRENCY/)}),
+      reason: expect.objectContaining({
+        message: expect.stringMatching(/CHECKPOINT_CAS_CONFLICT|OPTIMISTIC_CONCURRENCY/),
+      }),
     });
     const latest = await saverA.getTuple(checkpointConfig("episode-cas"));
     expect(["run-a", "run-b"]).toContain(latest?.checkpoint.channel_values.runId);
@@ -361,7 +373,10 @@ describe("WP-M4-06 isolation, locks, CAS, and controlled concurrency", () => {
       bytes: Buffer.from("bytes"),
       metadata: {episodeId: "episode-one"},
     });
-    expect(cacheTwo.lookup({kind: "tts-segment", cacheKey: key, stage: "tts", logicalItem: "segment-1"}).hit).toBe(false);
+    expect(
+      cacheTwo.lookup({kind: "tts-segment", cacheKey: key, stage: "tts", logicalItem: "segment-1"})
+        .hit,
+    ).toBe(false);
     expect(() =>
       cacheOne.put({
         kind: "tts-segment",
@@ -422,11 +437,16 @@ describe("WP-M4-06 isolation, locks, CAS, and controlled concurrency", () => {
 
     const indexPath = path.join(repoRoot, "content/episode-human-a/artifact-index.json");
     const index = emptyArtifactIndex("episode-human-a");
-    const version = writeArtifactIndexCas({filePath: indexPath, index, expectedVersion: null, casRoot: repoRoot});
+    const version = writeArtifactIndexCas({
+      filePath: indexPath,
+      index,
+      expectedVersion: null,
+      casRoot: repoRoot,
+    });
     expect(version).toBe(artifactIndexControlHash(index));
-    expect(() => writeArtifactIndexCas({filePath: indexPath, index, expectedVersion: null, casRoot: repoRoot})).toThrow(
-      "ARTIFACT_INDEX_CAS_CONFLICT",
-    );
+    expect(() =>
+      writeArtifactIndexCas({filePath: indexPath, index, expectedVersion: null, casRoot: repoRoot}),
+    ).toThrow("ARTIFACT_INDEX_CAS_CONFLICT");
   });
 
   it("uses the same explicit identity contract for SQLite and Postgres factories", () => {

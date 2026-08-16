@@ -13,7 +13,7 @@ const runtimePartSchema = z
         return codePoint === 0 || codePoint === 10 || codePoint === 13;
       }),
     {
-    message: "runtime identity parts must not contain control characters",
+      message: "runtime identity parts must not contain control characters",
     },
   );
 
@@ -26,23 +26,26 @@ export const runtimeIdentitySchema = z
   })
   .strict()
   .superRefine((value, context) => {
-    if (!value.threadId.includes(value.episodeId)) {
+    if (!runtimeIdBelongsToEpisode(value.threadId, value.episodeId)) {
       context.addIssue({
         code: "custom",
         path: ["threadId"],
-        message: "threadId must explicitly contain episodeId",
+        message: "threadId must equal episodeId or start with episodeId:",
       });
     }
-    if (!value.traceId.includes(value.episodeId)) {
+    if (!runtimeIdBelongsToEpisode(value.traceId, value.episodeId)) {
       context.addIssue({
         code: "custom",
         path: ["traceId"],
-        message: "traceId must explicitly contain episodeId",
+        message: "traceId must equal episodeId or start with episodeId:",
       });
     }
   });
 
 export type RuntimeIdentity = z.infer<typeof runtimeIdentitySchema>;
+
+export const runtimeIdBelongsToEpisode = (value: string, episodeId: string): boolean =>
+  value === episodeId || value.startsWith(`${episodeId}:`);
 
 export const createRuntimeIdentity = (input: {
   episodeId: string;

@@ -8,15 +8,18 @@ import {
   createInitialProductionState,
   createLocalCheckpoint,
   createProductionSubgraph,
+  artifactIndexControlHash,
   createUnfreezeRequest,
   emptyArtifactIndex,
   freezeContent,
   markStaleTransitively,
   productionStageInputSetHash,
   productionStageOrder,
+  readArtifactIndex,
   registerCandidate,
   resumeCheckpoint,
   selectArtifact,
+  writeArtifactIndexCas,
   type ArtifactDependency,
   type ArtifactIndex,
   type ArtifactRef,
@@ -470,6 +473,12 @@ describe("WP-M3-03 L4 unfreeze", () => {
       },
     };
     const before = markStaleTransitively(index, [fixture.finalScriptRef.artifactId]);
+    writeArtifactIndexCas({
+      filePath: path.join(fixture.repoRoot, "content/episode-001/artifact-index.json"),
+      index,
+      expectedVersion: null,
+      casRoot: fixture.repoRoot,
+    });
     const request = createUnfreezeRequest({
       repoRoot: fixture.repoRoot,
       episodeId: fixture.state.episodeId,
@@ -530,6 +539,9 @@ describe("WP-M3-03 L4 unfreeze", () => {
       ],
       reason: "approve",
     };
+    const diskIndex = readArtifactIndex(
+      path.join(fixture.repoRoot, "content/episode-001/artifact-index.json"),
+    );
     const applied = applyUnfreezeEdits({
       repoRoot: fixture.repoRoot,
       request: request.request,
@@ -543,7 +555,7 @@ describe("WP-M3-03 L4 unfreeze", () => {
           changedLocators: [{kind: "whole-artifact", value: "script"}],
         },
       ],
-      artifactIndex: index,
+      artifactIndex: diskIndex,
       executionId: "fixture:unfreeze",
     });
     expect(
@@ -552,5 +564,91 @@ describe("WP-M3-03 L4 unfreeze", () => {
     expect(applied.staleArtifactIds).toContain(downstream.artifactId);
     expect(applied.artifactIndex.selected[downstream.artifactId]).toBeUndefined();
     expect(fs.existsSync(path.join(fixture.repoRoot, downstream.path))).toBe(true);
+  });
+
+  it("fails closed when an unfreeze write races a newer artifact index", () => {
+    const fixture = createFixture();
+    const registryPath = path.join(fixture.repoRoot, "content/episode-001/artifact-index.json");
+    const request = createUnfreezeRequest({
+      repoRoot: fixture.repoRoot,
+      episodeId: fixture.state.episodeId,
+      runId: fixture.state.runId,
+      contentManifestRef: fixture.state.contentManifestRef!,
+      issues: [
+        {
+          issueId: "issue-delivery-blocker",
+          issueRef: fixture.finalScriptRef,
+          category: "delivery.timeline",
+          severity: "blocker",
+          status: "open",
+          ownerAgent: "production-executor",
+          routeTarget: "timeline",
+          restartAt: "timeline",
+          affectedArtifact: fixture.finalScriptRef,
+          locator: {kind: "whole-artifact", value: "script"},
+          summary: "blocker",
+        },
+      ],
+      authorizedEdits: [
+        {
+          artifactRef: fixture.finalScriptRef,
+          owner: "script-writer",
+          locator: {kind: "whole-artifact", value: "script"},
+          reason: "scoped",
+        },
+      ],
+      restartAt: "materialize:story",
+      approvalEpoch: 0,
+      unfreezeUsed: 0,
+      maxUnfreeze: 1,
+    });
+    const staleIndex = readArtifactIndex(registryPath);
+    write(fixture.repoRoot, fixture.finalScriptRef.path, "raced story bytes\n");
+    const after = buildArtifactRef({
+      repoRoot: fixture.repoRoot,
+      artifactId: fixture.finalScriptRef.artifactId,
+      episodeId: fixture.finalScriptRef.episodeId,
+      path: fixture.finalScriptRef.path,
+      mediaType: fixture.finalScriptRef.mediaType,
+      schemaVersion: fixture.finalScriptRef.schemaVersion,
+      producer: "human:script-writer",
+      previous: fixture.finalScriptRef,
+    });
+    writeArtifactIndexCas({
+      filePath: registryPath,
+      index: emptyArtifactIndex("episode-001"),
+      expectedVersion: artifactIndexControlHash(staleIndex),
+      casRoot: fixture.repoRoot,
+    });
+    expect(() =>
+      applyUnfreezeEdits({
+        repoRoot: fixture.repoRoot,
+        request: request.request,
+        decision: {
+          schemaVersion: "unfreeze-decision-v1",
+          decisionId: "unfreeze-decision-race",
+          requestId: request.request.requestId,
+          requestRef: request.requestRef,
+          episodeId: fixture.state.episodeId,
+          requestedApprovalEpoch: 0,
+          decision: "approve",
+          actorId: "human",
+          decidedAt: "2026-08-14T00:02:00.000Z",
+          authorizations: [{artifactId: fixture.finalScriptRef.artifactId, owner: "script-writer"}],
+          reason: "approve",
+        },
+        edits: [
+          {
+            artifactId: after.artifactId,
+            owner: "script-writer",
+            before: fixture.finalScriptRef,
+            after,
+            changedLocators: [{kind: "whole-artifact", value: "script"}],
+          },
+        ],
+        artifactIndex: staleIndex,
+        executionId: "fixture:unfreeze-race",
+      }),
+    ).toThrow(/ARTIFACT_INDEX_CAS_CONFLICT/u);
   });
 });

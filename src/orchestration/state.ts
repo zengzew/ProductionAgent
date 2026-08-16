@@ -207,10 +207,16 @@ const forbiddenBodyKeys = new Set([
   "sourcePassage",
 ]);
 
-const assertEpisodeScopedReferences = (value: unknown, episodeId: string, location = "state"): void => {
+const assertEpisodeScopedReferences = (
+  value: unknown,
+  episodeId: string,
+  location = "state",
+): void => {
   if (!value || typeof value !== "object") return;
   if (Array.isArray(value)) {
-    value.forEach((entry, index) => assertEpisodeScopedReferences(entry, episodeId, `${location}[${index}]`));
+    value.forEach((entry, index) =>
+      assertEpisodeScopedReferences(entry, episodeId, `${location}[${index}]`),
+    );
     return;
   }
   const record = value as Record<string, unknown>;

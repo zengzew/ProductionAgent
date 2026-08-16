@@ -1,0 +1,209 @@
+{
+  "schemaVersion": "director-workflow-v1",
+  "episodeId": "episode-003",
+  "coreStoryQuestion": "你发出一个任务后，Manus 怎样自己打开云电脑、网页和本地文件，把问答变成可交付结果？",
+  "currentStatus": "delivery-approved",
+  "revisionPolicy": {
+    "maximumCreativeRounds": 3,
+    "scriptChangeRestartsAt": "oral-judge",
+    "visualChangeRestartsAt": "retention-critic"
+  },
+  "stages": [
+    {
+      "id": "research-analyst",
+      "owner": "research-analyst",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-003/research/facts.json",
+        "content/episode-003/research/sources.json",
+        "content/episode-003/research/timeline.json"
+      ],
+      "decision": "确定执行动作、云电脑、桌面批准与规模口径的来源边界。"
+    },
+    {
+      "id": "story-director",
+      "owner": "story-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-003/story/director-brief.md",
+        "content/episode-003/story/story-bible.md",
+        "content/episode-003/story/story-angle.md",
+        "content/episode-003/story/three-act-structure.md"
+      ],
+      "decision": "围绕发出任务后如何自己打开网页和文件组织全片。"
+    },
+    {
+      "id": "viral-director",
+      "owner": "viral-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-003/story/hook-candidates.md",
+        "content/episode-003/story/viral-strategy.md"
+      ],
+      "decision": "选择任务已经发出、网页已经打开的 Hook。"
+    },
+    {
+      "id": "script-writer",
+      "owner": "script-writer",
+      "status": "complete",
+      "artifacts": ["content/episode-003/story/script-draft.md"],
+      "decision": "按完成动作、规模、云电脑、桌面批准和回收推进。"
+    },
+    {
+      "id": "oral-rewriter",
+      "owner": "oral-rewriter",
+      "status": "complete",
+      "artifacts": ["content/episode-003/story/final-script.md"],
+      "decision": "完成 60 秒自然中文口播。"
+    },
+    {
+      "id": "oral-judge",
+      "owner": "oral-judge",
+      "status": "complete",
+      "artifacts": ["content/episode-003/story/oral-review.md"],
+      "decision": "口播三项与七项检查通过。"
+    },
+    {
+      "id": "audience-critic",
+      "owner": "audience-critic",
+      "status": "complete",
+      "artifacts": ["content/episode-003/story/critic-report.md"],
+      "decision": "识别云电脑段说明书风险。"
+    },
+    {
+      "id": "fact-guardian",
+      "owner": "fact-guardian",
+      "status": "complete",
+      "artifacts": ["content/episode-003/story/fact-check-report.md"],
+      "decision": "事实与指标口径通过。"
+    },
+    {
+      "id": "visual-director",
+      "owner": "visual-director",
+      "status": "complete",
+      "artifacts": ["content/episode-003/story/visual-plan.md"],
+      "decision": "以连续执行动作组织逐段视觉。"
+    },
+    {
+      "id": "retention-critic",
+      "owner": "retention-critic",
+      "status": "complete",
+      "artifacts": ["content/episode-003/story/retention-report.md"],
+      "decision": "以 92 分批准进入生产并保留中段运动提示。"
+    },
+    {
+      "id": "delivery-critic",
+      "owner": "delivery-critic",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-003/production/delivery-critic-report.md",
+        "output/episode-003/vertical_9x16.mp4",
+        "output/episode-003/subtitles_zh.srt"
+      ],
+      "decision": "当前竖版成片通过交付门。"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "decision-core-story-question",
+      "owner": "story-director",
+      "decision": "解释发出任务后如何自己打开网页和文件。",
+      "rationale": "云电脑、桌面批准和规模都能接回同一条任务。",
+      "artifact": "content/episode-003/story/director-brief.md",
+      "claimIds": ["claim-manus-001", "claim-manus-003", "claim-manus-008"]
+    },
+    {
+      "id": "decision-attention-strategy",
+      "owner": "viral-director",
+      "decision": "首帧显示任务已发出且网页已打开。",
+      "rationale": "完成结果无需产品背景。",
+      "artifact": "content/episode-003/story/viral-strategy.md",
+      "claimIds": ["claim-manus-001"]
+    },
+    {
+      "id": "decision-information-draft",
+      "owner": "script-writer",
+      "decision": "从完成动作推进到云电脑和桌面批准。",
+      "rationale": "避免把连接器写成目录。",
+      "artifact": "content/episode-003/story/script-draft.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-spoken-delivery",
+      "owner": "oral-rewriter",
+      "decision": "使用自然中文口播。",
+      "rationale": "让陌生观众在二十秒内建立心智模型。",
+      "artifact": "content/episode-003/story/final-script.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-audience-clearance",
+      "owner": "audience-critic",
+      "decision": "脚本通过，云电脑段不得做成功能卡。",
+      "rationale": "机制窗口是最可能划走的位置。",
+      "artifact": "content/episode-003/story/critic-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-factual-clearance",
+      "owner": "fact-guardian",
+      "decision": "事实与规模口径通过。",
+      "rationale": "虚拟电脑不换算用户，收购不写因果。",
+      "artifact": "content/episode-003/story/fact-check-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-visual-language",
+      "owner": "visual-director",
+      "decision": "用一条持续执行的任务串起全片。",
+      "rationale": "打开网页本身成为可见动作。",
+      "artifact": "content/episode-003/story/visual-plan.md",
+      "claimIds": ["claim-manus-001", "claim-manus-003", "claim-manus-008"]
+    },
+    {
+      "id": "decision-production-readiness",
+      "owner": "retention-critic",
+      "decision": "以 92 分批准生产。",
+      "rationale": "四个时间窗口均过门槛，无 high risk。",
+      "artifact": "content/episode-003/story/retention-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-final-delivery",
+      "owner": "delivery-critic",
+      "decision": "批准当前竖版 MP4 通过交付门。",
+      "rationale": "真实时长、字幕、首屏和来源证据通过交付检查；不构成 HumanDecision 或 published。",
+      "artifact": "content/episode-003/production/delivery-critic-report.md",
+      "claimIds": []
+    }
+  ],
+  "reviewCycles": [
+    {
+      "id": "review-audience-round-01",
+      "critic": "audience-critic",
+      "round": 1,
+      "reportPath": "content/episode-003/story/critic-report.md",
+      "reportSha256": "d921b34930f0c431ee55d92b2bea429eb13f3922d5fef89c472d92e26670c2a8",
+      "verdict": "PASS",
+      "routes": []
+    },
+    {
+      "id": "review-retention-round-01",
+      "critic": "retention-critic",
+      "round": 1,
+      "reportPath": "content/episode-003/story/retention-report.md",
+      "reportSha256": "3fd186faebe16c7943f7178ccda1703371fc1b0cb0677319bf116912c0691f8d",
+      "verdict": "PASS",
+      "routes": []
+    },
+    {
+      "id": "review-delivery-round-01",
+      "critic": "delivery-critic",
+      "round": 1,
+      "reportPath": "content/episode-003/production/delivery-critic-report.md",
+      "reportSha256": "aee8b0941acbf725c5e58b19423c85c64c4851d6156f8c1dbf68156b2c7e72de",
+      "verdict": "PASS",
+      "routes": []
+    }
+  ]
+}

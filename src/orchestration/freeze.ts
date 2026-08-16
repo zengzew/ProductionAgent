@@ -7,9 +7,11 @@ import {
   emptyArtifactIndex,
   markStaleTransitively,
   registerCandidate,
+  artifactIndexControlHash,
   readArtifactIndex,
+  readArtifactIndexVersion,
   selectArtifact,
-  writeArtifactIndex,
+  writeArtifactIndexCas,
 } from "./artifact-registry";
 import {
   artifactIndexSchema,
@@ -902,6 +904,26 @@ const defaultUnfreezeRequestId = (input: {
     .digest("hex")
     .slice(0, 24)}`;
 
+const commitArtifactIndexCas = (input: {
+  repoRoot: string;
+  episodeId: string;
+  baseIndex: ArtifactIndex;
+  nextIndex: ArtifactIndex;
+}): void => {
+  const filePath = unfreezeRegistryPath(input.repoRoot, input.episodeId);
+  const current = readArtifactIndexVersion(filePath);
+  const expectedFromBase = artifactIndexControlHash(input.baseIndex);
+  if (current !== null && current !== expectedFromBase) {
+    throw new Error(`ARTIFACT_INDEX_CAS_CONFLICT:expected=${expectedFromBase}:current=${current}`);
+  }
+  writeArtifactIndexCas({
+    filePath,
+    index: input.nextIndex,
+    expectedVersion: current,
+    casRoot: input.repoRoot,
+  });
+};
+
 const addAuditArtifact = (input: {
   repoRoot: string;
   episodeId: string;
@@ -912,7 +934,12 @@ const addAuditArtifact = (input: {
 }): ArtifactIndex => {
   let index = registerCandidate(input.index, input.ref, input.executionId, [...input.dependencies]);
   index = selectArtifact(index, input.ref);
-  writeArtifactIndex(unfreezeRegistryPath(input.repoRoot, input.episodeId), index);
+  commitArtifactIndexCas({
+    repoRoot: input.repoRoot,
+    episodeId: input.episodeId,
+    baseIndex: input.index,
+    nextIndex: index,
+  });
   return index;
 };
 
@@ -947,7 +974,14 @@ const seedManifestArtifacts = (input: {
     );
     index = selectArtifact(index, ref);
   }
-  writeArtifactIndex(unfreezeRegistryPath(input.repoRoot, input.manifest.episodeId), index);
+  commitArtifactIndexCas({
+    repoRoot: input.repoRoot,
+    episodeId: input.manifest.episodeId,
+    baseIndex: artifactIndexSchema.parse(
+      input.index ?? emptyArtifactIndex(input.manifest.episodeId),
+    ),
+    nextIndex: index,
+  });
   return index;
 };
 
@@ -1184,12 +1218,13 @@ export const applyUnfreezeEdits = (input: ApplyUnfreezeEditsInput): ApplyUnfreez
   if (input.edits.length === 0) throw new Error("UNFREEZE_NO_EDIT");
 
   const registryPath = unfreezeRegistryPath(input.repoRoot, request.episodeId);
-  let index = artifactIndexSchema.parse(
+  const loadedIndex = artifactIndexSchema.parse(
     input.artifactIndex ??
       (fs.existsSync(registryPath)
         ? readArtifactIndex(registryPath)
         : emptyArtifactIndex(request.episodeId)),
   );
+  let index = loadedIndex;
   const authorizations = new Map(
     request.authorizedEdits.map((authorization) => [
       authorization.artifactRef.artifactId,
@@ -1265,7 +1300,12 @@ export const applyUnfreezeEdits = (input: ApplyUnfreezeEditsInput): ApplyUnfreez
       .filter((record) => record.state === "stale")
       .map((record) => record.ref.artifactId),
   );
-  writeArtifactIndex(registryPath, index);
+  commitArtifactIndexCas({
+    repoRoot: input.repoRoot,
+    episodeId: request.episodeId,
+    baseIndex: loadedIndex,
+    nextIndex: index,
+  });
   return {artifactIndex: index, changedArtifactRefs, staleArtifactIds};
 };
 
@@ -1311,7 +1351,6 @@ export const refreezeAfterUnfreeze = (
     previousManifestRef: input.previousManifestRef,
   });
 
-  const registryPath = unfreezeRegistryPath(input.repoRoot, request.episodeId);
   let artifactIndex = validation.artifactIndex;
   artifactIndex = registerCandidate(
     artifactIndex,
@@ -1320,6 +1359,11 @@ export const refreezeAfterUnfreeze = (
     validation.selectedArtifactRefs.map((ref) => dependencyFromRef(ref, "reads")),
   );
   artifactIndex = selectArtifact(artifactIndex, freeze.manifestRef);
-  writeArtifactIndex(registryPath, artifactIndex);
+  commitArtifactIndexCas({
+    repoRoot: input.repoRoot,
+    episodeId: request.episodeId,
+    baseIndex: validation.artifactIndex,
+    nextIndex: artifactIndex,
+  });
   return {...freeze, artifactIndex};
 };

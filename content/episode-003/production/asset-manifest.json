@@ -1,0 +1,63 @@
+[
+  {
+    "id": "asset-manus-home",
+    "type": "screenshot",
+    "path": "public/episodes/episode-003/captured/manus-home.png",
+    "sourceUrl": "https://manus.im/",
+    "owner": "Manus AI",
+    "licenseOrBasis": "Official public product page captured by this project for limited editorial commentary and source identification; publication rights should receive final human review.",
+    "capturedAt": "2026-08-16",
+    "usage": "Product-definition evidence showing the official task input and action-engine homepage.",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": ["claim-manus-001"]
+  },
+  {
+    "id": "asset-manus-desktop",
+    "type": "screenshot",
+    "path": "public/episodes/episode-003/captured/manus-desktop.png",
+    "sourceUrl": "https://manus.im/desktop",
+    "owner": "Manus AI",
+    "licenseOrBasis": "Official public product page captured by this project for limited editorial commentary and product identification; publication rights should receive final human review.",
+    "capturedAt": "2026-08-16",
+    "usage": "Desktop evidence showing My Computer living on the user's computer and local-file copy.",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": ["claim-manus-008", "claim-manus-009", "claim-manus-016"]
+  },
+  {
+    "id": "asset-manus-my-computer",
+    "type": "screenshot",
+    "path": "public/episodes/episode-003/captured/manus-my-computer.png",
+    "sourceUrl": "https://manus.im/blog/manus-my-computer-desktop",
+    "owner": "Manus AI",
+    "licenseOrBasis": "Official public product blog captured by this project for limited editorial commentary; publication rights should receive final human review.",
+    "capturedAt": "2026-08-16",
+    "usage": "Reserved official blog still for the 2026-03-16 My Computer announcement. Not required in the current render path.",
+    "approved": true,
+    "usedInRender": false,
+    "claimIds": ["claim-manus-008"]
+  },
+  {
+    "id": "asset-manus-generated",
+    "type": "generated",
+    "path": "src/compositions/ManusEpisode.tsx",
+    "sourceUrl": "",
+    "owner": "Generated in this repository",
+    "licenseOrBasis": "Original code-native graphics created for this project.",
+    "capturedAt": "2026-08-16",
+    "usage": "Programmatic task bubble, browser, cloud computer, metric wall, approval panel and source-evidence graphics.",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-manus-001",
+      "claim-manus-002",
+      "claim-manus-003",
+      "claim-manus-004",
+      "claim-manus-005",
+      "claim-manus-007",
+      "claim-manus-009",
+      "claim-manus-010"
+    ]
+  }
+]

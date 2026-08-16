@@ -4,10 +4,13 @@ import pokeTimelineRaw from "./poke-timeline.generated.json";
 import {PokeCover, PokeEpisode} from "./compositions/PokeEpisode";
 import roostTimelineRaw from "./episode-002-timeline.generated.json";
 import {RoostCover, RoostEpisode} from "./compositions/RoostEpisode";
+import manusTimelineRaw from "./episode-003-timeline.generated.json";
+import {ManusEpisode} from "./compositions/ManusEpisode";
 import {timelineSchema} from "./schemas/episode";
 
 const pokeTimeline = timelineSchema.parse(pokeTimelineRaw);
 const roostTimeline = timelineSchema.parse(roostTimelineRaw);
+const manusTimeline = timelineSchema.parse(manusTimelineRaw);
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -62,6 +65,22 @@ export const RemotionRoot: React.FC = () => {
         fps={roostTimeline.fps}
         width={1080}
         height={1440}
+      />
+      <Composition
+        id="ManusVertical"
+        component={ManusEpisode}
+        durationInFrames={manusTimeline.totalFrames}
+        fps={manusTimeline.fps}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="ManusVerticalSmoke"
+        component={ManusEpisode}
+        durationInFrames={300}
+        fps={manusTimeline.fps}
+        width={1080}
+        height={1920}
       />
     </>
   );

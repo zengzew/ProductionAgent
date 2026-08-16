@@ -28,6 +28,8 @@ export const humanDecisionGates = [
   "content-approval",
   "unfreeze-approval",
   "final-approval",
+  "media-admission",
+  "media-rights",
 ] as const;
 
 export const humanDecisionGateSchema = z.enum(humanDecisionGates);
@@ -110,6 +112,10 @@ const canonicalizeAliases = (value: unknown): unknown => {
     output.gate = "unfreeze-approval";
   } else if (output.gate === "final" || output.gate === "final_gate") {
     output.gate = "final-approval";
+  } else if (output.gate === "media-admission" || output.gate === "media_admission") {
+    output.gate = "media-admission";
+  } else if (output.gate === "media-rights" || output.gate === "media_rights") {
+    output.gate = "media-rights";
   }
   if (output.reviewer === undefined && typeof output.actorId === "string") {
     output.reviewer = output.actorId;

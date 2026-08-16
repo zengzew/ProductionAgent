@@ -57,6 +57,13 @@ export const contentCriticNames = [
   "fact-guardian",
   "compliance-critic",
 ] as const;
+
+export const contentLoopOwnedAgentNames = [
+  "visual-director",
+  "audience-critic",
+  "fact-guardian",
+  "retention-critic",
+] as const;
 export type ContentCriticName = (typeof contentCriticNames)[number];
 
 export type ContentArtifactRevision = {
@@ -160,6 +167,13 @@ export type ContentLoopInput = {
     protectedDimensions?: readonly (string | EvaluationDimensionSelector)[];
   };
   now?: () => number;
+  maxRevisionRounds?: number;
+  skipVisualDirector?: boolean;
+  onRevisionCheckpoint?: (input: {
+    revision: ContentRevisionRound;
+    revisionLedger: RevisionLedger;
+    status: "selected" | "rejected" | "human-required";
+  }) => void;
 };
 
 export type ContentTraceStep = {
@@ -1059,25 +1073,27 @@ export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLo
   const budgetLimits = input.budgetLimits ?? defaultRevisionBudgetLimits;
   const now = input.now ?? Date.now;
 
-  const visualOutput = input.nodes.visualDirector
-    ? outputArray(await input.nodes.visualDirector(contextFor(baseState, index, initialRound)))
-    : [];
-  const visualApplied = applySelectedRevisions({
-    index,
-    outputs: visualOutput,
-    executionId: baseState.runId + ":visual-director:r" + initialRound,
-    requireChanged: false,
-    allowNewArtifactIds: true,
-    lockedRanges,
-  });
-  index = visualApplied.index;
-  trace.push({
-    node: "visual-director",
-    round: initialRound,
-    status: "completed",
-    artifactIds: visualOutput.map((output) => output.ref.artifactId),
-    changedArtifactIds: visualApplied.changed.map((ref) => ref.artifactId),
-  });
+  if (!input.skipVisualDirector) {
+    const visualOutput = input.nodes.visualDirector
+      ? outputArray(await input.nodes.visualDirector(contextFor(baseState, index, initialRound)))
+      : [];
+    const visualApplied = applySelectedRevisions({
+      index,
+      outputs: visualOutput,
+      executionId: baseState.runId + ":visual-director:r" + initialRound,
+      requireChanged: false,
+      allowNewArtifactIds: true,
+      lockedRanges,
+    });
+    index = visualApplied.index;
+    trace.push({
+      node: "visual-director",
+      round: initialRound,
+      status: "completed",
+      artifactIds: visualOutput.map((output) => output.ref.artifactId),
+      changedArtifactIds: visualApplied.changed.map((ref) => ref.artifactId),
+    });
+  }
 
   let bestCritics = await runCritics({
     state: baseState,
@@ -1442,6 +1458,11 @@ export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLo
       costUsd: usage.costUsd,
       wallclockSeconds: usage.wallclockSeconds,
     });
+    input.onRevisionCheckpoint?.({
+      revision,
+      revisionLedger: ledger,
+      status: disposition,
+    });
 
     if (disposition === "selected") {
       index = candidateIndex;
@@ -1521,6 +1542,35 @@ export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLo
         revisions,
         revisionLedger: ledger,
         humanEscalation,
+        trace,
+      };
+    }
+    if (input.maxRevisionRounds !== undefined && revisions.length >= input.maxRevisionRounds) {
+      const state = buildState({
+        base: baseState,
+        index,
+        critics: allCritics,
+        finalGate: bestGate,
+        initialRoute: firstRoute,
+        closedIssueIds: [],
+        revision,
+        status: "needs-revision",
+      });
+      return {
+        status: "needs-revision",
+        state,
+        artifactIndex: index,
+        artifacts: state.artifacts,
+        gate: bestGate,
+        route: firstRoute,
+        nextRoute: firstRoute,
+        closedIssueIds: [],
+        newIssues: bestGate.issues,
+        criticReports: reportMap(bestCritics),
+        criticResultRefs: reportRefMap(bestCritics),
+        revision,
+        revisions,
+        revisionLedger: ledger,
         trace,
       };
     }

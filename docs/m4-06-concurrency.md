@@ -39,4 +39,3 @@ recovery, queue/admission/rejection, and the configured cap. Artifact registries
 outputs, cache entries, and reports resolve below the owning episode directory. Content-addressed
 cache bytes may share a key, but cache metadata with a different episode is rejected and formal
 ArtifactRefs remain episode-scoped.
-

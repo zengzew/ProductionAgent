@@ -167,7 +167,10 @@ export const writeArtifactIndex = (filePath: string, index: ArtifactIndex): void
 };
 
 export const artifactIndexControlHash = (index: ArtifactIndex): string =>
-  crypto.createHash("sha256").update(stableJson(artifactIndexSchema.parse(index)), "utf8").digest("hex");
+  crypto
+    .createHash("sha256")
+    .update(stableJson(artifactIndexSchema.parse(index)), "utf8")
+    .digest("hex");
 
 export const readArtifactIndexVersion = (filePath: string): string | null =>
   fs.existsSync(filePath) ? artifactIndexControlHash(readArtifactIndex(filePath)) : null;

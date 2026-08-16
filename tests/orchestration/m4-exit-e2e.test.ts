@@ -47,8 +47,14 @@ const write = (repoRoot: string, repositoryPath: string, body: string): void => 
 
 const createClock = () => {
   let current = Date.parse("2026-08-15T00:00:00.000Z");
+  const ticks: string[] = [];
   return {
-    now: () => new Date(current++).toISOString(),
+    ticks,
+    now: () => {
+      const value = new Date(current++).toISOString();
+      ticks.push(value);
+      return value;
+    },
     advanceTo: (value: string) => {
       current = Math.max(current, Date.parse(value) + 1);
     },
@@ -326,6 +332,7 @@ describe("M4 exit integrated E2E", () => {
     const graph = createFoundationGraph({
       runAgent: createDeterministicStubAgent(),
       repoRoot: fixture.repoRoot,
+      now: clock.now,
       humanDecision: {repoRoot: fixture.repoRoot},
       checkpointer,
       observability: {
@@ -393,6 +400,17 @@ describe("M4 exit integrated E2E", () => {
     expect(evidence.events.some((event) => event.eventType === "human-decision.recorded")).toBe(
       true,
     );
+    // Regression: the whole graph (foundation agents + production) must share the test clock,
+    // never a second wall-clock source. Every event timestamp must be clock-issued or an
+    // explicit resume timestamp, and the log order must follow the clock.
+    const resumeTimestamps = new Set(["2026-08-15T00:10:00.000Z", "2026-08-15T00:20:00.000Z"]);
+    for (const event of evidence.events) {
+      expect(clock.ticks.includes(event.occurredAt) || resumeTimestamps.has(event.occurredAt)).toBe(
+        true,
+      );
+    }
+    const occurredAts = evidence.events.map((event) => event.occurredAt);
+    expect(occurredAts).toEqual([...occurredAts].sort((a, b) => Date.parse(a) - Date.parse(b)));
     expect(evidence.report.status).toBe("observability-complete");
   });
 

@@ -56,4 +56,4 @@
 
 ## 当前修复状态与剩余有意保留项
 
-TD-001～007 没有剩余可执行代码项；该轮唯一未闭合的是 TD-004 的双期 smoke 验证环境阻塞。另有三项有意保留的契约边界：历史只读 adapter 保护不可改写 artifact；Episode 001 的显式 `poke-*` 前缀保护当前渲染导入和 hash 绑定；当前人工 artifact 生产路径不增加自动跨越故事门禁、联网 TTS 和 Delivery Critic 的单命令 `pipeline`。已验收的 M1/M2 LangGraph foundation 不改变这条边界；正式 HITL 和 production orchestration 仍属于未开始的 M3。后续若要迁移这些边界，必须作为带 artifact 迁移、媒体重渲与独立 Delivery 复审的产品范围任务处理。
+TD-001～007 没有剩余可执行代码项；该轮唯一未闭合的是 TD-004 的双期 smoke 验证环境阻塞。另有三项有意保留的契约边界：历史只读 adapter 保护不可改写 artifact；Episode 001 的显式 `poke-*` 前缀保护当前渲染导入和 hash 绑定；当前人工 artifact 生产路径不增加自动跨越故事门禁、联网 TTS 和 Delivery Critic 的单命令 `pipeline`。已验收的 M1–M4 LangGraph control plane 不改变这条边界。M3 HITL 与 production orchestration 已在 `src/orchestration/` 落地，并由 HITL/production/unfreeze 测试和 `docs/m4-acceptance-report.md` 覆盖；M3 没有单独的 acceptance report。后续若要迁移这些边界，必须作为带 artifact 迁移、媒体重渲与独立 Delivery 复审的产品范围任务处理。

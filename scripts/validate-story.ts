@@ -1,3 +1,4 @@
+import {spawnSync} from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import {episodeConfigSchema, factSchema} from "../src/schemas/episode";
@@ -35,6 +36,18 @@ import {
 } from "./lib/validation";
 
 installCliErrorHandlers();
+
+const workflow = spawnSync(
+  process.execPath,
+  [
+    "--import",
+    "tsx",
+    path.join(import.meta.dirname, "validate-workflow.ts"),
+    ...process.argv.slice(2),
+  ],
+  {encoding: "utf8", env: process.env, stdio: "inherit"},
+);
+if (workflow.status !== 0) process.exit(workflow.status ?? 1);
 
 const storyRoot = path.join(episodeRoot, "story");
 const requiredFiles = [

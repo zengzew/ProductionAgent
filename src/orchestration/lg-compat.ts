@@ -49,7 +49,11 @@ import {
   productionStageNames,
   type ProductionStageName,
 } from "./schemas/production";
-import {withControlledOrchestrationRun, withOptimisticFileCas, type ConcurrencyConfig} from "./concurrency";
+import {
+  withControlledOrchestrationRun,
+  withOptimisticFileCas,
+  type ConcurrencyConfig,
+} from "./concurrency";
 import {createRuntimeIdentity} from "./identity";
 
 export type FoundationNode = (
@@ -253,10 +257,7 @@ export class VersionedCheckpointSaver extends BaseCheckpointSaver {
     };
   }
 
-  private validateConfigIdentity(
-    config: CheckpointConfig,
-    values?: StateChannelValues,
-  ): void {
+  private validateConfigIdentity(config: CheckpointConfig, values?: StateChannelValues): void {
     const configurable = (config.configurable ?? {}) as Record<string, unknown>;
     const episodeId = configurable.episode_id;
     const threadId = configurable.thread_id;
@@ -326,7 +327,8 @@ export class VersionedCheckpointSaver extends BaseCheckpointSaver {
   async getTuple(config: CheckpointConfig): Promise<CheckpointTuple | undefined> {
     await this.ensureSetup();
     const tuple = await this.backend.getTuple(config);
-    if (tuple) this.validateConfigIdentity(config, tuple.checkpoint.channel_values as StateChannelValues);
+    if (tuple)
+      this.validateConfigIdentity(config, tuple.checkpoint.channel_values as StateChannelValues);
     return tuple ? this.normalizeTuple(tuple) : undefined;
   }
 
@@ -438,11 +440,15 @@ export const resumeAfterStubApproval = (value: unknown): Command => new Command(
 export const compileFoundationGraph = (input: {
   initialize: FoundationNode;
   executeNext: FoundationNode;
+  contentLoop?: FoundationNode;
   contentApproval: FoundationNode;
   production?: FoundationNode;
   finalApproval: FoundationNode;
   finalize: FoundationNode;
-  afterAgent: (state: ProductionState) => "continue" | "content_approval" | "final_approval";
+  afterAgent: (
+    state: ProductionState,
+  ) => "continue" | "content_loop" | "content_approval" | "final_approval";
+  afterContentLoop?: (state: ProductionState) => "content_loop" | "content_approval";
   afterContentApproval?: (state: ProductionState) => "production" | "execute_agent";
   afterFinalApproval?: (state: ProductionState) => "final_approval" | "finalize";
   checkpointer: LocalCheckpointer;
@@ -450,9 +456,11 @@ export const compileFoundationGraph = (input: {
   concurrency?: ConcurrencyConfig;
 }) => {
   const productionNode: FoundationNode = input.production ?? (() => ({}));
+  const contentLoopNode: FoundationNode = input.contentLoop ?? (() => ({}));
   const graph = new StateGraph(ProductionStateAnnotation)
     .addNode("initialize", input.initialize)
     .addNode("execute_agent", input.executeNext)
+    .addNode("content_loop", contentLoopNode)
     .addNode("content_approval", input.contentApproval)
     .addNode("production", productionNode)
     .addNode("final_approval", input.finalApproval)
@@ -461,8 +469,13 @@ export const compileFoundationGraph = (input: {
     .addEdge("initialize", "execute_agent")
     .addConditionalEdges("execute_agent", input.afterAgent, {
       continue: "execute_agent",
+      content_loop: "content_loop",
       content_approval: "content_approval",
       final_approval: "final_approval",
+    })
+    .addConditionalEdges("content_loop", input.afterContentLoop ?? (() => "content_approval"), {
+      content_loop: "content_loop",
+      content_approval: "content_approval",
     })
     .addConditionalEdges(
       "content_approval",
@@ -599,7 +612,9 @@ const stateIdentity = (value: unknown): {episodeId?: string; runId?: string} => 
   };
 };
 
-const configIdentity = (config: unknown): {
+const configIdentity = (
+  config: unknown,
+): {
   episodeId?: string;
   runId?: string;
   threadId?: string;
@@ -626,10 +641,13 @@ const resolveGraphIdentity = async (input: {
   const configured = configIdentity(input.config);
   let restored: {episodeId?: string; runId?: string} = {};
   if (!state.episodeId || !state.runId) {
-    const tuple = await input.checkpointer.getTuple(input.config as Parameters<LocalCheckpointer["getTuple"]>[0]);
+    const tuple = await input.checkpointer.getTuple(
+      input.config as Parameters<LocalCheckpointer["getTuple"]>[0],
+    );
     restored = stateIdentity(tuple?.checkpoint.channel_values);
   }
-  const episodeId = state.episodeId ?? configured.episodeId ?? restored.episodeId ?? configured.threadId;
+  const episodeId =
+    state.episodeId ?? configured.episodeId ?? restored.episodeId ?? configured.threadId;
   const runId = state.runId ?? configured.runId ?? restored.runId;
   if (!episodeId || !runId) throw new Error("RUNTIME_IDENTITY_REQUIRED_FOR_ORCHESTRATION");
   if (configured.episodeId && configured.episodeId !== episodeId) {
@@ -647,7 +665,7 @@ const resolveGraphIdentity = async (input: {
     // M1-M4.05 accepted arbitrary legacy LangGraph thread ids. Once the explicit episode_id
     // field is present it must equal the episode; otherwise derive the runtime thread identity
     // from the state without turning a legacy fixture into cross-episode state.
-    threadId: configured.episodeId ? configured.threadId ?? episodeId : episodeId,
+    threadId: configured.episodeId ? (configured.threadId ?? episodeId) : episodeId,
     traceId: configured.traceId ?? `${episodeId}:run:${runId}`,
   });
 };

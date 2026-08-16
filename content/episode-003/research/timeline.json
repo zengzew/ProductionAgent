@@ -1,0 +1,83 @@
+{
+  "asOf": "2026-08-16",
+  "events": [
+    {
+      "id": "evt-manus-001",
+      "dateLabel": "2025年",
+      "sortDate": "2025-04-17",
+      "datePrecision": "range",
+      "event": "Manus 在 2025 年公开发布通用 AI agent。公司后来在 2025-12-17 称，当时距离上线已有八个月。",
+      "eventType": "product",
+      "factIds": ["claim-manus-001", "claim-manus-015"],
+      "sourceIds": ["src-manus-005", "src-manus-008"],
+      "relationToPrevious": "not-applicable",
+      "storyFunction": "context",
+      "notes": "精确上线日未经官方单日公告核验。sortDate 仅用于排序，取官方“八个月后”回推窗口，不把该日写成发布日。"
+    },
+    {
+      "id": "evt-manus-002",
+      "dateLabel": "2025-12-17",
+      "sortDate": "2025-12-17",
+      "datePrecision": "day",
+      "event": "公司披露上线以来已处理超过 147T tokens、创建超过 8000 万台虚拟电脑，并自报 ARR 与收入 run rate。",
+      "eventType": "growth",
+      "factIds": ["claim-manus-005", "claim-manus-006"],
+      "sourceIds": ["src-manus-005", "src-manus-008"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "public-expansion",
+      "notes": "规模数字是公司口径。虚拟电脑数与 ARR 不得互相换算，也不能写成用户增长原因。"
+    },
+    {
+      "id": "evt-manus-003",
+      "dateLabel": "2025-12-29",
+      "sortDate": "2025-12-29",
+      "datePrecision": "day",
+      "event": "Manus 宣布加入 Meta，并称订阅服务继续通过应用和网站销售、公司继续在新加坡运营；双方均提到数百万用户。",
+      "eventType": "acquisition",
+      "factIds": ["claim-manus-007", "claim-manus-013"],
+      "sourceIds": ["src-manus-006", "src-manus-008", "src-manus-009"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "distribution-event",
+      "notes": "收购是公司事件，不是产品动作链的因果。本期不把它写成用户开始接受的原因。"
+    },
+    {
+      "id": "evt-manus-004",
+      "dateLabel": "2026-01-14",
+      "sortDate": "2026-01-14",
+      "datePrecision": "day",
+      "event": "官方发表 Sandbox 说明：每个任务一台隔离云电脑，含浏览器、文件和工具，可 24/7 执行且不占用本地资源。",
+      "eventType": "product",
+      "factIds": ["claim-manus-002", "claim-manus-003"],
+      "sourceIds": ["src-manus-004"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "validation",
+      "notes": "这是既有机制的公开说明日期，不表示当天才首次具备沙箱。"
+    },
+    {
+      "id": "evt-manus-005",
+      "dateLabel": "2026-03-16",
+      "sortDate": "2026-03-16",
+      "datePrecision": "day",
+      "event": "Manus 发布桌面应用与 My Computer，让 agent 在用户批准后处理本机文件、命令和应用。",
+      "eventType": "product",
+      "factIds": ["claim-manus-008", "claim-manus-009", "claim-manus-010", "claim-manus-011"],
+      "sourceIds": ["src-manus-002", "src-manus-003", "src-manus-007"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "turning-point",
+      "notes": "公司把这次发布写成补上云端与本机工作的缺口。这是产品选择的时序，不是增长归因。"
+    },
+    {
+      "id": "evt-manus-006",
+      "dateLabel": "2026-08-16",
+      "sortDate": "2026-08-16",
+      "datePrecision": "as-of",
+      "event": "研究截止日：官网仍把产品写成 action engine，桌面页仍提供 My Computer；页面同时提示即将恢复独立运营。",
+      "eventType": "company",
+      "factIds": ["claim-manus-001", "claim-manus-016", "claim-manus-014"],
+      "sourceIds": ["src-manus-001", "src-manus-002", "src-manus-003"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "durability-test",
+      "notes": "独立运营提示只记录当前页面状态，不进入旁白，也不改写产品机制。"
+    }
+  ]
+}

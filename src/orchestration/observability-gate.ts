@@ -437,27 +437,27 @@ export const createObservabilityControlEvent = (input: {
       }
     }
     return baseEventInput({
-    ...input,
-    attempt: input.attempt ?? 1,
-    eventType: input.eventType,
-    checkpoint: input.checkpoint ?? checkpointForState({state: input.state}),
-    inputArtifacts,
-    outputArtifacts,
-    executionKind: input.executionKind,
-    agentName: input.agentName,
-    terminalStatus: null,
-    nextAttempt: input.nextAttempt,
-    decisionId: input.decisionId,
-    decision: {
-      code: input.decisionCode ?? input.eventType.replaceAll(".", "_").toUpperCase(),
-      summary: input.decisionSummary ?? input.eventType,
-      rubricVersion: null,
-      score: null,
-      verdict: null,
-      issueIds: [],
-      route: null,
-      criticResultRef: null,
-    },
+      ...input,
+      attempt: input.attempt ?? 1,
+      eventType: input.eventType,
+      checkpoint: input.checkpoint ?? checkpointForState({state: input.state}),
+      inputArtifacts,
+      outputArtifacts,
+      executionKind: input.executionKind,
+      agentName: input.agentName,
+      terminalStatus: null,
+      nextAttempt: input.nextAttempt,
+      decisionId: input.decisionId,
+      decision: {
+        code: input.decisionCode ?? input.eventType.replaceAll(".", "_").toUpperCase(),
+        summary: input.decisionSummary ?? input.eventType,
+        rubricVersion: null,
+        score: null,
+        verdict: null,
+        issueIds: [],
+        route: null,
+        criticResultRef: null,
+      },
     });
   })();
 
@@ -597,13 +597,15 @@ const parseConcurrencyEvents = (
   for (const raw of source) {
     try {
       const event = concurrencyEventSchema.parse(raw);
-      if (eventIds.has(event.eventId)) addReason(reasons, `CONCURRENCY_EVENT_DUPLICATE:${event.eventId}`);
+      if (eventIds.has(event.eventId))
+        addReason(reasons, `CONCURRENCY_EVENT_DUPLICATE:${event.eventId}`);
       eventIds.add(event.eventId);
       const expected = crypto
         .createHash("sha256")
         .update(stableJson(concurrencyEventWithoutId(event)), "utf8")
         .digest("hex");
-      if (expected !== event.eventId) addReason(reasons, `CONCURRENCY_EVENT_TAMPERED:${event.eventId}`);
+      if (expected !== event.eventId)
+        addReason(reasons, `CONCURRENCY_EVENT_TAMPERED:${event.eventId}`);
       if (input.episodeId && event.episodeId !== input.episodeId) {
         addReason(reasons, `CONCURRENCY_EVENT_EPISODE_MISMATCH:${event.eventId}`);
       }
@@ -1253,8 +1255,7 @@ export const writeRunReport = (input: RunReportInput & {repoRoot: string}): RunR
       : {}),
   });
   const reportPath =
-    input.reportPath ??
-    `content/${episodeId ?? "unknown"}/observability/run-report.md`;
+    input.reportPath ?? `content/${episodeId ?? "unknown"}/observability/run-report.md`;
   const absolute = path.resolve(input.repoRoot, reportPath);
   const relative = path.relative(path.resolve(input.repoRoot), absolute);
   if (relative.startsWith("..") || path.isAbsolute(relative)) {

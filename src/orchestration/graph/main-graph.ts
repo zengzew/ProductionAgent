@@ -38,6 +38,13 @@ import {
   type LocalCheckpointer,
 } from "../lg-compat";
 import type {ConcurrencyConfig} from "../concurrency";
+import {
+  contentLoopOwnedAgentNames,
+  runContentLoop,
+  type ContentLoopInput,
+  type ContentLoopNodes,
+} from "./content-subgraph";
+import type {RevisionLedger} from "../schemas/revision-ledger";
 
 const phaseByAgent: Record<AgentName, ProductionState["phase"]> = {
   "research-analyst": "research",
@@ -103,17 +110,9 @@ const sameArtifactVersion = (left: ArtifactRef, right: ArtifactRef): boolean =>
   left.revision === right.revision &&
   left.sha256 === right.sha256;
 
-const defaultHumanIssue = (gate: HumanDecisionGate, ref: ArtifactRef) => ({
-  category: gate === "final-approval" ? ("delivery.render" as const) : ("story.structure" as const),
-  severity: gate === "final-approval" ? ("blocker" as const) : ("high" as const),
-  locator: {kind: "whole-artifact" as const, value: "human-rejection"},
-  affectedArtifactRef: ref,
-});
-
 /**
- * The interrupt payload exposes the required reference-only defaults, while the persisted
- * artifact is still parsed as a complete formal HumanDecision. Reviewer, timestamp, reason and
- * decisionId are never invented by the runtime.
+ * Resume values must already be a complete HumanDecision. Gate identity, artifact refs,
+ * approval epoch, runId, and reject Issues are never invented by the runtime.
  */
 const readFormalDecision = (input: {
   value: unknown;
@@ -125,15 +124,9 @@ const readFormalDecision = (input: {
     throw new Error("HUMAN_DECISION_REQUIRED");
   }
   const raw = {...(input.value as Record<string, unknown>)};
-  if (raw.gate === undefined) raw.gate = input.gate;
-  if (raw.artifactRefs === undefined) raw.artifactRefs = input.artifactRefs;
-  if (raw.approvalEpoch === undefined) raw.approvalEpoch = input.state.approvalEpoch;
-  if (raw.runId === undefined) raw.runId = input.state.runId;
   const decisionKind = raw.decision ?? raw.action;
   if (decisionKind === "reject" && raw.issue === undefined) {
-    const firstRef = input.artifactRefs[0];
-    if (!firstRef) throw new Error("HUMAN_DECISION_ARTIFACT_REFS_REQUIRED");
-    raw.issue = defaultHumanIssue(input.gate, firstRef);
+    throw new Error("HUMAN_DECISION_REJECT_ISSUE_REQUIRED");
   }
   const decision = humanDecisionSchema.parse(raw);
   if (decision.gate !== input.gate) throw new Error("HUMAN_DECISION_GATE_MISMATCH");
@@ -213,6 +206,11 @@ const issueStateUpdate = (
 export type FoundationObservabilityOptions = {
   /** Canonical M4-04 runs opt in; legacy M1-M3 graphs keep their existing event shape. */
   eventSink: ObservabilityEventSink;
+  /**
+   * Preferred clock for the formal observability path. When provided, it wins over
+   * input.now so the whole graph (foundation agents + production) shares one time source.
+   */
+  now?: () => string;
   events?: () => readonly ExecutionEvent[];
   eventLogPath?: string;
   expectedEventLogSha256?: string;
@@ -232,19 +230,38 @@ export const createFoundationGraph = (input: {
   now?: () => string;
   /** Enables the formal M3.4 protocol for this repository-backed graph. */
   repoRoot?: string;
+  requireFormalHumanDecision?: boolean;
   humanDecision?: {
     repoRoot: string;
     artifactIndex?: ArtifactIndex;
     now?: () => string;
   };
+  contentLoop?: {
+    nodes: ContentLoopNodes;
+    artifactIndex?: ArtifactIndex;
+    revisionLedger?: RevisionLedger;
+    routingConfig?: ContentLoopInput["routingConfig"];
+    provenance?: ContentLoopInput["provenance"];
+    budgetLimits?: ContentLoopInput["budgetLimits"];
+    selectionPolicy?: ContentLoopInput["selectionPolicy"];
+    maxRevisionRounds?: number;
+  };
   observability?: FoundationObservabilityOptions;
   production?: FoundationNode;
   concurrency?: ConcurrencyConfig;
 }) => {
-  const now = input.now ?? (() => new Date().toISOString());
+  const now = input.observability?.now ?? input.now ?? (() => new Date().toISOString());
   const formalRepoRoot = input.humanDecision?.repoRoot ?? input.repoRoot;
-  const formalHumanDecision = formalRepoRoot !== undefined;
+  const formalHumanDecision =
+    input.requireFormalHumanDecision ??
+    (input.humanDecision !== undefined || input.repoRoot !== undefined);
   const decisionNow = input.humanDecision?.now ?? now;
+  const contentLoopEnabled = input.contentLoop !== undefined;
+  const prepAgentNames = agentNames.filter(
+    (agentName) =>
+      agentName !== "delivery-critic" &&
+      !(contentLoopOwnedAgentNames as readonly string[]).includes(agentName),
+  );
 
   const emit = (event: ExecutionEvent): void => input.eventSink?.(event);
 
@@ -355,7 +372,17 @@ export const createFoundationGraph = (input: {
         ? (routedOwner as AgentName)
         : undefined;
     const agentName =
-      routedAgent ?? agentNames.find((candidate) => !state.completedAgents.includes(candidate));
+      routedAgent ??
+      agentNames.find((candidate) => {
+        if (state.completedAgents.includes(candidate)) return false;
+        if (
+          contentLoopEnabled &&
+          (contentLoopOwnedAgentNames as readonly string[]).includes(candidate)
+        ) {
+          return false;
+        }
+        return true;
+      });
     if (!agentName) {
       return state.pendingHumanRoute ? {phase: "production_revision" as const} : {};
     }
@@ -941,17 +968,99 @@ export const createFoundationGraph = (input: {
     }
     return {
       phase: "halted" as const,
-      haltReason: "M1.2 Golden Skeleton complete; formal approval semantics remain M3 scope",
+      haltReason: formalHumanDecision
+        ? "FINAL_APPROVAL_NOT_RECORDED"
+        : "M1.2 Golden Skeleton complete; formal approval semantics remain M3 scope",
+    };
+  };
+
+  const contentLoop: FoundationNode = async (state) => {
+    if (!input.contentLoop) return {};
+    const result = await runContentLoop({
+      state,
+      artifactIndex: input.contentLoop.artifactIndex,
+      nodes: input.contentLoop.nodes,
+      routingConfig: input.contentLoop.routingConfig,
+      provenance: input.contentLoop.provenance,
+      revisionLedger: input.contentLoop.revisionLedger,
+      budgetLimits: input.contentLoop.budgetLimits,
+      lockedRanges: state.lockedRanges,
+      selectionPolicy: input.contentLoop.selectionPolicy,
+      maxRevisionRounds: input.contentLoop.maxRevisionRounds,
+      skipVisualDirector: state.completedAgents.includes("visual-director"),
+      onRevisionCheckpoint: (checkpoint) => {
+        if (!input.observability) return;
+        const occurredAt = now();
+        const executionId = `${state.runId}:content-loop:round-${checkpoint.revision.round}`;
+        const checkpointRecord = createObservabilityCheckpoint({
+          state,
+          checkpointId: `${state.episodeId}:${state.runId}:checkpoint:content-loop:${checkpoint.revision.round}`,
+          checkpointVersion: input.observability.checkpointVersion,
+          committedAt: occurredAt,
+        });
+        input.observability.eventSink(
+          createObservabilityControlEvent({
+            state,
+            eventType: "checkpoint.committed",
+            stage: `content-loop:round-${checkpoint.revision.round}`,
+            executionId,
+            attempt: checkpoint.revision.round,
+            checkpoint: checkpointRecord,
+            inputArtifacts: Object.values(state.artifacts),
+            occurredAt,
+            executionKind: "deterministic-tool",
+            decisionCode: "CONTENT_LOOP_ROUND_CHECKPOINT",
+            decisionSummary: `content loop ${checkpoint.status} at round ${checkpoint.revision.round}`,
+          }),
+        );
+      },
+    });
+    return {
+      phase: result.state.phase,
+      round: result.state.round,
+      artifacts: result.state.artifacts,
+      evaluations: result.state.evaluations,
+      issues: result.state.issues,
+      gates: result.state.gates,
+      revisionLog: result.state.revisionLog,
+      decisions: {
+        ...result.state.decisions,
+        "content-loop": {
+          code:
+            result.status === "completed"
+              ? "CONTENT_LOOP_COMPLETED"
+              : result.status === "needs-revision"
+                ? "CONTENT_LOOP_NEEDS_REVISION"
+                : "CONTENT_LOOP_ESCALATED",
+          summary: `content loop ${result.status}; openIssues=${result.gate.issueIds.join(",") || "none"}`,
+        },
+      },
+      completedAgents: [...contentLoopOwnedAgentNames],
+      haltReason: result.state.haltReason,
     };
   };
 
   return compileFoundationGraph({
     initialize,
     executeNext,
+    contentLoop: contentLoopEnabled ? contentLoop : undefined,
     contentApproval,
     finalApproval,
     finalize,
     afterAgent: (state) => {
+      if (contentLoopEnabled) {
+        const prepComplete = prepAgentNames.every((agentName) =>
+          state.completedAgents.includes(agentName),
+        );
+        const loopComplete = contentLoopOwnedAgentNames.every((agentName) =>
+          state.completedAgents.includes(agentName),
+        );
+        if (!prepComplete) return "continue";
+        if (!loopComplete) return "content_loop";
+        return state.completedAgents.includes("delivery-critic")
+          ? "final_approval"
+          : "content_approval";
+      }
       const contentAgentsComplete = agentNames
         .slice(0, -1)
         .every((agentName) => state.completedAgents.includes(agentName));
@@ -960,6 +1069,7 @@ export const createFoundationGraph = (input: {
         ? "final_approval"
         : "content_approval";
     },
+    afterContentLoop: () => "content_approval",
     afterContentApproval: (state) =>
       formalHumanDecision && state.productionAuthorization?.approvalEpoch === state.approvalEpoch
         ? "production"

@@ -238,10 +238,7 @@ export const assertHumanDecisionForEpisode = (input: {
     throw new Error("HUMAN_DECISION_EPISODE_MISMATCH");
   }
   for (const edit of decision.edits) {
-    if (
-      edit.before.episodeId !== input.episodeId ||
-      edit.after.episodeId !== input.episodeId
-    ) {
+    if (edit.before.episodeId !== input.episodeId || edit.after.episodeId !== input.episodeId) {
       throw new Error("HUMAN_DECISION_EDIT_EPISODE_MISMATCH");
     }
   }
@@ -339,7 +336,11 @@ export const assertHumanDecisionReplay = (input: {
 }): HumanDecision => {
   const decision = normalizedDecision(input.decision);
   const decisionRef = artifactRefSchema.parse(input.decisionRef);
-  const persisted = readHumanDecision(input.repoRoot, decisionRef, decision.artifactRefs[0]!.episodeId);
+  const persisted = readHumanDecision(
+    input.repoRoot,
+    decisionRef,
+    decision.artifactRefs[0]!.episodeId,
+  );
   assertHumanDecisionForEpisode({
     decision,
     episodeId: decisionRef.episodeId,

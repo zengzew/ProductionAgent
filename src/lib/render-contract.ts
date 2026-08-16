@@ -20,6 +20,12 @@ const renderContracts: Readonly<Record<string, RenderContract>> = {
     generatedPrefix: "episode-002",
     layoutVariant: "roost-standard",
   },
+  "episode-003": {
+    composition: "ManusVertical",
+    smokeComposition: "ManusVerticalSmoke",
+    generatedPrefix: "episode-003",
+    layoutVariant: "poke-standard",
+  },
 };
 
 export const getRenderContract = (episodeId: string): RenderContract => {

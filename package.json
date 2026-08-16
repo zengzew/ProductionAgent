@@ -25,7 +25,7 @@
     "test:coverage": "vitest run --coverage",
     "validate:research": "tsx scripts/validate-research.ts",
     "validate:workflow": "tsx scripts/validate-workflow.ts",
-    "validate:story": "pnpm validate:workflow && tsx scripts/validate-story.ts",
+    "validate:story": "tsx scripts/validate-story.ts",
     "materialize:story": "tsx scripts/materialize-story.ts",
     "polish": "tsx scripts/polish-script.ts",
     "ab:compare": "tsx scripts/run-ab.ts",

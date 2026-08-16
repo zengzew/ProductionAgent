@@ -1,0 +1,92 @@
+[
+  {
+    "id": "src-manus-001",
+    "title": "Manus official homepage",
+    "publisher": "Manus",
+    "url": "https://manus.im/",
+    "publishedAt": "2026-08-16",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "当前官网将产品写成 action engine：执行任务、自动化工作流。页脚版权为 © 2026 Manus AI。页面顶部有“即将恢复独立运营”提示，只记录当前页面状态，不作为产品机制证据。"
+  },
+  {
+    "id": "src-manus-002",
+    "title": "Download desktop app",
+    "publisher": "Manus",
+    "url": "https://manus.im/desktop",
+    "publishedAt": "2026-08-16",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方桌面下载页。标题写 Manus now lives on your computer；说明 My Computer 可管理本地文件、执行命令并直接操作工作区。可支持桌面入口与本地文件动作的画面证据。"
+  },
+  {
+    "id": "src-manus-003",
+    "title": "Introducing My Computer: When Manus Meets Your Desktop",
+    "publisher": "Manus",
+    "url": "https://manus.im/blog/manus-my-computer-desktop",
+    "publishedAt": "2026-03-16",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "2026-03-16 产品博客。说明此前 Manus 完全活在云端沙箱，沙箱有网络、命令行、文件系统和浏览器；My Computer 是新桌面应用的核心能力，可读写本地文件、启动本地应用；每条终端命令需用户明确批准；当日向全部 macOS 与 Windows 用户开放。"
+  },
+  {
+    "id": "src-manus-004",
+    "title": "Understanding Manus sandbox - your cloud computer",
+    "publisher": "Manus",
+    "url": "https://manus.im/blog/manus-sandbox",
+    "publishedAt": "2026-01-14",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方产品说明：每个任务分配一台隔离云虚拟机，具备网络、文件系统、浏览器和工具；可 24/7 执行且不占用用户本地资源；休眠后文件仍保留。这是机制说明，不是独立评测。"
+  },
+  {
+    "id": "src-manus-005",
+    "title": "Manus Update: $100M ARR, $125M revenue run-rate",
+    "publisher": "Manus",
+    "url": "https://manus.im/blog/manus-100m-arr",
+    "publishedAt": "2025-12-17",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "公司自报：上线八个月 ARR 超过 1 亿美元；收入 run rate 超过 1.25 亿美元；上线以来处理超过 147T tokens、创建超过 8000 万台虚拟电脑；并将协作方式概括为从问答转向任务委托。"
+  },
+  {
+    "id": "src-manus-006",
+    "title": "Manus Joins Meta for Next Era of Innovation",
+    "publisher": "Manus",
+    "url": "https://manus.im/blog/manus-joins-meta-for-next-era-of-innovation",
+    "publishedAt": "2025-12-29",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "公司公告加入 Meta。重复 147T tokens 与 8000 万虚拟电脑；称将继续通过应用和网站销售订阅，公司继续在新加坡运营；引用 CEO Xiao Hong 的话。百万用户口径与 Meta 声明交叉出现。"
+  },
+  {
+    "id": "src-manus-007",
+    "title": "Meta's Manus launches desktop app to bring its AI agent onto personal devices",
+    "publisher": "CNBC",
+    "url": "https://www.cnbc.com/2026/03/18/metas-manus-launches-desktop-app-to-bring-its-ai-agent-onto-personal-devices.html",
+    "publishedAt": "2026-03-18",
+    "accessedAt": "2026-08-16",
+    "sourceType": "media",
+    "notes": "独立媒体核对桌面应用与 My Computer：此前 agent 只在云端、主要通过网页使用；新桌面应用可直接处理本机文件、工具和应用；并转述官方的命令批准机制。"
+  },
+  {
+    "id": "src-manus-008",
+    "title": "Meta acquires intelligent agent firm Manus, capping year of aggressive AI moves",
+    "publisher": "CNBC",
+    "url": "https://www.cnbc.com/2025/12/30/meta-acquires-singapore-ai-agent-firm-manus-china-butterfly-effect-monicai.html",
+    "publishedAt": "2025-12-30",
+    "accessedAt": "2026-08-16",
+    "sourceType": "media",
+    "notes": "独立媒体记录 Meta 宣布收购新加坡主体、产品继续订阅运营，并转述公司 ARR、token 与虚拟电脑口径。收购金额来自其他媒体信源，不进入旁白。"
+  },
+  {
+    "id": "src-manus-009",
+    "title": "Manus Joins Meta: Accelerating AI Innovation for Businesses",
+    "publisher": "Meta",
+    "url": "https://www.facebook.com/business/news/manus-joins-meta-accelerating-ai-innovation-for-businesses",
+    "publishedAt": "2025-12-29",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "Meta 官方收购声明。称 Manus 已服务全球数百万用户与企业，并计划把该服务扩展到更多企业。百万用户是收购方口径，不是独立用户审计。"
+  }
+]
