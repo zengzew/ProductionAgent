@@ -8,10 +8,11 @@ import {artifactRefSchema} from "../orchestration/schemas/artifact";
 import {mediaObservabilityEventRepositoryPath, resolveMediaRepositoryPath} from "./paths";
 
 /**
- * M5.03 media observability events. The log records only refs, hashes, sizes,
- * and statuses — never credentials, request bodies, or source content. Event
- * ids are hash-bound to the redacted envelope, and the append is idempotent,
- * mirroring the cache/execution event logs.
+ * M5.03/M5.04 media observability events. The log records only refs, hashes,
+ * sizes, stage availability, and statuses — never credentials, request
+ * bodies, or source content. Event ids are hash-bound to the redacted
+ * envelope, and the append is idempotent, mirroring the cache/execution event
+ * logs.
  */
 
 export const mediaEventTypes = [
@@ -23,12 +24,30 @@ export const mediaEventTypes = [
   "media.normalize.failed",
   "media.cache.hit",
   "media.cache.miss",
+  "media.transcript.started",
+  "media.transcript.completed",
+  "media.transcript.failed",
+  "media.scenes.started",
+  "media.scenes.completed",
+  "media.scenes.failed",
+  "media.keyframes.started",
+  "media.keyframes.completed",
+  "media.keyframes.failed",
+  "media.index.started",
+  "media.index.completed",
+  "media.index.failed",
+  "media.understanding.cache.hit",
+  "media.understanding.cache.miss",
 ] as const;
 
 export const mediaEventTypeSchema = z.enum(mediaEventTypes);
 export type MediaEventType = z.infer<typeof mediaEventTypeSchema>;
 
 const sha256Schema = z.string().regex(/^[a-f0-9]{64}$/u);
+
+/** Availability of a media understanding stage recorded on completed/failed events. */
+export const mediaEventAvailabilitySchema = z.enum(["available", "unavailable", "not-applicable"]);
+export type MediaEventAvailability = z.infer<typeof mediaEventAvailabilitySchema>;
 
 export const mediaEventSchema = z
   .object({
@@ -47,6 +66,7 @@ export const mediaEventSchema = z
     mediaType: z.string().min(1).optional(),
     artifactRef: artifactRefSchema.optional(),
     cacheKey: sha256Schema.optional(),
+    availability: mediaEventAvailabilitySchema.optional(),
     reason: z.string().max(500).optional(),
   })
   .strict();
@@ -69,6 +89,7 @@ export type CreateMediaEventInput = {
   mediaType?: string;
   artifactRef?: unknown;
   cacheKey?: string;
+  availability?: MediaEventAvailability;
   reason?: string;
 };
 
@@ -93,6 +114,7 @@ export const createMediaEvent = (input: CreateMediaEventInput): MediaEvent => {
     ...(input.mediaType ? {mediaType: input.mediaType} : {}),
     ...(input.artifactRef ? {artifactRef: input.artifactRef} : {}),
     ...(input.cacheKey ? {cacheKey: input.cacheKey} : {}),
+    ...(input.availability ? {availability: input.availability} : {}),
     ...(input.reason ? {reason: redactObservabilityText(input.reason)} : {}),
   };
   const redacted = redactObservabilityValue(withoutId);

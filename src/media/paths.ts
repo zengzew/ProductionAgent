@@ -60,6 +60,60 @@ export const mediaAssetRepositoryPath = (episodeId: string, filename: string): s
   return `${mediaAssetsRepositoryPath(episodeId)}/${filename}`;
 };
 
+const mediaSlugPattern = /^[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?$/u;
+
+const assertMediaSlug = (mediaSlug: string): void => {
+  if (!mediaSlugPattern.test(mediaSlug)) {
+    throw new Error(`Invalid media index slug: ${mediaSlug}`);
+  }
+};
+
+/** `media/indexes/<slug>/` for one original media asset (slug = mediaId last segment). */
+export const mediaIndexDirectoryRepositoryPath = (episodeId: string, mediaSlug: string): string => {
+  assertEpisodeId(episodeId);
+  assertMediaSlug(mediaSlug);
+  return `${mediaIndexesRepositoryPath(episodeId)}/${mediaSlug}`;
+};
+
+export const mediaTranscriptRepositoryPath = (episodeId: string, mediaSlug: string): string =>
+  `${mediaIndexDirectoryRepositoryPath(episodeId, mediaSlug)}/transcript.json`;
+
+export const mediaScenesRepositoryPath = (episodeId: string, mediaSlug: string): string =>
+  `${mediaIndexDirectoryRepositoryPath(episodeId, mediaSlug)}/scenes.json`;
+
+export const mediaKeyframesDirectoryRepositoryPath = (
+  episodeId: string,
+  mediaSlug: string,
+): string => `${mediaIndexDirectoryRepositoryPath(episodeId, mediaSlug)}/keyframes`;
+
+export const mediaKeyframeRepositoryPath = (
+  episodeId: string,
+  mediaSlug: string,
+  filename: string,
+): string => {
+  if (
+    !filename ||
+    filename === "." ||
+    filename === ".." ||
+    filename.startsWith(".") ||
+    filename.includes("/") ||
+    filename.includes("\\") ||
+    !mediaAssetFilenamePattern.test(filename)
+  ) {
+    throw new Error(`Invalid media keyframe filename: ${filename}`);
+  }
+  return `${mediaKeyframesDirectoryRepositoryPath(episodeId, mediaSlug)}/${filename}`;
+};
+
+export const mediaClipIndexRepositoryPath = (episodeId: string, mediaSlug: string): string =>
+  `${mediaIndexDirectoryRepositoryPath(episodeId, mediaSlug)}/clip-index.json`;
+
+/** Internal per-media understanding ledger (ArtifactRef/status only, never bodies). */
+export const mediaUnderstandingStatusRepositoryPath = (
+  episodeId: string,
+  mediaSlug: string,
+): string => `${mediaIndexDirectoryRepositoryPath(episodeId, mediaSlug)}/status.json`;
+
 export const resolveMediaRepositoryPath = (repoRoot: string, repositoryPath: string): string => {
   const absolutePath = path.resolve(repoRoot, repositoryPath);
   const repoRelative = path.relative(path.resolve(repoRoot), absolutePath);
