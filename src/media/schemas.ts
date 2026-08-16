@@ -141,6 +141,8 @@ export const mediaAssetSchema = z
     artifactRef: artifactRefSchema,
     kind: z.enum(["original", "proxy"]),
     derivedFromMediaId: z.string().min(1).optional(),
+    /** Hash-bound ArtifactRef of the original this proxy was derived from. */
+    derivedFromMediaRef: artifactRefSchema.optional(),
   })
   .strict()
   .superRefine((value, context) => {
@@ -211,12 +213,35 @@ export const mediaAssetSchema = z
           message: "proxy media must declare a valid episode-scoped original mediaId",
         });
       }
+      if (!value.derivedFromMediaRef) {
+        context.addIssue({
+          code: "custom",
+          path: ["derivedFromMediaRef"],
+          message: "proxy media must declare a hash-bound derivedFromMediaRef",
+        });
+      } else if (
+        value.derivedFromMediaRef.episodeId !== value.episodeId ||
+        value.derivedFromMediaRef.artifactId !== value.derivedFromMediaId
+      ) {
+        context.addIssue({
+          code: "custom",
+          path: ["derivedFromMediaRef"],
+          message: "derivedFromMediaRef must anchor this episode original mediaId",
+        });
+      }
     }
     if (value.kind === "original" && value.derivedFromMediaId) {
       context.addIssue({
         code: "custom",
         path: ["derivedFromMediaId"],
         message: "original media must not declare derivedFromMediaId",
+      });
+    }
+    if (value.kind === "original" && value.derivedFromMediaRef) {
+      context.addIssue({
+        code: "custom",
+        path: ["derivedFromMediaRef"],
+        message: "original media must not declare derivedFromMediaRef",
       });
     }
   });

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "media-ingest-config-v1",
+  "maxDownloadBytes": 104857600,
+  "downloadTimeoutMs": 120000,
+  "allowedContentTypes": [
+    "video/mp4",
+    "video/webm",
+    "video/quicktime",
+    "video/x-matroska",
+    "video/x-msvideo",
+    "video/mpeg",
+    "audio/mpeg",
+    "audio/wav",
+    "audio/mp4",
+    "audio/aac",
+    "audio/flac",
+    "audio/ogg",
+    "image/jpeg",
+    "image/png",
+    "image/webp",
+    "image/gif"
+  ],
+  "normalization": {
+    "enabled": true,
+    "video": {
+      "codec": "libx264",
+      "preset": "veryfast",
+      "crf": 23,
+      "pixelFormat": "yuv420p",
+      "audioCodec": "aac",
+      "audioBitrate": "128k",
+      "audioChannels": 2,
+      "audioSampleRate": 48000,
+      "container": "mp4",
+      "faststart": true
+    }
+  },
+  "toolVersion": "media-ingest-v1"
+}

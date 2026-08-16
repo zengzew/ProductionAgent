@@ -3,3 +3,7 @@ export * from "./paths";
 export * from "./manifest";
 export * from "./discovery-config";
 export * from "./discovery";
+export * from "./ingest-config";
+export * from "./probe";
+export * from "./events";
+export * from "./ingest";

@@ -126,7 +126,7 @@ export const buildShotAssetCacheKey = (input: ShotAssetCacheKeyInput): string =>
     toolVersion: input.toolVersion,
   });
 
-const cacheKindSchema = z.enum(["tts-segment", "shot-asset"]);
+const cacheKindSchema = z.enum(["tts-segment", "shot-asset", "media-normalize"]);
 export type CacheKind = z.infer<typeof cacheKindSchema>;
 
 export const fineGrainedCacheEntrySchema = z

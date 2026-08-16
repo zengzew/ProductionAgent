@@ -31,6 +31,18 @@ export const mediaVerificationsRepositoryPath = (episodeId: string): string =>
 export const mediaDecisionsRepositoryPath = (episodeId: string): string =>
   `${mediaRootRepositoryPath(episodeId)}/decisions`;
 
+export const mediaObservabilityRepositoryPath = (episodeId: string): string =>
+  `${mediaRootRepositoryPath(episodeId)}/observability`;
+
+export const mediaObservabilityEventRepositoryPath = (episodeId: string): string =>
+  `${mediaObservabilityRepositoryPath(episodeId)}/media-events.jsonl`;
+
+export const mediaCacheEventsRepositoryPath = (episodeId: string): string =>
+  `${mediaObservabilityRepositoryPath(episodeId)}/cache-events.jsonl`;
+
+export const mediaTmpRepositoryPath = (episodeId: string): string =>
+  `${mediaRootRepositoryPath(episodeId)}/.tmp`;
+
 const mediaAssetFilenamePattern = /^[a-z0-9][a-z0-9._-]*\.[a-z0-9][a-z0-9.+-]*$/u;
 
 export const mediaAssetRepositoryPath = (episodeId: string, filename: string): string => {

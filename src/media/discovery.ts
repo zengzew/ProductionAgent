@@ -29,13 +29,9 @@ const sha256Hex = (bytes: Buffer): string =>
 const DEFAULT_PUBLISHER = "unknown";
 const DEFAULT_RIGHTS_BASIS = "Awaiting structured human rights review";
 
-const manifestPathFor = (episodeId: string): string =>
-  mediaSourceManifestRepositoryPath(episodeId);
+const manifestPathFor = (episodeId: string): string => mediaSourceManifestRepositoryPath(episodeId);
 
-const readOrCreateManifest = (
-  repoRoot: string,
-  episodeId: string,
-): MediaSourceManifest =>
+const readOrCreateManifest = (repoRoot: string, episodeId: string): MediaSourceManifest =>
   fs.existsSync(resolveMediaRepositoryPath(repoRoot, manifestPathFor(episodeId)))
     ? readMediaSourceManifest(repoRoot, episodeId)
     : emptyMediaSourceManifest({episodeId});
@@ -116,9 +112,7 @@ export type ProposeMediaSourceResult = {
  * always enters the manifest as `admissionStatus=pending` with
  * `rightsStatus=review-required` (or `unknown`) — never pre-approved.
  */
-export const proposeMediaSource = (
-  input: ProposeMediaSourceInput,
-): ProposeMediaSourceResult => {
+export const proposeMediaSource = (input: ProposeMediaSourceInput): ProposeMediaSourceResult => {
   const config = input.config ?? mediaDiscoveryFileConfig;
   const {episodeId, sourceId} = {episodeId: input.episodeId, sourceId: input.source.sourceId};
 
@@ -285,7 +279,10 @@ export const applyMediaSourceAdmission = (
   });
   const decisionRef = persisted.decisionRef;
 
-  if (existing.admissionDecisionRef && existing.admissionDecisionRef.sha256 !== decisionRef.sha256) {
+  if (
+    existing.admissionDecisionRef &&
+    existing.admissionDecisionRef.sha256 !== decisionRef.sha256
+  ) {
     throw new Error(`MEDIA_DISCOVERY_ADMISSION_DECISION_CONFLICT:${input.sourceId}`);
   }
 
@@ -407,4 +404,14 @@ export const getMediaSource = (
 export const isMediaSourceAdmitted = (source: MediaSource): boolean => {
   const parsed = mediaSourceSchema.parse(source);
   return parsed.admissionStatus === "admitted" && parsed.admissionDecisionRef !== undefined;
+};
+
+/**
+ * Rights count as approved only when a persisted, hash-bound `media-rights`
+ * decision exists. LLM/VLM or metadata automation can never set this state;
+ * only `applyMediaSourceRights` records the decision ref.
+ */
+export const isMediaSourceRightsApproved = (source: MediaSource): boolean => {
+  const parsed = mediaSourceSchema.parse(source);
+  return parsed.rightsStatus === "approved" && parsed.rightsDecisionRef !== undefined;
 };
