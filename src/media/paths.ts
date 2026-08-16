@@ -31,6 +31,9 @@ export const mediaVerificationsRepositoryPath = (episodeId: string): string =>
 export const mediaDecisionsRepositoryPath = (episodeId: string): string =>
   `${mediaRootRepositoryPath(episodeId)}/decisions`;
 
+export const mediaSelectionsRepositoryPath = (episodeId: string): string =>
+  `${mediaRootRepositoryPath(episodeId)}/selections`;
+
 export const mediaObservabilityRepositoryPath = (episodeId: string): string =>
   `${mediaRootRepositoryPath(episodeId)}/observability`;
 
@@ -184,6 +187,101 @@ export const mediaVerificationClipRepositoryPath = (
     throw new Error(`Invalid verification clip extension: ${extension}`);
   }
   return `${mediaVerificationsRepositoryPath(episodeId)}/${segmentId}/${mediaVerificationFilenameSlug(clipId)}-clip.${extension}`;
+};
+
+const selectionSegmentPattern = /^seg-[a-z0-9-]+$/u;
+
+/**
+ * `media/selections/<segmentId>.json` — one hash-bound WP-M5.07
+ * `visual-slot-v1` artifact per final-script segment.
+ */
+export const mediaVisualSlotRepositoryPath = (episodeId: string, segmentId: string): string => {
+  assertEpisodeId(episodeId);
+  if (!selectionSegmentPattern.test(segmentId)) {
+    throw new Error(`Invalid visual slot segment id: ${segmentId}`);
+  }
+  return `${mediaSelectionsRepositoryPath(episodeId)}/${segmentId}.json`;
+};
+
+/* ------------------------------------------------------------------------- *
+ * WP-M5.08 render paths
+ * ------------------------------------------------------------------------- */
+
+const renderSegmentPattern = /^seg-[a-z0-9-]+$/u;
+
+const assertRenderSegment = (episodeId: string, segmentId: string): void => {
+  assertEpisodeId(episodeId);
+  if (!renderSegmentPattern.test(segmentId)) {
+    throw new Error(`Invalid media render segment id: ${segmentId}`);
+  }
+};
+
+export const mediaShotsRepositoryPath = (episodeId: string): string =>
+  `${mediaRootRepositoryPath(episodeId)}/shots`;
+
+/**
+ * `media/shots/<segmentId>.json` — one hash-bound WP-M5.08 `media-shot-v1`
+ * shot plan artifact per final-script segment (trim/transform/audio/lineage).
+ */
+export const mediaShotRepositoryPath = (episodeId: string, segmentId: string): string => {
+  assertRenderSegment(episodeId, segmentId);
+  return `${mediaShotsRepositoryPath(episodeId)}/${segmentId}.json`;
+};
+
+/**
+ * `media/render-plan.json` — one hash-bound WP-M5.08 `media-render-plan-v1`
+ * projection consumed by the generic Remotion mix composition.
+ */
+export const mediaRenderPlanRepositoryPath = (episodeId: string): string => {
+  assertEpisodeId(episodeId);
+  return `${mediaRootRepositoryPath(episodeId)}/render-plan.json`;
+};
+
+const renderProxyExtensionPattern = /^[a-z0-9][a-z0-9.+-]{0,8}$/u;
+
+/**
+ * `media/render/<segmentId>.<ext>` — the hash-bound WP-M5.08 render proxy
+ * bytes (the trimmed, normalized cut the Remotion layer actually plays).
+ */
+export const mediaRenderProxyRepositoryPath = (
+  episodeId: string,
+  segmentId: string,
+  extension: string,
+): string => {
+  assertRenderSegment(episodeId, segmentId);
+  if (!renderProxyExtensionPattern.test(extension)) {
+    throw new Error(`Invalid media render proxy extension: ${extension}`);
+  }
+  return `${mediaRootRepositoryPath(episodeId)}/render/${segmentId}.${extension}`;
+};
+
+/**
+ * Public (Remotion `staticFile`) path of one render proxy. Files under
+ * `public/episodes/<ep>/media/` are hash-verified copies of the render proxy
+ * artifacts; the composition only ever consumes these via `staticFile`.
+ */
+export const mediaRenderPublicPath = (
+  episodeId: string,
+  segmentId: string,
+  extension: string,
+): string => {
+  assertRenderSegment(episodeId, segmentId);
+  if (!renderProxyExtensionPattern.test(extension)) {
+    throw new Error(`Invalid media render public extension: ${extension}`);
+  }
+  return `episodes/${episodeId}/media/${segmentId}.${extension}`;
+};
+
+/** Public (Remotion `staticFile`) path of the render plan projection. */
+export const mediaRenderPlanPublicPath = (episodeId: string): string => {
+  assertEpisodeId(episodeId);
+  return `episodes/${episodeId}/media/render-plan.json`;
+};
+
+/** Repository path of the public render directory for one episode. */
+export const mediaRenderPublicDirectoryRepositoryPath = (episodeId: string): string => {
+  assertEpisodeId(episodeId);
+  return `public/episodes/${episodeId}/media`;
 };
 
 export const resolveMediaRepositoryPath = (repoRoot: string, repositoryPath: string): string => {

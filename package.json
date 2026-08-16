@@ -33,6 +33,7 @@
     "capture": "tsx scripts/capture-assets.ts",
     "tts": "tsx scripts/generate-tts.ts",
     "timeline": "tsx scripts/build-timeline.ts",
+    "media:render-plan": "tsx scripts/build-media-render-plan.ts",
     "render:smoke": "tsx scripts/render.ts smoke",
     "render:vertical": "tsx scripts/render.ts vertical",
     "inspect:output": "tsx scripts/inspect-output.ts",

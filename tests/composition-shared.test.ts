@@ -1,5 +1,10 @@
 import {describe, expect, it} from "vitest";
-import {reportingIdentity, sourcePublishers} from "../src/compositions/shared";
+import {
+  EVIDENCE_STAGE_LAYOUT,
+  highlightSegments,
+  reportingIdentity,
+  sourcePublishers,
+} from "../src/compositions/shared";
 
 describe("shared composition attribution", () => {
   it("uses inference, company, founder as the reporting identity priority", () => {
@@ -55,5 +60,32 @@ describe("shared composition attribution", () => {
         reverseClaims: true,
       }),
     ).toBe("B · C · A");
+  });
+});
+
+describe("shared evidence-stage helpers", () => {
+  it("keeps a persistent title band above the evidence stage and source bar", () => {
+    expect(EVIDENCE_STAGE_LAYOUT.titleTop).toBeLessThan(EVIDENCE_STAGE_LAYOUT.stageTop);
+    expect(EVIDENCE_STAGE_LAYOUT.stageBottom).toBeLessThan(EVIDENCE_STAGE_LAYOUT.sourceTop);
+    expect(EVIDENCE_STAGE_LAYOUT.sourceTop + EVIDENCE_STAGE_LAYOUT.sourceHeight).toBeLessThan(
+      EVIDENCE_STAGE_LAYOUT.height - EVIDENCE_STAGE_LAYOUT.captionBottom,
+    );
+  });
+
+  it("highlights the longest first-mention fact without splitting a shorter overlap", () => {
+    expect(highlightSegments("超过八千万台虚拟电脑", ["八千万", "万"])).toEqual([
+      {text: "超过", highlighted: false},
+      {text: "八千万", highlighted: true},
+      {text: "台虚拟电脑", highlighted: false},
+    ]);
+    expect(highlightSegments("为什么不聊天，要自己干活？", ["自己干活"])).toEqual([
+      {text: "为什么不聊天，要", highlighted: false},
+      {text: "自己干活", highlighted: true},
+      {text: "？", highlighted: false},
+    ]);
+    expect(highlightSegments("任务已经发出", [])).toEqual([
+      {text: "任务已经发出", highlighted: false},
+    ]);
+    expect(highlightSegments("", ["八千万"])).toEqual([]);
   });
 });

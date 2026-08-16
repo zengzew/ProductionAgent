@@ -1,0 +1,111 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-m5e2e:media-visual-slot:seg-001",
+    "createdAt": "2026-08-18T00:00:00.000Z",
+    "episodeId": "episode-m5e2e",
+    "mediaType": "application/json",
+    "path": "content/episode-m5e2e/media/selections/seg-001.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "ea96874dcd6eb6c9f763d069de82f09ac468912338e484a6334bde017573c3fd",
+    "sizeBytes": 3648
+  },
+  "claimIds": [
+    "claim-e2e-001"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.5,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": true
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0.2,
+      "durationSuitability": 0.05,
+      "misleadingRiskSafety": 0.1,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.05,
+      "verificationClaimMatch": 0.15,
+      "verificationRelevance": 0.1,
+      "visualIntentFit": 0.1,
+      "visualQuality": 0.1
+    }
+  },
+  "createdAt": "2026-08-18T00:00:00.000Z",
+  "episodeId": "episode-m5e2e",
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true,
+    "verificationPassed": true
+  },
+  "reasons": [
+    "segment seg-001 claim-bound with 1 claim(s)",
+    "retrieval result episode-m5e2e:media-retrieval:seg-001 produced 4 candidate(s)",
+    "1 candidate(s) carry a valid pass verification",
+    "selected episode-m5e2e:media-clip:1ebacc573f498cdcc4383420 score 0.715521 (claimFit=0.920, relevance=0.900, claimMatch=0.900, quality=0.800, risk=0.100, tie-breaker=score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-001",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-e2e-001"
+    ],
+    "clipId": "episode-m5e2e:media-clip:1ebacc573f498cdcc4383420",
+    "createdAt": "2026-08-18T00:00:00.000Z",
+    "endMs": 4000,
+    "episodeId": "episode-m5e2e",
+    "mediaId": "episode-m5e2e:media:demo",
+    "sourceMediaRef": {
+      "artifactId": "episode-m5e2e:media:demo",
+      "createdAt": "2026-08-18T00:00:00.000Z",
+      "episodeId": "episode-m5e2e",
+      "mediaType": "video/mp4",
+      "path": "content/episode-m5e2e/media/assets/demo.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+      "sizeBytes": 11513933
+    },
+    "startMs": 0,
+    "transcriptRefs": [
+      {
+        "artifactId": "episode-m5e2e:media-transcript:demo",
+        "createdAt": "2026-08-18T00:00:00.000Z",
+        "episodeId": "episode-m5e2e",
+        "mediaType": "application/json",
+        "path": "content/episode-m5e2e/media/indexes/demo/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "966590b354bc9eb5e7599248aa530eb26ee334f487d017e4f0c02f4050b30388",
+        "sizeBytes": 1788
+      }
+    ],
+    "visualIntent": "主界面操作流程演示"
+  },
+  "selectedType": "real-media",
+  "selectionScore": 0.715521,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-m5e2e:media-visual-slot:seg-001",
+  "verificationRef": {
+    "artifactId": "episode-m5e2e:media-verification:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+    "createdAt": "2026-08-18T00:00:00.000Z",
+    "episodeId": "episode-m5e2e",
+    "mediaType": "application/json",
+    "path": "content/episode-m5e2e/media/verifications/seg-001/episode-m5e2e-media-clip-1ebacc573f498cdcc4383420.json",
+    "producer": "media-verification-v1:deterministic-stub:deterministic-verify-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "61bd2db86249d1e7bf417d68e2afc7ee954e750cba1f15a1d84232e4a51c830f",
+    "sizeBytes": 4687
+  },
+  "visualIntent": "主界面操作流程演示"
+}

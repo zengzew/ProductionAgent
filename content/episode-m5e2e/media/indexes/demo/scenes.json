@@ -1,0 +1,70 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-m5e2e:media:demo-proxy",
+    "createdAt": "2026-08-18T00:00:00.000Z",
+    "episodeId": "episode-m5e2e",
+    "mediaType": "video/mp4",
+    "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+    "sizeBytes": 7301277
+  },
+  "config": {
+    "maxSceneMs": 6000,
+    "minSceneMs": 800,
+    "targetSceneMs": 4000
+  },
+  "detector": "deterministic-boundaries",
+  "detectorVersion": "scene-detector-v1",
+  "durationMs": 24000,
+  "episodeId": "episode-m5e2e",
+  "mediaId": "episode-m5e2e:media:demo",
+  "scenes": [
+    {
+      "endMs": 4000,
+      "sceneIndex": 0,
+      "startMs": 0
+    },
+    {
+      "endMs": 8000,
+      "sceneIndex": 1,
+      "startMs": 4000
+    },
+    {
+      "endMs": 12000,
+      "sceneIndex": 2,
+      "startMs": 8000
+    },
+    {
+      "endMs": 16000,
+      "sceneIndex": 3,
+      "startMs": 12000
+    },
+    {
+      "endMs": 20000,
+      "sceneIndex": 4,
+      "startMs": 16000
+    },
+    {
+      "endMs": 24000,
+      "sceneIndex": 5,
+      "startMs": 20000
+    }
+  ],
+  "schemaVersion": "media-scenes-v1",
+  "sourceMediaRef": {
+    "artifactId": "episode-m5e2e:media:demo",
+    "createdAt": "2026-08-18T00:00:00.000Z",
+    "episodeId": "episode-m5e2e",
+    "mediaType": "video/mp4",
+    "path": "content/episode-m5e2e/media/assets/demo.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+    "sizeBytes": 11513933
+  },
+  "sourceSha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e"
+}

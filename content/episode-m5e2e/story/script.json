@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "script-v1",
+  "selectedHook": "主界面演示，十三秒完成第一次操作，任务气泡实时出现。",
+  "segments": [
+    {
+      "id": "seg-001",
+      "section": "hook",
+      "narration": "主界面演示，十三秒完成第一次操作，任务气泡实时出现。",
+      "claimIds": [
+        "claim-e2e-001"
+      ],
+      "visualIntent": "主界面操作流程演示",
+      "scene": "e2e-demo",
+      "onScreenText": [],
+      "targetSeconds": 7.7,
+      "index": 0
+    },
+    {
+      "id": "seg-002",
+      "section": "body",
+      "narration": "团队把核心流程做成了实时可见的步骤列表，每一步都显示开始时间和完成状态，操作过程不再是黑盒，每一步都有日志可以回看。",
+      "claimIds": [
+        "claim-e2e-002"
+      ],
+      "visualIntent": "实时步骤列表",
+      "scene": "e2e-steps",
+      "onScreenText": [],
+      "targetSeconds": 16.6,
+      "index": 1
+    },
+    {
+      "id": "seg-003",
+      "section": "body",
+      "narration": "发布后第一周，演示视频被转发了四万次，评论区出现真实的安装反馈和二次创作，数据来自官方后台。",
+      "claimIds": [
+        "claim-e2e-003"
+      ],
+      "visualIntent": "发布后传播数据",
+      "scene": "e2e-growth",
+      "onScreenText": [],
+      "targetSeconds": 13.3,
+      "index": 2
+    },
+    {
+      "id": "seg-004",
+      "section": "body",
+      "narration": "现在，同样的任务只需要一条指令。打开网页，整理文件，继续运行，全部自动完成，不需要守着屏幕，这就是自动化该有的样子。",
+      "claimIds": [
+        "claim-e2e-004"
+      ],
+      "visualIntent": "一条指令完成任务",
+      "scene": "e2e-one-command",
+      "onScreenText": [],
+      "targetSeconds": 16.6,
+      "index": 3
+    }
+  ]
+}

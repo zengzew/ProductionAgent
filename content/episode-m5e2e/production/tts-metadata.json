@@ -1,0 +1,33 @@
+{
+  "requestedProvider": "m5-acceptance-say",
+  "provider": "macOS say (Tingting zh_CN)",
+  "providerId": "say-local",
+  "fallbackUsed": false,
+  "fallbackReason": "",
+  "generatedAt": "2026-08-18T00:00:00.000Z",
+  "voice": "Tingting",
+  "speed": 190,
+  "pitch": "default",
+  "normalization": "loudnorm I=-16 TP=-1.5 LRA=7",
+  "credentialRequired": false,
+  "networkRequired": true,
+  "alignmentStrategy": "caption-plan-proportional",
+  "files": [
+    {
+      "segmentId": "seg-001",
+      "file": "episodes/episode-m5e2e/audio/seg-001.mp3"
+    },
+    {
+      "segmentId": "seg-002",
+      "file": "episodes/episode-m5e2e/audio/seg-002.mp3"
+    },
+    {
+      "segmentId": "seg-003",
+      "file": "episodes/episode-m5e2e/audio/seg-003.mp3"
+    },
+    {
+      "segmentId": "seg-004",
+      "file": "episodes/episode-m5e2e/audio/seg-004.mp3"
+    }
+  ]
+}

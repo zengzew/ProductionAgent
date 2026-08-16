@@ -214,6 +214,53 @@
       ]
     },
     {
+      "ruleId": "seen-action-not-described-action",
+      "name": "说到动作就必须看到动作",
+      "distilledRule": "旁白一旦说出产品动作，画面必须让观众看见该动作正在发生：输入、点击、页面变化、结果出现、手或真实操作。品牌首页、整页桌面截图或功能卡片不能单独证明“它自己去办了”。证据形态要随命题切换；静帧必须被裁切、放大或标出焦点；每 2～4 秒至少发生一次可见视觉事件（切镜、点击、缩放、高亮、结果出现或人物动作），但不得用空切冒充推进。有已准入的真实操作或采访时优先使用；否则用标明功能演示的程序化动作，而不是落地页静帧。",
+      "sourceFindings": [
+        {
+          "sampleId": "xhs-6a6ad1fd000000001003c477",
+          "recordVersion": "1.0.0",
+          "patternIds": ["action-consequence-demo-ladder"]
+        },
+        {
+          "sampleId": "xhs-6a65d34b000000000f017d9d",
+          "recordVersion": "1.0.0",
+          "patternIds": ["manual-steps-to-single-action-demo"]
+        },
+        {
+          "sampleId": "xhs-6a7b007600000000240264dc",
+          "recordVersion": "1.0.0",
+          "patternIds": ["claim-matched-evidence-switching"]
+        },
+        {
+          "sampleId": "xhs-6a75e71a00000000210235f0",
+          "recordVersion": "1.0.0",
+          "patternIds": ["evidence-modality-ladder"]
+        },
+        {
+          "sampleId": "xhs-6809f616000000000903a1fb",
+          "recordVersion": "1.0.0",
+          "patternIds": ["static-evidence-motion-layer"]
+        }
+      ],
+      "sourceFeedbackSignalIds": ["evidence-rich-visual-density"],
+      "applicableRoles": [
+        "story-director",
+        "viral-director",
+        "script-writer",
+        "oral-rewriter",
+        "visual-director",
+        "audience-critic",
+        "retention-critic"
+      ],
+      "guardrails": [
+        "不能为了看见动作而虚构用户个案、未授权界面或没有 Claim 的操作结果。",
+        "视觉事件按新增信息判断，不按硬切次数或帧差分数判断。",
+        "程序化动作必须持续标功能演示，不能冒充真实用户录屏。"
+      ]
+    },
+    {
       "ruleId": "spoken-turn-preservation",
       "name": "口播保留叙事转折",
       "distilledRule": "改写时用句长、停顿和自然疑问区分 Hook、解释、转折和 payoff；压缩重复表达，但保留每次揭示的新信息和方向，不能把有起伏的结构改成均匀播报。",
@@ -245,14 +292,15 @@
         "suspense-reversal-solution-arc",
         "interaction-before-abstraction",
         "pain-product-distribution-result-chain",
-        "reframed-evidence-payoff"
+        "reframed-evidence-payoff",
+        "seen-action-not-described-action"
       ],
       "sourceSampleIds": [
         "xhs-6a7b007600000000240264dc",
         "xhs-6a75e71a00000000210235f0",
         "xhs-6809f616000000000903a1fb"
       ],
-      "roleSpecificExample": "把已证实的异常结果作为入口，让观众追问机制；只在 Claim 支持时保留受挫或方向变化，再用产品动作、分发证据和结果回收同一个问题。",
+      "roleSpecificExample": "把已证实的异常结果作为入口，让观众追问机制；只在 Claim 支持时保留受挫或方向变化，再用产品动作、分发证据和结果回收同一个问题。每个产品动作都要规划摄像机看见的步骤，不能用品牌首页代替正在干活。",
       "referenceContext": "distilled-policy-only"
     },
     {
@@ -262,14 +310,15 @@
         "result-proof-curiosity-hook",
         "progressive-question-bridges",
         "claim-matched-visual-density",
-        "reframed-evidence-payoff"
+        "reframed-evidence-payoff",
+        "seen-action-not-described-action"
       ],
       "sourceSampleIds": [
         "xhs-6a7b007600000000240264dc",
         "xhs-6a7091e400000000250032e2",
         "xhs-6a75e71a00000000210235f0"
       ],
-      "roleSpecificExample": "0–3 秒给零背景可懂的结果和一种同期证明，随后留下机制问题；中段每次回答都刷新理解，结尾用新增证据重看开场。",
+      "roleSpecificExample": "0–3 秒给零背景可懂的结果和一种同期证明，证明必须是看见的动作或结果，不能只是落地页；随后留下机制问题，中段换证据形态回答，结尾用新增证据重看开场。",
       "referenceContext": "distilled-policy-only"
     },
     {
@@ -280,14 +329,15 @@
         "progressive-question-bridges",
         "interaction-before-abstraction",
         "pain-product-distribution-result-chain",
-        "reframed-evidence-payoff"
+        "reframed-evidence-payoff",
+        "seen-action-not-described-action"
       ],
       "sourceSampleIds": [
         "xhs-6a7b007600000000240264dc",
         "xhs-6a75e71a00000000210235f0",
         "xhs-6809f616000000000903a1fb"
       ],
-      "roleSpecificExample": "先写用户可见的痛点与产品动作，再写团队选择、传播方式和可验证结果；每段只留下一个能被下一段事实回答的问题。",
+      "roleSpecificExample": "先写摄像机能看见的痛点与产品动作序列，再写团队选择、传播方式和可验证结果；visualIntent 必须写出观众看见的步骤，不能写“配一张官网”。",
       "referenceContext": "distilled-policy-only"
     },
     {
@@ -299,7 +349,11 @@
         "prompts/v4/polish-user.md",
         "prompts/v4/rewrite-user.md"
       ],
-      "ruleIds": ["progressive-question-bridges", "spoken-turn-preservation"],
+      "ruleIds": [
+        "progressive-question-bridges",
+        "spoken-turn-preservation",
+        "seen-action-not-described-action"
+      ],
       "sourceSampleIds": ["xhs-6a7b007600000000240264dc", "xhs-6a75e71a00000000210235f0"],
       "roleSpecificExample": "Hook 用短句落下结果，解释段把动作说清，转折处留自然停顿，payoff 用具体事实收住；不额外添加‘你敢信吗’式口头禅。",
       "referenceContext": "distilled-policy-only"
@@ -307,13 +361,17 @@
     {
       "role": "visual-director",
       "promptFiles": ["agents/visual-director.md"],
-      "ruleIds": ["interaction-before-abstraction", "claim-matched-visual-density"],
+      "ruleIds": [
+        "interaction-before-abstraction",
+        "claim-matched-visual-density",
+        "seen-action-not-described-action"
+      ],
       "sourceSampleIds": [
         "xhs-6a7b007600000000240264dc",
         "xhs-6a75e71a00000000210235f0",
         "xhs-6809f616000000000903a1fb"
       ],
-      "roleSpecificExample": "讲痛点时用可追溯的用户或采访证据，讲产品时切真实操作，讲分发时切渠道素材，讲结果时切可读图形；每种画面只承担当前命题。",
+      "roleSpecificExample": "讲痛点时用可追溯的用户或采访证据，讲产品时切真实操作或程序化动作，讲分发时切渠道素材，讲结果时切可读图形；每种画面只承担当前命题，禁止用首页静帧证明“它自己去办”。",
       "referenceContext": "distilled-policy-only"
     },
     {
@@ -324,10 +382,11 @@
         "interaction-before-abstraction",
         "pain-product-distribution-result-chain",
         "claim-matched-visual-density",
-        "reframed-evidence-payoff"
+        "reframed-evidence-payoff",
+        "seen-action-not-described-action"
       ],
       "sourceSampleIds": ["xhs-6a75e71a00000000210235f0"],
-      "roleSpecificExample": "高分需要开场结果有不同功能的同期证明，用户需求可见，产品动作、分发和结果能追踪，结尾模型由前文推出；数字多或画面多本身不加分。",
+      "roleSpecificExample": "高分需要开场结果有不同功能的同期证明，且观众看见动作本身；用户需求可见，产品动作、分发和结果能追踪，结尾模型由前文推出；数字多、画面多或官网静帧本身不加分。",
       "referenceContext": "distilled-policy-only"
     },
     {
@@ -338,14 +397,15 @@
         "progressive-question-bridges",
         "interaction-before-abstraction",
         "claim-matched-visual-density",
-        "reframed-evidence-payoff"
+        "reframed-evidence-payoff",
+        "seen-action-not-described-action"
       ],
       "sourceSampleIds": [
         "xhs-6a7b007600000000240264dc",
         "xhs-6a7091e400000000250032e2",
         "xhs-6809f616000000000903a1fb"
       ],
-      "roleSpecificExample": "检查 Hook 问题是否被后续逐段回答、反转是否真的新增判断、产品交互是否及时出现、画面变化是否带来证据，以及结尾是否在 CTA 前兑现。",
+      "roleSpecificExample": "检查 Hook 问题是否被后续逐段回答、反转是否真的新增判断、产品交互是否被看见、画面变化是否换了一种证据，以及结尾是否在 CTA 前兑现。旁白说动作而画面停在落地页，必须判为划走风险。",
       "referenceContext": "distilled-policy-only"
     }
   ],
@@ -358,7 +418,8 @@
         "interaction-before-abstraction",
         "pain-product-distribution-result-chain",
         "claim-matched-visual-density",
-        "reframed-evidence-payoff"
+        "reframed-evidence-payoff",
+        "seen-action-not-described-action"
       ],
       "rationale": "AI 身高预测样本对结果证据、需求可见性、产品流程、分发路径和结尾模型提供了清晰的 video/captions/transcript 对齐证据；只澄清现有维度，不改变 product-story-v4 阈值或 blocker。"
     },
@@ -370,7 +431,8 @@
         "progressive-question-bridges",
         "interaction-before-abstraction",
         "claim-matched-visual-density",
-        "reframed-evidence-payoff"
+        "reframed-evidence-payoff",
+        "seen-action-not-described-action"
       ],
       "rationale": "三条角色相关样本为前三秒悬念、阶段回答、反转、视觉证据变化和结尾重构提供了跨样本证据；只澄清 retention-critic-v2 的观察标准，不改变分数、窗口或路由。"
     },
@@ -382,6 +444,10 @@
     }
   ],
   "rejectedPatterns": [
+    {
+      "patternId": "landing-page-as-action-proof",
+      "reason": "品牌首页或整页桌面截图不能单独证明产品正在替用户办事；动作主张必须看到操作过程。"
+    },
     {
       "patternId": "creator-specific-copy-and-facts",
       "reason": "人物、产品名、年龄、收入、估值、下载量、定价、健康预测、婚礼剧情和猫咪机制属于个案事实或创作者表达，不进入 Prompt。"

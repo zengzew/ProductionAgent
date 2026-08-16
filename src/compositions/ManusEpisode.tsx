@@ -2,7 +2,6 @@ import React from "react";
 import {Audio} from "@remotion/media";
 import {
   AbsoluteFill,
-  Img,
   Sequence,
   interpolate,
   spring,
@@ -25,8 +24,13 @@ import {assertTimelineMatchesEpisode} from "../lib/render-contract";
 import {fadeSceneOpacity} from "../lib/scene-animation";
 import {
   BackgroundCanvas,
-  CaptionLayer,
   CLAMP,
+  EvidenceStage,
+  FlowCards,
+  HighlightCaption,
+  HighlightText,
+  MetricCard,
+  OfficialStill,
   reportingIdentity,
   SourceLabel,
   sourcePublishers,
@@ -41,19 +45,36 @@ const claimMap = new Map(claims.map((claim) => [claim.id, claim]));
 const sourceMap = new Map(sources.map((source) => [source.id, source]));
 
 const COLORS = {
-  void: "#0b1220",
-  ink: "#e8eef8",
-  muted: "#8ea0b8",
-  cyan: "#5ee0c8",
-  cyanSoft: "#18463f",
-  amber: "#f0b45a",
-  white: "#f7fbff",
-  card: "#142033",
-  line: "#2a3b55",
+  void: "#08090d",
+  ink: "#f3efe4",
+  muted: "#8d94a3",
+  gold: "#e8c547",
+  goldSoft: "rgba(232,197,71,.16)",
+  paper: "#12141a",
+  card: "#181b23",
+  line: "#2c313c",
   demo: "#c9844a",
+  live: "#5ee0c8",
+  white: "#f7f4ea",
 };
 
 const SANS = '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif';
+const STILL_HOME = staticFile("episodes/episode-003/captured/manus-home.png");
+const STILL_DESKTOP = staticFile("episodes/episode-003/captured/manus-desktop.png");
+const STILL_MY_COMPUTER = staticFile("episodes/episode-003/captured/manus-my-computer.png");
+const TASK_COPY = "整理竞品页，做成一页摘要";
+const TITLE_HIGHLIGHTS = ["自己干活"];
+const CAPTION_HIGHLIGHTS = [
+  "八千万",
+  "数百万",
+  "2026",
+  "执行引擎",
+  "自己打开",
+  "批准",
+  "虚拟电脑",
+  "云电脑",
+  "桌面版",
+];
 
 const enter = (frame: number, fps: number, delay = 0) =>
   spring({
@@ -84,35 +105,32 @@ const reportingLabel = (claimIds: string[]): string =>
 
 const Background: React.FC = () => {
   const frame = useCurrentFrame();
-  const drift = interpolate(frame, [0, 4000], [0, 120], {
+  const drift = interpolate(frame, [0, 4000], [0, 36], {
     ...CLAMP,
     extrapolateRight: "extend",
   });
   return (
     <BackgroundCanvas
-      background={`radial-gradient(circle at 78% 12%, #1a3350 0%, ${COLORS.void} 52%, #070b14 100%)`}
+      background={`radial-gradient(circle at 50% 18%, #1a1710 0%, ${COLORS.void} 46%, #050507 100%)`}
       noisePlacement="after-content"
       noise={{
-        baseFrequency: ".85",
+        baseFrequency: ".9",
         numOctaves: 3,
-        rectOpacity: ".22",
-        opacity: 0.18,
+        rectOpacity: ".18",
+        opacity: 0.16,
       }}
     >
-      {[0, 1, 2].map((index) => (
-        <div
-          key={index}
-          style={{
-            position: "absolute",
-            width: 480 + index * 80,
-            height: 480 + index * 80,
-            borderRadius: "50%",
-            border: "1px solid rgba(94,224,200,.12)",
-            left: 280 + index * 40 + drift * 0.04,
-            top: 220 + index * 90,
-          }}
-        />
-      ))}
+      <div
+        style={{
+          position: "absolute",
+          left: 64,
+          right: 64,
+          top: 248,
+          height: 1,
+          background: "rgba(232,197,71,.18)",
+          transform: `translateY(${drift * 0.04}px)`,
+        }}
+      />
     </BackgroundCanvas>
   );
 };
@@ -122,16 +140,14 @@ const DemoBadge: React.FC<{visible?: boolean}> = ({visible = true}) => {
   return (
     <div
       style={{
-        position: "absolute",
-        top: 54,
-        right: 56,
-        padding: "10px 18px",
+        flex: "0 0 auto",
+        padding: "10px 16px",
         borderRadius: 999,
-        background: "rgba(201,132,74,.92)",
+        background: COLORS.demo,
         color: COLORS.white,
-        fontSize: 28,
+        fontSize: 26,
         fontWeight: 700,
-        zIndex: 8,
+        letterSpacing: 0.4,
       }}
     >
       功能演示
@@ -139,118 +155,183 @@ const DemoBadge: React.FC<{visible?: boolean}> = ({visible = true}) => {
   );
 };
 
-const SourceStill: React.FC<{path: string; label: string; objectPosition?: string}> = ({
-  path,
-  label,
-  objectPosition = "center top",
-}) => (
-  <div
-    style={{
-      position: "relative",
-      overflow: "hidden",
-      borderRadius: 28,
-      border: `1px solid ${COLORS.line}`,
-      boxShadow: "0 22px 60px rgba(0,0,0,.28)",
-      background: COLORS.card,
-      height: "100%",
-    }}
-  >
-    <Img
-      src={staticFile(path)}
-      style={{width: "100%", height: "100%", objectFit: "cover", objectPosition}}
-    />
-    <SourceLabel
-      label={label}
-      style={{
-        position: "absolute",
-        left: 18,
-        bottom: 18,
-        padding: "10px 16px",
-        borderRadius: 999,
-        background: "rgba(11,18,32,.88)",
-        color: COLORS.white,
-        fontSize: 28,
-      }}
-    />
-  </div>
-);
-
-const BrowserWindow: React.FC<{progress: number; title?: string}> = ({
-  progress,
-  title = "research.example / brief",
-}) => (
-  <div
-    style={{
-      borderRadius: 28,
-      overflow: "hidden",
-      border: `1px solid ${COLORS.line}`,
-      background: COLORS.card,
-      boxShadow: "0 24px 50px rgba(0,0,0,.28)",
-    }}
-  >
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: 12,
-        padding: "18px 22px",
-        background: "#0f1a2c",
-        color: COLORS.muted,
-        fontSize: 24,
-      }}
-    >
-      <span style={{width: 12, height: 12, borderRadius: 99, background: "#e37a6b"}} />
-      <span style={{width: 12, height: 12, borderRadius: 99, background: COLORS.amber}} />
-      <span style={{width: 12, height: 12, borderRadius: 99, background: COLORS.cyan}} />
-      <div style={{marginLeft: 12, flex: 1}}>{title}</div>
+const StakeTitle: React.FC<{compact?: boolean}> = ({compact = false}) =>
+  compact ? (
+    <div style={{fontSize: 28, fontWeight: 730, color: COLORS.ink}}>
+      为什么不聊天，
+      <HighlightText text="要自己干活？" highlights={TITLE_HIGHLIGHTS} highlightColor={COLORS.gold} />
     </div>
-    <div style={{height: 8, background: COLORS.cyanSoft}}>
+  ) : (
+    <div>
       <div
         style={{
-          width: `${18 + progress * 62}%`,
-          height: "100%",
-          background: COLORS.cyan,
+          fontSize: 22,
+          letterSpacing: 3,
+          color: COLORS.gold,
+          fontWeight: 700,
+          marginBottom: 8,
         }}
-      />
+      >
+        MANUS · 任务已发出
+      </div>
+      <div
+        style={{
+          fontSize: 44,
+          lineHeight: 1.1,
+          fontWeight: 780,
+          letterSpacing: -1,
+          color: COLORS.ink,
+        }}
+      >
+        为什么不聊天
+        <HighlightText
+          text=" 要自己干活？"
+          highlights={TITLE_HIGHLIGHTS}
+          highlightColor={COLORS.gold}
+        />
+      </div>
     </div>
-    <div style={{padding: "28px 30px 34px", display: "grid", gap: 16}}>
-      <div style={{height: 22, width: "72%", background: "rgba(232,238,248,.16)", borderRadius: 8}} />
-      <div style={{height: 18, width: "94%", background: "rgba(232,238,248,.1)", borderRadius: 8}} />
-      <div style={{height: 18, width: "86%", background: "rgba(232,238,248,.1)", borderRadius: 8}} />
-      <div style={{height: 120, background: "rgba(94,224,200,.12)", borderRadius: 16}} />
-    </div>
-  </div>
-);
+  );
 
-const TaskBubble: React.FC<{text: string}> = ({text}) => (
+const TaskChip: React.FC<{text: string}> = ({text}) => (
   <div
     style={{
       alignSelf: "flex-end",
       maxWidth: 620,
-      padding: "22px 28px",
-      borderRadius: "28px 28px 8px 28px",
-      background: COLORS.cyan,
-      color: "#08231d",
-      fontSize: 36,
-      fontWeight: 700,
-      boxShadow: "0 16px 30px rgba(0,0,0,.18)",
+      padding: "20px 24px",
+      borderRadius: "26px 26px 8px 26px",
+      background: COLORS.gold,
+      color: "#1a1404",
+      fontSize: 32,
+      fontWeight: 730,
+      boxShadow: "0 16px 30px rgba(0,0,0,.28)",
     }}
   >
     {text}
   </div>
 );
 
+const WorkingBrowser: React.FC<{progress: number; label?: string}> = ({
+  progress,
+  label = "功能演示 · 它正在打开网页办事",
+}) => {
+  const frame = useCurrentFrame();
+  const typed = "competitors.dev/brief";
+  const shown = typed.slice(0, Math.max(8, Math.floor(interpolate(frame, [0, 22], [8, typed.length], CLAMP))));
+  const rows = [
+    ["竞品 A 定价页", "已打开 · 抓取套餐表"],
+    ["竞品 B 功能栏", "已滚动到对照项"],
+    ["一页摘要", "正在写入 notes.md"],
+  ];
+  const visibleRows = Math.max(1, Math.min(rows.length, 1 + Math.floor(interpolate(frame, [8, 36], [0, 3], CLAMP))));
+  return (
+    <div
+      style={{
+        height: "100%",
+        display: "grid",
+        gridTemplateRows: "auto auto 1fr auto",
+        overflow: "hidden",
+        borderRadius: 22,
+        border: `1px solid ${COLORS.line}`,
+        background: "#f6f4ee",
+        color: "#161410",
+        boxShadow: "0 22px 50px rgba(0,0,0,.32)",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 10,
+          padding: "14px 18px",
+          background: "#111318",
+          color: COLORS.muted,
+          fontSize: 22,
+        }}
+      >
+        <span style={{width: 10, height: 10, borderRadius: 99, background: "#e37a6b"}} />
+        <span style={{width: 10, height: 10, borderRadius: 99, background: COLORS.gold}} />
+        <span style={{width: 10, height: 10, borderRadius: 99, background: COLORS.live}} />
+        <div
+          style={{
+            marginLeft: 8,
+            flex: 1,
+            padding: "8px 14px",
+            borderRadius: 999,
+            background: "#1d212b",
+            color: COLORS.white,
+            fontFamily: "Menlo, monospace",
+            fontSize: 22,
+          }}
+        >
+          {shown}
+        </div>
+      </div>
+      <div style={{height: 6, background: "#e7e1d4"}}>
+        <div style={{width: `${18 + progress * 70}%`, height: "100%", background: COLORS.gold}} />
+      </div>
+      <div style={{padding: "28px 28px 18px", display: "grid", alignContent: "start", gap: 16}}>
+        <div style={{fontSize: 36, fontWeight: 760}}>竞品页正在被拆开</div>
+        {rows.slice(0, visibleRows).map(([title, detail], index) => (
+          <div
+            key={title}
+            style={{
+              padding: "18px 20px",
+              borderRadius: 16,
+              background: index === visibleRows - 1 ? "#fff7d6" : "#fff",
+              border: "1px solid #e4ddd0",
+              transform: `translateY(${interpolate(frame, [8 + index * 8, 16 + index * 8], [16, 0], CLAMP)}px)`,
+            }}
+          >
+            <div style={{fontSize: 28, fontWeight: 730}}>{title}</div>
+            <div style={{marginTop: 6, fontSize: 24, color: "#6d675c"}}>{detail}</div>
+          </div>
+        ))}
+      </div>
+      <div
+        style={{
+          padding: "12px 18px 16px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <SourceLabel
+          label={label}
+          style={{
+            padding: "8px 14px",
+            borderRadius: 999,
+            background: "rgba(8,9,13,.88)",
+            color: COLORS.white,
+            fontSize: 22,
+          }}
+        />
+      </div>
+    </div>
+  );
+};
+
 const HookTaskOpen: React.FC = () => {
   const frame = useCurrentFrame();
   const load = interpolate(frame, [0, 28], [0.42, 0.78], CLAMP);
   return (
-    <div style={{height: "100%", display: "grid", alignContent: "center", gap: 36}}>
-      <div style={{fontSize: 34, color: COLORS.cyan, fontWeight: 700, letterSpacing: 1}}>
-        任务已发出
+    <div style={{height: "100%", display: "grid", gridTemplateRows: "auto 1fr", gap: 18}}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 16,
+        }}
+      >
+        <div style={{fontSize: 30, color: COLORS.gold, fontWeight: 750}}>任务已发出</div>
+        <div style={{fontSize: 26, color: COLORS.muted}}>网页已打开</div>
       </div>
-      <div style={{display: "grid", gap: 28}}>
-        <TaskBubble text="整理竞品页，做成一页摘要" />
-        <BrowserWindow progress={load} />
+      <div style={{position: "relative", minHeight: 0}}>
+        <WorkingBrowser progress={load} />
+        <div style={{position: "absolute", right: 22, bottom: 36, zIndex: 3}}>
+          <TaskChip text={TASK_COPY} />
+        </div>
       </div>
     </div>
   );
@@ -261,32 +342,41 @@ const HookMetric: React.FC = () => {
   const {fps} = useVideoConfig();
   const pop = enter(frame, fps);
   return (
-    <div style={{height: "100%", display: "grid", alignContent: "center", gap: 28}}>
-      <div style={{fontSize: 30, color: COLORS.muted}}>上线以来 · 公司披露</div>
-      <div
-        style={{
-          fontSize: 168,
-          lineHeight: 0.88,
-          fontWeight: 780,
-          letterSpacing: -6,
-          transform: `scale(${0.92 + pop * 0.08})`,
-        }}
-      >
-        8000万+
-      </div>
-      <div style={{fontSize: 42, fontWeight: 700}}>台虚拟电脑</div>
-      <div
-        style={{
-          marginTop: 12,
-          padding: "16px 22px",
-          borderLeft: `4px solid ${COLORS.amber}`,
-          color: COLORS.amber,
-          fontSize: 32,
-        }}
-      >
-        不是用户数
-      </div>
-      <div style={{fontSize: 40, color: COLORS.ink}}>为什么不聊天，要自己干活？</div>
+    <div style={{height: "100%", position: "relative"}}>
+      <MetricCard
+        style={{height: "100%", position: "relative", gap: 16}}
+        kicker={<div style={{fontSize: 28, color: COLORS.muted}}>上线以来 · 公司披露</div>}
+        value={
+          <div
+            style={{
+              fontSize: 148,
+              lineHeight: 0.88,
+              fontWeight: 780,
+              letterSpacing: -6,
+              color: COLORS.gold,
+              transform: `scale(${0.94 + pop * 0.06})`,
+              transformOrigin: "left center",
+            }}
+          >
+            8000万+
+          </div>
+        }
+        unit={<div style={{fontSize: 40, fontWeight: 720}}>台虚拟电脑</div>}
+        caveat={
+          <div
+            style={{
+              padding: "12px 18px",
+              borderLeft: `4px solid ${COLORS.gold}`,
+              color: COLORS.gold,
+              fontSize: 30,
+              fontWeight: 700,
+            }}
+          >
+            不是用户数
+          </div>
+        }
+        question={<div style={{fontSize: 36, color: COLORS.ink}}>为什么不聊天，要自己干活？</div>}
+      />
     </div>
   );
 };
@@ -295,94 +385,139 @@ const HookCloud: React.FC = () => {
   const frame = useCurrentFrame();
   const pulse = interpolate(frame % 40, [0, 20, 40], [0.35, 1, 0.35], CLAMP);
   return (
-    <div style={{height: "100%", display: "grid", gridTemplateRows: "1.15fr 0.85fr", gap: 28}}>
-      <SourceStill
-        path="episodes/episode-003/captured/manus-home.png"
+    <div style={{height: "100%", display: "grid", gridTemplateRows: "1fr auto", gap: 18}}>
+      <OfficialStill
+        src={STILL_HOME}
         label="真实页面截图 · manus.im"
-      />
-      <div
+        objectPosition="50% 58%"
+        zoom={1.35}
+        coverTop={0}
+        kenBurns
         style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gap: 16,
+          borderRadius: 22,
+          border: `1px solid ${COLORS.line}`,
+          boxShadow: "0 22px 50px rgba(0,0,0,.28)",
         }}
-      >
-        {[
-          ["浏览器", "自己打开网页"],
-          ["文件", "读写结果"],
-          ["继续跑", "关掉页面也在"],
-        ].map(([title, detail], index) => (
-          <div
-            key={title}
-            style={{
-              padding: "22px 18px",
-              borderRadius: 22,
-              background: COLORS.card,
-              border: `1px solid ${COLORS.line}`,
-            }}
-          >
-            <div style={{color: COLORS.cyan, fontSize: 26, fontWeight: 700}}>{title}</div>
-            <div style={{marginTop: 10, fontSize: 28, lineHeight: 1.3}}>{detail}</div>
-            {index === 2 ? (
+      />
+      <FlowCards
+        items={[
+          {
+            key: "browser",
+            title: <div style={{color: COLORS.gold, fontSize: 24, fontWeight: 730}}>浏览器</div>,
+            detail: (
+              <div style={{marginTop: 10, fontSize: 28, lineHeight: 1.3, color: COLORS.ink}}>
+                云电脑打开网页
+              </div>
+            ),
+            style: cardStyle,
+          },
+          {
+            key: "files",
+            title: <div style={{color: COLORS.gold, fontSize: 24, fontWeight: 730}}>文件</div>,
+            detail: (
+              <div style={{marginTop: 10, fontSize: 28, lineHeight: 1.3, color: COLORS.ink}}>
+                读写结果
+              </div>
+            ),
+            style: cardStyle,
+          },
+          {
+            key: "run",
+            title: <div style={{color: COLORS.gold, fontSize: 24, fontWeight: 730}}>继续跑</div>,
+            detail: (
+              <div style={{marginTop: 10, fontSize: 28, lineHeight: 1.3, color: COLORS.ink}}>
+                关掉页面也能跑
+              </div>
+            ),
+            footer: (
               <div
                 style={{
-                  marginTop: 16,
-                  height: 8,
+                  marginTop: 14,
+                  height: 7,
                   borderRadius: 99,
-                  background: COLORS.cyanSoft,
+                  background: "#2a2618",
                 }}
               >
-                <div style={{width: `${40 + pulse * 40}%`, height: "100%", background: COLORS.cyan}} />
+                <div
+                  style={{
+                    width: `${40 + pulse * 40}%`,
+                    height: "100%",
+                    background: COLORS.gold,
+                  }}
+                />
               </div>
-            ) : null}
-          </div>
-        ))}
-      </div>
+            ),
+            style: cardStyle,
+          },
+        ]}
+      />
     </div>
   );
+};
+
+const cardStyle: React.CSSProperties = {
+  padding: "18px 16px 20px",
+  borderRadius: 18,
+  background: COLORS.card,
+  border: `1px solid ${COLORS.line}`,
 };
 
 const ChoiceEngine: React.FC = () => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const fileY = interpolate(enter(frame, fps, 8), [0, 1], [18, 0]);
-  const blink = frame % 24 < 12 ? 1 : 0.15;
+  const recede = interpolate(frame, [0, 28], [1, 0.72], CLAMP);
+  const fileY = interpolate(enter(frame, fps, 10), [0, 1], [22, 0]);
+  const blink = frame % 24 < 12 ? 1 : 0.16;
+  const scroll = interpolate(frame, [12, 180], [0, 18], CLAMP);
   return (
-    <div style={{height: "100%", display: "grid", alignContent: "center", gap: 28}}>
-      <div style={{fontSize: 52, fontWeight: 760, lineHeight: 1.15}}>
-        一台任务
+    <div style={{height: "100%", display: "grid", gridTemplateRows: "auto 1fr", gap: 16}}>
+      <div style={{fontSize: 44, fontWeight: 760, lineHeight: 1.15, color: COLORS.ink}}>
+        执行引擎
         <br />
-        一台云电脑
+        <span style={{color: COLORS.gold}}>一台任务一台云电脑</span>
       </div>
-      <div style={{display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: 18, minHeight: 520}}>
-        <BrowserWindow progress={0.66} title="cloud-sandbox / browser" />
-        <div style={{display: "grid", gap: 16}}>
-          <div
-            style={{
-              padding: 22,
-              borderRadius: 22,
-              background: COLORS.card,
-              border: `1px solid ${COLORS.line}`,
-              transform: `translateY(${fileY}px)`,
-            }}
-          >
-            <div style={{color: COLORS.cyan, fontWeight: 700, fontSize: 26}}>文件</div>
-            <div style={{marginTop: 10, fontSize: 30}}>brief.pdf</div>
-            <div style={{marginTop: 8, fontSize: 30}}>notes.md</div>
+      <div style={{display: "grid", gridTemplateColumns: "0.68fr 1.32fr", gap: 16, minHeight: 0}}>
+        <div
+          style={{
+            alignSelf: "start",
+            opacity: recede,
+            transform: `translateY(${(1 - recede) * 10}px) scale(0.92)`,
+          }}
+        >
+          <TaskChip text={TASK_COPY} />
+        </div>
+        <div style={{display: "grid", gridTemplateRows: "1fr auto", gap: 12, minHeight: 0}}>
+          <div style={{minHeight: 0, transform: `translateY(${-scroll}px)`}}>
+            <WorkingBrowser progress={0.66} label="功能演示 · 云电脑浏览器" />
           </div>
-          <div
-            style={{
-              padding: 22,
-              borderRadius: 22,
-              background: "#0d1828",
-              border: `1px solid ${COLORS.line}`,
-              fontFamily: "Menlo, monospace",
-              fontSize: 26,
-              color: COLORS.cyan,
-            }}
-          >
-            $ collect --src web
-            <span style={{opacity: blink}}>▌</span>
+          <div style={{display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12}}>
+            <div
+              style={{
+                ...cardStyle,
+                transform: `translateY(${fileY}px)`,
+              }}
+            >
+              <div style={{color: COLORS.gold, fontWeight: 730, fontSize: 24}}>文件</div>
+              <div style={{marginTop: 10, fontSize: 28}}>brief.pdf</div>
+              <div style={{marginTop: 6, fontSize: 28}}>notes.md</div>
+            </div>
+            <div
+              style={{
+                ...cardStyle,
+                background: "#0d1014",
+                fontFamily: "Menlo, monospace",
+                fontSize: 24,
+                color: COLORS.live,
+              }}
+            >
+              <div style={{color: COLORS.gold, fontWeight: 730, fontSize: 22, fontFamily: SANS}}>
+                命令行
+              </div>
+              <div style={{marginTop: 12}}>
+                $ collect --src web
+                <span style={{opacity: blink}}>▌</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -393,46 +528,58 @@ const ChoiceEngine: React.FC = () => {
 const DesktopApproval: React.FC = () => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const pop = enter(frame, fps, 18);
+  const pop = enter(frame, fps, 22);
+  const showBlog = frame >= 88;
   return (
-    <div style={{height: "100%", display: "grid", gridTemplateRows: "1.15fr 0.72fr", gap: 24}}>
-      <SourceStill
-        path="episodes/episode-003/captured/manus-desktop.png"
-        label="真实页面截图 · manus.im/desktop"
+    <div style={{height: "100%", display: "grid", gridTemplateRows: "1fr auto", gap: 16}}>
+      <OfficialStill
+        src={showBlog ? STILL_MY_COMPUTER : STILL_DESKTOP}
+        label={
+          showBlog
+            ? "真实页面截图 · manus.im/blog"
+            : "真实页面截图 · manus.im/desktop"
+        }
+        objectPosition={showBlog ? "50% 42%" : "50% 32%"}
+        zoom={showBlog ? 1.2 : 1.45}
+        coverTop={0}
+        kenBurns
+        style={{
+          borderRadius: 22,
+          border: `1px solid ${COLORS.line}`,
+          boxShadow: "0 22px 50px rgba(0,0,0,.28)",
+        }}
       />
       <div
         style={{
-          padding: 28,
-          borderRadius: 24,
-          background: COLORS.card,
-          border: `1px solid ${COLORS.line}`,
+          ...cardStyle,
+          padding: 24,
           opacity: pop,
-          transform: `translateY(${(1 - pop) * 20}px)`,
+          transform: `translateY(${(1 - pop) * 18}px)`,
         }}
       >
-        <div style={{fontSize: 28, color: COLORS.muted}}>本机命令</div>
-        <div style={{marginTop: 10, fontSize: 34, fontFamily: "Menlo, monospace"}}>
+        <div style={{fontSize: 26, color: COLORS.muted}}>2026.03.16 桌面版 · 本机命令</div>
+        <div style={{marginTop: 10, fontSize: 30, fontFamily: "Menlo, monospace"}}>
           mkdir invoices && rename *.pdf
         </div>
-        <div style={{display: "flex", gap: 16, marginTop: 22}}>
+        <div style={{display: "flex", gap: 14, marginTop: 18}}>
           <div
             style={{
-              padding: "14px 22px",
+              padding: "12px 20px",
               borderRadius: 999,
-              background: COLORS.cyan,
-              color: "#08231d",
+              background: COLORS.gold,
+              color: "#1a1404",
               fontWeight: 760,
-              fontSize: 30,
+              fontSize: 28,
             }}
           >
             允许一次
           </div>
           <div
             style={{
-              padding: "14px 22px",
+              padding: "12px 20px",
               borderRadius: 999,
               border: `1px solid ${COLORS.line}`,
-              fontSize: 30,
+              fontSize: 28,
               color: COLORS.muted,
             }}
           >
@@ -446,14 +593,23 @@ const DesktopApproval: React.FC = () => {
 
 const EndingScene: React.FC = () => {
   const frame = useCurrentFrame();
-  const load = interpolate(frame, [0, 50], [0.42, 0.86], CLAMP);
+  const load = interpolate(frame, [0, 80], [0.42, 0.9], CLAMP);
+  const reveal = interpolate(frame, [8, 28], [0, 1], CLAMP);
   return (
-    <div style={{height: "100%", display: "grid", alignContent: "center", gap: 32}}>
-      <div style={{fontSize: 30, color: COLORS.muted}}>公司口径 · 截至 2025.12.29</div>
-      <div style={{fontSize: 72, fontWeight: 760, lineHeight: 1.1}}>数百万用户</div>
-      <div style={{fontSize: 36, color: COLORS.ink}}>把任务交给它</div>
-      <TaskBubble text="整理竞品页，做成一页摘要" />
-      <BrowserWindow progress={load} />
+    <div style={{height: "100%", display: "grid", gridTemplateRows: "auto 1fr", gap: 16}}>
+      <div style={{opacity: reveal}}>
+        <div style={{fontSize: 26, color: COLORS.muted}}>公司口径 · 截至 2025.12.29</div>
+        <div style={{fontSize: 56, fontWeight: 760, lineHeight: 1.1, color: COLORS.gold}}>
+          数百万用户
+        </div>
+        <div style={{fontSize: 30, color: COLORS.ink, marginTop: 6}}>开头那个任务，还在跑</div>
+      </div>
+      <div style={{position: "relative", minHeight: 0}}>
+        <WorkingBrowser progress={load} label="功能演示 · 同一条任务仍在打开网页" />
+        <div style={{position: "absolute", right: 22, bottom: 36, zIndex: 3}}>
+          <TaskChip text={TASK_COPY} />
+        </div>
+      </div>
     </div>
   );
 };
@@ -489,28 +645,24 @@ const SceneShell: React.FC<{
   return (
     <AbsoluteFill style={{color: COLORS.ink, fontFamily: SANS, opacity}}>
       <Background />
-      <DemoBadge visible={showDemo} />
-      <div
-        style={{
-          position: "absolute",
-          left: 64,
-          right: 64,
-          top: 120,
-          bottom: 430,
-        }}
+      <EvidenceStage
+        title={<StakeTitle compact={scene.index > 0} />}
+        badge={<DemoBadge visible={showDemo} />}
+        source={
+          <SourceLabel
+            label={`${reportingLabel(scene.claimIds)} · ${evidencePublishers(scene.claimIds)}`}
+            style={{
+              color: COLORS.muted,
+              fontSize: 24,
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+            }}
+          />
+        }
       >
         {children}
-      </div>
-      <SourceLabel
-        label={`${reportingLabel(scene.claimIds)} · ${evidencePublishers(scene.claimIds)}`}
-        style={{
-          position: "absolute",
-          left: 64,
-          bottom: 430,
-          color: COLORS.muted,
-          fontSize: 24,
-        }}
-      />
+      </EvidenceStage>
     </AbsoluteFill>
   );
 };
@@ -531,27 +683,29 @@ export const ManusEpisode: React.FC = () => {
           <Audio src={staticFile(scene.audio)} />
         </Sequence>
       ))}
-      <CaptionLayer
+      <HighlightCaption
         captions={captions}
+        highlights={CAPTION_HIGHLIGHTS}
+        highlightColor={COLORS.gold}
         style={{
           position: "absolute",
-          left: 72,
-          right: 72,
-          bottom: 300,
+          left: 64,
+          right: 64,
+          bottom: 228,
           minHeight: 98,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          padding: "18px 30px",
-          borderRadius: 24,
+          padding: "16px 28px",
+          borderRadius: 20,
           color: COLORS.white,
-          background: "rgba(11,18,32,.9)",
+          background: "rgba(8,9,13,.92)",
           fontFamily: SANS,
-          fontSize: 48,
-          lineHeight: 1.3,
+          fontSize: 46,
+          lineHeight: 1.28,
           fontWeight: 650,
-          letterSpacing: 0.5,
+          letterSpacing: 0.4,
           whiteSpace: "pre-line",
           zIndex: 20,
         }}

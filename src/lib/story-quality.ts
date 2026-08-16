@@ -19,6 +19,30 @@ export const visualPlanFields = [
   "Claim IDs",
 ] as const;
 
+export const visualPlanV3Fields = [
+  "Visible action",
+  "Evidence type",
+  "Focal crop",
+  "Visual event",
+  "Media preference",
+] as const;
+
+export const visualEvidenceTypes = [
+  "product-operation",
+  "interview",
+  "official-ui-crop",
+  "data-graphic",
+  "news-quote",
+  "programmatic-action",
+  "still-page",
+] as const;
+
+export type VisualEvidenceType = (typeof visualEvidenceTypes)[number];
+
+const actionClaimPattern = /打开|发出|执行|读写|批准|整理|点击|搜索|下载|加载|运行|去办/u;
+const visualEventPattern = /点击|缩放|高亮|结果|切到|光标|加载|批准|打开|落下|闪|硬切|推进|出现/u;
+const visibleStepPattern = /→|随后|再|然后|接着|同时/u;
+
 export type MissingHookCandidateField = {
   heading: string;
   field: (typeof hookCandidateFields)[number];
@@ -74,6 +98,116 @@ export const parseVisualPlanSections = (
   }
 
   return {sections, missing};
+};
+
+export type VisualPlanV3Section = {
+  id: string;
+  fields: Record<(typeof visualPlanV3Fields)[number], string>;
+};
+
+export type MissingVisualPlanV3Field = {
+  segmentId: string;
+  field: (typeof visualPlanV3Fields)[number];
+};
+
+export const parseVisualPlanV3Sections = (
+  markdown: string,
+): {sections: VisualPlanV3Section[]; missing: MissingVisualPlanV3Field[]} => {
+  const starts = [...markdown.matchAll(/^## seg-\d+[ \t]*$/gmu)].map((match) => match.index ?? 0);
+  const blocks = starts.map((start, index) => markdown.slice(start, starts[index + 1]));
+  const sections: VisualPlanV3Section[] = [];
+  const missing: MissingVisualPlanV3Field[] = [];
+
+  for (const block of blocks) {
+    const id = block.match(/^## (seg-\d+)\s*$/mu)?.[1];
+    if (!id) continue;
+    const fields = {} as Record<(typeof visualPlanV3Fields)[number], string>;
+    for (const field of visualPlanV3Fields) {
+      const value = block.match(new RegExp(`^- ${field}: (.+)$`, "mu"))?.[1]?.trim();
+      if (!value) {
+        missing.push({segmentId: id, field});
+      } else {
+        fields[field] = value;
+      }
+    }
+    sections.push({id, fields});
+  }
+
+  return {sections, missing};
+};
+
+export const parseEvidenceType = (value: string): VisualEvidenceType | undefined => {
+  const token = value.match(/[a-z-]+/u)?.[0];
+  return visualEvidenceTypes.find((type) => type === token);
+};
+
+export const narrationClaimsVisibleAction = (text: string): boolean => actionClaimPattern.test(text);
+
+export const findSeenActionViolations = (
+  sections: VisualPlanV3Section[],
+  narrations: ReadonlyMap<string, string>,
+): string[] => {
+  const violations: string[] = [];
+  for (const section of sections) {
+    const narration = narrations.get(section.id) ?? "";
+    const evidenceType = parseEvidenceType(section.fields["Evidence type"] ?? "");
+    if (!evidenceType) {
+      violations.push(`${section.id} 的 Evidence type 必须是 ${visualEvidenceTypes.join(" / ")}`);
+      continue;
+    }
+    if (narrationClaimsVisibleAction(narration) && evidenceType === "still-page") {
+      violations.push(`${section.id} 旁白包含产品动作，但 Evidence type 仍是 still-page`);
+    }
+    if (!visualEventPattern.test(section.fields["Visual event"] ?? "")) {
+      violations.push(`${section.id} 的 Visual event 必须写出可观察变化，不能只写氛围或空切`);
+    }
+  }
+  const first = sections[0];
+  if (first && parseEvidenceType(first.fields["Evidence type"] ?? "") === "still-page") {
+    violations.push(`${first.id} Hook 第一段不能用 still-page 证明开场动作`);
+  }
+  const types = new Set(
+    sections
+      .map((section) => parseEvidenceType(section.fields["Evidence type"] ?? ""))
+      .filter((type): type is VisualEvidenceType => Boolean(type)),
+  );
+  if (sections.length >= 3 && types.size < 3) {
+    violations.push(`全片 Evidence type 至少要有 3 种，当前 ${types.size} 种`);
+  }
+  for (const [index, section] of sections.entries()) {
+    const previous = sections[index - 1];
+    if (!previous) continue;
+    const currentType = parseEvidenceType(section.fields["Evidence type"] ?? "");
+    const previousType = parseEvidenceType(previous.fields["Evidence type"] ?? "");
+    const sameCrop = section.fields["Focal crop"] === previous.fields["Focal crop"];
+    if (
+      currentType &&
+      currentType === previousType &&
+      sameCrop &&
+      (currentType === "still-page" || currentType === "official-ui-crop")
+    ) {
+      violations.push(
+        `${previous.id} 与 ${section.id} 不能用同一焦点的 ${currentType} 连续证明不同段落`,
+      );
+    }
+  }
+  return violations;
+};
+
+export const findActionVisualIntentViolations = (
+  segments: ReadonlyArray<{id: string; narration: string; visualIntent: string}>,
+): string[] => {
+  const violations: string[] = [];
+  for (const segment of segments) {
+    if (!narrationClaimsVisibleAction(segment.narration)) continue;
+    if (!visibleStepPattern.test(segment.visualIntent)) {
+      violations.push(`${segment.id} 的 visualIntent 必须写出至少两步可见变化`);
+    }
+    if (/官网首页|品牌首页|落地页/u.test(segment.visualIntent) && !visibleStepPattern.test(segment.visualIntent)) {
+      violations.push(`${segment.id} 不能只用官网首页代替动作过程`);
+    }
+  }
+  return violations;
 };
 
 const genericCtaPattern =

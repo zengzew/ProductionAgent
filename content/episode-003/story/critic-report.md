@@ -2,7 +2,7 @@
 {
   "rubricVersion": "product-story-v4",
   "reviewedFile": "story/final-script.md",
-  "reviewedSha256": "be058fc23f45374cb53666204cd081ac2f45f6508fccb565eb1bb7588feaa06e",
+  "reviewedSha256": "20dc63873f536fbc1eeb7833f0bce08afe4bf17e69988052f6e7b5cb76bd3cd8",
   "round": 1,
   "scores": {
     "hook": 15,

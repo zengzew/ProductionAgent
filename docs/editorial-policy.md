@@ -15,7 +15,7 @@ Goal 3.2 将人工确认的多模态 findings 蒸馏为角色专属编辑规则�
 | Viral Director   | 结果与同期证明；逐段疑问桥；命题匹配的视觉证据；重构式 payoff        |
 | Script Writer    | 有来源的叙事起伏；可回答的段落桥；用户动作优先；产品/分发/结果链     |
 | Oral Rewriter    | 保留 Hook、疑问、转折和 payoff 的文字节奏；不模仿未听辨的声音表现    |
-| Visual Director  | 采访、产品实演、需求、分发与结果素材各司其职；运动不能冒充证据       |
+| Visual Director  | 采访、产品实演、需求、分发与结果素材各司其职；说到动作必须看到动作   |
 | Audience Critic  | 只用结果—需求—产品—分发—兑现证据链澄清现有评分，不改阈值             |
 | Retention Critic | 只用跨样本的悬念、推进、视觉密度和 payoff 证据澄清现有窗口，不改阈值 |
 | Oral Judge       | 不变：缺少人工听感和带分数边界的批准 calibration 样本                |

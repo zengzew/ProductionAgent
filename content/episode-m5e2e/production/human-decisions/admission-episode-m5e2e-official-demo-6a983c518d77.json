@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "admission-episode-m5e2e-official-demo",
+  "gate": "media-admission",
+  "decision": "approve",
+  "reviewer": "m5-acceptance-human-reviewer",
+  "timestamp": "2026-08-18T00:00:00.000Z",
+  "reason": "acceptance E2E: fixture source admitted and rights-approved",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-m5e2e:media:source-manifest",
+      "episodeId": "episode-m5e2e",
+      "path": "content/episode-m5e2e/media/source-manifest.json",
+      "mediaType": "application/json",
+      "schemaVersion": "media-source-manifest-v1",
+      "revision": 1,
+      "sha256": "5cf3df6814920c9fa06219c10248275e0b342db8b4523ee0727945dbcbde5868",
+      "sizeBytes": 611,
+      "producer": "m5-acceptance-e2e",
+      "createdAt": "2026-08-18T00:00:00.000Z"
+    }
+  ],
+  "approvalEpoch": 0,
+  "authorizations": [],
+  "edits": []
+}

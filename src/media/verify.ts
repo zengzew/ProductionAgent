@@ -315,6 +315,34 @@ export type HostedVerificationProviderConfig = {
   network?: RetryableFetchOptions;
 };
 
+const isNonHostedVerificationHostname = (hostname: string): boolean => {
+  const host = hostname.replace(/^\[|\]$/gu, "").toLowerCase();
+  if (host === "localhost" || host === "127.0.0.1" || host === "::1" || host.endsWith(".local")) {
+    return true;
+  }
+  const ipv4 = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/u.exec(host);
+  if (ipv4) {
+    const octets = ipv4.slice(1).map((part) => Number(part));
+    const [a, b] = octets;
+    if (octets.some((octet) => octet > 255)) return true;
+    if (a === 10 || a === 127 || a === 0) return true;
+    if (a === 169 && b === 254) return true;
+    if (a === 172 && b !== undefined && b >= 16 && b <= 31) return true;
+    if (a === 192 && b === 168) return true;
+    return false;
+  }
+  if (host.includes(":")) {
+    const normalized = host.toLowerCase();
+    return (
+      normalized === "::1" ||
+      normalized.startsWith("fc") ||
+      normalized.startsWith("fd") ||
+      normalized.startsWith("fe80:")
+    );
+  }
+  return false;
+};
+
 /**
  * Hosted-only VLM adapter. The endpoint must be `https:`, credentials come
  * from the caller (production wiring reads them from env), timeout/retry are
@@ -332,6 +360,9 @@ export const createHostedVerificationProvider = (
     throw new Error(`MEDIA_VERIFY_PROVIDER_ENDPOINT_INVALID:${config.endpoint}`, {cause: error});
   }
   if (parsed.protocol !== "https:") {
+    throw new Error(`MEDIA_VERIFY_PROVIDER_NOT_HOSTED:${config.endpoint}`);
+  }
+  if (isNonHostedVerificationHostname(parsed.hostname)) {
     throw new Error(`MEDIA_VERIFY_PROVIDER_NOT_HOSTED:${config.endpoint}`);
   }
   const network: RetryableFetchOptions = {

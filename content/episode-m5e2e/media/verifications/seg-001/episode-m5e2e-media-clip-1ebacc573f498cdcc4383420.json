@@ -1,0 +1,121 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-m5e2e:media-verification:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+    "createdAt": "2026-08-18T00:00:00.000Z",
+    "episodeId": "episode-m5e2e",
+    "mediaType": "application/json",
+    "path": "content/episode-m5e2e/media/verifications/seg-001/episode-m5e2e-media-clip-1ebacc573f498cdcc4383420.json",
+    "producer": "media-verification-v1:deterministic-stub:deterministic-verify-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "deb760bb4d0b6cdcd88da89277fc2f5c29506f8337c34cdd0596b9913a5801c8",
+    "sizeBytes": 4070
+  },
+  "cacheKey": "cb729e9587819b4ab3badfbf91504f45f8d11945c51595d8a387a60dd822643f",
+  "claimIds": [
+    "claim-e2e-001"
+  ],
+  "claimMatch": 0.9,
+  "clipArtifactRef": {
+    "artifactId": "episode-m5e2e:media-verification-clip:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+    "createdAt": "2026-08-18T00:00:00.000Z",
+    "episodeId": "episode-m5e2e",
+    "mediaType": "video/mp4",
+    "path": "content/episode-m5e2e/media/verifications/seg-001/episode-m5e2e-media-clip-1ebacc573f498cdcc4383420-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "d14e8ed30696d53690e2d86d1c0a2f041d982d6d3d01667df43be7ba9c17bd38",
+    "sizeBytes": 4254590
+  },
+  "clipId": "episode-m5e2e:media-clip:1ebacc573f498cdcc4383420",
+  "clipRef": {
+    "claimIds": [
+      "claim-e2e-001"
+    ],
+    "clipId": "episode-m5e2e:media-clip:1ebacc573f498cdcc4383420",
+    "createdAt": "2026-08-18T00:00:00.000Z",
+    "endMs": 4000,
+    "episodeId": "episode-m5e2e",
+    "mediaId": "episode-m5e2e:media:demo",
+    "sourceMediaRef": {
+      "artifactId": "episode-m5e2e:media:demo",
+      "createdAt": "2026-08-18T00:00:00.000Z",
+      "episodeId": "episode-m5e2e",
+      "mediaType": "video/mp4",
+      "path": "content/episode-m5e2e/media/assets/demo.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+      "sizeBytes": 11513933
+    },
+    "startMs": 0,
+    "transcriptRefs": [
+      {
+        "artifactId": "episode-m5e2e:media-transcript:demo",
+        "createdAt": "2026-08-18T00:00:00.000Z",
+        "episodeId": "episode-m5e2e",
+        "mediaType": "application/json",
+        "path": "content/episode-m5e2e/media/indexes/demo/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "966590b354bc9eb5e7599248aa530eb26ee334f487d017e4f0c02f4050b30388",
+        "sizeBytes": 1788
+      }
+    ],
+    "visualIntent": "主界面操作流程演示"
+  },
+  "createdAt": "2026-08-18T00:00:00.000Z",
+  "episodeId": "episode-m5e2e",
+  "mediaRef": {
+    "artifactId": "episode-m5e2e:media:demo",
+    "createdAt": "2026-08-18T00:00:00.000Z",
+    "episodeId": "episode-m5e2e",
+    "mediaType": "video/mp4",
+    "path": "content/episode-m5e2e/media/assets/demo.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+    "sizeBytes": 11513933
+  },
+  "misleadingRisk": 0.1,
+  "model": null,
+  "observedActions": [
+    "fixture UI operation"
+  ],
+  "observedEntities": [],
+  "observedText": [
+    "产品演示 主界面 操作"
+  ],
+  "promptVersion": "media-verification-prompt-v1",
+  "provider": "deterministic-stub",
+  "reasons": [
+    "deterministic acceptance VLM stub observed the short clip only"
+  ],
+  "recommendedEndMs": 4000,
+  "recommendedStartMs": 0,
+  "relevance": 0.9,
+  "retrievalResultRef": {
+    "artifactId": "episode-m5e2e:media-retrieval:seg-001",
+    "createdAt": "2026-08-18T00:00:00.000Z",
+    "episodeId": "episode-m5e2e",
+    "mediaType": "application/json",
+    "path": "content/episode-m5e2e/media/candidates/seg-001.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 1,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "b3e193f1049f36f3abdd183def81c8eff5bad9250797b8533add4b963df4dc74",
+    "sizeBytes": 9074
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-001",
+  "sourceSha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-m5e2e:media-verification:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+  "verificationVersion": "deterministic-verify-v1",
+  "visualQuality": 0.8
+}

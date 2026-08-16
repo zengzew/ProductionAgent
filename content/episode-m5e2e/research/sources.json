@@ -1,0 +1,22 @@
+[
+  {
+    "id": "src-e2e-demo",
+    "title": "E2E demo recording",
+    "publisher": "M5 Acceptance Fixture",
+    "url": "https://fixture.invalid/demo",
+    "publishedAt": "2026-08-18",
+    "accessedAt": "2026-08-18T00:00:00.000Z",
+    "sourceType": "official",
+    "notes": "locally generated fixture recording"
+  },
+  {
+    "id": "src-e2e-growth",
+    "title": "E2E growth evidence",
+    "publisher": "M5 Acceptance Fixture",
+    "url": "https://fixture.invalid/growth",
+    "publishedAt": "2026-08-18",
+    "accessedAt": "2026-08-18T00:00:00.000Z",
+    "sourceType": "official",
+    "notes": "fixture growth metric"
+  }
+]

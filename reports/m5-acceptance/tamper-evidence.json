@@ -1,0 +1,34 @@
+{
+  "results": [
+    {
+      "tampered": "original asset bytes",
+      "detected": true,
+      "error": "MEDIA_RENDER_CLIP_GATE_FAILED:MEDIA_VERIFY_ASSET_TAMPERED:episode-m5e2e:media:demo"
+    },
+    {
+      "tampered": "normalized proxy bytes",
+      "detected": true,
+      "error": "MEDIA_RENDER_CUT_SOURCE_TAMPERED:ARTIFACT_HASH_MISMATCH:episode-m5e2e:media:demo-proxy"
+    },
+    {
+      "tampered": "verification artifact bytes",
+      "detected": true,
+      "error": "MEDIA_RENDER_CLIP_GATE_FAILED:MEDIA_VERIFY_VERIFICATION_TAMPERED:episode-m5e2e:media-verification:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420"
+    },
+    {
+      "tampered": "selection (visual-slot) artifact bytes",
+      "detected": true,
+      "error": "MEDIA_RENDER_SLOT_TAMPERED:episode-m5e2e:media-visual-slot:seg-001"
+    },
+    {
+      "tampered": "original bytes with warm render cache",
+      "detected": true,
+      "error": "MEDIA_RENDER_CLIP_GATE_FAILED:MEDIA_VERIFY_ASSET_TAMPERED:episode-m5e2e:media:demo"
+    },
+    {
+      "tampered": "delivery binding (legal MP4 untouched, plan gate intact)",
+      "detected": true,
+      "error": "n/a"
+    }
+  ]
+}

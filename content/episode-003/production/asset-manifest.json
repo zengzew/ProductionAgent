@@ -33,9 +33,9 @@
     "owner": "Manus AI",
     "licenseOrBasis": "Official public product blog captured by this project for limited editorial commentary; publication rights should receive final human review.",
     "capturedAt": "2026-08-16",
-    "usage": "Reserved official blog still for the 2026-03-16 My Computer announcement. Not required in the current render path.",
+    "usage": "Official blog still for the 2026-03-16 My Computer announcement, used after the desktop landing page to show the dated product UI.",
     "approved": true,
-    "usedInRender": false,
+    "usedInRender": true,
     "claimIds": ["claim-manus-008"]
   },
   {
@@ -46,7 +46,7 @@
     "owner": "Generated in this repository",
     "licenseOrBasis": "Original code-native graphics created for this project.",
     "capturedAt": "2026-08-16",
-    "usage": "Programmatic task bubble, browser, cloud computer, metric wall, approval panel and source-evidence graphics.",
+    "usage": "Programmatic evidence-stage chrome, task bubble, metric wall, cloud-computer motion and approval panel around official stills.",
     "approved": true,
     "usedInRender": true,
     "claimIds": [

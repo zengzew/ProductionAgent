@@ -2,9 +2,9 @@
 {
   "rubricVersion": "retention-critic-v2",
   "reviewedFile": "story/final-script.md",
-  "reviewedSha256": "be058fc23f45374cb53666204cd081ac2f45f6508fccb565eb1bb7588feaa06e",
+  "reviewedSha256": "20dc63873f536fbc1eeb7833f0bce08afe4bf17e69988052f6e7b5cb76bd3cd8",
   "visualPlanFile": "story/visual-plan.md",
-  "visualPlanSha256": "64e6e38c685154d7c83cc17d5017be812d6c10f0bbb5c9cfc6988618fe7f1e28",
+  "visualPlanSha256": "5d7f6fa376272949a9c74bd2fcbda1450728313ed5d5b0dac7084b7cf10b0b9f",
   "round": 1,
   "scores": {
     "first3Seconds": 24,
@@ -15,7 +15,7 @@
   "windows": {
     "first3Seconds": {
       "dropOffRisk": "low",
-      "prediction": "第 0 帧直接给出已发送任务与已打开网页，动作和结果无需产品背景。"
+      "prediction": "第 0 帧直接给出已发送任务与已打开的官网输入页，动作和结果无需产品背景。"
     },
     "first30Seconds": {
       "dropOffRisk": "low",
@@ -57,7 +57,7 @@
 
 ## First 3 seconds
 
-第 0 帧同时给出已发送任务和已打开网页，三秒只说一个完成结果。划走风险低。
+第 0 帧同时给出已发送任务和已打开的官网输入页，三秒只说一个完成结果。划走风险低。
 
 ## First 30 seconds
 

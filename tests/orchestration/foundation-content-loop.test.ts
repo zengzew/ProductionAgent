@@ -201,4 +201,77 @@ describe("foundation graph content loop composition", () => {
     expect(selectedHook).toBeDefined();
     expect(selectedHook?.sha256).not.toBe(hook.sha256);
   });
+
+  it("defaults contentLoop visualDirector to createVisualSlotDirector", async () => {
+    const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), "production-agent-foundation-slot-"));
+    temporaryDirectories.push(repoRoot);
+    const control = writeRef({
+      repoRoot,
+      artifactId: "episode-golden:control:contract",
+      relativePath: "content/episode-golden/control/contract.md",
+      body: "control\n",
+      producer: "test",
+    });
+    const artifactIndex = selectedArtifactIndexFixture("episode-golden", [
+      {ref: control, dependencies: []},
+    ]);
+    fs.mkdirSync(path.join(repoRoot, "content/episode-golden/story"), {recursive: true});
+    fs.writeFileSync(
+      path.join(repoRoot, "content/episode-golden/story/script.json"),
+      JSON.stringify({
+        segments: [
+          {
+            id: "seg-001",
+            claimIds: ["claim-m5-001"],
+            narration: "测试旁白",
+            visualIntent: "测试画面",
+            targetSeconds: 5,
+          },
+        ],
+      }),
+    );
+    const criticRunner =
+      (critic: ContentCriticName) =>
+      async (context: ContentNodeContext): Promise<ContentCriticOutput> =>
+        contentCriticOutputFixture({
+          repoRoot,
+          episodeId: "episode-golden",
+          critic,
+          round: 1,
+          executionId: `run-slot:${critic}`,
+          reviewedArtifacts: Object.values(context.artifacts),
+          issues: [],
+        });
+    const graph = createFoundationGraph({
+      runAgent: createDeterministicStubAgent(),
+      repoRoot,
+      checkpointer: createLocalCheckpoint({repoRoot}),
+      contentLoop: {
+        artifactIndex,
+        nodes: {
+          critics: {
+            "audience-critic": criticRunner("audience-critic"),
+            "retention-critic": criticRunner("retention-critic"),
+            "fact-guardian": criticRunner("fact-guardian"),
+            "compliance-critic": criticRunner("compliance-critic"),
+          },
+        },
+      },
+    });
+    const paused = await graph.invoke(
+      createInitialProductionState({
+        episodeId: "episode-golden",
+        runId: "run-slot-director",
+        artifacts: {contract: control},
+      }),
+      checkpointConfig("episode-golden"),
+    );
+    expect(
+      (paused as typeof paused & {__interrupt__?: {value: {gate?: string}}[]}).__interrupt__?.[0]
+        ?.value.gate,
+    ).toBe("content-approval");
+    expect(
+      fs.existsSync(path.join(repoRoot, "content/episode-golden/media/selections/seg-001.json")),
+    ).toBe(true);
+  });
 });

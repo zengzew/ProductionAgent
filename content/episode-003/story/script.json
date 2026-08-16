@@ -14,7 +14,7 @@
         "claim-manus-001"
       ],
       "scene": "hook-task-open",
-      "visualIntent": "第 0 帧同时出现已发送任务和已经打开的网页，持续标“功能演示”；随后只做一次轻微加载动效。",
+      "visualIntent": "第 0 帧任务气泡已发出，随后浏览器自己打开目标页并开始抓取内容，持续标“功能演示”。",
       "targetSeconds": 3
     },
     {
@@ -31,7 +31,7 @@
         "claim-manus-005"
       ],
       "scene": "hook-metric-question",
-      "visualIntent": "开场网页扩成虚拟电脑阵列，公司来源和“不是用户数”同时出现，最后停在全片问题。",
+      "visualIntent": "工作中的浏览器收成数据墙，随后金色八千万和“不是用户数”同时落下。",
       "targetSeconds": 7
     },
     {
@@ -50,7 +50,7 @@
         "claim-manus-003"
       ],
       "scene": "hook-cloud-model",
-      "visualIntent": "云电脑轮廓里同时出现浏览器、文件夹和仍在运行的进度条，官网截图建立真实产品入口。",
+      "visualIntent": "先裁切官网任务输入框建立产品入口，随后云电脑里浏览器、文件和进度条同时在动。",
       "targetSeconds": 10
     },
     {
@@ -69,7 +69,7 @@
         "claim-manus-004"
       ],
       "scene": "choice-action-engine",
-      "visualIntent": "聊天气泡退到背景，隔离云电脑卡片展开浏览器、文件和命令行。",
+      "visualIntent": "聊天气泡退到背景，随后隔离云电脑里页面滚动、文件落下、命令行光标闪动。",
       "targetSeconds": 14
     },
     {
@@ -88,7 +88,7 @@
         "claim-manus-010"
       ],
       "scene": "desktop-approval",
-      "visualIntent": "硬切官方桌面页，再叠加本机文件夹和“允许一次”按钮。",
+      "visualIntent": "硬切桌面页标题裁切，随后本机命令弹出并点亮“允许一次”。",
       "targetSeconds": 14
     },
     {
@@ -107,7 +107,7 @@
         "claim-manus-003"
       ],
       "scene": "ending-still-working",
-      "visualIntent": "数百万用户收拢到开场同一条任务，浏览器仍在云电脑里继续加载，持续标“功能演示”。",
+      "visualIntent": "数百万用户叠上开场同一条仍在加载的任务页，随后浏览器继续往下做，持续标“功能演示”。",
       "targetSeconds": 12
     }
   ]

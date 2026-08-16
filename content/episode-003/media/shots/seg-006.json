@@ -1,0 +1,118 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-003:media-shot:seg-006",
+    "createdAt": "2026-08-16T09:01:04.716Z",
+    "episodeId": "episode-003",
+    "mediaType": "application/json",
+    "path": "content/episode-003/media/shots/seg-006.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-shot-v1",
+    "sha256": "7309b8968ff1afd1b94f74a6b351252a32a179e30e2f5f7f3625929d0e210a38",
+    "sizeBytes": 2403
+  },
+  "audio": {
+    "ducking": {
+      "attackMs": 0,
+      "enabled": false,
+      "reductionDb": 0,
+      "releaseMs": 0
+    },
+    "fadeInMs": 0,
+    "fadeOutMs": 0,
+    "narrationGain": 1,
+    "originalAudioGain": 0
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "timelineSha256": "a6e131e135c8e63c54f222fc576cb7e2149db4bec3ffa3c5c29aa2aa45e5f20e",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-08-16T09:01:04.716Z",
+  "crossfadeMs": 0,
+  "durationFrames": 291,
+  "endSeconds": 46.83599999999999,
+  "episodeId": "episode-003",
+  "fade": {
+    "inMs": 200,
+    "outMs": 200
+  },
+  "fallbackImagePath": null,
+  "fallbackReason": "no visual slot artifact (media selection not run)",
+  "fallbackType": null,
+  "gate": {
+    "clipVerified": false,
+    "episodeIsolated": true,
+    "hashesValid": true,
+    "rightsApproved": false,
+    "slotValid": false,
+    "timestampsValid": false
+  },
+  "lineage": null,
+  "overlays": {
+    "badge": {
+      "text": "功能演示",
+      "tone": "demo"
+    },
+    "captionsEnabled": true,
+    "sourceLabel": "功能演示 · 程序化画面"
+  },
+  "reasons": [
+    "scene seg-006 at frame 1114 (291 frames, 30 fps)",
+    "fallback none: no visual slot artifact (media selection not run)",
+    "visualType programmatic-visual (fixed stage order official screenshot → data card → programmatic)"
+  ],
+  "renderProxyMediaType": null,
+  "renderProxyRef": null,
+  "sceneIndex": 5,
+  "schemaVersion": "media-shot-v1",
+  "segmentId": "seg-006",
+  "selectedMediaClipRef": null,
+  "shotId": "episode-003:media-shot:seg-006",
+  "startFrame": 1114,
+  "startSeconds": 37.13999999999999,
+  "staticFilePath": null,
+  "transform": {
+    "freezeFrameMs": null,
+    "pip": null,
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "reframe": {
+      "crop": {
+        "height": 1,
+        "width": 1,
+        "x": 0,
+        "y": 0
+      },
+      "mode": "cover"
+    },
+    "scale": 1,
+    "zoomPan": {
+      "end": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "start": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "type": "none"
+    }
+  },
+  "trim": null,
+  "verificationRef": null,
+  "visualType": "programmatic-visual"
+}

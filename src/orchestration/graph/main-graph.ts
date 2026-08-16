@@ -45,6 +45,7 @@ import {
   type ContentLoopNodes,
 } from "./content-subgraph";
 import type {RevisionLedger} from "../schemas/revision-ledger";
+import {createVisualSlotDirector} from "../agents/adapters/visual-director";
 
 const phaseByAgent: Record<AgentName, ProductionState["phase"]> = {
   "research-analyst": "research",
@@ -257,6 +258,18 @@ export const createFoundationGraph = (input: {
     (input.humanDecision !== undefined || input.repoRoot !== undefined);
   const decisionNow = input.humanDecision?.now ?? now;
   const contentLoopEnabled = input.contentLoop !== undefined;
+  const contentLoopNodes: ContentLoopNodes | undefined = input.contentLoop
+    ? {
+        ...input.contentLoop.nodes,
+        visualDirector:
+          input.contentLoop.nodes.visualDirector ??
+          (formalRepoRoot
+            ? createVisualSlotDirector({
+                repoRoot: formalRepoRoot,
+              })
+            : undefined),
+      }
+    : undefined;
   const prepAgentNames = agentNames.filter(
     (agentName) =>
       agentName !== "delivery-critic" &&
@@ -979,7 +992,7 @@ export const createFoundationGraph = (input: {
     const result = await runContentLoop({
       state,
       artifactIndex: input.contentLoop.artifactIndex,
-      nodes: input.contentLoop.nodes,
+      nodes: contentLoopNodes ?? input.contentLoop.nodes,
       routingConfig: input.contentLoop.routingConfig,
       provenance: input.contentLoop.provenance,
       revisionLedger: input.contentLoop.revisionLedger,

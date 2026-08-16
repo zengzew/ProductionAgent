@@ -92,7 +92,7 @@ export const viralStrategyGateSchema = z.object({
 });
 
 export const visualPlanGateSchema = z.object({
-  rubricVersion: z.literal("visual-plan-v2"),
+  rubricVersion: z.enum(["visual-plan-v2", "visual-plan-v3"]),
   reviewedFile: z.literal("story/final-script.md"),
   reviewedSha256: sha256Schema,
   plannedSegments: z.number().int().positive(),

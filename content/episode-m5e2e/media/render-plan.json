@@ -1,0 +1,640 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-m5e2e:media:render-plan",
+    "createdAt": "2026-08-18T00:00:00.000Z",
+    "episodeId": "episode-m5e2e",
+    "mediaType": "application/json",
+    "path": "content/episode-m5e2e/media/render-plan.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-plan-v1",
+    "sha256": "61a09938ba78d1d8a3cd215249ff20cc13e6cd354cbc21f2694328808cc36d80",
+    "sizeBytes": 20101
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "timelineSha256": "bda98ec75de1a09779707f94d425f1bdc9d6af909f886edc23140759610213c6",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-08-18T00:00:00.000Z",
+  "episodeId": "episode-m5e2e",
+  "fps": 30,
+  "layoutVariant": "poke-standard",
+  "planId": "episode-m5e2e:media:render-plan",
+  "schemaVersion": "media-render-plan-v1",
+  "shots": [
+    {
+      "artifactRef": {
+        "artifactId": "episode-m5e2e:media-shot:seg-001",
+        "createdAt": "2026-08-18T00:00:00.000Z",
+        "episodeId": "episode-m5e2e",
+        "mediaType": "application/json",
+        "path": "content/episode-m5e2e/media/shots/seg-001.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "aa29972a272b9773b92a5ecccc80d49ec2f3dc5fc64c68cf1d95cf885f00b85c",
+        "sizeBytes": 7944
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 0.740741,
+        "originalAudioGain": 0.259259
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "timelineSha256": "bda98ec75de1a09779707f94d425f1bdc9d6af909f886edc23140759610213c6",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-08-18T00:00:00.000Z",
+      "crossfadeMs": 0,
+      "durationFrames": 174,
+      "endSeconds": 5.787458,
+      "episodeId": "episode-m5e2e",
+      "fade": {
+        "inMs": 200,
+        "outMs": 200
+      },
+      "fallbackImagePath": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-m5e2e:media-verification-clip:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "video/mp4",
+          "path": "content/episode-m5e2e/media/verifications/seg-001/episode-m5e2e-media-clip-1ebacc573f498cdcc4383420-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "d14e8ed30696d53690e2d86d1c0a2f041d982d6d3d01667df43be7ba9c17bd38",
+          "sizeBytes": 4254590
+        },
+        "clipId": "episode-m5e2e:media-clip:1ebacc573f498cdcc4383420",
+        "clipIndexRef": {
+          "artifactId": "episode-m5e2e:media-clip-index:demo",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "application/json",
+          "path": "content/episode-m5e2e/media/indexes/demo/clip-index.json",
+          "producer": "media-understanding-v1:index:semantic-adapter-v1",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "dece8ead136d151b8c5b749413326b55ceb766bd0c3d4724d29cde6010307285",
+          "sizeBytes": 19281
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-m5e2e:media:demo-proxy",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "video/mp4",
+          "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+          "sizeBytes": 7301277
+        },
+        "sourceEndMs": 4000,
+        "sourceMediaId": "episode-m5e2e:media:demo",
+        "sourceMediaRef": {
+          "artifactId": "episode-m5e2e:media:demo",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "video/mp4",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "sizeBytes": 11513933
+        },
+        "sourceSha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-m5e2e:media-verification:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "application/json",
+          "path": "content/episode-m5e2e/media/verifications/seg-001/episode-m5e2e-media-clip-1ebacc573f498cdcc4383420.json",
+          "producer": "media-verification-v1:deterministic-stub:deterministic-verify-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "61bd2db86249d1e7bf417d68e2afc7ee954e750cba1f15a1d84232e4a51c830f",
+          "sizeBytes": 4687
+        }
+      },
+      "overlays": {
+        "badge": {
+          "text": "真实画面",
+          "tone": "real"
+        },
+        "captionsEnabled": true,
+        "sourceLabel": "M5 Acceptance Fixture · 真实画面"
+      },
+      "reasons": [
+        "scene seg-001 at frame 0 (174 frames, 30 fps)",
+        "real media episode-m5e2e:media-clip:1ebacc573f498cdcc4383420 trimmed 0..4000ms (recommended 0..4000ms)",
+        "render proxy episode-m5e2e:media-render-proxy:seg-001 (video/mp4)",
+        "audio mix original 0.259259 / narration 0.740741 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-m5e2e:media-render-proxy:seg-001",
+        "createdAt": "2026-08-18T00:00:00.000Z",
+        "episodeId": "episode-m5e2e",
+        "mediaType": "video/mp4",
+        "path": "content/episode-m5e2e/media/render/seg-001.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "1c783f6349bdb33102b76ddaf4b8ae76b1d40af8d6c1ee8cb6f25fbbc5a99ae4",
+        "sizeBytes": 1680116
+      },
+      "sceneIndex": 0,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-001",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-e2e-001"
+        ],
+        "clipId": "episode-m5e2e:media-clip:1ebacc573f498cdcc4383420",
+        "createdAt": "2026-08-18T00:00:00.000Z",
+        "endMs": 4000,
+        "episodeId": "episode-m5e2e",
+        "mediaId": "episode-m5e2e:media:demo",
+        "sourceMediaRef": {
+          "artifactId": "episode-m5e2e:media:demo",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "video/mp4",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "sizeBytes": 11513933
+        },
+        "startMs": 0,
+        "transcriptRefs": [
+          {
+            "artifactId": "episode-m5e2e:media-transcript:demo",
+            "createdAt": "2026-08-18T00:00:00.000Z",
+            "episodeId": "episode-m5e2e",
+            "mediaType": "application/json",
+            "path": "content/episode-m5e2e/media/indexes/demo/transcript.json",
+            "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+            "revision": 1,
+            "schemaVersion": "media-transcript-v1",
+            "sha256": "966590b354bc9eb5e7599248aa530eb26ee334f487d017e4f0c02f4050b30388",
+            "sizeBytes": 1788
+          }
+        ],
+        "visualIntent": "主界面操作流程演示"
+      },
+      "shotId": "episode-m5e2e:media-shot:seg-001",
+      "startFrame": 0,
+      "startSeconds": 0,
+      "staticFilePath": "episodes/episode-m5e2e/media/seg-001.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 4000,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-m5e2e:media-verification:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+        "createdAt": "2026-08-18T00:00:00.000Z",
+        "episodeId": "episode-m5e2e",
+        "mediaType": "application/json",
+        "path": "content/episode-m5e2e/media/verifications/seg-001/episode-m5e2e-media-clip-1ebacc573f498cdcc4383420.json",
+        "producer": "media-verification-v1:deterministic-stub:deterministic-verify-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "61bd2db86249d1e7bf417d68e2afc7ee954e750cba1f15a1d84232e4a51c830f",
+        "sizeBytes": 4687
+      },
+      "visualType": "real-media"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-m5e2e:media-shot:seg-002",
+        "createdAt": "2026-08-18T00:00:00.000Z",
+        "episodeId": "episode-m5e2e",
+        "mediaType": "application/json",
+        "path": "content/episode-m5e2e/media/shots/seg-002.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "3f4cfbd6c935c40f0341ce0c7c1282a96270565f3f6cda09e75f939a4f388595",
+        "sizeBytes": 2397
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "timelineSha256": "bda98ec75de1a09779707f94d425f1bdc9d6af909f886edc23140759610213c6",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-08-18T00:00:00.000Z",
+      "crossfadeMs": 0,
+      "durationFrames": 390,
+      "endSeconds": 18.789728999999998,
+      "episodeId": "episode-m5e2e",
+      "fade": {
+        "inMs": 200,
+        "outMs": 200
+      },
+      "fallbackImagePath": null,
+      "fallbackReason": "no visual slot artifact (media selection not run)",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": {
+          "text": "功能演示",
+          "tone": "demo"
+        },
+        "captionsEnabled": true,
+        "sourceLabel": "功能演示 · 程序化画面"
+      },
+      "reasons": [
+        "scene seg-002 at frame 174 (390 frames, 30 fps)",
+        "fallback none: no visual slot artifact (media selection not run)",
+        "visualType programmatic-visual (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 1,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-002",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-m5e2e:media-shot:seg-002",
+      "startFrame": 174,
+      "startSeconds": 5.787458,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "programmatic-visual"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-m5e2e:media-shot:seg-003",
+        "createdAt": "2026-08-18T00:00:00.000Z",
+        "episodeId": "episode-m5e2e",
+        "mediaType": "application/json",
+        "path": "content/episode-m5e2e/media/shots/seg-003.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "64de4ff5e79080d5e6a9cdce823f10d550bdbf7abb377f467f9f6d1a84fa2a6b",
+        "sizeBytes": 2407
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "timelineSha256": "bda98ec75de1a09779707f94d425f1bdc9d6af909f886edc23140759610213c6",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-08-18T00:00:00.000Z",
+      "crossfadeMs": 0,
+      "durationFrames": 326,
+      "endSeconds": 29.668749999999996,
+      "episodeId": "episode-m5e2e",
+      "fade": {
+        "inMs": 200,
+        "outMs": 200
+      },
+      "fallbackImagePath": null,
+      "fallbackReason": "no visual slot artifact (media selection not run)",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": {
+          "text": "功能演示",
+          "tone": "demo"
+        },
+        "captionsEnabled": true,
+        "sourceLabel": "功能演示 · 程序化画面"
+      },
+      "reasons": [
+        "scene seg-003 at frame 564 (326 frames, 30 fps)",
+        "fallback none: no visual slot artifact (media selection not run)",
+        "visualType programmatic-visual (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 2,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-003",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-m5e2e:media-shot:seg-003",
+      "startFrame": 564,
+      "startSeconds": 18.789728999999998,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "programmatic-visual"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-m5e2e:media-shot:seg-004",
+        "createdAt": "2026-08-18T00:00:00.000Z",
+        "episodeId": "episode-m5e2e",
+        "mediaType": "application/json",
+        "path": "content/episode-m5e2e/media/shots/seg-004.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "f7278fc006973b279b668b6d68c71f718f60cde28e1dc406fe3b6a7ca8838557",
+        "sizeBytes": 2406
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "timelineSha256": "bda98ec75de1a09779707f94d425f1bdc9d6af909f886edc23140759610213c6",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-08-18T00:00:00.000Z",
+      "crossfadeMs": 0,
+      "durationFrames": 394,
+      "endSeconds": 42.79774999999999,
+      "episodeId": "episode-m5e2e",
+      "fade": {
+        "inMs": 200,
+        "outMs": 200
+      },
+      "fallbackImagePath": null,
+      "fallbackReason": "no visual slot artifact (media selection not run)",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": {
+          "text": "功能演示",
+          "tone": "demo"
+        },
+        "captionsEnabled": true,
+        "sourceLabel": "功能演示 · 程序化画面"
+      },
+      "reasons": [
+        "scene seg-004 at frame 890 (394 frames, 30 fps)",
+        "fallback none: no visual slot artifact (media selection not run)",
+        "visualType programmatic-visual (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 3,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-004",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-m5e2e:media-shot:seg-004",
+      "startFrame": 890,
+      "startSeconds": 29.668749999999996,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "programmatic-visual"
+    }
+  ],
+  "timelineSha256": "bda98ec75de1a09779707f94d425f1bdc9d6af909f886edc23140759610213c6",
+  "totalFrames": 1284,
+  "totalSeconds": 42.8
+}

@@ -29,13 +29,22 @@ story/visual-plan.md
 - `Animation ideas`：只说明能解释动作或信息变化的运动。
 - `Asset requirements`：真实截图、录屏、程序化图形、声音或无需新增素材。
 - `Pacing`：镜头长度、信息密度、静音或明显节奏切换。
+- `Visible action`：观众实际看见哪两步以上的产品或人物动作，禁止只写“官网截图”。
+- `Evidence type`：`product-operation` / `interview` / `official-ui-crop` /
+  `data-graphic` / `news-quote` / `programmatic-action` / `still-page` 之一。
+- `Focal crop`：9:16 里要看的按钮、光标、输入框、手或数字，而不是整张桌面网页。
+- `Visual event`：本段每 2～4 秒发生的可见事件（点击、缩放、高亮、结果出现、切到
+  新证据或人物动作），不是空切。
+- `Media preference`：按真实操作 > 采访 > 官方视频 > 裁切 UI > 程序化动作排序，
+  并写明回退原因。
 - `Render target`：必须与 `final-script.md` 该段的 `scene` 完全一致。
 - `Claim IDs`：必须完整覆盖该旁白段落的 Claim IDs。
 
 `visual-plan.md` 必须包含 `visual-plan-gate` 元数据，rubricVersion 使用
-`visual-plan-v2`，绑定当前
+`visual-plan-v3`，绑定当前
 `story/final-script.md` 的 SHA-256，并与脚本段落一一对应、顺序一致。未取得、权利
 不清或无法在 9:16 中读清的关键素材写入 `unresolvedAssets`，不得标记 `READY`。
+历史已冻结的 `visual-plan-v2` 成片可以保留旧字段；新方案必须使用 v3。
 
 ## Goal 3.2 编辑政策
 
@@ -57,7 +66,17 @@ story/visual-plan.md
 
 ## 规则
 
-- 优先使用能证明核心动作的官方页面、应用截图或真实操作录屏。
+- 执行 `seen-action-not-described-action`：旁白说出打开、执行、读写、批准时，画面
+  必须让这些动作正在发生。品牌首页、整页桌面网页或功能卡片不能单独作为动作证据。
+- 真实媒体优先：已准入的操作录屏 / 采访 / 官方视频 > 裁切后的官方 UI > 程序化动作。
+  没有更强素材时，用标明“功能演示”的程序化动作演示工作过程，并写回退原因。
+- 命题变了就要换证据形态。连续两段不能用同一张落地页证明两个不同动作。
+- 静帧必须被导演：裁切、放大、标出焦点，让观众立刻看见那个按钮或结果，而不是自己
+  在白边网页里找重点。
+- 每 2～4 秒至少一次可见视觉事件。目标不是提高硬切数量，而是手、UI、结果或证据
+  形态真的发生变化。
+- 常驻标题或统一底盘不能锁死中部证据。47 秒都停在“黑底 + 同一网页 + 黄字”视为
+  方案失败。
 - 强事实第一次说出口时，证据必须同期出现。
 - 合成界面持续标“功能演示”；真实页面标明来源。
 - 动画服务于理解、证据或节奏，不用画风变化冒充信息推进。

@@ -1,0 +1,173 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 1.2190126086956523,
+    "startFrame": 0,
+    "endFrame": 37,
+    "text": "主界面演示"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-001",
+    "startSeconds": 1.2190126086956523,
+    "endSeconds": 3.657037826086957,
+    "startFrame": 37,
+    "endFrame": 110,
+    "text": "十三秒完成第一次操作"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-001",
+    "startSeconds": 3.657037826086957,
+    "endSeconds": 5.607458,
+    "startFrame": 110,
+    "endFrame": 168,
+    "text": "任务气泡实时出现"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 5.787458,
+    "endSeconds": 7.356270907407407,
+    "startFrame": 174,
+    "endFrame": 221,
+    "text": "团队把核心流程"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-002",
+    "startSeconds": 7.356270907407407,
+    "endSeconds": 10.045664462962963,
+    "startFrame": 221,
+    "endFrame": 301,
+    "text": "做成了实时可见的步骤列表"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-002",
+    "startSeconds": 10.045664462962963,
+    "endSeconds": 13.407406407407407,
+    "startFrame": 301,
+    "endFrame": 402,
+    "text": "每一步都显示开始时间和完成状态"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-002",
+    "startSeconds": 13.407406407407407,
+    "endSeconds": 15.424451574074073,
+    "startFrame": 402,
+    "endFrame": 463,
+    "text": "操作过程不再是黑盒"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-002",
+    "startSeconds": 15.424451574074073,
+    "endSeconds": 17.889729,
+    "startFrame": 463,
+    "endFrame": 537,
+    "text": "每一步都有日志可以回看"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-003",
+    "startSeconds": 18.789728999999998,
+    "endSeconds": 20.215303428571428,
+    "startFrame": 564,
+    "endFrame": 606,
+    "text": "发布后第一周"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-003",
+    "startSeconds": 20.215303428571428,
+    "endSeconds": 22.828856547619047,
+    "startFrame": 606,
+    "endFrame": 685,
+    "text": "演示视频被转发了四万次"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-003",
+    "startSeconds": 22.828856547619047,
+    "endSeconds": 25.6800054047619,
+    "startFrame": 685,
+    "endFrame": 770,
+    "text": "评论区出现真实的安装反馈"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-003",
+    "startSeconds": 25.6800054047619,
+    "endSeconds": 26.867984095238093,
+    "startFrame": 770,
+    "endFrame": 806,
+    "text": "和二次创作"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-003",
+    "startSeconds": 26.867984095238093,
+    "endSeconds": 28.768749999999997,
+    "startFrame": 806,
+    "endFrame": 863,
+    "text": "数据来自官方后台"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-004",
+    "startSeconds": 29.668749999999996,
+    "endSeconds": 31.380809999999997,
+    "startFrame": 890,
+    "endFrame": 941,
+    "text": "现在同样的任务"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-004",
+    "startSeconds": 31.380809999999997,
+    "endSeconds": 33.09287,
+    "startFrame": 941,
+    "endFrame": 993,
+    "text": "只需要一条指令"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-004",
+    "startSeconds": 33.09287,
+    "endSeconds": 35.04951,
+    "startFrame": 993,
+    "endFrame": 1051,
+    "text": "打开网页整理文件"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-004",
+    "startSeconds": 35.04951,
+    "endSeconds": 37.495309999999996,
+    "startFrame": 1051,
+    "endFrame": 1125,
+    "text": "继续运行全部自动完成"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-004",
+    "startSeconds": 37.495309999999996,
+    "endSeconds": 39.20737,
+    "startFrame": 1125,
+    "endFrame": 1176,
+    "text": "不需要守着屏幕"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-004",
+    "startSeconds": 39.20737,
+    "endSeconds": 41.897749999999995,
+    "startFrame": 1176,
+    "endFrame": 1257,
+    "text": "这就是自动化该有的样子"
+  }
+]

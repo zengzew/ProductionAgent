@@ -6,6 +6,7 @@ import roostTimelineRaw from "./episode-002-timeline.generated.json";
 import {RoostCover, RoostEpisode} from "./compositions/RoostEpisode";
 import manusTimelineRaw from "./episode-003-timeline.generated.json";
 import {ManusEpisode} from "./compositions/ManusEpisode";
+import {MediaMixEpisode, mediaMixMetadata} from "./compositions/MediaMixEpisode";
 import {timelineSchema} from "./schemas/episode";
 
 const pokeTimeline = timelineSchema.parse(pokeTimelineRaw);
@@ -79,6 +80,18 @@ export const RemotionRoot: React.FC = () => {
         component={ManusEpisode}
         durationInFrames={300}
         fps={manusTimeline.fps}
+        width={1080}
+        height={1920}
+      />
+      {/* WP-M5.08 generic real-media mix. Studio preview defaults to episode-003;
+          `pnpm render` must pass --props.episodeId and re-authorize the public plan. */}
+      <Composition
+        id="MediaMixVertical"
+        component={MediaMixEpisode}
+        defaultProps={{episodeId: "episode-003"}}
+        calculateMetadata={mediaMixMetadata}
+        durationInFrames={1}
+        fps={30}
         width={1080}
         height={1920}
       />

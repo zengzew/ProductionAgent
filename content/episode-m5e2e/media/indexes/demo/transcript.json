@@ -1,0 +1,61 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-m5e2e:media:demo-proxy",
+    "createdAt": "2026-08-18T00:00:00.000Z",
+    "episodeId": "episode-m5e2e",
+    "mediaType": "video/mp4",
+    "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+    "sizeBytes": 7301277
+  },
+  "asrVersion": "stub-asr-v1",
+  "availability": "available",
+  "durationMs": 24000,
+  "episodeId": "episode-m5e2e",
+  "mediaId": "episode-m5e2e:media:demo",
+  "model": null,
+  "provider": "stub-asr",
+  "schemaVersion": "media-transcript-v1",
+  "segments": [
+    {
+      "confidence": null,
+      "endMs": 8000,
+      "index": 0,
+      "speaker": "host",
+      "startMs": 0,
+      "text": "产品演示 主界面 操作 流程 任务 气泡"
+    },
+    {
+      "confidence": null,
+      "endMs": 16000,
+      "index": 1,
+      "speaker": "host",
+      "startMs": 8000,
+      "text": "团队 核心流程 实时 可见 步骤 列表"
+    },
+    {
+      "confidence": null,
+      "endMs": 24000,
+      "index": 2,
+      "speaker": "host",
+      "startMs": 16000,
+      "text": "发布 第一周 演示视频 转发 四万 反馈"
+    }
+  ],
+  "sourceMediaRef": {
+    "artifactId": "episode-m5e2e:media:demo",
+    "createdAt": "2026-08-18T00:00:00.000Z",
+    "episodeId": "episode-m5e2e",
+    "mediaType": "video/mp4",
+    "path": "content/episode-m5e2e/media/assets/demo.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+    "sizeBytes": 11513933
+  },
+  "toolVersion": "media-asr-stub-v1"
+}

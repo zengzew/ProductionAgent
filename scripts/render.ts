@@ -6,6 +6,7 @@ import {
   generatedTimelinePath,
   getRenderContract,
 } from "../src/lib/render-contract";
+import {assertMediaMixReadyToRender} from "../src/media/render";
 import {episodeId, episodeRoot, outputEpisodeRoot, repoRoot} from "../src/lib/project";
 import {runCommand} from "./lib/process";
 import {installCliErrorHandlers, jsonValuesEqual, readTimeline} from "./lib/validation";
@@ -46,6 +47,11 @@ const run = (args: string[]): void => {
 
 const renderVideo = (composition: string, output: string): void => {
   const browserExecutable = process.env.REMOTION_BROWSER_EXECUTABLE;
+  const mediaMixProps =
+    composition === "MediaMixVertical" ? [`--props=${JSON.stringify({episodeId})}`] : [];
+  if (composition === "MediaMixVertical") {
+    assertMediaMixReadyToRender({repoRoot, episodeId});
+  }
   run([
     "render",
     "src/index.ts",
@@ -57,6 +63,7 @@ const renderVideo = (composition: string, output: string): void => {
     "--audio-codec=aac",
     "--audio-bitrate=192K",
     "--concurrency=2",
+    ...mediaMixProps,
     ...(browserExecutable ? [`--browser-executable=${browserExecutable}`] : []),
   ]);
 };

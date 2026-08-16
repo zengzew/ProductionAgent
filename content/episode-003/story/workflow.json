@@ -183,7 +183,7 @@
       "critic": "audience-critic",
       "round": 1,
       "reportPath": "content/episode-003/story/critic-report.md",
-      "reportSha256": "d921b34930f0c431ee55d92b2bea429eb13f3922d5fef89c472d92e26670c2a8",
+      "reportSha256": "6df69e9af580ee9aaeac4a5b0795ccc9f17e06f82262127e4df4159986c9dd72",
       "verdict": "PASS",
       "routes": []
     },
@@ -192,7 +192,7 @@
       "critic": "retention-critic",
       "round": 1,
       "reportPath": "content/episode-003/story/retention-report.md",
-      "reportSha256": "3fd186faebe16c7943f7178ccda1703371fc1b0cb0677319bf116912c0691f8d",
+      "reportSha256": "4c112bc821f77969baec73a5415bae68a73a95d5dc92247e89c159e8bf11c5ff",
       "verdict": "PASS",
       "routes": []
     },
@@ -201,7 +201,7 @@
       "critic": "delivery-critic",
       "round": 1,
       "reportPath": "content/episode-003/production/delivery-critic-report.md",
-      "reportSha256": "aee8b0941acbf725c5e58b19423c85c64c4851d6156f8c1dbf68156b2c7e72de",
+      "reportSha256": "9640c4de9bbd22597eb603d6f2c394926995556dbf3ebb4d8f65f8fa40a2d417",
       "verdict": "PASS",
       "routes": []
     }

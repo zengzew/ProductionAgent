@@ -1,0 +1,1134 @@
+{
+  "schemaVersion": "artifact-index-v1",
+  "episodeId": "episode-m5e2e",
+  "artifacts": [
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+        "mediaType": "application/json",
+        "schemaVersion": "human-decision-v1",
+        "revision": 1,
+        "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+        "sizeBytes": 881,
+        "producer": "human:m5-acceptance-human-reviewer",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "selected",
+      "producedByExecutionId": "human-decision:admission-episode-m5e2e-official-demo",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media:source-manifest",
+          "path": "content/episode-m5e2e/media/source-manifest.json",
+          "sha256": "5cf3df6814920c9fa06219c10248275e0b342db8b4523ee0727945dbcbde5868",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+        "mediaType": "application/json",
+        "schemaVersion": "human-decision-v1",
+        "revision": 1,
+        "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+        "sizeBytes": 876,
+        "producer": "human:m5-acceptance-human-reviewer",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "selected",
+      "producedByExecutionId": "human-decision:rights-episode-m5e2e-official-demo",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media:source-manifest",
+          "path": "content/episode-m5e2e/media/source-manifest.json",
+          "sha256": "318439583132563df520ed030cf33651a709dbeb7787b123175c83c4745b0150",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media:demo",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/assets/demo.mp4",
+        "mediaType": "video/mp4",
+        "schemaVersion": "media-asset-v1",
+        "revision": 1,
+        "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+        "sizeBytes": 11513933,
+        "producer": "media-ingest-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-ingest:episode-m5e2e:media:demo",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media:demo-proxy",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+        "mediaType": "video/mp4",
+        "schemaVersion": "media-asset-v1",
+        "revision": 1,
+        "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+        "sizeBytes": 7301277,
+        "producer": "media-ingest-v1:normalize",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-ingest:episode-m5e2e:media:demo-proxy",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-transcript:demo",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/indexes/demo/transcript.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-transcript-v1",
+        "revision": 1,
+        "sha256": "966590b354bc9eb5e7599248aa530eb26ee334f487d017e4f0c02f4050b30388",
+        "sizeBytes": 1788,
+        "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-understanding:episode-m5e2e:media:demo:transcript",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo-proxy",
+          "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+          "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-scenes:demo",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/indexes/demo/scenes.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-scenes-v1",
+        "revision": 1,
+        "sha256": "0c5f88ba1b6da274d9f48093b74787c5bda0d211d47fdd4025265e02deb8db99",
+        "sizeBytes": 1803,
+        "producer": "media-understanding-v1:scenes:scene-detector-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-understanding:episode-m5e2e:media:demo:scenes",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo-proxy",
+          "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+          "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-keyframe:demo-0-2000",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-0-2000.jpg",
+        "mediaType": "image/jpeg",
+        "schemaVersion": "media-keyframe-v1",
+        "revision": 1,
+        "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+        "sizeBytes": 40,
+        "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-understanding:episode-m5e2e:media:demo:keyframes",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media-scenes:demo",
+          "path": "content/episode-m5e2e/media/indexes/demo/scenes.json",
+          "sha256": "0c5f88ba1b6da274d9f48093b74787c5bda0d211d47fdd4025265e02deb8db99",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo-proxy",
+          "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+          "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-keyframe:demo-1-6000",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-1-6000.jpg",
+        "mediaType": "image/jpeg",
+        "schemaVersion": "media-keyframe-v1",
+        "revision": 1,
+        "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+        "sizeBytes": 40,
+        "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-understanding:episode-m5e2e:media:demo:keyframes",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media-scenes:demo",
+          "path": "content/episode-m5e2e/media/indexes/demo/scenes.json",
+          "sha256": "0c5f88ba1b6da274d9f48093b74787c5bda0d211d47fdd4025265e02deb8db99",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo-proxy",
+          "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+          "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-keyframe:demo-2-10000",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-2-10000.jpg",
+        "mediaType": "image/jpeg",
+        "schemaVersion": "media-keyframe-v1",
+        "revision": 1,
+        "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+        "sizeBytes": 40,
+        "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-understanding:episode-m5e2e:media:demo:keyframes",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media-scenes:demo",
+          "path": "content/episode-m5e2e/media/indexes/demo/scenes.json",
+          "sha256": "0c5f88ba1b6da274d9f48093b74787c5bda0d211d47fdd4025265e02deb8db99",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo-proxy",
+          "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+          "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-keyframe:demo-3-14000",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-3-14000.jpg",
+        "mediaType": "image/jpeg",
+        "schemaVersion": "media-keyframe-v1",
+        "revision": 1,
+        "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+        "sizeBytes": 40,
+        "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-understanding:episode-m5e2e:media:demo:keyframes",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media-scenes:demo",
+          "path": "content/episode-m5e2e/media/indexes/demo/scenes.json",
+          "sha256": "0c5f88ba1b6da274d9f48093b74787c5bda0d211d47fdd4025265e02deb8db99",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo-proxy",
+          "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+          "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-keyframe:demo-4-18000",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-4-18000.jpg",
+        "mediaType": "image/jpeg",
+        "schemaVersion": "media-keyframe-v1",
+        "revision": 1,
+        "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+        "sizeBytes": 40,
+        "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-understanding:episode-m5e2e:media:demo:keyframes",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media-scenes:demo",
+          "path": "content/episode-m5e2e/media/indexes/demo/scenes.json",
+          "sha256": "0c5f88ba1b6da274d9f48093b74787c5bda0d211d47fdd4025265e02deb8db99",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo-proxy",
+          "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+          "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-keyframe:demo-5-22000",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-5-22000.jpg",
+        "mediaType": "image/jpeg",
+        "schemaVersion": "media-keyframe-v1",
+        "revision": 1,
+        "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+        "sizeBytes": 40,
+        "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-understanding:episode-m5e2e:media:demo:keyframes",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media-scenes:demo",
+          "path": "content/episode-m5e2e/media/indexes/demo/scenes.json",
+          "sha256": "0c5f88ba1b6da274d9f48093b74787c5bda0d211d47fdd4025265e02deb8db99",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo-proxy",
+          "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+          "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-clip-index:demo",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/indexes/demo/clip-index.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-clip-index-v1",
+        "revision": 1,
+        "sha256": "dece8ead136d151b8c5b749413326b55ceb766bd0c3d4724d29cde6010307285",
+        "sizeBytes": 19281,
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-understanding:episode-m5e2e:media:demo:clip-index",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media-transcript:demo",
+          "path": "content/episode-m5e2e/media/indexes/demo/transcript.json",
+          "sha256": "966590b354bc9eb5e7599248aa530eb26ee334f487d017e4f0c02f4050b30388",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-scenes:demo",
+          "path": "content/episode-m5e2e/media/indexes/demo/scenes.json",
+          "sha256": "0c5f88ba1b6da274d9f48093b74787c5bda0d211d47fdd4025265e02deb8db99",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-keyframe:demo-0-2000",
+          "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-0-2000.jpg",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-keyframe:demo-1-6000",
+          "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-1-6000.jpg",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-keyframe:demo-2-10000",
+          "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-2-10000.jpg",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-keyframe:demo-3-14000",
+          "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-3-14000.jpg",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-keyframe:demo-4-18000",
+          "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-4-18000.jpg",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-keyframe:demo-5-22000",
+          "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-5-22000.jpg",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo-proxy",
+          "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+          "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-retrieval:seg-001",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/candidates/seg-001.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-retrieval-result-v1",
+        "revision": 1,
+        "sha256": "b3e193f1049f36f3abdd183def81c8eff5bad9250797b8533add4b963df4dc74",
+        "sizeBytes": 9074,
+        "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-retrieval:seg-001",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-clip-index:demo",
+          "path": "content/episode-m5e2e/media/indexes/demo/clip-index.json",
+          "sha256": "dece8ead136d151b8c5b749413326b55ceb766bd0c3d4724d29cde6010307285",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-verification-clip:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/verifications/seg-001/episode-m5e2e-media-clip-1ebacc573f498cdcc4383420-clip.mp4",
+        "mediaType": "video/mp4",
+        "schemaVersion": "media-verification-clip-v1",
+        "revision": 1,
+        "sha256": "d14e8ed30696d53690e2d86d1c0a2f041d982d6d3d01667df43be7ba9c17bd38",
+        "sizeBytes": 4254590,
+        "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-verification:seg-001:episode-m5e2e:media-clip:1ebacc573f498cdcc4383420",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo-proxy",
+          "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+          "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-verification:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/verifications/seg-001/episode-m5e2e-media-clip-1ebacc573f498cdcc4383420.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-verification-v1",
+        "revision": 1,
+        "sha256": "61bd2db86249d1e7bf417d68e2afc7ee954e750cba1f15a1d84232e4a51c830f",
+        "sizeBytes": 4687,
+        "producer": "media-verification-v1:deterministic-stub:deterministic-verify-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-verification:seg-001:episode-m5e2e:media-clip:1ebacc573f498cdcc4383420",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media-verification-clip:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+          "path": "content/episode-m5e2e/media/verifications/seg-001/episode-m5e2e-media-clip-1ebacc573f498cdcc4383420-clip.mp4",
+          "sha256": "d14e8ed30696d53690e2d86d1c0a2f041d982d6d3d01667df43be7ba9c17bd38",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-retrieval:seg-001",
+          "path": "content/episode-m5e2e/media/candidates/seg-001.json",
+          "sha256": "b3e193f1049f36f3abdd183def81c8eff5bad9250797b8533add4b963df4dc74",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-clip-index:demo",
+          "path": "content/episode-m5e2e/media/indexes/demo/clip-index.json",
+          "sha256": "dece8ead136d151b8c5b749413326b55ceb766bd0c3d4724d29cde6010307285",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-visual-slot:seg-001",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/selections/seg-001.json",
+        "mediaType": "application/json",
+        "schemaVersion": "visual-slot-v1",
+        "revision": 1,
+        "sha256": "ec23516599d3df3aca480f2ce6cd96ca09ce12af8b88b077dbdc83c5dee8f087",
+        "sizeBytes": 4143,
+        "producer": "media-selection-v1:visual-selection-config-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-selection:seg-001",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media-retrieval:seg-001",
+          "path": "content/episode-m5e2e/media/candidates/seg-001.json",
+          "sha256": "b3e193f1049f36f3abdd183def81c8eff5bad9250797b8533add4b963df4dc74",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-verification:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+          "path": "content/episode-m5e2e/media/verifications/seg-001/episode-m5e2e-media-clip-1ebacc573f498cdcc4383420.json",
+          "sha256": "61bd2db86249d1e7bf417d68e2afc7ee954e750cba1f15a1d84232e4a51c830f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-render-proxy:seg-001",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/render/seg-001.mp4",
+        "mediaType": "video/mp4",
+        "schemaVersion": "media-render-proxy-v1",
+        "revision": 1,
+        "sha256": "1c783f6349bdb33102b76ddaf4b8ae76b1d40af8d6c1ee8cb6f25fbbc5a99ae4",
+        "sizeBytes": 1680116,
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "createdAt": "2026-08-16T09:32:29.379Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-render:seg-001",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media:demo-proxy",
+          "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+          "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-shot:seg-001",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/shots/seg-001.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-shot-v1",
+        "revision": 1,
+        "sha256": "ae5c15683208b533accdca6c52cf1592bbb28003a642d50d57a4556f3d107f0a",
+        "sizeBytes": 8396,
+        "producer": "media-render-v1",
+        "createdAt": "2026-08-16T09:32:29.433Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-render:seg-001",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media-visual-slot:seg-001",
+          "path": "content/episode-m5e2e/media/selections/seg-001.json",
+          "sha256": "ea96874dcd6eb6c9f763d069de82f09ac468912338e484a6334bde017573c3fd",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-verification:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+          "path": "content/episode-m5e2e/media/verifications/seg-001/episode-m5e2e-media-clip-1ebacc573f498cdcc4383420.json",
+          "sha256": "deb760bb4d0b6cdcd88da89277fc2f5c29506f8337c34cdd0596b9913a5801c8",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-verification-clip:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+          "path": "content/episode-m5e2e/media/verifications/seg-001/episode-m5e2e-media-clip-1ebacc573f498cdcc4383420-clip.mp4",
+          "sha256": "d14e8ed30696d53690e2d86d1c0a2f041d982d6d3d01667df43be7ba9c17bd38",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-clip-index:demo",
+          "path": "content/episode-m5e2e/media/indexes/demo/clip-index.json",
+          "sha256": "dece8ead136d151b8c5b749413326b55ceb766bd0c3d4724d29cde6010307285",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo-proxy",
+          "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+          "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-render-proxy:seg-001",
+          "path": "content/episode-m5e2e/media/render/seg-001.mp4",
+          "sha256": "1c783f6349bdb33102b76ddaf4b8ae76b1d40af8d6c1ee8cb6f25fbbc5a99ae4",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-shot:seg-002",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/shots/seg-002.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-shot-v1",
+        "revision": 1,
+        "sha256": "faf0b350c58fe48d2b8ed853ee713e3022b0ae10730890b7b2a3630c40751590",
+        "sizeBytes": 2849,
+        "producer": "media-render-v1",
+        "createdAt": "2026-08-16T09:32:29.500Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-render:seg-002",
+      "dependencies": []
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-shot:seg-003",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/shots/seg-003.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-shot-v1",
+        "revision": 1,
+        "sha256": "5699f126788f5f13d72d4309da728005739ad06b70bf1364cba9575dfcc62b51",
+        "sizeBytes": 2859,
+        "producer": "media-render-v1",
+        "createdAt": "2026-08-16T09:32:29.525Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-render:seg-003",
+      "dependencies": []
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-shot:seg-004",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/shots/seg-004.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-shot-v1",
+        "revision": 1,
+        "sha256": "86dddb7ba866b560225263f6ef7274a19ccca5faf5c5195632fa9efc4db3a3f7",
+        "sizeBytes": 2858,
+        "producer": "media-render-v1",
+        "createdAt": "2026-08-16T09:32:29.554Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-render:seg-004",
+      "dependencies": []
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media:render-plan",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/render-plan.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-render-plan-v1",
+        "revision": 1,
+        "sha256": "f47f78198bd02d7de6e201cb08b7a96c9b6b1750ac1bae6ac066f6d5d5aa38e3",
+        "sizeBytes": 20558,
+        "producer": "media-render-v1",
+        "createdAt": "2026-08-16T09:32:29.583Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-render-plan",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media-shot:seg-001",
+          "path": "content/episode-m5e2e/media/shots/seg-001.json",
+          "sha256": "ae5c15683208b533accdca6c52cf1592bbb28003a642d50d57a4556f3d107f0a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-shot:seg-002",
+          "path": "content/episode-m5e2e/media/shots/seg-002.json",
+          "sha256": "faf0b350c58fe48d2b8ed853ee713e3022b0ae10730890b7b2a3630c40751590",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-shot:seg-003",
+          "path": "content/episode-m5e2e/media/shots/seg-003.json",
+          "sha256": "5699f126788f5f13d72d4309da728005739ad06b70bf1364cba9575dfcc62b51",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-shot:seg-004",
+          "path": "content/episode-m5e2e/media/shots/seg-004.json",
+          "sha256": "86dddb7ba866b560225263f6ef7274a19ccca5faf5c5195632fa9efc4db3a3f7",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-shot:seg-001",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/shots/seg-001.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-shot-v1",
+        "revision": 1,
+        "sha256": "843cbd03134d07b803a60a89decf14acd5dc967aff72d06346b55f24cb7c3a2b",
+        "sizeBytes": 8396,
+        "producer": "media-render-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-render:seg-001",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media-visual-slot:seg-001",
+          "path": "content/episode-m5e2e/media/selections/seg-001.json",
+          "sha256": "ea96874dcd6eb6c9f763d069de82f09ac468912338e484a6334bde017573c3fd",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-verification:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+          "path": "content/episode-m5e2e/media/verifications/seg-001/episode-m5e2e-media-clip-1ebacc573f498cdcc4383420.json",
+          "sha256": "deb760bb4d0b6cdcd88da89277fc2f5c29506f8337c34cdd0596b9913a5801c8",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-verification-clip:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+          "path": "content/episode-m5e2e/media/verifications/seg-001/episode-m5e2e-media-clip-1ebacc573f498cdcc4383420-clip.mp4",
+          "sha256": "d14e8ed30696d53690e2d86d1c0a2f041d982d6d3d01667df43be7ba9c17bd38",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-clip-index:demo",
+          "path": "content/episode-m5e2e/media/indexes/demo/clip-index.json",
+          "sha256": "dece8ead136d151b8c5b749413326b55ceb766bd0c3d4724d29cde6010307285",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo",
+          "path": "content/episode-m5e2e/media/assets/demo.mp4",
+          "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media:demo-proxy",
+          "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+          "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-render-proxy:seg-001",
+          "path": "content/episode-m5e2e/media/render/seg-001.mp4",
+          "sha256": "1c783f6349bdb33102b76ddaf4b8ae76b1d40af8d6c1ee8cb6f25fbbc5a99ae4",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+          "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+          "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+          "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+          "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-shot:seg-002",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/shots/seg-002.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-shot-v1",
+        "revision": 1,
+        "sha256": "7c2258e9b80b052ba75e4d523b2f796afeca5f252b14d1ab8264d31990d06e56",
+        "sizeBytes": 2849,
+        "producer": "media-render-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-render:seg-002",
+      "dependencies": []
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-shot:seg-003",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/shots/seg-003.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-shot-v1",
+        "revision": 1,
+        "sha256": "a55344330e73f4f290c963864fd442b4104d014ffa1af650e18a144db15f5d26",
+        "sizeBytes": 2859,
+        "producer": "media-render-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-render:seg-003",
+      "dependencies": []
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media-shot:seg-004",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/shots/seg-004.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-shot-v1",
+        "revision": 1,
+        "sha256": "81d1e29be87ca390017024b395ba99f5674ca046dba0b77e7af6c83036c30fe4",
+        "sizeBytes": 2858,
+        "producer": "media-render-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-render:seg-004",
+      "dependencies": []
+    },
+    {
+      "ref": {
+        "artifactId": "episode-m5e2e:media:render-plan",
+        "episodeId": "episode-m5e2e",
+        "path": "content/episode-m5e2e/media/render-plan.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-render-plan-v1",
+        "revision": 1,
+        "sha256": "8442ea0c207db722a8bd470e99bc4b31da7352a33d28c98b49a36e95d3413fb2",
+        "sizeBytes": 20558,
+        "producer": "media-render-v1",
+        "createdAt": "2026-08-18T00:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-render-plan",
+      "dependencies": [
+        {
+          "artifactId": "episode-m5e2e:media-shot:seg-001",
+          "path": "content/episode-m5e2e/media/shots/seg-001.json",
+          "sha256": "843cbd03134d07b803a60a89decf14acd5dc967aff72d06346b55f24cb7c3a2b",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-shot:seg-002",
+          "path": "content/episode-m5e2e/media/shots/seg-002.json",
+          "sha256": "7c2258e9b80b052ba75e4d523b2f796afeca5f252b14d1ab8264d31990d06e56",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-shot:seg-003",
+          "path": "content/episode-m5e2e/media/shots/seg-003.json",
+          "sha256": "a55344330e73f4f290c963864fd442b4104d014ffa1af650e18a144db15f5d26",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-m5e2e:media-shot:seg-004",
+          "path": "content/episode-m5e2e/media/shots/seg-004.json",
+          "sha256": "81d1e29be87ca390017024b395ba99f5674ca046dba0b77e7af6c83036c30fe4",
+          "relation": "reads"
+        }
+      ]
+    }
+  ],
+  "selected": {
+    "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77": {
+      "revision": 1,
+      "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+      "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json"
+    },
+    "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7": {
+      "revision": 1,
+      "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+      "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json"
+    }
+  }
+}

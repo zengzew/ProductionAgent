@@ -5,9 +5,12 @@ import {episodeRoot} from "../src/lib/project";
 import {
   containsGenericCta,
   endsWithQuestion,
+  findActionVisualIntentViolations,
   findMissingHookCandidateFields,
+  findSeenActionViolations,
   findVisualAssetContractViolations,
   parseVisualPlanSections,
+  parseVisualPlanV3Sections,
 } from "../src/lib/story-quality";
 
 describe("story quality contract", () => {
@@ -72,5 +75,40 @@ describe("story quality contract", () => {
       {segmentId: "seg-001", field: "Pacing"},
       {segmentId: "seg-001", field: "Render target"},
     ]);
+  });
+
+  it("requires v3 visual plans to show the narrated action instead of a landing page", () => {
+    const parsed = parseVisualPlanV3Sections(`## seg-001
+
+- Visible action: 任务已发出。
+- Evidence type: still-page
+- Focal crop: 官网首页
+- Visual event: 轻微呼吸灯
+- Media preference: 官网截图
+`);
+    expect(parsed.missing).toEqual([]);
+    expect(
+      findSeenActionViolations(parsed.sections, new Map([["seg-001", "它自己打开网页去办。"]])),
+    ).toEqual(
+      expect.arrayContaining([
+        "seg-001 旁白包含产品动作，但 Evidence type 仍是 still-page",
+        "seg-001 的 Visual event 必须写出可观察变化，不能只写氛围或空切",
+        "seg-001 Hook 第一段不能用 still-page 证明开场动作",
+      ]),
+    );
+    expect(
+      findActionVisualIntentViolations([
+        {
+          id: "seg-001",
+          narration: "它自己打开网页去办。",
+          visualIntent: "配一张官网首页。",
+        },
+      ]),
+    ).toEqual(
+      expect.arrayContaining([
+        "seg-001 的 visualIntent 必须写出至少两步可见变化",
+        "seg-001 不能只用官网首页代替动作过程",
+      ]),
+    );
   });
 });

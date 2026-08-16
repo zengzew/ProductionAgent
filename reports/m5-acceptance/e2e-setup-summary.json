@@ -1,0 +1,126 @@
+{
+  "episode": "episode-m5e2e",
+  "fixture": {
+    "path": "/Users/zengze/Documents/ProductionAgent/downloads/episode-m5e2e-fixture.mp4",
+    "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+    "sizeBytes": 11513933
+  },
+  "original": {
+    "mediaId": "episode-m5e2e:media:demo",
+    "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+    "sizeBytes": 11513933,
+    "mediaType": "video/mp4",
+    "artifactRef": {
+      "artifactId": "episode-m5e2e:media:demo",
+      "episodeId": "episode-m5e2e",
+      "path": "content/episode-m5e2e/media/assets/demo.mp4",
+      "mediaType": "video/mp4",
+      "schemaVersion": "media-asset-v1",
+      "revision": 1,
+      "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+      "sizeBytes": 11513933,
+      "producer": "media-ingest-v1",
+      "createdAt": "2026-08-18T00:00:00.000Z"
+    }
+  },
+  "proxy": {
+    "mediaId": "episode-m5e2e:media:demo-proxy",
+    "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+    "artifactRef": {
+      "artifactId": "episode-m5e2e:media:demo-proxy",
+      "episodeId": "episode-m5e2e",
+      "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+      "mediaType": "video/mp4",
+      "schemaVersion": "media-asset-v1",
+      "revision": 1,
+      "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+      "sizeBytes": 7301277,
+      "producer": "media-ingest-v1:normalize",
+      "createdAt": "2026-08-18T00:00:00.000Z"
+    }
+  },
+  "source": {
+    "sourceId": "episode-m5e2e:media-source:official-demo",
+    "admissionStatus": "admitted",
+    "rightsStatus": "approved",
+    "admissionDecisionRef": {
+      "artifactId": "episode-m5e2e:production:human-decision-admission-episode-m5e2e-official-demo-6a983c518d77",
+      "episodeId": "episode-m5e2e",
+      "path": "content/episode-m5e2e/production/human-decisions/admission-episode-m5e2e-official-demo-6a983c518d77.json",
+      "mediaType": "application/json",
+      "schemaVersion": "human-decision-v1",
+      "revision": 1,
+      "sha256": "81708cf057d297aff7f998e7df2527482f7bfdd27c4f2622634ec1bbd28b6022",
+      "sizeBytes": 881,
+      "producer": "human:m5-acceptance-human-reviewer",
+      "createdAt": "2026-08-18T00:00:00.000Z"
+    },
+    "rightsDecisionRef": {
+      "artifactId": "episode-m5e2e:production:human-decision-rights-episode-m5e2e-official-demo-8e3cbfffc8e7",
+      "episodeId": "episode-m5e2e",
+      "path": "content/episode-m5e2e/production/human-decisions/rights-episode-m5e2e-official-demo-8e3cbfffc8e7.json",
+      "mediaType": "application/json",
+      "schemaVersion": "human-decision-v1",
+      "revision": 1,
+      "sha256": "3f517458ba30d86c8014e7f37dc142a5abcaf868734e3c2d42bd6fd1db8aa00b",
+      "sizeBytes": 876,
+      "producer": "human:m5-acceptance-human-reviewer",
+      "createdAt": "2026-08-18T00:00:00.000Z"
+    }
+  },
+  "retrieval": {
+    "artifactRef": {
+      "artifactId": "episode-m5e2e:media-retrieval:seg-001",
+      "episodeId": "episode-m5e2e",
+      "path": "content/episode-m5e2e/media/candidates/seg-001.json",
+      "mediaType": "application/json",
+      "schemaVersion": "media-retrieval-result-v1",
+      "revision": 1,
+      "sha256": "b3e193f1049f36f3abdd183def81c8eff5bad9250797b8533add4b963df4dc74",
+      "sizeBytes": 9074,
+      "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+      "createdAt": "2026-08-18T00:00:00.000Z"
+    },
+    "candidates": 4
+  },
+  "verification": {
+    "artifactRef": {
+      "artifactId": "episode-m5e2e:media-verification:episode-m5e2e-media-clip-1ebacc573f498cdcc4383420",
+      "episodeId": "episode-m5e2e",
+      "path": "content/episode-m5e2e/media/verifications/seg-001/episode-m5e2e-media-clip-1ebacc573f498cdcc4383420.json",
+      "mediaType": "application/json",
+      "schemaVersion": "media-verification-v1",
+      "revision": 1,
+      "sha256": "61bd2db86249d1e7bf417d68e2afc7ee954e750cba1f15a1d84232e4a51c830f",
+      "sizeBytes": 4687,
+      "producer": "media-verification-v1:deterministic-stub:deterministic-verify-v1",
+      "createdAt": "2026-08-18T00:00:00.000Z"
+    },
+    "verdict": "pass",
+    "clipId": "episode-m5e2e:media-clip:1ebacc573f498cdcc4383420"
+  },
+  "selection": {
+    "artifactRef": {
+      "artifactId": "episode-m5e2e:media-visual-slot:seg-001",
+      "episodeId": "episode-m5e2e",
+      "path": "content/episode-m5e2e/media/selections/seg-001.json",
+      "mediaType": "application/json",
+      "schemaVersion": "visual-slot-v1",
+      "revision": 1,
+      "sha256": "ec23516599d3df3aca480f2ce6cd96ca09ce12af8b88b077dbdc83c5dee8f087",
+      "sizeBytes": 4143,
+      "producer": "media-selection-v1:visual-selection-config-v1",
+      "createdAt": "2026-08-18T00:00:00.000Z"
+    },
+    "selectedType": "real-media",
+    "clipId": "episode-m5e2e:media-clip:1ebacc573f498cdcc4383420"
+  },
+  "narrationTotalSeconds": 39.918,
+  "events": {
+    "ingest": 4,
+    "index": 2,
+    "retrieval": 2,
+    "verification": 2,
+    "selection": 2
+  }
+}

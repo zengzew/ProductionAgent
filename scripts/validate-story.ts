@@ -16,8 +16,11 @@ import {
 import {
   containsGenericCta,
   endsWithQuestion,
+  findActionVisualIntentViolations,
   findMissingHookCandidateFields,
+  findSeenActionViolations,
   parseVisualPlanSections,
+  parseVisualPlanV3Sections,
 } from "../src/lib/story-quality";
 import {episodeId, episodeRoot, repoRoot} from "../src/lib/project";
 import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial-text-rules";
@@ -458,11 +461,25 @@ for (const [index, visualSection] of visualSections.entries()) {
     errors.push(`${segment.id} 的 Render target 必须与 final-script Scene 一致`);
   }
 }
+for (const violation of findActionVisualIntentViolations(segments)) {
+  errors.push(violation);
+}
+const visualV3 = parseVisualPlanV3Sections(visualPlanMarkdown);
+if (visualPlan.rubricVersion === "visual-plan-v3") {
+  for (const {segmentId, field} of visualV3.missing) {
+    errors.push(`Visual Director ${segmentId} 缺少 v3 字段：${field}`);
+  }
+  const narrations = new Map(segments.map((segment) => [segment.id, segment.narration]));
+  for (const violation of findSeenActionViolations(visualV3.sections, narrations)) {
+    errors.push(violation);
+  }
+}
 const visualShouldBeReady =
   visualPlan.plannedSegments === segments.length &&
   visualPlan.unresolvedAssets.length === 0 &&
   visualPlan.returnTo === "none" &&
   missingVisualFields.length === 0 &&
+  (visualPlan.rubricVersion !== "visual-plan-v3" || visualV3.missing.length === 0) &&
   JSON.stringify(visualIds) === JSON.stringify(expectedVisualIds);
 if ((visualPlan.verdict === "READY") !== visualShouldBeReady) {
   errors.push("Visual Director verdict 与段落覆盖、素材缺口或 returnTo 不一致");

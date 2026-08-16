@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "episode-config-v2",
+  "id": "episode-m5e2e",
+  "slug": "m5e2e",
+  "product": "M5 E2E Fixture",
+  "title": "M5 Acceptance E2E",
+  "language": "zh-CN",
+  "targetSeconds": 60,
+  "production": {
+    "timelineTailSeconds": {},
+    "hookAttributionSubjects": [
+      "M5 E2E"
+    ]
+  },
+  "selection": "selected",
+  "selectionReason": "acceptance E2E fixture",
+  "publishStatus": "evaluation",
+  "publishBlocker": "acceptance-only, never published",
+  "asOf": "2026-08-18",
+  "captureAssets": []
+}

@@ -1,0 +1,209 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 1.3055999999999999,
+    "startFrame": 0,
+    "endFrame": 39,
+    "text": "任务已经发出"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-001",
+    "startSeconds": 1.3055999999999999,
+    "endSeconds": 3.264,
+    "startFrame": 39,
+    "endFrame": 98,
+    "text": "它自己打开网页去办"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 3.444,
+    "endSeconds": 5.992363636363637,
+    "startFrame": 103,
+    "endFrame": 180,
+    "text": "公司披露上线以来已经创建"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 5.992363636363637,
+    "endSeconds": 8.116,
+    "startFrame": 180,
+    "endFrame": 243,
+    "text": "超过八千万台虚拟电脑"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-002",
+    "startSeconds": 8.116,
+    "endSeconds": 9.39018181818182,
+    "startFrame": 243,
+    "endFrame": 282,
+    "text": "为什么不聊天"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-002",
+    "startSeconds": 9.39018181818182,
+    "endSeconds": 10.452,
+    "startFrame": 282,
+    "endFrame": 314,
+    "text": "要自己干活"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-003",
+    "startSeconds": 10.632,
+    "endSeconds": 13.46504347826087,
+    "startFrame": 319,
+    "endFrame": 404,
+    "text": "Manus 是通用 AI agent"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-003",
+    "startSeconds": 13.46504347826087,
+    "endSeconds": 15.731478260869565,
+    "startFrame": 404,
+    "endFrame": 472,
+    "text": "你发出任务它就在云电脑里"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-003",
+    "startSeconds": 15.731478260869565,
+    "endSeconds": 17.242434782608697,
+    "startFrame": 472,
+    "endFrame": 517,
+    "text": "打开网页读写文件"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-003",
+    "startSeconds": 17.242434782608697,
+    "endSeconds": 19.32,
+    "startFrame": 517,
+    "endFrame": 580,
+    "text": "关掉页面任务还能继续跑"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-004",
+    "startSeconds": 19.5,
+    "endSeconds": 21.3576,
+    "startFrame": 585,
+    "endFrame": 641,
+    "text": "团队要的是执行引擎"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-004",
+    "startSeconds": 21.3576,
+    "endSeconds": 22.596,
+    "startFrame": 641,
+    "endFrame": 678,
+    "text": "每个任务分到"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-004",
+    "startSeconds": 22.596,
+    "endSeconds": 24.2472,
+    "startFrame": 678,
+    "endFrame": 727,
+    "text": "一台隔离的云电脑"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-004",
+    "startSeconds": 24.2472,
+    "endSeconds": 25.485599999999998,
+    "startFrame": 727,
+    "endFrame": 765,
+    "text": "里面有浏览器"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-004",
+    "startSeconds": 25.485599999999998,
+    "endSeconds": 26.724,
+    "startFrame": 765,
+    "endFrame": 802,
+    "text": "文件和命令行"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-005",
+    "startSeconds": 27.624,
+    "endSeconds": 29.627720930232556,
+    "startFrame": 829,
+    "endFrame": 889,
+    "text": "2026 年 3 月 16 日"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-005",
+    "startSeconds": 29.627720930232556,
+    "endSeconds": 31.83181395348837,
+    "startFrame": 889,
+    "endFrame": 955,
+    "text": "桌面版把它带到你的电脑"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-005",
+    "startSeconds": 31.83181395348837,
+    "endSeconds": 34.436651162790696,
+    "startFrame": 955,
+    "endFrame": 1033,
+    "text": "它可以整理本地文件执行命令"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-005",
+    "startSeconds": 34.436651162790696,
+    "endSeconds": 36.239999999999995,
+    "startFrame": 1033,
+    "endFrame": 1087,
+    "text": "每条命令先要你批准"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-006",
+    "startSeconds": 37.13999999999999,
+    "endSeconds": 39.56953846153846,
+    "startFrame": 1114,
+    "endFrame": 1187,
+    "text": "公司称全球已有数百万用户"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-006",
+    "startSeconds": 39.56953846153846,
+    "endSeconds": 40.784307692307685,
+    "startFrame": 1187,
+    "endFrame": 1224,
+    "text": "把任务交给它"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-006",
+    "startSeconds": 40.784307692307685,
+    "endSeconds": 43.21384615384615,
+    "startFrame": 1224,
+    "endFrame": 1296,
+    "text": "开头那个任务还在云电脑里"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-006",
+    "startSeconds": 43.21384615384615,
+    "endSeconds": 45.035999999999994,
+    "startFrame": 1296,
+    "endFrame": 1351,
+    "text": "自己打开网页往下做"
+  }
+]

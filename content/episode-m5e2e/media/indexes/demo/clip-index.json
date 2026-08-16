@@ -1,0 +1,499 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-m5e2e:media:demo-proxy",
+    "createdAt": "2026-08-18T00:00:00.000Z",
+    "episodeId": "episode-m5e2e",
+    "mediaType": "video/mp4",
+    "path": "content/episode-m5e2e/media/assets/demo-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "f0e62f88d227732af00dace2295c21e52124a26a78ed0f00f68ead556a27d67a",
+    "sizeBytes": 7301277
+  },
+  "asrModel": null,
+  "asrProvider": "stub-asr",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-m5e2e",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-m5e2e:media-clip:1ebacc573f498cdcc4383420",
+      "endMs": 4000,
+      "entities": [],
+      "episodeId": "episode-m5e2e",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-keyframe:demo-0-2000",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-0-2000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "主界面",
+        "产品演示",
+        "任务",
+        "操作",
+        "气泡",
+        "流程"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-m5e2e:media:demo",
+        "createdAt": "2026-08-18T00:00:00.000Z",
+        "episodeId": "episode-m5e2e",
+        "mediaType": "video/mp4",
+        "path": "content/episode-m5e2e/media/assets/demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+        "sizeBytes": 11513933
+      },
+      "observedText": "产品演示 主界面 操作 流程 任务 气泡",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-scenes:demo",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "application/json",
+          "path": "content/episode-m5e2e/media/indexes/demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "0c5f88ba1b6da274d9f48093b74787c5bda0d211d47fdd4025265e02deb8db99",
+          "sizeBytes": 1803
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+      "speaker": "host",
+      "startMs": 0,
+      "textSummary": "产品演示 主界面 操作 流程 任务 气泡",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-transcript:demo",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "application/json",
+          "path": "content/episode-m5e2e/media/indexes/demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "966590b354bc9eb5e7599248aa530eb26ee334f487d017e4f0c02f4050b30388",
+          "sizeBytes": 1788
+        }
+      ]
+    },
+    {
+      "clipId": "episode-m5e2e:media-clip:9daadd3b185b1b2908dffdde",
+      "endMs": 8000,
+      "entities": [],
+      "episodeId": "episode-m5e2e",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-keyframe:demo-1-6000",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-1-6000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "主界面",
+        "产品演示",
+        "任务",
+        "操作",
+        "气泡",
+        "流程"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-m5e2e:media:demo",
+        "createdAt": "2026-08-18T00:00:00.000Z",
+        "episodeId": "episode-m5e2e",
+        "mediaType": "video/mp4",
+        "path": "content/episode-m5e2e/media/assets/demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+        "sizeBytes": 11513933
+      },
+      "observedText": "产品演示 主界面 操作 流程 任务 气泡",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-scenes:demo",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "application/json",
+          "path": "content/episode-m5e2e/media/indexes/demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "0c5f88ba1b6da274d9f48093b74787c5bda0d211d47fdd4025265e02deb8db99",
+          "sizeBytes": 1803
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+      "speaker": "host",
+      "startMs": 4000,
+      "textSummary": "产品演示 主界面 操作 流程 任务 气泡",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-transcript:demo",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "application/json",
+          "path": "content/episode-m5e2e/media/indexes/demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "966590b354bc9eb5e7599248aa530eb26ee334f487d017e4f0c02f4050b30388",
+          "sizeBytes": 1788
+        }
+      ]
+    },
+    {
+      "clipId": "episode-m5e2e:media-clip:4fb3676e23792f8472873341",
+      "endMs": 12000,
+      "entities": [],
+      "episodeId": "episode-m5e2e",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-keyframe:demo-2-10000",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-2-10000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "列表",
+        "可见",
+        "团队",
+        "实时",
+        "核心流程",
+        "步骤"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-m5e2e:media:demo",
+        "createdAt": "2026-08-18T00:00:00.000Z",
+        "episodeId": "episode-m5e2e",
+        "mediaType": "video/mp4",
+        "path": "content/episode-m5e2e/media/assets/demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+        "sizeBytes": 11513933
+      },
+      "observedText": "团队 核心流程 实时 可见 步骤 列表",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-scenes:demo",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "application/json",
+          "path": "content/episode-m5e2e/media/indexes/demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "0c5f88ba1b6da274d9f48093b74787c5bda0d211d47fdd4025265e02deb8db99",
+          "sizeBytes": 1803
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+      "speaker": "host",
+      "startMs": 8000,
+      "textSummary": "团队 核心流程 实时 可见 步骤 列表",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-transcript:demo",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "application/json",
+          "path": "content/episode-m5e2e/media/indexes/demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "966590b354bc9eb5e7599248aa530eb26ee334f487d017e4f0c02f4050b30388",
+          "sizeBytes": 1788
+        }
+      ]
+    },
+    {
+      "clipId": "episode-m5e2e:media-clip:f94eab7c460065b1fac22203",
+      "endMs": 16000,
+      "entities": [],
+      "episodeId": "episode-m5e2e",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-keyframe:demo-3-14000",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-3-14000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "列表",
+        "可见",
+        "团队",
+        "实时",
+        "核心流程",
+        "步骤"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-m5e2e:media:demo",
+        "createdAt": "2026-08-18T00:00:00.000Z",
+        "episodeId": "episode-m5e2e",
+        "mediaType": "video/mp4",
+        "path": "content/episode-m5e2e/media/assets/demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+        "sizeBytes": 11513933
+      },
+      "observedText": "团队 核心流程 实时 可见 步骤 列表",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-scenes:demo",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "application/json",
+          "path": "content/episode-m5e2e/media/indexes/demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "0c5f88ba1b6da274d9f48093b74787c5bda0d211d47fdd4025265e02deb8db99",
+          "sizeBytes": 1803
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+      "speaker": "host",
+      "startMs": 12000,
+      "textSummary": "团队 核心流程 实时 可见 步骤 列表",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-transcript:demo",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "application/json",
+          "path": "content/episode-m5e2e/media/indexes/demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "966590b354bc9eb5e7599248aa530eb26ee334f487d017e4f0c02f4050b30388",
+          "sizeBytes": 1788
+        }
+      ]
+    },
+    {
+      "clipId": "episode-m5e2e:media-clip:db8afbe1fb58d7b9946b407d",
+      "endMs": 20000,
+      "entities": [],
+      "episodeId": "episode-m5e2e",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-keyframe:demo-4-18000",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-4-18000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "反馈",
+        "发布",
+        "四万",
+        "演示视频",
+        "第一周",
+        "转发"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-m5e2e:media:demo",
+        "createdAt": "2026-08-18T00:00:00.000Z",
+        "episodeId": "episode-m5e2e",
+        "mediaType": "video/mp4",
+        "path": "content/episode-m5e2e/media/assets/demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+        "sizeBytes": 11513933
+      },
+      "observedText": "发布 第一周 演示视频 转发 四万 反馈",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-scenes:demo",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "application/json",
+          "path": "content/episode-m5e2e/media/indexes/demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "0c5f88ba1b6da274d9f48093b74787c5bda0d211d47fdd4025265e02deb8db99",
+          "sizeBytes": 1803
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+      "speaker": "host",
+      "startMs": 16000,
+      "textSummary": "发布 第一周 演示视频 转发 四万 反馈",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-transcript:demo",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "application/json",
+          "path": "content/episode-m5e2e/media/indexes/demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "966590b354bc9eb5e7599248aa530eb26ee334f487d017e4f0c02f4050b30388",
+          "sizeBytes": 1788
+        }
+      ]
+    },
+    {
+      "clipId": "episode-m5e2e:media-clip:474867dc461caddcd75b778a",
+      "endMs": 24000,
+      "entities": [],
+      "episodeId": "episode-m5e2e",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-keyframe:demo-5-22000",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-m5e2e/media/indexes/demo/keyframes/keyframe-5-22000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "反馈",
+        "发布",
+        "四万",
+        "演示视频",
+        "第一周",
+        "转发"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-m5e2e:media:demo",
+        "createdAt": "2026-08-18T00:00:00.000Z",
+        "episodeId": "episode-m5e2e",
+        "mediaType": "video/mp4",
+        "path": "content/episode-m5e2e/media/assets/demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+        "sizeBytes": 11513933
+      },
+      "observedText": "发布 第一周 演示视频 转发 四万 反馈",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-scenes:demo",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "application/json",
+          "path": "content/episode-m5e2e/media/indexes/demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "0c5f88ba1b6da274d9f48093b74787c5bda0d211d47fdd4025265e02deb8db99",
+          "sizeBytes": 1803
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+      "speaker": "host",
+      "startMs": 20000,
+      "textSummary": "发布 第一周 演示视频 转发 四万 反馈",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-m5e2e:media-transcript:demo",
+          "createdAt": "2026-08-18T00:00:00.000Z",
+          "episodeId": "episode-m5e2e",
+          "mediaType": "application/json",
+          "path": "content/episode-m5e2e/media/indexes/demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "966590b354bc9eb5e7599248aa530eb26ee334f487d017e4f0c02f4050b30388",
+          "sizeBytes": 1788
+        }
+      ]
+    }
+  ],
+  "keyframeTool": "stub-keyframes",
+  "keyframeToolVersion": "stub-keyframes-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-m5e2e:media:demo",
+  "mediaRef": {
+    "artifactId": "episode-m5e2e:media:demo",
+    "createdAt": "2026-08-18T00:00:00.000Z",
+    "episodeId": "episode-m5e2e",
+    "mediaType": "video/mp4",
+    "path": "content/episode-m5e2e/media/assets/demo.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+    "sizeBytes": 11513933
+  },
+  "sceneDetector": "deterministic-boundaries",
+  "sceneDetectorVersion": "scene-detector-v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "deterministic-content",
+  "semanticAdapterVersion": "semantic-adapter-v1",
+  "semanticAvailability": "available",
+  "sourceSha256": "7bc9633f907a052812d0120ad8588858dac2058667782d3d3eaacb36d3bc0f6e",
+  "transcriptAvailability": "available"
+}

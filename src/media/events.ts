@@ -48,6 +48,15 @@ export const mediaEventTypes = [
   "media.verification.failed",
   "media.verification.cache.hit",
   "media.verification.cache.miss",
+  "media.selection.started",
+  "media.selection.completed",
+  "media.selection.failed",
+  "media.render.started",
+  "media.render.completed",
+  "media.render.failed",
+  "media.rendered",
+  "media.render.cache.hit",
+  "media.render.cache.miss",
 ] as const;
 
 export const mediaEventTypeSchema = z.enum(mediaEventTypes);
@@ -90,6 +99,25 @@ export const mediaEventSchema = z
     /** WP-M5.06: VLM verdict recorded on verification events. */
     verdict: z.enum(["pass", "reject", "uncertain"]).optional(),
     reason: z.string().max(500).optional(),
+    /** WP-M5.07: selected visual type recorded on selection events. */
+    selectedType: z
+      .enum(["real-media", "official-screenshot", "data-evidence-card", "programmatic-visual"])
+      .optional(),
+    /** WP-M5.07: structured fallback reason recorded on selection events. */
+    fallbackType: z
+      .enum([
+        "REAL_MEDIA_NOT_FOUND",
+        "REAL_MEDIA_NOT_VERIFIED",
+        "REAL_MEDIA_RIGHTS_BLOCKED",
+        "REAL_MEDIA_LOW_EVIDENCE_FIT",
+        "REAL_MEDIA_LOW_VISUAL_QUALITY",
+        "REAL_MEDIA_MISLEADING_RISK",
+      ])
+      .optional(),
+    /** WP-M5.08: media shot identity recorded on render events. */
+    shotId: z.string().min(1).optional(),
+    /** WP-M5.08: render proxy artifact ref recorded on render events. */
+    renderProxyRef: artifactRefSchema.optional(),
   })
   .strict();
 
@@ -119,6 +147,17 @@ export type CreateMediaEventInput = {
   clipId?: string;
   verdict?: "pass" | "reject" | "uncertain";
   reason?: string;
+  selectedType?:
+    "real-media" | "official-screenshot" | "data-evidence-card" | "programmatic-visual";
+  fallbackType?:
+    | "REAL_MEDIA_NOT_FOUND"
+    | "REAL_MEDIA_NOT_VERIFIED"
+    | "REAL_MEDIA_RIGHTS_BLOCKED"
+    | "REAL_MEDIA_LOW_EVIDENCE_FIT"
+    | "REAL_MEDIA_LOW_VISUAL_QUALITY"
+    | "REAL_MEDIA_MISLEADING_RISK";
+  shotId?: string;
+  renderProxyRef?: unknown;
 };
 
 /**
@@ -150,6 +189,10 @@ export const createMediaEvent = (input: CreateMediaEventInput): MediaEvent => {
     ...(input.clipId ? {clipId: input.clipId} : {}),
     ...(input.verdict ? {verdict: input.verdict} : {}),
     ...(input.reason ? {reason: redactObservabilityText(input.reason)} : {}),
+    ...(input.selectedType ? {selectedType: input.selectedType} : {}),
+    ...(input.fallbackType ? {fallbackType: input.fallbackType} : {}),
+    ...(input.shotId ? {shotId: input.shotId} : {}),
+    ...(input.renderProxyRef ? {renderProxyRef: input.renderProxyRef} : {}),
   };
   const redacted = redactObservabilityValue(withoutId);
   return mediaEventSchema.parse({

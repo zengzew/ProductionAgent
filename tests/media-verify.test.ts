@@ -52,6 +52,7 @@ import {
 import {
   assertMediaClipVerified,
   createDeterministicVerificationProvider,
+  createHostedVerificationProvider,
   createStubShortClipExtractor,
   isMediaClipVerified,
   MEDIA_VERIFICATION_PROMPT_VERSION,
@@ -1389,6 +1390,49 @@ describe("WP-M5.06 multimodal clip verification", () => {
           event.reason?.includes("MEDIA_VERIFY_PROVIDER_FAILED"),
       ),
     ).toBe(true);
+  });
+
+  it("refuses loopback and private hosted verification endpoints", () => {
+    const valid = {
+      apiKey: "test-key",
+      model: "test-model",
+    };
+    expect(() =>
+      createHostedVerificationProvider({
+        ...valid,
+        endpoint: "http://api.example.com/v1/chat",
+      }),
+    ).toThrow(/MEDIA_VERIFY_PROVIDER_NOT_HOSTED/u);
+    expect(() =>
+      createHostedVerificationProvider({
+        ...valid,
+        endpoint: "https://127.0.0.1/v1/chat",
+      }),
+    ).toThrow(/MEDIA_VERIFY_PROVIDER_NOT_HOSTED/u);
+    expect(() =>
+      createHostedVerificationProvider({
+        ...valid,
+        endpoint: "https://localhost/v1/chat",
+      }),
+    ).toThrow(/MEDIA_VERIFY_PROVIDER_NOT_HOSTED/u);
+    expect(() =>
+      createHostedVerificationProvider({
+        ...valid,
+        endpoint: "https://192.168.1.10/v1/chat",
+      }),
+    ).toThrow(/MEDIA_VERIFY_PROVIDER_NOT_HOSTED/u);
+    expect(() =>
+      createHostedVerificationProvider({
+        ...valid,
+        endpoint: "https://vlm.local/v1/chat",
+      }),
+    ).toThrow(/MEDIA_VERIFY_PROVIDER_NOT_HOSTED/u);
+    expect(() =>
+      createHostedVerificationProvider({
+        ...valid,
+        endpoint: "https://api.example.com/v1/chat",
+      }),
+    ).not.toThrow();
   });
 
   it("records correct ArtifactRef lineage in the artifact registry", async () => {

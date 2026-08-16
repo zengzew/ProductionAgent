@@ -1,0 +1,62 @@
+[
+  {
+    "id": "claim-e2e-001",
+    "claim": "产品演示 展示了 主界面 操作 流程",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "",
+    "sourceIds": [
+      "src-e2e-demo"
+    ],
+    "confidence": "high",
+    "reportingType": "independently-verified",
+    "allowedInNarration": true,
+    "notes": "E2E fixture claim"
+  },
+  {
+    "id": "claim-e2e-002",
+    "claim": "团队 核心流程 实时 可见 步骤 列表",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "",
+    "sourceIds": [
+      "src-e2e-demo"
+    ],
+    "confidence": "high",
+    "reportingType": "independently-verified",
+    "allowedInNarration": true,
+    "notes": "E2E fixture claim"
+  },
+  {
+    "id": "claim-e2e-003",
+    "claim": "发布 第一周 演示视频 转发 四万 次",
+    "metricName": "转发次数",
+    "value": "40000",
+    "period": "发布后第一周",
+    "eventDate": "",
+    "sourceIds": [
+      "src-e2e-growth"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "E2E fixture claim"
+  },
+  {
+    "id": "claim-e2e-004",
+    "claim": "同样 任务 只需要 一条 指令",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "",
+    "sourceIds": [
+      "src-e2e-demo"
+    ],
+    "confidence": "high",
+    "reportingType": "independently-verified",
+    "allowedInNarration": true,
+    "notes": "E2E fixture claim"
+  }
+]

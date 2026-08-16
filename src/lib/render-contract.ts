@@ -26,6 +26,14 @@ const renderContracts: Readonly<Record<string, RenderContract>> = {
     generatedPrefix: "episode-003",
     layoutVariant: "poke-standard",
   },
+  // M5 acceptance E2E episode: rendered by the generic real-media mix
+  // composition (`MediaMixVertical`), real media + fallback in one plan.
+  "episode-m5e2e": {
+    composition: "MediaMixVertical",
+    smokeComposition: "MediaMixVertical",
+    generatedPrefix: "episode-m5e2e",
+    layoutVariant: "poke-standard",
+  },
 };
 
 export const getRenderContract = (episodeId: string): RenderContract => {
