@@ -1,0 +1,157 @@
+{
+  "episodeId": "episode-004",
+  "layoutVariant": "poke-standard",
+  "fps": 30,
+  "totalFrames": 1357,
+  "totalSeconds": 45.233333333333334,
+  "ttsProvider": "Microsoft Edge neural TTS",
+  "captionAlignment": "caption-plan-proportional",
+  "scenes": [
+    {
+      "id": "seg-001",
+      "section": "hook",
+      "narration": "任务交出去，它自己打开浏览器，开始干活。",
+      "onScreenText": [
+        "任务已交出去",
+        "它自己打开浏览器"
+      ],
+      "claimIds": [
+        "claim-devin-001"
+      ],
+      "scene": "hook-delegated-open",
+      "visualIntent": "第 0 帧官方演示已在进行中：任务已输入，Devin 随后打开自带浏览器并开始加载目标页，持续标“功能演示”。",
+      "targetSeconds": 3,
+      "index": 0,
+      "startFrame": 0,
+      "durationFrames": 113,
+      "startSeconds": 0,
+      "endSeconds": 3.7666666666666666,
+      "audioDurationSeconds": 3.6,
+      "audio": "episodes/episode-004/audio/seg-001.mp3"
+    },
+    {
+      "id": "seg-002",
+      "section": "hook",
+      "narration": "三个奥赛金牌程序员做了这个产品。他们要让它自己把工程任务干完，工程师负责检查结果。",
+      "onScreenText": [
+        "三个奥赛金牌程序员",
+        "自己把工程任务干完",
+        "工程师负责检查"
+      ],
+      "claimIds": [
+        "claim-devin-012",
+        "claim-devin-009"
+      ],
+      "scene": "hook-founder-need",
+      "visualIntent": "官方演示里的人物口播收成三名创始人名字，随后切回它正在改代码、工程师侧等待检查的画面。",
+      "targetSeconds": 8,
+      "index": 1,
+      "startFrame": 113,
+      "durationFrames": 221,
+      "startSeconds": 3.7666666666666666,
+      "endSeconds": 11.133333333333333,
+      "audioDurationSeconds": 7.176,
+      "audio": "episodes/episode-004/audio/seg-002.mp3"
+    },
+    {
+      "id": "seg-003",
+      "section": "hook",
+      "narration": "2024 年 3 月，官方演示发出去，一百多万人看它自己打开浏览器写代码。市场后来给了它什么价？",
+      "onScreenText": [
+        "官方演示",
+        "122 万+ 次播放",
+        "市场后来给了它什么价？"
+      ],
+      "claimIds": [
+        "claim-devin-015",
+        "claim-devin-001"
+      ],
+      "scene": "hook-demo-question",
+      "visualIntent": "官方演示播放量数字落下，同时浏览器仍在工作，问题叠在画面上。",
+      "targetSeconds": 9,
+      "index": 2,
+      "startFrame": 334,
+      "durationFrames": 243,
+      "startSeconds": 11.133333333333333,
+      "endSeconds": 19.233333333333334,
+      "audioDurationSeconds": 7.92,
+      "audio": "episodes/episode-004/audio/seg-003.mp3"
+    },
+    {
+      "id": "seg-004",
+      "section": "choice",
+      "narration": "发布前后，Founders Fund 投了 2100 万美元。团队后来把个人价格从每月 500 美元降到 20 美元，一个任务可以同时开多个 Devin 并行干。",
+      "onScreenText": [
+        "种子轮 2100 万美元",
+        "500 → 20 美元",
+        "多个 Devin 并行",
+        "公司披露"
+      ],
+      "claimIds": [
+        "claim-devin-014",
+        "claim-devin-005",
+        "claim-devin-006"
+      ],
+      "scene": "choice-seed-price-parallel",
+      "visualIntent": "种子轮数字落下后，价格从 500 收到 20，多个平行 Devin 的执行画面铺开，标“功能演示”。",
+      "targetSeconds": 14,
+      "index": 3,
+      "startFrame": 577,
+      "durationFrames": 328,
+      "startSeconds": 19.233333333333334,
+      "endSeconds": 30.166666666666668,
+      "audioDurationSeconds": 10.032,
+      "audio": "episodes/episode-004/audio/seg-004.mp3"
+    },
+    {
+      "id": "seg-005",
+      "section": "body",
+      "narration": "奔驰把 20 万行老代码的改造，从预计 8 个月压到 8 天。公司工程师提交的代码里，八成九由 Devin 提交。",
+      "onScreenText": [
+        "奔驰案例",
+        "20 万行 COBOL",
+        "8 个月 → 8 天",
+        "官方口径",
+        "公司自报：89%"
+      ],
+      "claimIds": [
+        "claim-devin-007",
+        "claim-devin-008"
+      ],
+      "scene": "body-acceptance-evidence",
+      "visualIntent": "官方客户访谈画面收成案例卡，随后 20 万行与 8 天数字落下，再切到 89% 自用代码卡。",
+      "targetSeconds": 12,
+      "index": 4,
+      "startFrame": 905,
+      "durationFrames": 272,
+      "startSeconds": 30.166666666666668,
+      "endSeconds": 39.233333333333334,
+      "audioDurationSeconds": 8.16,
+      "audio": "episodes/episode-004/audio/seg-005.mp3"
+    },
+    {
+      "id": "seg-006",
+      "section": "ending-payoff",
+      "narration": "2026 年 5 月，Cognition 以 25 亿美元估值，融资超过 10 亿美元。",
+      "onScreenText": [
+        "2026.05",
+        "估值 25 亿美元",
+        "融资超 10 亿美元",
+        "媒体口径"
+      ],
+      "claimIds": [
+        "claim-devin-016"
+      ],
+      "scene": "ending-market-price",
+      "visualIntent": "估值与融资数字逐个落下，来源条同期出现，停在数字上，不再切回开场任务。",
+      "targetSeconds": 14,
+      "index": 5,
+      "startFrame": 1177,
+      "durationFrames": 180,
+      "startSeconds": 39.233333333333334,
+      "endSeconds": 45.233333333333334,
+      "audioDurationSeconds": 5.112,
+      "audio": "episodes/episode-004/audio/seg-006.mp3"
+    }
+  ]
+}

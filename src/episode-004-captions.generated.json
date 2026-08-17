@@ -1,0 +1,245 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 1.0588235294117647,
+    "startFrame": 0,
+    "endFrame": 32,
+    "text": "任务交出去"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-001",
+    "startSeconds": 1.0588235294117647,
+    "endSeconds": 3.6,
+    "startFrame": 32,
+    "endFrame": 108,
+    "text": "它自己打开浏览器开始干活"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 3.7800000000000002,
+    "endSeconds": 5.479578947368421,
+    "startFrame": 113,
+    "endFrame": 164,
+    "text": "三个奥赛金牌程序员"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 5.479578947368421,
+    "endSeconds": 6.612631578947369,
+    "startFrame": 164,
+    "endFrame": 198,
+    "text": "做了这个产品"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-002",
+    "startSeconds": 6.612631578947369,
+    "endSeconds": 7.934526315789474,
+    "startFrame": 198,
+    "endFrame": 238,
+    "text": "他们要让它自己"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-002",
+    "startSeconds": 7.934526315789474,
+    "endSeconds": 9.256421052631579,
+    "startFrame": 238,
+    "endFrame": 278,
+    "text": "把工程任务干完"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-002",
+    "startSeconds": 9.256421052631579,
+    "endSeconds": 10.956,
+    "startFrame": 278,
+    "endFrame": 329,
+    "text": "工程师负责检查结果"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-003",
+    "startSeconds": 11.145,
+    "endSeconds": 12.497195121951219,
+    "startFrame": 334,
+    "endFrame": 375,
+    "text": "2024 年 3 月"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-003",
+    "startSeconds": 12.497195121951219,
+    "endSeconds": 13.849390243902437,
+    "startFrame": 375,
+    "endFrame": 415,
+    "text": "官方演示发出去"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-003",
+    "startSeconds": 13.849390243902437,
+    "endSeconds": 15.201585365853658,
+    "startFrame": 415,
+    "endFrame": 456,
+    "text": "一百多万人看它"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-003",
+    "startSeconds": 15.201585365853658,
+    "endSeconds": 17.13329268292683,
+    "startFrame": 456,
+    "endFrame": 514,
+    "text": "自己打开浏览器写代码"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-003",
+    "startSeconds": 17.13329268292683,
+    "endSeconds": 19.064999999999998,
+    "startFrame": 514,
+    "endFrame": 572,
+    "text": "市场后来给了它什么价"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-004",
+    "startSeconds": 19.244999999999997,
+    "endSeconds": 21.64070149253731,
+    "startFrame": 577,
+    "endFrame": 649,
+    "text": "发布前后Founders Fund"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-004",
+    "startSeconds": 21.64070149253731,
+    "endSeconds": 22.98828358208955,
+    "startFrame": 649,
+    "endFrame": 690,
+    "text": "投了 2100 万美元"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-004",
+    "startSeconds": 22.98828358208955,
+    "endSeconds": 24.335865671641788,
+    "startFrame": 690,
+    "endFrame": 730,
+    "text": "团队后来把个人价格"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-004",
+    "startSeconds": 24.335865671641788,
+    "endSeconds": 25.533716417910444,
+    "startFrame": 730,
+    "endFrame": 766,
+    "text": "从每月 500 美元"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-004",
+    "startSeconds": 25.533716417910444,
+    "endSeconds": 27.330492537313432,
+    "startFrame": 766,
+    "endFrame": 820,
+    "text": "降到 20 美元一个任务可以"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-004",
+    "startSeconds": 27.330492537313432,
+    "endSeconds": 29.276999999999997,
+    "startFrame": 820,
+    "endFrame": 878,
+    "text": "同时开多个 Devin 并行干"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-005",
+    "startSeconds": 30.176999999999996,
+    "endSeconds": 31.446333333333328,
+    "startFrame": 905,
+    "endFrame": 943,
+    "text": "奔驰把 20 万行"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-005",
+    "startSeconds": 31.446333333333328,
+    "endSeconds": 32.53433333333333,
+    "startFrame": 943,
+    "endFrame": 976,
+    "text": "老代码的改造"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-005",
+    "startSeconds": 32.53433333333333,
+    "endSeconds": 34.34766666666666,
+    "startFrame": 976,
+    "endFrame": 1030,
+    "text": "从预计 8 个月压到 8 天"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-005",
+    "startSeconds": 34.34766666666666,
+    "endSeconds": 36.34233333333333,
+    "startFrame": 1030,
+    "endFrame": 1090,
+    "text": "公司工程师提交的代码里"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-005",
+    "startSeconds": 36.34233333333333,
+    "endSeconds": 38.336999999999996,
+    "startFrame": 1090,
+    "endFrame": 1150,
+    "text": "八成九由 Devin 提交"
+  },
+  {
+    "index": 24,
+    "sceneId": "seg-006",
+    "startSeconds": 39.2377,
+    "endSeconds": 40.32206363636363,
+    "startFrame": 1177,
+    "endFrame": 1210,
+    "text": "2026 年 5 月"
+  },
+  {
+    "index": 25,
+    "sceneId": "seg-006",
+    "startSeconds": 40.32206363636363,
+    "endSeconds": 41.71624545454545,
+    "startFrame": 1210,
+    "endFrame": 1251,
+    "text": "Cognition"
+  },
+  {
+    "index": 26,
+    "sceneId": "seg-006",
+    "startSeconds": 41.71624545454545,
+    "endSeconds": 42.95551818181818,
+    "startFrame": 1251,
+    "endFrame": 1289,
+    "text": "以 25 亿美元估值"
+  },
+  {
+    "index": 27,
+    "sceneId": "seg-006",
+    "startSeconds": 42.95551818181818,
+    "endSeconds": 44.3497,
+    "startFrame": 1289,
+    "endFrame": 1330,
+    "text": "融资超过 10 亿美元"
+  }
+]
