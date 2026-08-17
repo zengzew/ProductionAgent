@@ -1,0 +1,109 @@
+{
+  "asOf": "2026-08-16",
+  "events": [
+    {
+      "id": "ev-suno-000",
+      "dateLabel": "2023",
+      "sortDate": "2023-03-01",
+      "datePrecision": "as-of",
+      "event": "团队起初认为生成好音乐太难，先做听懂音频；突破后先做出约 12.5 秒片段，再仿照 Midjourney 在 Discord 放机器人冷启动。",
+      "eventType": "product",
+      "factIds": ["claim-suno-017", "claim-suno-018", "claim-suno-019"],
+      "sourceIds": ["src-suno-sequoia"],
+      "relationToPrevious": "not-applicable",
+      "storyFunction": "problem",
+      "notes": "创始人口述的 idea 来源与冷启动，不补写心理。"
+    },
+    {
+      "id": "ev-suno-001",
+      "dateLabel": "2023-04",
+      "sortDate": "2023-04-30",
+      "datePrecision": "month",
+      "event": "在 GitHub 开源文本转语音模型 Bark",
+      "eventType": "product",
+      "factIds": ["claim-suno-004"],
+      "sourceIds": ["src-suno-wikipedia"],
+      "relationToPrevious": "not-applicable",
+      "storyFunction": "context",
+      "notes": "团队先开源语音模型，为音乐生成做技术准备。"
+    },
+    {
+      "id": "ev-suno-002",
+      "dateLabel": "2023-12-20",
+      "sortDate": "2023-12-20",
+      "datePrecision": "day",
+      "event": "Suno 正式开放，并作为插件进入 Microsoft Copilot",
+      "eventType": "distribution",
+      "factIds": ["claim-suno-005"],
+      "sourceIds": ["src-suno-wikipedia"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "turning-point",
+      "notes": "从开源模型转向面向消费者的音乐产品。"
+    },
+    {
+      "id": "ev-suno-003",
+      "dateLabel": "2024-03-21",
+      "sortDate": "2024-03-21",
+      "datePrecision": "day",
+      "event": "发布 V3，免费用户也能生成四分钟歌曲",
+      "eventType": "product",
+      "factIds": ["claim-suno-006"],
+      "sourceIds": ["src-suno-wikipedia"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "validation",
+      "notes": "免费四分钟歌曲显著降低创作门槛。"
+    },
+    {
+      "id": "ev-suno-004",
+      "dateLabel": "2025-07",
+      "sortDate": "2025-07-31",
+      "datePrecision": "month",
+      "event": "Suno 用户 imoliver 与传统唱片公司 Hallwood Media 签约",
+      "eventType": "user-behavior",
+      "factIds": ["claim-suno-013"],
+      "sourceIds": ["src-suno-wikipedia"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "validation",
+      "notes": "AI 创作者首次被传统厂牌签下，是用户接受度的标志。"
+    },
+    {
+      "id": "ev-suno-005",
+      "dateLabel": "2025-11",
+      "sortDate": "2025-11-30",
+      "datePrecision": "month",
+      "event": "与华纳音乐达成和解，获正版录音授权用于训练",
+      "eventType": "policy",
+      "factIds": ["claim-suno-014"],
+      "sourceIds": ["src-suno-wikipedia", "src-suno-36kr"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "durability-test",
+      "notes": "版权争议以授权和解收束，不进入旁白主线。"
+    },
+    {
+      "id": "ev-suno-006",
+      "dateLabel": "2026-02",
+      "sortDate": "2026-02-28",
+      "datePrecision": "month",
+      "event": "付费用户三个月翻倍至 200 万，年度 ARR 达 3 亿美元",
+      "eventType": "growth",
+      "factIds": ["claim-suno-008", "claim-suno-009"],
+      "sourceIds": ["src-suno-wallstreetcn", "src-suno-36kr"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "validation",
+      "notes": "付费规模与收入翻倍，验证创作工具的变现能力。"
+    },
+    {
+      "id": "ev-suno-007",
+      "dateLabel": "2026",
+      "sortDate": "2026-05-31",
+      "datePrecision": "as-of",
+      "event": "全球超过 1 亿人使用 Suno",
+      "eventType": "growth",
+      "factIds": ["claim-suno-007"],
+      "sourceIds": ["src-suno-wallstreetcn", "src-suno-36kr"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "public-expansion",
+      "notes": "公司口径的累计用户规模。"
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 1.242,
+    "startFrame": 0,
+    "endFrame": 37,
+    "text": "输入一句歌词"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-001",
+    "startSeconds": 1.242,
+    "endSeconds": 2.277,
+    "startFrame": 37,
+    "endFrame": 68,
+    "text": "它给你一首"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-001",
+    "startSeconds": 2.277,
+    "endSeconds": 3.312,
+    "startFrame": 68,
+    "endFrame": 99,
+    "text": "带人声的歌"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 3.5,
+    "endSeconds": 5.8933793103448275,
+    "startFrame": 105,
+    "endFrame": 177,
+    "text": "创始人是会写代码的音乐人"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-002",
+    "startSeconds": 5.8933793103448275,
+    "endSeconds": 7.688413793103448,
+    "startFrame": 177,
+    "endFrame": 231,
+    "text": "平台上九成活跃用户"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-002",
+    "startSeconds": 7.688413793103448,
+    "endSeconds": 9.283999999999999,
+    "startFrame": 231,
+    "endFrame": 279,
+    "text": "在创作，不是收听"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-003",
+    "startSeconds": 9.479999999999999,
+    "endSeconds": 10.917333333333332,
+    "startFrame": 284,
+    "endFrame": 328,
+    "text": "一开始他们觉得"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-003",
+    "startSeconds": 10.917333333333332,
+    "endSeconds": 12.149333333333331,
+    "startFrame": 328,
+    "endFrame": 364,
+    "text": "做出好歌太难"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-003",
+    "startSeconds": 12.149333333333331,
+    "endSeconds": 13.381333333333332,
+    "startFrame": 364,
+    "endFrame": 401,
+    "text": "先做听懂声音"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-003",
+    "startSeconds": 13.381333333333332,
+    "endSeconds": 15.229333333333333,
+    "startFrame": 401,
+    "endFrame": 457,
+    "text": "早期只能做出十几秒"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-003",
+    "startSeconds": 15.229333333333333,
+    "endSeconds": 16.666666666666664,
+    "startFrame": 457,
+    "endFrame": 500,
+    "text": "还不听词的小段"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-003",
+    "startSeconds": 16.666666666666664,
+    "endSeconds": 18.72,
+    "startFrame": 500,
+    "endFrame": 562,
+    "text": "市场后来给了它什么价"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-004",
+    "startSeconds": 18.926667,
+    "endSeconds": 20.756121545454544,
+    "startFrame": 568,
+    "endFrame": 623,
+    "text": "他们学 Midjourney"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-004",
+    "startSeconds": 20.756121545454544,
+    "endSeconds": 22.022667,
+    "startFrame": 623,
+    "endFrame": 661,
+    "text": "先在 Discord"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-004",
+    "startSeconds": 22.022667,
+    "endSeconds": 23.711394272727272,
+    "startFrame": 661,
+    "endFrame": 711,
+    "text": "放了个机器人看有没有人玩"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-004",
+    "startSeconds": 23.711394272727272,
+    "endSeconds": 25.118667,
+    "startFrame": 711,
+    "endFrame": 754,
+    "text": "结果很多人真的玩起来"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-005",
+    "startSeconds": 26.029334,
+    "endSeconds": 27.13023722580645,
+    "startFrame": 781,
+    "endFrame": 814,
+    "text": "后来正式开放"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-005",
+    "startSeconds": 27.13023722580645,
+    "endSeconds": 29.332043677419353,
+    "startFrame": 814,
+    "endFrame": 880,
+    "text": "还进了微软 Copilot"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-005",
+    "startSeconds": 29.332043677419353,
+    "endSeconds": 30.432946903225805,
+    "startFrame": 880,
+    "endFrame": 913,
+    "text": "免费用户也能"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-005",
+    "startSeconds": 30.432946903225805,
+    "endSeconds": 31.717333999999997,
+    "startFrame": 913,
+    "endFrame": 952,
+    "text": "生成四分钟的歌"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-006",
+    "startSeconds": 32.648001,
+    "endSeconds": 33.75466766666667,
+    "startFrame": 979,
+    "endFrame": 1013,
+    "text": "现在付费用户"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-006",
+    "startSeconds": 33.75466766666667,
+    "endSeconds": 35.414667666666666,
+    "startFrame": 1013,
+    "endFrame": 1062,
+    "text": "三个月翻倍到两百万"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-006",
+    "startSeconds": 35.414667666666666,
+    "endSeconds": 36.70577877777778,
+    "startFrame": 1062,
+    "endFrame": 1101,
+    "text": "年化收入四个月"
+  },
+  {
+    "index": 24,
+    "sceneId": "seg-006",
+    "startSeconds": 36.70577877777778,
+    "endSeconds": 38.55022322222222,
+    "startFrame": 1101,
+    "endFrame": 1157,
+    "text": "从 1 亿美元到 3 亿美元"
+  },
+  {
+    "index": 25,
+    "sceneId": "seg-006",
+    "startSeconds": 38.55022322222222,
+    "endSeconds": 40.76355655555555,
+    "startFrame": 1157,
+    "endFrame": 1223,
+    "text": "累计融资约 3.75 亿美元"
+  },
+  {
+    "index": 26,
+    "sceneId": "seg-006",
+    "startSeconds": 40.76355655555555,
+    "endSeconds": 42.608001,
+    "startFrame": 1223,
+    "endFrame": 1278,
+    "text": "估值约 24.5 亿美元"
+  }
+]

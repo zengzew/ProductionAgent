@@ -1,0 +1,155 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-005:media:official-creator-timbaland-proxy",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "video/mp4",
+    "path": "content/episode-005/media/assets/official-creator-timbaland-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "09ec975c902a4c3368c3ec66ce313c57cc4e143b2cfe69c874a486cbdad47d83",
+    "sizeBytes": 8770054
+  },
+  "config": {
+    "maxSceneMs": 6000,
+    "minSceneMs": 800,
+    "targetSceneMs": 4000
+  },
+  "detector": "deterministic-boundaries",
+  "detectorVersion": "scene-detector-v1",
+  "durationMs": 91582,
+  "episodeId": "episode-005",
+  "mediaId": "episode-005:media:official-creator-timbaland",
+  "scenes": [
+    {
+      "endMs": 4000,
+      "sceneIndex": 0,
+      "startMs": 0
+    },
+    {
+      "endMs": 8000,
+      "sceneIndex": 1,
+      "startMs": 4000
+    },
+    {
+      "endMs": 12000,
+      "sceneIndex": 2,
+      "startMs": 8000
+    },
+    {
+      "endMs": 16000,
+      "sceneIndex": 3,
+      "startMs": 12000
+    },
+    {
+      "endMs": 20000,
+      "sceneIndex": 4,
+      "startMs": 16000
+    },
+    {
+      "endMs": 24000,
+      "sceneIndex": 5,
+      "startMs": 20000
+    },
+    {
+      "endMs": 28000,
+      "sceneIndex": 6,
+      "startMs": 24000
+    },
+    {
+      "endMs": 32000,
+      "sceneIndex": 7,
+      "startMs": 28000
+    },
+    {
+      "endMs": 36000,
+      "sceneIndex": 8,
+      "startMs": 32000
+    },
+    {
+      "endMs": 40000,
+      "sceneIndex": 9,
+      "startMs": 36000
+    },
+    {
+      "endMs": 44000,
+      "sceneIndex": 10,
+      "startMs": 40000
+    },
+    {
+      "endMs": 48000,
+      "sceneIndex": 11,
+      "startMs": 44000
+    },
+    {
+      "endMs": 52000,
+      "sceneIndex": 12,
+      "startMs": 48000
+    },
+    {
+      "endMs": 56000,
+      "sceneIndex": 13,
+      "startMs": 52000
+    },
+    {
+      "endMs": 60000,
+      "sceneIndex": 14,
+      "startMs": 56000
+    },
+    {
+      "endMs": 64000,
+      "sceneIndex": 15,
+      "startMs": 60000
+    },
+    {
+      "endMs": 68000,
+      "sceneIndex": 16,
+      "startMs": 64000
+    },
+    {
+      "endMs": 72000,
+      "sceneIndex": 17,
+      "startMs": 68000
+    },
+    {
+      "endMs": 76000,
+      "sceneIndex": 18,
+      "startMs": 72000
+    },
+    {
+      "endMs": 80000,
+      "sceneIndex": 19,
+      "startMs": 76000
+    },
+    {
+      "endMs": 84000,
+      "sceneIndex": 20,
+      "startMs": 80000
+    },
+    {
+      "endMs": 88000,
+      "sceneIndex": 21,
+      "startMs": 84000
+    },
+    {
+      "endMs": 91582,
+      "sceneIndex": 22,
+      "startMs": 88000
+    }
+  ],
+  "schemaVersion": "media-scenes-v1",
+  "sourceMediaRef": {
+    "artifactId": "episode-005:media:official-creator-timbaland",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "video/mp4",
+    "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+    "sizeBytes": 10432390
+  },
+  "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8"
+}

@@ -1,0 +1,61 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-005:media:official-creator-timbaland-proxy",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "video/mp4",
+    "path": "content/episode-005/media/assets/official-creator-timbaland-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "09ec975c902a4c3368c3ec66ce313c57cc4e143b2cfe69c874a486cbdad47d83",
+    "sizeBytes": 8770054
+  },
+  "asrVersion": "stub-asr-v1",
+  "availability": "available",
+  "durationMs": 91582,
+  "episodeId": "episode-005",
+  "mediaId": "episode-005:media:official-creator-timbaland",
+  "model": null,
+  "provider": "stub-asr",
+  "schemaVersion": "media-transcript-v1",
+  "segments": [
+    {
+      "confidence": null,
+      "endMs": 30000,
+      "index": 0,
+      "speaker": "host",
+      "startMs": 0,
+      "text": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作"
+    },
+    {
+      "confidence": null,
+      "endMs": 60000,
+      "index": 1,
+      "speaker": "host",
+      "startMs": 30000,
+      "text": "活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作"
+    },
+    {
+      "confidence": null,
+      "endMs": 90000,
+      "index": 2,
+      "speaker": "host",
+      "startMs": 60000,
+      "text": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人"
+    }
+  ],
+  "sourceMediaRef": {
+    "artifactId": "episode-005:media:official-creator-timbaland",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "video/mp4",
+    "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+    "sizeBytes": 10432390
+  },
+  "toolVersion": "media-asr-stub-v1"
+}

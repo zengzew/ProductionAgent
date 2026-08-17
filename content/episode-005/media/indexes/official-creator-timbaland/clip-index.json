@@ -1,0 +1,1824 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-005:media:official-creator-timbaland-proxy",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "video/mp4",
+    "path": "content/episode-005/media/assets/official-creator-timbaland-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "09ec975c902a4c3368c3ec66ce313c57cc4e143b2cfe69c874a486cbdad47d83",
+    "sizeBytes": 8770054
+  },
+  "asrModel": null,
+  "asrProvider": "stub-asr",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-005",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-005:media-clip:c116289515eaeefcdb599f2a",
+      "endMs": 4000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-0-2000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-0-2000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "Timbaland",
+        "做歌",
+        "创作",
+        "制作人",
+        "展示生成歌曲",
+        "真实创作者用",
+        "音乐"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 0,
+      "textSummary": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:d08012678790e6740771a245",
+      "endMs": 8000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-1-6000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-1-6000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "Timbaland",
+        "做歌",
+        "创作",
+        "制作人",
+        "展示生成歌曲",
+        "真实创作者用",
+        "音乐"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 4000,
+      "textSummary": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:320071b1cf0787c5e9fdfb3b",
+      "endMs": 12000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-2-10000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-2-10000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "Timbaland",
+        "做歌",
+        "创作",
+        "制作人",
+        "展示生成歌曲",
+        "真实创作者用",
+        "音乐"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 8000,
+      "textSummary": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:1dec7b04baf281c45e27e2a1",
+      "endMs": 16000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-3-14000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-3-14000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "Timbaland",
+        "做歌",
+        "创作",
+        "制作人",
+        "展示生成歌曲",
+        "真实创作者用",
+        "音乐"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 12000,
+      "textSummary": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:4e30a25dcc68585f331347a8",
+      "endMs": 20000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-4-18000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-4-18000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "Timbaland",
+        "做歌",
+        "创作",
+        "制作人",
+        "展示生成歌曲",
+        "真实创作者用",
+        "音乐"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 16000,
+      "textSummary": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:bce1b24ac95a58820eab60e6",
+      "endMs": 24000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-5-22000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-5-22000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "Timbaland",
+        "做歌",
+        "创作",
+        "制作人",
+        "展示生成歌曲",
+        "真实创作者用",
+        "音乐"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 20000,
+      "textSummary": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:8bf9e37cf9cb3279cab63ae5",
+      "endMs": 28000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-6-26000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-6-26000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "Timbaland",
+        "做歌",
+        "创作",
+        "制作人",
+        "展示生成歌曲",
+        "真实创作者用",
+        "音乐"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 24000,
+      "textSummary": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:b9a81754afab6af461c2351b",
+      "endMs": 32000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-7-30000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-7-30000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "创作",
+        "Timbaland",
+        "九成",
+        "做歌",
+        "创作者",
+        "制作人",
+        "展示",
+        "展示生成歌曲",
+        "歌曲",
+        "活跃用户在创作音乐",
+        "用户"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作 活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 28000,
+      "textSummary": "Timbaland 制作人 真实创作者用 Suno 做歌 展示生成歌曲 音乐 创作 活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:f943871290686af6eb84fea3",
+      "endMs": 36000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-8-34000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-8-34000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "九成",
+        "创作",
+        "创作者",
+        "展示",
+        "歌曲",
+        "活跃用户在创作音乐",
+        "用户"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 32000,
+      "textSummary": "活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:8864a3371f9a399be3823949",
+      "endMs": 40000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-9-38000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-9-38000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "九成",
+        "创作",
+        "创作者",
+        "展示",
+        "歌曲",
+        "活跃用户在创作音乐",
+        "用户"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 36000,
+      "textSummary": "活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:4c1ee559d6ad8b249b2776bf",
+      "endMs": 44000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-10-42000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-10-42000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "九成",
+        "创作",
+        "创作者",
+        "展示",
+        "歌曲",
+        "活跃用户在创作音乐",
+        "用户"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 40000,
+      "textSummary": "活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:ffcbe7c71409103c25147fce",
+      "endMs": 48000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-11-46000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-11-46000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "九成",
+        "创作",
+        "创作者",
+        "展示",
+        "歌曲",
+        "活跃用户在创作音乐",
+        "用户"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 44000,
+      "textSummary": "活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:20deaf39c8083cdd502bc24a",
+      "endMs": 52000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-12-50000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-12-50000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "九成",
+        "创作",
+        "创作者",
+        "展示",
+        "歌曲",
+        "活跃用户在创作音乐",
+        "用户"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 48000,
+      "textSummary": "活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:73ea0a8ceeb731ba4b6f4b63",
+      "endMs": 56000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-13-54000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-13-54000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "九成",
+        "创作",
+        "创作者",
+        "展示",
+        "歌曲",
+        "活跃用户在创作音乐",
+        "用户"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 52000,
+      "textSummary": "活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:207974b97701f6db7d8e9601",
+      "endMs": 60000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-14-58000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-14-58000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "九成",
+        "创作",
+        "创作者",
+        "展示",
+        "歌曲",
+        "活跃用户在创作音乐",
+        "用户"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 56000,
+      "textSummary": "活跃用户在创作音乐 Suno 用户 创作者 展示 歌曲 九成 创作",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:2ffbcb89de2609bb0812cefb",
+      "endMs": 64000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-15-62000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-15-62000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "Timbaland",
+        "创作",
+        "展示",
+        "歌曲",
+        "生成",
+        "音乐",
+        "音乐人"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 60000,
+      "textSummary": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:4acce4cb468f961a07b04b32",
+      "endMs": 68000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-16-66000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-16-66000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "Timbaland",
+        "创作",
+        "展示",
+        "歌曲",
+        "生成",
+        "音乐",
+        "音乐人"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 64000,
+      "textSummary": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:2f36d7a1db183a2b619a1fc6",
+      "endMs": 72000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-17-70000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-17-70000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "Timbaland",
+        "创作",
+        "展示",
+        "歌曲",
+        "生成",
+        "音乐",
+        "音乐人"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 68000,
+      "textSummary": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:1df886108a3dd3a95e655563",
+      "endMs": 76000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-18-74000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-18-74000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "Timbaland",
+        "创作",
+        "展示",
+        "歌曲",
+        "生成",
+        "音乐",
+        "音乐人"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 72000,
+      "textSummary": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:6468222bb08d6ac8ae5a92fa",
+      "endMs": 80000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-19-78000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-19-78000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "Timbaland",
+        "创作",
+        "展示",
+        "歌曲",
+        "生成",
+        "音乐",
+        "音乐人"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 76000,
+      "textSummary": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:f88267a464cc111e5be2dfb1",
+      "endMs": 84000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-20-82000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-20-82000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "Timbaland",
+        "创作",
+        "展示",
+        "歌曲",
+        "生成",
+        "音乐",
+        "音乐人"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 80000,
+      "textSummary": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:31b0717108d7efe1d0e1c770",
+      "endMs": 88000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-21-86000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-21-86000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "Timbaland",
+        "创作",
+        "展示",
+        "歌曲",
+        "生成",
+        "音乐",
+        "音乐人"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 84000,
+      "textSummary": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:6ba34142c25fc20b9ca781e2",
+      "endMs": 91582,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-22-89791",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-22-89791.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "Timbaland",
+        "创作",
+        "展示",
+        "歌曲",
+        "生成",
+        "音乐",
+        "音乐人"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "observedText": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+          "sizeBytes": 3287
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "speaker": "host",
+      "startMs": 88000,
+      "textSummary": "Timbaland 展示 Suno 生成 歌曲 音乐 创作 音乐人",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+          "sizeBytes": 1956
+        }
+      ]
+    }
+  ],
+  "keyframeTool": "stub-keyframes",
+  "keyframeToolVersion": "stub-keyframes-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-005:media:official-creator-timbaland",
+  "mediaRef": {
+    "artifactId": "episode-005:media:official-creator-timbaland",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "video/mp4",
+    "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+    "sizeBytes": 10432390
+  },
+  "sceneDetector": "deterministic-boundaries",
+  "sceneDetectorVersion": "scene-detector-v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "deterministic-content",
+  "semanticAdapterVersion": "semantic-adapter-v1",
+  "semanticAvailability": "available",
+  "sourceSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+  "transcriptAvailability": "available"
+}

@@ -1,0 +1,74 @@
+{
+  "episode": "episode-005",
+  "localFiles": {
+    "seg-001": {
+      "path": "/Users/zengze/Documents/ProductionAgent/ProductionAgent-episode-005/downloads/Miles+Music+Kid+Uses+Suno.mp4",
+      "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "sizeBytes": 13905084,
+      "mediaId": "episode-005:media:official-creator-video"
+    },
+    "seg-002": {
+      "path": "/Users/zengze/Documents/ProductionAgent/ProductionAgent-episode-005/downloads/Suno+Timbaland+Cover+Edit+4+(1)+-+Smaller.mp4",
+      "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "sizeBytes": 10432390,
+      "mediaId": "episode-005:media:official-creator-timbaland"
+    }
+  },
+  "originals": {
+    "seg-001": {
+      "mediaId": "episode-005:media:official-creator-video",
+      "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "sizeBytes": 13905084,
+      "mediaType": "video/mp4"
+    },
+    "seg-002": {
+      "mediaId": "episode-005:media:official-creator-timbaland",
+      "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+      "sizeBytes": 10432390,
+      "mediaType": "video/mp4"
+    }
+  },
+  "source": {
+    "sourceId": "episode-005:media-source:official-creator-video",
+    "admissionStatus": "admitted",
+    "rightsStatus": "approved",
+    "admissionDecisionRef": {
+      "artifactId": "episode-005:production:human-decision-admission-episode-005-official-creator-video-aa62fbfc6e5f",
+      "episodeId": "episode-005",
+      "path": "content/episode-005/production/human-decisions/admission-episode-005-official-creator-video-aa62fbfc6e5f.json",
+      "mediaType": "application/json",
+      "schemaVersion": "human-decision-v1",
+      "revision": 1,
+      "sha256": "35293e175f6fed68c55f8f3c8512ed55e350d8d92f8622c75cce7d350c000164",
+      "sizeBytes": 990,
+      "producer": "human:zengzew",
+      "createdAt": "2026-08-16T16:00:00.000Z"
+    },
+    "rightsDecisionRef": {
+      "artifactId": "episode-005:production:human-decision-rights-episode-005-official-creator-video-a4e9ca5397ef",
+      "episodeId": "episode-005",
+      "path": "content/episode-005/production/human-decisions/rights-episode-005-official-creator-video-a4e9ca5397ef.json",
+      "mediaType": "application/json",
+      "schemaVersion": "human-decision-v1",
+      "revision": 1,
+      "sha256": "0d4b4f444fb1d8aec1d713cfbd9647073cd7a7cdb4a91a5ad4095f9ac2d5757a",
+      "sizeBytes": 985,
+      "producer": "human:zengzew",
+      "createdAt": "2026-08-16T16:00:00.000Z"
+    }
+  },
+  "retrieval": {
+    "seg-001": "episode-005:media-clip:38013cf59cedb03aaa58f729",
+    "seg-002": "episode-005:media-clip:b9a81754afab6af461c2351b"
+  },
+  "selections": {
+    "seg-001": {
+      "selectedType": "real-media",
+      "clipId": "episode-005:media-clip:38013cf59cedb03aaa58f729"
+    },
+    "seg-002": {
+      "selectedType": "real-media",
+      "clipId": "episode-005:media-clip:b9a81754afab6af461c2351b"
+    }
+  }
+}

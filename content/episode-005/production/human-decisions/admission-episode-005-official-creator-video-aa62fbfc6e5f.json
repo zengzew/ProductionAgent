@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "admission-episode-005-official-creator-video",
+  "gate": "media-admission",
+  "decision": "approve",
+  "reviewer": "zengzew",
+  "timestamp": "2026-08-16T16:00:00.000Z",
+  "reason": "Human approved via the episode-005 media admission/rights gate: use short trims of the official Suno creator videos (Miles for the seg-001 hook, Timbaland for the seg-006 ending).",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-005:media:source-manifest",
+      "episodeId": "episode-005",
+      "path": "content/episode-005/media/source-manifest.json",
+      "mediaType": "application/json",
+      "schemaVersion": "media-source-manifest-v1",
+      "revision": 1,
+      "sha256": "949512c2997aaa0cfdc782e65d3dd2f781de0c99c0a47a0c574c9909da376ae3",
+      "sizeBytes": 925,
+      "producer": "episode-005-media-pipeline",
+      "createdAt": "2026-08-16T16:00:00.000Z"
+    }
+  ],
+  "approvalEpoch": 0,
+  "authorizations": [],
+  "edits": []
+}

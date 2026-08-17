@@ -1,0 +1,496 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-005:media:official-creator-timbaland-proxy",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "video/mp4",
+    "path": "content/episode-005/media/assets/official-creator-timbaland-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "09ec975c902a4c3368c3ec66ce313c57cc4e143b2cfe69c874a486cbdad47d83",
+    "sizeBytes": 8770054
+  },
+  "episodeId": "episode-005",
+  "indexVersion": "media-clip-index-v1",
+  "mediaId": "episode-005:media:official-creator-timbaland",
+  "mediaSha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+  "schemaVersion": "media-understanding-status-v1",
+  "stages": {
+    "clip-index": {
+      "artifactId": "episode-005:media-clip-index:official-creator-timbaland",
+      "availability": "available",
+      "cacheKey": "27fd1f69bf9b71a8dcd4a85678798529b3dc14fbbc266edd94e77faad0b0bf40",
+      "ref": {
+        "artifactId": "episode-005:media-clip-index:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "application/json",
+        "path": "content/episode-005/media/indexes/official-creator-timbaland/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3831b3127b1bd9a59641b69acb3ef49155736048ddbcb11c2d9eacd1fc49d600",
+        "sizeBytes": 74988
+      }
+    },
+    "keyframes": {
+      "availability": "available",
+      "cacheKey": "e2f094ec00d7ff00b9219adec7d20d111b6167ce7363bad7de9dc57b5bcfa315",
+      "entries": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-0-2000",
+          "cacheKey": "e24bb8899d36d94d0fcb15eb20b81ab7cecfcb5ed1951244db16116a04e70696",
+          "filename": "keyframe-0-2000.jpg",
+          "keyframeIndex": 0,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-0-2000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-0-2000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-1-6000",
+          "cacheKey": "adfc33803eb77ff593667b465e496e95493addfc7a9f4bb7dd7b6582be24c7f0",
+          "filename": "keyframe-1-6000.jpg",
+          "keyframeIndex": 1,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-1-6000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-1-6000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-2-10000",
+          "cacheKey": "456c04b736d10a1b6ee34692e7509536f10433b4f53ab89663e1c2c0d00608a1",
+          "filename": "keyframe-2-10000.jpg",
+          "keyframeIndex": 2,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-2-10000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-2-10000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-3-14000",
+          "cacheKey": "7e0b57e59b479c34cec38d0164e8244145c7d0982c961f6971b92d2f1d4351cd",
+          "filename": "keyframe-3-14000.jpg",
+          "keyframeIndex": 3,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-3-14000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-3-14000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-4-18000",
+          "cacheKey": "fb021be950bdbf6c493758e3d60fcbf87f463ed94bfcb6b94bc28f37a8d13d01",
+          "filename": "keyframe-4-18000.jpg",
+          "keyframeIndex": 4,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-4-18000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-4-18000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-5-22000",
+          "cacheKey": "81531bda24c8c09214f6f8368af411176d5c4c8483fb4c7a1845f506ffd1b872",
+          "filename": "keyframe-5-22000.jpg",
+          "keyframeIndex": 5,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-5-22000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-5-22000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-6-26000",
+          "cacheKey": "b5dc5aa2d38a5682357beb73c65419084329492a0ad7349a343853d995407416",
+          "filename": "keyframe-6-26000.jpg",
+          "keyframeIndex": 6,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-6-26000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-6-26000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-7-30000",
+          "cacheKey": "822b7011db957a0f7740b07677be7dffbab714c8ceb176029c44133ff8367417",
+          "filename": "keyframe-7-30000.jpg",
+          "keyframeIndex": 7,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-7-30000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-7-30000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-8-34000",
+          "cacheKey": "18337cb190460bbb39a47c050b04c0af9d538a27d38d27d368b4f30298481a7e",
+          "filename": "keyframe-8-34000.jpg",
+          "keyframeIndex": 8,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-8-34000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-8-34000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-9-38000",
+          "cacheKey": "db0dbd0ef5d9c914e391c51491a7980ff7b67e5849e8344588495a29203768dd",
+          "filename": "keyframe-9-38000.jpg",
+          "keyframeIndex": 9,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-9-38000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-9-38000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-10-42000",
+          "cacheKey": "e7dc9b60e69c4d430bfec53fe6e82024dd2a13ceb069c4df6222d4b474faa6b5",
+          "filename": "keyframe-10-42000.jpg",
+          "keyframeIndex": 10,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-10-42000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-10-42000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-11-46000",
+          "cacheKey": "913af3a1bbfa6acc6ba6a8637be859ece415974343bd77aae821861544a3ac4d",
+          "filename": "keyframe-11-46000.jpg",
+          "keyframeIndex": 11,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-11-46000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-11-46000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-12-50000",
+          "cacheKey": "3c0603326ec886e944b8a9f9ad5f1dcb9d2c2c66dee9923935631dee3e4b93d7",
+          "filename": "keyframe-12-50000.jpg",
+          "keyframeIndex": 12,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-12-50000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-12-50000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-13-54000",
+          "cacheKey": "849a7e3368b380c253ea15b88ed65f97e9ff9d4d60c52edf7454f2466a24f07a",
+          "filename": "keyframe-13-54000.jpg",
+          "keyframeIndex": 13,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-13-54000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-13-54000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-14-58000",
+          "cacheKey": "edff143cb5263038bbcd272d098b46c836773917cbf7df848d2c3119c1db8ecf",
+          "filename": "keyframe-14-58000.jpg",
+          "keyframeIndex": 14,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-14-58000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-14-58000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-15-62000",
+          "cacheKey": "a0394c3d7c55e4e353cc78a859283f0c5506fa89ff1f3cea3713400d82787a42",
+          "filename": "keyframe-15-62000.jpg",
+          "keyframeIndex": 15,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-15-62000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-15-62000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-16-66000",
+          "cacheKey": "3e5640fde56ec3c5642692ece6a22389af2d2f71eeea12c73024ada6ef6326b3",
+          "filename": "keyframe-16-66000.jpg",
+          "keyframeIndex": 16,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-16-66000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-16-66000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-17-70000",
+          "cacheKey": "afa83cb4abb919c2bee2f8935bf5cf76d5737d04204ed38d72393b144276af5a",
+          "filename": "keyframe-17-70000.jpg",
+          "keyframeIndex": 17,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-17-70000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-17-70000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-18-74000",
+          "cacheKey": "483239656c16d0c44257ca62b640fa00f0eb6b769d7c63e08ef4f4a6abf30b72",
+          "filename": "keyframe-18-74000.jpg",
+          "keyframeIndex": 18,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-18-74000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-18-74000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-19-78000",
+          "cacheKey": "cb09eef4caf40e2f5efc40d9d1033589b988315411f5bf982319a3f5d6fee65c",
+          "filename": "keyframe-19-78000.jpg",
+          "keyframeIndex": 19,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-19-78000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-19-78000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-20-82000",
+          "cacheKey": "39bf8e6d703da2ce95133876d4adc41964cbb0a92f1a866888bf264af071bd31",
+          "filename": "keyframe-20-82000.jpg",
+          "keyframeIndex": 20,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-20-82000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-20-82000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-21-86000",
+          "cacheKey": "101deeb3662123697834573a2e5b1e6150c0771956b31102335a95f4968dc083",
+          "filename": "keyframe-21-86000.jpg",
+          "keyframeIndex": 21,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-21-86000",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-21-86000.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        },
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-timbaland-22-89791",
+          "cacheKey": "c3a2e5127e5a7653e024acfb6391ea075eeb032de7f1fbbb0a91455119e37a15",
+          "filename": "keyframe-22-89791.jpg",
+          "keyframeIndex": 22,
+          "ref": {
+            "artifactId": "episode-005:media-keyframe:official-creator-timbaland-22-89791",
+            "createdAt": "2026-08-16T16:00:00.000Z",
+            "episodeId": "episode-005",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-005/media/indexes/official-creator-timbaland/keyframes/keyframe-22-89791.jpg",
+            "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+            "sizeBytes": 40
+          }
+        }
+      ],
+      "extractorId": "stub-keyframes",
+      "extractorVersion": "stub-keyframes-v1"
+    },
+    "scenes": {
+      "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+      "availability": "available",
+      "cacheKey": "0f80067e782cffaaa11501dbb05f6050c279fcc06de4bcb66c80852c363c0213",
+      "ref": {
+        "artifactId": "episode-005:media-scenes:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "application/json",
+        "path": "content/episode-005/media/indexes/official-creator-timbaland/scenes.json",
+        "producer": "media-understanding-v1:scenes:scene-detector-v1",
+        "revision": 1,
+        "schemaVersion": "media-scenes-v1",
+        "sha256": "65560d950f4c8c960f83f85b98456f77cf7a153c306f162c890a9032ef668815",
+        "sizeBytes": 3287
+      }
+    },
+    "transcript": {
+      "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+      "availability": "available",
+      "cacheKey": "923f24296446d1b1c4e94a480f99fa228461e4ec0528284b20e4ddc20af297af",
+      "ref": {
+        "artifactId": "episode-005:media-transcript:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "application/json",
+        "path": "content/episode-005/media/indexes/official-creator-timbaland/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "822dfe71ca2883dac71c016dc8765867e961a7bf0199bf8b4c955975428c775c",
+        "sizeBytes": 1956
+      }
+    }
+  },
+  "updatedAt": "2026-08-16T16:00:00.000Z",
+  "usedProxy": true
+}

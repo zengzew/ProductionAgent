@@ -1,0 +1,72 @@
+[
+  {
+    "id": "src-suno-wikipedia",
+    "title": "Suno (platform) — Wikipedia",
+    "publisher": "Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Suno_(platform)",
+    "publishedAt": "2026-08-16",
+    "accessedAt": "2026-08-16",
+    "sourceType": "media",
+    "notes": "百科全书条目，提供创立团队、Bark/V3/v4 版本节点、微软合作、AI 创作者签约与华纳和解时间线。"
+  },
+  {
+    "id": "src-suno-36kr",
+    "title": "一亿人用过的AI音乐创作软件，估值25亿美元",
+    "publisher": "36氪",
+    "url": "https://www.36kr.com/p/3799047204560130",
+    "publishedAt": "2026-05-07",
+    "accessedAt": "2026-08-16",
+    "sourceType": "media",
+    "notes": "披露超 1 亿用户、200 万付费用户、ARR 从约 1 亿美元增至约 3 亿美元、估值约 24.5 亿美元、Suno Studio 与华纳和解；并引创始人关于产品体验的表述。"
+  },
+  {
+    "id": "src-suno-wallstreetcn",
+    "title": "AI音乐明星初创公司SUNO付费用户3个月翻倍，达到2百万，年度ARR收入达3亿美元",
+    "publisher": "华尔街见闻",
+    "url": "https://wallstreetcn.com/articles/3766419",
+    "publishedAt": "2026-02-28",
+    "accessedAt": "2026-08-16",
+    "sourceType": "media",
+    "notes": "披露付费用户 200 万、三个月从约 100 万翻倍、年度 ARR 达 3 亿美元；并引 Mikey Shulman 超 1 亿用户口径与留存数据。"
+  },
+  {
+    "id": "src-suno-huxiu",
+    "title": "Suno创始人Mikey Shulman：平台90%活跃用户创作音乐，而非收听",
+    "publisher": "虎嗅",
+    "url": "https://www.huxiu.com/article/4862639.html",
+    "publishedAt": "2026-05-29",
+    "accessedAt": "2026-08-16",
+    "sourceType": "media",
+    "notes": "创始人访谈，披露平台约九成活跃用户在创作音乐而非收听。"
+  },
+  {
+    "id": "src-suno-blog-v55",
+    "title": "Suno v5.5: More Expressive. More You.",
+    "publisher": "Suno",
+    "url": "https://suno.com/blog/v5-5",
+    "publishedAt": "2025-06",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官方博客，说明 v5.5 支持用声音创作与自定义模型，用于版本演进背景。"
+  },
+  {
+    "id": "src-suno-site",
+    "title": "Suno — official website",
+    "publisher": "Suno",
+    "url": "https://suno.com/",
+    "publishedAt": "2026-08-16",
+    "accessedAt": "2026-08-16",
+    "sourceType": "official",
+    "notes": "官网，产品定义与官方 CDN 真实用户创作/背书视频。"
+  },
+  {
+    "id": "src-suno-sequoia",
+    "title": "Suno's Mikey Shulman: Everyone Can Make Music Now (Training Data podcast)",
+    "publisher": "Sequoia Capital",
+    "url": "https://sequoiacap.com/podcast/sunos-mikey-shulman-everyone-can-make-music-now/",
+    "publishedAt": "2025",
+    "accessedAt": "2026-08-16",
+    "sourceType": "founder",
+    "notes": "创始人播客全文：音乐人身份、先做听懂音频、早期 12.5 秒片段、Discord 机器人冷启动、九成用户在创作。"
+  }
+]

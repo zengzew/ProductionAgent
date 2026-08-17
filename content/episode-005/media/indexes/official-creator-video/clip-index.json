@@ -1,0 +1,1862 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-005:media:official-creator-video-proxy",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "video/mp4",
+    "path": "content/episode-005/media/assets/official-creator-video-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "8ea8215bb910e5a589fd2ace758b3d3e74c50f716610e4c2b1136c1722f9670a",
+    "sizeBytes": 12960284
+  },
+  "asrModel": null,
+  "asrProvider": "stub-asr",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-005",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-005:media-clip:38013cf59cedb03aaa58f729",
+      "endMs": 4000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-0-2000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-0-2000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "AI",
+        "Suno",
+        "伴奏",
+        "创作",
+        "带人声",
+        "歌曲",
+        "歌词",
+        "生成",
+        "用户",
+        "输入",
+        "音乐",
+        "音乐平台"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 0,
+      "textSummary": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:3daabee79e26452e37006dc6",
+      "endMs": 8000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-1-6000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-1-6000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "AI",
+        "Suno",
+        "伴奏",
+        "创作",
+        "带人声",
+        "歌曲",
+        "歌词",
+        "生成",
+        "用户",
+        "输入",
+        "音乐",
+        "音乐平台"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 4000,
+      "textSummary": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:7de7c3fa2b017a051f5e7917",
+      "endMs": 12000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-2-10000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-2-10000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "AI",
+        "Suno",
+        "伴奏",
+        "创作",
+        "带人声",
+        "歌曲",
+        "歌词",
+        "生成",
+        "用户",
+        "输入",
+        "音乐",
+        "音乐平台"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 8000,
+      "textSummary": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:666de2d8ef3b681f8d3c0556",
+      "endMs": 16000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-3-14000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-3-14000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "AI",
+        "Suno",
+        "伴奏",
+        "创作",
+        "带人声",
+        "歌曲",
+        "歌词",
+        "生成",
+        "用户",
+        "输入",
+        "音乐",
+        "音乐平台"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 12000,
+      "textSummary": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:c68b4843d289be832efe4dbf",
+      "endMs": 20000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-4-18000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-4-18000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "AI",
+        "Suno",
+        "伴奏",
+        "创作",
+        "带人声",
+        "歌曲",
+        "歌词",
+        "生成",
+        "用户",
+        "输入",
+        "音乐",
+        "音乐平台"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 16000,
+      "textSummary": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:204f52edc94e19579c952eea",
+      "endMs": 24000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-5-22000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-5-22000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "AI",
+        "Suno",
+        "伴奏",
+        "创作",
+        "带人声",
+        "歌曲",
+        "歌词",
+        "生成",
+        "用户",
+        "输入",
+        "音乐",
+        "音乐平台"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 20000,
+      "textSummary": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:af42d36590746baed3cfe73e",
+      "endMs": 28000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-6-26000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-6-26000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "AI",
+        "Suno",
+        "伴奏",
+        "创作",
+        "带人声",
+        "歌曲",
+        "歌词",
+        "生成",
+        "用户",
+        "输入",
+        "音乐",
+        "音乐平台"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 24000,
+      "textSummary": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:90f58f48905016d3623b26a3",
+      "endMs": 32000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-7-30000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-7-30000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "创作",
+        "歌曲",
+        "歌词",
+        "生成",
+        "AI",
+        "伴奏",
+        "哼唱",
+        "完整",
+        "展示",
+        "带人声",
+        "曲风"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏 Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 28000,
+      "textSummary": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏 Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:3444c886cc16438564dd15be",
+      "endMs": 36000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-8-34000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-8-34000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "创作",
+        "哼唱",
+        "完整",
+        "展示",
+        "曲风",
+        "歌曲",
+        "歌词",
+        "生成"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 32000,
+      "textSummary": "Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:194c02819ab5fcf99c21bcd7",
+      "endMs": 40000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-9-38000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-9-38000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "创作",
+        "哼唱",
+        "完整",
+        "展示",
+        "曲风",
+        "歌曲",
+        "歌词",
+        "生成"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 36000,
+      "textSummary": "Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:c402ed0743c716fc19b8bb64",
+      "endMs": 44000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-10-42000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-10-42000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "创作",
+        "哼唱",
+        "完整",
+        "展示",
+        "曲风",
+        "歌曲",
+        "歌词",
+        "生成"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 40000,
+      "textSummary": "Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:a793a89e9d362041793cf198",
+      "endMs": 48000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-11-46000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-11-46000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "创作",
+        "哼唱",
+        "完整",
+        "展示",
+        "曲风",
+        "歌曲",
+        "歌词",
+        "生成"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 44000,
+      "textSummary": "Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:dbb6800344ea50e15a0f6284",
+      "endMs": 52000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-12-50000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-12-50000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "创作",
+        "哼唱",
+        "完整",
+        "展示",
+        "曲风",
+        "歌曲",
+        "歌词",
+        "生成"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 48000,
+      "textSummary": "Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:907f4d3c878a239dd5f9d61d",
+      "endMs": 56000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-13-54000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-13-54000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "创作",
+        "哼唱",
+        "完整",
+        "展示",
+        "曲风",
+        "歌曲",
+        "歌词",
+        "生成"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 52000,
+      "textSummary": "Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:7e45e342582eaf310f4aa4f9",
+      "endMs": 60000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-14-58000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-14-58000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "创作",
+        "展示",
+        "歌曲",
+        "做歌",
+        "哼唱",
+        "完整",
+        "播放",
+        "曲风",
+        "歌词",
+        "生成",
+        "用户"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示 用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 56000,
+      "textSummary": "Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示 用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:bfe20015e433d7145dc44024",
+      "endMs": 64000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-15-62000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-15-62000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "做歌",
+        "创作",
+        "展示",
+        "播放",
+        "歌曲",
+        "用户",
+        "音乐"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 60000,
+      "textSummary": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:486dc51e625fe1b3fcb38a4c",
+      "endMs": 68000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-16-66000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-16-66000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "做歌",
+        "创作",
+        "展示",
+        "播放",
+        "歌曲",
+        "用户",
+        "音乐"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 64000,
+      "textSummary": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:46bf45f83c0d3183622cb29a",
+      "endMs": 72000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-17-70000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-17-70000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "做歌",
+        "创作",
+        "展示",
+        "播放",
+        "歌曲",
+        "用户",
+        "音乐"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 68000,
+      "textSummary": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:2796414ed682f933d0336b15",
+      "endMs": 76000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-18-74000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-18-74000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "做歌",
+        "创作",
+        "展示",
+        "播放",
+        "歌曲",
+        "用户",
+        "音乐"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 72000,
+      "textSummary": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:cf832875053b1ad3897b1932",
+      "endMs": 80000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-19-78000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-19-78000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "做歌",
+        "创作",
+        "展示",
+        "播放",
+        "歌曲",
+        "用户",
+        "音乐"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 76000,
+      "textSummary": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:0028a57d12893d814408e9ff",
+      "endMs": 84000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-20-82000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-20-82000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "做歌",
+        "创作",
+        "展示",
+        "播放",
+        "歌曲",
+        "用户",
+        "音乐"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 80000,
+      "textSummary": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:43f92f222f4605a0cf4087b4",
+      "endMs": 88000,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-21-86000",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-21-86000.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "做歌",
+        "创作",
+        "展示",
+        "播放",
+        "歌曲",
+        "用户",
+        "音乐"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 84000,
+      "textSummary": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    },
+    {
+      "clipId": "episode-005:media-clip:5780619b67b52ea251e1783b",
+      "endMs": 89653,
+      "entities": [],
+      "episodeId": "episode-005",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-005:media-keyframe:official-creator-video-22-88826",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-005/media/indexes/official-creator-video/keyframes/keyframe-22-88826.jpg",
+          "producer": "media-understanding-v1:keyframes:stub-keyframes-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "31bf301e335cada706a709e43b86f915e02f29a4bfb223f8c5f7f3f128b3475d",
+          "sizeBytes": 40
+        }
+      ],
+      "keywords": [
+        "Suno",
+        "做歌",
+        "创作",
+        "展示",
+        "播放",
+        "歌曲",
+        "用户",
+        "音乐"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-video.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+        "sizeBytes": 13905084
+      },
+      "observedText": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-005:media-scenes:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "1c5476f1ca8db3391c359d5b2e67fbd9e93f5970bd5b5f4ac755dad1c8de9257",
+          "sizeBytes": 3268
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "speaker": "host",
+      "startMs": 88000,
+      "textSummary": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-005:media-transcript:official-creator-video",
+          "createdAt": "2026-08-16T16:00:00.000Z",
+          "episodeId": "episode-005",
+          "mediaType": "application/json",
+          "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+          "sizeBytes": 1921
+        }
+      ]
+    }
+  ],
+  "keyframeTool": "stub-keyframes",
+  "keyframeToolVersion": "stub-keyframes-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-005:media:official-creator-video",
+  "mediaRef": {
+    "artifactId": "episode-005:media:official-creator-video",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "video/mp4",
+    "path": "content/episode-005/media/assets/official-creator-video.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+    "sizeBytes": 13905084
+  },
+  "sceneDetector": "deterministic-boundaries",
+  "sceneDetectorVersion": "scene-detector-v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "deterministic-content",
+  "semanticAdapterVersion": "semantic-adapter-v1",
+  "semanticAvailability": "available",
+  "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+  "transcriptAvailability": "available"
+}

@@ -1,0 +1,115 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-005:media-shot:seg-004",
+    "createdAt": "2026-08-17T14:30:03.630Z",
+    "episodeId": "episode-005",
+    "mediaType": "application/json",
+    "path": "content/episode-005/media/shots/seg-004.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-shot-v1",
+    "sha256": "27fe08d6b730a411c21ed14f3bf66ccb03a34b33a6822e19c216e7bc8fbd4bd6",
+    "sizeBytes": 2321
+  },
+  "audio": {
+    "ducking": {
+      "attackMs": 0,
+      "enabled": false,
+      "reductionDb": 0,
+      "releaseMs": 0
+    },
+    "fadeInMs": 0,
+    "fadeOutMs": 0,
+    "narrationGain": 1,
+    "originalAudioGain": 0
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "timelineSha256": "dfeef54640f52b41c81e6afea2ef8b22b7ab7443e1a017ed0f828b2ccaf5b2b3",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-08-17T14:30:03.629Z",
+  "crossfadeMs": 0,
+  "durationFrames": 213,
+  "endSeconds": 26,
+  "episodeId": "episode-005",
+  "fade": {
+    "inMs": 200,
+    "outMs": 200
+  },
+  "fallbackImagePath": null,
+  "fallbackReason": "retrieval produced no candidates for this segment",
+  "fallbackType": "REAL_MEDIA_NOT_FOUND",
+  "gate": {
+    "clipVerified": false,
+    "episodeIsolated": true,
+    "hashesValid": true,
+    "rightsApproved": false,
+    "slotValid": true,
+    "timestampsValid": false
+  },
+  "lineage": null,
+  "overlays": {
+    "badge": null,
+    "captionsEnabled": true,
+    "sourceLabel": null
+  },
+  "reasons": [
+    "scene seg-004 at frame 567 (213 frames, 30 fps)",
+    "fallback REAL_MEDIA_NOT_FOUND: retrieval produced no candidates for this segment",
+    "visualType data-evidence-card (fixed stage order official screenshot → data card → programmatic)"
+  ],
+  "renderProxyMediaType": null,
+  "renderProxyRef": null,
+  "sceneIndex": 3,
+  "schemaVersion": "media-shot-v1",
+  "segmentId": "seg-004",
+  "selectedMediaClipRef": null,
+  "shotId": "episode-005:media-shot:seg-004",
+  "startFrame": 567,
+  "startSeconds": 18.9,
+  "staticFilePath": null,
+  "transform": {
+    "freezeFrameMs": null,
+    "pip": null,
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "reframe": {
+      "crop": {
+        "height": 1,
+        "width": 1,
+        "x": 0,
+        "y": 0
+      },
+      "mode": "cover"
+    },
+    "scale": 1,
+    "zoomPan": {
+      "end": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "start": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "type": "none"
+    }
+  },
+  "trim": null,
+  "verificationRef": null,
+  "visualType": "data-evidence-card"
+}

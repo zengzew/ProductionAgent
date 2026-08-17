@@ -1,0 +1,121 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-005:media-verification:episode-005-media-clip-38013cf59cedb03aaa58f729",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "application/json",
+    "path": "content/episode-005/media/verifications/seg-001/episode-005-media-clip-38013cf59cedb03aaa58f729.json",
+    "producer": "media-verification-v1:deterministic-stub:deterministic-verify-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "3e9e146619ec7376b223e8ddb818b77f94ce1b72f5f0843f1f6bdece317cc0b7",
+    "sizeBytes": 4238
+  },
+  "cacheKey": "a2031f27043c0a0d3999b7fbf936c5868344e42c3b7cc6c09f9872186d072f8e",
+  "claimIds": [
+    "claim-suno-001"
+  ],
+  "claimMatch": 0.9,
+  "clipArtifactRef": {
+    "artifactId": "episode-005:media-verification-clip:episode-005-media-clip-38013cf59cedb03aaa58f729",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "video/mp4",
+    "path": "content/episode-005/media/verifications/seg-001/episode-005-media-clip-38013cf59cedb03aaa58f729-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "78f4ae3333cb8ba3cd61bffd298da0b02afb14b76a14cd883dd92f1982fd0bd3",
+    "sizeBytes": 2959369
+  },
+  "clipId": "episode-005:media-clip:38013cf59cedb03aaa58f729",
+  "clipRef": {
+    "claimIds": [
+      "claim-suno-001"
+    ],
+    "clipId": "episode-005:media-clip:38013cf59cedb03aaa58f729",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "endMs": 4000,
+    "episodeId": "episode-005",
+    "mediaId": "episode-005:media:official-creator-video",
+    "sourceMediaRef": {
+      "artifactId": "episode-005:media:official-creator-video",
+      "createdAt": "2026-08-16T16:00:00.000Z",
+      "episodeId": "episode-005",
+      "mediaType": "video/mp4",
+      "path": "content/episode-005/media/assets/official-creator-video.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "sizeBytes": 13905084
+    },
+    "startMs": 0,
+    "transcriptRefs": [
+      {
+        "artifactId": "episode-005:media-transcript:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "application/json",
+        "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+        "sizeBytes": 1921
+      }
+    ],
+    "visualIntent": "输入框写入歌词,随后生成按钮点亮,带人声的歌曲波形出现,持续标“功能演示”。"
+  },
+  "createdAt": "2026-08-16T16:00:00.000Z",
+  "episodeId": "episode-005",
+  "mediaRef": {
+    "artifactId": "episode-005:media:official-creator-video",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "video/mp4",
+    "path": "content/episode-005/media/assets/official-creator-video.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+    "sizeBytes": 13905084
+  },
+  "misleadingRisk": 0.1,
+  "model": null,
+  "observedActions": [
+    "Suno song creation"
+  ],
+  "observedEntities": [],
+  "observedText": [
+    "Suno 用户 创作 音乐 生成 歌曲"
+  ],
+  "promptVersion": "media-verification-prompt-v1",
+  "provider": "deterministic-stub",
+  "reasons": [
+    "deterministic verification stub observed the short clip only"
+  ],
+  "recommendedEndMs": 4000,
+  "recommendedStartMs": 0,
+  "relevance": 0.9,
+  "retrievalResultRef": {
+    "artifactId": "episode-005:media-retrieval:seg-001",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "application/json",
+    "path": "content/episode-005/media/candidates/seg-001.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 1,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "af059a9d27f2193a18b741ffc9cf2c7d41f430ac04f44c79b5f2d6cd79341be9",
+    "sizeBytes": 11896
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-001",
+  "sourceSha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-005:media-verification:episode-005-media-clip-38013cf59cedb03aaa58f729",
+  "verificationVersion": "deterministic-verify-v1",
+  "visualQuality": 0.8
+}

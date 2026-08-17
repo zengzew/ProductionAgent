@@ -42,6 +42,13 @@ const renderContracts: Readonly<Record<string, RenderContract>> = {
     generatedPrefix: "episode-004",
     layoutVariant: "poke-standard",
   },
+  // episode-005 (Suno): rendered by the generic real-media mix composition.
+  "episode-005": {
+    composition: "MediaMixVertical",
+    smokeComposition: "MediaMixVertical",
+    generatedPrefix: "episode-005",
+    layoutVariant: "poke-standard",
+  },
 };
 
 export const getRenderContract = (episodeId: string): RenderContract => {

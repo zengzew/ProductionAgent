@@ -1,0 +1,26 @@
+[
+  {
+    "id": "asset-suno-generated",
+    "type": "generated",
+    "path": "src/compositions/MediaMixEpisode.tsx",
+    "sourceUrl": "",
+    "owner": "Generated in this repository",
+    "licenseOrBasis": "Original code-native graphics created for this project.",
+    "capturedAt": "2026-08-16",
+    "usage": "Programmatic evidence-stage cards, data walls, team/launch sequences and caption overlay around the real-media Suno creator clip.",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-suno-002",
+      "claim-suno-003",
+      "claim-suno-004",
+      "claim-suno-005",
+      "claim-suno-006",
+      "claim-suno-007",
+      "claim-suno-008",
+      "claim-suno-011",
+      "claim-suno-012",
+      "claim-suno-013"
+    ]
+  }
+]

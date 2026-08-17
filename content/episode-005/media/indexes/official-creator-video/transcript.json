@@ -1,0 +1,61 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-005:media:official-creator-video-proxy",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "video/mp4",
+    "path": "content/episode-005/media/assets/official-creator-video-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "8ea8215bb910e5a589fd2ace758b3d3e74c50f716610e4c2b1136c1722f9670a",
+    "sizeBytes": 12960284
+  },
+  "asrVersion": "stub-asr-v1",
+  "availability": "available",
+  "durationMs": 89653,
+  "episodeId": "episode-005",
+  "mediaId": "episode-005:media:official-creator-video",
+  "model": null,
+  "provider": "stub-asr",
+  "schemaVersion": "media-transcript-v1",
+  "segments": [
+    {
+      "confidence": null,
+      "endMs": 29000,
+      "index": 0,
+      "speaker": "host",
+      "startMs": 0,
+      "text": "Suno AI 音乐平台 用户 创作 音乐 输入 歌词 生成 歌曲 带人声 伴奏"
+    },
+    {
+      "confidence": null,
+      "endMs": 58000,
+      "index": 1,
+      "speaker": "host",
+      "startMs": 29000,
+      "text": "Suno 生成 完整 歌曲 歌词 哼唱 曲风 创作 展示"
+    },
+    {
+      "confidence": null,
+      "endMs": 89000,
+      "index": 2,
+      "speaker": "host",
+      "startMs": 58000,
+      "text": "用户 用 Suno 做歌 音乐 创作 展示 歌曲 播放"
+    }
+  ],
+  "sourceMediaRef": {
+    "artifactId": "episode-005:media:official-creator-video",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "video/mp4",
+    "path": "content/episode-005/media/assets/official-creator-video.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+    "sizeBytes": 13905084
+  },
+  "toolVersion": "media-asr-stub-v1"
+}

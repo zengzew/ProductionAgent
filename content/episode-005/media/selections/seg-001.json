@@ -1,0 +1,111 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-005:media-visual-slot:seg-001",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "application/json",
+    "path": "content/episode-005/media/selections/seg-001.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "143fd399933273ac94fbe2a999e35dc0881213a8fc07b5da273121d95f345447",
+    "sizeBytes": 3866
+  },
+  "claimIds": [
+    "claim-suno-001"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.5,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": true
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0.2,
+      "durationSuitability": 0.05,
+      "misleadingRiskSafety": 0.1,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.05,
+      "verificationClaimMatch": 0.15,
+      "verificationRelevance": 0.1,
+      "visualIntentFit": 0.1,
+      "visualQuality": 0.1
+    }
+  },
+  "createdAt": "2026-08-16T16:00:00.000Z",
+  "episodeId": "episode-005",
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true,
+    "verificationPassed": true
+  },
+  "reasons": [
+    "segment seg-001 claim-bound with 1 claim(s)",
+    "retrieval result episode-005:media-retrieval:seg-001 produced 5 candidate(s)",
+    "1 candidate(s) carry a valid pass verification",
+    "selected episode-005:media-clip:38013cf59cedb03aaa58f729 score 0.695108 (claimFit=0.840, relevance=0.900, claimMatch=0.900, quality=0.800, risk=0.100, tie-breaker=score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-001",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-suno-001"
+    ],
+    "clipId": "episode-005:media-clip:38013cf59cedb03aaa58f729",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "endMs": 4000,
+    "episodeId": "episode-005",
+    "mediaId": "episode-005:media:official-creator-video",
+    "sourceMediaRef": {
+      "artifactId": "episode-005:media:official-creator-video",
+      "createdAt": "2026-08-16T16:00:00.000Z",
+      "episodeId": "episode-005",
+      "mediaType": "video/mp4",
+      "path": "content/episode-005/media/assets/official-creator-video.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "5edf4041505b1920272faccfed1764cfac839a75e5e525d9931d67b1676c19ce",
+      "sizeBytes": 13905084
+    },
+    "startMs": 0,
+    "transcriptRefs": [
+      {
+        "artifactId": "episode-005:media-transcript:official-creator-video",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "application/json",
+        "path": "content/episode-005/media/indexes/official-creator-video/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-stub-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "3b695004820a289aa866edef09bb9d51cc4f275a1586f7e63978c0aedf792542",
+        "sizeBytes": 1921
+      }
+    ],
+    "visualIntent": "输入框写入歌词,随后生成按钮点亮,带人声的歌曲波形出现,持续标“功能演示”。"
+  },
+  "selectedType": "real-media",
+  "selectionScore": 0.695108,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-005:media-visual-slot:seg-001",
+  "verificationRef": {
+    "artifactId": "episode-005:media-verification:episode-005-media-clip-38013cf59cedb03aaa58f729",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "application/json",
+    "path": "content/episode-005/media/verifications/seg-001/episode-005-media-clip-38013cf59cedb03aaa58f729.json",
+    "producer": "media-verification-v1:deterministic-stub:deterministic-verify-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "d767d6caedc6e8349ba8221f7ede39693e4fc8eabf9a1e41b06fd55fe1e58fe2",
+    "sizeBytes": 4845
+  },
+  "visualIntent": "输入框写入歌词,随后生成按钮点亮,带人声的歌曲波形出现,持续标“功能演示”。"
+}

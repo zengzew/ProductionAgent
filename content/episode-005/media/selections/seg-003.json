@@ -1,0 +1,64 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-005:media-visual-slot:seg-003",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "application/json",
+    "path": "content/episode-005/media/selections/seg-003.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "200f1aa9508fd09eca865d39b12cb075f0494f6aa381c275fcfe4b1870ea9baf",
+    "sizeBytes": 1677
+  },
+  "claimIds": [
+    "claim-suno-017",
+    "claim-suno-018"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.5,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": true
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0.2,
+      "durationSuitability": 0.05,
+      "misleadingRiskSafety": 0.1,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.05,
+      "verificationClaimMatch": 0.15,
+      "verificationRelevance": 0.1,
+      "visualIntentFit": 0.1,
+      "visualQuality": 0.1
+    }
+  },
+  "createdAt": "2026-08-16T16:00:00.000Z",
+  "episodeId": "episode-005",
+  "fallbackReason": "retrieval produced no candidates for this segment",
+  "fallbackType": "REAL_MEDIA_NOT_FOUND",
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": false,
+    "sourceAdmitted": false,
+    "verificationPassed": false
+  },
+  "reasons": [
+    "segment seg-003 claim-bound with 2 claim(s)",
+    "no retrieval result exists for this segment",
+    "fallback REAL_MEDIA_NOT_FOUND: retrieval produced no candidates for this segment",
+    "fallback stage data-evidence-card (official screenshot → data/evidence card → programmatic visual)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-003",
+  "selectedMediaClipRef": null,
+  "selectedType": "data-evidence-card",
+  "selectionScore": 0,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-005:media-visual-slot:seg-003",
+  "verificationRef": null,
+  "visualIntent": "短波形试了两次对不上歌词,随后问题落下。"
+}

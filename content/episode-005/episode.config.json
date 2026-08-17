@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "episode-config-v2",
+  "id": "episode-005",
+  "slug": "suno-ai-music-creation",
+  "product": "Suno",
+  "title": "一句歌词变成一首歌，市场后来给了什么价",
+  "language": "zh-CN",
+  "targetSeconds": 60,
+  "production": {
+    "timelineTailSeconds": {
+      "seg-001": 0.188,
+      "seg-002": 0.196,
+      "seg-003": 0.206667,
+      "seg-004": 0.910667,
+      "seg-005": 0.930667,
+      "seg-006": 0.904
+    },
+    "hookAttributionSubjects": ["Suno", "Suno AI", "Suno 音乐"]
+  },
+  "selection": "selected",
+  "selectionReason": "Suno 有可直接下载的官方 CDN 视频（真实用户创作与 Timbaland 背书）、可核验的 2023-2026 版本节点，以及公司/媒体披露的 1 亿用户、200 万付费、3 亿美元 ARR；核心动作“输入歌词和哼唱生成带人声的完整歌曲”适合 40-80 秒中文产品故事。",
+  "publishStatus": "evaluation",
+  "publishBlocker": "本集是 evaluation run。不写入 HumanDecision、final approval 或 published 状态。媒体 admission/rights 与官方视频发布前仍需人工审查。",
+  "asOf": "2026-08-16",
+  "captureAssets": [
+    {"file": "suno-home.png", "url": "https://suno.com/"}
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-005:media-visual-slot:seg-006",
+    "createdAt": "2026-08-16T16:00:00.000Z",
+    "episodeId": "episode-005",
+    "mediaType": "application/json",
+    "path": "content/episode-005/media/selections/seg-006.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "61c96542afff0aa0b296d99f71fbc1894cca5993447fbb6348d28fc042bd665b",
+    "sizeBytes": 1736
+  },
+  "claimIds": [
+    "claim-suno-008",
+    "claim-suno-009",
+    "claim-suno-010"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.5,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": true
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0.2,
+      "durationSuitability": 0.05,
+      "misleadingRiskSafety": 0.1,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.05,
+      "verificationClaimMatch": 0.15,
+      "verificationRelevance": 0.1,
+      "visualIntentFit": 0.1,
+      "visualQuality": 0.1
+    }
+  },
+  "createdAt": "2026-08-16T16:00:00.000Z",
+  "episodeId": "episode-005",
+  "fallbackReason": "retrieval produced no candidates for this segment",
+  "fallbackType": "REAL_MEDIA_NOT_FOUND",
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": false,
+    "sourceAdmitted": false,
+    "verificationPassed": false
+  },
+  "reasons": [
+    "segment seg-006 claim-bound with 3 claim(s)",
+    "no retrieval result exists for this segment",
+    "fallback REAL_MEDIA_NOT_FOUND: retrieval produced no candidates for this segment",
+    "fallback stage data-evidence-card (official screenshot → data/evidence card → programmatic visual)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-006",
+  "selectedMediaClipRef": null,
+  "selectedType": "data-evidence-card",
+  "selectionScore": 0,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-005:media-visual-slot:seg-006",
+  "verificationRef": null,
+  "visualIntent": "付费、ARR、融资和估值四个数字依次落下,来源条同期出现,停在估值上。"
+}

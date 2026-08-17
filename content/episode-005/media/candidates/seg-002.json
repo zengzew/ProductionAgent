@@ -1,0 +1,340 @@
+{
+  "cacheKey": "0c17f6e12197dfca942b0f3585c3d3b57378cf742920dc914ba1a0dcf26b248a",
+  "candidates": [
+    {
+      "clipId": "episode-005:media-clip:b9a81754afab6af461c2351b",
+      "endMs": 32000,
+      "episodeId": "episode-005",
+      "indexRef": {
+        "artifactId": "episode-005:media-clip-index:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "application/json",
+        "path": "content/episode-005/media/indexes/official-creator-timbaland/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3831b3127b1bd9a59641b69acb3ef49155736048ddbcb11c2d9eacd1fc49d600",
+        "sizeBytes": 74988
+      },
+      "matchedClaimIds": [
+        "claim-suno-002",
+        "claim-suno-011"
+      ],
+      "mediaId": "episode-005:media:official-creator-timbaland",
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "mediaSourceId": "episode-005:media-source:official-creator-video",
+      "rank": 1,
+      "reasons": [
+        "claim evidence claim-suno-002 fit 0.083",
+        "claim evidence claim-suno-011 fit 0.400",
+        "metadata overlap 0.087",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.322043,
+      "scoreBreakdown": {
+        "claim": 0.56,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.086957,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 28000
+    },
+    {
+      "clipId": "episode-005:media-clip:f943871290686af6eb84fea3",
+      "endMs": 36000,
+      "episodeId": "episode-005",
+      "indexRef": {
+        "artifactId": "episode-005:media-clip-index:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "application/json",
+        "path": "content/episode-005/media/indexes/official-creator-timbaland/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3831b3127b1bd9a59641b69acb3ef49155736048ddbcb11c2d9eacd1fc49d600",
+        "sizeBytes": 74988
+      },
+      "matchedClaimIds": [
+        "claim-suno-002",
+        "claim-suno-011"
+      ],
+      "mediaId": "episode-005:media:official-creator-timbaland",
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "mediaSourceId": "episode-005:media-source:official-creator-video",
+      "rank": 2,
+      "reasons": [
+        "claim evidence claim-suno-002 fit 0.083",
+        "claim evidence claim-suno-011 fit 0.400",
+        "metadata overlap 0.087",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.322043,
+      "scoreBreakdown": {
+        "claim": 0.56,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.086957,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 32000
+    },
+    {
+      "clipId": "episode-005:media-clip:8864a3371f9a399be3823949",
+      "endMs": 40000,
+      "episodeId": "episode-005",
+      "indexRef": {
+        "artifactId": "episode-005:media-clip-index:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "application/json",
+        "path": "content/episode-005/media/indexes/official-creator-timbaland/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3831b3127b1bd9a59641b69acb3ef49155736048ddbcb11c2d9eacd1fc49d600",
+        "sizeBytes": 74988
+      },
+      "matchedClaimIds": [
+        "claim-suno-002",
+        "claim-suno-011"
+      ],
+      "mediaId": "episode-005:media:official-creator-timbaland",
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "mediaSourceId": "episode-005:media-source:official-creator-video",
+      "rank": 3,
+      "reasons": [
+        "claim evidence claim-suno-002 fit 0.083",
+        "claim evidence claim-suno-011 fit 0.400",
+        "metadata overlap 0.087",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.322043,
+      "scoreBreakdown": {
+        "claim": 0.56,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.086957,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 36000
+    },
+    {
+      "clipId": "episode-005:media-clip:4c1ee559d6ad8b249b2776bf",
+      "endMs": 44000,
+      "episodeId": "episode-005",
+      "indexRef": {
+        "artifactId": "episode-005:media-clip-index:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "application/json",
+        "path": "content/episode-005/media/indexes/official-creator-timbaland/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3831b3127b1bd9a59641b69acb3ef49155736048ddbcb11c2d9eacd1fc49d600",
+        "sizeBytes": 74988
+      },
+      "matchedClaimIds": [
+        "claim-suno-002",
+        "claim-suno-011"
+      ],
+      "mediaId": "episode-005:media:official-creator-timbaland",
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "mediaSourceId": "episode-005:media-source:official-creator-video",
+      "rank": 4,
+      "reasons": [
+        "claim evidence claim-suno-002 fit 0.083",
+        "claim evidence claim-suno-011 fit 0.400",
+        "metadata overlap 0.087",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.322043,
+      "scoreBreakdown": {
+        "claim": 0.56,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.086957,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 40000
+    },
+    {
+      "clipId": "episode-005:media-clip:ffcbe7c71409103c25147fce",
+      "endMs": 48000,
+      "episodeId": "episode-005",
+      "indexRef": {
+        "artifactId": "episode-005:media-clip-index:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "application/json",
+        "path": "content/episode-005/media/indexes/official-creator-timbaland/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3831b3127b1bd9a59641b69acb3ef49155736048ddbcb11c2d9eacd1fc49d600",
+        "sizeBytes": 74988
+      },
+      "matchedClaimIds": [
+        "claim-suno-002",
+        "claim-suno-011"
+      ],
+      "mediaId": "episode-005:media:official-creator-timbaland",
+      "mediaRef": {
+        "artifactId": "episode-005:media:official-creator-timbaland",
+        "createdAt": "2026-08-16T16:00:00.000Z",
+        "episodeId": "episode-005",
+        "mediaType": "video/mp4",
+        "path": "content/episode-005/media/assets/official-creator-timbaland.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "36f3ca12ce63ec4717ff81e359a696927fc3053bd75ddcb2c278a7b782b6f7a8",
+        "sizeBytes": 10432390
+      },
+      "mediaSourceId": "episode-005:media-source:official-creator-video",
+      "rank": 5,
+      "reasons": [
+        "claim evidence claim-suno-002 fit 0.083",
+        "claim evidence claim-suno-011 fit 0.400",
+        "metadata overlap 0.087",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.322043,
+      "scoreBreakdown": {
+        "claim": 0.56,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.086957,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 44000
+    }
+  ],
+  "claimLedger": {
+    "path": "content/episode-005/research/facts.json",
+    "sha256": "d51dcc86a3aca1012953e7f591e3023c54e014fff8c700d4b5fe791e5bc47a1b",
+    "sizeBytes": 8756
+  },
+  "clipIndexRefs": [
+    {
+      "artifactId": "episode-005:media-clip-index:official-creator-timbaland",
+      "createdAt": "2026-08-16T16:00:00.000Z",
+      "episodeId": "episode-005",
+      "mediaType": "application/json",
+      "path": "content/episode-005/media/indexes/official-creator-timbaland/clip-index.json",
+      "producer": "media-understanding-v1:index:semantic-adapter-v1",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "3831b3127b1bd9a59641b69acb3ef49155736048ddbcb11c2d9eacd1fc49d600",
+      "sizeBytes": 74988
+    },
+    {
+      "artifactId": "episode-005:media-clip-index:official-creator-video",
+      "createdAt": "2026-08-16T16:00:00.000Z",
+      "episodeId": "episode-005",
+      "mediaType": "application/json",
+      "path": "content/episode-005/media/indexes/official-creator-video/clip-index.json",
+      "producer": "media-understanding-v1:index:semantic-adapter-v1",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "779625afc442ef4d58c18a42c142942fd39d4e4d6844eae9d8887ce2dfb2a598",
+      "sizeBytes": 74343
+    }
+  ],
+  "createdAt": "2026-08-16T16:00:00.000Z",
+  "episodeId": "episode-005",
+  "evidenceMode": "claim-bound",
+  "gate": {
+    "claimLedgerValid": true,
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true
+  },
+  "rankingConfig": {
+    "claimlessPenalty": 0.5,
+    "minRelevanceScore": 0.1,
+    "version": "media-retrieval-ranking-v1",
+    "weights": {
+      "claim": 0.4,
+      "duration": 0.05,
+      "lexical": 0.2,
+      "metadata": 0.15,
+      "sourcePreference": 0.1,
+      "visualIntent": 0.1
+    }
+  },
+  "request": {
+    "claimIds": [
+      "claim-suno-002",
+      "claim-suno-003",
+      "claim-suno-011"
+    ],
+    "episodeId": "episode-005",
+    "narration": "创始人是会写代码的音乐人。平台上九成活跃用户在创作,不是收听。",
+    "preferredMediaTypes": [],
+    "schemaVersion": "media-retrieval-request-v1",
+    "segmentId": "seg-002",
+    "topK": 5,
+    "visualIntent": "真实创作者做歌的画面上,叠出音乐人创始人和九成创作进度条。"
+  },
+  "schemaVersion": "media-retrieval-result-v1",
+  "segmentId": "seg-002"
+}
