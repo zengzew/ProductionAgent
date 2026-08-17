@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "rights-episode-004-official-upwork-demo",
+  "gate": "media-rights",
+  "decision": "approve",
+  "reviewer": "human-approver",
+  "timestamp": "2026-08-16T12:00:00.000Z",
+  "reason": "episode-004 人工批准权利使用：官方发布方自有频道内容（Cognition 官方 YouTube）；evaluation run 内部使用，只截取短片段并标注来源，不重新发布整段；发布前仍需人工权利终审。",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-004:media:source-manifest",
+      "episodeId": "episode-004",
+      "path": "content/episode-004/media/source-manifest.json",
+      "mediaType": "application/json",
+      "schemaVersion": "media-source-manifest-v1",
+      "revision": 1,
+      "sha256": "8f20ce5852d48ccacb8b6271811197a5e019081ead4571a983955b0320634001",
+      "sizeBytes": 12692,
+      "producer": "episode-004-media-pipeline",
+      "createdAt": "2026-08-16T12:00:00.000Z"
+    }
+  ],
+  "approvalEpoch": 0,
+  "authorizations": [],
+  "edits": []
+}

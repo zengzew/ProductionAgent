@@ -1,0 +1,33 @@
+{
+  "verdict": "pass",
+  "clipId": "episode-004:media-clip:b2fa89a4afdb82beae3b5f1d",
+  "relevance": 0.8,
+  "claimMatch": 0.7,
+  "visualQuality": 0.55,
+  "misleadingRisk": 0.1,
+  "observedActions": [
+    "Devin 会话显示持续产出：test-plan-sicily.md、test-report.md、Test Report: Sicily Travel App 与 Approach A/B/C 方案",
+    "会话仍在推进任务"
+  ],
+  "observedEntities": [
+    "Devin"
+  ],
+  "observedText": [
+    "test-plan-sicily.md",
+    "test-report.md",
+    "Test Report: Sicily Travel App",
+    "Approach C",
+    "Approach B",
+    "Approach A"
+  ],
+  "recommendedStartMs": 304000,
+  "recommendedEndMs": 308000,
+  "reasons": [
+    "OCR 读到测试计划、测试报告与方案卡片：任务仍在执行的画面成立",
+    "官方平行 Devin 演示画面，标功能演示",
+    "与“开头那个任务，还在它自己的浏览器里往下做”对应"
+  ],
+  "reviewer": "human-approver",
+  "reviewMethod": "keyframe-OCR + caption-track review",
+  "reviewedAt": "2026-08-16T12:30:00.000Z"
+}

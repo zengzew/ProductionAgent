@@ -1,0 +1,712 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-004:media:official-mercedes-interview-proxy",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-mercedes-interview-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "7d0b39e5fbcde332e578143681068c9e0454c2992b53e339f7c883e6a671f226",
+    "sizeBytes": 4502257
+  },
+  "episodeId": "episode-004",
+  "indexVersion": "media-clip-index-v1",
+  "mediaId": "episode-004:media:official-mercedes-interview",
+  "mediaSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+  "schemaVersion": "media-understanding-status-v1",
+  "stages": {
+    "clip-index": {
+      "artifactId": "episode-004:media-clip-index:official-mercedes-interview",
+      "availability": "available",
+      "cacheKey": "cc87de8b7c4738b4f2e9e21b3b2c168d004285f9cee6b3d1f75756acf47011bb",
+      "ref": {
+        "artifactId": "episode-004:media-clip-index:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-mercedes-interview/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "975b60b19c6d42b8f3560c5a4bd842b271e2bd3d71e138a23adf9482f87fcd6c",
+        "sizeBytes": 116329
+      }
+    },
+    "keyframes": {
+      "availability": "available",
+      "cacheKey": "7fd3c0ea15d163095ac42aaa7700500d76ff6d83cdc4eaaa4ec122dacbc362cc",
+      "entries": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-0-2000",
+          "cacheKey": "0bb2a6020351a324b7274e35ed0c596871102218ea275fbb34b799047658f3ac",
+          "filename": "keyframe-0-2000.jpg",
+          "keyframeIndex": 0,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-0-2000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-0-2000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "faee22307edfd0b50b431d3ca84365284ca3c98bd2b5d1648d0181e61ba97d6b",
+            "sizeBytes": 34572
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-1-6000",
+          "cacheKey": "071723baa2ff1033fb04249353851a85619882f908c4a6a01ce695e3a4bee1a9",
+          "filename": "keyframe-1-6000.jpg",
+          "keyframeIndex": 1,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-1-6000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-1-6000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "3cd5b60d82f4f4bfb5f196287ed2f0a98de554b9f279616fd0186c5dd44696f5",
+            "sizeBytes": 26388
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-2-10000",
+          "cacheKey": "74f9de6b66e249523c1eee6b1053fd6b948a06ebfd8f46160e59f74745dcd867",
+          "filename": "keyframe-2-10000.jpg",
+          "keyframeIndex": 2,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-2-10000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-2-10000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "664c5d6cd598ff8d4ecf29c69120f25115d67f539fd4859aa8b1eb0c58a81de1",
+            "sizeBytes": 24200
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-3-14000",
+          "cacheKey": "5d34240ad7081f2e1874662dee3e5f2567f0849af27e9d067ddc0840d8b19f3b",
+          "filename": "keyframe-3-14000.jpg",
+          "keyframeIndex": 3,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-3-14000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-3-14000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "ade8f21a8a23ab7fc703a6d356388a27a67e0831d4e4b2c9579390c8461a8cab",
+            "sizeBytes": 24119
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-4-18000",
+          "cacheKey": "d846eb3104ec1135109d8834f754e37e8f433f91dfb34aafd00b30f2c963519a",
+          "filename": "keyframe-4-18000.jpg",
+          "keyframeIndex": 4,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-4-18000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-4-18000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "e6fb072aa46acc65b73811ddbcc216318c790c4f13269f476372203df6b6275b",
+            "sizeBytes": 24553
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-5-22000",
+          "cacheKey": "9917431d341ff2ba4641f7a0383b0598e43726aba7e4c684fe66b46ceeda8742",
+          "filename": "keyframe-5-22000.jpg",
+          "keyframeIndex": 5,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-5-22000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-5-22000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "8d360cf58b79ed45db3f549853086aeffce4454315df43bd169b1d765618b8d6",
+            "sizeBytes": 23813
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-6-26000",
+          "cacheKey": "112ed698c89a1d3e2d31313081b03c527daff46773b3abf774c872eb14382791",
+          "filename": "keyframe-6-26000.jpg",
+          "keyframeIndex": 6,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-6-26000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-6-26000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "71614e0476f43d26fb1a083c5097e3874b68ef2b887c652acc99fe35d2c05aa0",
+            "sizeBytes": 17200
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-7-30000",
+          "cacheKey": "840c01b5206745fd14fa537b566a9d65f1f62d8a4d3701884d20e61a087ec3ea",
+          "filename": "keyframe-7-30000.jpg",
+          "keyframeIndex": 7,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-7-30000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-7-30000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "8da4e069ced292c785975765156274fdee25d74ba99d6d7fbe28b9ec00d6ff5c",
+            "sizeBytes": 16759
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-8-34000",
+          "cacheKey": "00ff42c50adbc959cda01a7549b7d014802d91a74642903ebcfd55fd5e5f4d86",
+          "filename": "keyframe-8-34000.jpg",
+          "keyframeIndex": 8,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-8-34000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-8-34000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "52327f5b8b5b7128e6a0d45c55299cc8297161f521e7b5e9bbafad352ac1ef20",
+            "sizeBytes": 17255
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-9-38000",
+          "cacheKey": "920c290189b8035945ffc052d7bc57f3b0c161f6ee3989cdc5486e76d13fef3f",
+          "filename": "keyframe-9-38000.jpg",
+          "keyframeIndex": 9,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-9-38000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-9-38000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "8860047fabaf628f63502c00cc750f62e95b9ad265e622ac2ce9b749e3799464",
+            "sizeBytes": 22712
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-10-42000",
+          "cacheKey": "2d022e6b21fa7b425c91bd63f6d1b7d788ca97b5906978a7b35f74aa7fe6a583",
+          "filename": "keyframe-10-42000.jpg",
+          "keyframeIndex": 10,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-10-42000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-10-42000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "64686cf80974c1211c6fbf87a2c45546faba7a7ca76dac62eb241d2a6cd648c2",
+            "sizeBytes": 23333
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-11-46000",
+          "cacheKey": "d803e81299c021161512f2b13f32e7962212e1ceb1da15059deb6eba1f848ca9",
+          "filename": "keyframe-11-46000.jpg",
+          "keyframeIndex": 11,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-11-46000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-11-46000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "8f33dbaa1b278354a0e8785ec16322be6d78b3914033c4f2f1ffc91bd95407d5",
+            "sizeBytes": 31459
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-12-50000",
+          "cacheKey": "fd663101bb80664b8dbfbcc5a36dedb42aea32c8a4de34ef1b74fdc4758a74d6",
+          "filename": "keyframe-12-50000.jpg",
+          "keyframeIndex": 12,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-12-50000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-12-50000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "7cc32817006b1c7d295d1cab701b98fce648474a7b111d1db007d8a670c0031e",
+            "sizeBytes": 31577
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-13-54000",
+          "cacheKey": "43ac45a0df638322a163c3122f8446ca5e3eccc2b9d58cf87facb7003c5d0ede",
+          "filename": "keyframe-13-54000.jpg",
+          "keyframeIndex": 13,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-13-54000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-13-54000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "fb48ae6de6a8381d4e81f4b04e96f9a8fa4a736a363768940d3bc987bb999543",
+            "sizeBytes": 31952
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-14-58000",
+          "cacheKey": "f2ce79caf317dbb1d5cfc3dfd8818e47a375857945b48263738b0291ffe6b878",
+          "filename": "keyframe-14-58000.jpg",
+          "keyframeIndex": 14,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-14-58000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-14-58000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "771c0e2d6075ffd949118fdbff8f95a7d60e7f7805f81708e6e1a60a49d47b72",
+            "sizeBytes": 23819
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-15-62000",
+          "cacheKey": "1dbcef78d93606874dc1be12c41d361a04cdac01fdc0aa181e9b31ab398d262f",
+          "filename": "keyframe-15-62000.jpg",
+          "keyframeIndex": 15,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-15-62000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-15-62000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "2cd47bb7219e29108ab9c2811e6da4d2b74ce5b65e249731c4649a0e0bf3a327",
+            "sizeBytes": 30931
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-16-66000",
+          "cacheKey": "7e23fd18a0a16d631e0bd6f3db6a676404804673dc713f5f263b59579eb78389",
+          "filename": "keyframe-16-66000.jpg",
+          "keyframeIndex": 16,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-16-66000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-16-66000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "9fbb603afc104ee8080fb8f55b2c0970c4a5a4aee685c10f4bb3dc5db228231b",
+            "sizeBytes": 23974
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-17-70000",
+          "cacheKey": "9c0dbb799b710d860b32031eee55a48cdd96f44ae7c862cf0355067791d8ed59",
+          "filename": "keyframe-17-70000.jpg",
+          "keyframeIndex": 17,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-17-70000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-17-70000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "4d0610699f6e710a10696c4f9b8f89ac3d5cfd6beb0b2b427fe7826c92a27857",
+            "sizeBytes": 24139
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-18-74000",
+          "cacheKey": "adf61f78395caa060ee008bf7017fe60e5af26352e2f40280f1125887313cf75",
+          "filename": "keyframe-18-74000.jpg",
+          "keyframeIndex": 18,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-18-74000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-18-74000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "3669c04b4fc6138076c567ee44b58710b938c15770457b28f917e8c75c970040",
+            "sizeBytes": 30693
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-19-78000",
+          "cacheKey": "0d514f64d5febe123e05d5deee2bdca61a3b861d5c53b7b613c64ee0f9fe64b3",
+          "filename": "keyframe-19-78000.jpg",
+          "keyframeIndex": 19,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-19-78000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-19-78000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "74a074fd66f5e424c8f3729ca242f1c76402ce7d7384bae42a63484744411a83",
+            "sizeBytes": 31188
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-20-82000",
+          "cacheKey": "63f631d4db9b6fe166698c88c04a32e3fd2eec1f48e5e1260a08ac6b6f79b3d4",
+          "filename": "keyframe-20-82000.jpg",
+          "keyframeIndex": 20,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-20-82000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-20-82000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "5e9187781e9d8dbff49e71bd47e24186e510c52d8585cf2b2f0be6bc0a3e4179",
+            "sizeBytes": 25962
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-21-86000",
+          "cacheKey": "868dab2392f085e7e4510b910c013ac47250fb37fa81823a600f6dafc395f18e",
+          "filename": "keyframe-21-86000.jpg",
+          "keyframeIndex": 21,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-21-86000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-21-86000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "768bab33db01f2035e3165882dba7897271d654bc106aa37dafc64a2084dcd7a",
+            "sizeBytes": 31467
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-22-90000",
+          "cacheKey": "eab6f36c05efec110b3dc9f2679c7e11d1290f8c7abc997c39c7112d79f45992",
+          "filename": "keyframe-22-90000.jpg",
+          "keyframeIndex": 22,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-22-90000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-22-90000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "894a5d8b84d71c81c721a2a712230154ec26916235579759eed994765dcdac5a",
+            "sizeBytes": 23250
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-23-94000",
+          "cacheKey": "0738533ddc2f2699006f4a33f1a1d0ff818d239d9c0e30fede7c49a6de750c0e",
+          "filename": "keyframe-23-94000.jpg",
+          "keyframeIndex": 23,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-23-94000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-23-94000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "1e66f05c1b3f85535db7e718a0448ff7f38726d2e9d03740fbf8304cb59ac6ca",
+            "sizeBytes": 24518
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-24-98000",
+          "cacheKey": "5db741b1fcaf501a4d3c61b373bd6ea79b99ce67dafa4273ba51dbb4bf3da2d6",
+          "filename": "keyframe-24-98000.jpg",
+          "keyframeIndex": 24,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-24-98000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-24-98000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "5f8947bc240c19d6b3aecc2f8db00bd1c7e59e2674a4366a574a1876967c4228",
+            "sizeBytes": 24367
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-25-102000",
+          "cacheKey": "1938da02a556b7a3ea5a66e55f25dec02a464c2060641977ed913d0721a85aa6",
+          "filename": "keyframe-25-102000.jpg",
+          "keyframeIndex": 25,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-25-102000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-25-102000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "e19d01247caacad61e2261c6bf97dcdc02823fb703b95fdaa193561c68954e85",
+            "sizeBytes": 30014
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-26-106000",
+          "cacheKey": "971d507ba8532e7cd196dcd66b4356bcd3cfad609752ca4e6d441b3848d7f01f",
+          "filename": "keyframe-26-106000.jpg",
+          "keyframeIndex": 26,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-26-106000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-26-106000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "14a57cddc9d65b8ee9169e960e3371ab6a3db2c009878ff1f261a5f5ec4be216",
+            "sizeBytes": 32425
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-27-110000",
+          "cacheKey": "c03c3d2cd76216edae2348e5619ab58dc89efa749c9bd7d25028e21cde3b04d6",
+          "filename": "keyframe-27-110000.jpg",
+          "keyframeIndex": 27,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-27-110000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-27-110000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "0d10acb8da0a7812b0ba501459b7516cc0ed7e121bbce2027295bb5da3cba586",
+            "sizeBytes": 31368
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-28-114000",
+          "cacheKey": "a1a7a6ca0eba8bcfee10d14f2257ec081229de7d06f4538bf613348dfb69ce0a",
+          "filename": "keyframe-28-114000.jpg",
+          "keyframeIndex": 28,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-28-114000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-28-114000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "997548bd9bf590b9d0d84b33f90ed36c0a999637c604c441699694beecd54ad7",
+            "sizeBytes": 31161
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-29-118000",
+          "cacheKey": "c009009ac098195ec622c09151525d6f63e107435eba4c910626be0e45d4b724",
+          "filename": "keyframe-29-118000.jpg",
+          "keyframeIndex": 29,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-29-118000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-29-118000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "249ba680d05499e78c8b25d546cf260402da543cb40d8c521eaa69480deec605",
+            "sizeBytes": 23478
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-30-122000",
+          "cacheKey": "a9a0d8916f486d8137317b9cd8443fa98d8932ae3600ec9d0b384343ca0ce1c4",
+          "filename": "keyframe-30-122000.jpg",
+          "keyframeIndex": 30,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-30-122000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-30-122000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "b93a2117e8d7a6877788fafb02f321354b6ea8d657d4f692750cddfb8323fc55",
+            "sizeBytes": 23996
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-31-126000",
+          "cacheKey": "6f18d6cb956b4765e0609bf7354e31a9b42630db74e8fbef920dd69a30cfebe3",
+          "filename": "keyframe-31-126000.jpg",
+          "keyframeIndex": 31,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-31-126000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-31-126000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "475aa6c69585b8951d6d1d4b73d58992d2c45f57b7d745c29c9d3f70ccee52fe",
+            "sizeBytes": 24762
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-32-130000",
+          "cacheKey": "1174b3505f0bafa58e7e7a44eb7ffc98c2d23764619b17dac9678cc6acad3cc2",
+          "filename": "keyframe-32-130000.jpg",
+          "keyframeIndex": 32,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-32-130000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-32-130000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "8edbe6545c5b36eb2d2ae15fe9fdebecc918b8a1868482fac03f3bc30a19e77a",
+            "sizeBytes": 16874
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-33-134000",
+          "cacheKey": "c1a3141de1ddca574e3dd009be065db3c2d772136233848a2775fafc985775da",
+          "filename": "keyframe-33-134000.jpg",
+          "keyframeIndex": 33,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-33-134000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-33-134000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "92b56ebe07369dacd86a97afaeb15936545caedd541e5bf6c04e7f263a8ee440",
+            "sizeBytes": 3889
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-34-136777",
+          "cacheKey": "a144637ed5fa74f12490a66b30f92d9b316990392c9a10b490e511ae4d878499",
+          "filename": "keyframe-34-136777.jpg",
+          "keyframeIndex": 34,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-mercedes-interview-34-136777",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-34-136777.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "d7b40a23c6b6410ed4af8e3653655eeec6d7cc1d2489c6f28d683941c8c774ef",
+            "sizeBytes": 3762
+          }
+        }
+      ],
+      "extractorId": "ffmpeg",
+      "extractorVersion": "ffmpeg-keyframe-v1"
+    },
+    "scenes": {
+      "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+      "availability": "available",
+      "cacheKey": "66113d48a84649e8ed9c75f589a6a6b4096de0440a11230c3154e8b05e8afa05",
+      "ref": {
+        "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+        "producer": "media-understanding-v1:scenes:scene-detector-v1",
+        "revision": 1,
+        "schemaVersion": "media-scenes-v1",
+        "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+        "sizeBytes": 4297
+      }
+    },
+    "transcript": {
+      "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+      "availability": "available",
+      "cacheKey": "e54a9d87f9b98b5927968e6a97a84fcc00be80a85d1326b38a1746c98fb757ff",
+      "ref": {
+        "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+        "sizeBytes": 13397
+      }
+    }
+  },
+  "updatedAt": "2026-08-16T12:00:00.000Z",
+  "usedProxy": true
+}

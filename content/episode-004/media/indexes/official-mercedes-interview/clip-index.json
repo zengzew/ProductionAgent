@@ -1,0 +1,2860 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-004:media:official-mercedes-interview-proxy",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-mercedes-interview-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "7d0b39e5fbcde332e578143681068c9e0454c2992b53e339f7c883e6a671f226",
+    "sizeBytes": 4502257
+  },
+  "asrModel": null,
+  "asrProvider": "youtube-captions",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-004",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-004:media-clip:0d545b34cee90dab1a8f7e37",
+      "endMs": 4000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-0-2000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-0-2000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "faee22307edfd0b50b431d3ca84365284ca3c98bd2b5d1648d0181e61ba97d6b",
+          "sizeBytes": 34572
+        }
+      ],
+      "keywords": [
+        "to",
+        "you",
+        "and",
+        "around",
+        "get",
+        "give",
+        "great",
+        "It",
+        "office",
+        "quick",
+        "show",
+        "the"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "the office. It was great to give you a quick tour and get to show you around",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 0,
+      "textSummary": "the office. It was great to give you a quick tour and get to show you around",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:1a082a87a1ecce8433e4ad18",
+      "endMs": 8000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-1-6000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-1-6000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "3cd5b60d82f4f4bfb5f196287ed2f0a98de554b9f279616fd0186c5dd44696f5",
+          "sizeBytes": 26388
+        }
+      ],
+      "keywords": [
+        "to",
+        "you",
+        "and",
+        "around",
+        "be",
+        "beautiful",
+        "excited",
+        "for",
+        "get",
+        "have",
+        "having",
+        "offices"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "quick tour and get to show you around today. >> Yeah, you have beautiful offices. Thanks for having us, Scott. Very excited to be",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 4000,
+      "textSummary": "quick tour and get to show you around today. >> Yeah, you have beautiful offices. Thanks for having us, Scott. Very excited to be",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:f0cc88c4c37cfea72d221ee9",
+      "endMs": 12000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-2-10000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-2-10000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "664c5d6cd598ff8d4ecf29c69120f25115d67f539fd4859aa8b1eb0c58a81de1",
+          "sizeBytes": 24200
+        }
+      ],
+      "keywords": [
+        "and",
+        "announced",
+        "be",
+        "Benz",
+        "Cognition",
+        "excited",
+        "for",
+        "having",
+        "here",
+        "Mercedes",
+        "of",
+        "partnership"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "for having us, Scott. Very excited to be here. So, today we announced the partnership of Cognition and Mercedes-Benz, and",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 8000,
+      "textSummary": "for having us, Scott. Very excited to be here. So, today we announced the partnership of Cognition and Mercedes-Benz, and",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:f473e058ec688bff3e829a34",
+      "endMs": 16000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-3-14000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-3-14000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "ade8f21a8a23ab7fc703a6d356388a27a67e0831d4e4b2c9579390c8461a8cab",
+          "sizeBytes": 24119
+        }
+      ],
+      "keywords": [
+        "and",
+        "Benz",
+        "Cognition",
+        "mean",
+        "Mercedes",
+        "of",
+        "quite",
+        "right",
+        "something",
+        "that"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "of Cognition and Mercedes-Benz, and that's quite something, right? I mean,",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 12000,
+      "textSummary": "of Cognition and Mercedes-Benz, and that's quite something, right? I mean,",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:56a3b613fa7d6878750c8d34",
+      "endMs": 20000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-4-18000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-4-18000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "e6fb072aa46acc65b73811ddbcc216318c790c4f13269f476372203df6b6275b",
+          "sizeBytes": 24553
+        }
+      ],
+      "keywords": [
+        "all",
+        "and",
+        "Devin",
+        "engineering",
+        "mean",
+        "of",
+        "our",
+        "out",
+        "quite",
+        "re",
+        "right",
+        "rolling"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "that's quite something, right? I mean, we're rolling out Devin and Wintermute to all of our software engineering teams",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 16000,
+      "textSummary": "that's quite something, right? I mean, we're rolling out Devin and Wintermute to all of our software engineering teams",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:a2a77c93d967a5ba27759f96",
+      "endMs": 24000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-5-22000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-5-22000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "8d360cf58b79ed45db3f549853086aeffce4454315df43bd169b1d765618b8d6",
+          "sizeBytes": 23813
+        }
+      ],
+      "keywords": [
+        "to",
+        "all",
+        "are",
+        "around",
+        "engineering",
+        "excited",
+        "go",
+        "journey",
+        "of",
+        "on",
+        "our",
+        "So"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "to all of our software engineering teams around the world. So, we are very excited to go on that journey with you.",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 20000,
+      "textSummary": "to all of our software engineering teams around the world. So, we are very excited to go on that journey with you.",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:3aef09d8e488759fd73e21b3",
+      "endMs": 28000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-6-26000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-6-26000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "71614e0476f43d26fb1a083c5097e3874b68ef2b887c652acc99fe35d2c05aa0",
+          "sizeBytes": 17200
+        }
+      ],
+      "keywords": [
+        "to",
+        "for",
+        "on",
+        "And",
+        "been",
+        "excited",
+        "finally",
+        "fun",
+        "get",
+        "go",
+        "it",
+        "journey"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "excited to go on that journey with you. >> Yeah. And we've been working together on this for for quite some time now, so it's fun to to finally get to share what",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 24000,
+      "textSummary": "excited to go on that journey with you. >> Yeah. And we've been working together on this for for quite some time now, so it's fun to to finally get to share what",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:f16647fe65df309a6c5541b9",
+      "endMs": 32000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-7-30000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-7-30000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "8da4e069ced292c785975765156274fdee25d74ba99d6d7fbe28b9ec00d6ff5c",
+          "sizeBytes": 16759
+        }
+      ],
+      "keywords": [
+        "to",
+        "always",
+        "because",
+        "been",
+        "finally",
+        "fun",
+        "get",
+        "has",
+        "hear",
+        "in",
+        "is",
+        "it"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "it's fun to to finally get to share what we're working on. I'd love to hear in your words because Mercedes is has always been such a tech",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 28000,
+      "textSummary": "it's fun to to finally get to share what we're working on. I'd love to hear in your words because Mercedes is has always been such a tech",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:53f2e485599dddbf3f384a8c",
+      "endMs": 36000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-8-34000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-8-34000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "52327f5b8b5b7128e6a0d45c55299cc8297161f521e7b5e9bbafad352ac1ef20",
+          "sizeBytes": 17255
+        }
+      ],
+      "keywords": [
+        "forward",
+        "always",
+        "and",
+        "been",
+        "business",
+        "has",
+        "innovation",
+        "is",
+        "Mercedes",
+        "such",
+        "tech"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "Mercedes is has always been such a tech forward and innovation forward business,",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 32000,
+      "textSummary": "Mercedes is has always been such a tech forward and innovation forward business,",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:c1a840204a51dc3793dfa3de",
+      "endMs": 40000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-9-38000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-9-38000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "8860047fabaf628f63502c00cc750f62e95b9ad265e622ac2ce9b749e3799464",
+          "sizeBytes": 22712
+        }
+      ],
+      "keywords": [
+        "about",
+        "and",
+        "forward",
+        "how",
+        "you",
+        "business",
+        "different",
+        "evaluating",
+        "innovation",
+        "re",
+        "strategy",
+        "technology"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "forward and innovation forward business, how you thought about evaluating these different tools and how you're thinking about your technology strategy.",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 36000,
+      "textSummary": "forward and innovation forward business, how you thought about evaluating these different tools and how you're thinking about your technology strategy.",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:803eb41e3e964185d8c283fd",
+      "endMs": 44000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-10-42000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-10-42000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "64686cf80974c1211c6fbf87a2c45546faba7a7ca76dac62eb241d2a6cd648c2",
+          "sizeBytes": 23333
+        }
+      ],
+      "keywords": [
+        "Benz",
+        "So",
+        "140",
+        "about",
+        "actually",
+        "ago",
+        "car",
+        "invented",
+        "Karl",
+        "Mercedes",
+        "strategy",
+        "technology"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "about your technology strategy. >> So, Mercedes-Benz invented the car 140 years ago. So, Karl Benz was actually",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 40000,
+      "textSummary": "about your technology strategy. >> So, Mercedes-Benz invented the car 140 years ago. So, Karl Benz was actually",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:6944240ab2aa080af7b316b2",
+      "endMs": 48000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-11-46000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-11-46000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "8f33dbaa1b278354a0e8785ec16322be6d78b3914033c4f2f1ffc91bd95407d5",
+          "sizeBytes": 31459
+        }
+      ],
+      "keywords": [
+        "who",
+        "actually",
+        "ago",
+        "Benz",
+        "came",
+        "idea",
+        "Karl",
+        "one",
+        "So",
+        "that",
+        "the",
+        "up"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "years ago. So, Karl Benz was actually the one who who came up with that idea",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 44000,
+      "textSummary": "years ago. So, Karl Benz was actually the one who who came up with that idea",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:5eda364909dbe51bf373fe43",
+      "endMs": 52000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-12-50000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-12-50000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "7cc32817006b1c7d295d1cab701b98fce648474a7b111d1db007d8a670c0031e",
+          "sizeBytes": 31577
+        }
+      ],
+      "keywords": [
+        "his",
+        "who",
+        "and",
+        "Bertha",
+        "came",
+        "car",
+        "idea",
+        "of",
+        "one",
+        "that",
+        "the",
+        "up"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "the one who who came up with that idea of a car, and his his wife, Bertha,",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 48000,
+      "textSummary": "the one who who came up with that idea of a car, and his his wife, Bertha,",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:25cb46f94fef0e8fb33c29dd",
+      "endMs": 56000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-13-54000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-13-54000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "fb48ae6de6a8381d4e81f4b04e96f9a8fa4a736a363768940d3bc987bb999543",
+          "sizeBytes": 31952
+        }
+      ],
+      "keywords": [
+        "his",
+        "action",
+        "actually",
+        "and",
+        "Bertha",
+        "car",
+        "first",
+        "into",
+        "it",
+        "long",
+        "of",
+        "on"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "of a car, and his his wife, Bertha, actually took it into action on the first long road trip,",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 52000,
+      "textSummary": "of a car, and his his wife, Bertha, actually took it into action on the first long road trip,",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:88e2fb337f1692c2b8fc04c0",
+      "endMs": 60000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-14-58000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-14-58000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "771c0e2d6075ffd949118fdbff8f95a7d60e7f7805f81708e6e1a60a49d47b72",
+          "sizeBytes": 23819
+        }
+      ],
+      "keywords": [
+        "1888",
+        "amazing",
+        "an",
+        "and",
+        "first",
+        "have",
+        "in",
+        "long",
+        "lot",
+        "of",
+        "quite",
+        "road"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "first long road trip, and this was in 1888, so quite an amazing story. So, we have a lot of",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 56000,
+      "textSummary": "first long road trip, and this was in 1888, so quite an amazing story. So, we have a lot of",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:824d9f2381ec89feb0ae8948",
+      "endMs": 64000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-15-62000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-15-62000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "2cd47bb7219e29108ab9c2811e6da4d2b74ce5b65e249731c4649a0e0bf3a327",
+          "sizeBytes": 30931
+        }
+      ],
+      "keywords": [
+        "amazing",
+        "company",
+        "have",
+        "history",
+        "in",
+        "innovative",
+        "lot",
+        "of",
+        "our",
+        "So",
+        "story",
+        "we"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "amazing story. So, we have a lot of innovative history in our company",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 60000,
+      "textSummary": "amazing story. So, we have a lot of innovative history in our company",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:b94ae157cfb7e59dd68ac630",
+      "endMs": 68000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-16-66000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-16-66000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "9fbb603afc104ee8080fb8f55b2c0970c4a5a4aee685c10f4bb3dc5db228231b",
+          "sizeBytes": 23974
+        }
+      ],
+      "keywords": [
+        "history",
+        "and",
+        "And",
+        "company",
+        "engineering",
+        "in",
+        "innovative",
+        "it",
+        "level",
+        "next",
+        "now",
+        "our"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "innovative history in our company history. And now we're taking it to the next level with software engineering and",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 64000,
+      "textSummary": "innovative history in our company history. And now we're taking it to the next level with software engineering and",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:4bde87e1ec57e961cab31590",
+      "endMs": 72000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-17-70000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-17-70000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "4d0610699f6e710a10696c4f9b8f89ac3d5cfd6beb0b2b427fe7826c92a27857",
+          "sizeBytes": 24139
+        }
+      ],
+      "keywords": [
+        "and",
+        "with",
+        "AI",
+        "do",
+        "engineering",
+        "level",
+        "next",
+        "software",
+        "that",
+        "together",
+        "we",
+        "you"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "next level with software engineering and AI, and we do that together with you.",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 68000,
+      "textSummary": "next level with software engineering and AI, and we do that together with you.",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:c22a5359cca82ee39a0cd22f",
+      "endMs": 76000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-18-74000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-18-74000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "3669c04b4fc6138076c567ee44b58710b938c15770457b28f917e8c75c970040",
+          "sizeBytes": 30693
+        }
+      ],
+      "keywords": [
+        "we",
+        "AI",
+        "and",
+        "And",
+        "at",
+        "but",
+        "different",
+        "do",
+        "look",
+        "number",
+        "of",
+        "quite"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "AI, and we do that together with you. And we took a look at quite a number of different solutions, but yours was the",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 72000,
+      "textSummary": "AI, and we do that together with you. And we took a look at quite a number of different solutions, but yours was the",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:76f771297a5f8eca924a81fc",
+      "endMs": 80000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-19-78000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-19-78000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "74a074fd66f5e424c8f3729ca242f1c76402ce7d7384bae42a63484744411a83",
+          "sizeBytes": 31188
+        }
+      ],
+      "keywords": [
+        "most",
+        "one",
+        "the",
+        "but",
+        "convincing",
+        "different",
+        "of",
+        "So",
+        "solutions",
+        "was",
+        "yours"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "different solutions, but yours was the most convincing one. So, one of the most",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 76000,
+      "textSummary": "different solutions, but yours was the most convincing one. So, one of the most",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:fade34bafa8ec1aae61fa7f7",
+      "endMs": 84000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-20-82000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-20-82000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "5e9187781e9d8dbff49e71bd47e24186e510c52d8585cf2b2f0be6bc0a3e4179",
+          "sizeBytes": 25962
+        }
+      ],
+      "keywords": [
+        "most",
+        "one",
+        "code",
+        "complex",
+        "convincing",
+        "had",
+        "legacy",
+        "of",
+        "old",
+        "problems",
+        "So",
+        "some"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "most convincing one. So, one of the most complex problems we had with some very old legacy code",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 80000,
+      "textSummary": "most convincing one. So, one of the most complex problems we had with some very old legacy code",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:ae38f51eb3b5aa8d31e33879",
+      "endMs": 88000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-21-86000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-21-86000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "768bab33db01f2035e3165882dba7897271d654bc106aa37dafc64a2084dcd7a",
+          "sizeBytes": 31467
+        }
+      ],
+      "keywords": [
+        "be",
+        "code",
+        "legacy",
+        "old",
+        "planned",
+        "replaced",
+        "that",
+        "to",
+        "was",
+        "within"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "old legacy code that was planned to be replaced within 8",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 84000,
+      "textSummary": "old legacy code that was planned to be replaced within 8",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:37c5769ac76bb6499fdddfa3",
+      "endMs": 92000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-22-90000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-22-90000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "894a5d8b84d71c81c721a2a712230154ec26916235579759eed994765dcdac5a",
+          "sizeBytes": 23250
+        }
+      ],
+      "keywords": [
+        "that",
+        "amazing",
+        "away",
+        "be",
+        "blown",
+        "by",
+        "days",
+        "months",
+        "planned",
+        "quite",
+        "replaced",
+        "So"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "that was planned to be replaced within 8 months took us 8 days. So, that's quite amazing. The teams were blown away by",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 88000,
+      "textSummary": "that was planned to be replaced within 8 months took us 8 days. So, that's quite amazing. The teams were blown away by",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:efdaa9da0531450dbd0a9e8e",
+      "endMs": 96000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-23-94000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-23-94000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "1e66f05c1b3f85535db7e718a0448ff7f38726d2e9d03740fbf8304cb59ac6ca",
+          "sizeBytes": 24518
+        }
+      ],
+      "keywords": [
+        "to",
+        "and",
+        "be",
+        "wants",
+        "able",
+        "amazing",
+        "away",
+        "blown",
+        "by",
+        "everyone",
+        "now",
+        "results"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "amazing. The teams were blown away by those results, and now everyone wants to be trained and wants to be able to work",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 92000,
+      "textSummary": "amazing. The teams were blown away by those results, and now everyone wants to be trained and wants to be able to work",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:b020a3c2bf5cefd94158b876",
+      "endMs": 100000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-24-98000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-24-98000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "5f8947bc240c19d6b3aecc2f8db00bd1c7e59e2674a4366a574a1876967c4228",
+          "sizeBytes": 24367
+        }
+      ],
+      "keywords": [
+        "to",
+        "be",
+        "day",
+        "able",
+        "and",
+        "basis",
+        "in",
+        "on",
+        "tools",
+        "trained",
+        "wants",
+        "with"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "be trained and wants to be able to work with your tools on a day-to-day basis in",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 96000,
+      "textSummary": "be trained and wants to be able to work with your tools on a day-to-day basis in",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:79a4720b131bbe78c986cd88",
+      "endMs": 104000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-25-102000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-25-102000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "e19d01247caacad61e2261c6bf97dcdc02823fb703b95fdaa193561c68954e85",
+          "sizeBytes": 30014
+        }
+      ],
+      "keywords": [
+        "Amazing",
+        "And",
+        "day",
+        "to",
+        "with",
+        "your",
+        "about",
+        "basis",
+        "do",
+        "engineering",
+        "how",
+        "in"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "with your tools on a day-to-day basis in our software engineering. >> Amazing. Amazing. And And how do you think about it with respect to your",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 100000,
+      "textSummary": "with your tools on a day-to-day basis in our software engineering. >> Amazing. Amazing. And And how do you think about it with respect to your",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:293db3ad7dde5e52e43ad021",
+      "endMs": 108000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-26-106000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-26-106000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "14a57cddc9d65b8ee9169e960e3371ab6a3db2c009878ff1f261a5f5ec4be216",
+          "sizeBytes": 32425
+        }
+      ],
+      "keywords": [
+        "in",
+        "of",
+        "to",
+        "able",
+        "about",
+        "and",
+        "being",
+        "customers",
+        "days",
+        "done",
+        "forward",
+        "get"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "think about it with respect to your customers in terms of being able to pull the road map forward and get things done in in days instead of months?",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 104000,
+      "textSummary": "think about it with respect to your customers in terms of being able to pull the road map forward and get things done in in days instead of months?",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:20049c8b8294082b4bb3b619",
+      "endMs": 112000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-27-110000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-27-110000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "0d10acb8da0a7812b0ba501459b7516cc0ed7e121bbce2027295bb5da3cba586",
+          "sizeBytes": 31368
+        }
+      ],
+      "keywords": [
+        "in",
+        "along",
+        "amazing",
+        "benefit",
+        "customers",
+        "days",
+        "from",
+        "instead",
+        "it",
+        "mean",
+        "months",
+        "of"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "in in days instead of months? >> Yeah, that's amazing. I mean, our customers will benefit from it along the",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 108000,
+      "textSummary": "in in days instead of months? >> Yeah, that's amazing. I mean, our customers will benefit from it along the",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:e8233deaf35d97b90ed83c4f",
+      "endMs": 116000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-28-114000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-28-114000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "997548bd9bf590b9d0d84b33f90ed36c0a999637c604c441699694beecd54ad7",
+          "sizeBytes": 31161
+        }
+      ],
+      "keywords": [
+        "and",
+        "along",
+        "benefit",
+        "customer",
+        "customers",
+        "from",
+        "is",
+        "it",
+        "journey",
+        "the",
+        "this",
+        "whole"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "customers will benefit from it along the whole customer journey, and and this is",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 112000,
+      "textSummary": "customers will benefit from it along the whole customer journey, and and this is",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:c85099444ad8e864f4284889",
+      "endMs": 120000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-29-118000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-29-118000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "249ba680d05499e78c8b25d546cf260402da543cb40d8c521eaa69480deec605",
+          "sizeBytes": 23478
+        }
+      ],
+      "keywords": [
+        "and",
+        "is",
+        "build",
+        "customer",
+        "desirable",
+        "excited",
+        "for",
+        "journey",
+        "known",
+        "Mercedes",
+        "most",
+        "re"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "whole customer journey, and and this is what Mercedes is known for. So, we're very excited to build the most desirable",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 116000,
+      "textSummary": "whole customer journey, and and this is what Mercedes is known for. So, we're very excited to build the most desirable",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:22af26d16464566cfe05ffe3",
+      "endMs": 124000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-30-122000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-30-122000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "b93a2117e8d7a6877788fafb02f321354b6ea8d657d4f692750cddfb8323fc55",
+          "sizeBytes": 23996
+        }
+      ],
+      "keywords": [
+        "excited",
+        "very",
+        "an",
+        "and",
+        "build",
+        "cars",
+        "customers",
+        "desirable",
+        "for",
+        "from",
+        "IT",
+        "most"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "very excited to build the most desirable cars for our customers and support that from an IT perspective. So, very excited",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 120000,
+      "textSummary": "very excited to build the most desirable cars for our customers and support that from an IT perspective. So, very excited",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:5cd5a45a8fa7265c01b2636e",
+      "endMs": 128000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-31-126000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-31-126000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "475aa6c69585b8951d6d1d4b73d58992d2c45f57b7d745c29c9d3f70ccee52fe",
+          "sizeBytes": 24762
+        }
+      ],
+      "keywords": [
+        "excited",
+        "much",
+        "to",
+        "Amazing",
+        "an",
+        "do",
+        "from",
+        "go",
+        "IT",
+        "journey",
+        "on",
+        "perspective"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "from an IT perspective. So, very excited to go on that journey with you. >> Amazing. Yeah, excited to do much much",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 124000,
+      "textSummary": "from an IT perspective. So, very excited to go on that journey with you. >> Amazing. Yeah, excited to do much much",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:5a19685f944d5f1f8cacfc75",
+      "endMs": 132000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-32-130000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-32-130000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "8edbe6545c5b36eb2d2ae15fe9fdebecc918b8a1868482fac03f3bc30a19e77a",
+          "sizeBytes": 16874
+        }
+      ],
+      "keywords": [
+        "much",
+        "Absolutely",
+        "Amazing",
+        "do",
+        "excited",
+        "It",
+        "just",
+        "more",
+        "now",
+        "Scott",
+        "so",
+        "start"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": ">> Amazing. Yeah, excited to do much much more together. It's just the start now. >> Absolutely. Thanks so much, Scott.",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 128000,
+      "textSummary": ">> Amazing. Yeah, excited to do much much more together. It's just the start now. >> Absolutely. Thanks so much, Scott.",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:c504a4ba7b5826c95f96d9e3",
+      "endMs": 136000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-33-134000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-33-134000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "92b56ebe07369dacd86a97afaeb15936545caedd541e5bf6c04e7f263a8ee440",
+          "sizeBytes": 3889
+        }
+      ],
+      "keywords": [
+        "Absolutely",
+        "much",
+        "Scott",
+        "so",
+        "Thank",
+        "Thanks",
+        "you"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": ">> Absolutely. Thanks so much, Scott. >> Thank you.",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": "IPI6VvDQqJg",
+      "startMs": 132000,
+      "textSummary": ">> Absolutely. Thanks so much, Scott. >> Thank you.",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:78bb58870ff8bc3b5cd87b93",
+      "endMs": 137555,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-mercedes-interview-34-136777",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-34-136777.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "d7b40a23c6b6410ed4af8e3653655eeec6d7cc1d2489c6f28d683941c8c774ef",
+          "sizeBytes": 3762
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-mercedes-interview",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+        "sizeBytes": 3862455
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "3cd784f63dd505bf89dc8a0de48ab118b78e1be8607fa5fd876220139d7a8a3c",
+          "sizeBytes": 4297
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+      "speaker": null,
+      "startMs": 136000,
+      "textSummary": "",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-mercedes-interview",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "a7e49f600e54404c5128c5257ed4064844f06c260af0ccf2fae2d33f896c7a99",
+          "sizeBytes": 13397
+        }
+      ]
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-004:media:official-mercedes-interview",
+  "mediaRef": {
+    "artifactId": "episode-004:media:official-mercedes-interview",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+    "sizeBytes": 3862455
+  },
+  "sceneDetector": "deterministic-boundaries",
+  "sceneDetectorVersion": "scene-detector-v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "deterministic-content",
+  "semanticAdapterVersion": "semantic-adapter-v1",
+  "semanticAvailability": "available",
+  "sourceSha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+  "transcriptAvailability": "available"
+}

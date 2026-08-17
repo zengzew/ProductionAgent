@@ -1,0 +1,209 @@
+{
+  "schemaVersion": "director-workflow-v1",
+  "episodeId": "episode-004",
+  "coreStoryQuestion": "三个奥赛金牌程序员抓住了哪个需求，怎么让第一批人看见 Devin，市场后来给了它什么价？",
+  "currentStatus": "delivery-approved",
+  "revisionPolicy": {
+    "maximumCreativeRounds": 3,
+    "scriptChangeRestartsAt": "oral-judge",
+    "visualChangeRestartsAt": "retention-critic"
+  },
+  "stages": [
+    {
+      "id": "research-analyst",
+      "owner": "research-analyst",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-004/research/facts.json",
+        "content/episode-004/research/sources.json",
+        "content/episode-004/research/timeline.json"
+      ],
+      "decision": "补齐创始人需求、演示冷启动、种子轮与 2026 年融资的可播 Claim。"
+    },
+    {
+      "id": "story-director",
+      "owner": "story-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-004/story/director-brief.md",
+        "content/episode-004/story/story-bible.md",
+        "content/episode-004/story/story-angle.md",
+        "content/episode-004/story/three-act-structure.md"
+      ],
+      "decision": "按需求、冷启动、获客和市场定价组织全片。"
+    },
+    {
+      "id": "viral-director",
+      "owner": "viral-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-004/story/hook-candidates.md",
+        "content/episode-004/story/viral-strategy.md"
+      ],
+      "decision": "保留任务已交出去的 Hook，结尾改为资本市场定价。"
+    },
+    {
+      "id": "script-writer",
+      "owner": "script-writer",
+      "status": "complete",
+      "artifacts": ["content/episode-004/story/script-draft.md"],
+      "decision": "按动作、需求、演示、降价、奔驰和融资推进。"
+    },
+    {
+      "id": "oral-rewriter",
+      "owner": "oral-rewriter",
+      "status": "complete",
+      "artifacts": ["content/episode-004/story/final-script.md"],
+      "decision": "完成 60 秒自然中文口播。"
+    },
+    {
+      "id": "oral-judge",
+      "owner": "oral-judge",
+      "status": "complete",
+      "artifacts": ["content/episode-004/story/oral-review.md"],
+      "decision": "口播三项与七项检查通过。"
+    },
+    {
+      "id": "audience-critic",
+      "owner": "audience-critic",
+      "status": "complete",
+      "artifacts": ["content/episode-004/story/critic-report.md"],
+      "decision": "识别价格段说明书风险。"
+    },
+    {
+      "id": "fact-guardian",
+      "owner": "fact-guardian",
+      "status": "complete",
+      "artifacts": ["content/episode-004/story/fact-check-report.md"],
+      "decision": "事实与公司/媒体口径通过。"
+    },
+    {
+      "id": "visual-director",
+      "owner": "visual-director",
+      "status": "complete",
+      "artifacts": ["content/episode-004/story/visual-plan.md"],
+      "decision": "开场用真实执行，结尾用估值数据卡。"
+    },
+    {
+      "id": "retention-critic",
+      "owner": "retention-critic",
+      "status": "complete",
+      "artifacts": ["content/episode-004/story/retention-report.md"],
+      "decision": "以 92 分批准进入生产。"
+    },
+    {
+      "id": "delivery-critic",
+      "owner": "delivery-critic",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-004/production/delivery-critic-report.md",
+        "output/episode-004/vertical_9x16.mp4",
+        "output/episode-004/subtitles_zh.srt"
+      ],
+      "decision": "新旁白成片通过交付门（45.233 秒，结尾为资本市场定价）。"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "decision-core-story-question",
+      "owner": "story-director",
+      "decision": "解释三个奥赛程序员的需求、冷启动和市场定价。",
+      "rationale": "融资在产品和获客之后出现，作为资本市场证据。",
+      "artifact": "content/episode-004/story/director-brief.md",
+      "claimIds": ["claim-devin-001", "claim-devin-012", "claim-devin-016"]
+    },
+    {
+      "id": "decision-attention-strategy",
+      "owner": "viral-director",
+      "decision": "首帧显示任务已交出去且浏览器已经打开。",
+      "rationale": "执行中的结果无需产品背景。",
+      "artifact": "content/episode-004/story/viral-strategy.md",
+      "claimIds": ["claim-devin-001"]
+    },
+    {
+      "id": "decision-information-draft",
+      "owner": "script-writer",
+      "decision": "从执行动作推进到需求、获客与融资。",
+      "rationale": "避免按版本日期复述产品更新。",
+      "artifact": "content/episode-004/story/script-draft.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-spoken-delivery",
+      "owner": "oral-rewriter",
+      "decision": "使用自然中文口播。",
+      "rationale": "让陌生观众在二十秒内建立心智模型。",
+      "artifact": "content/episode-004/story/final-script.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-audience-clearance",
+      "owner": "audience-critic",
+      "decision": "脚本通过，价格段不得做成静态数字卡。",
+      "rationale": "获客窗口是最可能划走的位置。",
+      "artifact": "content/episode-004/story/critic-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-factual-clearance",
+      "owner": "fact-guardian",
+      "decision": "事实与公司/媒体口径通过。",
+      "rationale": "融资保留媒体口径，不换算利润。",
+      "artifact": "content/episode-004/story/fact-check-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-visual-language",
+      "owner": "visual-director",
+      "decision": "用可见执行开场，用估值卡收尾。",
+      "rationale": "资本市场段没有匹配实拍时不强行回看开场。",
+      "artifact": "content/episode-004/story/visual-plan.md",
+      "claimIds": ["claim-devin-001", "claim-devin-016"]
+    },
+    {
+      "id": "decision-production-readiness",
+      "owner": "retention-critic",
+      "decision": "以 92 分批准生产。",
+      "rationale": "四个时间窗口均过门槛，无 high risk。",
+      "artifact": "content/episode-004/story/retention-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-final-delivery",
+      "owner": "delivery-critic",
+      "decision": "批准当前竖版 MP4 通过交付门。",
+      "rationale": "真实时长、字幕、首屏与融资结尾通过交付检查；不构成 HumanDecision 或 published。",
+      "artifact": "content/episode-004/production/delivery-critic-report.md",
+      "claimIds": []
+    }
+  ],
+  "reviewCycles": [
+    {
+      "id": "review-audience-round-01",
+      "critic": "audience-critic",
+      "round": 1,
+      "reportPath": "content/episode-004/story/critic-report.md",
+      "reportSha256": "cb3ee02bb829b20a6a022a969afda0164da918bec87866ef02a23c894169b46f",
+      "verdict": "PASS",
+      "routes": []
+    },
+    {
+      "id": "review-retention-round-01",
+      "critic": "retention-critic",
+      "round": 1,
+      "reportPath": "content/episode-004/story/retention-report.md",
+      "reportSha256": "515f6bbc9697813b03a4fe4a24e9c41a29c1b2ca290bd29822ec70b43cda0296",
+      "verdict": "PASS",
+      "routes": []
+    },
+    {
+      "id": "review-delivery-round-01",
+      "critic": "delivery-critic",
+      "round": 1,
+      "reportPath": "content/episode-004/production/delivery-critic-report.md",
+      "reportSha256": "9ef355ed6a06d409d34a83997a41f026a044ec08178498ad5e4e612e0eb9de49",
+      "verdict": "PASS",
+      "routes": []
+    }
+  ]
+}

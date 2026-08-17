@@ -1,0 +1,128 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-004:media-verification:episode-004-media-clip-fbe47b1f18a3ebfcd1df056d",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "application/json",
+    "path": "content/episode-004/media/verifications/seg-001/episode-004-media-clip-fbe47b1f18a3ebfcd1df056d.json",
+    "producer": "media-verification-v1:human-keyframe-review:human-keyframe-review-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "904daa69a9ebedcc29c096c58a51a1936b6e53c427f45eb3eac900aad3f5549a",
+    "sizeBytes": 4819
+  },
+  "cacheKey": "c6390cf80d91d917916b9f0bfaad96b53eb498ed6a526f696ecabde27a13dd24",
+  "claimIds": [
+    "claim-devin-001"
+  ],
+  "claimMatch": 0.65,
+  "clipArtifactRef": {
+    "artifactId": "episode-004:media-verification-clip:episode-004-media-clip-fbe47b1f18a3ebfcd1df056d",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/verifications/seg-001/episode-004-media-clip-fbe47b1f18a3ebfcd1df056d-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "8db0678285156378cae257ea701d5a7d3746a1e7372e3bfd40dc396a88808837",
+    "sizeBytes": 226479
+  },
+  "clipId": "episode-004:media-clip:fbe47b1f18a3ebfcd1df056d",
+  "clipRef": {
+    "claimIds": [
+      "claim-devin-001"
+    ],
+    "clipId": "episode-004:media-clip:fbe47b1f18a3ebfcd1df056d",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "endMs": 12000,
+    "episodeId": "episode-004",
+    "mediaId": "episode-004:media:official-tutorial-getting-started",
+    "sourceMediaRef": {
+      "artifactId": "episode-004:media:official-tutorial-getting-started",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "video/mp4",
+      "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+      "sizeBytes": 11899871
+    },
+    "startMs": 8000,
+    "transcriptRefs": [
+      {
+        "artifactId": "episode-004:media-transcript:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "bffa49a99c5664fe6f63840b23a58c7b4526500e189b2dc3b0c6222c53cf8f82",
+        "sizeBytes": 40108
+      }
+    ],
+    "visualIntent": "第 0 帧官方演示画面已在进行中:任务已输入,Devin 随后开始规划并打开自带浏览器执行,持续标“功能演示”。"
+  },
+  "createdAt": "2026-08-16T12:00:00.000Z",
+  "episodeId": "episode-004",
+  "mediaRef": {
+    "artifactId": "episode-004:media:official-tutorial-getting-started",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+    "sizeBytes": 11899871
+  },
+  "misleadingRisk": 0.1,
+  "model": null,
+  "observedActions": [
+    "官方教程展示 Devin 网页应用的任务输入界面（dashboard）",
+    "界面显示任务输入框 What do you want to get done?"
+  ],
+  "observedEntities": [
+    "Devin"
+  ],
+  "observedText": [
+    "What do you want to get done?",
+    "Getting Started",
+    "Devin"
+  ],
+  "promptVersion": "media-verification-prompt-v1",
+  "provider": "human-keyframe-review",
+  "reasons": [
+    "OCR 读到官方 Devin 网页应用的任务输入界面，支持“任务交出去”的动作；同段字幕为 dashboard for working with Devin；自主执行动作由同教程后续演示建立",
+    "640×360 官方教程素材，UI 文字可读",
+    "证据强度中等：画面是派发任务的入口界面，不是浏览器打开动作本身"
+  ],
+  "recommendedEndMs": 12000,
+  "recommendedStartMs": 8000,
+  "relevance": 0.75,
+  "retrievalResultRef": {
+    "artifactId": "episode-004:media-retrieval:seg-001",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "application/json",
+    "path": "content/episode-004/media/candidates/seg-001.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 1,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "af2cd5a19fe59292061cc9d9060a15af080b0dd77e589a5780867e6da7b48e9b",
+    "sizeBytes": 54306
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-001",
+  "sourceSha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-004:media-verification:episode-004-media-clip-fbe47b1f18a3ebfcd1df056d",
+  "verificationVersion": "human-keyframe-review-v1",
+  "visualQuality": 0.55
+}

@@ -1,0 +1,630 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-004:media:official-tutorial-getting-started-proxy",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-tutorial-getting-started-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "5ea2e98f4e3072a17fb2ae54b81cc6523263081da5ee028d7e2d9103de14b785",
+    "sizeBytes": 11836655
+  },
+  "config": {
+    "maxSceneMs": 6000,
+    "minSceneMs": 800,
+    "targetSceneMs": 4000
+  },
+  "detector": "deterministic-boundaries",
+  "detectorVersion": "scene-detector-v1",
+  "durationMs": 469670,
+  "episodeId": "episode-004",
+  "mediaId": "episode-004:media:official-tutorial-getting-started",
+  "scenes": [
+    {
+      "endMs": 4000,
+      "sceneIndex": 0,
+      "startMs": 0
+    },
+    {
+      "endMs": 8000,
+      "sceneIndex": 1,
+      "startMs": 4000
+    },
+    {
+      "endMs": 12000,
+      "sceneIndex": 2,
+      "startMs": 8000
+    },
+    {
+      "endMs": 16000,
+      "sceneIndex": 3,
+      "startMs": 12000
+    },
+    {
+      "endMs": 20000,
+      "sceneIndex": 4,
+      "startMs": 16000
+    },
+    {
+      "endMs": 24000,
+      "sceneIndex": 5,
+      "startMs": 20000
+    },
+    {
+      "endMs": 28000,
+      "sceneIndex": 6,
+      "startMs": 24000
+    },
+    {
+      "endMs": 32000,
+      "sceneIndex": 7,
+      "startMs": 28000
+    },
+    {
+      "endMs": 36000,
+      "sceneIndex": 8,
+      "startMs": 32000
+    },
+    {
+      "endMs": 40000,
+      "sceneIndex": 9,
+      "startMs": 36000
+    },
+    {
+      "endMs": 44000,
+      "sceneIndex": 10,
+      "startMs": 40000
+    },
+    {
+      "endMs": 48000,
+      "sceneIndex": 11,
+      "startMs": 44000
+    },
+    {
+      "endMs": 52000,
+      "sceneIndex": 12,
+      "startMs": 48000
+    },
+    {
+      "endMs": 56000,
+      "sceneIndex": 13,
+      "startMs": 52000
+    },
+    {
+      "endMs": 60000,
+      "sceneIndex": 14,
+      "startMs": 56000
+    },
+    {
+      "endMs": 64000,
+      "sceneIndex": 15,
+      "startMs": 60000
+    },
+    {
+      "endMs": 68000,
+      "sceneIndex": 16,
+      "startMs": 64000
+    },
+    {
+      "endMs": 72000,
+      "sceneIndex": 17,
+      "startMs": 68000
+    },
+    {
+      "endMs": 76000,
+      "sceneIndex": 18,
+      "startMs": 72000
+    },
+    {
+      "endMs": 80000,
+      "sceneIndex": 19,
+      "startMs": 76000
+    },
+    {
+      "endMs": 84000,
+      "sceneIndex": 20,
+      "startMs": 80000
+    },
+    {
+      "endMs": 88000,
+      "sceneIndex": 21,
+      "startMs": 84000
+    },
+    {
+      "endMs": 92000,
+      "sceneIndex": 22,
+      "startMs": 88000
+    },
+    {
+      "endMs": 96000,
+      "sceneIndex": 23,
+      "startMs": 92000
+    },
+    {
+      "endMs": 100000,
+      "sceneIndex": 24,
+      "startMs": 96000
+    },
+    {
+      "endMs": 104000,
+      "sceneIndex": 25,
+      "startMs": 100000
+    },
+    {
+      "endMs": 108000,
+      "sceneIndex": 26,
+      "startMs": 104000
+    },
+    {
+      "endMs": 112000,
+      "sceneIndex": 27,
+      "startMs": 108000
+    },
+    {
+      "endMs": 116000,
+      "sceneIndex": 28,
+      "startMs": 112000
+    },
+    {
+      "endMs": 120000,
+      "sceneIndex": 29,
+      "startMs": 116000
+    },
+    {
+      "endMs": 124000,
+      "sceneIndex": 30,
+      "startMs": 120000
+    },
+    {
+      "endMs": 128000,
+      "sceneIndex": 31,
+      "startMs": 124000
+    },
+    {
+      "endMs": 132000,
+      "sceneIndex": 32,
+      "startMs": 128000
+    },
+    {
+      "endMs": 136000,
+      "sceneIndex": 33,
+      "startMs": 132000
+    },
+    {
+      "endMs": 140000,
+      "sceneIndex": 34,
+      "startMs": 136000
+    },
+    {
+      "endMs": 144000,
+      "sceneIndex": 35,
+      "startMs": 140000
+    },
+    {
+      "endMs": 148000,
+      "sceneIndex": 36,
+      "startMs": 144000
+    },
+    {
+      "endMs": 152000,
+      "sceneIndex": 37,
+      "startMs": 148000
+    },
+    {
+      "endMs": 156000,
+      "sceneIndex": 38,
+      "startMs": 152000
+    },
+    {
+      "endMs": 160000,
+      "sceneIndex": 39,
+      "startMs": 156000
+    },
+    {
+      "endMs": 164000,
+      "sceneIndex": 40,
+      "startMs": 160000
+    },
+    {
+      "endMs": 168000,
+      "sceneIndex": 41,
+      "startMs": 164000
+    },
+    {
+      "endMs": 172000,
+      "sceneIndex": 42,
+      "startMs": 168000
+    },
+    {
+      "endMs": 176000,
+      "sceneIndex": 43,
+      "startMs": 172000
+    },
+    {
+      "endMs": 180000,
+      "sceneIndex": 44,
+      "startMs": 176000
+    },
+    {
+      "endMs": 184000,
+      "sceneIndex": 45,
+      "startMs": 180000
+    },
+    {
+      "endMs": 188000,
+      "sceneIndex": 46,
+      "startMs": 184000
+    },
+    {
+      "endMs": 192000,
+      "sceneIndex": 47,
+      "startMs": 188000
+    },
+    {
+      "endMs": 196000,
+      "sceneIndex": 48,
+      "startMs": 192000
+    },
+    {
+      "endMs": 200000,
+      "sceneIndex": 49,
+      "startMs": 196000
+    },
+    {
+      "endMs": 204000,
+      "sceneIndex": 50,
+      "startMs": 200000
+    },
+    {
+      "endMs": 208000,
+      "sceneIndex": 51,
+      "startMs": 204000
+    },
+    {
+      "endMs": 212000,
+      "sceneIndex": 52,
+      "startMs": 208000
+    },
+    {
+      "endMs": 216000,
+      "sceneIndex": 53,
+      "startMs": 212000
+    },
+    {
+      "endMs": 220000,
+      "sceneIndex": 54,
+      "startMs": 216000
+    },
+    {
+      "endMs": 224000,
+      "sceneIndex": 55,
+      "startMs": 220000
+    },
+    {
+      "endMs": 228000,
+      "sceneIndex": 56,
+      "startMs": 224000
+    },
+    {
+      "endMs": 232000,
+      "sceneIndex": 57,
+      "startMs": 228000
+    },
+    {
+      "endMs": 236000,
+      "sceneIndex": 58,
+      "startMs": 232000
+    },
+    {
+      "endMs": 240000,
+      "sceneIndex": 59,
+      "startMs": 236000
+    },
+    {
+      "endMs": 244000,
+      "sceneIndex": 60,
+      "startMs": 240000
+    },
+    {
+      "endMs": 248000,
+      "sceneIndex": 61,
+      "startMs": 244000
+    },
+    {
+      "endMs": 252000,
+      "sceneIndex": 62,
+      "startMs": 248000
+    },
+    {
+      "endMs": 256000,
+      "sceneIndex": 63,
+      "startMs": 252000
+    },
+    {
+      "endMs": 260000,
+      "sceneIndex": 64,
+      "startMs": 256000
+    },
+    {
+      "endMs": 264000,
+      "sceneIndex": 65,
+      "startMs": 260000
+    },
+    {
+      "endMs": 268000,
+      "sceneIndex": 66,
+      "startMs": 264000
+    },
+    {
+      "endMs": 272000,
+      "sceneIndex": 67,
+      "startMs": 268000
+    },
+    {
+      "endMs": 276000,
+      "sceneIndex": 68,
+      "startMs": 272000
+    },
+    {
+      "endMs": 280000,
+      "sceneIndex": 69,
+      "startMs": 276000
+    },
+    {
+      "endMs": 284000,
+      "sceneIndex": 70,
+      "startMs": 280000
+    },
+    {
+      "endMs": 288000,
+      "sceneIndex": 71,
+      "startMs": 284000
+    },
+    {
+      "endMs": 292000,
+      "sceneIndex": 72,
+      "startMs": 288000
+    },
+    {
+      "endMs": 296000,
+      "sceneIndex": 73,
+      "startMs": 292000
+    },
+    {
+      "endMs": 300000,
+      "sceneIndex": 74,
+      "startMs": 296000
+    },
+    {
+      "endMs": 304000,
+      "sceneIndex": 75,
+      "startMs": 300000
+    },
+    {
+      "endMs": 308000,
+      "sceneIndex": 76,
+      "startMs": 304000
+    },
+    {
+      "endMs": 312000,
+      "sceneIndex": 77,
+      "startMs": 308000
+    },
+    {
+      "endMs": 316000,
+      "sceneIndex": 78,
+      "startMs": 312000
+    },
+    {
+      "endMs": 320000,
+      "sceneIndex": 79,
+      "startMs": 316000
+    },
+    {
+      "endMs": 324000,
+      "sceneIndex": 80,
+      "startMs": 320000
+    },
+    {
+      "endMs": 328000,
+      "sceneIndex": 81,
+      "startMs": 324000
+    },
+    {
+      "endMs": 332000,
+      "sceneIndex": 82,
+      "startMs": 328000
+    },
+    {
+      "endMs": 336000,
+      "sceneIndex": 83,
+      "startMs": 332000
+    },
+    {
+      "endMs": 340000,
+      "sceneIndex": 84,
+      "startMs": 336000
+    },
+    {
+      "endMs": 344000,
+      "sceneIndex": 85,
+      "startMs": 340000
+    },
+    {
+      "endMs": 348000,
+      "sceneIndex": 86,
+      "startMs": 344000
+    },
+    {
+      "endMs": 352000,
+      "sceneIndex": 87,
+      "startMs": 348000
+    },
+    {
+      "endMs": 356000,
+      "sceneIndex": 88,
+      "startMs": 352000
+    },
+    {
+      "endMs": 360000,
+      "sceneIndex": 89,
+      "startMs": 356000
+    },
+    {
+      "endMs": 364000,
+      "sceneIndex": 90,
+      "startMs": 360000
+    },
+    {
+      "endMs": 368000,
+      "sceneIndex": 91,
+      "startMs": 364000
+    },
+    {
+      "endMs": 372000,
+      "sceneIndex": 92,
+      "startMs": 368000
+    },
+    {
+      "endMs": 376000,
+      "sceneIndex": 93,
+      "startMs": 372000
+    },
+    {
+      "endMs": 380000,
+      "sceneIndex": 94,
+      "startMs": 376000
+    },
+    {
+      "endMs": 384000,
+      "sceneIndex": 95,
+      "startMs": 380000
+    },
+    {
+      "endMs": 388000,
+      "sceneIndex": 96,
+      "startMs": 384000
+    },
+    {
+      "endMs": 392000,
+      "sceneIndex": 97,
+      "startMs": 388000
+    },
+    {
+      "endMs": 396000,
+      "sceneIndex": 98,
+      "startMs": 392000
+    },
+    {
+      "endMs": 400000,
+      "sceneIndex": 99,
+      "startMs": 396000
+    },
+    {
+      "endMs": 404000,
+      "sceneIndex": 100,
+      "startMs": 400000
+    },
+    {
+      "endMs": 408000,
+      "sceneIndex": 101,
+      "startMs": 404000
+    },
+    {
+      "endMs": 412000,
+      "sceneIndex": 102,
+      "startMs": 408000
+    },
+    {
+      "endMs": 416000,
+      "sceneIndex": 103,
+      "startMs": 412000
+    },
+    {
+      "endMs": 420000,
+      "sceneIndex": 104,
+      "startMs": 416000
+    },
+    {
+      "endMs": 424000,
+      "sceneIndex": 105,
+      "startMs": 420000
+    },
+    {
+      "endMs": 428000,
+      "sceneIndex": 106,
+      "startMs": 424000
+    },
+    {
+      "endMs": 432000,
+      "sceneIndex": 107,
+      "startMs": 428000
+    },
+    {
+      "endMs": 436000,
+      "sceneIndex": 108,
+      "startMs": 432000
+    },
+    {
+      "endMs": 440000,
+      "sceneIndex": 109,
+      "startMs": 436000
+    },
+    {
+      "endMs": 444000,
+      "sceneIndex": 110,
+      "startMs": 440000
+    },
+    {
+      "endMs": 448000,
+      "sceneIndex": 111,
+      "startMs": 444000
+    },
+    {
+      "endMs": 452000,
+      "sceneIndex": 112,
+      "startMs": 448000
+    },
+    {
+      "endMs": 456000,
+      "sceneIndex": 113,
+      "startMs": 452000
+    },
+    {
+      "endMs": 460000,
+      "sceneIndex": 114,
+      "startMs": 456000
+    },
+    {
+      "endMs": 464000,
+      "sceneIndex": 115,
+      "startMs": 460000
+    },
+    {
+      "endMs": 468000,
+      "sceneIndex": 116,
+      "startMs": 464000
+    },
+    {
+      "endMs": 469670,
+      "sceneIndex": 117,
+      "startMs": 468000
+    }
+  ],
+  "schemaVersion": "media-scenes-v1",
+  "sourceMediaRef": {
+    "artifactId": "episode-004:media:official-tutorial-getting-started",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+    "sizeBytes": 11899871
+  },
+  "sourceSha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35"
+}

@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "clipId": "episode-004:media-clip:fbe47b1f18a3ebfcd1df056d",
+  "relevance": 0.75,
+  "claimMatch": 0.65,
+  "visualQuality": 0.55,
+  "misleadingRisk": 0.1,
+  "observedActions": [
+    "官方教程展示 Devin 网页应用的任务输入界面（dashboard）",
+    "界面显示任务输入框 What do you want to get done?"
+  ],
+  "observedEntities": [
+    "Devin"
+  ],
+  "observedText": [
+    "What do you want to get done?",
+    "Getting Started",
+    "Devin"
+  ],
+  "recommendedStartMs": 8000,
+  "recommendedEndMs": 12000,
+  "reasons": [
+    "OCR 读到官方 Devin 网页应用的任务输入界面，支持“任务交出去”的动作；同段字幕为 dashboard for working with Devin；自主执行动作由同教程后续演示建立",
+    "640×360 官方教程素材，UI 文字可读",
+    "证据强度中等：画面是派发任务的入口界面，不是浏览器打开动作本身"
+  ],
+  "reviewer": "human-approver",
+  "reviewMethod": "keyframe-OCR + caption-track review",
+  "reviewedAt": "2026-08-16T12:30:00.000Z"
+}

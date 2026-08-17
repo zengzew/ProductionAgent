@@ -1,0 +1,134 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-004:media-verification:episode-004-media-clip-1c1db356472d0d93d4ff36ac",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "application/json",
+    "path": "content/episode-004/media/verifications/seg-003/episode-004-media-clip-1c1db356472d0d93d4ff36ac.json",
+    "producer": "media-verification-v1:human-keyframe-review:human-keyframe-review-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "54b04f2ad900720ecd798374befa51bab5513d80117eece20e0f72a0f6b69d0f",
+    "sizeBytes": 4974
+  },
+  "cacheKey": "065ce082654d800124b2e1635751fdb45053e6f1d6a2e2d03a6e609f47dd3f3e",
+  "claimIds": [
+    "claim-devin-003",
+    "claim-devin-004"
+  ],
+  "claimMatch": 0.8,
+  "clipArtifactRef": {
+    "artifactId": "episode-004:media-verification-clip:episode-004-media-clip-1c1db356472d0d93d4ff36ac",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/verifications/seg-003/episode-004-media-clip-1c1db356472d0d93d4ff36ac-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "943ada54e3f86c918a4207ab6aff14f625f53dd7ced55483297dd4ab389e5f90",
+    "sizeBytes": 545291
+  },
+  "clipId": "episode-004:media-clip:1c1db356472d0d93d4ff36ac",
+  "clipRef": {
+    "claimIds": [
+      "claim-devin-003",
+      "claim-devin-004"
+    ],
+    "clipId": "episode-004:media-clip:1c1db356472d0d93d4ff36ac",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "endMs": 336000,
+    "episodeId": "episode-004",
+    "mediaId": "episode-004:media:official-parallel-devin",
+    "sourceMediaRef": {
+      "artifactId": "episode-004:media:official-parallel-devin",
+      "createdAt": "2026-08-16T12:00:00.000Z",
+      "episodeId": "episode-004",
+      "mediaType": "video/mp4",
+      "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+      "sizeBytes": 16115192
+    },
+    "startMs": 332000,
+    "transcriptRefs": [
+      {
+        "artifactId": "episode-004:media-transcript:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "ad891031dead52ceecc43d233c612e731650ce7fe35e0abd4691e08a509ba6af",
+        "sizeBytes": 35311
+      }
+    ],
+    "visualIntent": "官方演示里 Devin 的计划列表、浏览器、编辑器与终端依次进入画面,随后每一步操作持续可见,标“功能演示”。"
+  },
+  "createdAt": "2026-08-16T12:00:00.000Z",
+  "episodeId": "episode-004",
+  "mediaRef": {
+    "artifactId": "episode-004:media:official-parallel-devin",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+    "sizeBytes": 16115192
+  },
+  "misleadingRisk": 0.1,
+  "model": null,
+  "observedActions": [
+    "Devin 会话显示任务计划列表：Scaffold Devin-style Next.js app / Build Sicily app chat API route / Build Sicily app frontend UI / Build simple chatbot vector store",
+    "并行方案卡片 Approach A/B/C 与文件产出可见"
+  ],
+  "observedEntities": [
+    "Devin"
+  ],
+  "observedText": [
+    "Scaffold Devin-style Next.js app",
+    "Build Sicily app chat API route",
+    "Build Sicily app frontend UI",
+    "Build simple chatbot vector store",
+    "Approach C: Minimal Single-File",
+    "Approach B: Vercel AI SDK",
+    "Approach A: Binary Embeddings"
+  ],
+  "promptVersion": "media-verification-prompt-v1",
+  "provider": "human-keyframe-review",
+  "reasons": [
+    "OCR 读到完整任务计划列表与并行方案卡片：先列计划、再一步步执行的可见步骤成立",
+    "官方平行 Devin 演示画面，标功能演示",
+    "计划列表与“每一步都看得见”直接对应"
+  ],
+  "recommendedEndMs": 336000,
+  "recommendedStartMs": 332000,
+  "relevance": 0.85,
+  "retrievalResultRef": {
+    "artifactId": "episode-004:media-retrieval:seg-003",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "application/json",
+    "path": "content/episode-004/media/candidates/seg-003.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 1,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "2e7fdbf9f076431a0086a3191f5f1349f37ab83122815235466b1ae1d45f059b",
+    "sizeBytes": 56471
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-003",
+  "sourceSha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-004:media-verification:episode-004-media-clip-1c1db356472d0d93d4ff36ac",
+  "verificationVersion": "human-keyframe-review-v1",
+  "visualQuality": 0.55
+}

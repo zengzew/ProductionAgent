@@ -1,0 +1,405 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-004:media:official-upwork-demo-proxy",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-upwork-demo-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "8712a2e8ea9bc02a7bbc96005e5ace8c0b1eb5085b6f3b8795f36e9a9cd74090",
+    "sizeBytes": 3821433
+  },
+  "asrVersion": "youtube-caption-track-v1",
+  "availability": "available",
+  "durationMs": 121266,
+  "episodeId": "episode-004",
+  "mediaId": "episode-004:media:official-upwork-demo",
+  "model": null,
+  "provider": "youtube-captions",
+  "schemaVersion": "media-transcript-v1",
+  "segments": [
+    {
+      "confidence": null,
+      "endMs": 5070,
+      "index": 0,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 2919,
+      "text": "here at cognition AI we were playing"
+    },
+    {
+      "confidence": null,
+      "endMs": 6829,
+      "index": 1,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 5080,
+      "text": "around with whether or not Devin could"
+    },
+    {
+      "confidence": null,
+      "endMs": 8870,
+      "index": 2,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 6839,
+      "text": "start a side hustle on upwork so here's"
+    },
+    {
+      "confidence": null,
+      "endMs": 11070,
+      "index": 3,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 8880,
+      "text": "actual real job from upwork where the"
+    },
+    {
+      "confidence": null,
+      "endMs": 12430,
+      "index": 4,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 11080,
+      "text": "client wants to set up this computer"
+    },
+    {
+      "confidence": null,
+      "endMs": 14990,
+      "index": 5,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 12440,
+      "text": "vision model which actually looks quite"
+    },
+    {
+      "confidence": null,
+      "endMs": 17070,
+      "index": 6,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 15000,
+      "text": "interesting seems very difficult to set"
+    },
+    {
+      "confidence": null,
+      "endMs": 19070,
+      "index": 7,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 17080,
+      "text": "up um I'm not sure how I would start"
+    },
+    {
+      "confidence": null,
+      "endMs": 21390,
+      "index": 8,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 19080,
+      "text": "doing this but you know you give the"
+    },
+    {
+      "confidence": null,
+      "endMs": 24550,
+      "index": 9,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 21400,
+      "text": "task to Devon and ask Devon to figure it"
+    },
+    {
+      "confidence": null,
+      "endMs": 27910,
+      "index": 10,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 24560,
+      "text": "out and things just kick off Devon"
+    },
+    {
+      "confidence": null,
+      "endMs": 30230,
+      "index": 11,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 27920,
+      "text": "immediately goes ahead and you can see"
+    },
+    {
+      "confidence": null,
+      "endMs": 32709,
+      "index": 12,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 30240,
+      "text": "it sort of starts setting up the repo it"
+    },
+    {
+      "confidence": null,
+      "endMs": 34630,
+      "index": 13,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 32719,
+      "text": "actually runs into some issues here with"
+    },
+    {
+      "confidence": null,
+      "endMs": 36950,
+      "index": 14,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 34640,
+      "text": "the versioning so if you watch how Devon"
+    },
+    {
+      "confidence": null,
+      "endMs": 38510,
+      "index": 15,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 36960,
+      "text": "deals with"
+    },
+    {
+      "confidence": null,
+      "endMs": 41430,
+      "index": 16,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 38520,
+      "text": "it deon's actually updating the code to"
+    },
+    {
+      "confidence": null,
+      "endMs": 43150,
+      "index": 17,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 41440,
+      "text": "make these things"
+    },
+    {
+      "confidence": null,
+      "endMs": 47350,
+      "index": 18,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 43160,
+      "text": "work he continues with this loading and"
+    },
+    {
+      "confidence": null,
+      "endMs": 49029,
+      "index": 19,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 47360,
+      "text": "importing packages you can see that"
+    },
+    {
+      "confidence": null,
+      "endMs": 50350,
+      "index": 20,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 49039,
+      "text": "actually downloads images from the"
+    },
+    {
+      "confidence": null,
+      "endMs": 52110,
+      "index": 21,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 50360,
+      "text": "internet to run through the"
+    },
+    {
+      "confidence": null,
+      "endMs": 53869,
+      "index": 22,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 52120,
+      "text": "model"
+    },
+    {
+      "confidence": null,
+      "endMs": 55910,
+      "index": 23,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 53879,
+      "text": "but you can see here that there are"
+    },
+    {
+      "confidence": null,
+      "endMs": 59110,
+      "index": 24,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 55920,
+      "text": "actually some issues that come across"
+    },
+    {
+      "confidence": null,
+      "endMs": 62150,
+      "index": 25,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 59120,
+      "text": "however Devon knows how to handle these"
+    },
+    {
+      "confidence": null,
+      "endMs": 65550,
+      "index": 26,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 62160,
+      "text": "things Devon kind of pushes through and"
+    },
+    {
+      "confidence": null,
+      "endMs": 67950,
+      "index": 27,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 65560,
+      "text": "if you look closely Devon's actually"
+    },
+    {
+      "confidence": null,
+      "endMs": 69870,
+      "index": 28,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 67960,
+      "text": "doing print line debugging"
+    },
+    {
+      "confidence": null,
+      "endMs": 73469,
+      "index": 29,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 69880,
+      "text": "here where Devon is adding these"
+    },
+    {
+      "confidence": null,
+      "endMs": 76270,
+      "index": 30,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 73479,
+      "text": "statements to track where the data"
+    },
+    {
+      "confidence": null,
+      "endMs": 78630,
+      "index": 31,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 76280,
+      "text": "flows and Devon continues to do this"
+    },
+    {
+      "confidence": null,
+      "endMs": 81149,
+      "index": 32,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 78640,
+      "text": "until Devon understands how everything's"
+    },
+    {
+      "confidence": null,
+      "endMs": 84190,
+      "index": 33,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 81159,
+      "text": "working and actually then updates the"
+    },
+    {
+      "confidence": null,
+      "endMs": 87350,
+      "index": 34,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 84200,
+      "text": "code with the fixes"
+    },
+    {
+      "confidence": null,
+      "endMs": 91109,
+      "index": 35,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 87360,
+      "text": "after removing print line statements"
+    },
+    {
+      "confidence": null,
+      "endMs": 92789,
+      "index": 36,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 91119,
+      "text": "Deon continues this pattern of fixing"
+    },
+    {
+      "confidence": null,
+      "endMs": 96630,
+      "index": 37,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 92799,
+      "text": "code and running it again until it runs"
+    },
+    {
+      "confidence": null,
+      "endMs": 98670,
+      "index": 38,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 96640,
+      "text": "the image model across all these roads"
+    },
+    {
+      "confidence": null,
+      "endMs": 101389,
+      "index": 39,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 98680,
+      "text": "across the world and we can ask for a"
+    },
+    {
+      "confidence": null,
+      "endMs": 103350,
+      "index": 40,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 101399,
+      "text": "report from"
+    },
+    {
+      "confidence": null,
+      "endMs": 105990,
+      "index": 41,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 103360,
+      "text": "Devon at which point Devon sends over"
+    },
+    {
+      "confidence": null,
+      "endMs": 109550,
+      "index": 42,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 106000,
+      "text": "some sample images of roads with damage"
+    },
+    {
+      "confidence": null,
+      "endMs": 110789,
+      "index": 43,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 109560,
+      "text": "marked"
+    },
+    {
+      "confidence": null,
+      "endMs": 115190,
+      "index": 44,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 110799,
+      "text": "out and a nice txt file explaining"
+    },
+    {
+      "confidence": null,
+      "endMs": 117510,
+      "index": 45,
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 115200,
+      "text": "Devon's work and the different kinds of"
+    }
+  ],
+  "sourceMediaRef": {
+    "artifactId": "episode-004:media:official-upwork-demo",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+    "sizeBytes": 3174103
+  },
+  "toolVersion": "media-asr-vtt-v1"
+}

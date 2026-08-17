@@ -1,0 +1,1756 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-004:media:official-parallel-devin-proxy",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-parallel-devin-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "46b2c403a17ff68c59fe861f127e5100a81fcb44a8eb6e786a1a6da1437fd5d3",
+    "sizeBytes": 15353692
+  },
+  "episodeId": "episode-004",
+  "indexVersion": "media-clip-index-v1",
+  "mediaId": "episode-004:media:official-parallel-devin",
+  "mediaSha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+  "schemaVersion": "media-understanding-status-v1",
+  "stages": {
+    "clip-index": {
+      "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+      "availability": "available",
+      "cacheKey": "9065170ed8efd8f16294bdda2ea4eba2ce4cfbb997fbae152beacb79d066a5df",
+      "ref": {
+        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+        "sizeBytes": 302753
+      }
+    },
+    "keyframes": {
+      "availability": "available",
+      "cacheKey": "9f50f9c217350b7b43025044104f2eeec1774cedf292dac03c223b19206fd7ee",
+      "entries": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-0-2000",
+          "cacheKey": "cc443f60f0949bed072ab43db51febbbf633a5b19d4fb4c0a12c85c8fce4f765",
+          "filename": "keyframe-0-2000.jpg",
+          "keyframeIndex": 0,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-0-2000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-0-2000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "398ccdd0b369940c2a77bbd32bc172dba25afe5ba2477da80b857e917b934418",
+            "sizeBytes": 31662
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-1-6000",
+          "cacheKey": "02a8138805fd50c132e4cbb6b00ba2c4359cf3e2e582e62a8e75c11ca8b294fd",
+          "filename": "keyframe-1-6000.jpg",
+          "keyframeIndex": 1,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-1-6000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-1-6000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "f40af7e7a82b2e607fc274eeafb045636287a56e4aefec11a50c5818f0133abb",
+            "sizeBytes": 33461
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-2-10000",
+          "cacheKey": "f9c9fe267149f0c6f10950a07d4e098ae6655d1b8726237d66ec3a21fd53ecc6",
+          "filename": "keyframe-2-10000.jpg",
+          "keyframeIndex": 2,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-2-10000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-2-10000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "0a168d8eca571bf8c88eb2c7db599b8b3ff916f25055a70bb77d9162d541d3c9",
+            "sizeBytes": 33090
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-3-14000",
+          "cacheKey": "5e734ce12d937ff934380efa3d801f885ca4720209fc5c9d8945f2b75938df81",
+          "filename": "keyframe-3-14000.jpg",
+          "keyframeIndex": 3,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-3-14000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-3-14000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "3a3990ad38d66f3a4067b7a8f6d12eb71a905f364b94974d7e8e5bdd4a46cd22",
+            "sizeBytes": 28119
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-4-18000",
+          "cacheKey": "3bae211ea2a83ee55374b5b4433f72db8842b5be0563daf630f1fa330b356e4f",
+          "filename": "keyframe-4-18000.jpg",
+          "keyframeIndex": 4,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-4-18000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-4-18000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "61b1a2707a2f55439bc9f94c4082912e72252b9014f614d306dcd4c9bb31d409",
+            "sizeBytes": 24473
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-5-22000",
+          "cacheKey": "ec5f2005773032d20309053969c4d47aa9a567006f8de399abc884ecc6ea6f87",
+          "filename": "keyframe-5-22000.jpg",
+          "keyframeIndex": 5,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-5-22000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-5-22000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "85eb9fe61deeedb091f274eec583b5ba6ea434470a0b1918beca355b504c1312",
+            "sizeBytes": 35940
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-6-26000",
+          "cacheKey": "aa04027df965c05a8f6e3a75d725a23f224b5bed25ab6609d858d913f33eb998",
+          "filename": "keyframe-6-26000.jpg",
+          "keyframeIndex": 6,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-6-26000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-6-26000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "5afc212922aa4a7cc5d6dceade9d5fe9f8fad8f4084c195bb1ea1ed674a290df",
+            "sizeBytes": 40876
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-7-30000",
+          "cacheKey": "08a995bcdbc765129ba198b45ec5590fd6c169403526ac92607ad133d5fcc1c5",
+          "filename": "keyframe-7-30000.jpg",
+          "keyframeIndex": 7,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-7-30000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-7-30000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "2ea585feaccc552d5a3d4048f03cbb0313107a85c244735aedbe1dbe22a0890b",
+            "sizeBytes": 18421
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-8-34000",
+          "cacheKey": "674e89879e543bc2d0e7f4ea9a6b522cad67de6934b4b4c103e0c203e7dfe0e4",
+          "filename": "keyframe-8-34000.jpg",
+          "keyframeIndex": 8,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-8-34000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-8-34000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "958314fa297e9dfcd2cb3a44259e889aac7489872cdaac9bd727bc65fb74eb83",
+            "sizeBytes": 34141
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-9-38000",
+          "cacheKey": "d08ec64227dd9862aae52e26bb50849b43aaec13113e7193ef0338adc811f0d8",
+          "filename": "keyframe-9-38000.jpg",
+          "keyframeIndex": 9,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-9-38000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-9-38000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "d0a7305e307249cee0bf32ffdaded92c8693ef0a19746ec4ae9f963a1e6618a3",
+            "sizeBytes": 30830
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-10-42000",
+          "cacheKey": "742fb99d34fece5601cdd0969d7025c007470401e017142d0ab9cd0cee0749d5",
+          "filename": "keyframe-10-42000.jpg",
+          "keyframeIndex": 10,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-10-42000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-10-42000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "51b218ef4106787c672969e6339077a5db50deba5d1dc3d60691e721caa69b76",
+            "sizeBytes": 29279
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-11-46000",
+          "cacheKey": "fb5573101bcd1078de3141c2440be8e2cfa686cbdea21b87114b0b2241049049",
+          "filename": "keyframe-11-46000.jpg",
+          "keyframeIndex": 11,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-11-46000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-11-46000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "4f8a21d4f78e1faa424ddb0089cb2263bd4ac662d49f0532b06f4182266a0348",
+            "sizeBytes": 29138
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-12-50000",
+          "cacheKey": "819d5a88985e68109c7d9ac3141db08289bbe39ce341bcafec4c81b8f46d584e",
+          "filename": "keyframe-12-50000.jpg",
+          "keyframeIndex": 12,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-12-50000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-12-50000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "b3d68fc6720eb783da89f771cb6c711a75cf0170a1259a698fd064b25c08af0e",
+            "sizeBytes": 25308
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-13-54000",
+          "cacheKey": "7aec42645a4514044495e5d646881e8300628b3be63afbfceabb14c5f4bc4785",
+          "filename": "keyframe-13-54000.jpg",
+          "keyframeIndex": 13,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-13-54000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-13-54000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "b4556c4b2a0b55d45a865c4cae2043ea12539ef46ad0a60952bf7f97427f9e2c",
+            "sizeBytes": 38683
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-14-58000",
+          "cacheKey": "b3be2dc4bc87cc27bbf6d5027ce7276288cd5cf20f05b090afa5fb4fe930e53e",
+          "filename": "keyframe-14-58000.jpg",
+          "keyframeIndex": 14,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-14-58000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-14-58000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "e71a0e1ae7d8f9ff24ffac90250b188447a6bd8c44b9c605021a5e9caaef7f4e",
+            "sizeBytes": 38422
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-15-62000",
+          "cacheKey": "86a0c2d6522a633b42b303887d596c1cb7debcfbac625f0cc1b102e654e5da1c",
+          "filename": "keyframe-15-62000.jpg",
+          "keyframeIndex": 15,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-15-62000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-15-62000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "87e79b891d6a1cb2c11174def3a7469ef6150b7aaa2790ad35bd714b9a9aa7a2",
+            "sizeBytes": 40557
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-16-66000",
+          "cacheKey": "4640ea45c3bd0af58d8edf165f80c29f778167bf6a8200056ffe1d9f0656435d",
+          "filename": "keyframe-16-66000.jpg",
+          "keyframeIndex": 16,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-16-66000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-16-66000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "a0e08407bf32c637127736072a103f44542165213a38028df62f1602c579d35e",
+            "sizeBytes": 24302
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-17-70000",
+          "cacheKey": "349f74c911157f917ed01ec87d2ad13e4737490a99efb7caf6ff828fb29189ae",
+          "filename": "keyframe-17-70000.jpg",
+          "keyframeIndex": 17,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-17-70000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-17-70000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "25c12eee6b4908a6ad926f0e74fbe7c3a314e07784d6d6d6bd98f9734e37f05e",
+            "sizeBytes": 29004
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-18-74000",
+          "cacheKey": "93359c6264f7f5a01164cc1bda8071daf4025a7b07f7e041ca2f542b8800f24a",
+          "filename": "keyframe-18-74000.jpg",
+          "keyframeIndex": 18,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-18-74000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-18-74000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "cff52c67bd9156cf4dc243768b029790cd36eb7ce1051b6c3d242ab45d0f0a39",
+            "sizeBytes": 40204
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-19-78000",
+          "cacheKey": "6ee433ad9553bb13fbf17fd250f7e39fca72a283fbc1ba19d13be342f5995c55",
+          "filename": "keyframe-19-78000.jpg",
+          "keyframeIndex": 19,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-19-78000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-19-78000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "b8c815eb1adaa7baed8f2aed966d490dd450a64bdcfc4cd995af242e04435125",
+            "sizeBytes": 18673
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-20-82000",
+          "cacheKey": "f17ee390c18a422e28473d4f211fec493009d8425a335be0011cbee8438adf44",
+          "filename": "keyframe-20-82000.jpg",
+          "keyframeIndex": 20,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-20-82000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-20-82000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "3be3d3dde1246c61be0d0d675816e8acf23acd932e4b1aa34b27afa73b6bb9ad",
+            "sizeBytes": 32551
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-21-86000",
+          "cacheKey": "df40e0c83b1917294068754a52e047fee27d1eaa521fb85c2139ffa69297c9a8",
+          "filename": "keyframe-21-86000.jpg",
+          "keyframeIndex": 21,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-21-86000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-21-86000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "05802633f7973b1a25e815422353fc2bd92d748e2e8ff2d863a1753c75cc3f76",
+            "sizeBytes": 32870
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-22-90000",
+          "cacheKey": "618a710703690e1fcbdd46a7a6f7cb83f1c6a79e051048908809882e727b5653",
+          "filename": "keyframe-22-90000.jpg",
+          "keyframeIndex": 22,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-22-90000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-22-90000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "9b30e222c9efe33fb3322aa0558703a546e7eb901488a060d62a120a5aa132ca",
+            "sizeBytes": 24292
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-23-94000",
+          "cacheKey": "b44bcec977613b4fdd3fee50fce3b4b0be8a8af397bbea997aa0ea1bf4673b25",
+          "filename": "keyframe-23-94000.jpg",
+          "keyframeIndex": 23,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-23-94000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-23-94000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "9996553d62e20a675cc69e1dfa464c72407ae822c7f23b62c08deb580cde6bee",
+            "sizeBytes": 25124
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-24-98000",
+          "cacheKey": "0a68df754c8e9c6aec5209808bf52394ec13959c5bd2fc0456f01c738fe0dd13",
+          "filename": "keyframe-24-98000.jpg",
+          "keyframeIndex": 24,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-24-98000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-24-98000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "fd9da41b1f2b7cc0f75bd77774c9a74d5f3232ca89fc56a86b33a95292bf8d9b",
+            "sizeBytes": 26166
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-25-102000",
+          "cacheKey": "675742caa49980e79236064a6c7534345347b1ae27598891db80fbc9de44e3d1",
+          "filename": "keyframe-25-102000.jpg",
+          "keyframeIndex": 25,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-25-102000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-25-102000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "df8628d6f4cc9cd882c56a8a6f6cc6bc19ae4a36902bcf5cff180095919878bd",
+            "sizeBytes": 27983
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-26-106000",
+          "cacheKey": "a18850425cd890dd2429fe8406a705e3a24a7d10ac412d29f47d0bf6dcd4bdd7",
+          "filename": "keyframe-26-106000.jpg",
+          "keyframeIndex": 26,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-26-106000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-26-106000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "0eb2931d18a90ce2d6fd0440ef4fc9cea6f2c6cc5f1eae06fea395cfeeca8f0a",
+            "sizeBytes": 27726
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-27-110000",
+          "cacheKey": "b749c452266d600767ef7542136faaf12a258847e6dcf1aec52c5edafddf83af",
+          "filename": "keyframe-27-110000.jpg",
+          "keyframeIndex": 27,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-27-110000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-27-110000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "95b9de532e7b81b7b9ac8489df5c0ede7512032598222b37aef21486999ae4e0",
+            "sizeBytes": 26940
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-28-114000",
+          "cacheKey": "86372e30d34bae943752d98ae6e394ec790af9cbfc863c0b8b5b5e83afad196c",
+          "filename": "keyframe-28-114000.jpg",
+          "keyframeIndex": 28,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-28-114000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-28-114000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "23230c425e5a1e211ee9faa5389e0efd1da0c1e5776a00fb0c1049055bd962aa",
+            "sizeBytes": 33222
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-29-118000",
+          "cacheKey": "2b090b2e69001d234637dce34e37c0b5149b2a4b4bdcdc7dd39350a07654c54e",
+          "filename": "keyframe-29-118000.jpg",
+          "keyframeIndex": 29,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-29-118000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-29-118000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "e6d505715d1bd1f6e6671025a25ca725aaae7bf4d64c1873b80730ecd8e783fc",
+            "sizeBytes": 33230
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-30-122000",
+          "cacheKey": "5e120195c788eb39145e019048174bae0781a7b7808950c820c0e3a35f9f2983",
+          "filename": "keyframe-30-122000.jpg",
+          "keyframeIndex": 30,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-30-122000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-30-122000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "5966865da3d2eff5907fe40c88b4b217f919761687f615710c83d3d337ff1e88",
+            "sizeBytes": 27512
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-31-126000",
+          "cacheKey": "e0bacadfa8e1da59d5e0058bc4ab9e16c9f59cdce243422dd7bf1c4e220eb65d",
+          "filename": "keyframe-31-126000.jpg",
+          "keyframeIndex": 31,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-31-126000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-31-126000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "bda1de3608f2076edef70638677bf27641397aced11e67400679965eb4787239",
+            "sizeBytes": 27488
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-32-130000",
+          "cacheKey": "30ba13db5485c873d9a2393fef0886c5da632be585a08daeebb1dbcbb363d308",
+          "filename": "keyframe-32-130000.jpg",
+          "keyframeIndex": 32,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-32-130000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-32-130000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "018512bf202cc1737026fcd63e915d485cc2d6db70e5c642a413ba677d1e939d",
+            "sizeBytes": 33520
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-33-134000",
+          "cacheKey": "00b9a56479602bb6256abd7457d73b32e0a5ae0cfa911c192c9265f68e05a6b0",
+          "filename": "keyframe-33-134000.jpg",
+          "keyframeIndex": 33,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-33-134000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-33-134000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "6d0ddded244682a78b80f8608a7b974a81330b3d731e05451a58674a6d5eb81c",
+            "sizeBytes": 37602
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-34-138000",
+          "cacheKey": "9ec37e8e8cad01b7057a49fa0a4a585184921a820a88d7fe5430c04ab5dc270f",
+          "filename": "keyframe-34-138000.jpg",
+          "keyframeIndex": 34,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-34-138000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-34-138000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "0286662957c3cc03f7cef0ff1f49587ed3c351ee61420b05a0e86947ae42b2e6",
+            "sizeBytes": 47152
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-35-142000",
+          "cacheKey": "c1f985308770a6e23157a284dd5a1c3bc364b4a58a87198e5ac7d493bdf7830e",
+          "filename": "keyframe-35-142000.jpg",
+          "keyframeIndex": 35,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-35-142000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-35-142000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "68d26fceb113bb289966aad03b458f0e2a5e639664949d26dba40e0fbadb37f1",
+            "sizeBytes": 47277
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-36-146000",
+          "cacheKey": "fd681f0da20ebcfc1bc6678b476e3d93dfae7dcce8bd2fe324f0eb0a4aa52776",
+          "filename": "keyframe-36-146000.jpg",
+          "keyframeIndex": 36,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-36-146000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-36-146000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "8d32af241126ca7d920fbdd45be67e5971263bc73c7a5c1768b7105119f271fb",
+            "sizeBytes": 26471
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-37-150000",
+          "cacheKey": "0853e327fe44b1f796d38a041aeb10e6f34082ed96b375398b27c9af77a9bc1a",
+          "filename": "keyframe-37-150000.jpg",
+          "keyframeIndex": 37,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-37-150000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-37-150000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "aaafabe25c6026a46282f08249cd22b5c245d73f2a4e0d26c8c7f3e022dc5ad8",
+            "sizeBytes": 29858
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-38-154000",
+          "cacheKey": "e53042760f14ba28ef4de4b0b8e283b1e5c50d18576aed89ecf7c5f51000901f",
+          "filename": "keyframe-38-154000.jpg",
+          "keyframeIndex": 38,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-38-154000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-38-154000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "8ec53a3f9bccb8b49ca2f204d8eed6f9328f5bc7975d7fd3b1aa2f4e8cd24553",
+            "sizeBytes": 25283
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-39-158000",
+          "cacheKey": "8ae821e40f4266f4fa7a5ad7c4d34c1eba9afa618b68ae87c19f6ff671ce0306",
+          "filename": "keyframe-39-158000.jpg",
+          "keyframeIndex": 39,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-39-158000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-39-158000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "6531c4a0fb9fb0de4d0510cc16f9f86ab7ca945eafc89c9031ac7fc567e1e0a8",
+            "sizeBytes": 25731
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-40-162000",
+          "cacheKey": "958b2bace62e476f4201a19e70e0d04eda63c311bc47aade7677568be7297e47",
+          "filename": "keyframe-40-162000.jpg",
+          "keyframeIndex": 40,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-40-162000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-40-162000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "abc4ad3b275146189c5ad13e9c1fc8f37a201741516de830d3bf607d737be97a",
+            "sizeBytes": 34475
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-41-166000",
+          "cacheKey": "63a309deab2574f26f799852010446d625e543baa8ea00655d32d90fd8a67ed3",
+          "filename": "keyframe-41-166000.jpg",
+          "keyframeIndex": 41,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-41-166000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-41-166000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "06b521209817f0dfa4d96a0aadcdb9ea4e1b41f70021ef61cc8a510c02d3f7d8",
+            "sizeBytes": 37055
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-42-170000",
+          "cacheKey": "592ebefc7008ec127f6aa4323481149db0ae515097666d814e78086164113c14",
+          "filename": "keyframe-42-170000.jpg",
+          "keyframeIndex": 42,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-42-170000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-42-170000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "05af43bf88af0397811300266920630e7e3099a9f5f64b7ebfe7459e06a232c1",
+            "sizeBytes": 42103
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-43-174000",
+          "cacheKey": "ca83dc6429eab3cf7e48d4a90327a7f947d07e221e1f7ddc7cf1ef2ff6f2b21b",
+          "filename": "keyframe-43-174000.jpg",
+          "keyframeIndex": 43,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-43-174000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-43-174000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "57f287bb8ee967b9711ff4dc04e150c3dabefead92b8b8b720b1ea3cca203bc9",
+            "sizeBytes": 37896
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-44-178000",
+          "cacheKey": "d376a21e30c869b88630636a95f873907e50bbad5404cfa5ef026253bd6002b7",
+          "filename": "keyframe-44-178000.jpg",
+          "keyframeIndex": 44,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-44-178000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-44-178000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "dfef6592431953167a6819a073a02e9a1888aac4c01cd705c398362bcbd406d0",
+            "sizeBytes": 56414
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-45-182000",
+          "cacheKey": "d8dce78195a46e25b9cf26ba122cd78293da5e9af6d2fe94d24710b2b2f9eb90",
+          "filename": "keyframe-45-182000.jpg",
+          "keyframeIndex": 45,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-45-182000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-45-182000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "81d6687c8ed49c8ce20c32f1a8cc7209afa97ab1b6cb76458929fb7e9f61a16a",
+            "sizeBytes": 29879
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-46-186000",
+          "cacheKey": "4b7f4f01a50a5da42f1dd5469dd0fb3f9f605790acf60b82fbd62c0bef761db9",
+          "filename": "keyframe-46-186000.jpg",
+          "keyframeIndex": 46,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-46-186000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-46-186000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "ca5b5b81805240b04964bed80142404dc0e3b16dfb7960609da9190d3119c74a",
+            "sizeBytes": 38006
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-47-190000",
+          "cacheKey": "9f6e10bd23ba17a6c2a26f6182cf7196e4381cdfbcab6d4130146b74ecbb473c",
+          "filename": "keyframe-47-190000.jpg",
+          "keyframeIndex": 47,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-47-190000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-47-190000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "84b8b160db890ef1cec82a72c9bcc5a2f63b15030c82fb431b095da1cf14ad32",
+            "sizeBytes": 38223
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-48-194000",
+          "cacheKey": "7beaf1808b207c0ae11fa13ad009d2f11ee122f71639a806df7e20ac26d8f20b",
+          "filename": "keyframe-48-194000.jpg",
+          "keyframeIndex": 48,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-48-194000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-48-194000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "0bdc5ee1a0aa725b711b47c203c1a6b5ade29f3eec5c43435a8c4138429c8156",
+            "sizeBytes": 37795
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-49-198000",
+          "cacheKey": "d56553f89d7ef554878b91b3d8f0adba7dceaa4798f19faaaa062356d1ad47de",
+          "filename": "keyframe-49-198000.jpg",
+          "keyframeIndex": 49,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-49-198000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-49-198000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "b8e52981ae3b3e1f714f36288e953a1ce7b0dffdd2877f6ebcd9c82cdd40c44d",
+            "sizeBytes": 35633
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-50-202000",
+          "cacheKey": "d310ef10274546e770d0c2ce4aedf6bb393f2a6d4f3d44ff44103373ff923408",
+          "filename": "keyframe-50-202000.jpg",
+          "keyframeIndex": 50,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-50-202000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-50-202000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "fecb5f92bb489100b74e8f6e38f77a910cbdf6366b41723c6d311ca9de372da4",
+            "sizeBytes": 26092
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-51-206000",
+          "cacheKey": "1442c6ea85ae035b91a042c30ba0e2b3c1c254bcbe022b9e775b7590de61bfd6",
+          "filename": "keyframe-51-206000.jpg",
+          "keyframeIndex": 51,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-51-206000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-51-206000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "ffed39eeea3da3fe4e9bc514b1e4f26ae5efb396b134ea6f0d5cb30db595bdf4",
+            "sizeBytes": 26925
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-52-210000",
+          "cacheKey": "59f8007da214d9b950ab749e1e8c5c866aeb5c0a987556fe40b6c97fe7865b13",
+          "filename": "keyframe-52-210000.jpg",
+          "keyframeIndex": 52,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-52-210000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-52-210000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "d9f6c631b441a045740aa622273c2497d95883b0286e584067460ed3cf0fc1da",
+            "sizeBytes": 25115
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-53-214000",
+          "cacheKey": "da9ea9848e4715d41d3ea2e1ca8ef9837461e1c4d87483c69d4a651bab4de762",
+          "filename": "keyframe-53-214000.jpg",
+          "keyframeIndex": 53,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-53-214000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-53-214000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "281bd7e16a9af387bc61abd3d30f507d086b5b8b23562908383cfa4486b94ce8",
+            "sizeBytes": 24104
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-54-218000",
+          "cacheKey": "61052103ee6df0da7886182c003dd42a6d6cf13d222dab41f94772209a6a8a2f",
+          "filename": "keyframe-54-218000.jpg",
+          "keyframeIndex": 54,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-54-218000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-54-218000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "c0b17dc75c1cbafeae8e15bebaa8265be6a876f59fe146b965f25bcae0f6015a",
+            "sizeBytes": 27621
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-55-222000",
+          "cacheKey": "572df4930c2f95a67ed78a5d567efe8baf71d17261a72b165415282848731949",
+          "filename": "keyframe-55-222000.jpg",
+          "keyframeIndex": 55,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-55-222000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-55-222000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "3e00ad4eb2bc1aafba15037b7225617477e984b47068036ad8ea96534fe5ae31",
+            "sizeBytes": 53438
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-56-226000",
+          "cacheKey": "2268858b28891e86716e259680dd2d5c3f4edb37632603103b5b74c5ad942854",
+          "filename": "keyframe-56-226000.jpg",
+          "keyframeIndex": 56,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-56-226000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-56-226000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "4a55678f98506ebe22c647687b0c0fe00954b2fa2a5417fb1d7ae2f1d55e9db8",
+            "sizeBytes": 53857
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-57-230000",
+          "cacheKey": "03df96d3d74862e5e43fe934e6c008ffdb334b43b19412a28408074048a15a1a",
+          "filename": "keyframe-57-230000.jpg",
+          "keyframeIndex": 57,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-57-230000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-57-230000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "55bcdd0f49ce6cf87a89a5bec2868df31582ea8ddc54c593273bbcf995aedcf8",
+            "sizeBytes": 53587
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-58-234000",
+          "cacheKey": "88f51cbc13e42ad29c805604142989dd514cc544868795b03e3cd410ba342f32",
+          "filename": "keyframe-58-234000.jpg",
+          "keyframeIndex": 58,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-58-234000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-58-234000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "ddddd20d9e176d5c6cf5709fb39093baa52e4435af193f94c9005367421655fa",
+            "sizeBytes": 28309
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-59-238000",
+          "cacheKey": "f95e2ca9fe70ba10233b654d3b72efc6ee5b6436d26f05c69707e3969b79ac85",
+          "filename": "keyframe-59-238000.jpg",
+          "keyframeIndex": 59,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-59-238000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-59-238000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "25ba81f5aff1f095e5600fa67ac95b1b7b0506a8ed7fd6c0c35fb61c44c82e2e",
+            "sizeBytes": 47097
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-60-242000",
+          "cacheKey": "78b8a6da005f947cae02a93ed9da9ebcd2ea4ed085c668c39f77a13cfa99e554",
+          "filename": "keyframe-60-242000.jpg",
+          "keyframeIndex": 60,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-60-242000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-60-242000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "8e6c1132b792e217cac8d337088b9a8c4cdab6bbb435a15b609a52e866ff392d",
+            "sizeBytes": 48508
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-61-246000",
+          "cacheKey": "7df431697b12a70ecd297cfda5366c8541799d81f731e80b7b4acb0e5ee7b7b3",
+          "filename": "keyframe-61-246000.jpg",
+          "keyframeIndex": 61,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-61-246000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-61-246000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "ad037179ae577709c638c2d27f1434e265f0de68efffed7979fcf2e23a2df445",
+            "sizeBytes": 42692
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-62-250000",
+          "cacheKey": "a03f94412870304908eba6d5682f5a60630eb83bb9de645d7c85916c891d57fe",
+          "filename": "keyframe-62-250000.jpg",
+          "keyframeIndex": 62,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-62-250000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-62-250000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "60eb85ab36e2773700a1250f016cd89c6bb18df115aff95feff8284618513611",
+            "sizeBytes": 40741
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-63-254000",
+          "cacheKey": "acdebfaef6ca2ff142d5849b94ecd4260e8bb98592e3b8ed34735b7c2a89ae61",
+          "filename": "keyframe-63-254000.jpg",
+          "keyframeIndex": 63,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-63-254000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-63-254000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "85c9b71f676e43fd45170439c1ce6a63029481057eccadd7b8ae0839595eb748",
+            "sizeBytes": 21271
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-64-258000",
+          "cacheKey": "8a4b99985abc8c33cd9bf966b0ac43717ca12e7302a1757d65fe2194155b6f00",
+          "filename": "keyframe-64-258000.jpg",
+          "keyframeIndex": 64,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-64-258000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-64-258000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "04b7589f80a2770b5203bc248387704da6cc1e88899e52e47314560b94cf1a49",
+            "sizeBytes": 21214
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-65-262000",
+          "cacheKey": "a7d14c398aba8a028bc056d6f5b2a3df8be767d2e2365ab3bafe65d9debd729a",
+          "filename": "keyframe-65-262000.jpg",
+          "keyframeIndex": 65,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-65-262000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-65-262000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "d1d7c9daccad3e377616a92f2ec3ea3d7be229f682a0d93818d2b2223a2bd742",
+            "sizeBytes": 47937
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-66-266000",
+          "cacheKey": "78510a8fc741925d9c3827edb84545a93a11d606963e59e140912144f0214f8d",
+          "filename": "keyframe-66-266000.jpg",
+          "keyframeIndex": 66,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-66-266000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-66-266000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "9bf59112957105a6b25cbe74377bb2fae875037da5cf233d295966db070b2005",
+            "sizeBytes": 40951
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-67-270000",
+          "cacheKey": "e69a61022fe81b39c1dda2de79a12fceeaeaca7ab70af7d0dca0d714e9837568",
+          "filename": "keyframe-67-270000.jpg",
+          "keyframeIndex": 67,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-67-270000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-67-270000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "5dfe5ecb29fa9a94a70f76fb08ab882b6c6ffa92ebeb791d25a083ebf6444f45",
+            "sizeBytes": 38337
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-68-274000",
+          "cacheKey": "3bf7c506efe2b46925b9485a123bbf97213ce9801625eb55d83752132b27580e",
+          "filename": "keyframe-68-274000.jpg",
+          "keyframeIndex": 68,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-68-274000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-68-274000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "0fff987a43d309c1a1a9f9e0c9b6766eba62347a3c0a323702d38bb167e94caf",
+            "sizeBytes": 23840
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-69-278000",
+          "cacheKey": "edcc1c76703574f6db808d7b803836d2a83ce700a1abc7b5520264e2791707c1",
+          "filename": "keyframe-69-278000.jpg",
+          "keyframeIndex": 69,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-69-278000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-69-278000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "f6865140ebbeaab26d718d541a23566689c920bf4a2d64f16c53b558efeb17ec",
+            "sizeBytes": 53584
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-70-282000",
+          "cacheKey": "45e141adf88b9398a42b08a839e487843cdcdacec8ab10baa35fc7a9e5f09655",
+          "filename": "keyframe-70-282000.jpg",
+          "keyframeIndex": 70,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-70-282000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-70-282000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "68210cbd7849f73d45e06e6032b75a6f257f00246a7d7d778a239b6ad9d97b6b",
+            "sizeBytes": 52879
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-71-286000",
+          "cacheKey": "1dc3f6a98d0013dce5aefa920f8428aab5758fff41442b7ce41c872d50cf905e",
+          "filename": "keyframe-71-286000.jpg",
+          "keyframeIndex": 71,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-71-286000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-71-286000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "618f640c8805644fbebddf8f996f190f16de338ebda8bf11e80d8de39c99e244",
+            "sizeBytes": 54046
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-72-290000",
+          "cacheKey": "b08fb72bf52c5182f714c3def4aa44744ab04195c685e8a92f018c9ef682e77e",
+          "filename": "keyframe-72-290000.jpg",
+          "keyframeIndex": 72,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-72-290000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-72-290000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "67c14f0105080dfaae917278a1aa49ff09ad20506cd4ed1362a8c99585268326",
+            "sizeBytes": 30115
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-73-294000",
+          "cacheKey": "9411c52c97659544ee73f5cf46c8db728b13ac0af62a5eaad72f381f39a74b63",
+          "filename": "keyframe-73-294000.jpg",
+          "keyframeIndex": 73,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-73-294000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-73-294000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "232e1284d1b4f0486e8cc549d4df8ad7f7e136fd66dea31582878f8bf6196dbf",
+            "sizeBytes": 48744
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-74-298000",
+          "cacheKey": "20d29797777139c0a749d6a5547ab05763ed6e46eef749dc629abaa2f9303bac",
+          "filename": "keyframe-74-298000.jpg",
+          "keyframeIndex": 74,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-74-298000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-74-298000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "1738b8963609440e2d2b1c629949b1de2a96ff3417d901dfbcb2e45c968538fe",
+            "sizeBytes": 50193
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-75-302000",
+          "cacheKey": "d66ef713881e93814f3be32894de7fbcd46617eb508c8c794c140013e43c975a",
+          "filename": "keyframe-75-302000.jpg",
+          "keyframeIndex": 75,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-75-302000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-75-302000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "0ed9102ac7b69575ce331a13f05f09a6c1513b5e9331620fc6cf34f0b6be9bfa",
+            "sizeBytes": 50233
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-76-306000",
+          "cacheKey": "e2d7343aa23968c8f03028a25fad7b01fe79a3d361809796d507a46cee8dbe42",
+          "filename": "keyframe-76-306000.jpg",
+          "keyframeIndex": 76,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-76-306000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-76-306000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "138165beff4d814e9b65716cd840f18c237c3099587fe485c7006c31d550e28e",
+            "sizeBytes": 38544
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-77-310000",
+          "cacheKey": "e1868a1f0489d559bc0102b8ce5bb5618186230e922d0477167e4b1f57782ec3",
+          "filename": "keyframe-77-310000.jpg",
+          "keyframeIndex": 77,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-77-310000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-77-310000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "d1f0602ff90181ea6b6b22f9ffa91d2f588845e4d9a157df79352db120e4d66e",
+            "sizeBytes": 25957
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-78-314000",
+          "cacheKey": "ae5db8a46393e6314f329633a7b22f96fba609d757f5d80aa9ceee66a22ee6db",
+          "filename": "keyframe-78-314000.jpg",
+          "keyframeIndex": 78,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-78-314000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-78-314000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "6cd65b351559e7f31f0d63b56105f1745c0e08d12395b59c96e13bf5b68f36b7",
+            "sizeBytes": 28268
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-79-318000",
+          "cacheKey": "01802e1d7868867db0b632fd22c7dc41472fdd144cf201e71600e214494bb6c7",
+          "filename": "keyframe-79-318000.jpg",
+          "keyframeIndex": 79,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-79-318000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-79-318000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "a30c4ca05bc6e080bc93aabdc9ac51bdba8db6310b26ce5d4654a966b13c4f95",
+            "sizeBytes": 32283
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-80-322000",
+          "cacheKey": "9938e9c379a585b79d7ea3fa1da596a0362977a7815cdf2295d69f9506032216",
+          "filename": "keyframe-80-322000.jpg",
+          "keyframeIndex": 80,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-80-322000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-80-322000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "41bc08bd0997c625d4892e3203fb9ba322f366f465ac3c0c6a28ace07b6abc00",
+            "sizeBytes": 36047
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-81-326000",
+          "cacheKey": "c981fe46beb38894afa708a6a6528557a5bfb743b63c3e957f7a83b6b40eb884",
+          "filename": "keyframe-81-326000.jpg",
+          "keyframeIndex": 81,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-81-326000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-81-326000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "b131970bfe8b61be262cc51e351b4dabf37711d1a9900247cb05c2907611382a",
+            "sizeBytes": 24895
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-82-330000",
+          "cacheKey": "10b9b3a02b8939b13ccdcfd1bf452c2739ffc2366479ebbbea448b5abc98cf9c",
+          "filename": "keyframe-82-330000.jpg",
+          "keyframeIndex": 82,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-82-330000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-82-330000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "b4b007213804207505d91d06e1424e839c5e40a4d6603767bd36cfd6947c5072",
+            "sizeBytes": 41575
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-83-334000",
+          "cacheKey": "7d442ac96793e2ebbc3283412cf814b8bf73cd3307c0afd7a1be58ead8917722",
+          "filename": "keyframe-83-334000.jpg",
+          "keyframeIndex": 83,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-83-334000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-83-334000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "6cb73336f981b29e1003609f25a77099bcfc4b821fdb915e19d03a91519c2392",
+            "sizeBytes": 39520
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-84-338000",
+          "cacheKey": "05e1fbe89a980f6c3d3b0caa210a44c10c2a4eefd59c86daf6317162aeffe1d0",
+          "filename": "keyframe-84-338000.jpg",
+          "keyframeIndex": 84,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-84-338000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-84-338000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "0d7fffc7cb9f01a8173699ecc400c4debad9daaa1179bfa0f8316752302ca422",
+            "sizeBytes": 41408
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-85-342000",
+          "cacheKey": "c53e63209e639c41f2a59ba0e83c3c17d01d4cffd9f8a5648b3040c0f8f18638",
+          "filename": "keyframe-85-342000.jpg",
+          "keyframeIndex": 85,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-85-342000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-85-342000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "6fae0b4cc8575c26ba0c80ece5d6ffcd04fc0e7f586f7514eb476aed47b4230a",
+            "sizeBytes": 40939
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-86-346000",
+          "cacheKey": "9dbf2f3631b69f535a871b9d4438d75700b96e2d9e7b197001358c6bdac32e3b",
+          "filename": "keyframe-86-346000.jpg",
+          "keyframeIndex": 86,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-86-346000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-86-346000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "1a6e8cfab05a2b9c9210208e4a3614ddeee52ff8464e94fbe2d20c0df61c32d7",
+            "sizeBytes": 32207
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-87-350000",
+          "cacheKey": "b5889ae87a3d7866e5c0e4fac3d5304b19e5c50bd98946a77b618534295b12f8",
+          "filename": "keyframe-87-350000.jpg",
+          "keyframeIndex": 87,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-87-350000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-87-350000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "b2b2d43654d34b582c4c12ae6b03a74a9519f473f43e5ffc4c85cbd51d7d7b63",
+            "sizeBytes": 33358
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-88-354000",
+          "cacheKey": "294cbd202428889d954bece022f256f089849c4b33803a9d0862cb7ef09c579c",
+          "filename": "keyframe-88-354000.jpg",
+          "keyframeIndex": 88,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-88-354000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-88-354000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "0043f9bbb6201bb95c29bee1543d5dff2a490240051670836b22272dd2be52bb",
+            "sizeBytes": 40943
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-89-358000",
+          "cacheKey": "8e76dceb561d28d04ed2a9f1e0c235eca8bafe03b95146ac35da54da73973533",
+          "filename": "keyframe-89-358000.jpg",
+          "keyframeIndex": 89,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-89-358000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-89-358000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "899fa48b8d5746dec3e5691ce6dd67fce72886d3ecedc20e68932a54cb93d486",
+            "sizeBytes": 23609
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-90-362000",
+          "cacheKey": "a55078860a2eacdd9dffab8190800ed0f031bd68f038f2827a74dc13d880d869",
+          "filename": "keyframe-90-362000.jpg",
+          "keyframeIndex": 90,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-90-362000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-90-362000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "2e26fc3bafcb01d9c50b344fb995ec59d11e94e68a1ae039655857891e2530d2",
+            "sizeBytes": 23658
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-91-366000",
+          "cacheKey": "983cc2fdedec5d4942d39affd5d6b554ee9b433b13025f938a08dbecc05de77a",
+          "filename": "keyframe-91-366000.jpg",
+          "keyframeIndex": 91,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-91-366000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-91-366000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "4a031d7d31aab6f6238a2d1775e655b354e74dd53e0d90c5594384acfac7a507",
+            "sizeBytes": 28341
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-parallel-devin-92-369086",
+          "cacheKey": "01844109679fc662e625e689e92195fe2ca1ed1b1655667017fa94ac1f629b6d",
+          "filename": "keyframe-92-369086.jpg",
+          "keyframeIndex": 92,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-parallel-devin-92-369086",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-92-369086.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "904e17876d036fde10e650e5c55e5990f066b95b43deb65a4791a9ce35e359a1",
+            "sizeBytes": 8001
+          }
+        }
+      ],
+      "extractorId": "ffmpeg",
+      "extractorVersion": "ffmpeg-keyframe-v1"
+    },
+    "scenes": {
+      "artifactId": "episode-004:media-scenes:official-parallel-devin",
+      "availability": "available",
+      "cacheKey": "1cd67c0cd97d105aa7da5e2c3e2801a457887fde99212fa58fb0ab169c278301",
+      "ref": {
+        "artifactId": "episode-004:media-scenes:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/scenes.json",
+        "producer": "media-understanding-v1:scenes:scene-detector-v1",
+        "revision": 1,
+        "schemaVersion": "media-scenes-v1",
+        "sha256": "8253bcb0f8f076ec0545ced0ff7a05870af363386e29f48cb928851af8382d42",
+        "sizeBytes": 9151
+      }
+    },
+    "transcript": {
+      "artifactId": "episode-004:media-transcript:official-parallel-devin",
+      "availability": "available",
+      "cacheKey": "c4a4cbccda1504e02392f2f8fab7b99319fb568ecd4ae2b9c9b3f487dd1bfa4b",
+      "ref": {
+        "artifactId": "episode-004:media-transcript:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "ad891031dead52ceecc43d233c612e731650ce7fe35e0abd4691e08a509ba6af",
+        "sizeBytes": 35311
+      }
+    }
+  },
+  "updatedAt": "2026-08-16T12:00:00.000Z",
+  "usedProxy": true
+}

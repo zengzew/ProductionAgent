@@ -1,0 +1,97 @@
+{
+  "segmentId": "seg-001",
+  "claimIds": [
+    "claim-devin-001"
+  ],
+  "claims": [
+    {
+      "id": "claim-devin-001",
+      "claim": "Devin 的官方演示展示它接受任务后使用自带的浏览器、代码编辑器和终端自主执行，而不是只输出代码。"
+    }
+  ],
+  "narration": "任务交出去，它自己打开浏览器，开始干活。",
+  "visualIntent": "第 0 帧官方演示画面已在进行中：任务已输入，Devin 随后开始规划并打开自带浏览器执行，持续标“功能演示”。",
+  "candidates": [
+    {
+      "candidate": {
+        "clipId": "episode-004:media-clip:56a3b613fa7d6878750c8d34",
+        "mediaId": "episode-004:media:official-mercedes-interview",
+        "startMs": 16000,
+        "endMs": 20000,
+        "score": 0.394167,
+        "matchedClaimIds": [
+          "claim-devin-001"
+        ],
+        "reasons": [
+          "claim evidence claim-devin-001 fit 0.250",
+          "metadata overlap 0.083",
+          "visual intent overlap 0.167",
+          "source preference local-approved (3/5)",
+          "duration proximity 0.500 (4000ms)"
+        ],
+        "observedText": "that's quite something, right? I mean, we're rolling out Devin and Wintermute to all of our software engineering teams",
+        "textSummary": "that's quite something, right? I mean, we're rolling out Devin and Wintermute to all of our software engineering teams"
+      },
+      "keyframes": [
+        {
+          "path": "/Users/zengze/Documents/ProductionAgent-episode-004/content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-4-18000.jpg",
+          "relative": "content/episode-004/media/indexes/official-mercedes-interview/keyframes/keyframe-4-18000.jpg"
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "clipId": "episode-004:media-clip:99faf2d74c1b9d53b300d5fa",
+        "mediaId": "episode-004:media:official-parallel-devin",
+        "startMs": 236000,
+        "endMs": 240000,
+        "score": 0.394167,
+        "matchedClaimIds": [
+          "claim-devin-001"
+        ],
+        "reasons": [
+          "claim evidence claim-devin-001 fit 0.250",
+          "metadata overlap 0.083",
+          "visual intent overlap 0.167",
+          "source preference local-approved (3/5)",
+          "duration proximity 0.500 (4000ms)"
+        ],
+        "observedText": "you please devise three different ways to build this? And then spin up three Devins to build",
+        "textSummary": "you please devise three different ways to build this? And then spin up three Devins to build"
+      },
+      "keyframes": [
+        {
+          "path": "/Users/zengze/Documents/ProductionAgent-episode-004/content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-59-238000.jpg",
+          "relative": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-59-238000.jpg"
+        }
+      ]
+    },
+    {
+      "candidate": {
+        "clipId": "episode-004:media-clip:616accba2b83c24d7621afeb",
+        "mediaId": "episode-004:media:official-parallel-devin",
+        "startMs": 240000,
+        "endMs": 244000,
+        "score": 0.394167,
+        "matchedClaimIds": [
+          "claim-devin-001"
+        ],
+        "reasons": [
+          "claim evidence claim-devin-001 fit 0.250",
+          "metadata overlap 0.083",
+          "visual intent overlap 0.167",
+          "source preference local-approved (3/5)",
+          "duration proximity 0.500 (4000ms)"
+        ],
+        "observedText": "And then spin up three Devins to build those three separate ways in their own branches. And then when they're all",
+        "textSummary": "And then spin up three Devins to build those three separate ways in their own branches. And then when they're all"
+      },
+      "keyframes": [
+        {
+          "path": "/Users/zengze/Documents/ProductionAgent-episode-004/content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-60-242000.jpg",
+          "relative": "content/episode-004/media/indexes/official-parallel-devin/keyframes/keyframe-60-242000.jpg"
+        }
+      ]
+    }
+  ]
+}

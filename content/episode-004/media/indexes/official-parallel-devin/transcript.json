@@ -1,0 +1,1485 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-004:media:official-parallel-devin-proxy",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-parallel-devin-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "46b2c403a17ff68c59fe861f127e5100a81fcb44a8eb6e786a1a6da1437fd5d3",
+    "sizeBytes": 15353692
+  },
+  "asrVersion": "youtube-caption-track-v1",
+  "availability": "available",
+  "durationMs": 370172,
+  "episodeId": "episode-004",
+  "mediaId": "episode-004:media:official-parallel-devin",
+  "model": null,
+  "provider": "youtube-captions",
+  "schemaVersion": "media-transcript-v1",
+  "segments": [
+    {
+      "confidence": null,
+      "endMs": 4510,
+      "index": 0,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 2480,
+      "text": "builder in residence here at Cognition"
+    },
+    {
+      "confidence": null,
+      "endMs": 6990,
+      "index": 1,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 4520,
+      "text": "and I want to help agent pill you. So, I"
+    },
+    {
+      "confidence": null,
+      "endMs": 8710,
+      "index": 2,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 7000,
+      "text": "spent a lot of time since I started here"
+    },
+    {
+      "confidence": null,
+      "endMs": 10470,
+      "index": 3,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 8720,
+      "text": "at Cognition talking to our engineering"
+    },
+    {
+      "confidence": null,
+      "endMs": 12435,
+      "index": 4,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 10480,
+      "text": "team and trying to understand"
+    },
+    {
+      "confidence": null,
+      "endMs": 12670,
+      "index": 5,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 12445,
+      "text": ">> [music]"
+    },
+    {
+      "confidence": null,
+      "endMs": 14270,
+      "index": 6,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 12680,
+      "text": ">> how we use Devon internally. What are"
+    },
+    {
+      "confidence": null,
+      "endMs": 16310,
+      "index": 7,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 14280,
+      "text": "like the tips I should know? And there's"
+    },
+    {
+      "confidence": null,
+      "endMs": 18750,
+      "index": 8,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 16320,
+      "text": "been this one paradigm that it took me a"
+    },
+    {
+      "confidence": null,
+      "endMs": 20270,
+      "index": 9,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 18760,
+      "text": "while to grasp my head around and ever"
+    },
+    {
+      "confidence": null,
+      "endMs": 22390,
+      "index": 10,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 20280,
+      "text": "since I've been doing it, it's just been"
+    },
+    {
+      "confidence": null,
+      "endMs": 24470,
+      "index": 11,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 22400,
+      "text": "a game changer for kind of building"
+    },
+    {
+      "confidence": null,
+      "endMs": 26110,
+      "index": 12,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 24480,
+      "text": "stuff with AI. So, it's basically agent"
+    },
+    {
+      "confidence": null,
+      "endMs": 27790,
+      "index": 13,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 26120,
+      "text": "fanning out. So,"
+    },
+    {
+      "confidence": null,
+      "endMs": 31150,
+      "index": 14,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 27800,
+      "text": "what it is is I'll have Devon spin up 10"
+    },
+    {
+      "confidence": null,
+      "endMs": 33670,
+      "index": 15,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 31160,
+      "text": "other Devons or more and then they'll do"
+    },
+    {
+      "confidence": null,
+      "endMs": 35350,
+      "index": 16,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 33680,
+      "text": "stuff and I'll paralyze the tasks and"
+    },
+    {
+      "confidence": null,
+      "endMs": 36590,
+      "index": 17,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 35360,
+      "text": "then they'll all come back to the main"
+    },
+    {
+      "confidence": null,
+      "endMs": 38910,
+      "index": 18,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 36600,
+      "text": "Devon and the main Devon will merge and"
+    },
+    {
+      "confidence": null,
+      "endMs": 39990,
+      "index": 19,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 38920,
+      "text": "do everything it needs to be. So, this"
+    },
+    {
+      "confidence": null,
+      "endMs": 41350,
+      "index": 20,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 40000,
+      "text": "is super useful for research, for"
+    },
+    {
+      "confidence": null,
+      "endMs": 43670,
+      "index": 21,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 41360,
+      "text": "coding, for whatever. Our research team"
+    },
+    {
+      "confidence": null,
+      "endMs": 45590,
+      "index": 22,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 43680,
+      "text": "over here, basically when they're doing"
+    },
+    {
+      "confidence": null,
+      "endMs": 47350,
+      "index": 23,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 45600,
+      "text": "training jobs for example, they'll just"
+    },
+    {
+      "confidence": null,
+      "endMs": 48910,
+      "index": 24,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 47360,
+      "text": "spin up a hundred different Devons to"
+    },
+    {
+      "confidence": null,
+      "endMs": 50870,
+      "index": 25,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 48920,
+      "text": "read different parts of the logs and"
+    },
+    {
+      "confidence": null,
+      "endMs": 53110,
+      "index": 26,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 50880,
+      "text": "because of context window sizes, because"
+    },
+    {
+      "confidence": null,
+      "endMs": 54590,
+      "index": 27,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 53120,
+      "text": "of all that,"
+    },
+    {
+      "confidence": null,
+      "endMs": 55950,
+      "index": 28,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 54600,
+      "text": "as you know, [music] it's best to have"
+    },
+    {
+      "confidence": null,
+      "endMs": 58590,
+      "index": 29,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 55960,
+      "text": "an agent do one very specific thing. So,"
+    },
+    {
+      "confidence": null,
+      "endMs": 60350,
+      "index": 30,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 58600,
+      "text": "you have a hundred Devons look at very"
+    },
+    {
+      "confidence": null,
+      "endMs": 61670,
+      "index": 31,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 60360,
+      "text": "different things and then come back with"
+    },
+    {
+      "confidence": null,
+      "endMs": 63630,
+      "index": 32,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 61680,
+      "text": "their results. You can be a thousand"
+    },
+    {
+      "confidence": null,
+      "endMs": 66150,
+      "index": 33,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 63640,
+      "text": "times more productive with the right"
+    },
+    {
+      "confidence": null,
+      "endMs": 67950,
+      "index": 34,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 66160,
+      "text": "methods. I figured what better way to do"
+    },
+    {
+      "confidence": null,
+      "endMs": 69230,
+      "index": 35,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 67960,
+      "text": "this than to kind of just show you how"
+    },
+    {
+      "confidence": null,
+      "endMs": 71030,
+      "index": 36,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 69240,
+      "text": "to do it. Let's make a travel app. Never"
+    },
+    {
+      "confidence": null,
+      "endMs": 72950,
+      "index": 37,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 71040,
+      "text": "been to Sicily [music] before. I want an"
+    },
+    {
+      "confidence": null,
+      "endMs": 74830,
+      "index": 38,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 72960,
+      "text": "app that has everything I need to know"
+    },
+    {
+      "confidence": null,
+      "endMs": 76790,
+      "index": 39,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 74840,
+      "text": "on my phone. So, the first thing I want"
+    },
+    {
+      "confidence": null,
+      "endMs": 80190,
+      "index": 40,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 76800,
+      "text": "to do is probably create a new get repo,"
+    },
+    {
+      "confidence": null,
+      "endMs": 83190,
+      "index": 41,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 80200,
+      "text": "give myself the owner and we'll call it"
+    },
+    {
+      "confidence": null,
+      "endMs": 85950,
+      "index": 42,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 83200,
+      "text": "Sicily travel"
+    },
+    {
+      "confidence": null,
+      "endMs": 87190,
+      "index": 43,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 85960,
+      "text": "site."
+    },
+    {
+      "confidence": null,
+      "endMs": 88950,
+      "index": 44,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 87200,
+      "text": "So, there are a few categories we want"
+    },
+    {
+      "confidence": null,
+      "endMs": 90910,
+      "index": 45,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 88960,
+      "text": "to have on the app. But first, let's do"
+    },
+    {
+      "confidence": null,
+      "endMs": 92830,
+      "index": 46,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 90920,
+      "text": "the research for the categories. Please"
+    },
+    {
+      "confidence": null,
+      "endMs": 95621,
+      "index": 47,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 92840,
+      "text": "research the city Palermo in Sicily"
+    },
+    {
+      "confidence": null,
+      "endMs": 95870,
+      "index": 48,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 95631,
+      "text": ">> [music]"
+    },
+    {
+      "confidence": null,
+      "endMs": 98110,
+      "index": 49,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 95880,
+      "text": ">> and there's a few categories we probably"
+    },
+    {
+      "confidence": null,
+      "endMs": 99670,
+      "index": 50,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 98120,
+      "text": "want. We want food, so we want"
+    },
+    {
+      "confidence": null,
+      "endMs": 100870,
+      "index": 51,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 99680,
+      "text": "restaurants,"
+    },
+    {
+      "confidence": null,
+      "endMs": 103670,
+      "index": 52,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 100880,
+      "text": "we want words and phrases that I can"
+    },
+    {
+      "confidence": null,
+      "endMs": 106990,
+      "index": 53,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 103680,
+      "text": "learn, we want map directions, points of"
+    },
+    {
+      "confidence": null,
+      "endMs": 109790,
+      "index": 54,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 107000,
+      "text": "interest and then please"
+    },
+    {
+      "confidence": null,
+      "endMs": 111670,
+      "index": 55,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 109800,
+      "text": "add two or three more categories you"
+    },
+    {
+      "confidence": null,
+      "endMs": 114230,
+      "index": 56,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 111680,
+      "text": "think are right and then can you spin up"
+    },
+    {
+      "confidence": null,
+      "endMs": 116070,
+      "index": 57,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 114240,
+      "text": "a new Devon session for each of these"
+    },
+    {
+      "confidence": null,
+      "endMs": 117190,
+      "index": 58,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 116080,
+      "text": "categories? [music]"
+    },
+    {
+      "confidence": null,
+      "endMs": 119550,
+      "index": 59,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 117200,
+      "text": "And in each of these categories,"
+    },
+    {
+      "confidence": null,
+      "endMs": 121670,
+      "index": 60,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 119560,
+      "text": "I want you to do a deep research and"
+    },
+    {
+      "confidence": null,
+      "endMs": 123590,
+      "index": 61,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 121680,
+      "text": "figure out everything you need to know"
+    },
+    {
+      "confidence": null,
+      "endMs": 125550,
+      "index": 62,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 123600,
+      "text": "so we can build this kind of fully"
+    },
+    {
+      "confidence": null,
+      "endMs": 127870,
+      "index": 63,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 125560,
+      "text": "fledged app. Does that make sense before"
+    },
+    {
+      "confidence": null,
+      "endMs": 130109,
+      "index": 64,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 127880,
+      "text": "you spin it up? Ask me any questions. I"
+    },
+    {
+      "confidence": null,
+      "endMs": 132870,
+      "index": 65,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 130119,
+      "text": "like to just yap at it and then ask it"
+    },
+    {
+      "confidence": null,
+      "endMs": 134270,
+      "index": 66,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 132880,
+      "text": "to [music] ask me any questions it"
+    },
+    {
+      "confidence": null,
+      "endMs": 136510,
+      "index": 67,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 134280,
+      "text": "needs. So, let's see."
+    },
+    {
+      "confidence": null,
+      "endMs": 138070,
+      "index": 68,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 136520,
+      "text": "All right, that was pretty quick. For"
+    },
+    {
+      "confidence": null,
+      "endMs": 141350,
+      "index": 69,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 138080,
+      "text": "language, you figure it out. Budget, you"
+    },
+    {
+      "confidence": null,
+      "endMs": 144110,
+      "index": 70,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 141360,
+      "text": "figure it out."
+    },
+    {
+      "confidence": null,
+      "endMs": 147190,
+      "index": 71,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 146360,
+      "text": "you're going to see is it's going to"
+    },
+    {
+      "confidence": null,
+      "endMs": 149190,
+      "index": 72,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 147200,
+      "text": "spin up seven different Devyns to do all"
+    },
+    {
+      "confidence": null,
+      "endMs": 150390,
+      "index": 73,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 149200,
+      "text": "different things."
+    },
+    {
+      "confidence": null,
+      "endMs": 151830,
+      "index": 74,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 150400,
+      "text": "I'm going to add one more note to it"
+    },
+    {
+      "confidence": null,
+      "endMs": 153910,
+      "index": 75,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 151840,
+      "text": "before it spins it up. Please tell all"
+    },
+    {
+      "confidence": null,
+      "endMs": 156230,
+      "index": 76,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 153920,
+      "text": "the sub Devyns they should push and"
+    },
+    {
+      "confidence": null,
+      "endMs": 159470,
+      "index": 77,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 156240,
+      "text": "merge to our repo on their own and then"
+    },
+    {
+      "confidence": null,
+      "endMs": 163230,
+      "index": 78,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 159480,
+      "text": "we'll combine it all."
+    },
+    {
+      "confidence": null,
+      "endMs": 167390,
+      "index": 79,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 165160,
+      "text": "wanted to start. So, every sub Devyn"
+    },
+    {
+      "confidence": null,
+      "endMs": 168910,
+      "index": 80,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 167400,
+      "text": "it's going to be its own VM. It's going"
+    },
+    {
+      "confidence": null,
+      "endMs": 171310,
+      "index": 81,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 168920,
+      "text": "to be kind of like just its whole its"
+    },
+    {
+      "confidence": null,
+      "endMs": 172870,
+      "index": 82,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 171320,
+      "text": "own whole agent, but they can talk to"
+    },
+    {
+      "confidence": null,
+      "endMs": 174790,
+      "index": 83,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 172880,
+      "text": "each other. And I found that letting"
+    },
+    {
+      "confidence": null,
+      "endMs": 176190,
+      "index": 84,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 174800,
+      "text": "Devyn write the prompts is much better."
+    },
+    {
+      "confidence": null,
+      "endMs": 177750,
+      "index": 85,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 176200,
+      "text": "You could see it here."
+    },
+    {
+      "confidence": null,
+      "endMs": 180350,
+      "index": 86,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 177760,
+      "text": "It's kind of a"
+    },
+    {
+      "confidence": null,
+      "endMs": 181390,
+      "index": 87,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 180360,
+      "text": "They're pretty good prompts, better than"
+    },
+    {
+      "confidence": null,
+      "endMs": 182750,
+      "index": 88,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 181400,
+      "text": "I could write. We've We've gotten to"
+    },
+    {
+      "confidence": null,
+      "endMs": 184047,
+      "index": 89,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 182760,
+      "text": "that place now."
+    },
+    {
+      "confidence": null,
+      "endMs": 184270,
+      "index": 90,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 184057,
+      "text": ">> [music]"
+    },
+    {
+      "confidence": null,
+      "endMs": 186150,
+      "index": 91,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 184280,
+      "text": ">> So, I'm going to get let it auto run."
+    },
+    {
+      "confidence": null,
+      "endMs": 187750,
+      "index": 92,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 186160,
+      "text": "And now it's kicked off those seven"
+    },
+    {
+      "confidence": null,
+      "endMs": 190070,
+      "index": 93,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 187760,
+      "text": "Devyns and it's going to"
+    },
+    {
+      "confidence": null,
+      "endMs": 191670,
+      "index": 94,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 190080,
+      "text": "wait until they [music] finish. The key"
+    },
+    {
+      "confidence": null,
+      "endMs": 193990,
+      "index": 95,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 191680,
+      "text": "to really building in a AI-pilled way is"
+    },
+    {
+      "confidence": null,
+      "endMs": 195790,
+      "index": 96,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 194000,
+      "text": "just doing tons of stuff at once and"
+    },
+    {
+      "confidence": null,
+      "endMs": 197509,
+      "index": 97,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 195800,
+      "text": "just you're managing your agents. You're"
+    },
+    {
+      "confidence": null,
+      "endMs": 198910,
+      "index": 98,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 197519,
+      "text": "doing this there and this there. Now,"
+    },
+    {
+      "confidence": null,
+      "endMs": 200190,
+      "index": 99,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 198920,
+      "text": "the next thing I do, let's actually work"
+    },
+    {
+      "confidence": null,
+      "endMs": 201830,
+      "index": 100,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 200200,
+      "text": "on the app. Let's get the style right"
+    },
+    {
+      "confidence": null,
+      "endMs": 204030,
+      "index": 101,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 201840,
+      "text": "first, but please spin up a sub Devyn"
+    },
+    {
+      "confidence": null,
+      "endMs": 206590,
+      "index": 102,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 204040,
+      "text": "for each thing you want to design"
+    },
+    {
+      "confidence": null,
+      "endMs": 208550,
+      "index": 103,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 206600,
+      "text": "and run it and then"
+    },
+    {
+      "confidence": null,
+      "endMs": 210870,
+      "index": 104,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 208560,
+      "text": "build the image, look at the image, and"
+    },
+    {
+      "confidence": null,
+      "endMs": 212550,
+      "index": 105,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 210880,
+      "text": "build it again until you're satisfied"
+    },
+    {
+      "confidence": null,
+      "endMs": 213949,
+      "index": 106,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 212560,
+      "text": "with it. It might take two or three"
+    },
+    {
+      "confidence": null,
+      "endMs": 216350,
+      "index": 107,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 213959,
+      "text": "iterations each. The key is setting the"
+    },
+    {
+      "confidence": null,
+      "endMs": 217990,
+      "index": 108,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 216360,
+      "text": "agent up so it could just work on its"
+    },
+    {
+      "confidence": null,
+      "endMs": 219470,
+      "index": 109,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 218000,
+      "text": "own. Well, so let's tell it to work"
+    },
+    {
+      "confidence": null,
+      "endMs": 221070,
+      "index": 110,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 219480,
+      "text": "parallel. Make sure you're working in"
+    },
+    {
+      "confidence": null,
+      "endMs": 223470,
+      "index": 111,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 221080,
+      "text": "parallel. If you can separate tasks into"
+    },
+    {
+      "confidence": null,
+      "endMs": 225110,
+      "index": 112,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 223480,
+      "text": "things that can be done in parallel,"
+    },
+    {
+      "confidence": null,
+      "endMs": 227590,
+      "index": 113,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 225120,
+      "text": "please just spin up sub Devyn sessions"
+    },
+    {
+      "confidence": null,
+      "endMs": 229070,
+      "index": 114,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 227600,
+      "text": "that can uh"
+    },
+    {
+      "confidence": null,
+      "endMs": 230590,
+      "index": 115,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 229080,
+      "text": "do it on their own and then report back"
+    },
+    {
+      "confidence": null,
+      "endMs": 233150,
+      "index": 116,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 230600,
+      "text": "when they're done."
+    },
+    {
+      "confidence": null,
+      "endMs": 234950,
+      "index": 117,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 233160,
+      "text": "I'm going to show you another tip. Can"
+    },
+    {
+      "confidence": null,
+      "endMs": 237110,
+      "index": 118,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 234960,
+      "text": "you please devise three different ways"
+    },
+    {
+      "confidence": null,
+      "endMs": 238510,
+      "index": 119,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 237120,
+      "text": "to build this?"
+    },
+    {
+      "confidence": null,
+      "endMs": 241430,
+      "index": 120,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 238520,
+      "text": "And then spin up three Devins to build"
+    },
+    {
+      "confidence": null,
+      "endMs": 243510,
+      "index": 121,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 241440,
+      "text": "those three separate ways in their own"
+    },
+    {
+      "confidence": null,
+      "endMs": 244910,
+      "index": 122,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 243520,
+      "text": "branches. And then when they're all"
+    },
+    {
+      "confidence": null,
+      "endMs": 247190,
+      "index": 123,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 244920,
+      "text": "done, I want you to figure out which was"
+    },
+    {
+      "confidence": null,
+      "endMs": 249350,
+      "index": 124,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 247200,
+      "text": "the best uh implementation and the"
+    },
+    {
+      "confidence": null,
+      "endMs": 251150,
+      "index": 125,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 249360,
+      "text": "simplest. [music] So that's the key. And"
+    },
+    {
+      "confidence": null,
+      "endMs": 252430,
+      "index": 126,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 251160,
+      "text": "it didn't even have to be three. I could"
+    },
+    {
+      "confidence": null,
+      "endMs": 255110,
+      "index": 127,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 252440,
+      "text": "have said 10. And also I could have not"
+    },
+    {
+      "confidence": null,
+      "endMs": 257030,
+      "index": 128,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 255120,
+      "text": "even planned it out first before and let"
+    },
+    {
+      "confidence": null,
+      "endMs": 259750,
+      "index": 129,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 257040,
+      "text": "them all plan it and use that entropy to"
+    },
+    {
+      "confidence": null,
+      "endMs": 261509,
+      "index": 130,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 259760,
+      "text": "build the best thing. I love this. This"
+    },
+    {
+      "confidence": null,
+      "endMs": 263830,
+      "index": 131,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 261519,
+      "text": "means we're really overclocking Devin"
+    },
+    {
+      "confidence": null,
+      "endMs": 265510,
+      "index": 132,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 263840,
+      "text": "and working in parallel. All right,"
+    },
+    {
+      "confidence": null,
+      "endMs": 269390,
+      "index": 133,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 265520,
+      "text": "design the favicon. Let's run those."
+    },
+    {
+      "confidence": null,
+      "endMs": 271470,
+      "index": 134,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 269400,
+      "text": "Now we're cooking. Now we're cooking."
+    },
+    {
+      "confidence": null,
+      "endMs": 274150,
+      "index": 135,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 271480,
+      "text": "Look, we got like 13 Devins going."
+    },
+    {
+      "confidence": null,
+      "endMs": 275750,
+      "index": 136,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 274160,
+      "text": "And I'm feeling good and I can just sit"
+    },
+    {
+      "confidence": null,
+      "endMs": 278270,
+      "index": 137,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 275760,
+      "text": "back. These are our three approaches. So"
+    },
+    {
+      "confidence": null,
+      "endMs": 279790,
+      "index": 138,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 278280,
+      "text": "it's cloning. This is another app I"
+    },
+    {
+      "confidence": null,
+      "endMs": 281550,
+      "index": 139,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 279800,
+      "text": "made, so it's just doing the same thing."
+    },
+    {
+      "confidence": null,
+      "endMs": 285070,
+      "index": 140,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 281560,
+      "text": "Here it's using Vercel's AI SDK. That's"
+    },
+    {
+      "confidence": null,
+      "endMs": 286550,
+      "index": 141,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 285080,
+      "text": "good good option."
+    },
+    {
+      "confidence": null,
+      "endMs": 288350,
+      "index": 142,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 286560,
+      "text": "And then here it's as minimal [music] as"
+    },
+    {
+      "confidence": null,
+      "endMs": 290230,
+      "index": 143,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 288360,
+      "text": "possible. All right, so now let's read"
+    },
+    {
+      "confidence": null,
+      "endMs": 292430,
+      "index": 144,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 290240,
+      "text": "what's going on. Winner."
+    },
+    {
+      "confidence": null,
+      "endMs": 293630,
+      "index": 145,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 292440,
+      "text": "C."
+    },
+    {
+      "confidence": null,
+      "endMs": 295510,
+      "index": 146,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 293640,
+      "text": "So that's the most minimal."
+    },
+    {
+      "confidence": null,
+      "endMs": 297750,
+      "index": 147,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 295520,
+      "text": "Let's go for C."
+    },
+    {
+      "confidence": null,
+      "endMs": 300150,
+      "index": 148,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 297760,
+      "text": "Let's fix it up with uh chunking and"
+    },
+    {
+      "confidence": null,
+      "endMs": 302310,
+      "index": 149,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 300160,
+      "text": "keyword search and merge."
+    },
+    {
+      "confidence": null,
+      "endMs": 303670,
+      "index": 150,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 302320,
+      "text": "Look at that. I would have not gone for"
+    },
+    {
+      "confidence": null,
+      "endMs": 305430,
+      "index": 151,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 303680,
+      "text": "C originally, but I'm glad we tried them"
+    },
+    {
+      "confidence": null,
+      "endMs": 306990,
+      "index": 152,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 305440,
+      "text": "all out. So now"
+    },
+    {
+      "confidence": null,
+      "endMs": 310470,
+      "index": 153,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 307000,
+      "text": "my all-time favorite Devin feature,"
+    },
+    {
+      "confidence": null,
+      "endMs": 312230,
+      "index": 154,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 310480,
+      "text": "we can just watch."
+    },
+    {
+      "confidence": null,
+      "endMs": 314790,
+      "index": 155,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 312240,
+      "text": "Goes to localhost. Let's see. Should we"
+    },
+    {
+      "confidence": null,
+      "endMs": 316350,
+      "index": 156,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 314800,
+      "text": "speed this up?"
+    },
+    {
+      "confidence": null,
+      "endMs": 318710,
+      "index": 157,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 316360,
+      "text": "Do 2x. There's our Palermo guide."
+    },
+    {
+      "confidence": null,
+      "endMs": 321909,
+      "index": 158,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 318720,
+      "text": "There's our calendar."
+    },
+    {
+      "confidence": null,
+      "endMs": 327110,
+      "index": 159,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 325400,
+      "text": "This is so cool."
+    },
+    {
+      "confidence": null,
+      "endMs": 329190,
+      "index": 160,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 327120,
+      "text": "We've solved integration testing. I can"
+    },
+    {
+      "confidence": null,
+      "endMs": 331270,
+      "index": 161,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 329200,
+      "text": "do everything from my browser. But the"
+    },
+    {
+      "confidence": null,
+      "endMs": 332590,
+      "index": 162,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 331280,
+      "text": "main thing I want to demo here is just"
+    },
+    {
+      "confidence": null,
+      "endMs": 335030,
+      "index": 163,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 332600,
+      "text": "agent fan out. I have this"
+    },
+    {
+      "confidence": null,
+      "endMs": 337230,
+      "index": 164,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 335040,
+      "text": "Devin session that"
+    },
+    {
+      "confidence": null,
+      "endMs": 339390,
+      "index": 165,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 337240,
+      "text": "spun out two. This one spun out three."
+    },
+    {
+      "confidence": null,
+      "endMs": 340630,
+      "index": 166,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 339400,
+      "text": "This one"
+    },
+    {
+      "confidence": null,
+      "endMs": 343750,
+      "index": 167,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 340640,
+      "text": "eight. This one three. Like humans, when"
+    },
+    {
+      "confidence": null,
+      "endMs": 345790,
+      "index": 168,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 343760,
+      "text": "you work on one concrete thing, you're"
+    },
+    {
+      "confidence": null,
+      "endMs": 346830,
+      "index": 169,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 345800,
+      "text": "better."
+    },
+    {
+      "confidence": null,
+      "endMs": 348453,
+      "index": 170,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 346840,
+      "text": "Uh so you want to manage your agents"
+    },
+    {
+      "confidence": null,
+      "endMs": 349190,
+      "index": 171,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 348463,
+      "text": "[music]"
+    },
+    {
+      "confidence": null,
+      "endMs": 351510,
+      "index": 172,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 349200,
+      "text": "to kind of to do that sort of thing. And"
+    },
+    {
+      "confidence": null,
+      "endMs": 353590,
+      "index": 173,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 351520,
+      "text": "the best thing about this is just"
+    },
+    {
+      "confidence": null,
+      "endMs": 354990,
+      "index": 174,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 353600,
+      "text": "it kind of does the like you could do it"
+    },
+    {
+      "confidence": null,
+      "endMs": 356470,
+      "index": 175,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 355000,
+      "text": "all from the browser, you could do it"
+    },
+    {
+      "confidence": null,
+      "endMs": 358430,
+      "index": 176,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 356480,
+      "text": "all from your phone. I can close my"
+    },
+    {
+      "confidence": null,
+      "endMs": 360710,
+      "index": 177,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 358440,
+      "text": "laptop. This is all cloud agents. It's"
+    },
+    {
+      "confidence": null,
+      "endMs": 363350,
+      "index": 178,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 360720,
+      "text": "great. I don't have to"
+    },
+    {
+      "confidence": null,
+      "endMs": 364750,
+      "index": 179,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 363360,
+      "text": "go around town with an open computer. I"
+    },
+    {
+      "confidence": null,
+      "endMs": 368040,
+      "index": 180,
+      "speaker": "ns1ifgYEGl0",
+      "startMs": 364760,
+      "text": "could be playing poker right now."
+    }
+  ],
+  "sourceMediaRef": {
+    "artifactId": "episode-004:media:official-parallel-devin",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+    "sizeBytes": 16115192
+  },
+  "toolVersion": "media-asr-vtt-v1"
+}

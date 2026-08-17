@@ -1799,36 +1799,13 @@ const projectOfficialScreenshotPath = (repoRoot: string, episodeId: string): str
 };
 
 const defaultOverlays = (
-  visualType: VisualSlotSelectedType,
-  publisher: string | null,
-): MediaShotOverlays => {
-  switch (visualType) {
-    case "real-media":
-      return {
-        sourceLabel: publisher ? `${publisher} · 真实画面` : "真实画面",
-        badge: {text: "真实画面", tone: "real"},
-        captionsEnabled: true,
-      };
-    case "official-screenshot":
-      return {
-        sourceLabel: publisher ? `${publisher} · 真实页面截图` : "真实页面截图",
-        badge: {text: "真实页面截图", tone: "official"},
-        captionsEnabled: true,
-      };
-    case "data-evidence-card":
-      return {
-        sourceLabel: "数据 · Claim Ledger",
-        badge: {text: "数据证据", tone: "official"},
-        captionsEnabled: true,
-      };
-    case "programmatic-visual":
-      return {
-        sourceLabel: "功能演示 · 程序化画面",
-        badge: {text: "功能演示", tone: "demo"},
-        captionsEnabled: true,
-      };
-  }
-};
+  _visualType: VisualSlotSelectedType,
+  _publisher: string | null,
+): MediaShotOverlays => ({
+  sourceLabel: null,
+  badge: null,
+  captionsEnabled: true,
+});
 
 export type BuildMediaShotInput = {
   repoRoot: string;

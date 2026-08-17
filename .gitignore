@@ -16,3 +16,6 @@ public/episodes/*/audio/*.mp3
 public/episodes/*/audio/*.wav
 .env
 build/
+.m5-acceptance-cache/
+downloads/
+/ProductionAgent-episode-*/

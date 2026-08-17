@@ -1,0 +1,30 @@
+{
+  "verdict": "pass",
+  "clipId": "episode-004:media-clip:0c99d3720ab2d924d4c07759",
+  "relevance": 0.95,
+  "claimMatch": 0.9,
+  "visualQuality": 0.6,
+  "misleadingRisk": 0.05,
+  "observedActions": [
+    "官方发布演示：Scott Wu 出镜介绍 Devin",
+    "同段字幕：introduce you to Devin the first AI software engineer"
+  ],
+  "observedEntities": [
+    "Scott Wu",
+    "Cognition AI",
+    "Devin"
+  ],
+  "observedText": [
+    "Scott Wu CEO / Cognition AI"
+  ],
+  "recommendedStartMs": 5000,
+  "recommendedEndMs": 8000,
+  "reasons": [
+    "OCR 读到出镜人姓名卡 Scott Wu CEO / Cognition AI；字幕与旁白“称它是第一个 AI 软件工程师”逐句对应",
+    "官方首发演示（2024-03-12），与 claim 日期一致",
+    "画面为人像+姓名卡，证据直接"
+  ],
+  "reviewer": "human-approver",
+  "reviewMethod": "keyframe-OCR + caption-track review",
+  "reviewedAt": "2026-08-16T12:30:00.000Z"
+}

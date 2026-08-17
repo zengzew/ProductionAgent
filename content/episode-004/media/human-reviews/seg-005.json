@@ -1,0 +1,29 @@
+{
+  "verdict": "pass",
+  "clipId": "episode-004:media-clip:f0cc88c4c37cfea72d221ee9",
+  "relevance": 0.8,
+  "claimMatch": 0.7,
+  "visualQuality": 0.6,
+  "misleadingRisk": 0.05,
+  "observedActions": [
+    "官方客户访谈：奔驰代表与 Cognition 对谈",
+    "同段字幕：today we announced the partnership of Cognition and Mercedes-Benz",
+    "同视频 84-92 秒字幕：legacy code planned to be replaced within 8 months took us 8 days"
+  ],
+  "observedEntities": [
+    "Mercedes-Benz",
+    "Cognition",
+    "Scott Wu"
+  ],
+  "observedText": [],
+  "recommendedStartMs": 8000,
+  "recommendedEndMs": 12000,
+  "reasons": [
+    "访谈画面是奔驰合作声明的官方影像来源；COBOL 20 万行、8 个月到 8 天在同一官方访谈的 84-92 秒口播",
+    "画面为对谈（人像），数字以字幕卡补充",
+    "访谈素材属 M5 优先级最高的 interview 类型"
+  ],
+  "reviewer": "human-approver",
+  "reviewMethod": "keyframe-OCR + caption-track review",
+  "reviewedAt": "2026-08-16T12:30:00.000Z"
+}

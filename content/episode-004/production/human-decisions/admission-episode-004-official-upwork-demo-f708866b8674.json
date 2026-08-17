@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "admission-episode-004-official-upwork-demo",
+  "gate": "media-admission",
+  "decision": "approve",
+  "reviewer": "human-approver",
+  "timestamp": "2026-08-16T12:00:00.000Z",
+  "reason": "episode-004 人工批准素材准入：Devin's Upwork Side Hustle — https://www.youtube.com/watch?v=UTS2Hz96HYQ ，上传 2024-03-15。官方演示：Devin 在 Upwork 上接下真实外包任务，自己",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-004:media:source-manifest",
+      "episodeId": "episode-004",
+      "path": "content/episode-004/media/source-manifest.json",
+      "mediaType": "application/json",
+      "schemaVersion": "media-source-manifest-v1",
+      "revision": 1,
+      "sha256": "7c79dbf098e3a2a46dbac98da6fd31986fefe776d327831ed1d36f7c3fdfdf0a",
+      "sizeBytes": 11762,
+      "producer": "episode-004-media-pipeline",
+      "createdAt": "2026-08-16T12:00:00.000Z"
+    }
+  ],
+  "approvalEpoch": 0,
+  "authorizations": [],
+  "edits": []
+}

@@ -1,0 +1,640 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-004:media:official-upwork-demo-proxy",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-upwork-demo-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "8712a2e8ea9bc02a7bbc96005e5ace8c0b1eb5085b6f3b8795f36e9a9cd74090",
+    "sizeBytes": 3821433
+  },
+  "episodeId": "episode-004",
+  "indexVersion": "media-clip-index-v1",
+  "mediaId": "episode-004:media:official-upwork-demo",
+  "mediaSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+  "schemaVersion": "media-understanding-status-v1",
+  "stages": {
+    "clip-index": {
+      "artifactId": "episode-004:media-clip-index:official-upwork-demo",
+      "availability": "available",
+      "cacheKey": "f0d0ddbe7d37b4ec3e1a1d227938bfa4edeca668ab3fb5666fdf4a2612e0a982",
+      "ref": {
+        "artifactId": "episode-004:media-clip-index:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-upwork-demo/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "f3e0a23847c3bd026d88697914984fc2bcefc863d7bab63add0917ff997bc080",
+        "sizeBytes": 100929
+      }
+    },
+    "keyframes": {
+      "availability": "available",
+      "cacheKey": "d82028ca3110d881722a1e9669fe99730c9564198a99076cebd8c0c947711bb7",
+      "entries": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-0-2000",
+          "cacheKey": "9a66de99f1520575a09fe16bb05d53fb43450c955cbd569cbcc86d22ab38140d",
+          "filename": "keyframe-0-2000.jpg",
+          "keyframeIndex": 0,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-0-2000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-0-2000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "2fcb69a7455fc4cf98610b350cf661b9827389d2f2d31cf00809d5f8aa071f84",
+            "sizeBytes": 36515
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-1-6000",
+          "cacheKey": "28f661bdc09c340f9d6b676c919749c4cecb808653217378aec4f814f15a16ff",
+          "filename": "keyframe-1-6000.jpg",
+          "keyframeIndex": 1,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-1-6000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-1-6000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "a66fae32d322044505b67fe706700eecce8905e7e8663faa983053fe396bb413",
+            "sizeBytes": 37046
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-2-10000",
+          "cacheKey": "878039e3763ff57d71cc0884ca3cb47ac13683982a8eb37024077f47cc369335",
+          "filename": "keyframe-2-10000.jpg",
+          "keyframeIndex": 2,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-2-10000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-2-10000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "a14f27248755c01544b112f2db129c8ea9b09e1db6b4ce107901f808f7e33ede",
+            "sizeBytes": 36945
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-3-14000",
+          "cacheKey": "df652fd10793b3a0ab57ef02a666c183fa0ea17e94994554fc2a378482128ea6",
+          "filename": "keyframe-3-14000.jpg",
+          "keyframeIndex": 3,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-3-14000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-3-14000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "b2724ae66dc300427d024b8dfad1e0e096f27915e3d61b494f5acbd289e61e00",
+            "sizeBytes": 33931
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-4-18000",
+          "cacheKey": "fe68612771b212d566280d99b1c9b5bbb5a8ade9460605c9964eabe178fba411",
+          "filename": "keyframe-4-18000.jpg",
+          "keyframeIndex": 4,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-4-18000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-4-18000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "15b3f0743240ab22f5e40958486c5682acfffc65e695577200e5006ebf327140",
+            "sizeBytes": 24555
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-5-22000",
+          "cacheKey": "adef9d8efc6df0680cc912e987fed114aaf509b98f4b35c0987a08e479cc5426",
+          "filename": "keyframe-5-22000.jpg",
+          "keyframeIndex": 5,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-5-22000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-5-22000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "d0e0249ac15f9d674a3a04d782addc352e0c46eef4b5f239f27d96fcc9798765",
+            "sizeBytes": 19272
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-6-26000",
+          "cacheKey": "108a5669ca7a4e1e76b69982ad652e01ef9198d8dc675a66f04824414f3013c0",
+          "filename": "keyframe-6-26000.jpg",
+          "keyframeIndex": 6,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-6-26000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-6-26000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "5aa305eafafecc0366c21defb6325fb593f53a33da0219f0985e4e35d99a38ed",
+            "sizeBytes": 19355
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-7-30000",
+          "cacheKey": "2ea399c320e604da7cbc43ec8499fcbef32e1e96e4c9b457a1a45969720fa63e",
+          "filename": "keyframe-7-30000.jpg",
+          "keyframeIndex": 7,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-7-30000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-7-30000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "0fa3746a7efcd374d54bc8322fcd793211a0f4f0dee9aa2f22ef899cef2c643d",
+            "sizeBytes": 45023
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-8-34000",
+          "cacheKey": "0ac81dbc3f6841bb9b5c6d7f7a07aa721402e959cce27c4a6e4c1e739cc8d794",
+          "filename": "keyframe-8-34000.jpg",
+          "keyframeIndex": 8,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-8-34000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-8-34000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "5ce949c342dcc409a22f59c95f67b3a747a5ed8ea3e08064af912350c4e67539",
+            "sizeBytes": 48494
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-9-38000",
+          "cacheKey": "032bfab728ca26c1bcfbc179506d9f86f15b166c9e260d825aa5d4b5e400b1e9",
+          "filename": "keyframe-9-38000.jpg",
+          "keyframeIndex": 9,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-9-38000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-9-38000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "0b21400e14274e5f4a19106fc994ef4b67cad1fe7672eed8bca54d9a73eb435a",
+            "sizeBytes": 41137
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-10-42000",
+          "cacheKey": "f54eb878334fc3df3490e5323b521bdd7b6edfb2c7feddc9855f83e614cb5b4e",
+          "filename": "keyframe-10-42000.jpg",
+          "keyframeIndex": 10,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-10-42000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-10-42000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "477f168ff071fc6f985405083aba0f2820ee74e8b2ca9e332e0d225a815112cd",
+            "sizeBytes": 40515
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-11-46000",
+          "cacheKey": "20832ede33b95f468cec1343d6307e447738dbe3911678628c54af559f1d7482",
+          "filename": "keyframe-11-46000.jpg",
+          "keyframeIndex": 11,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-11-46000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-11-46000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "aba4dbce4944d444f1e44e58ea2ad0f5d62237c8bd3479e7d9a53aee32563f44",
+            "sizeBytes": 43170
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-12-50000",
+          "cacheKey": "b2337a94ed03e0176890ef978185fd756f6ac0424ffd5a7a52c277a1df5439af",
+          "filename": "keyframe-12-50000.jpg",
+          "keyframeIndex": 12,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-12-50000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-12-50000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "3f993d7f9f8a39b1f9705c5d98207451b72b7ca80c7167ed5e563ca52da7c321",
+            "sizeBytes": 54692
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-13-54000",
+          "cacheKey": "f4098389c202b617ee570c5db5ea13da1c5bf4199de16ec10c493f75334d3a74",
+          "filename": "keyframe-13-54000.jpg",
+          "keyframeIndex": 13,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-13-54000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-13-54000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "56f1eb7024430e500d0bb2aa5a3fe3bc1c8ff707682740fc155081cfab14b1de",
+            "sizeBytes": 42670
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-14-58000",
+          "cacheKey": "9117181c4fbee40a4cbafb88d54ac13385795249ea0b2f5a039b3eaff489eeac",
+          "filename": "keyframe-14-58000.jpg",
+          "keyframeIndex": 14,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-14-58000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-14-58000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "5318e46f7bb2f039db4f0e06bdbf5679b4468d15bf3bf8248406862ea5c791a9",
+            "sizeBytes": 54760
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-15-62000",
+          "cacheKey": "a1c63a6e9660da4bf26646b5a3402ef0cdee13b567ad7c9d7d0b9026e29b65f4",
+          "filename": "keyframe-15-62000.jpg",
+          "keyframeIndex": 15,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-15-62000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-15-62000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "bd6ad4337206cb5f0e7de93c34dbb22f6a27c06f88e086a0b307080beed6571c",
+            "sizeBytes": 42590
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-16-66000",
+          "cacheKey": "17723f402ca1f5d0abe4e91a3b33fbac9ff9d4c596d7189933f167cba613d112",
+          "filename": "keyframe-16-66000.jpg",
+          "keyframeIndex": 16,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-16-66000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-16-66000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "02df5ec3f8e72a90d776dc9efea98b49a1b2259034b5da02d89952202b34b887",
+            "sizeBytes": 44614
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-17-70000",
+          "cacheKey": "bbac89d7a5c93d2e599348844f91fd72e1cf461bd33435c8bf446c8c5f22ea85",
+          "filename": "keyframe-17-70000.jpg",
+          "keyframeIndex": 17,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-17-70000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-17-70000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "7c8b956fe1dd85a5b935a308d92b8f35e1efb482761539fb2480ca570b899650",
+            "sizeBytes": 48737
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-18-74000",
+          "cacheKey": "0aabac3daaff783c0eea3601fe15692c63447da43681a59c4bb62a8dd76bc2b4",
+          "filename": "keyframe-18-74000.jpg",
+          "keyframeIndex": 18,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-18-74000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-18-74000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "a7b69a890b882bcffb12143e9fa8f8967969a8aa01c86f650e0ca8fcb2d16486",
+            "sizeBytes": 49034
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-19-78000",
+          "cacheKey": "05a554ccdfc03df4e3dcaf5120bad1c72df4073d40058cac3324e21d9d12c398",
+          "filename": "keyframe-19-78000.jpg",
+          "keyframeIndex": 19,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-19-78000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-19-78000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "60d2b82d76a11a214cda1110c5609a6e163a5141c4d2a6b61264ef4c895856f9",
+            "sizeBytes": 43637
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-20-82000",
+          "cacheKey": "0b348eac3829265b5617df1428a4984df5b94373b311361bf164a470d0817570",
+          "filename": "keyframe-20-82000.jpg",
+          "keyframeIndex": 20,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-20-82000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-20-82000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "c2a1b278bb98956b0c155632edbe4fdeafce196a0a9c15fb2dafbb0ca518dfb1",
+            "sizeBytes": 48016
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-21-86000",
+          "cacheKey": "cc885fe04c473528cddf420b266ab9591d35b047453799ca20e95db7f089b329",
+          "filename": "keyframe-21-86000.jpg",
+          "keyframeIndex": 21,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-21-86000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-21-86000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "3afee33fb560f3802b322a9c2ff9b2f1109949cef96e2df2bef5048ec8908d04",
+            "sizeBytes": 56854
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-22-90000",
+          "cacheKey": "0df4e0ad9f2c0ade598ef00971928a810c20f80ac5d71aaaa9e30d56e4871e6a",
+          "filename": "keyframe-22-90000.jpg",
+          "keyframeIndex": 22,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-22-90000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-22-90000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "db2d63867d3b827557820a72b5c80e49222b5b76a67f3b2115580f574bcd5189",
+            "sizeBytes": 57332
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-23-94000",
+          "cacheKey": "de69018c24a76e47779bf2ecfa53a67eafe82887187eb92f4127914467ffc862",
+          "filename": "keyframe-23-94000.jpg",
+          "keyframeIndex": 23,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-23-94000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-23-94000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "7c24112f4c33da106f4b6b38cc057fcf97e2637dd0e1253537b372d212884c26",
+            "sizeBytes": 40886
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-24-98000",
+          "cacheKey": "c2ec610706e1ff6cb9859a6b7dceb18179c048f68efc627a07d9749da6c76732",
+          "filename": "keyframe-24-98000.jpg",
+          "keyframeIndex": 24,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-24-98000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-24-98000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "146bec7d4cbc51b353167bb86b926757ca3d13a060ed018337566f458d945603",
+            "sizeBytes": 55915
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-25-102000",
+          "cacheKey": "da5038aaf545b340a881dffa905929eb5d1c28a02362a9ca27d9bc3db8e7f2fa",
+          "filename": "keyframe-25-102000.jpg",
+          "keyframeIndex": 25,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-25-102000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-25-102000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "ab6f5eb31763e571734fea7943b3bb0937a52d0f8eefa69af31114780f2c5c33",
+            "sizeBytes": 43407
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-26-106000",
+          "cacheKey": "bb317e1591ca797d5461f252c87bd9685b67f923b5641bfdde20dbdf25971141",
+          "filename": "keyframe-26-106000.jpg",
+          "keyframeIndex": 26,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-26-106000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-26-106000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "7020121fe6a964533820c5d4b8074d4d806033bdd80eb70ea3a7d4f18d3baf91",
+            "sizeBytes": 42714
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-27-110000",
+          "cacheKey": "2b268dfa0675f51bcb8b83652e8e5348ad17fdc0113929211153a3315c221733",
+          "filename": "keyframe-27-110000.jpg",
+          "keyframeIndex": 27,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-27-110000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-27-110000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "62ee2608cb98e3ca2dc1e88ec33f5fa88c6dae250f24c416b1f2af24be1e5d68",
+            "sizeBytes": 17638
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-28-114000",
+          "cacheKey": "793a24de0258cdfd6256053bd2c7d49846d3597635456d98000ab5b3a850299c",
+          "filename": "keyframe-28-114000.jpg",
+          "keyframeIndex": 28,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-28-114000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-28-114000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "97440592c422802ad2fd9cb8a936a8ca9735b59a5179e81aa46d0ce4cf2ed128",
+            "sizeBytes": 35882
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-29-118000",
+          "cacheKey": "2b570d2e394f47850e64dd858492ceac077a97c79f9cfdace096dfc1b7aec217",
+          "filename": "keyframe-29-118000.jpg",
+          "keyframeIndex": 29,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-29-118000",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-29-118000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "9f4b69af5801dd3e45fa6b59958235feb4bc01fe3f5ce8cb40b3af4afc117905",
+            "sizeBytes": 64406
+          }
+        },
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-30-120627",
+          "cacheKey": "f8bb4c63bef57859cfb67b95011b5cce0529b0ccff65a1f2f2c6ebe5fdc27d3c",
+          "filename": "keyframe-30-120627.jpg",
+          "keyframeIndex": 30,
+          "ref": {
+            "artifactId": "episode-004:media-keyframe:official-upwork-demo-30-120627",
+            "createdAt": "2026-08-16T12:00:00.000Z",
+            "episodeId": "episode-004",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-30-120627.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "d78db5eea9b69207c3102a9ef26db7e5db6a30abc1195d027561cda73f7d3a36",
+            "sizeBytes": 64320
+          }
+        }
+      ],
+      "extractorId": "ffmpeg",
+      "extractorVersion": "ffmpeg-keyframe-v1"
+    },
+    "scenes": {
+      "artifactId": "episode-004:media-scenes:official-upwork-demo",
+      "availability": "available",
+      "cacheKey": "3c7f3330b915d1d4d79a5c6031b5ce6d5f4246748394dbe21f52fc78a6acae24",
+      "ref": {
+        "artifactId": "episode-004:media-scenes:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+        "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+        "revision": 1,
+        "schemaVersion": "media-scenes-v1",
+        "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+        "sizeBytes": 3944
+      }
+    },
+    "transcript": {
+      "artifactId": "episode-004:media-transcript:official-upwork-demo",
+      "availability": "available",
+      "cacheKey": "25e625089ff223fab1079dc96a564b414fcbd9945f76ab72633ade344a2fc24e",
+      "ref": {
+        "artifactId": "episode-004:media-transcript:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+        "sizeBytes": 9867
+      }
+    }
+  },
+  "updatedAt": "2026-08-16T12:00:00.000Z",
+  "usedProxy": true
+}

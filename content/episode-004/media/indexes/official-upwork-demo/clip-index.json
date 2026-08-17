@@ -1,0 +1,2532 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-004:media:official-upwork-demo-proxy",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-upwork-demo-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "8712a2e8ea9bc02a7bbc96005e5ace8c0b1eb5085b6f3b8795f36e9a9cd74090",
+    "sizeBytes": 3821433
+  },
+  "asrModel": null,
+  "asrProvider": "youtube-captions",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-004",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-004:media-clip:3cc23bfde3498571d048571d",
+      "endMs": 4000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-0-2000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-0-2000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "2fcb69a7455fc4cf98610b350cf661b9827389d2f2d31cf00809d5f8aa071f84",
+          "sizeBytes": 36515
+        }
+      ],
+      "keywords": [
+        "AI",
+        "at",
+        "cognition",
+        "here",
+        "playing",
+        "we",
+        "were"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "here at cognition AI we were playing",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 0,
+      "textSummary": "here at cognition AI we were playing",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:655a765fd76992848d3052a5",
+      "endMs": 8000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-1-6000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-1-6000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "a66fae32d322044505b67fe706700eecce8905e7e8663faa983053fe396bb413",
+          "sizeBytes": 37046
+        }
+      ],
+      "keywords": [
+        "here",
+        "AI",
+        "around",
+        "at",
+        "cognition",
+        "could",
+        "Devin",
+        "hustle",
+        "not",
+        "on",
+        "or",
+        "playing"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "here at cognition AI we were playing around with whether or not Devin could start a side hustle on upwork so here's",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 4000,
+      "textSummary": "here at cognition AI we were playing around with whether or not Devin could start a side hustle on upwork so here's",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:d887797157ff7bf93c798d70",
+      "endMs": 12000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-2-10000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-2-10000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "a14f27248755c01544b112f2db129c8ea9b09e1db6b4ce107901f808f7e33ede",
+          "sizeBytes": 36945
+        }
+      ],
+      "keywords": [
+        "upwork",
+        "actual",
+        "client",
+        "computer",
+        "from",
+        "here",
+        "hustle",
+        "job",
+        "on",
+        "real",
+        "set",
+        "side"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "start a side hustle on upwork so here's actual real job from upwork where the client wants to set up this computer",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 8000,
+      "textSummary": "start a side hustle on upwork so here's actual real job from upwork where the client wants to set up this computer",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:b02e3d504871a1133617d983",
+      "endMs": 16000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-3-14000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-3-14000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "b2724ae66dc300427d024b8dfad1e0e096f27915e3d61b494f5acbd289e61e00",
+          "sizeBytes": 33931
+        }
+      ],
+      "keywords": [
+        "set",
+        "to",
+        "actually",
+        "client",
+        "computer",
+        "difficult",
+        "interesting",
+        "looks",
+        "model",
+        "quite",
+        "seems",
+        "this"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "client wants to set up this computer vision model which actually looks quite interesting seems very difficult to set",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 12000,
+      "textSummary": "client wants to set up this computer vision model which actually looks quite interesting seems very difficult to set",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:d47df003b6ba22e0e6423e6f",
+      "endMs": 20000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-4-18000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-4-18000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "15b3f0743240ab22f5e40958486c5682acfffc65e695577200e5006ebf327140",
+          "sizeBytes": 24555
+        }
+      ],
+      "keywords": [
+        "you",
+        "but",
+        "difficult",
+        "doing",
+        "give",
+        "how",
+        "interesting",
+        "know",
+        "not",
+        "seems",
+        "set",
+        "start"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "interesting seems very difficult to set up um I'm not sure how I would start doing this but you know you give the",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 16000,
+      "textSummary": "interesting seems very difficult to set up um I'm not sure how I would start doing this but you know you give the",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:cc02b905a08c84fb2b9d4295",
+      "endMs": 24000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-5-22000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-5-22000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "d0e0249ac15f9d674a3a04d782addc352e0c46eef4b5f239f27d96fcc9798765",
+          "sizeBytes": 19272
+        }
+      ],
+      "keywords": [
+        "Devon",
+        "to",
+        "you",
+        "and",
+        "ask",
+        "but",
+        "doing",
+        "figure",
+        "give",
+        "it",
+        "know",
+        "task"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "doing this but you know you give the task to Devon and ask Devon to figure it",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 20000,
+      "textSummary": "doing this but you know you give the task to Devon and ask Devon to figure it",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:b8bb64f1ff5c290c7bb41d74",
+      "endMs": 28000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-6-26000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-6-26000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "5aa305eafafecc0366c21defb6325fb593f53a33da0219f0985e4e35d99a38ed",
+          "sizeBytes": 19355
+        }
+      ],
+      "keywords": [
+        "and",
+        "Devon",
+        "to",
+        "ahead",
+        "ask",
+        "can",
+        "figure",
+        "goes",
+        "immediately",
+        "it",
+        "just",
+        "kick"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "task to Devon and ask Devon to figure it out and things just kick off Devon immediately goes ahead and you can see",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 24000,
+      "textSummary": "task to Devon and ask Devon to figure it out and things just kick off Devon immediately goes ahead and you can see",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:f463cbaab9ca0eef63a7a394",
+      "endMs": 32000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-7-30000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-7-30000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "0fa3746a7efcd374d54bc8322fcd793211a0f4f0dee9aa2f22ef899cef2c643d",
+          "sizeBytes": 45023
+        }
+      ],
+      "keywords": [
+        "it",
+        "ahead",
+        "and",
+        "can",
+        "goes",
+        "immediately",
+        "of",
+        "repo",
+        "see",
+        "setting",
+        "sort",
+        "starts"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "immediately goes ahead and you can see it sort of starts setting up the repo it",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 28000,
+      "textSummary": "immediately goes ahead and you can see it sort of starts setting up the repo it",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:bab67c556da29852ba8a7767",
+      "endMs": 36000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-8-34000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-8-34000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "5ce949c342dcc409a22f59c95f67b3a747a5ed8ea3e08064af912350c4e67539",
+          "sizeBytes": 48494
+        }
+      ],
+      "keywords": [
+        "it",
+        "the",
+        "actually",
+        "Devon",
+        "here",
+        "how",
+        "if",
+        "into",
+        "issues",
+        "of",
+        "repo",
+        "runs"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "it sort of starts setting up the repo it actually runs into some issues here with the versioning so if you watch how Devon",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 32000,
+      "textSummary": "it sort of starts setting up the repo it actually runs into some issues here with the versioning so if you watch how Devon",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:6d3c3d76ff2c69fc5307f287",
+      "endMs": 40000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-9-38000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-9-38000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "0b21400e14274e5f4a19106fc994ef4b67cad1fe7672eed8bca54d9a73eb435a",
+          "sizeBytes": 41137
+        }
+      ],
+      "keywords": [
+        "the",
+        "actually",
+        "code",
+        "deals",
+        "deon",
+        "Devon",
+        "how",
+        "if",
+        "it",
+        "so",
+        "to",
+        "updating"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "the versioning so if you watch how Devon deals with it deon's actually updating the code to",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 36000,
+      "textSummary": "the versioning so if you watch how Devon deals with it deon's actually updating the code to",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:5b39aaf0edc055c4c1b64173",
+      "endMs": 44000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-10-42000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-10-42000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "477f168ff071fc6f985405083aba0f2820ee74e8b2ca9e332e0d225a815112cd",
+          "sizeBytes": 40515
+        }
+      ],
+      "keywords": [
+        "actually",
+        "and",
+        "code",
+        "continues",
+        "deon",
+        "he",
+        "it",
+        "loading",
+        "make",
+        "the",
+        "these",
+        "things"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "it deon's actually updating the code to make these things work he continues with this loading and",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 40000,
+      "textSummary": "it deon's actually updating the code to make these things work he continues with this loading and",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:537727bd1b0310f5cbb695c8",
+      "endMs": 48000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-11-46000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-11-46000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "aba4dbce4944d444f1e44e58ea2ad0f5d62237c8bd3479e7d9a53aee32563f44",
+          "sizeBytes": 43170
+        }
+      ],
+      "keywords": [
+        "and",
+        "can",
+        "continues",
+        "he",
+        "importing",
+        "loading",
+        "packages",
+        "see",
+        "that",
+        "this",
+        "with",
+        "work"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "work he continues with this loading and importing packages you can see that",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 44000,
+      "textSummary": "work he continues with this loading and importing packages you can see that",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:1fa54ac1215573d0d1649ea2",
+      "endMs": 52000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-12-50000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-12-50000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "3f993d7f9f8a39b1f9705c5d98207451b72b7ca80c7167ed5e563ca52da7c321",
+          "sizeBytes": 54692
+        }
+      ],
+      "keywords": [
+        "the",
+        "actually",
+        "can",
+        "downloads",
+        "from",
+        "images",
+        "importing",
+        "internet",
+        "packages",
+        "run",
+        "see",
+        "that"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "importing packages you can see that actually downloads images from the internet to run through the",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 48000,
+      "textSummary": "importing packages you can see that actually downloads images from the internet to run through the",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:1349f8964a52e4403f420da0",
+      "endMs": 56000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-13-54000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-13-54000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "56f1eb7024430e500d0bb2aa5a3fe3bc1c8ff707682740fc155081cfab14b1de",
+          "sizeBytes": 42670
+        }
+      ],
+      "keywords": [
+        "that",
+        "across",
+        "actually",
+        "are",
+        "but",
+        "can",
+        "come",
+        "here",
+        "internet",
+        "issues",
+        "model",
+        "run"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "internet to run through the model but you can see here that there are actually some issues that come across",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 52000,
+      "textSummary": "internet to run through the model but you can see here that there are actually some issues that come across",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:8aefe6f67dd0544084f4b957",
+      "endMs": 60000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-14-58000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-14-58000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "5318e46f7bb2f039db4f0e06bdbf5679b4468d15bf3bf8248406862ea5c791a9",
+          "sizeBytes": 54760
+        }
+      ],
+      "keywords": [
+        "across",
+        "actually",
+        "come",
+        "Devon",
+        "handle",
+        "how",
+        "however",
+        "issues",
+        "knows",
+        "some",
+        "that",
+        "these"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "actually some issues that come across however Devon knows how to handle these",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 56000,
+      "textSummary": "actually some issues that come across however Devon knows how to handle these",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:f714287c8ceee610709056dc",
+      "endMs": 64000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-15-62000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-15-62000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "bd6ad4337206cb5f0e7de93c34dbb22f6a27c06f88e086a0b307080beed6571c",
+          "sizeBytes": 42590
+        }
+      ],
+      "keywords": [
+        "Devon",
+        "and",
+        "handle",
+        "how",
+        "however",
+        "kind",
+        "knows",
+        "of",
+        "pushes",
+        "these",
+        "things",
+        "through"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "however Devon knows how to handle these things Devon kind of pushes through and",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 60000,
+      "textSummary": "however Devon knows how to handle these things Devon kind of pushes through and",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:3f0c40e3ee29844ca3b92e4d",
+      "endMs": 68000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-16-66000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-16-66000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "02df5ec3f8e72a90d776dc9efea98b49a1b2259034b5da02d89952202b34b887",
+          "sizeBytes": 44614
+        }
+      ],
+      "keywords": [
+        "Devon",
+        "actually",
+        "and",
+        "closely",
+        "debugging",
+        "doing",
+        "if",
+        "kind",
+        "line",
+        "look",
+        "of",
+        "print"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "things Devon kind of pushes through and if you look closely Devon's actually doing print line debugging",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 64000,
+      "textSummary": "things Devon kind of pushes through and if you look closely Devon's actually doing print line debugging",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:71eecfb1ebdd8436ed42d545",
+      "endMs": 72000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-17-70000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-17-70000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "7c8b956fe1dd85a5b935a308d92b8f35e1efb482761539fb2480ca570b899650",
+          "sizeBytes": 48737
+        }
+      ],
+      "keywords": [
+        "adding",
+        "debugging",
+        "Devon",
+        "doing",
+        "here",
+        "is",
+        "line",
+        "print",
+        "these",
+        "where"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "doing print line debugging here where Devon is adding these",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 68000,
+      "textSummary": "doing print line debugging here where Devon is adding these",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:f51e3f3a772306d86549aee2",
+      "endMs": 76000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-18-74000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-18-74000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "a7b69a890b882bcffb12143e9fa8f8967969a8aa01c86f650e0ca8fcb2d16486",
+          "sizeBytes": 49034
+        }
+      ],
+      "keywords": [
+        "where",
+        "adding",
+        "data",
+        "Devon",
+        "here",
+        "is",
+        "statements",
+        "the",
+        "these",
+        "to",
+        "track"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "here where Devon is adding these statements to track where the data",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 72000,
+      "textSummary": "here where Devon is adding these statements to track where the data",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:b614414d6076f67056583bf8",
+      "endMs": 80000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-19-78000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-19-78000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "60d2b82d76a11a214cda1110c5609a6e163a5141c4d2a6b61264ef4c895856f9",
+          "sizeBytes": 43637
+        }
+      ],
+      "keywords": [
+        "Devon",
+        "to",
+        "and",
+        "continues",
+        "data",
+        "do",
+        "everything",
+        "flows",
+        "how",
+        "statements",
+        "the",
+        "this"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "statements to track where the data flows and Devon continues to do this until Devon understands how everything's",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 76000,
+      "textSummary": "statements to track where the data flows and Devon continues to do this until Devon understands how everything's",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:116b726fdb449741929e111d",
+      "endMs": 84000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-20-82000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-20-82000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "c2a1b278bb98956b0c155632edbe4fdeafce196a0a9c15fb2dafbb0ca518dfb1",
+          "sizeBytes": 48016
+        }
+      ],
+      "keywords": [
+        "actually",
+        "and",
+        "Devon",
+        "everything",
+        "how",
+        "the",
+        "then",
+        "understands",
+        "until",
+        "updates",
+        "working"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "until Devon understands how everything's working and actually then updates the",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 80000,
+      "textSummary": "until Devon understands how everything's working and actually then updates the",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:43a851f3468e58ce353f1360",
+      "endMs": 88000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-21-86000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-21-86000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "3afee33fb560f3802b322a9c2ff9b2f1109949cef96e2df2bef5048ec8908d04",
+          "sizeBytes": 56854
+        }
+      ],
+      "keywords": [
+        "the",
+        "actually",
+        "after",
+        "and",
+        "code",
+        "fixes",
+        "line",
+        "print",
+        "removing",
+        "statements",
+        "then",
+        "updates"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "working and actually then updates the code with the fixes after removing print line statements",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 84000,
+      "textSummary": "working and actually then updates the code with the fixes after removing print line statements",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:440e1c80da42f4add32cff0c",
+      "endMs": 92000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-22-90000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-22-90000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "db2d63867d3b827557820a72b5c80e49222b5b76a67f3b2115580f574bcd5189",
+          "sizeBytes": 57332
+        }
+      ],
+      "keywords": [
+        "after",
+        "continues",
+        "Deon",
+        "fixing",
+        "line",
+        "of",
+        "pattern",
+        "print",
+        "removing",
+        "statements",
+        "this"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "after removing print line statements Deon continues this pattern of fixing",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 88000,
+      "textSummary": "after removing print line statements Deon continues this pattern of fixing",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:fc4fa2f184588c42a5a29ce3",
+      "endMs": 96000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-23-94000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-23-94000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "7c24112f4c33da106f4b6b38cc057fcf97e2637dd0e1253537b372d212884c26",
+          "sizeBytes": 40886
+        }
+      ],
+      "keywords": [
+        "it",
+        "again",
+        "and",
+        "code",
+        "continues",
+        "Deon",
+        "fixing",
+        "of",
+        "pattern",
+        "running",
+        "runs",
+        "this"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "Deon continues this pattern of fixing code and running it again until it runs",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 92000,
+      "textSummary": "Deon continues this pattern of fixing code and running it again until it runs",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:569f75ccf1f149b193f48857",
+      "endMs": 100000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-24-98000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-24-98000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "146bec7d4cbc51b353167bb86b926757ca3d13a060ed018337566f458d945603",
+          "sizeBytes": 55915
+        }
+      ],
+      "keywords": [
+        "across",
+        "and",
+        "it",
+        "the",
+        "again",
+        "all",
+        "ask",
+        "can",
+        "code",
+        "for",
+        "image",
+        "model"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "code and running it again until it runs the image model across all these roads across the world and we can ask for a",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 96000,
+      "textSummary": "code and running it again until it runs the image model across all these roads across the world and we can ask for a",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:79de18975be7964acce92763",
+      "endMs": 104000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-25-102000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-25-102000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "ab6f5eb31763e571734fea7943b3bb0937a52d0f8eefa69af31114780f2c5c33",
+          "sizeBytes": 43407
+        }
+      ],
+      "keywords": [
+        "Devon",
+        "across",
+        "and",
+        "ask",
+        "at",
+        "can",
+        "for",
+        "from",
+        "over",
+        "point",
+        "report",
+        "sends"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "across the world and we can ask for a report from Devon at which point Devon sends over",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 100000,
+      "textSummary": "across the world and we can ask for a report from Devon at which point Devon sends over",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:e791d0eb563be8a0ed499a10",
+      "endMs": 108000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-26-106000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-26-106000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "7020121fe6a964533820c5d4b8074d4d806033bdd80eb70ea3a7d4f18d3baf91",
+          "sizeBytes": 42714
+        }
+      ],
+      "keywords": [
+        "Devon",
+        "at",
+        "damage",
+        "images",
+        "of",
+        "over",
+        "point",
+        "roads",
+        "sample",
+        "sends",
+        "some",
+        "which"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "Devon at which point Devon sends over some sample images of roads with damage",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 104000,
+      "textSummary": "Devon at which point Devon sends over some sample images of roads with damage",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:cfe47e6b78916603e75ab71e",
+      "endMs": 112000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-27-110000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-27-110000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "62ee2608cb98e3ca2dc1e88ec33f5fa88c6dae250f24c416b1f2af24be1e5d68",
+          "sizeBytes": 17638
+        }
+      ],
+      "keywords": [
+        "and",
+        "damage",
+        "explaining",
+        "file",
+        "images",
+        "marked",
+        "nice",
+        "of",
+        "out",
+        "roads",
+        "sample",
+        "some"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "some sample images of roads with damage marked out and a nice txt file explaining",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 108000,
+      "textSummary": "some sample images of roads with damage marked out and a nice txt file explaining",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:3142f9b6ddc2dd44c19c6218",
+      "endMs": 116000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-28-114000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-28-114000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "97440592c422802ad2fd9cb8a936a8ca9735b59a5179e81aa46d0ce4cf2ed128",
+          "sizeBytes": 35882
+        }
+      ],
+      "keywords": [
+        "and",
+        "Devon",
+        "different",
+        "explaining",
+        "file",
+        "kinds",
+        "nice",
+        "of",
+        "out",
+        "the",
+        "txt",
+        "work"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "out and a nice txt file explaining Devon's work and the different kinds of",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 112000,
+      "textSummary": "out and a nice txt file explaining Devon's work and the different kinds of",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:a21596daf50f63e48317999f",
+      "endMs": 120000,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-29-118000",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-29-118000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "9f4b69af5801dd3e45fa6b59958235feb4bc01fe3f5ce8cb40b3af4afc117905",
+          "sizeBytes": 64406
+        }
+      ],
+      "keywords": [
+        "and",
+        "Devon",
+        "different",
+        "kinds",
+        "of",
+        "the",
+        "work"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "Devon's work and the different kinds of",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": "UTS2Hz96HYQ",
+      "startMs": 116000,
+      "textSummary": "Devon's work and the different kinds of",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    },
+    {
+      "clipId": "episode-004:media-clip:e1fc5d4d91affbed66425265",
+      "endMs": 121255,
+      "entities": [],
+      "episodeId": "episode-004",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-004:media-keyframe:official-upwork-demo-30-120627",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/keyframes/keyframe-30-120627.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "d78db5eea9b69207c3102a9ef26db7e5db6a30abc1195d027561cda73f7d3a36",
+          "sizeBytes": 64320
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-004:media-scenes:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1-original-clamp",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "20337e2f1baea43b2e27161b6e3b93da8af133446d5329ad288a472af31d03eb",
+          "sizeBytes": 3944
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+      "speaker": null,
+      "startMs": 120000,
+      "textSummary": "",
+      "transcriptRefs": [
+        {
+          "artifactId": "episode-004:media-transcript:official-upwork-demo",
+          "createdAt": "2026-08-16T12:00:00.000Z",
+          "episodeId": "episode-004",
+          "mediaType": "application/json",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/transcript.json",
+          "producer": "media-understanding-v1:transcript:media-asr-vtt-v1",
+          "revision": 1,
+          "schemaVersion": "media-transcript-v1",
+          "sha256": "57493c5d3887c486946425330db25ce834f45ea9fe4195e550faeb0f3ebeff8f",
+          "sizeBytes": 9867
+        }
+      ]
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-004:media:official-upwork-demo",
+  "mediaRef": {
+    "artifactId": "episode-004:media:official-upwork-demo",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+    "sizeBytes": 3174103
+  },
+  "sceneDetector": "episode-004-original-bounds",
+  "sceneDetectorVersion": "scene-detector-v1-original-clamp",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "deterministic-content",
+  "semanticAdapterVersion": "semantic-adapter-v1",
+  "semanticAvailability": "available",
+  "sourceSha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+  "transcriptAvailability": "available"
+}

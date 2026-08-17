@@ -1,0 +1,1669 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-004:media:official-tutorial-getting-started-proxy",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-tutorial-getting-started-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "5ea2e98f4e3072a17fb2ae54b81cc6523263081da5ee028d7e2d9103de14b785",
+    "sizeBytes": 11836655
+  },
+  "asrVersion": "youtube-caption-track-v1",
+  "availability": "available",
+  "durationMs": 469670,
+  "episodeId": "episode-004",
+  "mediaId": "episode-004:media:official-tutorial-getting-started",
+  "model": null,
+  "provider": "youtube-captions",
+  "schemaVersion": "media-transcript-v1",
+  "segments": [
+    {
+      "confidence": null,
+      "endMs": 3110,
+      "index": 0,
+      "speaker": "KdanG1kICxg",
+      "startMs": 1520,
+      "text": "at Devin. You're going to learn what it"
+    },
+    {
+      "confidence": null,
+      "endMs": 4590,
+      "index": 1,
+      "speaker": "KdanG1kICxg",
+      "startMs": 3120,
+      "text": "is, how it works, and we're going to"
+    },
+    {
+      "confidence": null,
+      "endMs": 6750,
+      "index": 2,
+      "speaker": "KdanG1kICxg",
+      "startMs": 4600,
+      "text": "build something. Let's get started."
+    },
+    {
+      "confidence": null,
+      "endMs": 8750,
+      "index": 3,
+      "speaker": "KdanG1kICxg",
+      "startMs": 6760,
+      "text": "We'll start by diving right in. After"
+    },
+    {
+      "confidence": null,
+      "endMs": 10150,
+      "index": 4,
+      "speaker": "KdanG1kICxg",
+      "startMs": 8760,
+      "text": "you create an account, you'll be"
+    },
+    {
+      "confidence": null,
+      "endMs": 12750,
+      "index": 5,
+      "speaker": "KdanG1kICxg",
+      "startMs": 10160,
+      "text": "redirected to app.devin.ai,"
+    },
+    {
+      "confidence": null,
+      "endMs": 14390,
+      "index": 6,
+      "speaker": "KdanG1kICxg",
+      "startMs": 12760,
+      "text": "and this is the dashboard for working"
+    },
+    {
+      "confidence": null,
+      "endMs": 16310,
+      "index": 7,
+      "speaker": "KdanG1kICxg",
+      "startMs": 14400,
+      "text": "with Devin. In addition to working from"
+    },
+    {
+      "confidence": null,
+      "endMs": 17910,
+      "index": 8,
+      "speaker": "KdanG1kICxg",
+      "startMs": 16320,
+      "text": "the web app, you can also integrate"
+    },
+    {
+      "confidence": null,
+      "endMs": 19910,
+      "index": 9,
+      "speaker": "KdanG1kICxg",
+      "startMs": 17920,
+      "text": "Devin from other places like Slack,"
+    },
+    {
+      "confidence": null,
+      "endMs": 22310,
+      "index": 10,
+      "speaker": "KdanG1kICxg",
+      "startMs": 19920,
+      "text": "Linear, Teams, and many other places, as"
+    },
+    {
+      "confidence": null,
+      "endMs": 23950,
+      "index": 11,
+      "speaker": "KdanG1kICxg",
+      "startMs": 22320,
+      "text": "we'll look at later in the integration"
+    },
+    {
+      "confidence": null,
+      "endMs": 25950,
+      "index": 12,
+      "speaker": "KdanG1kICxg",
+      "startMs": 23960,
+      "text": "section. In the main web app, we have a"
+    },
+    {
+      "confidence": null,
+      "endMs": 28070,
+      "index": 13,
+      "speaker": "KdanG1kICxg",
+      "startMs": 25960,
+      "text": "center chat interface with a menu on the"
+    },
+    {
+      "confidence": null,
+      "endMs": 30150,
+      "index": 14,
+      "speaker": "KdanG1kICxg",
+      "startMs": 28080,
+      "text": "left. As you can see, we have session"
+    },
+    {
+      "confidence": null,
+      "endMs": 31910,
+      "index": 15,
+      "speaker": "KdanG1kICxg",
+      "startMs": 30160,
+      "text": "selected in this menu. And on the"
+    },
+    {
+      "confidence": null,
+      "endMs": 33870,
+      "index": 16,
+      "speaker": "KdanG1kICxg",
+      "startMs": 31920,
+      "text": "left-hand side, we can see recent"
+    },
+    {
+      "confidence": null,
+      "endMs": 35990,
+      "index": 17,
+      "speaker": "KdanG1kICxg",
+      "startMs": 33880,
+      "text": "sessions that have happened already, as"
+    },
+    {
+      "confidence": null,
+      "endMs": 38150,
+      "index": 18,
+      "speaker": "KdanG1kICxg",
+      "startMs": 36000,
+      "text": "well as a way to create a new session."
+    },
+    {
+      "confidence": null,
+      "endMs": 39830,
+      "index": 19,
+      "speaker": "KdanG1kICxg",
+      "startMs": 38160,
+      "text": "And we can also click on these previous"
+    },
+    {
+      "confidence": null,
+      "endMs": 42630,
+      "index": 20,
+      "speaker": "KdanG1kICxg",
+      "startMs": 39840,
+      "text": "sessions to dive in or continue from a"
+    },
+    {
+      "confidence": null,
+      "endMs": 44710,
+      "index": 21,
+      "speaker": "KdanG1kICxg",
+      "startMs": 42640,
+      "text": "previous session. Devin connects to your"
+    },
+    {
+      "confidence": null,
+      "endMs": 47070,
+      "index": 22,
+      "speaker": "KdanG1kICxg",
+      "startMs": 44720,
+      "text": "code through GitHub or GitLab. As you"
+    },
+    {
+      "confidence": null,
+      "endMs": 48630,
+      "index": 23,
+      "speaker": "KdanG1kICxg",
+      "startMs": 47080,
+      "text": "can see here, we have a handful of"
+    },
+    {
+      "confidence": null,
+      "endMs": 50550,
+      "index": 24,
+      "speaker": "KdanG1kICxg",
+      "startMs": 48640,
+      "text": "repositories that are already configured"
+    },
+    {
+      "confidence": null,
+      "endMs": 52430,
+      "index": 25,
+      "speaker": "KdanG1kICxg",
+      "startMs": 50560,
+      "text": "for myself. The best way to work with"
+    },
+    {
+      "confidence": null,
+      "endMs": 54150,
+      "index": 26,
+      "speaker": "KdanG1kICxg",
+      "startMs": 52440,
+      "text": "Devin is to have your repositories"
+    },
+    {
+      "confidence": null,
+      "endMs": 56270,
+      "index": 27,
+      "speaker": "KdanG1kICxg",
+      "startMs": 54160,
+      "text": "configured with Devin's machine. When"
+    },
+    {
+      "confidence": null,
+      "endMs": 58390,
+      "index": 28,
+      "speaker": "KdanG1kICxg",
+      "startMs": 56280,
+      "text": "this happens, Devin takes a snapshot of"
+    },
+    {
+      "confidence": null,
+      "endMs": 60390,
+      "index": 29,
+      "speaker": "KdanG1kICxg",
+      "startMs": 58400,
+      "text": "the repository and has everything"
+    },
+    {
+      "confidence": null,
+      "endMs": 62350,
+      "index": 30,
+      "speaker": "KdanG1kICxg",
+      "startMs": 60400,
+      "text": "configured for you, including things"
+    },
+    {
+      "confidence": null,
+      "endMs": 64630,
+      "index": 31,
+      "speaker": "KdanG1kICxg",
+      "startMs": 62360,
+      "text": "like environment variables, setup"
+    },
+    {
+      "confidence": null,
+      "endMs": 66350,
+      "index": 32,
+      "speaker": "KdanG1kICxg",
+      "startMs": 64640,
+      "text": "scripts, or repository or"
+    },
+    {
+      "confidence": null,
+      "endMs": 68910,
+      "index": 33,
+      "speaker": "KdanG1kICxg",
+      "startMs": 66360,
+      "text": "project-specific configurations that"
+    },
+    {
+      "confidence": null,
+      "endMs": 70750,
+      "index": 34,
+      "speaker": "KdanG1kICxg",
+      "startMs": 68920,
+      "text": "Devin might not be able to automatically"
+    },
+    {
+      "confidence": null,
+      "endMs": 72590,
+      "index": 35,
+      "speaker": "KdanG1kICxg",
+      "startMs": 70760,
+      "text": "figure out on its own. To add a"
+    },
+    {
+      "confidence": null,
+      "endMs": 74710,
+      "index": 36,
+      "speaker": "KdanG1kICxg",
+      "startMs": 72600,
+      "text": "repository to Devin's machine, we can go"
+    },
+    {
+      "confidence": null,
+      "endMs": 77510,
+      "index": 37,
+      "speaker": "KdanG1kICxg",
+      "startMs": 74720,
+      "text": "to settings, and then we can go to"
+    },
+    {
+      "confidence": null,
+      "endMs": 79630,
+      "index": 38,
+      "speaker": "KdanG1kICxg",
+      "startMs": 77520,
+      "text": "machine configuration, and then we can"
+    },
+    {
+      "confidence": null,
+      "endMs": 82230,
+      "index": 39,
+      "speaker": "KdanG1kICxg",
+      "startMs": 79640,
+      "text": "click add repository and walk through"
+    },
+    {
+      "confidence": null,
+      "endMs": 83910,
+      "index": 40,
+      "speaker": "KdanG1kICxg",
+      "startMs": 82240,
+      "text": "the steps."
+    },
+    {
+      "confidence": null,
+      "endMs": 85910,
+      "index": 41,
+      "speaker": "KdanG1kICxg",
+      "startMs": 83920,
+      "text": "You can still send commands to Devin for"
+    },
+    {
+      "confidence": null,
+      "endMs": 88030,
+      "index": 42,
+      "speaker": "KdanG1kICxg",
+      "startMs": 85920,
+      "text": "any repository that's not on Devin's"
+    },
+    {
+      "confidence": null,
+      "endMs": 89990,
+      "index": 43,
+      "speaker": "KdanG1kICxg",
+      "startMs": 88040,
+      "text": "machine. Devin will then just try to"
+    },
+    {
+      "confidence": null,
+      "endMs": 91990,
+      "index": 44,
+      "speaker": "KdanG1kICxg",
+      "startMs": 90000,
+      "text": "figure it out on its own."
+    },
+    {
+      "confidence": null,
+      "endMs": 93950,
+      "index": 45,
+      "speaker": "KdanG1kICxg",
+      "startMs": 92000,
+      "text": "In the interface here, we can upload"
+    },
+    {
+      "confidence": null,
+      "endMs": 95630,
+      "index": 46,
+      "speaker": "KdanG1kICxg",
+      "startMs": 93960,
+      "text": "attachments. So, for instance, I might"
+    },
+    {
+      "confidence": null,
+      "endMs": 97270,
+      "index": 47,
+      "speaker": "KdanG1kICxg",
+      "startMs": 95640,
+      "text": "take a screenshot of an application that"
+    },
+    {
+      "confidence": null,
+      "endMs": 99590,
+      "index": 48,
+      "speaker": "KdanG1kICxg",
+      "startMs": 97280,
+      "text": "I like and ask Devin to copy that design"
+    },
+    {
+      "confidence": null,
+      "endMs": 102550,
+      "index": 49,
+      "speaker": "KdanG1kICxg",
+      "startMs": 99600,
+      "text": "style, or I can add files, repos,"
+    },
+    {
+      "confidence": null,
+      "endMs": 104190,
+      "index": 50,
+      "speaker": "KdanG1kICxg",
+      "startMs": 102560,
+      "text": "macros, or anything else that's been"
+    },
+    {
+      "confidence": null,
+      "endMs": 106630,
+      "index": 51,
+      "speaker": "KdanG1kICxg",
+      "startMs": 104200,
+      "text": "configured on our environment. Also, in"
+    },
+    {
+      "confidence": null,
+      "endMs": 108550,
+      "index": 52,
+      "speaker": "KdanG1kICxg",
+      "startMs": 106640,
+      "text": "the settings, we can configure MCP"
+    },
+    {
+      "confidence": null,
+      "endMs": 110990,
+      "index": 53,
+      "speaker": "KdanG1kICxg",
+      "startMs": 108560,
+      "text": "connections. We can schedule Devin's,"
+    },
+    {
+      "confidence": null,
+      "endMs": 112710,
+      "index": 54,
+      "speaker": "KdanG1kICxg",
+      "startMs": 111000,
+      "text": "which is essentially some type of cron"
+    },
+    {
+      "confidence": null,
+      "endMs": 115350,
+      "index": 55,
+      "speaker": "KdanG1kICxg",
+      "startMs": 112720,
+      "text": "job or automation that can be triggered"
+    },
+    {
+      "confidence": null,
+      "endMs": 117750,
+      "index": 56,
+      "speaker": "KdanG1kICxg",
+      "startMs": 115360,
+      "text": "at a specific time in the day. I can"
+    },
+    {
+      "confidence": null,
+      "endMs": 120110,
+      "index": 57,
+      "speaker": "KdanG1kICxg",
+      "startMs": 117760,
+      "text": "also ask Devin to attach our session to"
+    },
+    {
+      "confidence": null,
+      "endMs": 122030,
+      "index": 58,
+      "speaker": "KdanG1kICxg",
+      "startMs": 120120,
+      "text": "a Slack channel that we already have"
+    },
+    {
+      "confidence": null,
+      "endMs": 123550,
+      "index": 59,
+      "speaker": "KdanG1kICxg",
+      "startMs": 122040,
+      "text": "configured, so we can get more"
+    },
+    {
+      "confidence": null,
+      "endMs": 125550,
+      "index": 60,
+      "speaker": "KdanG1kICxg",
+      "startMs": 123560,
+      "text": "visibility into the things that are"
+    },
+    {
+      "confidence": null,
+      "endMs": 127590,
+      "index": 61,
+      "speaker": "KdanG1kICxg",
+      "startMs": 125560,
+      "text": "happening in this session."
+    },
+    {
+      "confidence": null,
+      "endMs": 129749,
+      "index": 62,
+      "speaker": "KdanG1kICxg",
+      "startMs": 127600,
+      "text": "So, let's run our first session."
+    },
+    {
+      "confidence": null,
+      "endMs": 131990,
+      "index": 63,
+      "speaker": "KdanG1kICxg",
+      "startMs": 129759,
+      "text": "I have this application called Lyceum."
+    },
+    {
+      "confidence": null,
+      "endMs": 135070,
+      "index": 64,
+      "speaker": "KdanG1kICxg",
+      "startMs": 132000,
+      "text": "And here in the issues, I'm not too"
+    },
+    {
+      "confidence": null,
+      "endMs": 137630,
+      "index": 65,
+      "speaker": "KdanG1kICxg",
+      "startMs": 135080,
+      "text": "crazy about how this left-hand nav is"
+    },
+    {
+      "confidence": null,
+      "endMs": 140190,
+      "index": 66,
+      "speaker": "KdanG1kICxg",
+      "startMs": 137640,
+      "text": "designed. I think I want my skip or"
+    },
+    {
+      "confidence": null,
+      "endMs": 141830,
+      "index": 67,
+      "speaker": "KdanG1kICxg",
+      "startMs": 140200,
+      "text": "ignore button to go to the top of this"
+    },
+    {
+      "confidence": null,
+      "endMs": 143550,
+      "index": 68,
+      "speaker": "KdanG1kICxg",
+      "startMs": 141840,
+      "text": "menu. So, that's what I'm going to ask"
+    },
+    {
+      "confidence": null,
+      "endMs": 145310,
+      "index": 69,
+      "speaker": "KdanG1kICxg",
+      "startMs": 143560,
+      "text": "Devin to help me with."
+    },
+    {
+      "confidence": null,
+      "endMs": 146830,
+      "index": 70,
+      "speaker": "KdanG1kICxg",
+      "startMs": 145320,
+      "text": "So, here you can see that I've told"
+    },
+    {
+      "confidence": null,
+      "endMs": 148830,
+      "index": 71,
+      "speaker": "KdanG1kICxg",
+      "startMs": 146840,
+      "text": "Devin that in Lyceum, move the skip"
+    },
+    {
+      "confidence": null,
+      "endMs": 150670,
+      "index": 72,
+      "speaker": "KdanG1kICxg",
+      "startMs": 148840,
+      "text": "button in issues to the top of the list"
+    },
+    {
+      "confidence": null,
+      "endMs": 152910,
+      "index": 73,
+      "speaker": "KdanG1kICxg",
+      "startMs": 150680,
+      "text": "of options in desktop mode. I haven't"
+    },
+    {
+      "confidence": null,
+      "endMs": 155350,
+      "index": 74,
+      "speaker": "KdanG1kICxg",
+      "startMs": 152920,
+      "text": "tagged a specific repository. We have"
+    },
+    {
+      "confidence": null,
+      "endMs": 157310,
+      "index": 75,
+      "speaker": "KdanG1kICxg",
+      "startMs": 155360,
+      "text": "all these four repositories available to"
+    },
+    {
+      "confidence": null,
+      "endMs": 159630,
+      "index": 76,
+      "speaker": "KdanG1kICxg",
+      "startMs": 157320,
+      "text": "us, but Devin is smart enough to know"
+    },
+    {
+      "confidence": null,
+      "endMs": 161510,
+      "index": 77,
+      "speaker": "KdanG1kICxg",
+      "startMs": 159640,
+      "text": "which repository because I've said the"
+    },
+    {
+      "confidence": null,
+      "endMs": 163230,
+      "index": 78,
+      "speaker": "KdanG1kICxg",
+      "startMs": 161520,
+      "text": "word Lyceum."
+    },
+    {
+      "confidence": null,
+      "endMs": 169750,
+      "index": 79,
+      "speaker": "KdanG1kICxg",
+      "startMs": 163240,
+      "text": "So, now let's watch Devin work."
+    },
+    {
+      "confidence": null,
+      "endMs": 173710,
+      "index": 80,
+      "speaker": "KdanG1kICxg",
+      "startMs": 171480,
+      "text": "created a pull request. And you'll also"
+    },
+    {
+      "confidence": null,
+      "endMs": 175550,
+      "index": 81,
+      "speaker": "KdanG1kICxg",
+      "startMs": 173720,
+      "text": "see that it's actually going to run the"
+    },
+    {
+      "confidence": null,
+      "endMs": 184390,
+      "index": 82,
+      "speaker": "KdanG1kICxg",
+      "startMs": 175560,
+      "text": "app locally and test it out."
+    },
+    {
+      "confidence": null,
+      "endMs": 189590,
+      "index": 83,
+      "speaker": "KdanG1kICxg",
+      "startMs": 186880,
+      "text": "the update. It's created a pull request."
+    },
+    {
+      "confidence": null,
+      "endMs": 192110,
+      "index": 84,
+      "speaker": "KdanG1kICxg",
+      "startMs": 189600,
+      "text": "It's entered computer use mode. It's"
+    },
+    {
+      "confidence": null,
+      "endMs": 193590,
+      "index": 85,
+      "speaker": "KdanG1kICxg",
+      "startMs": 192120,
+      "text": "clicked around and made sure that the"
+    },
+    {
+      "confidence": null,
+      "endMs": 196110,
+      "index": 86,
+      "speaker": "KdanG1kICxg",
+      "startMs": 193600,
+      "text": "application works. And it's even created"
+    },
+    {
+      "confidence": null,
+      "endMs": 198470,
+      "index": 87,
+      "speaker": "KdanG1kICxg",
+      "startMs": 196120,
+      "text": "a video and given it to us for us to"
+    },
+    {
+      "confidence": null,
+      "endMs": 200630,
+      "index": 88,
+      "speaker": "KdanG1kICxg",
+      "startMs": 198480,
+      "text": "walk through the interaction sequence"
+    },
+    {
+      "confidence": null,
+      "endMs": 203630,
+      "index": 89,
+      "speaker": "KdanG1kICxg",
+      "startMs": 200640,
+      "text": "that it took on Devin's machine."
+    },
+    {
+      "confidence": null,
+      "endMs": 205110,
+      "index": 90,
+      "speaker": "KdanG1kICxg",
+      "startMs": 203640,
+      "text": "What's also nice that you can see is"
+    },
+    {
+      "confidence": null,
+      "endMs": 207190,
+      "index": 91,
+      "speaker": "KdanG1kICxg",
+      "startMs": 205120,
+      "text": "that Devin has automatically created a"
+    },
+    {
+      "confidence": null,
+      "endMs": 209430,
+      "index": 92,
+      "speaker": "KdanG1kICxg",
+      "startMs": 207200,
+      "text": "review for us. So, I can click on Devin"
+    },
+    {
+      "confidence": null,
+      "endMs": 211830,
+      "index": 93,
+      "speaker": "KdanG1kICxg",
+      "startMs": 209440,
+      "text": "review, and I can see that the review"
+    },
+    {
+      "confidence": null,
+      "endMs": 213550,
+      "index": 94,
+      "speaker": "KdanG1kICxg",
+      "startMs": 211840,
+      "text": "agent has already made a pass at our"
+    },
+    {
+      "confidence": null,
+      "endMs": 215390,
+      "index": 95,
+      "speaker": "KdanG1kICxg",
+      "startMs": 213560,
+      "text": "pull request, and it's given us the"
+    },
+    {
+      "confidence": null,
+      "endMs": 217030,
+      "index": 96,
+      "speaker": "KdanG1kICxg",
+      "startMs": 215400,
+      "text": "green light to merge it."
+    },
+    {
+      "confidence": null,
+      "endMs": 219590,
+      "index": 97,
+      "speaker": "KdanG1kICxg",
+      "startMs": 217040,
+      "text": "So, I can go to the pull request in"
+    },
+    {
+      "confidence": null,
+      "endMs": 222310,
+      "index": 98,
+      "speaker": "KdanG1kICxg",
+      "startMs": 219600,
+      "text": "GitHub and review it here"
+    },
+    {
+      "confidence": null,
+      "endMs": 225070,
+      "index": 99,
+      "speaker": "KdanG1kICxg",
+      "startMs": 222320,
+      "text": "myself and merge it here. Or I can"
+    },
+    {
+      "confidence": null,
+      "endMs": 227710,
+      "index": 100,
+      "speaker": "KdanG1kICxg",
+      "startMs": 225080,
+      "text": "actually go directly in Devin review and"
+    },
+    {
+      "confidence": null,
+      "endMs": 231590,
+      "index": 101,
+      "speaker": "KdanG1kICxg",
+      "startMs": 227720,
+      "text": "merge the pull request."
+    },
+    {
+      "confidence": null,
+      "endMs": 234950,
+      "index": 102,
+      "speaker": "KdanG1kICxg",
+      "startMs": 233480,
+      "text": "see that the pull request has been"
+    },
+    {
+      "confidence": null,
+      "endMs": 237910,
+      "index": 103,
+      "speaker": "KdanG1kICxg",
+      "startMs": 234960,
+      "text": "successfully merged."
+    },
+    {
+      "confidence": null,
+      "endMs": 239790,
+      "index": 104,
+      "speaker": "KdanG1kICxg",
+      "startMs": 237920,
+      "text": "Now, how did Devin know to automatically"
+    },
+    {
+      "confidence": null,
+      "endMs": 242470,
+      "index": 105,
+      "speaker": "KdanG1kICxg",
+      "startMs": 239800,
+      "text": "set up Devin review? Well, if I go to"
+    },
+    {
+      "confidence": null,
+      "endMs": 245990,
+      "index": 106,
+      "speaker": "KdanG1kICxg",
+      "startMs": 242480,
+      "text": "settings, I can go here to Devin review,"
+    },
+    {
+      "confidence": null,
+      "endMs": 249430,
+      "index": 107,
+      "speaker": "KdanG1kICxg",
+      "startMs": 246000,
+      "text": "and I can see that I already have this"
+    },
+    {
+      "confidence": null,
+      "endMs": 252270,
+      "index": 108,
+      "speaker": "KdanG1kICxg",
+      "startMs": 249440,
+      "text": "setup configured to automatically run on"
+    },
+    {
+      "confidence": null,
+      "endMs": 254590,
+      "index": 109,
+      "speaker": "KdanG1kICxg",
+      "startMs": 252280,
+      "text": "all of my repositories. So, anytime"
+    },
+    {
+      "confidence": null,
+      "endMs": 256430,
+      "index": 110,
+      "speaker": "KdanG1kICxg",
+      "startMs": 254600,
+      "text": "there's been a pull request, Devin"
+    },
+    {
+      "confidence": null,
+      "endMs": 258870,
+      "index": 111,
+      "speaker": "KdanG1kICxg",
+      "startMs": 256440,
+      "text": "review will run, and I can then go see"
+    },
+    {
+      "confidence": null,
+      "endMs": 262150,
+      "index": 112,
+      "speaker": "KdanG1kICxg",
+      "startMs": 258880,
+      "text": "the results of Devin review."
+    },
+    {
+      "confidence": null,
+      "endMs": 263430,
+      "index": 113,
+      "speaker": "KdanG1kICxg",
+      "startMs": 262160,
+      "text": "Another interesting feature that we"
+    },
+    {
+      "confidence": null,
+      "endMs": 266230,
+      "index": 114,
+      "speaker": "KdanG1kICxg",
+      "startMs": 263440,
+      "text": "might want is something called auto fix."
+    },
+    {
+      "confidence": null,
+      "endMs": 267870,
+      "index": 115,
+      "speaker": "KdanG1kICxg",
+      "startMs": 266240,
+      "text": "Because now that we have Devin review"
+    },
+    {
+      "confidence": null,
+      "endMs": 270590,
+      "index": 116,
+      "speaker": "KdanG1kICxg",
+      "startMs": 267880,
+      "text": "reviewing our pull requests, we might"
+    },
+    {
+      "confidence": null,
+      "endMs": 272590,
+      "index": 117,
+      "speaker": "KdanG1kICxg",
+      "startMs": 270600,
+      "text": "actually stumble upon some bugs that"
+    },
+    {
+      "confidence": null,
+      "endMs": 274909,
+      "index": 118,
+      "speaker": "KdanG1kICxg",
+      "startMs": 272600,
+      "text": "Devin review can find. So, it would be"
+    },
+    {
+      "confidence": null,
+      "endMs": 276630,
+      "index": 119,
+      "speaker": "KdanG1kICxg",
+      "startMs": 274919,
+      "text": "very nice if we can say, \"Hey, if you"
+    },
+    {
+      "confidence": null,
+      "endMs": 278550,
+      "index": 120,
+      "speaker": "KdanG1kICxg",
+      "startMs": 276640,
+      "text": "find a bug, go ahead and automatically"
+    },
+    {
+      "confidence": null,
+      "endMs": 280590,
+      "index": 121,
+      "speaker": "KdanG1kICxg",
+      "startMs": 278560,
+      "text": "fix that for us.\""
+    },
+    {
+      "confidence": null,
+      "endMs": 282590,
+      "index": 122,
+      "speaker": "KdanG1kICxg",
+      "startMs": 280600,
+      "text": "So, if I scroll down here, I can see"
+    },
+    {
+      "confidence": null,
+      "endMs": 285030,
+      "index": 123,
+      "speaker": "KdanG1kICxg",
+      "startMs": 282600,
+      "text": "that we have these auto fix settings,"
+    },
+    {
+      "confidence": null,
+      "endMs": 287430,
+      "index": 124,
+      "speaker": "KdanG1kICxg",
+      "startMs": 285040,
+      "text": "and here we can go ahead and configure"
+    },
+    {
+      "confidence": null,
+      "endMs": 289390,
+      "index": 125,
+      "speaker": "KdanG1kICxg",
+      "startMs": 287440,
+      "text": "anything that we would like Devin to use"
+    },
+    {
+      "confidence": null,
+      "endMs": 290870,
+      "index": 126,
+      "speaker": "KdanG1kICxg",
+      "startMs": 289400,
+      "text": "auto fix for."
+    },
+    {
+      "confidence": null,
+      "endMs": 293310,
+      "index": 127,
+      "speaker": "KdanG1kICxg",
+      "startMs": 290880,
+      "text": "And for Devin review, you can just"
+    },
+    {
+      "confidence": null,
+      "endMs": 295670,
+      "index": 128,
+      "speaker": "KdanG1kICxg",
+      "startMs": 293320,
+      "text": "choose this Devin AI integration bot,"
+    },
+    {
+      "confidence": null,
+      "endMs": 298150,
+      "index": 129,
+      "speaker": "KdanG1kICxg",
+      "startMs": 295680,
+      "text": "and then anytime that Devin review finds"
+    },
+    {
+      "confidence": null,
+      "endMs": 301510,
+      "index": 130,
+      "speaker": "KdanG1kICxg",
+      "startMs": 298160,
+      "text": "a bug, the auto fix agent will go ahead,"
+    },
+    {
+      "confidence": null,
+      "endMs": 303230,
+      "index": 131,
+      "speaker": "KdanG1kICxg",
+      "startMs": 301520,
+      "text": "fix the update, and then send it"
+    },
+    {
+      "confidence": null,
+      "endMs": 305790,
+      "index": 132,
+      "speaker": "KdanG1kICxg",
+      "startMs": 303240,
+      "text": "through, and attach it to the same pull"
+    },
+    {
+      "confidence": null,
+      "endMs": 308590,
+      "index": 133,
+      "speaker": "KdanG1kICxg",
+      "startMs": 305800,
+      "text": "request. So, it will automatically fix"
+    },
+    {
+      "confidence": null,
+      "endMs": 311190,
+      "index": 134,
+      "speaker": "KdanG1kICxg",
+      "startMs": 308600,
+      "text": "itself, and that loop will keep running"
+    },
+    {
+      "confidence": null,
+      "endMs": 313710,
+      "index": 135,
+      "speaker": "KdanG1kICxg",
+      "startMs": 311200,
+      "text": "until there are no more bugs found."
+    },
+    {
+      "confidence": null,
+      "endMs": 315150,
+      "index": 136,
+      "speaker": "KdanG1kICxg",
+      "startMs": 313720,
+      "text": "What's also pretty nice is that I can"
+    },
+    {
+      "confidence": null,
+      "endMs": 317350,
+      "index": 137,
+      "speaker": "KdanG1kICxg",
+      "startMs": 315160,
+      "text": "send messages to Devin from any attached"
+    },
+    {
+      "confidence": null,
+      "endMs": 319630,
+      "index": 138,
+      "speaker": "KdanG1kICxg",
+      "startMs": 317360,
+      "text": "interface, including Slack, Linear, and"
+    },
+    {
+      "confidence": null,
+      "endMs": 322150,
+      "index": 139,
+      "speaker": "KdanG1kICxg",
+      "startMs": 319640,
+      "text": "a few others. So, here I am in Slack,"
+    },
+    {
+      "confidence": null,
+      "endMs": 324750,
+      "index": 140,
+      "speaker": "KdanG1kICxg",
+      "startMs": 322160,
+      "text": "and I can just say, \"Hi, Devin.\" And I"
+    },
+    {
+      "confidence": null,
+      "endMs": 326510,
+      "index": 141,
+      "speaker": "KdanG1kICxg",
+      "startMs": 324760,
+      "text": "can send any request that I would like"
+    },
+    {
+      "confidence": null,
+      "endMs": 328590,
+      "index": 142,
+      "speaker": "KdanG1kICxg",
+      "startMs": 326520,
+      "text": "to Devin to work on."
+    },
+    {
+      "confidence": null,
+      "endMs": 331710,
+      "index": 143,
+      "speaker": "KdanG1kICxg",
+      "startMs": 328600,
+      "text": "So, here I'm going to say, \"Add readme"
+    },
+    {
+      "confidence": null,
+      "endMs": 336430,
+      "index": 144,
+      "speaker": "KdanG1kICxg",
+      "startMs": 331720,
+      "text": "to my tech interests"
+    },
+    {
+      "confidence": null,
+      "endMs": 348070,
+      "index": 145,
+      "speaker": "KdanG1kICxg",
+      "startMs": 345800,
+      "text": "from Devin."
+    },
+    {
+      "confidence": null,
+      "endMs": 350510,
+      "index": 146,
+      "speaker": "KdanG1kICxg",
+      "startMs": 348080,
+      "text": "And I can also jump back into the Devin"
+    },
+    {
+      "confidence": null,
+      "endMs": 353310,
+      "index": 147,
+      "speaker": "KdanG1kICxg",
+      "startMs": 350520,
+      "text": "web app and I can see that this session"
+    },
+    {
+      "confidence": null,
+      "endMs": 355830,
+      "index": 148,
+      "speaker": "KdanG1kICxg",
+      "startMs": 353320,
+      "text": "has kicked off here in the sidebar and I"
+    },
+    {
+      "confidence": null,
+      "endMs": 359510,
+      "index": 149,
+      "speaker": "KdanG1kICxg",
+      "startMs": 355840,
+      "text": "can follow along as the session works."
+    },
+    {
+      "confidence": null,
+      "endMs": 361510,
+      "index": 150,
+      "speaker": "KdanG1kICxg",
+      "startMs": 359520,
+      "text": "Next, under sessions, we can click on"
+    },
+    {
+      "confidence": null,
+      "endMs": 363990,
+      "index": 151,
+      "speaker": "KdanG1kICxg",
+      "startMs": 361520,
+      "text": "ask and here we're given the option of"
+    },
+    {
+      "confidence": null,
+      "endMs": 366630,
+      "index": 152,
+      "speaker": "KdanG1kICxg",
+      "startMs": 364000,
+      "text": "using either ask Devin or we can use"
+    },
+    {
+      "confidence": null,
+      "endMs": 368990,
+      "index": 153,
+      "speaker": "KdanG1kICxg",
+      "startMs": 366640,
+      "text": "plan mode. When we're working with ask"
+    },
+    {
+      "confidence": null,
+      "endMs": 372190,
+      "index": 154,
+      "speaker": "KdanG1kICxg",
+      "startMs": 369000,
+      "text": "Devin, Devin has context and information"
+    },
+    {
+      "confidence": null,
+      "endMs": 374150,
+      "index": 155,
+      "speaker": "KdanG1kICxg",
+      "startMs": 372200,
+      "text": "about all the repositories that we have"
+    },
+    {
+      "confidence": null,
+      "endMs": 376230,
+      "index": 156,
+      "speaker": "KdanG1kICxg",
+      "startMs": 374160,
+      "text": "indexed as well as past history of"
+    },
+    {
+      "confidence": null,
+      "endMs": 378590,
+      "index": 157,
+      "speaker": "KdanG1kICxg",
+      "startMs": 376240,
+      "text": "conversation and knowledge that has been"
+    },
+    {
+      "confidence": null,
+      "endMs": 380230,
+      "index": 158,
+      "speaker": "KdanG1kICxg",
+      "startMs": 378600,
+      "text": "gathered through our interactions with"
+    },
+    {
+      "confidence": null,
+      "endMs": 381150,
+      "index": 159,
+      "speaker": "KdanG1kICxg",
+      "startMs": 380240,
+      "text": "Devin."
+    },
+    {
+      "confidence": null,
+      "endMs": 383110,
+      "index": 160,
+      "speaker": "KdanG1kICxg",
+      "startMs": 381160,
+      "text": "Next, we'll take a look at deep wiki."
+    },
+    {
+      "confidence": null,
+      "endMs": 385470,
+      "index": 161,
+      "speaker": "KdanG1kICxg",
+      "startMs": 383120,
+      "text": "Now, with deep wiki, any repository that"
+    },
+    {
+      "confidence": null,
+      "endMs": 387710,
+      "index": 162,
+      "speaker": "KdanG1kICxg",
+      "startMs": 385480,
+      "text": "we have configured on Devin's machine"
+    },
+    {
+      "confidence": null,
+      "endMs": 389909,
+      "index": 163,
+      "speaker": "KdanG1kICxg",
+      "startMs": 387720,
+      "text": "that's been indexed has extensive"
+    },
+    {
+      "confidence": null,
+      "endMs": 391710,
+      "index": 164,
+      "speaker": "KdanG1kICxg",
+      "startMs": 389919,
+      "text": "documentation built out that's well"
+    },
+    {
+      "confidence": null,
+      "endMs": 393870,
+      "index": 165,
+      "speaker": "KdanG1kICxg",
+      "startMs": 391720,
+      "text": "beyond what you might see in a read me"
+    },
+    {
+      "confidence": null,
+      "endMs": 395830,
+      "index": 166,
+      "speaker": "KdanG1kICxg",
+      "startMs": 393880,
+      "text": "that you've created. So, you'll see that"
+    },
+    {
+      "confidence": null,
+      "endMs": 397670,
+      "index": 167,
+      "speaker": "KdanG1kICxg",
+      "startMs": 395840,
+      "text": "the Devin agent builds out everything"
+    },
+    {
+      "confidence": null,
+      "endMs": 399630,
+      "index": 168,
+      "speaker": "KdanG1kICxg",
+      "startMs": 397680,
+      "text": "from user flows to architectural"
+    },
+    {
+      "confidence": null,
+      "endMs": 401830,
+      "index": 169,
+      "speaker": "KdanG1kICxg",
+      "startMs": 399640,
+      "text": "diagrams and a lot of other interesting"
+    },
+    {
+      "confidence": null,
+      "endMs": 404190,
+      "index": 170,
+      "speaker": "KdanG1kICxg",
+      "startMs": 401840,
+      "text": "insights about your repositories."
+    },
+    {
+      "confidence": null,
+      "endMs": 405870,
+      "index": 171,
+      "speaker": "KdanG1kICxg",
+      "startMs": 404200,
+      "text": "And finally, in the review tab, we can"
+    },
+    {
+      "confidence": null,
+      "endMs": 407670,
+      "index": 172,
+      "speaker": "KdanG1kICxg",
+      "startMs": 405880,
+      "text": "see all the actions and activities"
+    },
+    {
+      "confidence": null,
+      "endMs": 410150,
+      "index": 173,
+      "speaker": "KdanG1kICxg",
+      "startMs": 407680,
+      "text": "happening with Devin review."
+    },
+    {
+      "confidence": null,
+      "endMs": 411750,
+      "index": 174,
+      "speaker": "KdanG1kICxg",
+      "startMs": 410160,
+      "text": "Here in schedules, you can see a list of"
+    },
+    {
+      "confidence": null,
+      "endMs": 413550,
+      "index": 175,
+      "speaker": "KdanG1kICxg",
+      "startMs": 411760,
+      "text": "the automations that you've set up with"
+    },
+    {
+      "confidence": null,
+      "endMs": 415590,
+      "index": 176,
+      "speaker": "KdanG1kICxg",
+      "startMs": 413560,
+      "text": "Devin. You can also edit previous"
+    },
+    {
+      "confidence": null,
+      "endMs": 417110,
+      "index": 177,
+      "speaker": "KdanG1kICxg",
+      "startMs": 415600,
+      "text": "automations and schedule new"
+    },
+    {
+      "confidence": null,
+      "endMs": 418350,
+      "index": 178,
+      "speaker": "KdanG1kICxg",
+      "startMs": 417120,
+      "text": "automations."
+    },
+    {
+      "confidence": null,
+      "endMs": 419630,
+      "index": 179,
+      "speaker": "KdanG1kICxg",
+      "startMs": 418360,
+      "text": "Next, we'll take a look at playbooks,"
+    },
+    {
+      "confidence": null,
+      "endMs": 421630,
+      "index": 180,
+      "speaker": "KdanG1kICxg",
+      "startMs": 419640,
+      "text": "which are essentially a list of reusable"
+    },
+    {
+      "confidence": null,
+      "endMs": 422750,
+      "index": 181,
+      "speaker": "KdanG1kICxg",
+      "startMs": 421640,
+      "text": "prompts that you would like to have"
+    },
+    {
+      "confidence": null,
+      "endMs": 425030,
+      "index": 182,
+      "speaker": "KdanG1kICxg",
+      "startMs": 422760,
+      "text": "available to you within Devin."
+    },
+    {
+      "confidence": null,
+      "endMs": 426830,
+      "index": 183,
+      "speaker": "KdanG1kICxg",
+      "startMs": 425040,
+      "text": "These prompts are specific ways in which"
+    },
+    {
+      "confidence": null,
+      "endMs": 428470,
+      "index": 184,
+      "speaker": "KdanG1kICxg",
+      "startMs": 426840,
+      "text": "you would like Devin to act under"
+    },
+    {
+      "confidence": null,
+      "endMs": 430270,
+      "index": 185,
+      "speaker": "KdanG1kICxg",
+      "startMs": 428480,
+      "text": "certain circumstances."
+    },
+    {
+      "confidence": null,
+      "endMs": 431830,
+      "index": 186,
+      "speaker": "KdanG1kICxg",
+      "startMs": 430280,
+      "text": "If you want to see a list of examples,"
+    },
+    {
+      "confidence": null,
+      "endMs": 434550,
+      "index": 187,
+      "speaker": "KdanG1kICxg",
+      "startMs": 431840,
+      "text": "you can click on community playbooks."
+    },
+    {
+      "confidence": null,
+      "endMs": 435790,
+      "index": 188,
+      "speaker": "KdanG1kICxg",
+      "startMs": 434560,
+      "text": "There are a lot of integrations that you"
+    },
+    {
+      "confidence": null,
+      "endMs": 437630,
+      "index": 189,
+      "speaker": "KdanG1kICxg",
+      "startMs": 435800,
+      "text": "can build into Devin. Here in our"
+    },
+    {
+      "confidence": null,
+      "endMs": 439270,
+      "index": 190,
+      "speaker": "KdanG1kICxg",
+      "startMs": 437640,
+      "text": "first-class integrations, you can see"
+    },
+    {
+      "confidence": null,
+      "endMs": 441670,
+      "index": 191,
+      "speaker": "KdanG1kICxg",
+      "startMs": 439280,
+      "text": "that we can hook up tools like Slack,"
+    },
+    {
+      "confidence": null,
+      "endMs": 444710,
+      "index": 192,
+      "speaker": "KdanG1kICxg",
+      "startMs": 441680,
+      "text": "Linear, GitHub, GitLab, Bitbucket, Jira,"
+    },
+    {
+      "confidence": null,
+      "endMs": 446710,
+      "index": 193,
+      "speaker": "KdanG1kICxg",
+      "startMs": 444720,
+      "text": "and Microsoft Teams."
+    },
+    {
+      "confidence": null,
+      "endMs": 448790,
+      "index": 194,
+      "speaker": "KdanG1kICxg",
+      "startMs": 446720,
+      "text": "The MCP marketplace on Devin is huge."
+    },
+    {
+      "confidence": null,
+      "endMs": 449830,
+      "index": 195,
+      "speaker": "KdanG1kICxg",
+      "startMs": 448800,
+      "text": "Pretty much anything that you would"
+    },
+    {
+      "confidence": null,
+      "endMs": 451390,
+      "index": 196,
+      "speaker": "KdanG1kICxg",
+      "startMs": 449840,
+      "text": "want. Here, I'll walk through a couple"
+    },
+    {
+      "confidence": null,
+      "endMs": 454150,
+      "index": 197,
+      "speaker": "KdanG1kICxg",
+      "startMs": 451400,
+      "text": "of the essentials like Figma, Asana,"
+    },
+    {
+      "confidence": null,
+      "endMs": 458670,
+      "index": 198,
+      "speaker": "KdanG1kICxg",
+      "startMs": 454160,
+      "text": "Linear, Notion, and Sentry."
+    },
+    {
+      "confidence": null,
+      "endMs": 461950,
+      "index": 199,
+      "speaker": "KdanG1kICxg",
+      "startMs": 460080,
+      "text": "this. Anything that you want to know"
+    },
+    {
+      "confidence": null,
+      "endMs": 463910,
+      "index": 200,
+      "speaker": "KdanG1kICxg",
+      "startMs": 461960,
+      "text": "about Devin, you can simply ask Devin"
+    },
+    {
+      "confidence": null,
+      "endMs": 465470,
+      "index": 201,
+      "speaker": "KdanG1kICxg",
+      "startMs": 463920,
+      "text": "directly. You don't even have to dive"
+    },
+    {
+      "confidence": null,
+      "endMs": 467110,
+      "index": 202,
+      "speaker": "KdanG1kICxg",
+      "startMs": 465480,
+      "text": "into the documentation. Thanks for"
+    },
+    {
+      "confidence": null,
+      "endMs": 468670,
+      "index": 203,
+      "speaker": "KdanG1kICxg",
+      "startMs": 467120,
+      "text": "checking this out. I'll share some links"
+    }
+  ],
+  "sourceMediaRef": {
+    "artifactId": "episode-004:media:official-tutorial-getting-started",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+    "sizeBytes": 11899871
+  },
+  "toolVersion": "media-asr-vtt-v1"
+}

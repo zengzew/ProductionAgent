@@ -130,8 +130,8 @@
     },
     {
       "ruleId": "pain-product-distribution-result-chain",
-      "name": "痛点—产品—分发—结果链",
-      "distilledRule": "把用户的具体痛点、团队的产品选择、用户可见动作、获客或传播方式和可验证结果连成一条可追踪链；如果来源只支持先后顺序，就明确写成 sequence-only。",
+      "name": "需求—产品—获客—市场定价链",
+      "distilledRule": "把用户的具体需求、团队的产品选择、用户可见动作、冷启动或获客方式，以及有来源的收入、融资或估值连成一条可追踪链；如果来源只支持先后顺序，就明确写成 sequence-only。资本市场数字只能证明市场给过这个价，不能自动写成成功原因。",
       "sourceFindings": [
         {
           "sampleId": "xhs-6a7b007600000000240264dc",
@@ -186,8 +186,8 @@
     },
     {
       "ruleId": "reframed-evidence-payoff",
-      "name": "用新增信息重构并兑现开场",
-      "distilledRule": "结尾回到开场动作或结果，但必须因中段的机制、选择、转折或证据获得新含义；先完成具体产品或人物 payoff，再考虑任何非必要收束。",
+      "name": "用新增信息兑现开场",
+      "distilledRule": "结尾必须回答开场问题并停在具体 payoff。回看开场只在中段改变了该动作含义时使用，不是默认收束。有来源、标清口径的收入、融资或估值是有效资本市场 payoff；先完成产品动作和获客，再给市场定价。",
       "sourceFindings": [
         {
           "sampleId": "xhs-6a7091e400000000250032e2",
@@ -210,7 +210,8 @@
       ],
       "guardrails": [
         "结尾模型只能总结前文已证实的个案，不能升级为行业规律。",
-        "不使用泛化财富提问、市场预测或互动 CTA 代替开场承诺的答案。"
+        "不使用泛化财富提问、市场预测或互动 CTA 代替开场承诺的答案。",
+        "有来源的融资或收入在需求与获客之后出现，不算融资盘点。"
       ]
     },
     {
@@ -282,6 +283,36 @@
         "只依据 transcript、captions 和结构证据调整文字节奏；本批样本没有人工听感检查，不能模仿语调、音乐或声音表演。",
         "不得新增反问、口头禅、情绪、事实或因果来制造起伏。"
       ]
+    },
+    {
+      "ruleId": "founder-need-gtm-capital-payoff",
+      "name": "需求、冷启动与资本市场定价",
+      "distilledRule": "默认按四拍推进：看得见的产品结果、创始人亲口说过的需求或 idea、冷启动或获客动作、有来源的收入融资或估值。中段不得按日期复述产品更新。回看开场可选。",
+      "sourceFindings": [
+        {
+          "sampleId": "xhs-6a75e71a00000000210235f0",
+          "recordVersion": "1.0.0",
+          "patternIds": ["product-content-subscription-chain", "proof-stack-before-explanation"]
+        },
+        {
+          "sampleId": "xhs-6a7b007600000000240264dc",
+          "recordVersion": "1.0.0",
+          "patternIds": ["outcome-mechanism-origin-growth"]
+        }
+      ],
+      "sourceFeedbackSignalIds": ["suspense-reversal-solution-marketing-arc"],
+      "applicableRoles": [
+        "research-analyst",
+        "story-director",
+        "viral-director",
+        "script-writer",
+        "audience-critic",
+        "retention-critic"
+      ],
+      "guardrails": [
+        "不得猜测创始人没说过的动机或顿悟。",
+        "融资和收入必须保留公司或媒体口径，不得换算利润、留存或必然成功。"
+      ]
     }
   ],
   "roleIntegrations": [
@@ -293,6 +324,7 @@
         "interaction-before-abstraction",
         "pain-product-distribution-result-chain",
         "reframed-evidence-payoff",
+        "founder-need-gtm-capital-payoff",
         "seen-action-not-described-action"
       ],
       "sourceSampleIds": [
@@ -300,7 +332,7 @@
         "xhs-6a75e71a00000000210235f0",
         "xhs-6809f616000000000903a1fb"
       ],
-      "roleSpecificExample": "把已证实的异常结果作为入口，让观众追问机制；只在 Claim 支持时保留受挫或方向变化，再用产品动作、分发证据和结果回收同一个问题。每个产品动作都要规划摄像机看见的步骤，不能用品牌首页代替正在干活。",
+      "roleSpecificExample": "把已证实的异常结果作为入口，让观众追问需求；只在 Claim 支持时保留受挫或方向变化，再用获客动作和资本市场证据回答同一个问题。每个产品动作都要规划摄像机看见的步骤，不能用品牌首页代替正在干活。",
       "referenceContext": "distilled-policy-only"
     },
     {
@@ -311,6 +343,7 @@
         "progressive-question-bridges",
         "claim-matched-visual-density",
         "reframed-evidence-payoff",
+        "founder-need-gtm-capital-payoff",
         "seen-action-not-described-action"
       ],
       "sourceSampleIds": [
@@ -318,7 +351,7 @@
         "xhs-6a7091e400000000250032e2",
         "xhs-6a75e71a00000000210235f0"
       ],
-      "roleSpecificExample": "0–3 秒给零背景可懂的结果和一种同期证明，证明必须是看见的动作或结果，不能只是落地页；随后留下机制问题，中段换证据形态回答，结尾用新增证据重看开场。",
+      "roleSpecificExample": "0–3 秒给零背景可懂的结果和一种同期证明，证明必须是看见的动作或结果，不能只是落地页；随后留下需求或获客问题，中段换证据形态回答，结尾用资本市场证据或用户结果兑现。",
       "referenceContext": "distilled-policy-only"
     },
     {
@@ -330,6 +363,7 @@
         "interaction-before-abstraction",
         "pain-product-distribution-result-chain",
         "reframed-evidence-payoff",
+        "founder-need-gtm-capital-payoff",
         "seen-action-not-described-action"
       ],
       "sourceSampleIds": [
@@ -337,7 +371,7 @@
         "xhs-6a75e71a00000000210235f0",
         "xhs-6809f616000000000903a1fb"
       ],
-      "roleSpecificExample": "先写摄像机能看见的痛点与产品动作序列，再写团队选择、传播方式和可验证结果；visualIntent 必须写出观众看见的步骤，不能写“配一张官网”。",
+      "roleSpecificExample": "先写摄像机能看见的需求与产品动作序列，再写冷启动或获客，最后用有来源的收入、融资或估值收住；visualIntent 必须写出观众看见的步骤，不能写“配一张官网”。",
       "referenceContext": "distilled-policy-only"
     },
     {
@@ -383,10 +417,11 @@
         "pain-product-distribution-result-chain",
         "claim-matched-visual-density",
         "reframed-evidence-payoff",
+        "founder-need-gtm-capital-payoff",
         "seen-action-not-described-action"
       ],
       "sourceSampleIds": ["xhs-6a75e71a00000000210235f0"],
-      "roleSpecificExample": "高分需要开场结果有不同功能的同期证明，且观众看见动作本身；用户需求可见，产品动作、分发和结果能追踪，结尾模型由前文推出；数字多、画面多或官网静帧本身不加分。",
+      "roleSpecificExample": "高分需要开场结果有不同功能的同期证明，且观众看见动作本身；用户需求、获客和市场定价能追踪，结尾由前文推出；没有需求与获客就堆估值才扣分。",
       "referenceContext": "distilled-policy-only"
     },
     {
@@ -398,6 +433,7 @@
         "interaction-before-abstraction",
         "claim-matched-visual-density",
         "reframed-evidence-payoff",
+        "founder-need-gtm-capital-payoff",
         "seen-action-not-described-action"
       ],
       "sourceSampleIds": [
@@ -405,7 +441,7 @@
         "xhs-6a7091e400000000250032e2",
         "xhs-6809f616000000000903a1fb"
       ],
-      "roleSpecificExample": "检查 Hook 问题是否被后续逐段回答、反转是否真的新增判断、产品交互是否被看见、画面变化是否换了一种证据，以及结尾是否在 CTA 前兑现。旁白说动作而画面停在落地页，必须判为划走风险。",
+      "roleSpecificExample": "检查 Hook 问题是否被后续逐段回答、获客是否被看见、画面变化是否换了一种证据，以及结尾是否在 CTA 前用结果或资本市场证据兑现。旁白说动作而画面停在落地页，必须判为划走风险。",
       "referenceContext": "distilled-policy-only"
     }
   ],
@@ -419,6 +455,7 @@
         "pain-product-distribution-result-chain",
         "claim-matched-visual-density",
         "reframed-evidence-payoff",
+        "founder-need-gtm-capital-payoff",
         "seen-action-not-described-action"
       ],
       "rationale": "AI 身高预测样本对结果证据、需求可见性、产品流程、分发路径和结尾模型提供了清晰的 video/captions/transcript 对齐证据；只澄清现有维度，不改变 product-story-v4 阈值或 blocker。"
@@ -432,6 +469,7 @@
         "interaction-before-abstraction",
         "claim-matched-visual-density",
         "reframed-evidence-payoff",
+        "founder-need-gtm-capital-payoff",
         "seen-action-not-described-action"
       ],
       "rationale": "三条角色相关样本为前三秒悬念、阶段回答、反转、视觉证据变化和结尾重构提供了跨样本证据；只澄清 retention-critic-v2 的观察标准，不改变分数、窗口或路由。"

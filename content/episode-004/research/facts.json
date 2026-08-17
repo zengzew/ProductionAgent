@@ -1,0 +1,258 @@
+[
+  {
+    "id": "claim-devin-001",
+    "claim": "Devin 的官方演示展示它接受任务后使用自带的浏览器、代码编辑器和终端自主执行，而不是只输出代码。",
+    "metricName": "",
+    "value": "",
+    "period": "2024-03-12 起，官方演示持续可见",
+    "eventDate": "2024-03-12",
+    "sourceIds": [
+      "src-devin-001",
+      "src-devin-002",
+      "src-devin-013"
+    ],
+    "confidence": "high",
+    "reportingType": "independently-verified",
+    "allowedInNarration": true,
+    "notes": "官方博客明确给出 shell、代码编辑器与浏览器（sandboxed compute environment）；官方视频可逐帧核对 Devin 自带界面里的浏览器与终端动作。可播产品能力，不宣称成功率。"
+  },
+  {
+    "id": "claim-devin-002",
+    "claim": "2024 年 3 月 12 日，Cognition 发布 Devin，官方称其为第一位 AI 软件工程师。",
+    "metricName": "",
+    "value": "",
+    "period": "2024-03-12",
+    "eventDate": "2024-03-12",
+    "sourceIds": [
+      "src-devin-001",
+      "src-devin-002"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "日期由官方博客 datePublished（2024-03-12）与官方视频上传日期交叉核对；“first AI software engineer”是官方自我定位，不是第三方认证。"
+  },
+  {
+    "id": "claim-devin-003",
+    "claim": "Devin 的界面包含任务规划、自带浏览器、代码编辑器和终端；官方演示中它能自主上网查资料、写代码并运行命令。",
+    "metricName": "",
+    "value": "",
+    "period": "2024-03-12 起",
+    "eventDate": "2024-03-12",
+    "sourceIds": [
+      "src-devin-001",
+      "src-devin-002",
+      "src-devin-003"
+    ],
+    "confidence": "high",
+    "reportingType": "independently-verified",
+    "allowedInNarration": true,
+    "notes": "官方发布博客 Capabilities 段与官方视频一致：planning、shell、code editor、browser。视频画面可直接核对。"
+  },
+  {
+    "id": "claim-devin-004",
+    "claim": "官方演示中，Devin 的每一步操作都以可见形式显示：打开网页、修改文件、执行命令都能实时看到。",
+    "metricName": "",
+    "value": "",
+    "period": "2024-03-12 起",
+    "eventDate": "2024-03-12",
+    "sourceIds": [
+      "src-devin-002",
+      "src-devin-003",
+      "src-devin-015"
+    ],
+    "confidence": "high",
+    "reportingType": "independently-verified",
+    "allowedInNarration": true,
+    "notes": "官方教程与演示中任务进度、工具调用以可见步骤呈现，任何人可观看核对。"
+  },
+  {
+    "id": "claim-devin-005",
+    "claim": "2025 年 4 月 3 日，Cognition 发布 Devin 2.0，个人套餐起价从 500 美元/月降到 20 美元/月。",
+    "metricName": "月费",
+    "value": "500 → 20 美元",
+    "period": "2024-12-10 至 2025-04-03",
+    "eventDate": "2025-04-03",
+    "sourceIds": [
+      "src-devin-004",
+      "src-devin-005",
+      "src-devin-009"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "官方博客：新套餐 starting at $20；VentureBeat 标题与正文：从 $500 降到 $20/月。500 美元为 2024-12-10 GA 时团队版价格。"
+  },
+  {
+    "id": "claim-devin-006",
+    "claim": "Devin 2.0 可以同时启动多个平行 Devin，各自带独立的云端 IDE，并行处理多个任务。",
+    "metricName": "",
+    "value": "",
+    "period": "2025-04-03 起",
+    "eventDate": "2025-04-03",
+    "sourceIds": [
+      "src-devin-004",
+      "src-devin-014"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "官方博客原文：Spin up multiple parallel Devins, each equipped with its own interactive, cloud-based IDE。官方教程视频有平行 Devin 演示。"
+  },
+  {
+    "id": "claim-devin-007",
+    "claim": "2026 年 4 月 27 日，Cognition 宣布与奔驰合作：Devin 分析了超过 20 万行 COBOL 代码，把现代化改造从预计 8 个月缩短到 8 天。",
+    "metricName": "改造时长",
+    "value": "8 个月 → 8 天",
+    "period": "2026-04-27 宣布",
+    "eventDate": "2026-04-27",
+    "sourceIds": [
+      "src-devin-006",
+      "src-devin-011"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "官方博客原文：analyzed over 200,000 lines of COBOL code and cut modernization time down from an estimated eight months to eight days；四周围观试点内完成。“预计 8 个月”是项目估算口径，不是实测对比。"
+  },
+  {
+    "id": "claim-devin-008",
+    "claim": "Cognition 官方称，公司工程师提交的代码中 89% 由 Devin 提交。",
+    "metricName": "自有代码占比",
+    "value": "89%",
+    "period": "2026-05-27 披露",
+    "eventDate": "2026-05-27",
+    "sourceIds": [
+      "src-devin-007",
+      "src-devin-008"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "官方博客原文：89% of code committed by our engineers is committed by Devin；TechCrunch 同日报道融资与自用代码语境。公司自报口径，不换算为产品质量或成功率。"
+  },
+  {
+    "id": "claim-devin-009",
+    "claim": "官方把 Devin 定位为可以独立完成任务、交给工程师审查的队友；工程师把任务交给它并负责审查结果。",
+    "metricName": "",
+    "value": "",
+    "period": "2024-03-12 起",
+    "eventDate": "2024-03-12",
+    "sourceIds": [
+      "src-devin-001",
+      "src-devin-003",
+      "src-devin-015"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "官方博客原文：independently complete tasks for you to review；engineers can focus on more interesting problems。官方教程展示派活与检查流程。"
+  },
+  {
+    "id": "claim-devin-010",
+    "claim": "Devin 发布时在 SWE-bench 基准上端到端解决了 13.86% 的真实 GitHub issue，超过此前最佳无辅助基线 1.96%。",
+    "metricName": "SWE-bench 解决率",
+    "value": "13.86%",
+    "period": "2024-03-12 发布时",
+    "eventDate": "2024-03-12",
+    "sourceIds": [
+      "src-devin-001"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": false,
+    "notes": "官方技术报告口径。基准分数不换算真实任务成功率，仅作研究背景，不进旁白。"
+  },
+  {
+    "id": "claim-devin-011",
+    "claim": "Devin 官方 2025 年度绩效报告：PR 合并率从 34% 升至 67%，解题速度约为上一年 4 倍。",
+    "metricName": "PR 合并率",
+    "value": "34% → 67%",
+    "period": "2025-11-14 披露",
+    "eventDate": "2025-11-14",
+    "sourceIds": [
+      "src-devin-010"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": false,
+    "notes": "公司自报绩效口径，仅作研究背景，不进旁白。"
+  },
+  {
+    "id": "claim-devin-012",
+    "claim": "Cognition 由 Scott Wu、Steven Hao、Walden Yan 创立，三人都是国际信息学奥林匹克金牌得主。",
+    "metricName": "",
+    "value": "",
+    "period": "2023 年创立",
+    "eventDate": "2023-08",
+    "sourceIds": [
+      "src-devin-016",
+      "src-devin-017"
+    ],
+    "confidence": "high",
+    "reportingType": "independently-verified",
+    "allowedInNarration": true,
+    "notes": "维基与 Bloomberg 交叉核对创始人与 IOI 金牌身份。"
+  },
+  {
+    "id": "claim-devin-013",
+    "claim": "Scott Wu 表示，奥赛编程背景让团队在教 AI 做程序员这件事上更有优势，因为这是需要系统做复杂决策的算法问题。",
+    "metricName": "",
+    "value": "",
+    "period": "2024-03 发布前后",
+    "eventDate": "2024-03-12",
+    "sourceIds": [
+      "src-devin-017",
+      "src-devin-016"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "创始人对需求与能力选择的口述，不补写心理或顿悟。"
+  },
+  {
+    "id": "claim-devin-014",
+    "claim": "2024 年初，Founders Fund 向 Cognition 提供 2100 万美元种子轮融资，估值 3.5 亿美元。",
+    "metricName": "种子轮",
+    "value": "2100 万美元 / 估值 3.5 亿美元",
+    "period": "2024 年初，发布前后",
+    "eventDate": "2024-03",
+    "sourceIds": [
+      "src-devin-016"
+    ],
+    "confidence": "high",
+    "reportingType": "independently-verified",
+    "allowedInNarration": true,
+    "notes": "维基转述 WSJ：Peter Thiel 的 Founders Fund 提供 2100 万美元，估值 3.5 亿美元。媒体口径。"
+  },
+  {
+    "id": "claim-devin-015",
+    "claim": "Cognition 官方首发演示视频截至 2026-08-16 播放量超过 122 万次。",
+    "metricName": "官方演示播放量",
+    "value": "122 万+",
+    "period": "2024-03-12 上传至 2026-08-16",
+    "eventDate": "2026-08-16",
+    "sourceIds": [
+      "src-devin-002"
+    ],
+    "confidence": "high",
+    "reportingType": "independently-verified",
+    "allowedInNarration": true,
+    "notes": "官方 YouTube 页面可核验播放量；证明冷启动靠公开演示被看见，不换算转化。"
+  },
+  {
+    "id": "claim-devin-016",
+    "claim": "2026 年 5 月 27 日，Cognition 以 25 亿美元 pre-money（26 亿美元 post-money）估值融资超过 10 亿美元。",
+    "metricName": "估值 / 融资额",
+    "value": "25 亿美元 pre / 超 10 亿美元",
+    "period": "2026-05-27",
+    "eventDate": "2026-05-27",
+    "sourceIds": [
+      "src-devin-007"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "TechCrunch 报道的公司融资口径，作为资本市场定价证据，不换算利润或成功率。"
+  }
+]

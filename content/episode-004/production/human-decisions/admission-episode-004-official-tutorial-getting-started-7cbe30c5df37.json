@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "admission-episode-004-official-tutorial-getting-started",
+  "gate": "media-admission",
+  "decision": "approve",
+  "reviewer": "human-approver",
+  "timestamp": "2026-08-16T12:00:00.000Z",
+  "reason": "episode-004 人工批准素材准入：Getting Started with Devin in 8 Minutes — https://www.youtube.com/watch?v=KdanG1kICxg ，上传 2026-03-16。官方上手教程：任务输入、计划列表、云端",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-004:media:source-manifest",
+      "episodeId": "episode-004",
+      "path": "content/episode-004/media/source-manifest.json",
+      "mediaType": "application/json",
+      "schemaVersion": "media-source-manifest-v1",
+      "revision": 1,
+      "sha256": "f8849eaf807e2ff32366feff22861e1bfbbc51bcd9efdd887fafa3d649f5a78b",
+      "sizeBytes": 7092,
+      "producer": "episode-004-media-pipeline",
+      "createdAt": "2026-08-16T12:00:00.000Z"
+    }
+  ],
+  "approvalEpoch": 0,
+  "authorizations": [],
+  "edits": []
+}

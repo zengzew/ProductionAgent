@@ -1,0 +1,341 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-004:media:official-demo-intro-proxy",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-demo-intro-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "bd5181b965a002cd58ad12b0ab637bad76acffdd5d17464dff015790a91aeec3",
+    "sizeBytes": 3121649
+  },
+  "asrVersion": "youtube-caption-track-v1",
+  "availability": "available",
+  "durationMs": 109459,
+  "episodeId": "episode-004",
+  "mediaId": "episode-004:media:official-demo-intro",
+  "model": null,
+  "provider": "youtube-captions",
+  "schemaVersion": "media-transcript-v1",
+  "segments": [
+    {
+      "confidence": null,
+      "endMs": 6510,
+      "index": 0,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 5160,
+      "text": "today I'm really excited to introduce"
+    },
+    {
+      "confidence": null,
+      "endMs": 9110,
+      "index": 1,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 6520,
+      "text": "you to Devon the first AI software"
+    },
+    {
+      "confidence": null,
+      "endMs": 11270,
+      "index": 2,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 9120,
+      "text": "engineer let me show you an example of"
+    },
+    {
+      "confidence": null,
+      "endMs": 13310,
+      "index": 3,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 11280,
+      "text": "Devon in"
+    },
+    {
+      "confidence": null,
+      "endMs": 15070,
+      "index": 4,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 13320,
+      "text": "action I'm going to ask Devon to"
+    },
+    {
+      "confidence": null,
+      "endMs": 16430,
+      "index": 5,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 15080,
+      "text": "Benchmark the performance of llama and a"
+    },
+    {
+      "confidence": null,
+      "endMs": 17950,
+      "index": 6,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 16440,
+      "text": "couple different API"
+    },
+    {
+      "confidence": null,
+      "endMs": 20390,
+      "index": 7,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 17960,
+      "text": "providers from now on Devon is in the"
+    },
+    {
+      "confidence": null,
+      "endMs": 21310,
+      "index": 8,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 20400,
+      "text": "driver's"
+    },
+    {
+      "confidence": null,
+      "endMs": 23589,
+      "index": 9,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 21320,
+      "text": "seat first Devon makes a step-by-step"
+    },
+    {
+      "confidence": null,
+      "endMs": 26630,
+      "index": 10,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 23599,
+      "text": "plan of how to tackle the"
+    },
+    {
+      "confidence": null,
+      "endMs": 30029,
+      "index": 11,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 28640,
+      "text": "project using all the same tools that"
+    },
+    {
+      "confidence": null,
+      "endMs": 32830,
+      "index": 12,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 30039,
+      "text": "human software engineer would use Devon"
+    },
+    {
+      "confidence": null,
+      "endMs": 35389,
+      "index": 13,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 32840,
+      "text": "has its own command"
+    },
+    {
+      "confidence": null,
+      "endMs": 39069,
+      "index": 14,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 35399,
+      "text": "line its own code"
+    },
+    {
+      "confidence": null,
+      "endMs": 44069,
+      "index": 15,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 41920,
+      "text": "browser in this case Devon decides to"
+    },
+    {
+      "confidence": null,
+      "endMs": 45510,
+      "index": 16,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 44079,
+      "text": "use the browser to pull up API"
+    },
+    {
+      "confidence": null,
+      "endMs": 47229,
+      "index": 17,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 45520,
+      "text": "documentation so that it can read up and"
+    },
+    {
+      "confidence": null,
+      "endMs": 51750,
+      "index": 18,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 47239,
+      "text": "learn how to plug into each of these"
+    },
+    {
+      "confidence": null,
+      "endMs": 63189,
+      "index": 19,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 61039,
+      "text": "debugging print"
+    },
+    {
+      "confidence": null,
+      "endMs": 65149,
+      "index": 20,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 63199,
+      "text": "statement reruns the code with the"
+    },
+    {
+      "confidence": null,
+      "endMs": 67550,
+      "index": 21,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 65159,
+      "text": "debugging print statement and then uses"
+    },
+    {
+      "confidence": null,
+      "endMs": 69390,
+      "index": 22,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 67560,
+      "text": "the error in the logs to figure out how"
+    },
+    {
+      "confidence": null,
+      "endMs": 73990,
+      "index": 23,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 69400,
+      "text": "to fix the"
+    },
+    {
+      "confidence": null,
+      "endMs": 78149,
+      "index": 24,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 76320,
+      "text": "deploy a website with full styling as"
+    },
+    {
+      "confidence": null,
+      "endMs": 80230,
+      "index": 25,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 78159,
+      "text": "the"
+    },
+    {
+      "confidence": null,
+      "endMs": 83950,
+      "index": 26,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 80240,
+      "text": "visualization you can see the website"
+    },
+    {
+      "confidence": null,
+      "endMs": 86069,
+      "index": 27,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 83960,
+      "text": "here all of this is possible today"
+    },
+    {
+      "confidence": null,
+      "endMs": 87270,
+      "index": 28,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 86079,
+      "text": "because of the advancements that we've"
+    },
+    {
+      "confidence": null,
+      "endMs": 88590,
+      "index": 29,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 87280,
+      "text": "made in both reasoning and long-term"
+    },
+    {
+      "confidence": null,
+      "endMs": 91350,
+      "index": 30,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 88600,
+      "text": "planning it's hard problem and we've"
+    },
+    {
+      "confidence": null,
+      "endMs": 93109,
+      "index": 31,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 91360,
+      "text": "only just started but we're super"
+    },
+    {
+      "confidence": null,
+      "endMs": 94350,
+      "index": 32,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 93119,
+      "text": "excited about the progress that we've"
+    },
+    {
+      "confidence": null,
+      "endMs": 95270,
+      "index": 33,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 94360,
+      "text": "made so"
+    },
+    {
+      "confidence": null,
+      "endMs": 97429,
+      "index": 34,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 95280,
+      "text": "far in the meantime if you'd like to try"
+    },
+    {
+      "confidence": null,
+      "endMs": 100190,
+      "index": 35,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 97439,
+      "text": "out Devon on your own real world tasks"
+    },
+    {
+      "confidence": null,
+      "endMs": 101670,
+      "index": 36,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 100200,
+      "text": "send us a request below and we'd be"
+    },
+    {
+      "confidence": null,
+      "endMs": 108389,
+      "index": 37,
+      "speaker": "fjHtjT7GO1c",
+      "startMs": 101680,
+      "text": "happy to forward it to"
+    }
+  ],
+  "sourceMediaRef": {
+    "artifactId": "episode-004:media:official-demo-intro",
+    "createdAt": "2026-08-16T12:00:00.000Z",
+    "episodeId": "episode-004",
+    "mediaType": "video/mp4",
+    "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+    "sizeBytes": 2572402
+  },
+  "toolVersion": "media-asr-vtt-v1"
+}

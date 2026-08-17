@@ -53,8 +53,10 @@ versions fail closed and in-flight episodes cannot be auto-migrated. See
 - Risks, disputes and missing metrics appear only when they materially affect
   product understanding, factual accuracy or release compliance. They do not
   become the default story spine or ending.
-- The last line lands on a claim-supported product state, user action or
-  concrete result. It does not question the product's future.
+- The last line lands on a claim-supported product state, user action,
+  concrete result, or sourced capital-market evidence (revenue, funding or
+  valuation, labeled as company/media figures). It does not question the
+  product's future, and it does not default to restating the opening action.
 - The final 1080×1920 MP4 targets 60 seconds with a ±20-second tolerance: the
   measured duration must land between 40 and 80 seconds. Validation uses the
   measured TTS timeline and the rendered file's ffprobe duration.

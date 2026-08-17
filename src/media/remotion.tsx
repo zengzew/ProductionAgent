@@ -47,6 +47,14 @@ const COLORS = {
   demo: "#c9844a",
 };
 
+const PRODUCTION_META_TAG =
+  /真实画面|数据证据|真实页面|功能演示|程序化画面|Claim Ledger|真实音频/u;
+
+const isProductionMetaTag = (text: string): boolean => PRODUCTION_META_TAG.test(text);
+
+const visibleOnScreenText = (texts: readonly string[]): string[] =>
+  texts.filter((text) => text.trim().length > 0 && !isProductionMetaTag(text));
+
 const reframeObjectFit = (mode: MediaShot["transform"]["reframe"]["mode"]): "cover" | "contain" =>
   mode === "cover" ? "cover" : "contain";
 
@@ -193,11 +201,10 @@ export const RealAudioCard: React.FC<{shot: MediaShot}> = ({shot}) => (
         textAlign: "center",
       }}
     >
-      <div style={{fontSize: 30, letterSpacing: 2, color: COLORS.real, fontWeight: 700}}>
-        真实音频
-      </div>
       <div style={{marginTop: 24, fontSize: 44, lineHeight: 1.25, fontWeight: 760}}>
-        {shot.overlays.sourceLabel ?? "原始录音"}
+        {shot.overlays.sourceLabel && !isProductionMetaTag(shot.overlays.sourceLabel)
+          ? shot.overlays.sourceLabel
+          : ""}
       </div>
       <div style={{marginTop: 28, display: "flex", justifyContent: "center", gap: 10}}>
         {Array.from({length: 9}, (_, index) => (
@@ -282,21 +289,23 @@ export const OfficialScreenshotLayer: React.FC<{
           }}
         />
       </div>
-      <div
-        style={{
-          position: "absolute",
-          left: 48,
-          bottom: 200,
-          padding: "10px 16px",
-          borderRadius: 999,
-          background: "rgba(8,9,13,.88)",
-          color: COLORS.ink,
-          fontSize: 24,
-          zIndex: 4,
-        }}
-      >
-        {label}
-      </div>
+      {label && !isProductionMetaTag(label) ? (
+        <div
+          style={{
+            position: "absolute",
+            left: 48,
+            bottom: 200,
+            padding: "10px 16px",
+            borderRadius: 999,
+            background: "rgba(8,9,13,.88)",
+            color: COLORS.ink,
+            fontSize: 24,
+            zIndex: 4,
+          }}
+        >
+          {label}
+        </div>
+      ) : null}
     </AbsoluteFill>
   );
 };
@@ -308,43 +317,10 @@ export const OfficialScreenshotLayer: React.FC<{
 export const FallbackVisualLayer: React.FC<{
   scene: Timeline["scenes"][number];
   shot: MediaShot | null;
-}> = ({scene, shot}) => {
-  const visualType = shot?.visualType ?? "programmatic-visual";
-  if (visualType === "data-evidence-card") {
-    return (
-      <AbsoluteFill
-        style={{
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "0 96px",
-          color: COLORS.ink,
-          fontFamily: SANS,
-        }}
-      >
-        <div
-          style={{
-            width: "100%",
-            padding: "64px 56px",
-            borderRadius: 28,
-            background: COLORS.card,
-            border: `1px solid ${COLORS.line}`,
-            textAlign: "center",
-          }}
-        >
-          <div style={{fontSize: 28, letterSpacing: 2, color: COLORS.official, fontWeight: 700}}>
-            数据证据 · Claim Ledger
-          </div>
-          <div style={{marginTop: 26, fontSize: 48, lineHeight: 1.2, fontWeight: 780}}>
-            {scene.visualIntent}
-          </div>
-          <div style={{marginTop: 22, fontSize: 28, color: COLORS.muted}}>
-            {scene.claimIds.join(" · ")}
-          </div>
-        </div>
-      </AbsoluteFill>
-    );
-  }
-  // programmatic-visual (and any unspecified fallback).
+}> = ({scene}) => {
+  const lines = visibleOnScreenText(scene.onScreenText);
+  const headline = lines[0] ?? "";
+  const rest = lines.slice(1);
   return (
     <AbsoluteFill
       style={{
@@ -356,15 +332,12 @@ export const FallbackVisualLayer: React.FC<{
         textAlign: "center",
       }}
     >
-      <div style={{fontSize: 30, letterSpacing: 3, color: COLORS.gold, fontWeight: 700}}>
-        功能演示 · 程序化画面
-      </div>
-      <div style={{marginTop: 28, fontSize: 52, lineHeight: 1.25, fontWeight: 780}}>
-        {scene.visualIntent}
-      </div>
-      {scene.onScreenText.length > 0 ? (
-        <div style={{marginTop: 26, fontSize: 30, lineHeight: 1.5, color: COLORS.muted}}>
-          {scene.onScreenText.join(" · ")}
+      {headline ? (
+        <div style={{fontSize: 56, lineHeight: 1.2, fontWeight: 780}}>{headline}</div>
+      ) : null}
+      {rest.length > 0 ? (
+        <div style={{marginTop: 28, fontSize: 36, lineHeight: 1.45, color: COLORS.muted}}>
+          {rest.join("\n")}
         </div>
       ) : null}
     </AbsoluteFill>
@@ -381,49 +354,56 @@ const BADGE_COLORS: Record<string, string> = {
   demo: COLORS.demo,
 };
 
-export const MediaShotOverlays: React.FC<{shot: MediaShot}> = ({shot}) => (
-  <>
-    {shot.overlays.badge ? (
-      <div
-        style={{
-          position: "absolute",
-          right: 48,
-          top: 200,
-          padding: "10px 18px",
-          borderRadius: 999,
-          background: BADGE_COLORS[shot.overlays.badge.tone] ?? COLORS.demo,
-          color: "#141008",
-          fontSize: 24,
-          fontWeight: 720,
-          zIndex: 5,
-        }}
-      >
-        {shot.overlays.badge.text}
-      </div>
-    ) : null}
-    {shot.overlays.sourceLabel ? (
-      <div
-        style={{
-          position: "absolute",
-          left: 48,
-          bottom: 200,
-          maxWidth: 900,
-          padding: "10px 16px",
-          borderRadius: 999,
-          background: "rgba(8,9,13,.88)",
-          color: COLORS.ink,
-          fontSize: 24,
-          whiteSpace: "nowrap",
-          overflow: "hidden",
-          textOverflow: "ellipsis",
-          zIndex: 5,
-        }}
-      >
-        {shot.overlays.sourceLabel}
-      </div>
-    ) : null}
-  </>
-);
+export const MediaShotOverlays: React.FC<{shot: MediaShot}> = ({shot}) => {
+  const badgeText = shot.overlays.badge?.text ?? "";
+  const sourceLabel = shot.overlays.sourceLabel ?? "";
+  const showBadge = Boolean(badgeText) && !isProductionMetaTag(badgeText);
+  const showSource = Boolean(sourceLabel) && !isProductionMetaTag(sourceLabel);
+  if (!showBadge && !showSource) return null;
+  return (
+    <>
+      {showBadge ? (
+        <div
+          style={{
+            position: "absolute",
+            right: 48,
+            top: 200,
+            padding: "10px 18px",
+            borderRadius: 999,
+            background: BADGE_COLORS[shot.overlays.badge?.tone ?? ""] ?? COLORS.demo,
+            color: "#141008",
+            fontSize: 24,
+            fontWeight: 720,
+            zIndex: 5,
+          }}
+        >
+          {badgeText}
+        </div>
+      ) : null}
+      {showSource ? (
+        <div
+          style={{
+            position: "absolute",
+            left: 48,
+            bottom: 200,
+            maxWidth: 900,
+            padding: "10px 16px",
+            borderRadius: 999,
+            background: "rgba(8,9,13,.88)",
+            color: COLORS.ink,
+            fontSize: 24,
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            zIndex: 5,
+          }}
+        >
+          {sourceLabel}
+        </div>
+      ) : null}
+    </>
+  );
+};
 
 /* ------------------------------------------------------------------------- *
  * One shot scene (media + audio + overlays + fade/crossfade)
@@ -459,7 +439,7 @@ export const MediaShotScene: React.FC<{
         <OfficialScreenshotLayer
           shot={shot}
           src={staticFile(shot.fallbackImagePath)}
-          label={shot.overlays.sourceLabel ?? "真实页面截图"}
+          label={shot.overlays.sourceLabel ?? ""}
         />
       ) : (
         <FallbackVisualLayer scene={scene} shot={shot} />

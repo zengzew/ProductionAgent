@@ -1,0 +1,41 @@
+{
+  "requestedProvider": "MiniMax Speech",
+  "provider": "Microsoft Edge neural TTS",
+  "providerId": "edge",
+  "fallbackUsed": true,
+  "fallbackReason": "missing MINIMAX_API_KEY",
+  "generatedAt": "2026-08-17T07:34:20.633Z",
+  "voice": "zh-CN-YunjianNeural",
+  "speed": 1.25,
+  "pitch": "-2Hz",
+  "normalization": "loudnorm I=-16 TP=-1.5 LRA=7",
+  "credentialRequired": false,
+  "networkRequired": true,
+  "alignmentStrategy": "caption-plan-proportional",
+  "files": [
+    {
+      "segmentId": "seg-001",
+      "file": "episodes/episode-004/audio/seg-001.mp3"
+    },
+    {
+      "segmentId": "seg-002",
+      "file": "episodes/episode-004/audio/seg-002.mp3"
+    },
+    {
+      "segmentId": "seg-003",
+      "file": "episodes/episode-004/audio/seg-003.mp3"
+    },
+    {
+      "segmentId": "seg-004",
+      "file": "episodes/episode-004/audio/seg-004.mp3"
+    },
+    {
+      "segmentId": "seg-005",
+      "file": "episodes/episode-004/audio/seg-005.mp3"
+    },
+    {
+      "segmentId": "seg-006",
+      "file": "episodes/episode-004/audio/seg-006.mp3"
+    }
+  ]
+}

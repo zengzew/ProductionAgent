@@ -1,0 +1,32 @@
+{
+  "verdict": "pass",
+  "clipId": "episode-004:media-clip:99faf2d74c1b9d53b300d5fa",
+  "relevance": 0.95,
+  "claimMatch": 0.9,
+  "visualQuality": 0.55,
+  "misleadingRisk": 0.05,
+  "observedActions": [
+    "Devin 会话界面显示 parallel builds - Keep the best 与 Approach 01/02/03 并行构建卡片",
+    "同段字幕：spin up three Devins to build those three separate ways in their own branches"
+  ],
+  "observedEntities": [
+    "Devin"
+  ],
+  "observedText": [
+    "parallel builds - Keep the best",
+    "Approach 01",
+    "Approach 02",
+    "Approach 03",
+    "Dictating to AI"
+  ],
+  "recommendedStartMs": 236000,
+  "recommendedEndMs": 240000,
+  "reasons": [
+    "OCR 读到 parallel builds 并行构建 UI 与三个 Approach 卡片，直接对应“同时开多个 Devin 并行干”",
+    "官方平行 Devin 教程画面",
+    "画面与旁白高度一致"
+  ],
+  "reviewer": "human-approver",
+  "reviewMethod": "keyframe-OCR + caption-track review",
+  "reviewedAt": "2026-08-16T12:30:00.000Z"
+}
