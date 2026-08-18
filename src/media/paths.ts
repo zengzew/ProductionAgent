@@ -278,6 +278,15 @@ export const mediaRenderPlanPublicPath = (episodeId: string): string => {
   return `episodes/${episodeId}/media/render-plan.json`;
 };
 
+/**
+ * `media/render-manifest.json` — WP-M5.09 render-time projection of admitted
+ * sources, ingested assets, verified clips, and usage decisions.
+ */
+export const mediaRenderManifestRepositoryPath = (episodeId: string): string => {
+  assertEpisodeId(episodeId);
+  return `${mediaRootRepositoryPath(episodeId)}/render-manifest.json`;
+};
+
 /** Repository path of the public render directory for one episode. */
 export const mediaRenderPublicDirectoryRepositoryPath = (episodeId: string): string => {
   assertEpisodeId(episodeId);

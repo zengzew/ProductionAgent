@@ -1,5 +1,9 @@
 import {episodeId, repoRoot} from "../src/lib/episode/paths";
 import {
+  assertMediaRenderManifestConsistent,
+  buildMediaRenderManifest,
+} from "../src/media/projection";
+import {
   assertMediaRenderPlanRenderable,
   buildMediaRenderPlanForTimeline,
 } from "../src/media/render";
@@ -20,11 +24,14 @@ const plan = buildMediaRenderPlanForTimeline({repoRoot, episodeId});
 // Re-authorize right after the build — stale/tampered/rights-blocked media
 // fails closed before Remotion ever starts.
 assertMediaRenderPlanRenderable({repoRoot, episodeId});
+const projection = buildMediaRenderManifest({repoRoot, episodeId});
+assertMediaRenderManifestConsistent({repoRoot, episodeId});
 
 const realMedia = plan.shots.filter((shot) => shot.visualType === "real-media").length;
 const fallback = plan.shots.length - realMedia;
 console.log(
   `media render plan complete: ${plan.shots.length} shots ` +
     `(${realMedia} real-media, ${fallback} fallback), ${plan.totalFrames} frames @ ${plan.fps}fps, ` +
-    `plan ${plan.artifactRef.sha256.slice(0, 12)}`,
+    `plan ${plan.artifactRef.sha256.slice(0, 12)}, ` +
+    `projection ${projection.artifactRef.sha256.slice(0, 12)}`,
 );

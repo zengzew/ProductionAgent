@@ -9,12 +9,12 @@ Read these first:
 
 ## Layout
 
-| Directory     | What lives here                                        |
-| ------------- | ------------------------------------------------------ |
-| `contracts/`  | Current engineering and editorial contracts            |
-| `milestones/` | M1–M5 acceptance reports and media work packages       |
-| `archive/`    | Goal 3.x working notes and landed implementation plans |
-| `decisions/`  | Accepted product/engineering decisions                 |
+| Directory     | What lives here                                                |
+| ------------- | -------------------------------------------------------------- |
+| `contracts/`  | Current engineering and editorial contracts                    |
+| `milestones/` | M1–M5 acceptance reports and media work packages (incl. M5.09) |
+| `archive/`    | Goal 3.x working notes and landed implementation plans         |
+| `decisions/`  | Accepted product/engineering decisions                         |
 
 Milestone reports do not recertify later code or media changes.
 `contracts/technical-debt-backlog.md` is a closed-item record, not a live

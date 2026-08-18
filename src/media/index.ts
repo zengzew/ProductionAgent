@@ -17,3 +17,5 @@ export * from "./retrieve";
 export * from "./verify";
 export * from "./select";
 export * from "./render";
+export * from "./projection";
+export * from "./delivery-gate";

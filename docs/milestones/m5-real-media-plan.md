@@ -1,6 +1,6 @@
 # M5 — Real Media First
 
-- Status: accepted scope; M5.01 implemented; M5.02 implemented; M5.03 implemented; M5.04 implemented (`docs/milestones/m5-04-media-index.md`); M5.05 implemented (`docs/milestones/m5-05-media-retrieval.md`); M5.06 implemented (`docs/milestones/m5-06-media-verification.md`); M5.07 implemented (`docs/milestones/m5-07-visual-director-selection.md`); M5.08 implemented (`docs/milestones/m5-08-media-remotion.md`)
+- Status: accepted scope; M5.01 implemented; M5.02 implemented; M5.03 implemented; M5.04 implemented (`docs/milestones/m5-04-media-index.md`); M5.05 implemented (`docs/milestones/m5-05-media-retrieval.md`); M5.06 implemented (`docs/milestones/m5-06-media-verification.md`); M5.07 implemented (`docs/milestones/m5-07-visual-director-selection.md`); M5.08 implemented (`docs/milestones/m5-08-media-remotion.md`); M5.09 implemented (`docs/milestones/m5-09-media-e2e.md`)
 - Predecessor: M4 exit-accepted (`docs/milestones/m4-acceptance-report.md`)
 - Default manual path: unchanged until a later WP explicitly opts in
 - Product constraints (inherited, not renegotiable):
@@ -46,7 +46,7 @@ percentage target.
 | M5.06 | `src/media/verify.ts` hosted VLM adapter                                                        | M5.05                                   | `tests/media-verify.test.ts`                                            | VLM sees only short candidate clips, never whole long videos. Hosted-only. `assertMediaClipRenderable` requires `verdict=pass` + hash-valid verification ArtifactRef.                                                                                                                                       |
 | M5.07 | `src/media/select.ts`, `src/orchestration/agents/adapters/visual-director.ts` (**implemented**) | M5.06, content loop on foundation graph | `tests/media-selection.test.ts` (13 PASS) plus orchestration regression | Visual Director real-media-first runs **inside** `runContentLoop` as composed by `createFoundationGraph` (`createVisualSlotDirector`). One `visual-slot-v1` artifact per final-script segment; verified real media preferred; structured fallback reason + fixed fallback stage; deterministic tie-breaker. |
 | M5.08 | Remotion real-clip layers (**implemented**)                                                     | M5.06, M5.07                            | `tests/media-remotion.test.ts` (12 PASS)                                | Trim/crop/PiP/caption/mix only from renderable clips. Shot traces to source + timestamp. Output still 1080×1920.                                                                                                                                                                                            |
-| M5.09 | Delivery gate + E2E                                                                             | M5.08, M4.04                            | `tests/media-e2e.test.ts`                                               | Inspect/delivery enforce 40–80s and 9:16. One real-media E2E PASS. One tampered-media E2E FAIL. Observability complete before final approval.                                                                                                                                                               |
+| M5.09 | Delivery gate + E2E (**implemented**)                                                           | M5.08, M4.04                            | `tests/media-e2e.test.ts`                                               | Inspect/delivery enforce 40–80s and 9:16. One real-media E2E PASS. One tampered-media E2E FAIL. Observability complete before final approval. Dual-ledger render-time projection (`media-render-manifest-v1`).                                                                                              |
 
 Dependencies: M5.02 and M5.01 feed M5.03; M5.04 feeds M5.05; M5.07 and M5.06
 feed M5.08. Sequential delivery in 01 → 09 is recommended for regression
@@ -89,10 +89,12 @@ A cache hit logs cost 0 and never bypasses `assertMediaClipRenderable`.
 
 `content/<episode>/production/asset-manifest.json` remains the current
 screenshot/generated-asset ledger. `content/<episode>/media/source-manifest.json`
-is the real-media ledger. M5.08/M5.09 must make the render-time manifest a
-projection of admitted sources + ingested assets + verified clips + usage
-decisions. Until that projection WP lands, both ledgers stay independent and
-the manual pipeline is unchanged.
+is the real-media ledger. M5.09 makes the render-time manifest a projection
+of admitted sources + ingested assets + verified clips + usage decisions
+(`content/<episode>/media/render-manifest.json`). Both source ledgers stay
+independent files; delivery fail-closes if the render plan uses anything
+outside that projection. `pnpm media:render-plan` writes the projection.
+`validate:delivery` runs the media gate for `media-mix` episodes.
 
 ## Exit criteria
 

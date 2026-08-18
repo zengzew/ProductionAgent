@@ -6,7 +6,12 @@ import {
 } from "../src/lib/delivery/captions";
 import {measureCaptionDelivery, parseDeliveryGate, parseSrt} from "../src/lib/delivery/delivery";
 import {episodeId, episodeRoot, outputEpisodeRoot, repoRoot} from "../src/lib/episode/paths";
-import {assertTimelineMatchesEpisode, generatedCaptionsPath} from "../src/lib/episode/render-contract";
+import {
+  assertTimelineMatchesEpisode,
+  generatedCaptionsPath,
+  getRenderContract,
+} from "../src/lib/episode/render-contract";
+import {assertMediaDeliveryGate} from "../src/media/delivery-gate";
 import {
   assertTimelineMatchesProductionContract,
   productionContract,
@@ -76,6 +81,16 @@ for (const [label, declared, actual] of expectedHashes) {
 const inspection = readJsonFile<{errors: string[]}>(inspectionPath);
 if (inspection.errors.length > 0) {
   errors.push(`output inspection 仍有错误：${inspection.errors.join("；")}`);
+}
+if (getRenderContract(episodeId).renderer === "media-mix") {
+  errors.capture(() => {
+    assertMediaDeliveryGate({
+      repoRoot,
+      episodeId,
+      inspectionPath,
+      requireObservabilityComplete: false,
+    });
+  });
 }
 
 const script = readScript(path.join(episodeRoot, "story/script.json"));
