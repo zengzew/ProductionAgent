@@ -1,5 +1,5 @@
 import {spawnSync, type SpawnSyncOptionsWithStringEncoding} from "node:child_process";
-import {assertSpawnSucceeded, parseFiniteNumber} from "../../src/lib/process";
+import {assertSpawnSucceeded, parseFiniteNumber} from "../../src/lib/platform/process";
 
 export type CommandResult = {
   stdout: string;

@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import {z} from "zod";
-import {chatJson, type ChatClientConfig} from "../../../lib/llm";
+import {chatJson, type ChatClientConfig} from "../../../lib/editorial/llm";
 import {buildArtifactRef} from "../../artifact-registry";
 import type {AgentExecutionRequest} from "../../schemas/agent";
 import {createAgentRunner, type AgentRunner} from "../run-agent";

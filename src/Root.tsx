@@ -1,11 +1,11 @@
 import React from "react";
 import {Composition} from "remotion";
-import pokeTimelineRaw from "./poke-timeline.generated.json";
-import {PokeCover, PokeEpisode} from "./compositions/PokeEpisode";
-import roostTimelineRaw from "./episode-002-timeline.generated.json";
-import {RoostCover, RoostEpisode} from "./compositions/RoostEpisode";
-import manusTimelineRaw from "./episode-003-timeline.generated.json";
-import {ManusEpisode} from "./compositions/ManusEpisode";
+import pokeTimelineRaw from "../content/episode-001/production/timeline.json";
+import {PokeCover, PokeEpisode} from "./compositions/legacy/PokeEpisode";
+import roostTimelineRaw from "../content/episode-002/production/timeline.json";
+import {RoostCover, RoostEpisode} from "./compositions/legacy/RoostEpisode";
+import manusTimelineRaw from "../content/episode-003/production/timeline.json";
+import {ManusEpisode} from "./compositions/legacy/ManusEpisode";
 import {MediaMixEpisode, mediaMixMetadata} from "./compositions/MediaMixEpisode";
 import {timelineSchema} from "./schemas/episode";
 

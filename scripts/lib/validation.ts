@@ -10,8 +10,8 @@ import {
   type Script,
   type Timeline,
 } from "../../src/schemas/episode";
-import {assertTimelineMatchesEpisode, type RenderContract} from "../../src/lib/render-contract";
-import {assertTimelineMatchesProductionContract} from "../../src/lib/production-contract";
+import {assertTimelineMatchesEpisode, type RenderContract} from "../../src/lib/episode/render-contract";
+import {assertTimelineMatchesProductionContract} from "../../src/lib/episode/production-contract";
 
 const generatedCaptionArtifactSchema = z.array(
   z.object({

@@ -61,7 +61,7 @@ import {
 } from "../src/media/select";
 import {retrieveMediaCandidates} from "../src/media/retrieve";
 import {serializeIndexArtifact} from "../src/media/understanding";
-import {FineGrainedCacheStore} from "../src/lib/fine-grained-cache";
+import {FineGrainedCacheStore} from "../src/lib/platform/cache";
 import {timelineSchema, type Timeline} from "../src/schemas/episode";
 import {
   MEDIA_RENDER_DEPENDENCY_PATHS,
@@ -1638,7 +1638,13 @@ describe("WP-M5.08 render plan (timeline-bound projection for the generic compos
       ]);
       const timelineSha256 = writeTimeline(repoRoot, episodeId, timeline);
       // The plan builder copies the generated captions to public.
-      const captionsPath = path.join(repoRoot, "src", "episode-003-captions.generated.json");
+      const captionsPath = path.join(
+        repoRoot,
+        "content",
+        "episode-003",
+        "production",
+        "captions.generated.json",
+      );
       fs.mkdirSync(path.dirname(captionsPath), {recursive: true});
       fs.writeFileSync(captionsPath, JSON.stringify([], null, 2));
 
@@ -1715,7 +1721,13 @@ describe("WP-M5.08 render plan (timeline-bound projection for the generic compos
       {id: "seg-001", claimIds: fixture.request.claimIds, startFrame: 0, durationFrames: 150},
     ]);
     const timelineSha256 = writeTimeline(repoRoot, episodeId, timeline);
-    const captionsPath = path.join(repoRoot, "src", "episode-003-captions.generated.json");
+    const captionsPath = path.join(
+      repoRoot,
+      "content",
+      "episode-003",
+      "production",
+      "captions.generated.json",
+    );
     fs.mkdirSync(path.dirname(captionsPath), {recursive: true});
     fs.writeFileSync(captionsPath, JSON.stringify([], null, 2));
 
@@ -1774,7 +1786,13 @@ describe("WP-M5.08 render plan (timeline-bound projection for the generic compos
       },
     ]);
     const timelineSha256_2 = writeTimeline(repoRoot2, episodeId2, timeline2);
-    const captionsPath2 = path.join(repoRoot2, "src", "episode-003-captions.generated.json");
+    const captionsPath2 = path.join(
+      repoRoot2,
+      "content",
+      "episode-003",
+      "production",
+      "captions.generated.json",
+    );
     fs.mkdirSync(path.dirname(captionsPath2), {recursive: true});
     fs.writeFileSync(captionsPath2, JSON.stringify([], null, 2));
     buildMediaRenderPlanForTimeline({
@@ -1836,7 +1854,13 @@ describe("WP-M5.08 render plan (timeline-bound projection for the generic compos
         {id: "seg-001", claimIds: ["claim-fixture-001"], startFrame: 0, durationFrames: 150},
       ]);
       const timelineSha256 = writeTimeline(repoRoot, episodeId, timeline);
-      const captionsPath = path.join(repoRoot, "src", "episode-003-captions.generated.json");
+      const captionsPath = path.join(
+        repoRoot,
+        "content",
+        "episode-003",
+        "production",
+        "captions.generated.json",
+      );
       fs.mkdirSync(path.dirname(captionsPath), {recursive: true});
       fs.writeFileSync(captionsPath, JSON.stringify([], null, 2));
       const plan = buildMediaRenderPlanForTimeline({

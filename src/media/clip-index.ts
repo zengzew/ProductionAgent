@@ -1,4 +1,4 @@
-import {sha256Json} from "../lib/fine-grained-cache";
+import {sha256Json} from "../lib/platform/cache";
 import {episodeIdSchema} from "../orchestration/identity";
 import {artifactRefSchema} from "../orchestration/schemas/artifact";
 import type {Scene} from "./scenes";

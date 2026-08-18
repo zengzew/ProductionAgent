@@ -3,14 +3,14 @@ import path from "node:path";
 import {
   findCaptionSemanticBoundaryIssues,
   type CaptionSemanticIssueKind,
-} from "../src/lib/captions";
-import {measureCaptionDelivery, parseDeliveryGate, parseSrt} from "../src/lib/delivery";
-import {episodeId, episodeRoot, outputEpisodeRoot, repoRoot} from "../src/lib/project";
-import {assertTimelineMatchesEpisode, generatedCaptionsPath} from "../src/lib/render-contract";
+} from "../src/lib/delivery/captions";
+import {measureCaptionDelivery, parseDeliveryGate, parseSrt} from "../src/lib/delivery/delivery";
+import {episodeId, episodeRoot, outputEpisodeRoot, repoRoot} from "../src/lib/episode/paths";
+import {assertTimelineMatchesEpisode, generatedCaptionsPath} from "../src/lib/episode/render-contract";
 import {
   assertTimelineMatchesProductionContract,
   productionContract,
-} from "../src/lib/production-contract";
+} from "../src/lib/episode/production-contract";
 import {captionPlanMismatchIds} from "./lib/caption-artifacts";
 import {
   fatal,

@@ -17,6 +17,13 @@ update the source-of-truth files, then run the explicit validation, materialize,
 TTS, timeline, render and review commands for each approved stage.
 `ORCHESTRATOR=manual` is the default.
 
+New episodes render only through `MediaMixVertical` and
+`content/<episode>/media/render-plan.json`. Episode 001–003 keep their frozen
+hand-written compositions under `src/compositions/legacy/`; they are not a
+template for a new product. Unknown episode IDs fail closed in
+`src/lib/episode/render-contract.ts`. See [`docs/README.md`](docs/README.md) for the
+current contract and milestone index.
+
 `src/orchestration/` is a real LangGraph-backed foundation, but it is not a
 single command that crosses human approval boundaries. M1 and M2 are
 exit-accepted: they provide the reference-only graph/checkpoint skeleton and
@@ -36,15 +43,15 @@ Final approval records only internal state and never uploads or publishes.
 WP-M3-03 remains the bounded L4 unfreeze path, now normalized to the same
 formal decision artifact while retaining its legacy request/editor contract.
 The default `ORCHESTRATOR=manual` path is unchanged. See
-[`docs/production-adapters.md`](docs/production-adapters.md) and
-[`docs/human-decision.md`](docs/human-decision.md).
+[`docs/contracts/production-adapters.md`](docs/contracts/production-adapters.md) and
+[`docs/contracts/human-decision.md`](docs/contracts/human-decision.md).
 
 WP-M4-01 adds a versioned checkpoint persistence boundary. SQLite remains the
 local/dev backend; PostgreSQL is selected explicitly through
 `CHECKPOINT_BACKEND=postgres` and `CHECKPOINT_POSTGRES_URL`. Minor state and
 checkpoint versions migrate deterministically, while incompatible major
 versions fail closed and in-flight episodes cannot be auto-migrated. See
-[`docs/checkpoint-persistence.md`](docs/checkpoint-persistence.md).
+[`docs/contracts/checkpoint-persistence.md`](docs/contracts/checkpoint-persistence.md).
 
 ## Current editorial and duration standard
 

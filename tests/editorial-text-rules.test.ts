@@ -1,6 +1,6 @@
 import {describe, expect, it} from "vitest";
-import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial-text-rules";
-import {loadPolishV2Config} from "../src/lib/pipeline-v2-config";
+import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial/text-rules";
+import {loadPolishV2Config} from "../src/lib/editorial/pipeline-config";
 
 describe("editorial text rule contract", () => {
   const rules = loadEditorialTextRules();

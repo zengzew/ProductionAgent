@@ -9,6 +9,8 @@
 /content/*/story/polished-caption-plan.json
 /content/*/production/polish-judge-report.json
 /content/*/production/timeline.json
+/content/*/production/captions.generated.json
+/content/*/media/**
 # Historical read-only episode artifacts: their bytes are hash-bound in run reports,
 # artifact indexes and freeze manifests, so they must never be reformatted in place.
 /content/*/story/final-script.md
@@ -18,14 +20,7 @@
 /content/*/production/comparison-report.md
 /content/*/production/delivery-critic-report.md
 reports/code-review-*.md
-src/poke-captions.generated.json
-src/poke-timeline.generated.json
-src/episode-002-timeline.generated.json
-src/episode-003-timeline.generated.json
-src/episode-003-captions.generated.json
 src/GensparkStory.tsx
-src/captions.generated.json
-src/timeline.generated.json
 scripts/generate_music.sh
 scripts/generate_voiceover.py
 scripts/verify.sh

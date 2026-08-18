@@ -12,8 +12,8 @@ import {
   productionStageCheckpoint,
   sha256Json,
 } from "../../src/orchestration";
-import {captureConfiguredAssets, type CapturePage} from "../../src/lib/capture-assets";
-import {generateTtsWithProviders, type ChineseTtsProvider} from "../../src/lib/tts-providers";
+import {captureConfiguredAssets, type CapturePage} from "../../src/lib/delivery/capture-assets";
+import {generateTtsWithProviders, type ChineseTtsProvider} from "../../src/lib/delivery/tts-providers";
 import type {Script} from "../../src/schemas/episode";
 
 const temporaryDirectories: string[] = [];

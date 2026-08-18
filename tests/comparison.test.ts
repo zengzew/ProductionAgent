@@ -1,5 +1,5 @@
 import {describe, expect, it} from "vitest";
-import {comparisonGateSchema, parseComparisonGate} from "../src/lib/comparison";
+import {comparisonGateSchema, parseComparisonGate} from "../src/lib/delivery/comparison";
 
 const comparisonFixture = (verdict: "IMPROVED" | "MIXED" | "NOT_IMPROVED") => ({
   rubricVersion: "director-comparison-v1" as const,

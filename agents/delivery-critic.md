@@ -27,7 +27,7 @@ content/<episode>/production/timeline.json
 content/<episode>/production/tts-metadata.json
 content/<episode>/production/asset-manifest.json
 content/<episode>/episode.config.json
-src/poke-captions.generated.json
+content/<episode>/production/captions.generated.json
 ```
 
 ## 输出

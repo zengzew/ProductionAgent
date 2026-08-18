@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import {z} from "zod";
-import {sha256Json, stableCacheJson} from "../lib/fine-grained-cache";
+import {sha256Json, stableCacheJson} from "../lib/platform/cache";
 import {episodeIdSchema} from "../orchestration/identity";
 import {redactObservabilityText, redactObservabilityValue} from "../orchestration/observability";
 import {artifactRefSchema} from "../orchestration/schemas/artifact";

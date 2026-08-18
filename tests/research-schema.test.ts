@@ -7,11 +7,11 @@ import {
   scriptSchema,
   sourceSchema,
 } from "../src/schemas/episode";
-import {episodeRoot, readJson} from "../src/lib/project";
+import {episodeRoot, readJson} from "../src/lib/episode/paths";
 import {
   assertEpisodeMatchesProductionContract,
   productionContract,
-} from "../src/lib/production-contract";
+} from "../src/lib/episode/production-contract";
 
 describe("episode source data", () => {
   it("matches the research and script schemas", () => {

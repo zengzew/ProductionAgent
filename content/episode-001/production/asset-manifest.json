@@ -54,7 +54,7 @@
   {
     "id": "asset-006",
     "type": "generated",
-    "path": "src/compositions/PokeEpisode.tsx",
+    "path": "src/compositions/legacy/PokeEpisode.tsx",
     "sourceUrl": "",
     "owner": "Generated in this repository",
     "licenseOrBasis": "Original code-native graphics created for this project.",

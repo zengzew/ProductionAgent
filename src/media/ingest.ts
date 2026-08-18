@@ -9,8 +9,8 @@ import {
   sha256File,
   sha256Json,
   stableCacheJson,
-} from "../lib/fine-grained-cache";
-import {assertSpawnSucceeded} from "../lib/process";
+} from "../lib/platform/cache";
+import {assertSpawnSucceeded} from "../lib/platform/process";
 import {
   emptyArtifactIndex,
   readArtifactIndex,

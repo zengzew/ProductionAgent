@@ -5,17 +5,34 @@ coverage/
 .orchestration/
 .DS_Store
 *.log
-output/*.mp4
-output/*.wav
-output/*.png
-output/episode-001/*.mp4
-output/episode-001/*.wav
-public/audio/chapter/*.mp3
-public/audio/ambient-bed.wav
-public/episodes/*/audio/*.mp3
-public/episodes/*/audio/*.wav
 .env
 build/
 .m5-acceptance-cache/
 downloads/
 /ProductionAgent-episode-*/
+
+# Final and intermediate videos (keep Episode 001 comparison baselines)
+output/**/*.mp4
+output/**/*.wav
+output/**/*.png
+output/**/*.jpg
+!output/episode-001/iterations/**
+
+# Source media, long proxies, verification clips, render cuts
+content/**/media/assets/*.mp4
+content/**/media/assets/*.mov
+content/**/media/assets/*.webm
+content/**/media/verifications/**/*-clip.mp4
+content/**/media/render/*.mp4
+
+# Nested Goal 3 render/TTS copies
+content/**/v2-goal3/production/output/**
+content/**/v2-goal3/production/public/**
+
+# Remotion runtime media copies (JSON stays tracked)
+public/episodes/**/media/*.mp4
+public/episodes/**/media/*.webm
+public/audio/chapter/*.mp3
+public/audio/ambient-bed.wav
+public/episodes/*/audio/*.mp3
+public/episodes/*/audio/*.wav

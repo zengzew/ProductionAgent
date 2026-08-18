@@ -5,9 +5,9 @@ import {
   captionPartsFromPlan,
   fitCaptionPartsToDuration,
   formatSrtTime,
-} from "../src/lib/captions";
+} from "../src/lib/delivery/captions";
 import {episodeConfigSchema} from "../src/schemas/episode";
-import type {TtsMetadata} from "../src/lib/tts-providers";
+import type {TtsMetadata} from "../src/lib/delivery/tts-providers";
 import {
   episodeId,
   episodeRoot,
@@ -15,17 +15,18 @@ import {
   publicEpisodeRoot,
   repoRoot,
   writeJson,
-} from "../src/lib/project";
+} from "../src/lib/episode/paths";
 import {
   generatedCaptionsPath,
-  generatedTimelinePath,
   getRenderContract,
-} from "../src/lib/render-contract";
+  publicCaptionsRepositoryPath,
+  publicTimelineRepositoryPath,
+} from "../src/lib/episode/render-contract";
 import {
   assertEpisodeMatchesProductionContract,
   productionContract,
   timelineTailSeconds,
-} from "../src/lib/production-contract";
+} from "../src/lib/episode/production-contract";
 import {probeMediaDuration} from "./lib/process";
 import {installCliErrorHandlers, readCaptionPlan, readJsonFile, readScript} from "./lib/validation";
 
@@ -152,8 +153,9 @@ const srt = captions
   .join("\n");
 
 writeJson(path.join(episodeRoot, "production/timeline.json"), timeline);
-writeJson(path.join(repoRoot, generatedTimelinePath(episodeId)), timeline);
 writeJson(path.join(repoRoot, generatedCaptionsPath(episodeId)), captions);
+writeJson(path.join(repoRoot, publicTimelineRepositoryPath(episodeId)), timeline);
+writeJson(path.join(repoRoot, publicCaptionsRepositoryPath(episodeId)), captions);
 fs.mkdirSync(outputEpisodeRoot, {recursive: true});
 fs.writeFileSync(path.join(outputEpisodeRoot, "subtitles_zh.srt"), srt);
 

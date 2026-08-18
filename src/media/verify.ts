@@ -3,7 +3,7 @@ import {spawnSync} from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import {z} from "zod";
-import {assertSpawnSucceeded} from "../lib/process";
+import {assertSpawnSucceeded} from "../lib/platform/process";
 import {
   copyBytesAtomically,
   FineGrainedCacheStore,
@@ -12,8 +12,8 @@ import {
   sha256File,
   sha256Json,
   type CacheKind,
-} from "../lib/fine-grained-cache";
-import {fetchWithRetry, type RetryableFetchOptions} from "../lib/network";
+} from "../lib/platform/cache";
+import {fetchWithRetry, type RetryableFetchOptions} from "../lib/platform/network";
 import {
   artifactRefIsIndexed,
   assertArtifactRefBytes,
@@ -127,7 +127,7 @@ export const MEDIA_VERIFICATION_DEPENDENCY_PATHS = [
   "src/media/events.ts",
   "src/media/paths.ts",
   "src/media/schemas.ts",
-  "src/lib/fine-grained-cache.ts",
+  "src/lib/platform/cache.ts",
   "src/orchestration/schemas/artifact.ts",
 ] as const;
 

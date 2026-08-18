@@ -12,7 +12,7 @@ import {
   parseRetentionGate,
   parseViralStrategyGate,
   parseVisualPlanGate,
-} from "../src/lib/story";
+} from "../src/lib/editorial/story";
 import {
   containsGenericCta,
   endsWithQuestion,
@@ -21,14 +21,14 @@ import {
   findSeenActionViolations,
   parseVisualPlanSections,
   parseVisualPlanV3Sections,
-} from "../src/lib/story-quality";
-import {episodeId, episodeRoot, repoRoot} from "../src/lib/project";
-import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial-text-rules";
+} from "../src/lib/editorial/story-quality";
+import {episodeId, episodeRoot, repoRoot} from "../src/lib/episode/paths";
+import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial/text-rules";
 import {
   assertEpisodeMatchesProductionContract,
   assertScriptTargetSecondsMatchContract,
   productionContract,
-} from "../src/lib/production-contract";
+} from "../src/lib/episode/production-contract";
 import {
   fatal,
   finishValidation,

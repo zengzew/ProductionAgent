@@ -1,0 +1,209 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 2.688,
+    "startFrame": 0,
+    "endFrame": 81,
+    "text": "发一句话日历已经改好了"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-002",
+    "startSeconds": 2.8680000000000003,
+    "endSeconds": 4.733032258064517,
+    "startFrame": 86,
+    "endFrame": 142,
+    "text": "Cognition 披露"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 4.733032258064517,
+    "endSeconds": 6.428516129032259,
+    "startFrame": 142,
+    "endFrame": 193,
+    "text": "约三个月一亿多条消息"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 6.428516129032259,
+    "endSeconds": 8.124,
+    "startFrame": 193,
+    "endFrame": 244,
+    "text": "为什么放进联系人列表"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-003",
+    "startSeconds": 8.304,
+    "endSeconds": 11.054222222222222,
+    "startFrame": 249,
+    "endFrame": 332,
+    "text": "Poke 把 AI 放进联系人列表"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-003",
+    "startSeconds": 11.054222222222222,
+    "endSeconds": 12.429333333333334,
+    "startFrame": 332,
+    "endFrame": 373,
+    "text": "能读邮件改日历"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-003",
+    "startSeconds": 12.429333333333334,
+    "endSeconds": 13.608,
+    "startFrame": 373,
+    "endFrame": 408,
+    "text": "还会主动找你"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-004",
+    "startSeconds": 13.788,
+    "endSeconds": 15.006731707317073,
+    "startFrame": 414,
+    "endFrame": 450,
+    "text": "团队最早想做"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-004",
+    "startSeconds": 15.006731707317073,
+    "endSeconds": 16.834829268292683,
+    "startFrame": 450,
+    "endFrame": 505,
+    "text": "邮件客户端用户却说"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-004",
+    "startSeconds": 16.834829268292683,
+    "endSeconds": 18.662926829268294,
+    "startFrame": 505,
+    "endFrame": 560,
+    "text": "别再让我学一套界面"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-004",
+    "startSeconds": 18.662926829268294,
+    "endSeconds": 20.084780487804878,
+    "startFrame": 560,
+    "endFrame": 603,
+    "text": "内测用户又让它"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-004",
+    "startSeconds": 20.084780487804878,
+    "endSeconds": 22.116,
+    "startFrame": 603,
+    "endFrame": 663,
+    "text": "提醒吃药查天气报球赛"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-005",
+    "startSeconds": 23.016,
+    "endSeconds": 24.605625,
+    "startFrame": 690,
+    "endFrame": 738,
+    "text": "所以，工作台收起了"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-005",
+    "startSeconds": 24.605625,
+    "endSeconds": 25.842,
+    "startFrame": 738,
+    "endFrame": 775,
+    "text": "消息入口留下来"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-005",
+    "startSeconds": 25.842,
+    "endSeconds": 28.668,
+    "startFrame": 775,
+    "endFrame": 860,
+    "text": "Recipe 把背景和服务做成链接"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-005",
+    "startSeconds": 28.668,
+    "endSeconds": 30.081,
+    "startFrame": 860,
+    "endFrame": 902,
+    "text": "账户仍要自己授权"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-005",
+    "startSeconds": 30.081,
+    "endSeconds": 31.84725,
+    "startFrame": 902,
+    "endFrame": 955,
+    "text": "2026 年 3 月 19 日"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-005",
+    "startSeconds": 31.84725,
+    "endSeconds": 32.907,
+    "startFrame": 955,
+    "endFrame": 987,
+    "text": "候补名单取消"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-005",
+    "startSeconds": 32.907,
+    "endSeconds": 34.32,
+    "startFrame": 987,
+    "endFrame": 1030,
+    "text": "Recipe 开放"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-006",
+    "startSeconds": 35.22,
+    "endSeconds": 36.87866666666667,
+    "startFrame": 1057,
+    "endFrame": 1106,
+    "text": "到收购前约三个月"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-006",
+    "startSeconds": 36.87866666666667,
+    "endSeconds": 38.74466666666667,
+    "startFrame": 1106,
+    "endFrame": 1162,
+    "text": "往来超过一亿条消息"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-006",
+    "startSeconds": 38.74466666666667,
+    "endSeconds": 40.403333333333336,
+    "startFrame": 1162,
+    "endFrame": 1212,
+    "text": "入口变了动作没变"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-006",
+    "startSeconds": 40.403333333333336,
+    "endSeconds": 42.684,
+    "startFrame": 1212,
+    "endFrame": 1281,
+    "text": "发一句话日历已经改好了"
+  }
+]

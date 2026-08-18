@@ -1,5 +1,5 @@
 import {describe, expect, it} from "vitest";
-import {measureCaptionDelivery, parseDeliveryGate, parseSrt} from "../src/lib/delivery";
+import {measureCaptionDelivery, parseDeliveryGate, parseSrt} from "../src/lib/delivery/delivery";
 
 describe("delivery gate helpers", () => {
   it("parses SRT cues and measures micro cue ratio", () => {

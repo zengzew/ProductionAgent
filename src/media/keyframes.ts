@@ -2,7 +2,7 @@ import {spawnSync} from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import {z} from "zod";
-import {assertSpawnSucceeded} from "../lib/process";
+import {assertSpawnSucceeded} from "../lib/platform/process";
 
 /**
  * WP-M5.04 keyframe extraction. Each scene yields at least one representative

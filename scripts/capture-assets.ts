@@ -1,13 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import {chromium} from "playwright";
-import {captureConfiguredAssets} from "../src/lib/capture-assets";
+import {captureConfiguredAssets} from "../src/lib/delivery/capture-assets";
 import {episodeConfigSchema} from "../src/schemas/episode";
 import {
   createFineGrainedCacheFromEnvironment,
   hashRepositoryFiles,
-} from "../src/lib/fine-grained-cache";
-import {ensureDir, episodeRoot, publicEpisodeRoot, readJson, repoRoot} from "../src/lib/project";
+} from "../src/lib/platform/cache";
+import {ensureDir, episodeRoot, publicEpisodeRoot, readJson, repoRoot} from "../src/lib/episode/paths";
 import {installCliErrorHandlers} from "./lib/validation";
 
 installCliErrorHandlers();
@@ -49,7 +49,7 @@ try {
       cache,
       dependencyHashes: hashRepositoryFiles(repoRoot, [
         "config/production-contract.json",
-        "src/lib/capture-assets.ts",
+        "src/lib/delivery/capture-assets.ts",
         "scripts/capture-assets.ts",
       ]),
       toolVersion: "capture-assets-v1",

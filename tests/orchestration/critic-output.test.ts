@@ -12,14 +12,14 @@ import {
   type CriticIssue,
   type CriticName,
 } from "../../src/orchestration";
-import {parseDeliveryGate} from "../../src/lib/delivery";
+import {parseDeliveryGate} from "../../src/lib/delivery/delivery";
 import {
   parseCriticGate,
   parseFactCheckGate,
   parseOralReviewGate,
   parseRetentionGate,
-} from "../../src/lib/story";
-import {productionContract} from "../../src/lib/production-contract";
+} from "../../src/lib/editorial/story";
+import {productionContract} from "../../src/lib/episode/production-contract";
 import {artifactFixture} from "../helpers/artifacts";
 import {criticIssueFixture, criticScoresFixture, criticVersionFixture} from "../helpers/critics";
 

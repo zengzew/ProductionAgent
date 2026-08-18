@@ -6,9 +6,10 @@ import {spawnSync} from "node:child_process";
 import {episodeConfigSchema, scriptSchema} from "../../../schemas/episode";
 import {
   generatedCaptionsPath,
-  generatedTimelinePath,
   getRenderContract,
-} from "../../../lib/render-contract";
+  publicCaptionsRepositoryPath,
+  publicTimelineRepositoryPath,
+} from "../../../lib/episode/render-contract";
 import {
   buildArtifactRef,
   emptyArtifactIndex,
@@ -37,7 +38,7 @@ import {
 } from "../../schemas/production";
 import type {ArtifactDependency, ArtifactIndex, ArtifactRef} from "../../schemas/artifact";
 import {stableJson, stableJsonEqual} from "../../stable-json";
-import {parseDeliveryGate} from "../../../lib/delivery";
+import {parseDeliveryGate} from "../../../lib/delivery/delivery";
 
 type OutputDeclaration = {
   artifactId: string;
@@ -170,13 +171,19 @@ const stageDefinitions: Readonly<Record<ProductionStageName, StageDefinition>> =
       },
       {
         artifactId: `${episodeId}:production:generated-timeline`,
-        path: generatedTimelinePath(episodeId),
+        path: publicTimelineRepositoryPath(episodeId),
         mediaType: "application/json",
         schemaVersion: "generated-timeline-v1",
       },
       {
         artifactId: `${episodeId}:production:generated-captions`,
         path: generatedCaptionsPath(episodeId),
+        mediaType: "application/json",
+        schemaVersion: "generated-captions-v1",
+      },
+      {
+        artifactId: `${episodeId}:production:public-captions`,
+        path: publicCaptionsRepositoryPath(episodeId),
         mediaType: "application/json",
         schemaVersion: "generated-captions-v1",
       },

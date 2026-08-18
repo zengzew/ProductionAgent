@@ -3,7 +3,7 @@ import {spawnSync} from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import {z} from "zod";
-import {assertSpawnSucceeded} from "../lib/process";
+import {assertSpawnSucceeded} from "../lib/platform/process";
 import {
   copyBytesAtomically,
   FineGrainedCacheStore,
@@ -11,8 +11,8 @@ import {
   sha256File,
   sha256Json,
   type CacheKind,
-} from "../lib/fine-grained-cache";
-import {assertTimelineMatchesEpisode, generatedCaptionsPath} from "../lib/render-contract";
+} from "../lib/platform/cache";
+import {assertTimelineMatchesEpisode, generatedCaptionsPath} from "../lib/episode/render-contract";
 import {timelineSchema, type Timeline} from "../schemas/episode";
 import {
   artifactRefIsIndexed,
@@ -138,7 +138,7 @@ export const MEDIA_RENDER_DEPENDENCY_PATHS = [
   "src/media/schemas.ts",
   "src/media/events.ts",
   "src/media/paths.ts",
-  "src/lib/fine-grained-cache.ts",
+  "src/lib/platform/cache.ts",
   "src/orchestration/schemas/artifact.ts",
 ] as const;
 
@@ -1798,10 +1798,7 @@ const projectOfficialScreenshotPath = (repoRoot: string, episodeId: string): str
   return publicRelative;
 };
 
-const defaultOverlays = (
-  _visualType: VisualSlotSelectedType,
-  _publisher: string | null,
-): MediaShotOverlays => ({
+const defaultOverlays = (): MediaShotOverlays => ({
   sourceLabel: null,
   badge: null,
   captionsEnabled: true,
@@ -2090,7 +2087,7 @@ export const buildMediaShotForSegment = (input: BuildMediaShotInput): BuildMedia
         throw new Error(`MEDIA_RENDER_SOURCE_UNKNOWN:${asset.mediaSourceId}`);
       }
       const overlays = mediaShotOverlaySchema.parse({
-        ...defaultOverlays(visualType, source.publisher),
+        ...defaultOverlays(),
         ...input.overlays,
       });
       const dependencies = dedupeDependencies([
@@ -2217,7 +2214,7 @@ export const buildMediaShotForSegment = (input: BuildMediaShotInput): BuildMedia
       ...(input.audio ? {narrationGain: input.audio.narrationGain ?? 1} : {}),
     });
     const overlays = mediaShotOverlaySchema.parse({
-      ...defaultOverlays(visualType, null),
+      ...defaultOverlays(),
       ...input.overlays,
     });
     const transform = deepMergeTransform(DEFAULT_TRANSFORM, input.transform);

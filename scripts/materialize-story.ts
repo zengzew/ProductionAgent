@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-import {parseFinalScript} from "../src/lib/story";
-import {episodeRoot, writeJson} from "../src/lib/project";
+import {parseFinalScript} from "../src/lib/editorial/story";
+import {episodeRoot, writeJson} from "../src/lib/episode/paths";
 import {scriptSchema} from "../src/schemas/episode";
 import {installCliErrorHandlers} from "./lib/validation";
 

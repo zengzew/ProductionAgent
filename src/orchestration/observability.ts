@@ -30,7 +30,7 @@ export {
   type CacheLookupHit,
   type CacheLookupMiss,
   type FineGrainedCacheStoreOptions,
-} from "../lib/fine-grained-cache";
+} from "../lib/platform/cache";
 export {cacheEventSchema, type CacheEvent} from "./schemas/cache-event";
 
 export const EXECUTION_LOG_PATH = (episodeId: string): string =>

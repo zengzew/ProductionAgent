@@ -1,4 +1,4 @@
-import {episodeId, repoRoot} from "../src/lib/project";
+import {episodeId, repoRoot} from "../src/lib/episode/paths";
 import {
   assertMediaRenderPlanRenderable,
   buildMediaRenderPlanForTimeline,

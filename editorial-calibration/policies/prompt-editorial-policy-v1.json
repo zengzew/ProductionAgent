@@ -410,7 +410,7 @@
     },
     {
       "role": "audience-critic",
-      "promptFiles": ["agents/audience-critic.md", "docs/evaluation-rubric.md"],
+      "promptFiles": ["agents/audience-critic.md", "docs/contracts/evaluation-rubric.md"],
       "ruleIds": [
         "result-proof-curiosity-hook",
         "interaction-before-abstraction",
@@ -426,7 +426,7 @@
     },
     {
       "role": "retention-critic",
-      "promptFiles": ["agents/retention-critic.md", "docs/evaluation-rubric.md"],
+      "promptFiles": ["agents/retention-critic.md", "docs/contracts/evaluation-rubric.md"],
       "ruleIds": [
         "suspense-reversal-solution-arc",
         "progressive-question-bridges",

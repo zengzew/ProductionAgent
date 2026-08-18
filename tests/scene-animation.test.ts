@@ -1,5 +1,5 @@
 import {describe, expect, it} from "vitest";
-import {fadeSceneOpacity} from "../src/lib/scene-animation";
+import {fadeSceneOpacity} from "../src/lib/delivery/scene-animation";
 
 describe("scene fade animation", () => {
   it.each([1, 2, 8, 11, 22, 60])(

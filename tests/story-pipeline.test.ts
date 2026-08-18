@@ -2,14 +2,14 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import {describe, expect, it} from "vitest";
-import {episodeRoot} from "../src/lib/project";
+import {episodeRoot} from "../src/lib/episode/paths";
 import {
   parseCriticGate,
   parseFactCheckGate,
   parseFinalScript,
   parseOralReviewGate,
-} from "../src/lib/story";
-import {productionContract} from "../src/lib/production-contract";
+} from "../src/lib/editorial/story";
+import {productionContract} from "../src/lib/episode/production-contract";
 
 const scriptDraftPath = path.join(episodeRoot, "story/script-draft.md");
 const finalScriptPath = path.join(episodeRoot, "story/final-script.md");

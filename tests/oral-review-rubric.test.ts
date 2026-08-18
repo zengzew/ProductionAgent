@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import {describe, expect, it} from "vitest";
-import {polishJudgeSchema} from "../src/lib/polish";
-import {findOralReviewDecisionErrors, parseOralReviewGate} from "../src/lib/story";
+import {polishJudgeSchema} from "../src/lib/editorial/polish";
+import {findOralReviewDecisionErrors, parseOralReviewGate} from "../src/lib/editorial/story";
 
 const hash = "a".repeat(64);
 
@@ -262,7 +262,7 @@ describe("oral-review-v2 rubric gate", () => {
 
   it("publishes every executable fixture in the formal and preflight instructions", () => {
     const calibrationArtifacts = [
-      "../docs/evaluation-rubric.md",
+      "../docs/contracts/evaluation-rubric.md",
       "../agents/oral-judge.md",
       "../prompts/v3/judge-system.md",
     ].map((relativePath) => fs.readFileSync(new URL(relativePath, import.meta.url), "utf8"));

@@ -8,7 +8,7 @@ import {
   sha256File,
   sha256Json,
   type CacheKind,
-} from "../lib/fine-grained-cache";
+} from "../lib/platform/cache";
 import {
   artifactRefIsIndexed,
   buildArtifactRef,

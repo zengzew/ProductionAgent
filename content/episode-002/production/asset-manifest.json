@@ -28,7 +28,7 @@
   {
     "id": "asset-roost-001",
     "type": "generated",
-    "path": "src/compositions/RoostEpisode.tsx",
+    "path": "src/compositions/legacy/RoostEpisode.tsx",
     "sourceUrl": "",
     "owner": "Generated in this repository",
     "licenseOrBasis": "Original code-native graphics created for this project.",

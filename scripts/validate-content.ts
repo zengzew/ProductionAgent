@@ -1,22 +1,23 @@
 import fs from "node:fs";
 import path from "node:path";
 import {assetSchema, episodeConfigSchema, factSchema} from "../src/schemas/episode";
-import {episodeId, episodeRoot, repoRoot} from "../src/lib/project";
-import {captionPartsFromPlan, visibleLength} from "../src/lib/captions";
-import {containsGenericCta, findVisualAssetContractViolations} from "../src/lib/story-quality";
-import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial-text-rules";
+import {episodeId, episodeRoot, repoRoot} from "../src/lib/episode/paths";
+import {captionPartsFromPlan, visibleLength} from "../src/lib/delivery/captions";
+import {containsGenericCta, findVisualAssetContractViolations} from "../src/lib/editorial/story-quality";
+import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial/text-rules";
 import {
   assertEpisodeMatchesProductionContract,
   assertTimelineMatchesProductionContract,
   containsConfiguredHookAction,
   productionContract,
   startsWithConfiguredAttribution,
-} from "../src/lib/production-contract";
+} from "../src/lib/episode/production-contract";
 import {
   assertTimelineMatchesEpisode,
   generatedCaptionsPath,
-  generatedTimelinePath,
-} from "../src/lib/render-contract";
+  publicCaptionsRepositoryPath,
+  publicTimelineRepositoryPath,
+} from "../src/lib/episode/render-contract";
 import {captionPlanMismatchIds, validateCaptionPlanCoverage} from "./lib/caption-artifacts";
 import {
   finishValidation,
@@ -196,46 +197,47 @@ if (!fs.existsSync(timelinePath)) {
       );
     }
   }
-  const generatedTimelineFile = path.join(repoRoot, generatedTimelinePath(episodeId));
+  const publicTimelineFile = path.join(repoRoot, publicTimelineRepositoryPath(episodeId));
   const captionPath = path.join(repoRoot, generatedCaptionsPath(episodeId));
-  if (!fs.existsSync(generatedTimelineFile)) {
-    errors.push(`缺少当前 episode 的生成时间轴：${generatedTimelineFile}`);
-  } else {
-    const generatedTimeline = readTimeline(generatedTimelineFile);
-    errors.capture(() => {
-      assertTimelineMatchesEpisode(generatedTimeline, episodeId);
-      assertTimelineMatchesProductionContract(generatedTimeline);
-    });
-    if (!jsonValuesEqual(generatedTimeline, timeline)) {
-      errors.push(
-        `生成时间轴不是当前 production/timeline.json 的同一版本：${generatedTimelineFile}`,
-      );
-    }
+  const publicCaptionPath = path.join(repoRoot, publicCaptionsRepositoryPath(episodeId));
+  if (!fs.existsSync(publicTimelineFile)) {
+    errors.push(`缺少 Remotion 运行时时间轴副本：${publicTimelineFile}`);
+  } else if (!jsonValuesEqual(readTimeline(publicTimelineFile), timeline)) {
+    errors.push(`public 时间轴不是当前 production/timeline.json 的同一版本：${publicTimelineFile}`);
   }
   if (!fs.existsSync(captionPath)) {
     errors.push(`缺少当前 episode 的生成字幕：${captionPath}`);
-  } else if (timelineMatchesScript) {
+  } else {
     const captions = readGeneratedCaptions(captionPath);
-    for (const caption of captions) {
-      for (const line of caption.text.split("\n")) {
-        if (visibleLength(line) > productionContract.captions.maximumLineCharacters) {
-          errors.push(`字幕超过 ${productionContract.captions.maximumLineCharacters} 字：${line}`);
-        }
-        if (/[。！？；：，、,.!?;:]$/u.test(line)) {
-          errors.push(`字幕末尾不应保留标点：${line}`);
+    if (!fs.existsSync(publicCaptionPath)) {
+      errors.push(`缺少 Remotion 运行时字幕副本：${publicCaptionPath}`);
+    } else if (!jsonValuesEqual(readGeneratedCaptions(publicCaptionPath), captions)) {
+      errors.push(`public 字幕不是当前 captions.generated.json 的同一版本：${publicCaptionPath}`);
+    }
+    if (timelineMatchesScript) {
+      for (const caption of captions) {
+        for (const line of caption.text.split("\n")) {
+          if (visibleLength(line) > productionContract.captions.maximumLineCharacters) {
+            errors.push(
+              `字幕超过 ${productionContract.captions.maximumLineCharacters} 字：${line}`,
+            );
+          }
+          if (/[。！？；：，、,.!?;:]$/u.test(line)) {
+            errors.push(`字幕末尾不应保留标点：${line}`);
+          }
         }
       }
-    }
-    const captionMismatchIds = captionPlanMismatchIds({
-      script,
-      captionPlan,
-      timeline,
-      generatedCaptions: captions,
-      maximumLineCharacters: productionContract.captions.maximumLineCharacters,
-      microCueThresholdSeconds: productionContract.captions.microCueThresholdSeconds,
-    });
-    for (const segmentId of captionMismatchIds) {
-      errors.push(`${segmentId} 字幕未按词边界算法重新生成`);
+      const captionMismatchIds = captionPlanMismatchIds({
+        script,
+        captionPlan,
+        timeline,
+        generatedCaptions: captions,
+        maximumLineCharacters: productionContract.captions.maximumLineCharacters,
+        microCueThresholdSeconds: productionContract.captions.microCueThresholdSeconds,
+      });
+      for (const segmentId of captionMismatchIds) {
+        errors.push(`${segmentId} 字幕未按词边界算法重新生成`);
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import {describe, expect, it} from "vitest";
-import {episodeRoot} from "../src/lib/project";
+import {episodeRoot} from "../src/lib/episode/paths";
 import {
   containsGenericCta,
   endsWithQuestion,
@@ -11,7 +11,7 @@ import {
   findVisualAssetContractViolations,
   parseVisualPlanSections,
   parseVisualPlanV3Sections,
-} from "../src/lib/story-quality";
+} from "../src/lib/editorial/story-quality";
 
 describe("story quality contract", () => {
   it("requires every Hook candidate to declare result, evidence and progression", () => {

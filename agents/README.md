@@ -1,8 +1,11 @@
 # Logical Multi-Agent Story Room
 
-本项目当前使用“角色化 Prompt + 文件交接”模拟多 Agent，不引入
-LangGraph、AutoGen 或 CrewAI。每个角色只修改自己负责的文件，文件是角色之间唯一
-的正式交接，不以聊天记录作为 source of truth。
+本项目当前使用“角色化 Prompt + 文件交接”模拟多 Agent。每个角色只修改自己负责的
+文件，文件是角色之间唯一的正式交接，不以聊天记录作为 source of truth。
+
+`src/orchestration/` 是 opt-in 控制面：默认 `ORCHESTRATOR=manual`，分阶段命令仍是
+生产入口。编排层只保存 ArtifactRef，禁止把研究包或脚本正文写入 checkpoint。不把
+LangGraph 做成默认的跨人工门禁单命令。本项目继续排除自部署 GPT、LLM 和语音模型。
 
 这些角色由 Codex 执行，不在仓库中调用 LLM API。项目永久排除自部署 GPT、LLM 和
 语音生成模型，也不为它们预留运行时接口。
@@ -47,8 +50,7 @@ Goal 3.2 使用 `editorial-policy-v1`：Story、Viral、Script、Oral 和 Visual
 再过 Delivery Critic，`story-approved` 不等于成片合格。
 
 `story/workflow.json` 记录这 11 个角色的固定顺序、当前状态、每个重大决定的 owner、
-产物、评审轮次、反馈路由和关闭状态。它是文件交接的控制面，不是第 12 个角色，也
-不引入 LangGraph。
+产物、评审轮次、反馈路由和关闭状态。它是文件交接的控制面，不是第 12 个角色。
 
 ## 状态流
 

@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
-import {runPolish} from "../src/lib/polish";
-import {generateTtsWithProviders} from "../src/lib/tts-providers";
-import {episodeId, outputEpisodeRoot, repoRoot, writeJson} from "../src/lib/project";
+import {runPolish} from "../src/lib/editorial/polish";
+import {generateTtsWithProviders} from "../src/lib/delivery/tts-providers";
+import {episodeId, outputEpisodeRoot, repoRoot, writeJson} from "../src/lib/episode/paths";
 import {installCliErrorHandlers} from "./lib/validation";
 
 installCliErrorHandlers();

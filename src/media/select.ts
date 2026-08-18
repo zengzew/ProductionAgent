@@ -6,7 +6,7 @@ import {
   normalizeNarration,
   sha256Bytes,
   sha256File,
-} from "../lib/fine-grained-cache";
+} from "../lib/platform/cache";
 import {
   artifactRefIsIndexed,
   assertArtifactRefBytes,

@@ -18,6 +18,11 @@
 story/visual-plan.md
 ```
 
+Episode 004 起的现行渲染器是 `MediaMixVertical`。视觉方案仍写在
+`visual-plan.md`；可执行镜头、裁切和真实素材选择落在
+`content/<episode>/media/shots/` 与 `media/render-plan.json`，不要为新产品新增
+React Composition。Episode 001–003 的手写场景已冻结。
+
 ## 每段必须定义
 
 - `Narrative purpose`：这段为什么存在，推进哪个故事问题。

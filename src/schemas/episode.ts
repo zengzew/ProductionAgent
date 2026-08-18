@@ -14,6 +14,7 @@ export const episodeConfigSchema = z.object({
   }),
   selection: z.string().min(1),
   selectionReason: z.string().min(1),
+  kind: z.enum(["episode", "benchmark", "fixture"]).default("episode"),
   publishStatus: z.string().min(1),
   publishBlocker: z.string(),
   asOf: z.iso.date(),

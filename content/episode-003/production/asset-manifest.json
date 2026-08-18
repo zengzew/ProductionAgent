@@ -41,7 +41,7 @@
   {
     "id": "asset-manus-generated",
     "type": "generated",
-    "path": "src/compositions/ManusEpisode.tsx",
+    "path": "src/compositions/legacy/ManusEpisode.tsx",
     "sourceUrl": "",
     "owner": "Generated in this repository",
     "licenseOrBasis": "Original code-native graphics created for this project.",

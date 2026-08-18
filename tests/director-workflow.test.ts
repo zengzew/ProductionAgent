@@ -1,9 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import {describe, expect, it} from "vitest";
-import {parseRetentionGate} from "../src/lib/story";
-import {directorWorkflowSchema, orderedStoryRoles} from "../src/lib/workflow";
-import {episodeRoot, readJson, repoRoot} from "../src/lib/project";
+import {parseRetentionGate} from "../src/lib/editorial/story";
+import {directorWorkflowSchema, orderedStoryRoles} from "../src/lib/episode/workflow";
+import {episodeRoot, readJson, repoRoot} from "../src/lib/episode/paths";
 
 describe("director-driven artifact workflow", () => {
   const workflow = directorWorkflowSchema.parse(

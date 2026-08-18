@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import {describe, expect, it} from "vitest";
-import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial-text-rules";
+import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial/text-rules";
 
 const rules = loadEditorialTextRules();
 const hits = (episodeId: string, narration: string) =>

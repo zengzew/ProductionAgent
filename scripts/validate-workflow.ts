@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
-import {parseDirectorBriefGate, parseRetentionGate} from "../src/lib/story";
-import {directorWorkflowSchema, orderedStoryRoles} from "../src/lib/workflow";
-import {episodeId, episodeRoot, repoRoot} from "../src/lib/project";
+import {parseDirectorBriefGate, parseRetentionGate} from "../src/lib/editorial/story";
+import {directorWorkflowSchema, orderedStoryRoles} from "../src/lib/episode/workflow";
+import {episodeId, episodeRoot, repoRoot} from "../src/lib/episode/paths";
 import {
   fatal,
   finishValidation,

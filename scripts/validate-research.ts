@@ -5,8 +5,8 @@ import {
   researchTimelineSchema,
   sourceSchema,
 } from "../src/schemas/episode";
-import {episodeRoot} from "../src/lib/project";
-import {assertEpisodeMatchesProductionContract} from "../src/lib/production-contract";
+import {episodeRoot} from "../src/lib/episode/paths";
+import {assertEpisodeMatchesProductionContract} from "../src/lib/episode/production-contract";
 import {finishValidation, installCliErrorHandlers, readJsonFile} from "./lib/validation";
 
 installCliErrorHandlers();

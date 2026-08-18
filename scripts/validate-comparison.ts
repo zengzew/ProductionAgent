@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
-import {parseComparisonGate} from "../src/lib/comparison";
-import {episodeRoot, repoRoot} from "../src/lib/project";
-import {productionContract} from "../src/lib/production-contract";
+import {parseComparisonGate} from "../src/lib/delivery/comparison";
+import {episodeRoot, repoRoot} from "../src/lib/episode/paths";
+import {productionContract} from "../src/lib/episode/production-contract";
 import {classifyComparisonVerdict, signedScore} from "./lib/comparison";
 import {probeMediaDuration} from "./lib/process";
 import {fatal, finishValidation, hashFile, installCliErrorHandlers} from "./lib/validation";

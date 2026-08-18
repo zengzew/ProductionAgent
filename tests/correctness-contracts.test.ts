@@ -2,18 +2,19 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import {describe, expect, it, vi} from "vitest";
-import {parseCliArgs, parseRenderMode} from "../src/lib/cli";
-import {captureConfiguredAssets, type CapturePage} from "../src/lib/capture-assets";
-import {buildPokeSoundCues} from "../src/lib/poke-sound-design";
-import {assertSpawnSucceeded, parseFiniteNumber} from "../src/lib/process";
-import {readJson, resolveEpisodeId} from "../src/lib/project";
-import {productionContract} from "../src/lib/production-contract";
-import {splitSpeechSentences} from "../src/lib/tts-providers";
+import {parseCliArgs, parseRenderMode} from "../src/lib/episode/cli";
+import {captureConfiguredAssets, type CapturePage} from "../src/lib/delivery/capture-assets";
+import {buildPokeSoundCues} from "../src/compositions/legacy/poke-sound-design";
+import {assertSpawnSucceeded, parseFiniteNumber} from "../src/lib/platform/process";
+import {readJson, resolveEpisodeId} from "../src/lib/episode/paths";
+import {productionContract} from "../src/lib/episode/production-contract";
+import {splitSpeechSentences} from "../src/lib/delivery/tts-providers";
 
 describe("correctness contracts", () => {
   it("parses named episode flags independently from render mode", () => {
     expect(parseCliArgs(["node", "render.ts", "vertical", "--episode", "episode-002"])).toEqual({
       episode: "episode-002",
+      verifyOnly: false,
       positionals: ["vertical"],
     });
     expect(parseRenderMode(["node", "render.ts", "--episode", "episode-002", "smoke"])).toBe(

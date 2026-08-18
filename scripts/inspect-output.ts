@@ -1,9 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
-import {measureCaptionDelivery, parseSrt} from "../src/lib/delivery";
-import {parseFiniteNumber} from "../src/lib/process";
-import {outputEpisodeRoot, writeJson} from "../src/lib/project";
-import {expectedFrameRate, productionContract} from "../src/lib/production-contract";
+import {measureCaptionDelivery, parseSrt} from "../src/lib/delivery/delivery";
+import {parseFiniteNumber} from "../src/lib/platform/process";
+import {outputEpisodeRoot, writeJson} from "../src/lib/episode/paths";
+import {expectedFrameRate, productionContract} from "../src/lib/episode/production-contract";
 import {runCommand} from "./lib/process";
 import {finishValidation, installCliErrorHandlers, parseJsonText} from "./lib/validation";
 

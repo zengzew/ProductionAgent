@@ -2,7 +2,7 @@ import {
   captionPartsFromPlan,
   captionTextsEquivalent,
   fitCaptionPartsToDuration,
-} from "../../src/lib/captions";
+} from "../../src/lib/delivery/captions";
 import type {CaptionPlan, Script, Timeline} from "../../src/schemas/episode";
 import {groupCaptionTextsByScene, type GeneratedCaptionArtifact} from "./validation";
 

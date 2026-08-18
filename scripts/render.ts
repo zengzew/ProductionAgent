@@ -1,15 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
-import {parseRenderMode} from "../src/lib/cli";
-import {
-  assertTimelineMatchesEpisode,
-  generatedTimelinePath,
-  getRenderContract,
-} from "../src/lib/render-contract";
+import {parseRenderMode} from "../src/lib/episode/cli";
+import {assertTimelineMatchesEpisode, getRenderContract} from "../src/lib/episode/render-contract";
 import {assertMediaMixReadyToRender} from "../src/media/render";
-import {episodeId, episodeRoot, outputEpisodeRoot, repoRoot} from "../src/lib/project";
+import {episodeId, episodeRoot, outputEpisodeRoot, repoRoot} from "../src/lib/episode/paths";
 import {runCommand} from "./lib/process";
-import {installCliErrorHandlers, jsonValuesEqual, readTimeline} from "./lib/validation";
+import {installCliErrorHandlers, readTimeline} from "./lib/validation";
 
 installCliErrorHandlers();
 
@@ -18,19 +14,12 @@ const mode = parseRenderMode(process.argv);
 fs.mkdirSync(outputEpisodeRoot, {recursive: true});
 
 const contract = getRenderContract(episodeId);
-const currentTimeline = readTimeline(path.join(episodeRoot, "production/timeline.json"));
-const generatedPath = path.join(repoRoot, generatedTimelinePath(episodeId));
-if (!fs.existsSync(generatedPath)) {
-  throw new Error(`缺少当前 episode 的生成时间轴：${generatedPath}；请先运行 pnpm timeline`);
+const timelinePath = path.join(episodeRoot, "production/timeline.json");
+if (!fs.existsSync(timelinePath)) {
+  throw new Error(`缺少当前 episode 的生成时间轴：${timelinePath}；请先运行 pnpm timeline`);
 }
-const generatedTimeline = readTimeline(generatedPath);
+const currentTimeline = readTimeline(timelinePath);
 assertTimelineMatchesEpisode(currentTimeline, episodeId);
-assertTimelineMatchesEpisode(generatedTimeline, episodeId);
-if (!jsonValuesEqual(generatedTimeline, currentTimeline)) {
-  throw new Error(
-    `生成时间轴不是当前 episode 的最新版本：${generatedPath}；请先运行 pnpm timeline`,
-  );
-}
 
 const run = (args: string[]): void => {
   const executable = path.join(

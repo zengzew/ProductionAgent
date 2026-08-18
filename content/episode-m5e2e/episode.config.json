@@ -8,10 +8,9 @@
   "targetSeconds": 60,
   "production": {
     "timelineTailSeconds": {},
-    "hookAttributionSubjects": [
-      "M5 E2E"
-    ]
+    "hookAttributionSubjects": ["M5 E2E"]
   },
+  "kind": "fixture",
   "selection": "selected",
   "selectionReason": "acceptance E2E fixture",
   "publishStatus": "evaluation",

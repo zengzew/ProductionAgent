@@ -17,7 +17,7 @@ story/script-draft.md
 story/final-script.md
 style/voice-guide.md
 style/approved/
-docs/evaluation-rubric.md
+docs/contracts/evaluation-rubric.md
 ```
 
 ## 输出
@@ -31,7 +31,7 @@ story/oral-review.md
 ## 评分
 
 使用 `oral-review-v2` 和 `oral-judge-v2` Prompt。评分锚点以
-`docs/evaluation-rubric.md` 为准，不得沿用 v1 分数解释。
+`docs/contracts/evaluation-rubric.md` 为准，不得沿用 v1 分数解释。
 
 每项 0～5 分：
 

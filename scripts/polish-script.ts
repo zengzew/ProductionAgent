@@ -1,6 +1,6 @@
 import path from "node:path";
-import {runPolish} from "../src/lib/polish";
-import {repoRoot} from "../src/lib/project";
+import {runPolish} from "../src/lib/editorial/polish";
+import {repoRoot} from "../src/lib/episode/paths";
 import {installCliErrorHandlers} from "./lib/validation";
 
 installCliErrorHandlers();

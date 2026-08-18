@@ -8,8 +8,8 @@ import {
   fillTemplate,
   polishJudgeSchema,
   selectStyleSamples,
-} from "../src/lib/polish";
-import {loadPolishV2Config, polishStyleSchema, promptText} from "../src/lib/pipeline-v2-config";
+} from "../src/lib/editorial/polish";
+import {loadPolishV2Config, polishStyleSchema, promptText} from "../src/lib/editorial/pipeline-config";
 import {scriptSchema} from "../src/schemas/episode";
 
 const script = scriptSchema.parse({

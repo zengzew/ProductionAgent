@@ -1,11 +1,11 @@
 import path from "node:path";
 import {scriptSchema} from "../src/schemas/episode";
-import {generateTtsWithProviders} from "../src/lib/tts-providers";
+import {generateTtsWithProviders} from "../src/lib/delivery/tts-providers";
 import {
   createFineGrainedCacheFromEnvironment,
   hashRepositoryFiles,
-} from "../src/lib/fine-grained-cache";
-import {episodeRoot, publicEpisodeRoot, readJson, repoRoot} from "../src/lib/project";
+} from "../src/lib/platform/cache";
+import {episodeRoot, publicEpisodeRoot, readJson, repoRoot} from "../src/lib/episode/paths";
 import {installCliErrorHandlers} from "./lib/validation";
 
 installCliErrorHandlers();
@@ -25,8 +25,8 @@ const metadata = await generateTtsWithProviders(script, {
         cache,
         cacheDependencyHashes: hashRepositoryFiles(repoRoot, [
           "config/tts-v2.json",
-          "src/lib/tts-providers.ts",
-          "src/lib/pipeline-v2-config.ts",
+          "src/lib/delivery/tts-providers.ts",
+          "src/lib/editorial/pipeline-config.ts",
           "scripts/generate-tts.ts",
         ]),
       }

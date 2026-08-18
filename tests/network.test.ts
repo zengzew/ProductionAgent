@@ -2,15 +2,15 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import {afterEach, describe, expect, it, vi} from "vitest";
-import {chatJson} from "../src/lib/llm";
-import {fetchWithRetry} from "../src/lib/network";
-import {loadTtsV2Config} from "../src/lib/pipeline-v2-config";
+import {chatJson} from "../src/lib/editorial/llm";
+import {fetchWithRetry} from "../src/lib/platform/network";
+import {loadTtsV2Config} from "../src/lib/editorial/pipeline-config";
 import {
   createMinimaxProvider,
   runTtsWithFallback,
   selectTtsProvider,
   type ChineseTtsProvider,
-} from "../src/lib/tts-providers";
+} from "../src/lib/delivery/tts-providers";
 
 afterEach(() => {
   vi.unstubAllEnvs();

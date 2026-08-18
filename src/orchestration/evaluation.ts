@@ -7,7 +7,7 @@ import {
   type EvaluationResult,
 } from "./schemas/critic-output";
 import {stableJson} from "./stable-json";
-import {productionContract} from "../lib/production-contract";
+import {productionContract} from "../lib/episode/production-contract";
 
 type RubricDimension = {id: string; maxScore: number; weight: number; floor: number};
 type Rubric = {version: string; threshold: number; dimensions: readonly RubricDimension[]};

@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import {describe, expect, it} from "vitest";
 import {episodeConfigSchema, timelineSchema} from "../src/schemas/episode";
-import {readJson, repoRoot} from "../src/lib/project";
+import {episodeRepositoryRoot, readJson, repoRoot} from "../src/lib/episode/paths";
 import {
   assertEpisodeMatchesProductionContract,
   assertScriptTargetSecondsMatchContract,
@@ -13,11 +13,11 @@ import {
   productionContractSchema,
   startsWithConfiguredAttribution,
   timelineTailSeconds,
-} from "../src/lib/production-contract";
+} from "../src/lib/episode/production-contract";
 
 const loadEpisode = (episodeId: string) =>
   episodeConfigSchema.parse(
-    readJson<unknown>(path.join(repoRoot, "content", episodeId, "episode.config.json")),
+    readJson<unknown>(path.join(repoRoot, episodeRepositoryRoot(episodeId), "episode.config.json")),
   );
 
 describe("production contract", () => {
@@ -146,7 +146,7 @@ describe("production contract", () => {
       "scripts/validate-delivery.ts",
       "src/orchestration/evaluation.ts",
       "scripts/validate-content.ts",
-      "src/lib/capture-assets.ts",
+      "src/lib/delivery/capture-assets.ts",
     ];
     const source = files
       .map((file) => fs.readFileSync(path.join(repoRoot, file), "utf8"))

@@ -66,7 +66,13 @@ const timelinePath = path.join(repoRoot, "content", EP, "production", "timeline.
 const inspectionPath = path.join(repoRoot, "output", EP, "inspection.json");
 const ttsMetadataPath = path.join(repoRoot, "content", EP, "production", "tts-metadata.json");
 const captionPlanPath = path.join(repoRoot, "content", EP, "story", "caption-plan.json");
-const captionsGeneratedPath = path.join(repoRoot, "src", "episode-m5e2e-captions.generated.json");
+const captionsGeneratedPath = path.join(
+  repoRoot,
+  "content",
+  "episode-m5e2e",
+  "production",
+  "captions.generated.json",
+);
 
 const hashes = {
   video: sha256File(videoPath),
@@ -140,7 +146,7 @@ real-media 合成）、SRT、production timeline、TTS metadata、generated capt
 | \`content/${EP}/production/timeline.json\`          | \`${hashes.timeline}\` |
 | \`content/${EP}/production/tts-metadata.json\`      | \`${hashes.ttsMetadata}\` |
 | \`content/${EP}/story/caption-plan.json\`           | \`${hashes.captionPlan}\` |
-| \`src/${EP}-captions.generated.json\`               | \`${hashes.captionsGenerated}\` |
+| \`content/${EP}/production/captions.generated.json\` | \`${hashes.captionsGenerated}\` |
 
 ## 最终复审
 

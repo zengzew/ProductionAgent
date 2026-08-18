@@ -9,7 +9,7 @@ import {
   splitCaptionText,
   stripTrailingCaptionPunctuation,
   visibleLength,
-} from "../src/lib/captions";
+} from "../src/lib/delivery/captions";
 
 const rejectedSemanticBoundaryFixtures = [
   {

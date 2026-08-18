@@ -147,8 +147,9 @@ const writeStageOutputs = (input: DeterministicToolRunInput): void => {
     writeStage(`content/${episodeId}/production/tts-metadata.json`, "{}\n");
   } else if (input.stage === "timeline") {
     writeStage(`content/${episodeId}/production/timeline.json`, "{}\n");
-    writeStage("src/poke-timeline.generated.json", "{}\n");
-    writeStage("src/poke-captions.generated.json", "[]\n");
+    writeStage(`content/${episodeId}/production/captions.generated.json`, "[]\n");
+    writeStage(`public/episodes/${episodeId}/media/timeline.json`, "{}\n");
+    writeStage(`public/episodes/${episodeId}/media/captions.json`, "[]\n");
     writeStage(
       `output/${episodeId}/subtitles_zh.srt`,
       "1\n00:00:00,000 --> 00:00:01,000\nfixture\n\n",

@@ -7,9 +7,9 @@ import {
   parseRetentionGate,
   parseViralStrategyGate,
   parseVisualPlanGate,
-} from "../src/lib/story";
-import {parseVisualPlanSections} from "../src/lib/story-quality";
-import {repoRoot} from "../src/lib/project";
+} from "../src/lib/editorial/story";
+import {parseVisualPlanSections} from "../src/lib/editorial/story-quality";
+import {repoRoot} from "../src/lib/episode/paths";
 
 const storyRoot = path.join(repoRoot, "content/episode-002/story");
 const readStory = (file: string): string => fs.readFileSync(path.join(storyRoot, file), "utf8");

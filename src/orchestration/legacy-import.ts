@@ -1,7 +1,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import {directorWorkflowSchema, type DirectorWorkflow} from "../lib/workflow";
+import {directorWorkflowSchema, type DirectorWorkflow} from "../lib/episode/workflow";
 import {
   artifactIndexSchema,
   type ArtifactIndex,
@@ -311,6 +311,7 @@ const resolveLegacyPackageInternal = (
   const resolvedFromAlias = spec.aliases.includes(sourcePathUsed);
   const aliasToCanonical: Record<string, string> = {};
   for (const alias of spec.aliases) {
+    aliasToCanonical[alias] = spec.canonicalSourcePath;
     const aliasAbsolutePath = absolutePathFor(repoRoot, alias);
     let aliasStat: fs.Stats;
     try {
@@ -318,9 +319,6 @@ const resolveLegacyPackageInternal = (
     } catch (error) {
       const errno = error as NodeJS.ErrnoException;
       if (errno.code === "ENOENT" || errno.code === "ENOTDIR") {
-        if (sourcePathUsed === alias) {
-          throw new Error(`LEGACY_ALIAS_MISSING:${alias}`, {cause: error});
-        }
         continue;
       }
       throw error;
@@ -335,7 +333,6 @@ const resolveLegacyPackageInternal = (
         `LEGACY_ALIAS_MISMATCH:${alias}:${aliasRealPath}:${spec.canonicalSourcePath}`,
       );
     }
-    aliasToCanonical[alias] = spec.canonicalSourcePath;
   }
 
   return {

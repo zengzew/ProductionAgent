@@ -8,7 +8,7 @@ import {
   sha256File,
   sha256Json,
   type CacheKind,
-} from "../lib/fine-grained-cache";
+} from "../lib/platform/cache";
 import {
   artifactRefIsIndexed,
   buildArtifactRef,
@@ -89,7 +89,7 @@ export const MEDIA_RETRIEVAL_DEPENDENCY_PATHS = [
   "src/media/paths.ts",
   "src/media/schemas.ts",
   "src/schemas/episode.ts",
-  "src/lib/fine-grained-cache.ts",
+  "src/lib/platform/cache.ts",
   "src/orchestration/schemas/artifact.ts",
 ] as const;
 

@@ -1,5 +1,5 @@
 import {describe, expect, it} from "vitest";
-import {parseProviderTimestamps, splitSpeechSentences} from "../src/lib/tts-providers";
+import {parseProviderTimestamps, splitSpeechSentences} from "../src/lib/delivery/tts-providers";
 
 describe("TTS providers", () => {
   it("splits Chinese narration into sentence synthesis units", () => {
