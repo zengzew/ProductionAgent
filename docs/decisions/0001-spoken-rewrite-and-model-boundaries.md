@@ -36,8 +36,8 @@ TTS 不解决上游文案问题。它只会把现有句序、停顿和语气放�
 - 不自部署 GPT、LLM 或任何生成模型服务。
 - 不建设 GPU 推理、模型权重、容器编排或私有模型运维链路。
 - 不采用 GPT-SoVITS、CosyVoice 等自托管语音方案，也不把它们保留为未来 fallback。
-- 仓库中的 Oral Rewriter 和 Oral Judge 是 Codex 角色与文件交接，不是生产代码里的
-  LLM API 调用。
+- 仓库中的 Oral Rewriter 和 Oral Judge 是角色 Prompt 与文件交接，不依赖任何特定
+  Agent Harness，也不是生产代码里的 LLM API 调用。
 
 未来若评估 TTS，只考虑当前无 Key 链路或另行批准的托管服务。这个边界不为所谓
 “供应商灵活性”预留自部署接口。

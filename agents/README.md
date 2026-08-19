@@ -7,8 +7,10 @@
 生产入口。编排层只保存 ArtifactRef，禁止把研究包或脚本正文写入 checkpoint。不把
 LangGraph 做成默认的跨人工门禁单命令。本项目继续排除自部署 GPT、LLM 和语音模型。
 
-这些角色由 Codex 执行，不在仓库中调用 LLM API。项目永久排除自部署 GPT、LLM 和
-语音生成模型，也不为它们预留运行时接口。
+这些角色不绑定任何特定 Agent Harness：Harness 随时可能更换，角色定义只约定角色
+Prompt、只读输入、可写输出与评审独立性，不约定由哪个工具执行。当前由人工或任意
+Agent Harness 的执行会话按 `agents/*.md` 运行，不在仓库中调用 LLM API。项目永久
+排除自部署 GPT、LLM 和语音生成模型，也不为它们预留运行时接口。
 
 所有角色共同遵守两条最新规则：成片使用有事实支撑的正面推广口吻，优先讲产品
 价值、真实体验和用户动作；最终竖版 MP4 时长必须落在 60 ± 20 秒（40–80 秒）区间。
@@ -126,15 +128,15 @@ retention-pass ──────────────→ story-approved
 | Delivery Critic  | 竖版 MP4、SRT、真实 TTS 时长与 production timeline                           | `production/delivery-critic-report.md`                                                    |
 
 角色不得修改上游文件。确需修正上游时，在报告中写清退回对象和原因，再由对应角色
-执行。执行工作流的 Codex task 在每次正式交接后同步 `story/workflow.json`，但不得
-替角色修改其评审结论。
+执行。执行工作流的会话（人工或任一 Agent Harness）在每次正式交接后同步
+`story/workflow.json`，但不得替角色修改其评审结论。
 
-## 在 Codex 中运行
+## 执行方式
 
-可在同一个 Codex task 中依次运行 Research Analyst、Story Director、Viral Director、
-Script Writer、Oral Rewriter 和 Visual Director。为减少自我评审偏差，`Oral Judge`、
-`Audience Critic`、`Fact Guardian` 和 `Retention Critic` 建议在新的 Codex task 中
-运行。
+角色不依赖特定 Harness。可在同一个执行会话中依次运行 Research Analyst、Story
+Director、Viral Director、Script Writer、Oral Rewriter 和 Visual Director。为减少
+自我评审偏差，`Oral Judge`、`Audience Critic`、`Fact Guardian` 和 `Retention
+Critic` 建议在新的执行会话中运行——关键约束是会话未参与上游工作，与具体工具无关。
 
 ```text
 读取 agents/research-analyst.md。
@@ -207,7 +209,7 @@ Fact Guardian PASS 后：
 为 content/episode-001 的每个旁白段落写 visual-plan.md，不修改脚本。
 ```
 
-Visual Director READY 后，在新的 Codex task 中：
+Visual Director READY 后，在新的执行会话中：
 
 ```text
 读取 agents/retention-critic.md。
@@ -254,7 +256,7 @@ pnpm inspect:output
 说出口时出现。Delivery Critic 要检查竖屏中的动作可读性和证据同步，不能只检查
 静态截图。
 
-然后在新的 Codex task 中：
+然后在新的执行会话中：
 
 ```text
 读取 agents/delivery-critic.md。

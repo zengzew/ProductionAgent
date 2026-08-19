@@ -15,7 +15,7 @@ const defaultMediaType = (repositoryPath: string): string =>
   repositoryPath.endsWith(".json") ? "application/json" : "text/markdown";
 
 /**
- * Adapts the existing human/Codex file handoff to the common run-agent boundary.
+ * Adapts the existing human/agent file handoff to the common run-agent boundary.
  * It never writes an artifact: success means every declared output already exists
  * and can be bound to its exact bytes.
  */

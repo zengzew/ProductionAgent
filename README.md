@@ -12,7 +12,8 @@ and landscape Poke packages are not part of this repository.
 
 ## Current execution boundary
 
-The production path remains artifact-driven and manual: people or Codex tasks
+The production path remains artifact-driven and manual: people or independent
+execution sessions (any agent harness; roles never bind to a specific one)
 update the source-of-truth files, then run the explicit validation, materialize,
 TTS, timeline, render and review commands for each approved stage.
 `ORCHESTRATOR=manual` is the default.
@@ -112,13 +113,14 @@ order, current state, every major decision and owner, artifacts, review rounds,
 feedback routes and closure status. LangGraph state and checkpoints carry
 references; they do not replace these files as the source of truth.
 
-Writing roles still support Codex file handoffs. The automated polish stage may
-call a configured hosted LLM API. The project continues to exclude self-hosted
-LLM and speech-model infrastructure.
+Writing roles still run as file handoffs between independent execution sessions,
+not as in-repo LLM API calls. The automated polish stage may call a configured
+hosted LLM API. The project continues to exclude self-hosted LLM and
+speech-model infrastructure.
 
-The execution contract and copy-paste Codex prompts live in
+The execution contract and copy-paste prompts live in
 [`agents/README.md`](agents/README.md). Audience Critic and Fact Guardian should
-prefer fresh Codex tasks so the writer is not approving its own work.
+prefer fresh execution sessions so the writer is not approving its own work.
 
 The thesis formula is an editorial comparison tool, not permission to declare a
 "real reason" that the research does not support. A turning point may be a
