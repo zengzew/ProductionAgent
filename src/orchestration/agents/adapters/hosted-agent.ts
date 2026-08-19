@@ -16,7 +16,10 @@ import type {ArtifactRef} from "../../schemas/artifact";
 import {
   createOpenAiCompatibleChatProvider,
   emptyHostedChatUsage,
+  HostedResponseContractError,
+  isMarkdownOnlyHostedResponse,
   normalizeHostedChatResult,
+  serializeHostedResponseContent,
   type HostedChatCall,
   type HostedChatJsonFn,
   type HostedChatProvider,
@@ -39,6 +42,21 @@ const hostedOutputSchema = z.object({
 });
 
 export type HostedAgentOutput = z.infer<typeof hostedOutputSchema>["outputs"][number];
+
+/** Transport-only response envelope. Kept out of role prompts. */
+export const HOSTED_AGENT_RESPONSE_CONTRACT = [
+  "MACHINE RESPONSE CONTRACT:",
+  "ONLY return one JSON object.",
+  'The top-level object must be exactly {"outputs":[...]}.',
+  "Each expectedOutput must appear exactly once.",
+  "artifactId, path, and schemaVersion must match the declaration exactly.",
+  "Put the actual Markdown or JSON artifact content in the content field.",
+  "Do not use a markdown code fence.",
+  "Do not add any extra text.",
+].join("\n");
+
+export const appendHostedAgentResponseContract = (userPayloadJson: string): string =>
+  `${userPayloadJson}\n\n${HOSTED_AGENT_RESPONSE_CONTRACT}`;
 
 export type HostedAgentCallRecord = {
   agentName: AgentName;
@@ -149,6 +167,7 @@ const mediaTypeFor = (repositoryPath: string): string =>
   repositoryPath.endsWith(".json") ? "application/json" : "text/markdown";
 
 export const isRetryableHostedChatError = (error: unknown): boolean => {
+  if (error instanceof HostedResponseContractError) return false;
   const message = (error instanceof Error ? error.message : String(error)).toLowerCase();
   const nonRetryable = [
     "auth",
@@ -163,6 +182,7 @@ export const isRetryableHostedChatError = (error: unknown): boolean => {
     "duplicate",
     "malformed",
     "json",
+    "markdown",
     "manual",
     "does not support",
     "workflow",
@@ -387,19 +407,21 @@ export const createHostedAgentBackend = (
           {role: "system", content: readRepositoryFile(options.repoRoot, request.promptRef.path)},
           {
             role: "user",
-            content: JSON.stringify({
-              contractVersion: request.contractVersion,
-              executionId: request.executionId,
-              episodeId: request.episodeId,
-              agentName: request.agentName,
-              attempt: request.attempt,
-              revisionRound: request.revisionRound,
-              expectedOutputs: request.expectedOutputs,
-              inputs: request.inputArtifacts.map((artifact) => ({
-                artifact,
-                content: readRepositoryFile(options.repoRoot, artifact.path),
-              })),
-            }),
+            content: appendHostedAgentResponseContract(
+              JSON.stringify({
+                contractVersion: request.contractVersion,
+                executionId: request.executionId,
+                episodeId: request.episodeId,
+                agentName: request.agentName,
+                attempt: request.attempt,
+                revisionRound: request.revisionRound,
+                expectedOutputs: request.expectedOutputs,
+                inputs: request.inputArtifacts.map((artifact) => ({
+                  artifact,
+                  content: readRepositoryFile(options.repoRoot, artifact.path),
+                })),
+              }),
+            ),
           },
         ],
       };
@@ -410,9 +432,23 @@ export const createHostedAgentBackend = (
         throw invoked.error instanceof Error ? invoked.error : new Error(String(invoked.error));
       }
       usage = invoked.result.usage;
-      const parsed = hostedOutputSchema.safeParse(invoked.result.value);
+      const modelValue = invoked.result.value;
+      if (typeof modelValue === "string" && isMarkdownOnlyHostedResponse(modelValue)) {
+        throw new HostedResponseContractError({
+          layer: "hosted-agent",
+          content: modelValue,
+          secrets: [apiKey],
+          markdownOnly: true,
+        });
+      }
+      const parsed = hostedOutputSchema.safeParse(modelValue);
       if (!parsed.success) {
-        throw new Error("hosted-agent returned malformed JSON");
+        throw new HostedResponseContractError({
+          layer: "hosted-agent",
+          content: serializeHostedResponseContent(modelValue),
+          secrets: [apiKey],
+          markdownOnly: false,
+        });
       }
       const relocated = validateModelOutputs(
         request,

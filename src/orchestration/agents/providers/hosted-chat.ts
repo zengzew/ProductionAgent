@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import {fetchWithRetry, type RetryableFetchOptions} from "../../../lib/platform/network";
 
 export type HostedChatRole = "system" | "user";
@@ -89,12 +90,120 @@ export const createFakeHostedChatProvider = (input: {
     normalizeHostedChatResult(await input.handler(call)) as HostedChatResult<T>,
 });
 
+export const HOSTED_RESPONSE_PREVIEW_LIMIT = 300;
+
+export const hashHostedResponseContent = (content: string): string =>
+  crypto.createHash("sha256").update(content, "utf8").digest("hex");
+
+export const redactHostedSecrets = (
+  value: string,
+  secrets: readonly (string | undefined)[] = [],
+): string => {
+  let redacted = value;
+  for (const secret of secrets) {
+    if (!secret) continue;
+    redacted = redacted.split(secret).join("[redacted]");
+  }
+  return redacted.replace(/Bearer\s+\S+/giu, "Bearer [redacted]");
+};
+
+export const previewHostedResponseContent = (
+  content: string,
+  secrets: readonly (string | undefined)[] = [],
+): string => {
+  const collapsed = redactHostedSecrets(content, secrets).replace(/\s+/gu, " ").trim();
+  if (collapsed.length <= HOSTED_RESPONSE_PREVIEW_LIMIT) return collapsed;
+  return `${collapsed.slice(0, HOSTED_RESPONSE_PREVIEW_LIMIT)}…`;
+};
+
+export const serializeHostedResponseContent = (value: unknown): string => {
+  if (typeof value === "string") return value;
+  try {
+    return JSON.stringify(value) ?? String(value);
+  } catch {
+    return String(value);
+  }
+};
+
+const stripJsonFence = (content: string): string =>
+  content
+    .trim()
+    .replace(/^```(?:json)?\s*/u, "")
+    .replace(/\s*```$/u, "")
+    .trim();
+
+/** True when the payload is not JSON and does not even start as a JSON value. */
+export const isMarkdownOnlyHostedResponse = (content: string): boolean => {
+  const stripped = stripJsonFence(content);
+  if (!stripped) return false;
+  try {
+    JSON.parse(stripped);
+    return false;
+  } catch {
+    return !(stripped.startsWith("{") || stripped.startsWith("["));
+  }
+};
+
+export class HostedResponseContractError extends Error {
+  readonly layer: "hosted-chat" | "hosted-agent";
+  readonly markdownOnly: boolean;
+  readonly httpStatus: number | null;
+  readonly contentHash: string;
+  readonly preview: string;
+
+  constructor(input: {
+    layer: "hosted-chat" | "hosted-agent";
+    content: string;
+    httpStatus?: number | null;
+    secrets?: readonly (string | undefined)[];
+    markdownOnly?: boolean;
+    cause?: unknown;
+  }) {
+    const markdownOnly = input.markdownOnly ?? isMarkdownOnlyHostedResponse(input.content);
+    const contentHash = hashHostedResponseContent(input.content);
+    const preview = previewHostedResponseContent(input.content, input.secrets);
+    const label = markdownOnly
+      ? `${input.layer} returned markdown-only response`
+      : `${input.layer} returned malformed JSON`;
+    super(
+      `${label} (status=${input.httpStatus ?? "n/a"} sha256=${contentHash} preview=${preview})`,
+      {
+        cause: input.cause,
+      },
+    );
+    this.name = "HostedResponseContractError";
+    this.layer = input.layer;
+    this.markdownOnly = markdownOnly;
+    this.httpStatus = input.httpStatus ?? null;
+    this.contentHash = contentHash;
+    this.preview = preview;
+  }
+}
+
+const extractChatMessageContent = (content: unknown): string | undefined => {
+  if (typeof content === "string") {
+    return content.trim() ? content : undefined;
+  }
+  if (!Array.isArray(content)) return undefined;
+  const text = content
+    .map((part) => {
+      if (typeof part === "string") return part;
+      if (part && typeof part === "object" && "text" in part && typeof part.text === "string") {
+        return part.text;
+      }
+      return "";
+    })
+    .join("");
+  return text.trim() ? text : undefined;
+};
+
 const parseChatResponseBody = (
   rawBody: string,
   status: number,
+  secrets: readonly (string | undefined)[],
 ): {content: string; usage: unknown} => {
   let body: {
-    choices?: Array<{message?: {content?: string}}>;
+    choices?: Array<{message?: {content?: unknown}}>;
     usage?: unknown;
     error?: {message?: string};
   } = {};
@@ -104,15 +213,27 @@ const parseChatResponseBody = (
     if (status < 200 || status >= 300) {
       throw new Error(`hosted-chat request failed (${status})`);
     }
-    throw new Error("hosted-chat returned malformed JSON");
+    throw new HostedResponseContractError({
+      layer: "hosted-chat",
+      content: rawBody,
+      httpStatus: status,
+      secrets,
+    });
   }
   if (status < 200 || status >= 300) {
     throw new Error(
       `hosted-chat request failed (${status}): ${body.error?.message ?? "unknown error"}`,
     );
   }
-  const content = body.choices?.[0]?.message?.content;
-  if (!content) throw new Error("hosted-chat returned malformed JSON");
+  const content = extractChatMessageContent(body.choices?.[0]?.message?.content);
+  if (!content) {
+    throw new HostedResponseContractError({
+      layer: "hosted-chat",
+      content: rawBody,
+      httpStatus: status,
+      secrets,
+    });
+  }
   return {content, usage: body.usage};
 };
 
@@ -144,18 +265,22 @@ export const createOpenAiCompatibleChatProvider = (
       },
     );
     const rawBody = await response.text();
-    const parsed = parseChatResponseBody(rawBody, response.status);
-    const normalized = parsed.content
-      .trim()
-      .replace(/^```(?:json)?\s*/u, "")
-      .replace(/\s*```$/u, "");
+    const secrets = [call.apiKey];
+    const parsed = parseChatResponseBody(rawBody, response.status, secrets);
+    const normalized = stripJsonFence(parsed.content);
     try {
       return {
         value: JSON.parse(normalized) as T,
         usage: parseHostedChatUsage(parsed.usage),
       };
     } catch (error) {
-      throw new Error("hosted-chat returned malformed JSON", {cause: error});
+      throw new HostedResponseContractError({
+        layer: "hosted-chat",
+        content: parsed.content,
+        httpStatus: response.status,
+        secrets,
+        cause: error,
+      });
     }
   },
 });

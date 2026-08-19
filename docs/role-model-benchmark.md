@@ -49,11 +49,16 @@ inputs.
 ## Candidate isolation
 
 Candidates come from config, not from a brand enum. The committed
-`default` set is three OpenAI-compatible endpoints:
+`default` set is:
 
-- `openai-gpt-5-mini`
-- `deepseek-chat`
-- `xai-grok-4`
+- `deepseek-v4-flash`
+- `qwen3-7-plus`
+- `minimax-m2-7`
+
+First real calls use `timeoutMs=300000` and `maxRetries=0` so a slow
+model is not retried into three API burns. `HostedAgentBackend` appends
+the `{outputs:[...]}` machine response contract to the user message;
+role prompts stay unchanged.
 
 Each candidate runs `HostedAgentBackend` independently and writes only
 under:

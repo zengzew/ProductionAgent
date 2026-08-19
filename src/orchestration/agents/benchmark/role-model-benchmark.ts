@@ -27,6 +27,7 @@ import {
 import {stableJson} from "../../stable-json";
 import {
   emptyHostedChatUsage,
+  redactHostedSecrets,
   type HostedChatJsonFn,
   type HostedChatProvider,
 } from "../providers/hosted-chat";
@@ -244,6 +245,26 @@ const pairwiseComparisons = (
   return pairs;
 };
 
+export type BenchmarkProgressEvent = {
+  phase: "start" | "complete" | "failed";
+  candidateId: string;
+  model: string;
+  status?: "SUCCEEDED" | "FAILED";
+  cacheHit?: boolean;
+  error?: string;
+};
+
+export const formatBenchmarkProgress = (event: BenchmarkProgressEvent): string => {
+  if (event.phase === "start") {
+    return `[benchmark] start candidate=${event.candidateId} model=${event.model}`;
+  }
+  if (event.phase === "failed") {
+    return `[benchmark] failed candidate=${event.candidateId} model=${event.model} error=${event.error ?? ""}`;
+  }
+  const cacheHit = event.cacheHit ? " cacheHit=true" : "";
+  return `[benchmark] complete candidate=${event.candidateId} model=${event.model} status=${event.status ?? "SUCCEEDED"}${cacheHit}`;
+};
+
 export type RoleModelBenchmarkOptions = {
   repoRoot: string;
   request: AgentExecutionRequest;
@@ -257,6 +278,7 @@ export type RoleModelBenchmarkOptions = {
   createdAt?: () => string;
   now?: () => number;
   sleep?: (milliseconds: number) => Promise<void>;
+  onProgress?: (event: BenchmarkProgressEvent) => void;
   runDownstreamCritic?: (input: {
     candidateId: string;
     markdown: string;
@@ -313,13 +335,30 @@ const runOneCandidate = async (input: {
   });
   assertFrozenBenchmarkInputs(options.repoRoot, manifest);
   const cachePath = candidateCachePath(request.episodeId, manifest.benchmarkId, identity);
+  const emitProgress = (event: BenchmarkProgressEvent): void => {
+    (options.onProgress ?? ((item) => console.log(formatBenchmarkProgress(item))))(event);
+  };
   const cached = readCachedCandidate(options.repoRoot, cachePath);
-  if (cached) return {...cached, cacheHit: true, identity};
+  if (cached) {
+    const hit = {...cached, cacheHit: true, identity};
+    emitProgress({
+      phase: "complete",
+      candidateId,
+      model: policy.model,
+      status: hit.status,
+      cacheHit: true,
+    });
+    return hit;
+  }
+
+  emitProgress({phase: "start", candidateId, model: policy.model});
 
   const hostedCalls: HostedAgentCallRecord[] = [];
   const apiKey =
     options.apiKeyForCandidate?.(candidateId, policy.apiKeyEnv) ??
     (options.env ?? process.env)[policy.apiKeyEnv];
+  const describeFailure = (detail: string): string =>
+    redactHostedSecrets(`candidate=${candidateId} model=${policy.model} ${detail}`, [apiKey]);
   const backend = createHostedAgentBackend({
     repoRoot: options.repoRoot,
     policy: {
@@ -353,10 +392,22 @@ const runOneCandidate = async (input: {
     outputArtifacts = [...result.outputArtifacts];
     status = result.status === "SUCCEEDED" ? "SUCCEEDED" : "FAILED";
     if (result.status !== "SUCCEEDED") {
-      failureDetail = result.failure?.detail ?? result.decision.summary;
+      failureDetail = describeFailure(result.failure?.detail ?? result.decision.summary);
     }
   } catch (error) {
-    failureDetail = errorMessage(error);
+    failureDetail = describeFailure(errorMessage(error));
+  }
+
+  if (status === "SUCCEEDED") {
+    emitProgress({phase: "complete", candidateId, model: policy.model, status});
+  } else {
+    emitProgress({
+      phase: "failed",
+      candidateId,
+      model: policy.model,
+      status,
+      error: failureDetail ?? "unknown error",
+    });
   }
 
   const telemetry = hostedCalls.at(-1);

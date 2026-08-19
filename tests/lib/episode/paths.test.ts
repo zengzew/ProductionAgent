@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import {describe, expect, it} from "vitest";
-import {readJson, repoRoot} from "../../../src/lib/episode/paths";
+import {readJson, repoRoot, resolveEpisodeId} from "../../../src/lib/episode/paths";
 
 describe("lib episode paths", () => {
   it("resolves repoRoot to this package even after the lib split", () => {
@@ -20,5 +20,39 @@ describe("lib episode paths", () => {
         .map((entry) => entry.name)
         .sort(),
     ).toEqual(["delivery", "editorial", "episode", "platform"]);
+  });
+
+  it("does not reject benchmark --role/--models when resolving episode", () => {
+    expect(
+      resolveEpisodeId(
+        [
+          "node",
+          "scripts/benchmark-role.ts",
+          "--episode",
+          "episode-004",
+          "--role",
+          "script-writer",
+          "--models",
+          "default",
+        ],
+        {},
+      ),
+    ).toBe("episode-004");
+    expect(() =>
+      resolveEpisodeId(["node", "scripts/benchmark-role.ts", "--episode"], {}),
+    ).toThrow(/缺少值/u);
+    expect(() =>
+      resolveEpisodeId(
+        [
+          "node",
+          "scripts/benchmark-role.ts",
+          "--episode",
+          "episode-004",
+          "--episode",
+          "episode-005",
+        ],
+        {},
+      ),
+    ).toThrow(/不能重复/u);
   });
 });

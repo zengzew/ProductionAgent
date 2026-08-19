@@ -122,9 +122,9 @@ const setup = (input?: {eligibleB?: boolean}) => {
     repoRoot,
     episodeId,
     benchmarkId,
-    candidateId: "openai-gpt-5-mini",
+    candidateId: "deepseek-v4-flash",
     provider: "openai-compatible",
-    model: "gpt-5-mini",
+    model: "deepseek-v4-flash",
     eligible: true,
     output: draft("first"),
   });
@@ -132,9 +132,9 @@ const setup = (input?: {eligibleB?: boolean}) => {
     repoRoot,
     episodeId,
     benchmarkId,
-    candidateId: "deepseek-chat",
+    candidateId: "qwen3-7-plus",
     provider: "openai-compatible",
-    model: "deepseek-chat",
+    model: "qwen3.7-plus",
     eligible: input?.eligibleB ?? true,
     output: draft("second"),
   });
@@ -146,7 +146,7 @@ const setup = (input?: {eligibleB?: boolean}) => {
     episodeId,
     agentName: "script-writer",
     policyVersion: "role-model-rollout-v1",
-    candidateIds: ["deepseek-chat", "openai-gpt-5-mini"],
+    candidateIds: ["deepseek-v4-flash", "qwen3-7-plus"],
     candidates: [a, b],
     pairwise: [],
     eligibleCandidateIds: [a, b]
@@ -171,9 +171,9 @@ describe("script-writer blind review", () => {
     const {repoRoot, episodeId, benchmarkId} = setup();
     const {review, reveal} = buildBlindReviewPackage({repoRoot, episodeId, benchmarkId});
     const serialized = JSON.stringify(review);
-    expect(serialized).not.toMatch(/openai|deepseek|grok|gpt-5-mini|endpoint|provider/iu);
-    expect(serialized).not.toContain("openai-gpt-5-mini");
-    expect(serialized).not.toContain("deepseek-chat");
+    expect(serialized).not.toMatch(/openai|deepseek|qwen|minimax|grok|gpt-5|endpoint|provider/iu);
+    expect(serialized).not.toContain("deepseek-v4-flash");
+    expect(serialized).not.toContain("qwen3-7-plus");
     expect(review.autoFilled).toBe(false);
     expect(review.candidates[0]?.scores.clarity).toBeNull();
     expect(review.candidates.map((candidate) => candidate.label).sort()).toEqual(["A", "B"]);
@@ -181,8 +181,8 @@ describe("script-writer blind review", () => {
     expect(review.candidates[0]?.claimCoverage).toBe(1);
     expect(reveal.mapping).toHaveLength(2);
     expect(reveal.mapping.map((entry) => entry.candidateId).sort()).toEqual([
-      "deepseek-chat",
-      "openai-gpt-5-mini",
+      "deepseek-v4-flash",
+      "qwen3-7-plus",
     ]);
   });
 
@@ -255,7 +255,7 @@ describe("promotion HumanDecision", () => {
   it("blocks an ineligible candidate and a tampered benchmark", () => {
     const {repoRoot, episodeId, benchmarkId, result} = setup({eligibleB: false});
     const {reveal} = buildBlindReviewPackage({repoRoot, episodeId, benchmarkId});
-    const ineligible = reveal.mapping.find((entry) => entry.candidateId === "deepseek-chat");
+    const ineligible = reveal.mapping.find((entry) => entry.candidateId === "qwen3-7-plus");
     expect(ineligible).toBeDefined();
     const {decisionPath} = recordRoleModelPromotionDecision({
       repoRoot,
@@ -275,7 +275,7 @@ describe("promotion HumanDecision", () => {
       before,
     );
 
-    const eligible = reveal.mapping.find((entry) => entry.candidateId === "openai-gpt-5-mini");
+    const eligible = reveal.mapping.find((entry) => entry.candidateId === "deepseek-v4-flash");
     const recorded = recordRoleModelPromotionDecision({
       repoRoot,
       episodeId,
@@ -325,7 +325,7 @@ describe("promotion HumanDecision", () => {
   it("updates role model fields only with an explicit promote apply", () => {
     const {repoRoot, episodeId, benchmarkId} = setup();
     const {reveal} = buildBlindReviewPackage({repoRoot, episodeId, benchmarkId});
-    const selected = reveal.mapping.find((entry) => entry.candidateId === "deepseek-chat");
+    const selected = reveal.mapping.find((entry) => entry.candidateId === "deepseek-v4-flash");
     const {decisionPath} = recordRoleModelPromotionDecision({
       repoRoot,
       episodeId,
@@ -341,8 +341,10 @@ describe("promotion HumanDecision", () => {
     const policy = loadAgentModelPolicyFile({repoRoot});
     expect(policy.roles["script-writer"]).toMatchObject({
       mode: "manual",
-      model: "deepseek-chat",
-      endpoint: "https://api.deepseek.com/v1/chat/completions",
+      model: "deepseek-v4-flash",
+      endpoint: "https://api.deepseek.com/chat/completions",
+      timeoutMs: 300_000,
+      maxRetries: 0,
     });
     expect(policy.roles["oral-rewriter"].mode).toBe("manual");
     expect(policy.rollout.hostedLlm).toEqual(["oral-rewriter"]);

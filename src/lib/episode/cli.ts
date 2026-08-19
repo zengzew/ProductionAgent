@@ -4,20 +4,31 @@ export type CliArgs = {
   positionals: string[];
 };
 
+/** Reads only --episode. Other flags belong to the calling command. */
+export const parseEpisodeFlag = (argv: string[]): string | undefined => {
+  let episode: string | undefined;
+  for (let index = 2; index < argv.length; index += 1) {
+    if (argv[index] !== "--episode") continue;
+    const value = argv[index + 1];
+    if (!value || value.startsWith("--")) {
+      throw new Error("参数 --episode 缺少值");
+    }
+    if (episode !== undefined) throw new Error("参数 --episode 不能重复");
+    episode = value;
+    index += 1;
+  }
+  return episode;
+};
+
+/** Strict parser for render/restore CLIs. Unknown flags are errors. */
 export const parseCliArgs = (argv: string[]): CliArgs => {
   const positionals: string[] = [];
-  let episode: string | undefined;
+  const episode = parseEpisodeFlag(argv);
   let verifyOnly = false;
 
   for (let index = 2; index < argv.length; index += 1) {
     const argument = argv[index];
     if (argument === "--episode") {
-      const value = argv[index + 1];
-      if (!value || value.startsWith("--")) {
-        throw new Error("参数 --episode 缺少值");
-      }
-      if (episode !== undefined) throw new Error("参数 --episode 不能重复");
-      episode = value;
       index += 1;
       continue;
     }

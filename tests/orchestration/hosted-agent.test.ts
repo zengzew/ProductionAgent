@@ -10,8 +10,11 @@ import {
   createFakeHostedChatProvider,
   createHostedAgentAdapter,
   createOpenAiCompatibleChatProvider,
+  hashHostedResponseContent,
+  HOSTED_AGENT_RESPONSE_CONTRACT,
   hostedLlmEligibleAgentNames,
   hostedLlmIneligibleAgentNames,
+  HostedResponseContractError,
   loadAgentModelPolicyFile,
   parseAgentModelPolicyFile,
   resolveRoleModelPolicy,
@@ -261,6 +264,32 @@ describe("HostedAgentBackend", () => {
       /endpoint is not approved: https:\/\/evil\.example/u,
     );
     expect(chat).not.toHaveBeenCalled();
+  });
+
+  it("appends the machine response contract to the user message only", async () => {
+    const {repoRoot, promptRef, inputRef} = setup();
+    let systemContent = "";
+    let userContent = "";
+    const runner = createHostedAgentAdapter({
+      repoRoot,
+      policy: hostedPolicy(),
+      apiKey: "test-key",
+      chat: async (call) => {
+        systemContent = call.messages.find((message) => message.role === "system")?.content ?? "";
+        userContent = call.messages.find((message) => message.role === "user")?.content ?? "";
+        return {outputs: [{...outputDeclaration, content: "hosted result\n"}]};
+      },
+      createdAt: () => "2026-08-06T00:00:00.000Z",
+      sleep: async () => undefined,
+    });
+    await runner(request(promptRef, inputRef));
+    expect(systemContent).toBe("prompt\n");
+    expect(systemContent).not.toContain("MACHINE RESPONSE CONTRACT");
+    expect(userContent.endsWith(HOSTED_AGENT_RESPONSE_CONTRACT)).toBe(true);
+    expect(userContent).toContain("ONLY return one JSON object.");
+    expect(userContent).toContain('{"outputs":[...]}');
+    expect(userContent).toContain(outputDeclaration.artifactId);
+    expect(userContent).toContain(outputDeclaration.path);
   });
 
   it("blocks malformed JSON, missing outputs, and undeclared outputs", async () => {
@@ -567,5 +596,140 @@ describe("HostedAgentBackend", () => {
       value: {ok: true},
       usage: {inputTokens: 4, outputTokens: 6, totalTokens: 10},
     });
+  });
+
+  it("accepts a legal outputs envelope from a fake provider", async () => {
+    const {repoRoot, promptRef, inputRef} = setup();
+    const provider = createFakeHostedChatProvider({
+      handler: async () => ({
+        outputs: [{...outputDeclaration, content: "from envelope\n"}],
+      }),
+    });
+    const runner = createHostedAgentAdapter({
+      repoRoot,
+      policy: hostedPolicy(),
+      apiKey: "test-key",
+      provider,
+      createdAt: () => "2026-08-06T00:00:00.000Z",
+      sleep: async () => undefined,
+    });
+    await expect(runner(request(promptRef, inputRef))).resolves.toMatchObject({
+      status: "SUCCEEDED",
+    });
+    expect(fs.readFileSync(path.join(repoRoot, outputDeclaration.path), "utf8")).toBe(
+      "from envelope\n",
+    );
+  });
+
+  it("identifies a markdown-only fake-provider response", async () => {
+    const {repoRoot, promptRef, inputRef} = setup();
+    const markdown = "# Script Draft\n\n状态：`draft-ready`\n";
+    const provider = createFakeHostedChatProvider({
+      handler: async () => markdown,
+    });
+    const runner = createHostedAgentAdapter({
+      repoRoot,
+      policy: hostedPolicy({maxRetries: 2}),
+      apiKey: "super-secret-test-key",
+      provider,
+      sleep: async () => undefined,
+    });
+    const error = await runner(request(promptRef, inputRef)).catch((caught) => caught);
+    expect(error).toBeInstanceOf(HostedResponseContractError);
+    expect(error).toMatchObject({
+      layer: "hosted-agent",
+      markdownOnly: true,
+    });
+    expect(error.message).toMatch(/markdown-only response/u);
+    expect(error.message).toContain(`sha256=${hashHostedResponseContent(markdown)}`);
+    expect(error.message).toContain("preview=");
+    expect(error.message).not.toContain("super-secret-test-key");
+    expect(error.message).not.toMatch(/apiKey/iu);
+  });
+
+  it("records diagnosable malformed JSON from a fake provider", async () => {
+    const {repoRoot, promptRef, inputRef} = setup();
+    const broken = {broken: true, note: "not an outputs envelope"};
+    const provider = createFakeHostedChatProvider({
+      handler: async () => broken,
+    });
+    const runner = createHostedAgentAdapter({
+      repoRoot,
+      policy: hostedPolicy(),
+      apiKey: "super-secret-test-key",
+      provider,
+      sleep: async () => undefined,
+    });
+    const error = await runner(request(promptRef, inputRef)).catch((caught) => caught);
+    expect(error).toBeInstanceOf(HostedResponseContractError);
+    expect(error.markdownOnly).toBe(false);
+    expect(error.message).toMatch(/hosted-agent returned malformed JSON/u);
+    expect(error.message).toMatch(/status=n\/a/u);
+    expect(error.message).toContain(`sha256=${hashHostedResponseContent(JSON.stringify(broken))}`);
+    expect(error.message).toContain("preview=");
+    expect(error.message).toContain("not an outputs envelope");
+    expect(error.message).not.toContain("super-secret-test-key");
+  });
+
+  it("records HTTP status, hash, and redacted preview for hosted-chat parse failures", async () => {
+    const secret = "super-secret-test-key";
+    const markdown = `# MiniMax dumped markdown\n\nBearer ${secret}\n`;
+    const fetchImpl: typeof fetch = async () =>
+      new Response(
+        JSON.stringify({
+          choices: [{message: {content: markdown}}],
+        }),
+        {status: 200, headers: {"content-type": "application/json"}},
+      );
+    const provider = createOpenAiCompatibleChatProvider({fetchImpl});
+    const error = await provider
+      .chatJson({
+        provider: "openai-compatible",
+        endpoint: "https://api.openai.com/v1/chat/completions",
+        model: "test-model",
+        temperature: 0,
+        timeoutMs: 1000,
+        maxRetries: 0,
+        apiKey: secret,
+        messages: [{role: "user", content: "ping"}],
+      })
+      .catch((caught) => caught);
+    expect(error).toBeInstanceOf(HostedResponseContractError);
+    expect(error).toMatchObject({
+      layer: "hosted-chat",
+      markdownOnly: true,
+      httpStatus: 200,
+      contentHash: hashHostedResponseContent(markdown),
+    });
+    expect(error.message).toMatch(/hosted-chat returned markdown-only response/u);
+    expect(error.message).toContain("status=200");
+    expect(error.message).toContain("preview=");
+    expect(error.message).not.toContain(secret);
+    expect(error.preview).toContain("[redacted]");
+
+    const malformedFetch: typeof fetch = async () =>
+      new Response(
+        JSON.stringify({
+          choices: [{message: {content: `{not-json ${secret}`}}],
+        }),
+        {status: 218, headers: {"content-type": "application/json"}},
+      );
+    const malformed = await createOpenAiCompatibleChatProvider({fetchImpl: malformedFetch})
+      .chatJson({
+        provider: "openai-compatible",
+        endpoint: "https://api.openai.com/v1/chat/completions",
+        model: "test-model",
+        temperature: 0,
+        timeoutMs: 1000,
+        maxRetries: 0,
+        apiKey: secret,
+        messages: [{role: "user", content: "ping"}],
+      })
+      .catch((caught) => caught);
+    expect(malformed).toBeInstanceOf(HostedResponseContractError);
+    expect(malformed.markdownOnly).toBe(false);
+    expect(malformed.httpStatus).toBe(218);
+    expect(malformed.message).toMatch(/hosted-chat returned malformed JSON/u);
+    expect(malformed.message).not.toContain(secret);
   });
 });

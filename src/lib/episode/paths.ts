@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import {parseCliArgs} from "./cli";
+import {parseEpisodeFlag} from "./cli";
 
 export const repoRoot = path.resolve(import.meta.dirname, "../../..");
 
@@ -20,20 +20,10 @@ const EPISODE_OUTPUT_ALIASES: Readonly<Record<string, string>> = {
   "episode-002-v2-goal3": "content/episode-002/v2-goal3/production/output",
 };
 
-export const resolveEpisodeId = (
-  argv: string[],
-  environment: NodeJS.ProcessEnv,
-  ignoreCliArguments = false,
-): string => {
-  const effectiveArgv = ignoreCliArguments ? argv.slice(0, 2) : argv;
-  const parsed = parseCliArgs(effectiveArgv);
-  if (parsed.positionals.length > 0 && path.basename(effectiveArgv[1] ?? "") !== "render.ts") {
-    throw new Error(`未知位置参数：${parsed.positionals.join(" ")}`);
-  }
-  return parsed.episode ?? environment.EPISODE_ID ?? "episode-001";
-};
+export const resolveEpisodeId = (argv: string[], environment: NodeJS.ProcessEnv): string =>
+  parseEpisodeFlag(argv) ?? environment.EPISODE_ID ?? "episode-001";
 
-export const episodeId = resolveEpisodeId(process.argv, process.env, Boolean(process.env.VITEST));
+export const episodeId = resolveEpisodeId(process.argv, process.env);
 
 if (!/^episode-[a-z0-9-]+$/u.test(episodeId)) {
   throw new Error(`Invalid episode id: ${episodeId}`);

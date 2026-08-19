@@ -7,9 +7,12 @@ import {
   buildArtifactRef,
   buildScriptWriterBenchmarkRequest,
   createContentAgentAdapter,
+  createFakeHostedChatProvider,
   evaluatePromotionEligibility,
   hashBenchmarkIdentity,
   hashBenchmarkInput,
+  HOSTED_AGENT_RESPONSE_CONTRACT,
+  hashHostedResponseContent,
   loadRoleModelBenchmarkConfig,
   parseRoleModelBenchmarkConfig,
   relocateBenchmarkOutputPath,
@@ -17,6 +20,7 @@ import {
   resolveRoleModelPolicy,
   runRoleModelBenchmark,
   type AgentExecutionRequest,
+  type BenchmarkProgressEvent,
   type RoleModelBenchmarkConfig,
 } from "../../src/orchestration";
 
@@ -146,12 +150,18 @@ describe("model-benchmark-v1", () => {
   it("sends the same frozen inputs to every candidate", async () => {
     const {repoRoot, request} = setup();
     const payloads: string[] = [];
+    const systems: string[] = [];
+    const users: string[] = [];
     const {result} = await runRoleModelBenchmark({
       repoRoot,
       request,
       config: benchmarkConfig(),
       apiKeyForCandidate: () => "test-key",
       chat: async (call) => {
+        const system = call.messages.find((message) => message.role === "system")?.content ?? "";
+        const user = call.messages.find((message) => message.role === "user")?.content ?? "";
+        systems.push(system);
+        users.push(user);
         payloads.push(call.messages.map((message) => message.content).join("\n---\n"));
         return hostedOutput(request, draftFor(["claim-alpha-001", "claim-alpha-002"]));
       },
@@ -160,6 +170,12 @@ describe("model-benchmark-v1", () => {
     });
     expect(payloads).toHaveLength(2);
     expect(payloads[0]).toBe(payloads[1]);
+    expect(systems[0]).toBe(systems[1]);
+    expect(users[0]).toBe(users[1]);
+    expect(systems[0]).toBe("write the draft\n");
+    expect(systems[0]).not.toContain("MACHINE RESPONSE CONTRACT");
+    expect(users[0]).toContain(HOSTED_AGENT_RESPONSE_CONTRACT);
+    expect(users[0]).toContain("ONLY return one JSON object.");
     expect(payloads[0]).toContain(request.expectedOutputs[0]?.path);
     expect(result.automaticPromotion).toBe(false);
     expect(result.candidateIds).toEqual(["model-a", "model-b"]);
@@ -420,10 +436,14 @@ describe("model-benchmark-v1", () => {
     const committed = loadRoleModelBenchmarkConfig();
     expect(committed.allowedRoles).toEqual(["script-writer"]);
     expect(resolveBenchmarkCandidates("default", committed).map((item) => item.id)).toEqual([
-      "openai-gpt-5-mini",
-      "deepseek-chat",
-      "xai-grok-4",
+      "deepseek-v4-flash",
+      "qwen3-7-plus",
+      "minimax-m2-7",
     ]);
+    for (const candidate of Object.values(committed.candidates)) {
+      expect(candidate.timeoutMs).toBe(300_000);
+      expect(candidate.maxRetries).toBe(0);
+    }
     expect(
       hashBenchmarkIdentity({
         inputHash: left,
@@ -441,5 +461,119 @@ describe("model-benchmark-v1", () => {
         promptVersion: "prompt-v1:abc",
       }),
     );
+  });
+
+  it("prints start, complete, and failed progress for each candidate", async () => {
+    const {repoRoot, request} = setup();
+    const events: BenchmarkProgressEvent[] = [];
+    const {result} = await runRoleModelBenchmark({
+      repoRoot,
+      request,
+      config: benchmarkConfig(),
+      apiKeyForCandidate: () => "test-key",
+      chat: async (call) => {
+        if (call.model === "model-a") return {broken: true};
+        return hostedOutput(request, draftFor(["claim-alpha-001", "claim-alpha-002"]));
+      },
+      createdAt: () => "2026-08-19T00:00:00.000Z",
+      sleep: async () => undefined,
+      onProgress: (event) => events.push(event),
+    });
+    expect(events.map((event) => `${event.phase}:${event.candidateId}`)).toEqual([
+      "start:model-a",
+      "failed:model-a",
+      "start:model-b",
+      "complete:model-b",
+    ]);
+    expect(events[1]).toMatchObject({phase: "failed", model: "model-a"});
+    expect(events[3]).toMatchObject({phase: "complete", model: "model-b", status: "SUCCEEDED"});
+    expect(result.automaticPromotion).toBe(false);
+  });
+});
+
+describe("fake-provider transport contract", () => {
+  it("accepts a legal outputs envelope without promoting", async () => {
+    const {repoRoot, request} = setup();
+    const provider = createFakeHostedChatProvider({
+      handler: async () => hostedOutput(request, draftFor(["claim-alpha-001", "claim-alpha-002"])),
+    });
+    const {result} = await runRoleModelBenchmark({
+      repoRoot,
+      request,
+      config: benchmarkConfig(),
+      candidateIds: ["model-a"],
+      apiKeyForCandidate: () => "super-secret-test-key",
+      provider,
+      createdAt: () => "2026-08-19T00:00:00.000Z",
+      sleep: async () => undefined,
+      onProgress: () => undefined,
+    });
+    expect(result.candidates[0]?.status).toBe("SUCCEEDED");
+    expect(result.candidates[0]?.expectedOutputsComplete).toBe(true);
+    expect(result.automaticPromotion).toBe(false);
+    expect(result.promotionRequires).toBe("explicit-config-or-human-decision");
+  });
+
+  it("identifies a markdown-only response", async () => {
+    const {repoRoot, request} = setup();
+    const markdown = "# Script Draft\n\n状态：`draft-ready`\n";
+    const provider = createFakeHostedChatProvider({
+      handler: async () => markdown,
+    });
+    const {result} = await runRoleModelBenchmark({
+      repoRoot,
+      request,
+      config: benchmarkConfig(),
+      candidateIds: ["model-a"],
+      apiKeyForCandidate: () => "super-secret-test-key",
+      provider,
+      createdAt: () => "2026-08-19T00:00:00.000Z",
+      sleep: async () => undefined,
+      onProgress: () => undefined,
+    });
+    const failed = result.candidates[0];
+    expect(failed?.status).toBe("FAILED");
+    expect(failed?.promotionEligible).toBe(false);
+    expect(failed?.failureDetail).toMatch(/markdown-only response/u);
+    expect(failed?.failureDetail).toContain("candidate=model-a");
+    expect(failed?.failureDetail).toContain("model=model-a");
+    expect(failed?.failureDetail).toContain(`sha256=${hashHostedResponseContent(markdown)}`);
+    expect(failed?.failureDetail).toMatch(/preview=/u);
+    expect(failed?.failureDetail).not.toContain("super-secret-test-key");
+    expect(result.automaticPromotion).toBe(false);
+    expect(result.eligibleCandidateIds).toEqual([]);
+  });
+
+  it("records diagnosable malformed JSON without leaking the API key", async () => {
+    const {repoRoot, request} = setup();
+    const broken = {broken: true, note: "not an outputs envelope"};
+    const provider = createFakeHostedChatProvider({
+      handler: async () => broken,
+    });
+    const {result} = await runRoleModelBenchmark({
+      repoRoot,
+      request,
+      config: benchmarkConfig(),
+      candidateIds: ["model-a"],
+      apiKeyForCandidate: () => "super-secret-test-key",
+      provider,
+      createdAt: () => "2026-08-19T00:00:00.000Z",
+      sleep: async () => undefined,
+      onProgress: () => undefined,
+    });
+    const failed = result.candidates[0];
+    expect(failed?.status).toBe("FAILED");
+    expect(failed?.promotionEligible).toBe(false);
+    expect(failed?.failureDetail).toMatch(/malformed JSON/u);
+    expect(failed?.failureDetail).toContain("candidate=model-a");
+    expect(failed?.failureDetail).toContain("model=model-a");
+    expect(failed?.failureDetail).toMatch(/status=n\/a/u);
+    expect(failed?.failureDetail).toContain(
+      `sha256=${hashHostedResponseContent(JSON.stringify(broken))}`,
+    );
+    expect(failed?.failureDetail).toContain("not an outputs envelope");
+    expect(failed?.failureDetail).not.toContain("super-secret-test-key");
+    expect(failed?.failureDetail).not.toMatch(/apiKey/iu);
+    expect(result.automaticPromotion).toBe(false);
   });
 });

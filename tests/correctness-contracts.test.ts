@@ -22,21 +22,36 @@ describe("correctness contracts", () => {
     );
     expect(() => parseCliArgs(["node", "script.ts", "--episode"])).toThrow(/缺少值/u);
     expect(() => parseCliArgs(["node", "script.ts", "--unknown"])).toThrow(/未知参数/u);
+    expect(() => parseCliArgs(["node", "render.ts", "--role", "script-writer"])).toThrow(
+      /未知参数/u,
+    );
     expect(() => parseRenderMode(["node", "render.ts", "smoke", "vertical"])).toThrow(
       /只能指定一个/u,
     );
-    expect(() => resolveEpisodeId(["node", "validate-content.ts", "extra"], {})).toThrow(
-      /未知位置参数/u,
+    expect(() => parseRenderMode(["node", "render.ts", "--models", "default"])).toThrow(
+      /未知参数/u,
     );
   });
 
-  it("ignores test-runner argv while keeping its pinned episode environment", () => {
+  it("lets other CLIs own --role/--models while still reading --episode", () => {
     expect(
       resolveEpisodeId(
-        ["node", "vitest", "--episode", "episode-wrong"],
-        {EPISODE_ID: "episode-001"},
-        true,
+        [
+          "node",
+          "scripts/benchmark-role.ts",
+          "--episode",
+          "episode-004",
+          "--role",
+          "script-writer",
+          "--models",
+          "default",
+        ],
+        {},
       ),
+    ).toBe("episode-004");
+    expect(resolveEpisodeId(["node", "validate-content.ts", "extra"], {})).toBe("episode-001");
+    expect(
+      resolveEpisodeId(["node", "vitest", "run", "tests/foo.test.ts"], {EPISODE_ID: "episode-001"}),
     ).toBe("episode-001");
   });
 
