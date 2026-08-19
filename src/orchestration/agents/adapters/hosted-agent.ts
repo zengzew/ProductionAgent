@@ -68,6 +68,8 @@ export type HostedAgentBackendOptions = {
   sleep?: (milliseconds: number) => Promise<void>;
   producerFor?: (agentName: AgentName) => string;
   decisionFor?: (agentName: AgentName) => {code: string; summary: string};
+  /** Write declared outputs to another episode-local path. The model still sees declared paths. */
+  relocateOutputPath?: (declaredPath: string) => string;
 };
 
 export type HostedAgentAdapterOptions = HostedAgentBackendOptions;
@@ -255,16 +257,27 @@ const collectProtectedInputPaths = (request: AgentExecutionRequest): Set<string>
   return paths;
 };
 
+const assertWriteDestination = (
+  repoRoot: string,
+  episodeId: string,
+  writePath: string,
+  protectedPaths: ReadonlySet<string>,
+): string => {
+  const relative = assertWritableEpisodePath(repoRoot, episodeId, writePath);
+  if (protectedPaths.has(relative) || protectedPaths.has(normalizeRepositoryPath(writePath))) {
+    throw new Error(`hosted-agent cannot overwrite input artifact: ${writePath}`);
+  }
+  return relative;
+};
+
 const assertDeclaredOutputs = (
   repoRoot: string,
   request: AgentExecutionRequest,
   protectedPaths: ReadonlySet<string>,
+  writePathFor: (declaredPath: string) => string,
 ): void => {
   for (const output of request.expectedOutputs) {
-    const relative = assertWritableEpisodePath(repoRoot, request.episodeId, output.path);
-    if (protectedPaths.has(relative) || protectedPaths.has(normalizeRepositoryPath(output.path))) {
-      throw new Error(`hosted-agent cannot overwrite input artifact: ${output.path}`);
-    }
+    assertWriteDestination(repoRoot, request.episodeId, writePathFor(output.path), protectedPaths);
   }
 };
 
@@ -273,7 +286,8 @@ const validateModelOutputs = (
   outputs: readonly HostedAgentOutput[],
   protectedPaths: ReadonlySet<string>,
   repoRoot: string,
-): void => {
+  writePathFor: (declaredPath: string) => string,
+): Array<{declared: HostedAgentOutput; writePath: string}> => {
   const expected = new Map(request.expectedOutputs.map((output) => [output.artifactId, output]));
   if (outputs.length !== expected.size) {
     throw new Error("hosted-agent returned an incomplete output set");
@@ -281,7 +295,7 @@ const validateModelOutputs = (
   if (new Set(outputs.map((output) => output.artifactId)).size !== outputs.length) {
     throw new Error("hosted-agent returned duplicate outputs");
   }
-  for (const output of outputs) {
+  return outputs.map((output) => {
     const declaration = expected.get(output.artifactId);
     if (
       !declaration ||
@@ -290,10 +304,8 @@ const validateModelOutputs = (
     ) {
       throw new Error(`hosted-agent returned undeclared output: ${output.artifactId}`);
     }
-    const relative = assertWritableEpisodePath(repoRoot, request.episodeId, output.path);
-    if (protectedPaths.has(relative) || protectedPaths.has(normalizeRepositoryPath(output.path))) {
-      throw new Error(`hosted-agent cannot overwrite input artifact: ${output.path}`);
-    }
+    const writePath = writePathFor(output.path);
+    assertWriteDestination(repoRoot, request.episodeId, writePath, protectedPaths);
     if (output.path.endsWith(".json")) {
       try {
         JSON.parse(output.content);
@@ -303,7 +315,8 @@ const validateModelOutputs = (
         });
       }
     }
-  }
+    return {declared: output, writePath};
+  });
 };
 
 const invokeChat = async (
@@ -357,8 +370,10 @@ export const createHostedAgentBackend = (
       for (const artifact of request.inputArtifacts) {
         assertReadableInput(options.repoRoot, request.episodeId, artifact, "input");
       }
+      const writePathFor = (declaredPath: string): string =>
+        options.relocateOutputPath?.(declaredPath) ?? declaredPath;
       const protectedPaths = collectProtectedInputPaths(request);
-      assertDeclaredOutputs(options.repoRoot, request, protectedPaths);
+      assertDeclaredOutputs(options.repoRoot, request, protectedPaths, writePathFor);
 
       const call: HostedChatCall = {
         provider: policy.provider,
@@ -399,8 +414,17 @@ export const createHostedAgentBackend = (
       if (!parsed.success) {
         throw new Error("hosted-agent returned malformed JSON");
       }
-      validateModelOutputs(request, parsed.data.outputs, protectedPaths, options.repoRoot);
-      writeRepositoryFilesAtomically(options.repoRoot, parsed.data.outputs);
+      const relocated = validateModelOutputs(
+        request,
+        parsed.data.outputs,
+        protectedPaths,
+        options.repoRoot,
+        writePathFor,
+      );
+      writeRepositoryFilesAtomically(
+        options.repoRoot,
+        relocated.map((output) => ({path: output.writePath, content: output.declared.content})),
+      );
       assertArtifactRefBytes(options.repoRoot, request.promptRef);
       for (const artifact of request.inputArtifacts) {
         assertArtifactRefBytes(options.repoRoot, artifact);
@@ -408,14 +432,14 @@ export const createHostedAgentBackend = (
 
       const producer =
         options.producerFor?.(request.agentName) ?? `hosted-agent:${request.agentName}`;
-      const outputArtifacts = parsed.data.outputs.map((output) =>
+      const outputArtifacts = relocated.map((output) =>
         buildArtifactRef({
           repoRoot: options.repoRoot,
-          artifactId: output.artifactId,
+          artifactId: output.declared.artifactId,
           episodeId: request.episodeId,
-          path: output.path,
-          mediaType: mediaTypeFor(output.path),
-          schemaVersion: output.schemaVersion,
+          path: output.writePath,
+          mediaType: mediaTypeFor(output.writePath),
+          schemaVersion: output.declared.schemaVersion,
           producer,
           createdAt: options.createdAt?.(),
         }),

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "model-benchmark-config-v1",
+  "policyVersion": "role-model-rollout-v1",
+  "allowedRoles": ["script-writer"],
+  "defaultModelSet": "default",
+  "modelSets": {
+    "default": ["openai-gpt-5-mini", "deepseek-chat", "xai-grok-4"]
+  },
+  "candidates": {
+    "openai-gpt-5-mini": {
+      "provider": "openai-compatible",
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "model": "gpt-5-mini",
+      "temperature": 0.4,
+      "apiKeyEnv": "OPENAI_API_KEY",
+      "allowedOrigins": ["https://api.openai.com"],
+      "timeoutMs": 30000,
+      "maxRetries": 2
+    },
+    "deepseek-chat": {
+      "provider": "openai-compatible",
+      "endpoint": "https://api.deepseek.com/v1/chat/completions",
+      "model": "deepseek-chat",
+      "temperature": 0.4,
+      "apiKeyEnv": "DEEPSEEK_API_KEY",
+      "allowedOrigins": ["https://api.deepseek.com"],
+      "timeoutMs": 30000,
+      "maxRetries": 2
+    },
+    "xai-grok-4": {
+      "provider": "openai-compatible",
+      "endpoint": "https://api.x.ai/v1/chat/completions",
+      "model": "grok-4",
+      "temperature": 0.4,
+      "apiKeyEnv": "XAI_API_KEY",
+      "allowedOrigins": ["https://api.x.ai"],
+      "timeoutMs": 30000,
+      "maxRetries": 2
+    }
+  }
+}

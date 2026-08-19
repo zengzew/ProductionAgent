@@ -40,6 +40,7 @@
     "inspect:output": "tsx scripts/inspect-output.ts",
     "validate:comparison": "tsx scripts/validate-comparison.ts",
     "validate:delivery": "tsx scripts/validate-delivery.ts",
+    "benchmark:role": "tsx scripts/benchmark-role.ts",
     "render": "pnpm render:vertical"
   },
   "dependencies": {
