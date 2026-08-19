@@ -41,6 +41,9 @@
     "validate:comparison": "tsx scripts/validate-comparison.ts",
     "validate:delivery": "tsx scripts/validate-delivery.ts",
     "benchmark:role": "tsx scripts/benchmark-role.ts",
+    "review:role-model": "tsx scripts/review-role-model.ts",
+    "decide:role-model": "tsx scripts/decide-role-model.ts",
+    "promote:role-model": "tsx scripts/promote-role-model.ts",
     "render": "pnpm render:vertical"
   },
   "dependencies": {

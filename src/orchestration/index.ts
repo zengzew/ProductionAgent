@@ -1,6 +1,8 @@
 export * from "./agents/run-agent";
 export * from "./agents/adapters";
 export * from "./agents/benchmark/role-model-benchmark";
+export * from "./agents/benchmark/role-model-promote";
+export * from "./agents/benchmark/role-model-review";
 export * from "./agents/benchmark/script-writer-evaluate";
 export * from "./agents/benchmark/script-writer-request";
 export * from "./agents/stub";
@@ -37,6 +39,7 @@ export * from "./schemas/freeze-manifest";
 export * from "./schemas/human-decision";
 export * from "./schemas/role-model-rollout";
 export * from "./schemas/role-model-benchmark";
+export * from "./schemas/role-model-review";
 export * from "./schemas/revision-ledger";
 export * from "./schemas/production";
 export * from "./schemas/unfreeze";

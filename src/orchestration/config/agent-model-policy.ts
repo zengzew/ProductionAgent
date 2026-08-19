@@ -327,6 +327,19 @@ export const loadAgentModelPolicyFile = (
   return parseAgentModelPolicyFile(JSON.parse(fs.readFileSync(filePath, "utf8")) as unknown);
 };
 
+export const writeAgentModelPolicyFile = (repoRoot: string, config: AgentModelPolicyFile): void => {
+  const parsed = parseAgentModelPolicyFile(config);
+  const filePath = path.resolve(repoRoot, "config/agent-model-policy.json");
+  const relative = path.relative(path.resolve(repoRoot), filePath);
+  if (relative.startsWith("..") || path.isAbsolute(relative)) {
+    throw new Error("hosted-agent policy path escapes repository");
+  }
+  fs.mkdirSync(path.dirname(filePath), {recursive: true});
+  const temporaryPath = `${filePath}.${process.pid}.tmp`;
+  fs.writeFileSync(temporaryPath, `${JSON.stringify(parsed, null, 2)}\n`);
+  fs.renameSync(temporaryPath, filePath);
+};
+
 export const readOptionalAgentModelPolicyFile = (
   repoRoot: string,
 ): AgentModelPolicyFile | undefined => {
