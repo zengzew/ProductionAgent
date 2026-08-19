@@ -130,4 +130,4 @@ or `createRoleModelRolloutAdapter(...)`. The default
 - Delivery Critic multimodal review
 - Automatic model selection
 - Model quality optimizer
-- M6 repair loop
+- Official hosted-llm for any new role besides the existing Oral Rewriter path

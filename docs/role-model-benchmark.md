@@ -127,11 +127,20 @@ Defaults: `--role script-writer`, `--models default`. The command only
 runs a shadow benchmark. It does not modify the canonical script.
 Phase 2 rejects any role other than `script-writer`.
 
+Autonomous diagnosis and bounded repair live in
+[`role-model-auto.md`](./role-model-auto.md):
+
+```bash
+pnpm benchmark:auto \
+  --episode episode-004 \
+  --role script-writer \
+  --models default
+```
+
 ## Out of scope
 
 - Automatic model router or cost-based selection
 - Research search tools
 - Visual Director / Delivery Critic VLM
-- M6 repair loop
 - Changing Goal 3.2 prompts, Golden Set, or hard validators
 - Official hosted-llm for any new role

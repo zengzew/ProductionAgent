@@ -21,6 +21,19 @@ export type ScriptWriterEvaluation = {
 const parseClaimIds = (value: string): string[] =>
   [...value.matchAll(/`?(claim-[a-z0-9-]+)`?/gu)].map((match) => match[1] as string);
 
+/** Markers the Script Writer prompt must declare. The parser does not infer aliases. */
+export const SCRIPT_DRAFT_REQUIRED_MARKERS = [
+  "## seg-",
+  "- Section:",
+  "- Target seconds:",
+  "- Claim IDs:",
+  "- Source identity:",
+  "- Visual intent:",
+  "- Fact boundary:",
+  "### Narration",
+] as const;
+
+/** Fail-closed: only `## seg-<id>` headings on their own line are segments. */
 export const parseScriptDraftSegments = (markdown: string): ScriptDraftSegment[] => {
   const blocks = markdown.split(/(?=^## seg-[a-z0-9-]+\s*$)/gmu).slice(1);
   return blocks.map((block) => {

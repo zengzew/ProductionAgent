@@ -279,6 +279,7 @@ export type RoleModelBenchmarkOptions = {
   now?: () => number;
   sleep?: (milliseconds: number) => Promise<void>;
   onProgress?: (event: BenchmarkProgressEvent) => void;
+  userMessageAppendix?: string;
   runDownstreamCritic?: (input: {
     candidateId: string;
     markdown: string;
@@ -293,8 +294,22 @@ const defaultHumanReview = (): BenchmarkHumanReview => ({
   decisionId: null,
 });
 
-const candidateCachePath = (episodeId: string, benchmarkId: string, identity: string): string =>
-  `${benchmarkRootPath(episodeId, benchmarkId)}/cache/${identity}.json`;
+export const candidateCachePath = (
+  episodeId: string,
+  benchmarkId: string,
+  identity: string,
+): string => `${benchmarkRootPath(episodeId, benchmarkId)}/cache/${identity}.json`;
+
+export const forgetCachedBenchmarkCandidate = (
+  repoRoot: string,
+  episodeId: string,
+  benchmarkId: string,
+  identity: string,
+): void => {
+  const relative = candidateCachePath(episodeId, benchmarkId, identity);
+  const absolute = resolveRepositoryPath(repoRoot, relative);
+  if (fs.existsSync(absolute)) fs.rmSync(absolute);
+};
 
 const readCachedCandidate = (
   repoRoot: string,
@@ -381,6 +396,7 @@ const runOneCandidate = async (input: {
         candidateId,
         declaredPath,
       ),
+    userMessageAppendix: options.userMessageAppendix,
     onCall: (record) => hostedCalls.push(record),
   });
 

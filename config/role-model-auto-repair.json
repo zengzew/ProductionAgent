@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "role-model-auto-repair-v1",
+  "policyVersion": "role-model-rollout-v1",
+  "maxRounds": 3,
+  "maxRepairs": 4,
+  "maxApiCalls": 12,
+  "maxTotalTokens": 500000
+}

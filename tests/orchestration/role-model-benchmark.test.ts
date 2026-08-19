@@ -291,6 +291,41 @@ describe("model-benchmark-v1", () => {
     expect(result.eligibleCandidateIds).toEqual([]);
   });
 
+  it("does not promote a complete envelope whose markdown lacks ## seg-* headings", async () => {
+    const {repoRoot, episodeId, request} = setup();
+    const canonical = fs.readFileSync(
+      path.join(repoRoot, `content/${episodeId}/story/script-draft.md`),
+      "utf8",
+    );
+    const {result} = await runRoleModelBenchmark({
+      repoRoot,
+      request,
+      config: benchmarkConfig(),
+      candidateIds: ["model-a"],
+      apiKeyForCandidate: () => "test-key",
+      chat: async () =>
+        hostedOutput(
+          request,
+          `# Script Draft\n\n## Segment 1 — Hook\n- **旁白**：任务交出去，它自己打开浏览器。\n- **Claim**：\`claim-alpha-001\`\n`,
+        ),
+      createdAt: () => "2026-08-19T00:00:00.000Z",
+      sleep: async () => undefined,
+    });
+    expect(result.candidates[0]?.status).toBe("SUCCEEDED");
+    expect(result.candidates[0]?.expectedOutputsComplete).toBe(true);
+    expect(result.candidates[0]?.schemaValid).toBe(false);
+    expect(result.candidates[0]?.hardValidators).toEqual({
+      status: "FAIL",
+      failures: ["script-draft-missing-segments"],
+    });
+    expect(result.candidates[0]?.promotionEligible).toBe(false);
+    expect(result.automaticPromotion).toBe(false);
+    expect(result.canonicalUnchanged).toBe(true);
+    expect(
+      fs.readFileSync(path.join(repoRoot, `content/${episodeId}/story/script-draft.md`), "utf8"),
+    ).toBe(canonical);
+  });
+
   it("aggregates pairwise comparisons deterministically and records usage", async () => {
     const {repoRoot, request} = setup();
     const first = await runRoleModelBenchmark({

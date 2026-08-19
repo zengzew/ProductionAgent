@@ -27,6 +27,38 @@ story/viral-strategy.md
 story/script-draft.md
 ```
 
+## 输出格式
+
+`story/script-draft.md` 必须使用下面的最小 Markdown 模板。这是机器解析契约，不是文风
+建议。每个 segment 的标题必须是单独一行的 `## seg-xxx`；字段名必须原样使用英文。
+禁止写成 `## Segment`、`### S1`、`**旁白**` 或其他变体。解析器不会猜测同义格式。
+
+每个 segment 必须使用：
+
+```markdown
+## seg-001
+
+- Section: `hook`
+- Target seconds: `3`
+- Claim IDs: `claim-example-001`
+- Source identity: 官方演示
+- Visual intent: 任务已输入，随后浏览器打开目标页并开始加载。
+- Fact boundary: 不宣称成功率。
+
+### Narration
+
+任务交出去，它自己打开浏览器。
+```
+
+- `## seg-` 后只允许小写字母、数字和连字符，整行不得附加其他文字。
+- `- Section:`、`- Target seconds:`、`- Claim IDs:`、`- Source identity:`、
+  `- Visual intent:`、`- Fact boundary:` 必须按上面的英文字段名逐行写出。
+- `Claim IDs` 必须写成 `claim-...`；多个 ID 用逗号分隔。
+- `### Narration` 后空一行再写旁白正文。
+- 可以额外写 Time range、On-screen text、Scene、Pace switch，但不能替换或改名以上
+  必填字段。
+- 文件开头保留标题和 `状态：\`draft-ready\``。
+
 ## 写作要求
 
 执行 `editorial-policy-v1`：只迁移叙事关系，不使用参考创作者原句、人物、产品事实或

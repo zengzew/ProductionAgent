@@ -88,6 +88,8 @@ export type HostedAgentBackendOptions = {
   decisionFor?: (agentName: AgentName) => {code: string; summary: string};
   /** Write declared outputs to another episode-local path. The model still sees declared paths. */
   relocateOutputPath?: (declaredPath: string) => string;
+  /** Extra transport-only instructions appended after the response contract. */
+  userMessageAppendix?: string;
 };
 
 export type HostedAgentAdapterOptions = HostedAgentBackendOptions;
@@ -407,21 +409,26 @@ export const createHostedAgentBackend = (
           {role: "system", content: readRepositoryFile(options.repoRoot, request.promptRef.path)},
           {
             role: "user",
-            content: appendHostedAgentResponseContract(
-              JSON.stringify({
-                contractVersion: request.contractVersion,
-                executionId: request.executionId,
-                episodeId: request.episodeId,
-                agentName: request.agentName,
-                attempt: request.attempt,
-                revisionRound: request.revisionRound,
-                expectedOutputs: request.expectedOutputs,
-                inputs: request.inputArtifacts.map((artifact) => ({
-                  artifact,
-                  content: readRepositoryFile(options.repoRoot, artifact.path),
-                })),
-              }),
-            ),
+            content: [
+              appendHostedAgentResponseContract(
+                JSON.stringify({
+                  contractVersion: request.contractVersion,
+                  executionId: request.executionId,
+                  episodeId: request.episodeId,
+                  agentName: request.agentName,
+                  attempt: request.attempt,
+                  revisionRound: request.revisionRound,
+                  expectedOutputs: request.expectedOutputs,
+                  inputs: request.inputArtifacts.map((artifact) => ({
+                    artifact,
+                    content: readRepositoryFile(options.repoRoot, artifact.path),
+                  })),
+                }),
+              ),
+              options.userMessageAppendix?.trim() ?? "",
+            ]
+              .filter((part) => part.length > 0)
+              .join("\n\n"),
           },
         ],
       };
