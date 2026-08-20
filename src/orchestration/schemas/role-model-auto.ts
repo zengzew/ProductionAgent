@@ -44,6 +44,7 @@ export type AutoRepairTarget = z.infer<typeof autoRepairTargetSchema>;
 
 export const autoRunStatuses = [
   "review-ready",
+  "insufficient-comparable-candidates",
   "stopped",
   "budget-exhausted",
   "preflight-failed",
@@ -108,6 +109,7 @@ export const autoRunSummarySchema = z
     inputHashes: z.array(z.string().regex(/^[a-f0-9]{64}$/u)),
     benchmarkId: z.string().min(1).nullable(),
     reviewPath: z.string().min(1).nullable(),
+    diagnosticReviewPath: z.string().min(1).nullable(),
     automaticPromotion: z.literal(false),
     promotionRequires: z.literal("explicit-config-or-human-decision"),
     diagnoses: z.array(autoRepairDiagnosisSchema),

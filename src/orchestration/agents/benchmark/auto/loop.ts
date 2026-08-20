@@ -24,7 +24,11 @@ import {
   type HostedChatProvider,
   type HostedChatUsage,
 } from "../../providers/hosted-chat";
-import {buildBlindReviewPackage} from "../role-model-review";
+import {
+  INSUFFICIENT_COMPARABLE_CANDIDATES,
+  buildBlindReviewPackage,
+  selectPromotionReviewCohort,
+} from "../role-model-review";
 import {
   mergeBenchmarkResults,
   runRoleModelBenchmark,
@@ -121,6 +125,7 @@ export const runAutonomousRoleBenchmark = async (
   const inputHashes: string[] = [];
   let lastDiagnoses: AutoRepairDiagnosis[] = [];
   let reviewPath: string | null = null;
+  let diagnosticReviewPath: string | null = null;
   let benchmarkId: string | null = null;
   let appendix: string | undefined;
   let repairRound = 0;
@@ -150,6 +155,7 @@ export const runAutonomousRoleBenchmark = async (
       inputHashes,
       benchmarkId,
       reviewPath,
+      diagnosticReviewPath,
       automaticPromotion: false,
       promotionRequires: "explicit-config-or-human-decision",
       diagnoses: lastDiagnoses,
@@ -291,29 +297,58 @@ export const runAutonomousRoleBenchmark = async (
       });
       assertProtectedSnapshotUnchanged(protectedBefore, protectedAfterBenchmark);
 
+      const writeDiagnosticReview = (): void => {
+        try {
+          const diagnostic = buildBlindReviewPackage({
+            repoRoot: options.repoRoot,
+            episodeId: options.episodeId,
+            benchmarkId: manifest.benchmarkId,
+            purpose: "diagnostic",
+          });
+          diagnosticReviewPath = diagnostic.reviewPath;
+          journal.append("review", "diagnostic review package written", {
+            diagnosticReviewPath,
+          });
+        } catch {
+          /* no repaired candidates */
+        }
+      };
+
       if (lastDiagnoses.length === 0) {
-        const review = buildBlindReviewPackage({
-          repoRoot: options.repoRoot,
-          episodeId: options.episodeId,
-          benchmarkId: manifest.benchmarkId,
-        });
-        reviewPath = review.reviewPath;
-        journal.append("review", "blind review package written", {reviewPath});
-        return finish("review-ready", null);
+        const promotionCohort = selectPromotionReviewCohort(result.candidates);
+        if (promotionCohort.length >= 2) {
+          const review = buildBlindReviewPackage({
+            repoRoot: options.repoRoot,
+            episodeId: options.episodeId,
+            benchmarkId: manifest.benchmarkId,
+            purpose: "promotion",
+          });
+          reviewPath = review.reviewPath;
+          writeDiagnosticReview();
+          journal.append("review", "promotion blind review package written", {reviewPath});
+          return finish("review-ready", null);
+        }
+        writeDiagnosticReview();
+        return finish(INSUFFICIENT_COMPARABLE_CANDIDATES, INSUFFICIENT_COMPARABLE_CANDIDATES);
       }
 
       const chosen = selectRepair(lastDiagnoses);
       if (!chosen || chosen.target === "stop") {
         try {
-          const review = buildBlindReviewPackage({
-            repoRoot: options.repoRoot,
-            episodeId: options.episodeId,
-            benchmarkId: manifest.benchmarkId,
-          });
-          reviewPath = review.reviewPath;
+          const promotionCohort = selectPromotionReviewCohort(result.candidates);
+          if (promotionCohort.length >= 2) {
+            const review = buildBlindReviewPackage({
+              repoRoot: options.repoRoot,
+              episodeId: options.episodeId,
+              benchmarkId: manifest.benchmarkId,
+              purpose: "promotion",
+            });
+            reviewPath = review.reviewPath;
+          }
         } catch {
           reviewPath = null;
         }
+        writeDiagnosticReview();
         return finish("stopped", chosen?.evidence ?? "no authorized repair");
       }
 

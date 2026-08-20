@@ -201,7 +201,7 @@ describe("script-writer blind review", () => {
     expect(first.review.reviewId).toBe(second.review.reviewId);
     const again = assignBlindLabels(
       result.candidateIds,
-      `${result.benchmarkId}:${first.review.benchmarkResultHash}`,
+      `${result.benchmarkId}:${first.review.benchmarkResultHash}:inspection:${EMPTY_REPAIR_CONTEXT_HASH}`,
     );
     expect(again).toEqual(first.reveal.mapping);
   });

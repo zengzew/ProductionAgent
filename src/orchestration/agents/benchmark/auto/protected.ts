@@ -76,22 +76,32 @@ export const assertProtectedSnapshotUnchanged = (
   }
 };
 
-export const snapshotRepositoryFiles = (
-  repoRoot: string,
-  relatives: readonly string[],
-): Record<string, string | null> => {
-  const snapshot: Record<string, string | null> = {};
-  for (const relative of relatives) {
-    const absolute = resolveAutoRepositoryPath(repoRoot, relative);
-    snapshot[relative] =
-      fs.existsSync(absolute) && fs.statSync(absolute).isFile() ? sha256File(absolute) : null;
-  }
+const SKIP_WORKING_TREE_DIRS = new Set([".git", "node_modules"]);
+
+export const snapshotWorkingTree = (repoRoot: string): Record<string, string> => {
+  const snapshot: Record<string, string> = {};
+  const walk = (absoluteDir: string): void => {
+    if (!fs.existsSync(absoluteDir)) return;
+    for (const entry of fs.readdirSync(absoluteDir, {withFileTypes: true})) {
+      if (SKIP_WORKING_TREE_DIRS.has(entry.name)) continue;
+      const absolute = path.join(absoluteDir, entry.name);
+      if (entry.isDirectory()) {
+        walk(absolute);
+        continue;
+      }
+      if (!entry.isFile()) continue;
+      if (/\.\d+\.tmp$/u.test(entry.name)) continue;
+      const relative = normalizeRepoPath(path.relative(repoRoot, absolute));
+      snapshot[relative] = sha256File(absolute);
+    }
+  };
+  walk(repoRoot);
   return snapshot;
 };
 
-export const assertFileSnapshotUnchanged = (
-  before: Record<string, string | null>,
-  after: Record<string, string | null>,
+export const assertWorkingTreeUnchanged = (
+  before: Record<string, string>,
+  after: Record<string, string>,
 ): void => {
   const keys = new Set([...Object.keys(before), ...Object.keys(after)]);
   for (const relative of keys) {

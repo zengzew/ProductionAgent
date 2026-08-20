@@ -75,6 +75,7 @@ export const roleModelBlindReviewPackageSchema = z
       dimensions: z.array(z.enum(roleModelReviewDimensions)).min(1),
     }),
     candidates: z.array(roleModelBlindCandidateSchema).min(1),
+    purpose: z.enum(["promotion", "diagnostic", "inspection"]),
     autoFilled: z.literal(false),
     humanScoresRequired: z.literal(true),
   })

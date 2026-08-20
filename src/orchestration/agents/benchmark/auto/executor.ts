@@ -8,7 +8,6 @@ export type AuthorizedRepairTask = {
   diagnosis: AutoRepairDiagnosis;
   allowPaths: readonly string[];
   denyPaths: readonly string[];
-  repoRoot: string;
   episodeId: string;
   promptPath: string;
   stagingRoot: string;
@@ -20,9 +19,8 @@ export type StagedRepairPatch = {
   detail: string;
 };
 
-export type RepairExecutor = (
-  task: AuthorizedRepairTask,
-) => StagedRepairPatch | Promise<StagedRepairPatch>;
+/** Staging-only. The host diffs staging and applies an authorized patch. */
+export type RepairExecutor = (task: AuthorizedRepairTask) => void | Promise<void>;
 
 export const createRepairStagingRoot = (runId: string): string =>
   fs.mkdtempSync(path.join(os.tmpdir(), `production-agent-repair-${runId}-`));

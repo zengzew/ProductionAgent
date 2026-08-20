@@ -21,7 +21,9 @@ import {
   runRoleModelBenchmark,
   SCRIPT_DRAFT_OUTPUT_FORMAT_SECTION,
   SCRIPT_DRAFT_REQUIRED_MARKERS,
+  selectDiagnosticReviewCohort,
   selectFairReviewCohort,
+  selectPromotionReviewCohort,
   selectRepair,
   snapshotProtectedPaths,
   stableJson,
@@ -295,10 +297,12 @@ describe("M6 autonomous role benchmark", () => {
       runTests: async () => ({ok: true, output: "ok"}),
       onProgress: () => undefined,
     });
-    expect(summary.status).toBe("review-ready");
+    expect(summary.status).toBe("insufficient-comparable-candidates");
     expect(summary.repairsApplied).toBe(1);
     expect(apiCalls).toBe(4);
     expect(summary.automaticPromotion).toBe(false);
+    expect(summary.reviewPath).toBeNull();
+    expect(summary.diagnosticReviewPath).toContain("/review/diagnostic-review.json");
   });
 
   it("keeps editorial repairs on candidate output and never auto-promotes", async () => {
@@ -652,9 +656,13 @@ describe("M6 autonomous role benchmark", () => {
       ineligibilityReasons: item.repairRound === 0 ? [] : ["repaired-payload"],
       ...item,
     }));
-    const cohort = selectFairReviewCohort(mixed);
+    const cohort = selectPromotionReviewCohort(mixed);
     expect(cohort).toHaveLength(1);
     expect(cohort[0]?.candidateId).toBe("cand-alpha");
+    expect(selectDiagnosticReviewCohort(mixed).map((item) => item.candidateId)).toEqual([
+      "cand-beta",
+    ]);
+    expect(selectFairReviewCohort(mixed)).toEqual(cohort);
     expect(formatBenchmarkOutcome(mixed[1]!)).toBe("PASS_AFTER_REPAIR(round=1)");
   });
 
@@ -669,13 +677,13 @@ describe("M6 autonomous role benchmark", () => {
       autoConfig: autoConfig(),
       env: {OPENAI_API_KEY: "test-key"},
       repairExecutor: async (task) => {
-        expect(task.stagingRoot).not.toBe(task.repoRoot);
+        expect(task.stagingRoot).not.toBe(repoRoot);
+        expect("repoRoot" in task).toBe(false);
         const staged = path.join(task.stagingRoot, task.promptPath);
         fs.appendFileSync(staged, `\n${SCRIPT_DRAFT_OUTPUT_FORMAT_SECTION}`);
-        expect(fs.readFileSync(path.join(task.repoRoot, task.promptPath), "utf8")).toBe(
+        expect(fs.readFileSync(path.join(repoRoot, task.promptPath), "utf8")).toBe(
           "write the draft\n",
         );
-        return {files: [], detail: "executor wrote staging only"};
       },
       chat: async (call) => {
         const system = call.messages.find((message) => message.role === "system")?.content ?? "";
@@ -703,9 +711,11 @@ describe("M6 autonomous role benchmark", () => {
       benchmarkConfig: benchmarkConfig(),
       autoConfig: autoConfig(),
       env: {OPENAI_API_KEY: "test-key"},
-      repairExecutor: async (task) => {
-        fs.writeFileSync(path.join(task.repoRoot, task.promptPath), "touched-main\n");
-        return {files: [], detail: "touched main"};
+      repairExecutor: async () => {
+        fs.writeFileSync(
+          path.join(repoRoot, `content/${episodeId}/prompts/script-writer.md`),
+          "touched-main\n",
+        );
       },
       chat: async () => hostedOutput(requestFor(repoRoot, episodeId), segmentTitleDraft),
       createdAt: () => "2026-08-20T00:00:00.000Z",
@@ -715,6 +725,87 @@ describe("M6 autonomous role benchmark", () => {
     });
     expect(summary.status).toBe("protected-violation");
     expect(summary.stopReason).toMatch(/EXECUTOR_TOUCHED_WORKING_TREE/u);
+  });
+
+  it("fails closed when an executor mutates package.json", async () => {
+    const {repoRoot, episodeId} = setup();
+    writeFile(repoRoot, "package.json", '{"name":"fixture"}\n');
+    const {summary} = await runAutonomousRoleBenchmark({
+      repoRoot,
+      episodeId,
+      runId: "auto-executor-package",
+      benchmarkConfig: benchmarkConfig(),
+      autoConfig: autoConfig(),
+      env: {OPENAI_API_KEY: "test-key"},
+      repairExecutor: async () => {
+        fs.writeFileSync(path.join(repoRoot, "package.json"), '{"name":"pwned"}\n');
+      },
+      chat: async () => hostedOutput(requestFor(repoRoot, episodeId), segmentTitleDraft),
+      createdAt: () => "2026-08-20T00:00:00.000Z",
+      sleep: async () => undefined,
+      runTests: async () => ({ok: true, output: "ok"}),
+      onProgress: () => undefined,
+    });
+    expect(summary.status).toBe("protected-violation");
+    expect(summary.stopReason).toMatch(/EXECUTOR_TOUCHED_WORKING_TREE:package\.json/u);
+  });
+
+  it("writes repair artifacts under a variant path and leaves the base artifact untouched", async () => {
+    const {repoRoot, episodeId} = setup();
+    writeFile(
+      repoRoot,
+      `content/${episodeId}/prompts/script-writer.md`,
+      `write the draft\n\n${SCRIPT_DRAFT_REQUIRED_MARKERS.join("\n")}\n`,
+    );
+    const {summary} = await runAutonomousRoleBenchmark({
+      repoRoot,
+      episodeId,
+      runId: "auto-variant-path",
+      benchmarkConfig: benchmarkConfig(),
+      autoConfig: autoConfig(),
+      env: {OPENAI_API_KEY: "test-key"},
+      chat: async (call) => {
+        const user = call.messages.find((message) => message.role === "user")?.content ?? "";
+        if (call.model === "cand-alpha") {
+          return hostedOutput(
+            requestFor(repoRoot, episodeId),
+            draftFor(["claim-alpha-001", "claim-alpha-002"]),
+          );
+        }
+        if (!user.includes("CANDIDATE OUTPUT REPAIR")) {
+          return hostedOutput(requestFor(repoRoot, episodeId), segmentTitleDraft);
+        }
+        return hostedOutput(
+          requestFor(repoRoot, episodeId),
+          draftFor(["claim-alpha-001", "claim-alpha-002"]),
+        );
+      },
+      createdAt: () => "2026-08-20T00:00:00.000Z",
+      sleep: async () => undefined,
+      runTests: async () => ({ok: true, output: "ok"}),
+      onProgress: () => undefined,
+    });
+    expect(summary.status).toBe("insufficient-comparable-candidates");
+    expect(summary.automaticPromotion).toBe(false);
+    const alphaBase = path.join(
+      repoRoot,
+      `content/${episodeId}/rollout/benchmarks`,
+      summary.benchmarkId ?? "",
+      "cand-alpha/base/story/script-draft.md",
+    );
+    expect(fs.existsSync(alphaBase)).toBe(true);
+    const betaDir = path.join(
+      repoRoot,
+      `content/${episodeId}/rollout/benchmarks`,
+      summary.benchmarkId ?? "",
+      "cand-beta",
+    );
+    const betaVariants = fs.readdirSync(betaDir);
+    expect(betaVariants.some((name) => name.startsWith("repair-"))).toBe(true);
+    const betaBase = path.join(betaDir, "base/story/script-draft.md");
+    if (fs.existsSync(betaBase)) {
+      expect(fs.readFileSync(betaBase, "utf8")).toContain("## Segment 1");
+    }
   });
 
   it("snapshots nested protected directories", () => {

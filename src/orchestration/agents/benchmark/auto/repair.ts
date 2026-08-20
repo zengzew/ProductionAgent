@@ -9,12 +9,7 @@ import {
   type RepairExecutor,
   type StagedRepairPatch,
 } from "./executor";
-import {
-  assertFileSnapshotUnchanged,
-  isProtectedRepairPath,
-  snapshotProtectedPaths,
-  snapshotRepositoryFiles,
-} from "./protected";
+import {assertWorkingTreeUnchanged, isProtectedRepairPath, snapshotWorkingTree} from "./protected";
 import {writeAutoRepositoryFile} from "./paths";
 
 export type AppliedRepair = {
@@ -89,12 +84,7 @@ export const applyAuthorizedRepair = async (input: {
   const stagingRoot = createRepairStagingRoot(input.runId);
   try {
     stageAllowedFiles(input.repoRoot, stagingRoot, input.diagnosis.allowPaths);
-    const watched = [...input.diagnosis.allowPaths, ...input.diagnosis.denyPaths];
-    const mainBefore = snapshotRepositoryFiles(input.repoRoot, watched);
-    const protectedBefore = snapshotProtectedPaths({
-      repoRoot: input.repoRoot,
-      episodeId: input.episodeId,
-    });
+    const treeBefore = snapshotWorkingTree(input.repoRoot);
 
     let mode: AppliedRepair["mode"] = "catalog";
     let plan = planCatalogRepair({
@@ -109,20 +99,12 @@ export const applyAuthorizedRepair = async (input: {
         diagnosis: input.diagnosis,
         allowPaths: input.diagnosis.allowPaths,
         denyPaths: input.diagnosis.denyPaths,
-        repoRoot: input.repoRoot,
         episodeId: input.episodeId,
         promptPath: input.promptPath,
         stagingRoot,
         instruction: input.diagnosis.instruction,
       });
-      assertFileSnapshotUnchanged(mainBefore, snapshotRepositoryFiles(input.repoRoot, watched));
-      const protectedAfterExecutor = snapshotProtectedPaths({
-        repoRoot: input.repoRoot,
-        episodeId: input.episodeId,
-      });
-      if (JSON.stringify(protectedBefore) !== JSON.stringify(protectedAfterExecutor)) {
-        throw new Error("EXECUTOR_TOUCHED_WORKING_TREE:protected");
-      }
+      assertWorkingTreeUnchanged(treeBefore, snapshotWorkingTree(input.repoRoot));
       const staged = diffStagedRepair(input.repoRoot, stagingRoot);
       if (staged.files.length > 0) {
         mode = "executor";

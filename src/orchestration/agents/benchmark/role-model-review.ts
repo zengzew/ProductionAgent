@@ -61,6 +61,14 @@ export const reviewPackagePath = (episodeId: string, benchmarkId: string): strin
 export const reviewRevealPath = (episodeId: string, benchmarkId: string): string =>
   `${benchmarkRootPath(episodeId, benchmarkId)}/review/reveal.json`;
 
+export const diagnosticReviewPackagePath = (episodeId: string, benchmarkId: string): string =>
+  `${benchmarkRootPath(episodeId, benchmarkId)}/review/diagnostic-review.json`;
+
+export const diagnosticRevealPath = (episodeId: string, benchmarkId: string): string =>
+  `${benchmarkRootPath(episodeId, benchmarkId)}/review/diagnostic-reveal.json`;
+
+export const INSUFFICIENT_COMPARABLE_CANDIDATES = "insufficient-comparable-candidates";
+
 export const promotionDecisionPath = (episodeId: string, benchmarkId: string): string =>
   `${benchmarkRootPath(episodeId, benchmarkId)}/review/decision.json`;
 
@@ -140,24 +148,44 @@ const readCandidateOutput = (
   return fs.existsSync(absolute) ? fs.readFileSync(absolute, "utf8") : "";
 };
 
-export const selectFairReviewCohort = (
+const groupByRepairContext = (
   candidates: readonly BenchmarkCandidateResult[],
-): BenchmarkCandidateResult[] => {
+): BenchmarkCandidateResult[][] => {
   const groups = new Map<string, BenchmarkCandidateResult[]>();
   for (const candidate of candidates) {
     const current = groups.get(candidate.repairContextHash) ?? [];
     current.push(candidate);
     groups.set(candidate.repairContextHash, current);
   }
-  const ranked = [...groups.values()].sort((left, right) => {
+  return [...groups.values()].sort((left, right) => {
     if (right.length !== left.length) return right.length - left.length;
     const leftRound = Math.min(...left.map((item) => item.repairRound));
     const rightRound = Math.min(...right.map((item) => item.repairRound));
     if (leftRound !== rightRound) return leftRound - rightRound;
     return left[0]!.candidateId.localeCompare(right[0]!.candidateId);
   });
-  return ranked[0] ?? [];
 };
+
+/** Same frozen payload, first-try PASS, and promotion-eligible. */
+export const selectPromotionReviewCohort = (
+  candidates: readonly BenchmarkCandidateResult[],
+): BenchmarkCandidateResult[] => {
+  const clean = candidates.filter(
+    (candidate) => candidate.outcome === "PASS" && candidate.promotionEligible,
+  );
+  return groupByRepairContext(clean)[0] ?? [];
+};
+
+/** Same repair payload. Never used for promotion. */
+export const selectDiagnosticReviewCohort = (
+  candidates: readonly BenchmarkCandidateResult[],
+): BenchmarkCandidateResult[] => {
+  const repaired = candidates.filter((candidate) => candidate.outcome === "PASS_AFTER_REPAIR");
+  return groupByRepairContext(repaired)[0] ?? [];
+};
+
+/** @deprecated Use selectPromotionReviewCohort for promotion reviews. */
+export const selectFairReviewCohort = selectPromotionReviewCohort;
 
 export const loadBenchmarkResult = (
   repoRoot: string,
@@ -177,6 +205,7 @@ export const buildBlindReviewPackage = (input: {
   repoRoot: string;
   episodeId: string;
   benchmarkId: string;
+  purpose?: "promotion" | "diagnostic" | "inspection";
 }): {
   review: RoleModelBlindReviewPackage;
   reveal: RoleModelBlindReveal;
@@ -184,12 +213,26 @@ export const buildBlindReviewPackage = (input: {
   revealPath: string;
 } => {
   const {result, hash} = loadBenchmarkResult(input.repoRoot, input.episodeId, input.benchmarkId);
-  const cohort = selectFairReviewCohort(result.candidates);
+  const purpose = input.purpose ?? "inspection";
+  const cohort =
+    purpose === "promotion"
+      ? selectPromotionReviewCohort(result.candidates)
+      : purpose === "diagnostic"
+        ? selectDiagnosticReviewCohort(result.candidates)
+        : (groupByRepairContext(result.candidates)[0] ?? []);
+  if (purpose === "promotion" && cohort.length < 2) {
+    throw new Error(INSUFFICIENT_COMPARABLE_CANDIDATES);
+  }
+  if (cohort.length === 0) {
+    throw new Error(
+      purpose === "diagnostic" ? "NO_DIAGNOSTIC_CANDIDATES" : INSUFFICIENT_COMPARABLE_CANDIDATES,
+    );
+  }
   const mapping = assignBlindLabels(
     cohort.map((candidate) => candidate.candidateId),
-    `${result.benchmarkId}:${hash}:${cohort[0]?.repairContextHash ?? "none"}`,
+    `${result.benchmarkId}:${hash}:${purpose}:${cohort[0]?.repairContextHash ?? "none"}`,
   );
-  const reviewId = `review-${hash.slice(0, 16)}`;
+  const reviewId = `review-${purpose}-${hash.slice(0, 16)}`;
   const review = roleModelBlindReviewPackageSchema.parse({
     schemaVersion: "role-model-blind-review-v1",
     reviewId,
@@ -199,6 +242,7 @@ export const buildBlindReviewPackage = (input: {
     policyVersion: ROLE_MODEL_POLICY_VERSION,
     benchmarkContract: MODEL_BENCHMARK_CONTRACT_VERSION,
     benchmarkResultHash: hash,
+    purpose,
     rubric: {
       scale: {min: 1, max: 5},
       dimensions: [...roleModelReviewDimensions],
@@ -236,8 +280,14 @@ export const buildBlindReviewPackage = (input: {
     benchmarkResultHash: hash,
     mapping,
   });
-  const reviewPath = reviewPackagePath(result.episodeId, result.benchmarkId);
-  const revealPath = reviewRevealPath(result.episodeId, result.benchmarkId);
+  const reviewPath =
+    purpose === "diagnostic"
+      ? diagnosticReviewPackagePath(result.episodeId, result.benchmarkId)
+      : reviewPackagePath(result.episodeId, result.benchmarkId);
+  const revealPath =
+    purpose === "diagnostic"
+      ? diagnosticRevealPath(result.episodeId, result.benchmarkId)
+      : reviewRevealPath(result.episodeId, result.benchmarkId);
   writeJsonAtomically(input.repoRoot, reviewPath, review);
   writeJsonAtomically(input.repoRoot, revealPath, reveal);
   return {review, reveal, reviewPath, revealPath};

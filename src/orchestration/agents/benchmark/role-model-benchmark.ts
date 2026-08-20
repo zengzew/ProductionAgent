@@ -72,17 +72,33 @@ export const benchmarkCandidateDir = (
   candidateId: string,
 ): string => `${benchmarkRootPath(episodeId, benchmarkId)}/${sanitizeBenchmarkSlug(candidateId)}`;
 
+export const hashRepairContext = (input: {appendix?: string; repairRound?: number} = {}): string =>
+  sha256(
+    stableJson({
+      appendix: input.appendix ?? "",
+      repairRound: input.repairRound ?? 0,
+    }),
+  );
+
+export const EMPTY_REPAIR_CONTEXT_HASH = hashRepairContext();
+
+export const benchmarkOutputVariant = (repairContextHash: string): string =>
+  repairContextHash === EMPTY_REPAIR_CONTEXT_HASH
+    ? "base"
+    : `repair-${repairContextHash.slice(0, 16)}`;
+
 export const relocateBenchmarkOutputPath = (
   episodeId: string,
   benchmarkId: string,
   candidateId: string,
   declaredPath: string,
+  repairContextHash: string = EMPTY_REPAIR_CONTEXT_HASH,
 ): string => {
   const prefix = `content/${episodeId}/`;
   const relative = declaredPath.startsWith(prefix)
     ? declaredPath.slice(prefix.length)
     : declaredPath;
-  return `${benchmarkCandidateDir(episodeId, benchmarkId, candidateId)}/${relative}`;
+  return `${benchmarkCandidateDir(episodeId, benchmarkId, candidateId)}/${benchmarkOutputVariant(repairContextHash)}/${relative}`;
 };
 
 export const hashBenchmarkInput = (input: {
@@ -127,16 +143,6 @@ export const hashBenchmarkInput = (input: {
       ),
     }),
   );
-
-export const hashRepairContext = (input: {appendix?: string; repairRound?: number} = {}): string =>
-  sha256(
-    stableJson({
-      appendix: input.appendix ?? "",
-      repairRound: input.repairRound ?? 0,
-    }),
-  );
-
-export const EMPTY_REPAIR_CONTEXT_HASH = hashRepairContext();
 
 export const hashBenchmarkIdentity = (input: {
   inputHash: string;
@@ -498,6 +504,7 @@ const runOneCandidate = async (input: {
         manifest.benchmarkId,
         candidateId,
         declaredPath,
+        repairContextHash,
       ),
     userMessageAppendix: options.userMessageAppendix,
     onCall: (record) => hostedCalls.push(record),

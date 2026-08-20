@@ -30,10 +30,17 @@ Outcomes are explicit:
 | `PASS_AFTER_REPAIR(round=n)` | Success only after a repair payload     |
 | `FAIL`                       | Hosted or validator failure             |
 
-Pairwise comparison and blind review only include candidates that share the
-same `repairContextHash`. Mixed base/repair variants are never head-to-head.
-A repaired payload is not promotion-eligible (`repaired-payload`).
-`automaticPromotion` remains `false`.
+Pairwise comparison only includes candidates that share the same
+`repairContextHash`. Candidate artifacts are written under `base/` or
+`repair-<hash>/`, so a repair rerun cannot overwrite the frozen base
+output.
+
+Promotion blind review includes only one `repairContextHash` cohort of
+`outcome=PASS` and `promotionEligible=true` candidates. `PASS_AFTER_REPAIR`
+goes to `review/diagnostic-review.json` and cannot enter promotion review.
+If that clean eligible cohort has fewer than two candidates, the loop
+does **not** mark `review-ready`; it returns
+`insufficient-comparable-candidates`. `automaticPromotion` remains `false`.
 
 ## Budgets
 
@@ -71,10 +78,14 @@ diagnosis → allowPaths/denyPaths
   → rerun
 ```
 
-The executor cannot write the main working tree. If no executor is
-supplied, a deterministic catalog produces the staged patch. Timeout
-repair either atomically writes `config/role-model-benchmark.json` or
-records `runtimeOverride=true` in the journal when that file is absent.
+`RepairExecutor` is staging-only (`Promise<void>`). It does not receive a
+writable `repoRoot`. The host snapshots the whole working tree before and
+after the executor; any unauthorized file change, including `package.json`,
+fails closed with `EXECUTOR_TOUCHED_WORKING_TREE`. The host then diffs
+staging and applies an authorized patch. If no executor is supplied, a
+deterministic catalog produces the staged patch. Timeout repair either
+atomically writes `config/role-model-benchmark.json` or records
+`runtimeOverride=true` in the journal when that file is absent.
 
 ## Protected
 
@@ -97,7 +108,10 @@ Promotion still needs an explicit HumanDecision.
 ```text
 content/<episode>/rollout/auto/<runId>/journal.jsonl
 content/<episode>/rollout/auto/<runId>/summary.json
+content/<episode>/rollout/benchmarks/<benchmarkId>/<candidate>/base/...
+content/<episode>/rollout/benchmarks/<benchmarkId>/<candidate>/repair-<hash>/...
 content/<episode>/rollout/benchmarks/<benchmarkId>/review/blind-review.json
+content/<episode>/rollout/benchmarks/<benchmarkId>/review/diagnostic-review.json
 ```
 
 CI covers the loop with a fake HostedChatProvider. It does not call a

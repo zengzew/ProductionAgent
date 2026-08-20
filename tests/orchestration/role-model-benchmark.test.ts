@@ -481,7 +481,7 @@ describe("model-benchmark-v1", () => {
         "model-a",
         "content/episode-004/story/script-draft.md",
       ),
-    ).toBe("content/episode-004/rollout/benchmarks/bm-test/model-a/story/script-draft.md");
+    ).toBe("content/episode-004/rollout/benchmarks/bm-test/model-a/base/story/script-draft.md");
     const committed = loadRoleModelBenchmarkConfig();
     expect(committed.allowedRoles).toEqual(["script-writer"]);
     expect(resolveBenchmarkCandidates("default", committed).map((item) => item.id)).toEqual([
