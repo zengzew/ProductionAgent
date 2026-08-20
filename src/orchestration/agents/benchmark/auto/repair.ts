@@ -10,7 +10,7 @@ import {
   type StagedRepairPatch,
 } from "./executor";
 import {assertWorkingTreeUnchanged, isProtectedRepairPath, snapshotWorkingTree} from "./protected";
-import {writeAutoRepositoryFile} from "./paths";
+import {normalizeRepoPath, writeAutoRepositoryFile} from "./paths";
 
 export type AppliedRepair = {
   applied: boolean;
@@ -22,23 +22,29 @@ export type AppliedRepair = {
   mode: "catalog" | "candidate-output" | "executor" | "rejected";
 };
 
+const matchesRepairPathRule = (file: string, rule: string): boolean =>
+  rule.endsWith("/") ? file.startsWith(rule) : file === rule;
+
 export const assertRepairAuthorization = (
   diagnosis: AutoRepairDiagnosis,
   episodeId: string,
   files: readonly string[],
 ): void => {
+  const allowPaths = diagnosis.allowPaths.map(normalizeRepoPath);
+  const denyPaths = diagnosis.denyPaths.map(normalizeRepoPath);
   for (const file of files) {
-    if (isProtectedRepairPath(file, episodeId)) {
-      throw new Error(`PROTECTED_PATH_MUTATED:${file}`);
+    const normalizedFile = normalizeRepoPath(file);
+    if (isProtectedRepairPath(normalizedFile, episodeId)) {
+      throw new Error(`PROTECTED_PATH_MUTATED:${normalizedFile}`);
     }
-    if (diagnosis.denyPaths.some((deny) => file === deny || file.startsWith(deny))) {
-      throw new Error(`PROTECTED_PATH_MUTATED:${file}`);
+    if (denyPaths.some((deny) => matchesRepairPathRule(normalizedFile, deny))) {
+      throw new Error(`PROTECTED_PATH_MUTATED:${normalizedFile}`);
     }
     if (
-      diagnosis.allowPaths.length > 0 &&
-      !diagnosis.allowPaths.some((allow) => file === allow || file.startsWith(allow))
+      allowPaths.length > 0 &&
+      !allowPaths.some((allow) => matchesRepairPathRule(normalizedFile, allow))
     ) {
-      throw new Error(`REPAIR_PATH_NOT_AUTHORIZED:${file}`);
+      throw new Error(`REPAIR_PATH_NOT_AUTHORIZED:${normalizedFile}`);
     }
   }
 };

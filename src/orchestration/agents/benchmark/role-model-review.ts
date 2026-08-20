@@ -184,6 +184,70 @@ export const selectDiagnosticReviewCohort = (
   return groupByRepairContext(repaired)[0] ?? [];
 };
 
+export const assertPromotionReviewCohort = (input: {
+  review: RoleModelBlindReviewPackage;
+  reveal: RoleModelBlindReveal;
+  result: BenchmarkResult;
+}): void => {
+  const {review, reveal, result} = input;
+  if (review.purpose !== "promotion") {
+    throw new Error("PROMOTION_REVIEW_REQUIRED");
+  }
+  if (
+    review.reviewId !== reveal.reviewId ||
+    review.benchmarkId !== reveal.benchmarkId ||
+    review.episodeId !== reveal.episodeId ||
+    review.role !== reveal.role ||
+    review.benchmarkId !== result.benchmarkId ||
+    review.episodeId !== result.episodeId ||
+    review.role !== result.agentName
+  ) {
+    throw new Error("PROMOTION_REVIEW_IDENTITY_MISMATCH");
+  }
+  if (review.candidates.length < 2 || reveal.mapping.length < 2) {
+    throw new Error(INSUFFICIENT_COMPARABLE_CANDIDATES);
+  }
+
+  const reviewLabels = review.candidates.map((candidate) => candidate.label);
+  const revealLabels = reveal.mapping.map((entry) => entry.label);
+  const reviewLabelSet = new Set(reviewLabels);
+  const revealLabelSet = new Set(revealLabels);
+  if (
+    reviewLabelSet.size !== reviewLabels.length ||
+    revealLabelSet.size !== revealLabels.length ||
+    reviewLabelSet.size !== revealLabelSet.size ||
+    reviewLabels.some((label) => !revealLabelSet.has(label))
+  ) {
+    throw new Error("PROMOTION_REVIEW_MAPPING_MISMATCH");
+  }
+
+  const candidatesById = new Map(
+    result.candidates.map((candidate) => [candidate.candidateId, candidate]),
+  );
+  const mappedCandidates: BenchmarkCandidateResult[] = [];
+  const mappedCandidateIds = new Set<string>();
+  for (const entry of reveal.mapping) {
+    if (mappedCandidateIds.has(entry.candidateId)) {
+      throw new Error("PROMOTION_REVIEW_MAPPING_MISMATCH");
+    }
+    const candidate = candidatesById.get(entry.candidateId);
+    if (!candidate) throw new Error("PROMOTION_REVIEW_UNKNOWN_CANDIDATE");
+    mappedCandidateIds.add(entry.candidateId);
+    mappedCandidates.push(candidate);
+  }
+  const repairContexts = new Set(mappedCandidates.map((candidate) => candidate.repairContextHash));
+  if (repairContexts.size !== 1) {
+    throw new Error("PROMOTION_REVIEW_MIXED_REPAIR_CONTEXT");
+  }
+  if (
+    mappedCandidates.some(
+      (candidate) => candidate.outcome !== "PASS" || !candidate.promotionEligible,
+    )
+  ) {
+    throw new Error("PROMOTION_REVIEW_INELIGIBLE_CANDIDATE");
+  }
+};
+
 /** @deprecated Use selectPromotionReviewCohort for promotion reviews. */
 export const selectFairReviewCohort = selectPromotionReviewCohort;
 
@@ -213,7 +277,7 @@ export const buildBlindReviewPackage = (input: {
   revealPath: string;
 } => {
   const {result, hash} = loadBenchmarkResult(input.repoRoot, input.episodeId, input.benchmarkId);
-  const purpose = input.purpose ?? "inspection";
+  const purpose = input.purpose ?? "promotion";
   const cohort =
     purpose === "promotion"
       ? selectPromotionReviewCohort(result.candidates)
@@ -280,6 +344,9 @@ export const buildBlindReviewPackage = (input: {
     benchmarkResultHash: hash,
     mapping,
   });
+  if (purpose === "promotion") {
+    assertPromotionReviewCohort({review, reveal, result});
+  }
   const reviewPath =
     purpose === "diagnostic"
       ? diagnosticReviewPackagePath(result.episodeId, result.benchmarkId)
@@ -314,6 +381,9 @@ export const recordRoleModelPromotionDecision = (input: {
   const reveal = roleModelBlindRevealSchema.parse(readJson(input.repoRoot, revealPath));
   if (review.benchmarkResultHash !== hash || reveal.benchmarkResultHash !== hash) {
     throw new Error("BENCHMARK_RESULT_TAMPERED");
+  }
+  if (input.decision === "promote") {
+    assertPromotionReviewCohort({review, reveal, result});
   }
   const selectedLabel = input.selectedCandidate ?? null;
   const resolved =

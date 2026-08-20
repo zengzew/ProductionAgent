@@ -15,6 +15,7 @@ import {
 } from "../../schemas/role-model-review";
 import {
   benchmarkResultPath,
+  assertPromotionReviewCohort,
   hashRepositoryFile,
   promotionRecommendationPath,
   reviewPackagePath,
@@ -86,10 +87,10 @@ export const applyRoleModelPromotion = (input: {
   if (reviewHash !== decision.reviewPackageHash || revealHash !== decision.revealHash) {
     throw new Error("REVIEW_PACKAGE_TAMPERED");
   }
-  roleModelBlindReviewPackageSchema.parse(
+  const review = roleModelBlindReviewPackageSchema.parse(
     readJson(input.repoRoot, reviewPackagePath(episodeId, decision.benchmarkId)),
   );
-  roleModelBlindRevealSchema.parse(
+  const reveal = roleModelBlindRevealSchema.parse(
     readJson(input.repoRoot, reviewRevealPath(episodeId, decision.benchmarkId)),
   );
 
@@ -103,6 +104,7 @@ export const applyRoleModelPromotion = (input: {
       decision,
     };
   }
+  assertPromotionReviewCohort({review, reveal, result});
   if (!decision.resolvedCandidateId || !decision.selectedCandidate) {
     throw new Error("promote requires a selected candidate");
   }

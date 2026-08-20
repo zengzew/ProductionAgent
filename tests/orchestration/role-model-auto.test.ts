@@ -410,6 +410,46 @@ describe("M6 autonomous role benchmark", () => {
     ).toThrow(/PROTECTED_PATH_MUTATED/u);
   });
 
+  it("requires exact repair-file rules and rejects sibling-prefix bypasses", () => {
+    const diagnosis = (allowPaths: string[], denyPaths: string[] = []): AutoRepairDiagnosis => ({
+      code: "unknown",
+      target: "harness",
+      candidateId: null,
+      evidence: "path authorization regression",
+      allowPaths,
+      denyPaths,
+      instruction: "test path authorization",
+    });
+
+    expect(() =>
+      assertRepairAuthorization(diagnosis(["scripts\\hosted-agent.ts"]), "episode-test", [
+        "scripts/hosted-agent.ts",
+      ]),
+    ).not.toThrow();
+    expect(() =>
+      assertRepairAuthorization(diagnosis(["scripts/hosted-agent.ts"]), "episode-test", [
+        "scripts/hosted-agent.ts.evil",
+      ]),
+    ).toThrow(/REPAIR_PATH_NOT_AUTHORIZED:scripts\/hosted-agent\.ts\.evil/u);
+    expect(() =>
+      assertRepairAuthorization(diagnosis(["scripts/benchmark-auto.ts"]), "episode-test", [
+        "scripts/benchmark-auto.ts.backup",
+      ]),
+    ).toThrow(/REPAIR_PATH_NOT_AUTHORIZED:scripts\/benchmark-auto\.ts\.backup/u);
+    expect(() =>
+      assertRepairAuthorization(
+        diagnosis(["scripts/"], ["scripts/benchmark-auto.ts"]),
+        "episode-test",
+        ["scripts/benchmark-auto.ts"],
+      ),
+    ).toThrow(/PROTECTED_PATH_MUTATED:scripts\/benchmark-auto\.ts/u);
+    expect(() =>
+      assertRepairAuthorization(diagnosis(["scripts/"], ["scripts/"]), "episode-test", [
+        "scripts/benchmark-auto.ts.backup",
+      ]),
+    ).toThrow(/PROTECTED_PATH_MUTATED:scripts\/benchmark-auto\.ts\.backup/u);
+  });
+
   it("routes missing segments to the prompt when the template is undeclared", () => {
     const {repoRoot, episodeId} = setup();
     const diagnoses = diagnoseBenchmarkResult({

@@ -5,12 +5,17 @@ import {afterEach, describe, expect, it} from "vitest";
 import {
   applyRoleModelPromotion,
   assignBlindLabels,
+  benchmarkResultPath,
   buildArtifactRef,
   buildBlindReviewPackage,
   EMPTY_REPAIR_CONTEXT_HASH,
+  hashRepositoryFile,
   loadAgentModelPolicyFile,
+  promotionDecisionPath,
   recordRoleModelPromotionDecision,
   resolveRoleModelPolicy,
+  reviewPackagePath,
+  reviewRevealPath,
   stableJson,
   type BenchmarkCandidateResult,
   type BenchmarkResult,
@@ -179,6 +184,7 @@ describe("script-writer blind review", () => {
     expect(serialized).not.toContain("deepseek-v4-flash");
     expect(serialized).not.toContain("qwen3-7-plus");
     expect(review.autoFilled).toBe(false);
+    expect(review.purpose).toBe("promotion");
     expect(review.candidates[0]?.scores.clarity).toBeNull();
     expect(review.candidates.map((candidate) => candidate.label).sort()).toEqual(["A", "B"]);
     expect(review.candidates[0]?.output).toContain("opens the browser");
@@ -201,9 +207,131 @@ describe("script-writer blind review", () => {
     expect(first.review.reviewId).toBe(second.review.reviewId);
     const again = assignBlindLabels(
       result.candidateIds,
-      `${result.benchmarkId}:${first.review.benchmarkResultHash}:inspection:${EMPTY_REPAIR_CONTEXT_HASH}`,
+      `${result.benchmarkId}:${first.review.benchmarkResultHash}:promotion:${EMPTY_REPAIR_CONTEXT_HASH}`,
     );
     expect(again).toEqual(first.reveal.mapping);
+  });
+});
+
+describe("promotion review purpose gates", () => {
+  it("fails closed when an inspection review is used for promote", () => {
+    const {repoRoot, episodeId, benchmarkId} = setup();
+    const {review, reveal, reviewPath, revealPath} = buildBlindReviewPackage({
+      repoRoot,
+      episodeId,
+      benchmarkId,
+      purpose: "inspection",
+    });
+    expect(review.purpose).toBe("inspection");
+    expect(() =>
+      recordRoleModelPromotionDecision({
+        repoRoot,
+        episodeId,
+        benchmarkId,
+        reviewer: "editor-1",
+        decision: "promote",
+        selectedCandidate: review.candidates[0]?.label,
+        reason: "inspection must not promote",
+        createdAt,
+      }),
+    ).toThrow(/PROMOTION_REVIEW_REQUIRED/u);
+
+    const decisionPath = path.join(repoRoot, promotionDecisionPath(episodeId, benchmarkId));
+    fs.mkdirSync(path.dirname(decisionPath), {recursive: true});
+    fs.writeFileSync(
+      decisionPath,
+      `${stableJson({
+        schemaVersion: "role-model-promotion-decision-v1",
+        kind: "human-decision",
+        decisionId: "decision-inspection-promote",
+        benchmarkId,
+        role: "script-writer",
+        reviewer: "editor-1",
+        decision: "promote",
+        selectedCandidate: reveal.mapping[0]?.label,
+        resolvedCandidateId: reveal.mapping[0]?.candidateId,
+        reason: "forged inspection promotion",
+        benchmarkResultHash: hashRepositoryFile(
+          repoRoot,
+          benchmarkResultPath(episodeId, benchmarkId),
+        ),
+        reviewPackageHash: hashRepositoryFile(repoRoot, reviewPath),
+        revealHash: hashRepositoryFile(repoRoot, revealPath),
+        createdAt,
+      })}\n`,
+    );
+    expect(() => applyRoleModelPromotion({repoRoot, decisionPath, apply: true})).toThrow(
+      /PROMOTION_REVIEW_REQUIRED/u,
+    );
+  });
+
+  it("fails closed when a diagnostic review is used for promote", () => {
+    const {repoRoot, episodeId, benchmarkId, result} = setup();
+    const repairedResult: BenchmarkResult = {
+      ...result,
+      candidates: result.candidates.map((candidate) => ({
+        ...candidate,
+        outcome: "PASS_AFTER_REPAIR",
+        repairRound: 1,
+        promotionEligible: false,
+        ineligibilityReasons: ["repaired-candidate"],
+      })),
+      eligibleCandidateIds: [],
+    };
+    const resultFile = path.join(repoRoot, benchmarkResultPath(episodeId, benchmarkId));
+    fs.writeFileSync(resultFile, `${stableJson(repairedResult)}\n`);
+    const {review, reviewPath, revealPath} = buildBlindReviewPackage({
+      repoRoot,
+      episodeId,
+      benchmarkId,
+      purpose: "diagnostic",
+    });
+    fs.copyFileSync(
+      path.join(repoRoot, reviewPath),
+      path.join(repoRoot, reviewPackagePath(episodeId, benchmarkId)),
+    );
+    fs.copyFileSync(
+      path.join(repoRoot, revealPath),
+      path.join(repoRoot, reviewRevealPath(episodeId, benchmarkId)),
+    );
+    expect(review.purpose).toBe("diagnostic");
+    expect(() =>
+      recordRoleModelPromotionDecision({
+        repoRoot,
+        episodeId,
+        benchmarkId,
+        reviewer: "editor-1",
+        decision: "promote",
+        selectedCandidate: review.candidates[0]?.label,
+        reason: "diagnostic must not promote",
+        createdAt,
+      }),
+    ).toThrow(/PROMOTION_REVIEW_REQUIRED/u);
+  });
+
+  it("does not let one clean candidate enter the manual promotion flow", () => {
+    const {repoRoot, episodeId, benchmarkId} = setup({eligibleB: false});
+    expect(() => buildBlindReviewPackage({repoRoot, episodeId, benchmarkId})).toThrow(
+      /insufficient-comparable-candidates/u,
+    );
+    const {review} = buildBlindReviewPackage({
+      repoRoot,
+      episodeId,
+      benchmarkId,
+      purpose: "inspection",
+    });
+    expect(() =>
+      recordRoleModelPromotionDecision({
+        repoRoot,
+        episodeId,
+        benchmarkId,
+        reviewer: "editor-1",
+        decision: "promote",
+        selectedCandidate: review.candidates[0]?.label,
+        reason: "single clean candidate",
+        createdAt,
+      }),
+    ).toThrow(/PROMOTION_REVIEW_REQUIRED/u);
   });
 });
 
@@ -256,51 +384,75 @@ describe("promotion HumanDecision", () => {
     ).toThrow();
   });
 
-  it("blocks an ineligible candidate and a tampered benchmark", () => {
-    const {repoRoot, episodeId, benchmarkId, result} = setup({eligibleB: false});
-    const {reveal} = buildBlindReviewPackage({repoRoot, episodeId, benchmarkId});
-    const ineligible = reveal.mapping.find((entry) => entry.candidateId === "qwen3-7-plus");
-    expect(ineligible).toBeDefined();
-    const {decisionPath} = recordRoleModelPromotionDecision({
+  it("blocks a non-promotion review and a tampered benchmark", () => {
+    const {repoRoot, episodeId, benchmarkId} = setup({eligibleB: false});
+    const {review, reveal} = buildBlindReviewPackage({
       repoRoot,
       episodeId,
       benchmarkId,
-      reviewer: "editor-1",
-      decision: "promote",
-      selectedCandidate: ineligible?.label,
-      reason: "prefer this draft",
-      createdAt,
+      purpose: "inspection",
     });
+    const ineligible = reveal.mapping.find((entry) => entry.candidateId === "qwen3-7-plus");
+    expect(ineligible).toBeDefined();
+    expect(review.purpose).toBe("inspection");
+    expect(() =>
+      recordRoleModelPromotionDecision({
+        repoRoot,
+        episodeId,
+        benchmarkId,
+        reviewer: "editor-1",
+        decision: "promote",
+        selectedCandidate: ineligible?.label,
+        reason: "prefer this draft",
+        createdAt,
+      }),
+    ).toThrow(/PROMOTION_REVIEW_REQUIRED/u);
     const before = fs.readFileSync(path.join(repoRoot, "config/agent-model-policy.json"), "utf8");
-    expect(() => applyRoleModelPromotion({repoRoot, decisionPath, apply: true})).toThrow(
-      /ineligible candidate cannot promote/u,
-    );
     expect(fs.readFileSync(path.join(repoRoot, "config/agent-model-policy.json"), "utf8")).toBe(
       before,
     );
 
-    const eligible = reveal.mapping.find((entry) => entry.candidateId === "deepseek-v4-flash");
+    const eligibleSetup = setup();
+    const eligibleReview = buildBlindReviewPackage({
+      repoRoot: eligibleSetup.repoRoot,
+      episodeId: eligibleSetup.episodeId,
+      benchmarkId: eligibleSetup.benchmarkId,
+    });
+    const eligible = eligibleReview.reveal.mapping.find(
+      (entry) => entry.candidateId === "deepseek-v4-flash",
+    );
     const recorded = recordRoleModelPromotionDecision({
-      repoRoot,
-      episodeId,
-      benchmarkId,
+      repoRoot: eligibleSetup.repoRoot,
+      episodeId: eligibleSetup.episodeId,
+      benchmarkId: eligibleSetup.benchmarkId,
       reviewer: "editor-1",
       decision: "promote",
       selectedCandidate: eligible?.label,
       reason: "eligible draft",
       createdAt,
     });
+    const eligiblePolicyBefore = fs.readFileSync(
+      path.join(eligibleSetup.repoRoot, "config/agent-model-policy.json"),
+      "utf8",
+    );
     const resultFile = path.join(
-      repoRoot,
-      `content/${episodeId}/rollout/benchmarks/${benchmarkId}/benchmark-result.json`,
+      eligibleSetup.repoRoot,
+      `content/${eligibleSetup.episodeId}/rollout/benchmarks/${eligibleSetup.benchmarkId}/benchmark-result.json`,
     );
-    fs.writeFileSync(resultFile, `${stableJson({...result, inputHash: "c".repeat(64)})}\n`);
+    fs.writeFileSync(
+      resultFile,
+      `${stableJson({...eligibleSetup.result, inputHash: "c".repeat(64)})}\n`,
+    );
     expect(() =>
-      applyRoleModelPromotion({repoRoot, decisionPath: recorded.decisionPath, apply: true}),
+      applyRoleModelPromotion({
+        repoRoot: eligibleSetup.repoRoot,
+        decisionPath: recorded.decisionPath,
+        apply: true,
+      }),
     ).toThrow(/BENCHMARK_RESULT_TAMPERED/u);
-    expect(fs.readFileSync(path.join(repoRoot, "config/agent-model-policy.json"), "utf8")).toBe(
-      before,
-    );
+    expect(
+      fs.readFileSync(path.join(eligibleSetup.repoRoot, "config/agent-model-policy.json"), "utf8"),
+    ).toBe(eligiblePolicyBefore);
   });
 
   it("leaves policy unchanged for reject-all and rerun", () => {

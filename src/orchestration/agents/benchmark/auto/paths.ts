@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 export const normalizeRepoPath = (repositoryPath: string): string =>
-  repositoryPath.split(path.sep).join("/");
+  path.posix.normalize(repositoryPath.replaceAll("\\", "/"));
 
 export const resolveAutoRepositoryPath = (repoRoot: string, repositoryPath: string): string => {
   if (path.isAbsolute(repositoryPath) || repositoryPath.split(/[\\/]/u).includes("..")) {
