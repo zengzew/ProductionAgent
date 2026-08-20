@@ -16,6 +16,7 @@ import type {AgentExecutionRequest, AgentExecutionResult, AgentName} from "../..
 import type {ArtifactRef} from "../../schemas/artifact";
 import {
   createOpenAiCompatibleChatProvider,
+  createHostedEmptyContentContractError,
   emptyHostedChatUsage,
   HostedResponseContractError,
   isMarkdownOnlyHostedResponse,
@@ -454,6 +455,7 @@ export const createHostedAgentBackend = (
       }
       usage = invoked.result.usage;
       const modelValue = invoked.result.value;
+      const transportRecovery = invoked.result.transportRecovery;
       if (typeof modelValue === "string" && isMarkdownOnlyHostedResponse(modelValue)) {
         throw new HostedResponseContractError({
           layer: "hosted-agent",
@@ -464,6 +466,14 @@ export const createHostedAgentBackend = (
       }
       const parsed = hostedOutputSchema.safeParse(modelValue);
       if (!parsed.success) {
+        if (transportRecovery?.kind === "reasoning-content-outputs") {
+          throw createHostedEmptyContentContractError({
+            layer: "hosted-agent",
+            responseHash: transportRecovery.responseHash,
+            httpStatus: transportRecovery.httpStatus,
+            reasoningContentPresent: true,
+          });
+        }
         throw new HostedResponseContractError({
           layer: "hosted-agent",
           content: serializeHostedResponseContent(modelValue),
@@ -471,13 +481,26 @@ export const createHostedAgentBackend = (
           markdownOnly: false,
         });
       }
-      const relocated = validateModelOutputs(
-        request,
-        parsed.data.outputs,
-        protectedPaths,
-        options.repoRoot,
-        writePathFor,
-      );
+      let relocated: Array<{declared: HostedAgentOutput; writePath: string}>;
+      try {
+        relocated = validateModelOutputs(
+          request,
+          parsed.data.outputs,
+          protectedPaths,
+          options.repoRoot,
+          writePathFor,
+        );
+      } catch (error) {
+        if (transportRecovery?.kind === "reasoning-content-outputs") {
+          throw createHostedEmptyContentContractError({
+            layer: "hosted-agent",
+            responseHash: transportRecovery.responseHash,
+            httpStatus: transportRecovery.httpStatus,
+            reasoningContentPresent: true,
+          });
+        }
+        throw error;
+      }
       writeRepositoryFilesAtomically(
         options.repoRoot,
         relocated.map((output) => ({path: output.writePath, content: output.declared.content})),

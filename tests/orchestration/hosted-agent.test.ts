@@ -586,7 +586,14 @@ describe("HostedAgentBackend", () => {
       expect(headers.get("authorization")).toBe("Bearer test-key");
       return new Response(
         JSON.stringify({
-          choices: [{message: {content: JSON.stringify({ok: true})}}],
+          choices: [
+            {
+              message: {
+                content: JSON.stringify({ok: true}),
+                reasoning_content: "normal-content-reasoning-secret",
+              },
+            },
+          ],
           usage: {prompt_tokens: 4, completion_tokens: 6, total_tokens: 10},
         }),
         {status: 200, headers: {"content-type": "application/json"}},
@@ -608,6 +615,168 @@ describe("HostedAgentBackend", () => {
       value: {ok: true},
       usage: {inputTokens: 4, outputTokens: 6, totalTokens: 10},
     });
+    expect(JSON.stringify(result)).not.toContain("normal-content-reasoning-secret");
+  });
+
+  it("recovers only a legal reasoning outputs envelope as transport normalization", async () => {
+    const {repoRoot, promptRef, inputRef} = setup();
+    const reasoningSecret = "reasoning-secret-a";
+    const rawBody = JSON.stringify({
+      choices: [
+        {
+          message: {
+            content: "",
+            reasoning_content: JSON.stringify({
+              outputs: [{...outputDeclaration, content: "recovered\n"}],
+              trace: reasoningSecret,
+            }),
+          },
+        },
+      ],
+      usage: {prompt_tokens: 4, completion_tokens: 6, total_tokens: 10},
+    });
+    let fetchCalls = 0;
+    const fetchImpl: typeof fetch = async () => {
+      fetchCalls += 1;
+      return new Response(rawBody, {status: 200, headers: {"content-type": "application/json"}});
+    };
+    const provider = createOpenAiCompatibleChatProvider({fetchImpl});
+    const reasoning = {
+      profile: "deepseek-v4-flash" as const,
+      thinking: {type: "enabled" as const},
+      reasoning_effort: "max" as const,
+    };
+    const direct = await provider.chatJson({
+      provider: "openai-compatible",
+      endpoint: "https://api.deepseek.com/chat/completions",
+      model: "deepseek-v4-flash",
+      reasoning,
+      temperature: 0,
+      timeoutMs: 1000,
+      maxRetries: 0,
+      apiKey: "test-key",
+      messages: [{role: "user", content: "ping"}],
+    });
+    expect(direct.value).toEqual({
+      outputs: [{...outputDeclaration, content: "recovered\n"}],
+    });
+    expect(direct.transportRecovery).toMatchObject({
+      kind: "reasoning-content-outputs",
+      responseHash: hashHostedResponseContent(rawBody),
+      httpStatus: 200,
+    });
+    expect(JSON.stringify(direct)).not.toContain(reasoningSecret);
+
+    const records: HostedAgentCallRecord[] = [];
+    const runner = createHostedAgentAdapter({
+      repoRoot,
+      policy: hostedPolicy({
+        endpoint: "https://api.deepseek.com/chat/completions",
+        allowedOrigins: ["https://api.deepseek.com"],
+        model: "deepseek-v4-flash",
+        reasoning,
+      }),
+      apiKey: "test-key",
+      provider,
+      onCall: (record) => records.push(record),
+      createdAt: () => "2026-08-06T00:00:00.000Z",
+      sleep: async () => undefined,
+    });
+    const result = await runner(request(promptRef, inputRef));
+    expect(result.status).toBe("SUCCEEDED");
+    expect(fs.readFileSync(path.join(repoRoot, outputDeclaration.path), "utf8")).toBe(
+      "recovered\n",
+    );
+    expect(records).toHaveLength(1);
+    expect(records[0]).toMatchObject({
+      status: "SUCCEEDED",
+      reasoningProfile: "deepseek-v4-flash",
+      retryCount: 0,
+    });
+    expect(fetchCalls).toBe(2);
+    expect(JSON.stringify(result)).not.toContain(reasoningSecret);
+    expect(JSON.stringify(records)).not.toContain(reasoningSecret);
+  });
+
+  it.each([
+    ["ordinary CoT", "reasoning-secret-b ordinary chain of thought"],
+    ["invalid JSON", '{"outputs":[{"artifactId":"reasoning-secret-c"}'],
+  ])("fails closed without leaking %s reasoning content", async (_label, reasoningContent) => {
+    const {repoRoot, promptRef, inputRef} = setup();
+    const rawBody = JSON.stringify({
+      choices: [{message: {content: "", reasoning_content: reasoningContent}}],
+    });
+    const provider = createOpenAiCompatibleChatProvider({
+      fetchImpl: async () =>
+        new Response(rawBody, {
+          status: 200,
+          headers: {"content-type": "application/json"},
+        }),
+    });
+    const records: HostedAgentCallRecord[] = [];
+    const runner = createHostedAgentAdapter({
+      repoRoot,
+      policy: hostedPolicy(),
+      apiKey: "test-key",
+      provider,
+      onCall: (record) => records.push(record),
+      sleep: async () => undefined,
+    });
+
+    const error = await runner(request(promptRef, inputRef)).catch((caught) => caught);
+    expect(error).toBeInstanceOf(HostedResponseContractError);
+    expect(error).toMatchObject({
+      layer: "hosted-chat",
+      httpStatus: 200,
+      contentHash: hashHostedResponseContent(rawBody),
+      preview: "",
+    });
+    expect(error.message).toContain("content_empty=true");
+    expect(error.message).toContain("reasoning_content_present=true");
+    expect(error.message).toContain(`sha256=${hashHostedResponseContent(rawBody)}`);
+    expect(error.message).not.toContain(reasoningContent);
+    expect(error.message).not.toContain("preview=");
+    expect(JSON.stringify(error)).not.toContain(reasoningContent);
+    expect(records).toHaveLength(1);
+    expect(records[0]?.status).toBe("FAILED");
+    expect(JSON.stringify(records)).not.toContain(reasoningContent);
+  });
+
+  it("does not preview an invalid outputs candidate from reasoning content", async () => {
+    const {repoRoot, promptRef, inputRef} = setup();
+    const reasoningSecret = "reasoning-schema-secret";
+    const rawBody = JSON.stringify({
+      choices: [
+        {
+          message: {
+            content: "",
+            reasoning_content: JSON.stringify({
+              outputs: [
+                {...outputDeclaration, artifactId: reasoningSecret, content: "candidate\n"},
+              ],
+            }),
+          },
+        },
+      ],
+    });
+    const provider = createOpenAiCompatibleChatProvider({
+      fetchImpl: async () =>
+        new Response(rawBody, {status: 200, headers: {"content-type": "application/json"}}),
+    });
+    const runner = createHostedAgentAdapter({
+      repoRoot,
+      policy: hostedPolicy(),
+      apiKey: "test-key",
+      provider,
+      sleep: async () => undefined,
+    });
+
+    const error = await runner(request(promptRef, inputRef)).catch((caught) => caught);
+    expect(error).toBeInstanceOf(HostedResponseContractError);
+    expect(error.message).toContain("content_empty=true");
+    expect(error.message).not.toContain(reasoningSecret);
+    expect(error.message).not.toContain("preview=");
+    expect(JSON.stringify(error)).not.toContain(reasoningSecret);
   });
 
   it("maps the three typed reasoning profiles to exact request bodies", async () => {

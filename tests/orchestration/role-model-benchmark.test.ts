@@ -8,6 +8,8 @@ import {
   buildScriptWriterBenchmarkRequest,
   createContentAgentAdapter,
   createFakeHostedChatProvider,
+  createOpenAiCompatibleChatProvider,
+  candidateCachePath,
   evaluatePromotionEligibility,
   hashBenchmarkIdentity,
   hashBenchmarkInput,
@@ -745,4 +747,115 @@ describe("fake-provider transport contract", () => {
     expect(failed?.failureDetail).not.toMatch(/apiKey/iu);
     expect(result.automaticPromotion).toBe(false);
   });
+
+  it("recovers DeepSeek-style reasoning outputs at round zero without cache leakage", async () => {
+    const {repoRoot, episodeId, request} = setup();
+    const reasoningSecret = "benchmark-reasoning-secret";
+    const rawBody = JSON.stringify({
+      choices: [
+        {
+          message: {
+            content: "",
+            reasoning_content: JSON.stringify({
+              outputs: request.expectedOutputs.map((output) => ({
+                ...output,
+                content: draftFor(["claim-alpha-001", "claim-alpha-002"]),
+              })),
+              trace: reasoningSecret,
+            }),
+          },
+        },
+      ],
+      usage: {prompt_tokens: 8, completion_tokens: 5, total_tokens: 13},
+    });
+    const provider = createOpenAiCompatibleChatProvider({
+      fetchImpl: async () =>
+        new Response(rawBody, {status: 200, headers: {"content-type": "application/json"}}),
+    });
+    const {manifest, result} = await runRoleModelBenchmark({
+      repoRoot,
+      request,
+      config: benchmarkConfig(),
+      candidateIds: ["model-a"],
+      apiKeyForCandidate: () => "test-key",
+      provider,
+      createdAt: () => "2026-08-19T00:00:00.000Z",
+      sleep: async () => undefined,
+      onProgress: () => undefined,
+    });
+    const candidate = result.candidates[0];
+    expect(candidate).toMatchObject({
+      status: "SUCCEEDED",
+      repairRound: 0,
+      retryCount: 0,
+      cacheHit: false,
+    });
+    expect(result.automaticPromotion).toBe(false);
+    expect(JSON.stringify(result)).not.toContain(reasoningSecret);
+    const cachePath = candidateCachePath(
+      episodeId,
+      manifest.benchmarkId,
+      candidate?.identity ?? "",
+    );
+    expect(fs.existsSync(path.join(repoRoot, cachePath))).toBe(true);
+    expect(fs.readFileSync(path.join(repoRoot, cachePath), "utf8")).not.toContain(reasoningSecret);
+  });
+
+  it.each([
+    ["ordinary CoT", "benchmark-reasoning-secret-cot ordinary chain of thought"],
+    ["invalid JSON", '{"outputs":[{"artifactId":"benchmark-reasoning-secret-json"}'],
+  ])(
+    "fails the benchmark closed without leaking %s reasoning content",
+    async (_label, reasoningContent) => {
+      const {repoRoot, episodeId, request} = setup();
+      const rawBody = JSON.stringify({
+        choices: [{message: {content: "", reasoning_content: reasoningContent}}],
+      });
+      const provider = createOpenAiCompatibleChatProvider({
+        fetchImpl: async () =>
+          new Response(rawBody, {
+            status: 200,
+            headers: {"content-type": "application/json"},
+          }),
+      });
+      const events: BenchmarkProgressEvent[] = [];
+      const {manifest, result} = await runRoleModelBenchmark({
+        repoRoot,
+        request,
+        config: benchmarkConfig(),
+        candidateIds: ["model-a"],
+        apiKeyForCandidate: () => "test-key",
+        provider,
+        createdAt: () => "2026-08-19T00:00:00.000Z",
+        sleep: async () => undefined,
+        onProgress: (event) => events.push(event),
+      });
+      const failed = result.candidates[0];
+      expect(failed?.status).toBe("FAILED");
+      expect(failed?.failureDetail).toContain("content_empty=true");
+      expect(failed?.failureDetail).toContain("reasoning_content_present=true");
+      expect(failed?.failureDetail).toContain(`sha256=${hashHostedResponseContent(rawBody)}`);
+      expect(failed?.failureDetail).not.toContain(reasoningContent);
+      expect(failed?.failureDetail).not.toContain("preview=");
+      expect(JSON.stringify(result)).not.toContain(reasoningContent);
+      expect(JSON.stringify(events)).not.toContain(reasoningContent);
+      expect(
+        fs.readFileSync(
+          path.join(
+            repoRoot,
+            `content/${episodeId}/rollout/benchmarks/${manifest.benchmarkId}/model-a/candidate-result.json`,
+          ),
+          "utf8",
+        ),
+      ).not.toContain(reasoningContent);
+      expect(
+        fs.existsSync(
+          path.join(
+            repoRoot,
+            candidateCachePath(episodeId, manifest.benchmarkId, failed?.identity ?? ""),
+          ),
+        ),
+      ).toBe(false);
+    },
+  );
 });

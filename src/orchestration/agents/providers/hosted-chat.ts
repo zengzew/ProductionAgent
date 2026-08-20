@@ -40,6 +40,7 @@ export type HostedChatCall = {
 export type HostedChatResult<T> = {
   value: T;
   usage: HostedChatUsage;
+  transportRecovery?: HostedChatTransportRecovery;
 };
 
 export type HostedChatProvider = {
@@ -48,6 +49,12 @@ export type HostedChatProvider = {
 };
 
 export type HostedChatJsonFn = (call: HostedChatCall) => Promise<unknown>;
+
+export type HostedChatTransportRecovery = {
+  kind: "reasoning-content-outputs";
+  responseHash: string;
+  httpStatus: number;
+};
 
 const asUsageNumber = (value: unknown): number | null =>
   typeof value === "number" && Number.isFinite(value) && value >= 0 ? Math.trunc(value) : null;
@@ -229,20 +236,27 @@ export class HostedResponseContractError extends Error {
     httpStatus?: number | null;
     secrets?: readonly (string | undefined)[];
     markdownOnly?: boolean;
+    responseHash?: string;
+    safeDiagnostic?: {
+      contentEmpty: boolean;
+      reasoningContentPresent: boolean;
+    };
     cause?: unknown;
   }) {
     const markdownOnly = input.markdownOnly ?? isMarkdownOnlyHostedResponse(input.content);
-    const contentHash = hashHostedResponseContent(input.content);
-    const preview = previewHostedResponseContent(input.content, input.secrets);
+    const contentHash = input.responseHash ?? hashHostedResponseContent(input.content);
+    const preview = input.safeDiagnostic
+      ? ""
+      : previewHostedResponseContent(input.content, input.secrets);
     const label = markdownOnly
       ? `${input.layer} returned markdown-only response`
       : `${input.layer} returned malformed JSON`;
-    super(
-      `${label} (status=${input.httpStatus ?? "n/a"} sha256=${contentHash} preview=${preview})`,
-      {
-        cause: input.cause,
-      },
-    );
+    const message = input.safeDiagnostic
+      ? `${input.layer} returned empty content (status=${input.httpStatus ?? "n/a"} sha256=${contentHash} content_empty=${input.safeDiagnostic.contentEmpty} reasoning_content_present=${input.safeDiagnostic.reasoningContentPresent})`
+      : `${label} (status=${input.httpStatus ?? "n/a"} sha256=${contentHash} preview=${preview})`;
+    super(message, {
+      cause: input.cause,
+    });
     this.name = "HostedResponseContractError";
     this.layer = input.layer;
     this.markdownOnly = markdownOnly;
@@ -251,6 +265,23 @@ export class HostedResponseContractError extends Error {
     this.preview = preview;
   }
 }
+
+export const createHostedEmptyContentContractError = (input: {
+  layer: "hosted-chat" | "hosted-agent";
+  responseHash: string;
+  httpStatus: number | null;
+  reasoningContentPresent: boolean;
+}): HostedResponseContractError =>
+  new HostedResponseContractError({
+    layer: input.layer,
+    content: "",
+    httpStatus: input.httpStatus,
+    responseHash: input.responseHash,
+    safeDiagnostic: {
+      contentEmpty: true,
+      reasoningContentPresent: input.reasoningContentPresent,
+    },
+  });
 
 const extractChatMessageContent = (content: unknown): string | undefined => {
   if (typeof content === "string") {
@@ -269,13 +300,31 @@ const extractChatMessageContent = (content: unknown): string | undefined => {
   return text.trim() ? text : undefined;
 };
 
+const parseReasoningOutputsCandidate = (content: unknown): string | undefined => {
+  if (typeof content !== "string" || !content.trim()) return undefined;
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(content);
+  } catch {
+    return undefined;
+  }
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return undefined;
+  const outputs = (parsed as {outputs?: unknown}).outputs;
+  if (!Array.isArray(outputs)) return undefined;
+  return JSON.stringify({outputs});
+};
+
 const parseChatResponseBody = (
   rawBody: string,
   status: number,
   secrets: readonly (string | undefined)[],
-): {content: string; usage: unknown} => {
+): {
+  content: string;
+  usage: unknown;
+  transportRecovery?: HostedChatTransportRecovery;
+} => {
   let body: {
-    choices?: Array<{message?: {content?: unknown}}>;
+    choices?: Array<{message?: {content?: unknown; reasoning_content?: unknown}}>;
     usage?: unknown;
     error?: {message?: string};
   } = {};
@@ -297,13 +346,27 @@ const parseChatResponseBody = (
       `hosted-chat request failed (${status}): ${body.error?.message ?? "unknown error"}`,
     );
   }
-  const content = extractChatMessageContent(body.choices?.[0]?.message?.content);
+  const message = body.choices?.[0]?.message;
+  const content = extractChatMessageContent(message?.content);
   if (!content) {
-    throw new HostedResponseContractError({
+    const reasoningContent = message?.reasoning_content;
+    const recoveredContent = parseReasoningOutputsCandidate(reasoningContent);
+    if (recoveredContent) {
+      return {
+        content: recoveredContent,
+        usage: body.usage,
+        transportRecovery: {
+          kind: "reasoning-content-outputs",
+          responseHash: hashHostedResponseContent(rawBody),
+          httpStatus: status,
+        },
+      };
+    }
+    throw createHostedEmptyContentContractError({
       layer: "hosted-chat",
-      content: rawBody,
+      responseHash: hashHostedResponseContent(rawBody),
       httpStatus: status,
-      secrets,
+      reasoningContentPresent: reasoningContent !== undefined && reasoningContent !== null,
     });
   }
   return {content, usage: body.usage};
@@ -343,10 +406,14 @@ export const createOpenAiCompatibleChatProvider = (
     const parsed = parseChatResponseBody(rawBody, response.status, secrets);
     const normalized = stripJsonFence(parsed.content);
     try {
-      return {
+      const result = {
         value: JSON.parse(normalized) as T,
         usage: parseHostedChatUsage(parsed.usage),
-      };
+      } as HostedChatResult<T>;
+      if (parsed.transportRecovery) {
+        result.transportRecovery = parsed.transportRecovery;
+      }
+      return result;
     } catch (error) {
       throw new HostedResponseContractError({
         layer: "hosted-chat",
