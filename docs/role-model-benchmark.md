@@ -28,12 +28,26 @@ Every run freezes:
 benchmark identity for one candidate is:
 
 ```text
-sha256(inputHash + role + provider + model + prompt version)
+sha256(inputHash + role + provider + model + prompt version + typed reasoning config)
 ```
 
-All candidates receive the identical hosted chat payload. Writes are
-relocated after the model returns so no candidate sees a different
-working tree.
+`reasoning` is a strict discriminated union, not a generic request-options
+bag. The committed profiles map to provider capabilities as follows:
+
+| Candidate           | Typed profile                     | Hosted request parameters                        |
+| ------------------- | --------------------------------- | ------------------------------------------------ |
+| `deepseek-v4-flash` | DeepSeek V4 Flash                 | `thinking.type=enabled`, `reasoning_effort=max`  |
+| `qwen3-7-plus`      | Qwen 3.7 Plus                     | `enable_thinking=true`, `thinking_budget=262144` |
+| `minimax-m2-7`      | MiniMax M2.7 native thinking-only | no extra effort/budget fields                    |
+
+The provider resolves parameters from the exact provider/model capability and
+fails closed for an unsupported profile or mismatch. A changed reasoning
+profile or value therefore creates a new cache identity.
+
+All candidates receive the identical frozen prompt and user-input payload.
+Only the typed reasoning fields vary according to the candidate's exact
+provider/model capability. Writes are relocated after the model returns so no
+candidate sees a different working tree.
 
 ## Frozen-input mechanism
 
@@ -69,7 +83,7 @@ content/<episode>/rollout/benchmarks/<benchmarkId>/<candidate-id>/
 
 Canonical `story/script-draft.md` is never opened for write. A later
 identical identity may reuse a successful cached candidate; a changed
-model or input hash must re-execute.
+model, input hash, or reasoning config must re-execute.
 
 ## Evaluation metrics
 
@@ -82,7 +96,10 @@ Each candidate record includes:
 - downstream critic result when a runner is supplied; otherwise
   `not-evaluated`
 - latency, attempt, retries, token usage
-- provider, model, output hashes, output length
+- provider, model, actual `reasoningProfile`, output hashes, output length
+
+Reasoning content is never stored in benchmark results or telemetry. Only the
+typed profile and ordinary token usage are recorded.
 
 Pairwise comparison is deterministic: candidate ids sorted, then every
 `(i, j)` with `i < j`. It records structural diff, validator failures,

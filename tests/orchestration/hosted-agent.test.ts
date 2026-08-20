@@ -22,6 +22,7 @@ import {
   stableJson,
   type AgentName,
   type HostedAgentCallRecord,
+  type ReasoningConfig,
   type RoleModelPolicy,
 } from "../../src/orchestration";
 
@@ -175,6 +176,15 @@ describe("RoleModelPolicy", () => {
     file.roles["visual-director"].mode = "hosted-llm";
     expect(() => parseAgentModelPolicyFile(file)).toThrow(/visual-director must remain manual/u);
   });
+
+  it("rejects arbitrary reasoning request options", () => {
+    expect(() =>
+      roleModelPolicySchema.parse({
+        ...hostedPolicy(),
+        reasoning: {profile: "none", requestOptions: {reasoning_effort: "max"}},
+      }),
+    ).toThrow();
+  });
 });
 
 describe("HostedAgentBackend", () => {
@@ -209,6 +219,7 @@ describe("HostedAgentBackend", () => {
       agentName: "oral-rewriter",
       provider: "openai-compatible",
       model: "role-test-model",
+      reasoningProfile: "none",
       executionId: "exec-hosted-1",
       attempt: 1,
       status: "SUCCEEDED",
@@ -586,6 +597,7 @@ describe("HostedAgentBackend", () => {
       provider: "openai-compatible",
       endpoint: "https://api.openai.com/v1/chat/completions",
       model: "test-model",
+      reasoning: {profile: "none"},
       temperature: 0,
       timeoutMs: 1000,
       maxRetries: 0,
@@ -596,6 +608,127 @@ describe("HostedAgentBackend", () => {
       value: {ok: true},
       usage: {inputTokens: 4, outputTokens: 6, totalTokens: 10},
     });
+  });
+
+  it("maps the three typed reasoning profiles to exact request bodies", async () => {
+    const bodies: Array<Record<string, unknown>> = [];
+    const fetchImpl: typeof fetch = async (_input, init) => {
+      bodies.push(JSON.parse(String(init?.body)) as Record<string, unknown>);
+      return new Response(
+        JSON.stringify({
+          choices: [
+            {
+              message: {
+                content: JSON.stringify({ok: true}),
+                reasoning_content: "must not be recorded",
+              },
+            },
+          ],
+        }),
+        {status: 200, headers: {"content-type": "application/json"}},
+      );
+    };
+    const provider = createOpenAiCompatibleChatProvider({fetchImpl});
+    const messages = [{role: "user" as const, content: "ping"}];
+    const call = async (input: {
+      provider: string;
+      endpoint: string;
+      model: string;
+      reasoning: ReasoningConfig;
+    }) => {
+      const result = provider.chatJson({
+        ...input,
+        temperature: 0.4,
+        timeoutMs: 1000,
+        maxRetries: 0,
+        apiKey: "test-key",
+        messages,
+      });
+      return result.then((value) => {
+        expect(JSON.stringify(value)).not.toContain("reasoning_content");
+        return value;
+      });
+    };
+
+    await call({
+      provider: "openai-compatible",
+      endpoint: "https://api.deepseek.com/chat/completions",
+      model: "deepseek-v4-flash",
+      reasoning: {
+        profile: "deepseek-v4-flash",
+        thinking: {type: "enabled"},
+        reasoning_effort: "max",
+      },
+    });
+    await call({
+      provider: "openai-compatible",
+      endpoint: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+      model: "qwen3.7-plus",
+      reasoning: {
+        profile: "qwen3.7-plus",
+        enable_thinking: true,
+        thinking_budget: 262144,
+      },
+    });
+    await call({
+      provider: "aliyun-bailian",
+      endpoint: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+      model: "MiniMax/MiniMax-M2.7",
+      reasoning: {profile: "minimax-m2.7", mode: "native-thinking-only"},
+    });
+
+    const base = {
+      temperature: 0.4,
+      response_format: {type: "json_object"},
+      messages,
+    };
+    expect(bodies).toEqual([
+      {
+        model: "deepseek-v4-flash",
+        ...base,
+        thinking: {type: "enabled"},
+        reasoning_effort: "max",
+      },
+      {
+        model: "qwen3.7-plus",
+        ...base,
+        enable_thinking: true,
+        thinking_budget: 262144,
+      },
+      {
+        model: "MiniMax/MiniMax-M2.7",
+        ...base,
+      },
+    ]);
+    expect(JSON.stringify(bodies)).not.toContain("reasoning_content");
+  });
+
+  it("fails closed when a typed profile does not match provider/model capability", async () => {
+    let fetchCalls = 0;
+    const provider = createOpenAiCompatibleChatProvider({
+      fetchImpl: async () => {
+        fetchCalls += 1;
+        return new Response("{}", {status: 200});
+      },
+    });
+    await expect(
+      provider.chatJson({
+        provider: "openai-compatible",
+        endpoint: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+        model: "qwen3.7-plus",
+        reasoning: {
+          profile: "deepseek-v4-flash",
+          thinking: {type: "enabled"},
+          reasoning_effort: "max",
+        },
+        temperature: 0.4,
+        timeoutMs: 1000,
+        maxRetries: 0,
+        apiKey: "test-key",
+        messages: [{role: "user", content: "ping"}],
+      }),
+    ).rejects.toThrow(/reasoning profile mismatch/u);
+    expect(fetchCalls).toBe(0);
   });
 
   it("accepts a legal outputs envelope from a fake provider", async () => {
@@ -687,6 +820,7 @@ describe("HostedAgentBackend", () => {
         provider: "openai-compatible",
         endpoint: "https://api.openai.com/v1/chat/completions",
         model: "test-model",
+        reasoning: {profile: "none"},
         temperature: 0,
         timeoutMs: 1000,
         maxRetries: 0,
@@ -719,6 +853,7 @@ describe("HostedAgentBackend", () => {
         provider: "openai-compatible",
         endpoint: "https://api.openai.com/v1/chat/completions",
         model: "test-model",
+        reasoning: {profile: "none"},
         temperature: 0,
         timeoutMs: 1000,
         maxRetries: 0,

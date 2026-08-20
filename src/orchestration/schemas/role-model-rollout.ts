@@ -4,6 +4,7 @@ import {
   fallbackModeSchema,
   roleModelModeSchema,
 } from "../config/agent-model-policy";
+import {reasoningProfileSchema} from "../config/reasoning";
 import {agentNameSchema} from "./agent";
 import {artifactRefSchema} from "./artifact";
 
@@ -19,6 +20,7 @@ export const roleModelExecutionRecordSchema = z
     fallbackUsed: z.boolean(),
     provider: z.string().min(1),
     model: z.string().min(1),
+    reasoningProfile: reasoningProfileSchema,
     episodeId: z.string().regex(/^episode-[a-z0-9-]+$/u),
     executionId: z.string().min(1),
     attempt: z.number().int().positive(),

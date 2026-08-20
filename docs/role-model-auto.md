@@ -15,12 +15,16 @@ only through a staging worktree.
 Candidate cache identity is:
 
 ```text
-sha256(inputHash + role + provider + model + prompt version + repairContextHash)
+sha256(inputHash + role + provider + model + prompt version + typed reasoning config + repairContextHash)
 ```
 
 `repairContextHash` is `sha256({appendix, repairRound})`. The base run uses
 an empty appendix and `repairRound=0`. A repair appendix change produces a
 new identity, so `pnpm benchmark:role` cannot reuse a repaired cache.
+
+Reasoning is a strict typed profile resolved by the hosted provider's exact
+provider/model capability. Changing its profile or values also produces a new
+identity; arbitrary request-options passthrough is not supported.
 
 Outcomes are explicit:
 

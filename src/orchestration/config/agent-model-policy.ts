@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import {z} from "zod";
 import policyFile from "../../../config/agent-model-policy.json";
+import {reasoningConfigSchema} from "./reasoning";
 import {agentNameSchema, agentNames, type AgentName} from "../schemas/agent";
 
 export const ROLE_MODEL_POLICY_VERSION = "role-model-rollout-v1" as const;
@@ -83,6 +84,7 @@ export const roleModelPolicySchema = z
     provider: z.string().min(1),
     endpoint: httpsUrlSchema,
     model: z.string().min(1),
+    reasoning: reasoningConfigSchema.default({profile: "none"}),
     temperature: z.number().min(0).max(2),
     apiKeyEnv: z.string().regex(/^[A-Z][A-Z0-9_]*$/u),
     allowedOrigins: z.array(httpsOriginSchema).min(1),

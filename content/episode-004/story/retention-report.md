@@ -2,9 +2,9 @@
 {
   "rubricVersion": "retention-critic-v2",
   "reviewedFile": "story/final-script.md",
-  "reviewedSha256": "ed3335314787f71c01df8ca19660821aff419130aa3cee4af7a6f9d8541109ee",
+  "reviewedSha256": "28c55afd0a8c01d0f937f5b854a43f4a0bd6a335c6dc6f2369eac853eb989e4d",
   "visualPlanFile": "story/visual-plan.md",
-  "visualPlanSha256": "0e4c5abeab434f5edd0fa36eaca16e24dd37171c6b7d8d929d6bde41363e0400",
+  "visualPlanSha256": "0f7990d42614a4ceef01e0a527e4f23a8947e7235b67d9acb7b62cdc33226acf",
   "round": 1,
   "scores": {
     "first3Seconds": 24,
@@ -65,7 +65,7 @@
 
 ## Mid-video engagement
 
-中段解释种子轮、降价并行和奔驰。价格段必须保持执行动作。风险中等，未到 high。
+中段解释种子轮、套餐价格与并行和奔驰。价格段必须保持执行动作。风险中等，未到 high。
 
 ## Ending satisfaction
 

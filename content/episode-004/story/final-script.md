@@ -83,23 +83,23 @@
 - Target seconds: `14`
 - Claim IDs: `claim-devin-014`, `claim-devin-005`, `claim-devin-006`
 - Source identity: 维基、官方博客与 VentureBeat
-- On-screen text: `种子轮 2100 万美元` / `500 → 20 美元` / `多个 Devin 并行` / `公司披露`
+- On-screen text: `种子轮 2100 万美元` / `团队版每月 500 美元` / `个人套餐每月 20 美元起` / `多个 Devin 并行` / `公司披露`
 - Scene: `choice-seed-price-parallel`
-- Visual intent: 种子轮数字落下后，价格从 500 收到 20，多个平行 Devin 的执行画面铺开，标“功能演示”。
+- Visual intent: 种子轮数字落下后，先出现团队版 500 美元/月，再出现个人套餐 20 美元/月起，多个平行 Devin 的执行画面铺开，标“功能演示”。
 - Pace switch: 从围观切到获客门槛。
 - Fact boundary: 种子轮与价格都是披露口径，不换算用户数或收入。
 
 ### Narration
 
-发布前后，Founders Fund 投了 2100 万美元。团队后来把个人价格从每月 500 美元降到 20 美元，一个任务可以同时开多个 Devin 并行干。
+发布前后，Founders Fund 投了 2100 万美元。2024 年 12 月 GA 时，团队版每月 500 美元；2025 年 4 月 3 日 Devin 2.0 发布时，个人套餐起价每月 20 美元，还能同时开多个 Devin 并行干。
 
 ### Narration units
 
 | Text                                                         | Mode                   | Claim IDs       | Attribution    |
 | ------------------------------------------------------------ | ---------------------- | --------------- | -------------- |
 | 发布前后，Founders Fund 投了 2100 万美元。                   | independently-verified | claim-devin-014 | 维基转述 WSJ   |
-| 团队后来把个人价格从每月 500 美元降到 20 美元，               | company                | claim-devin-005 | 公司披露与媒体 |
-| 一个任务可以同时开多个 Devin 并行干。                         | company                | claim-devin-006 | 公司披露       |
+| 2024 年 12 月 GA 时，团队版每月 500 美元；2025 年 4 月 3 日 Devin 2.0 发布时，个人套餐起价每月 20 美元， | company                | claim-devin-005 | 公司披露与媒体 |
+| 还能同时开多个 Devin 并行干。                                 | company                | claim-devin-006 | 公司披露       |
 
 ## seg-005
 

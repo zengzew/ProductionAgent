@@ -68,9 +68,9 @@
   },
   {
     "id": "claim-devin-005",
-    "claim": "2025 年 4 月 3 日，Cognition 发布 Devin 2.0，个人套餐起价从 500 美元/月降到 20 美元/月。",
+    "claim": "2025 年 4 月 3 日，Cognition 发布 Devin 2.0，个人套餐起价为 20 美元/月；此前 2024 年 12 月 GA 时团队版价格为 500 美元/月。",
     "metricName": "月费",
-    "value": "500 → 20 美元",
+    "value": "团队版 500 美元/月；个人套餐 20 美元/月起",
     "period": "2024-12-10 至 2025-04-03",
     "eventDate": "2025-04-03",
     "sourceIds": [
@@ -81,7 +81,7 @@
     "confidence": "high",
     "reportingType": "company-reported",
     "allowedInNarration": true,
-    "notes": "官方博客：新套餐 starting at $20；VentureBeat 标题与正文：从 $500 降到 $20/月。500 美元为 2024-12-10 GA 时团队版价格。"
+    "notes": "官方博客：2025-04-03 Devin 2.0 新套餐 starting at $20；GA 官方博客：2024-12-10 团队版 500 美元/月。禁止将其写成“个人套餐从 500 美元降到 20 美元”：500 美元是此前 GA 时团队版价格，20 美元/月起是 Devin 2.0 的个人套餐价格。"
   },
   {
     "id": "claim-devin-006",

@@ -2,7 +2,7 @@
 {
   "rubricVersion": "visual-plan-v3",
   "reviewedFile": "story/final-script.md",
-  "reviewedSha256": "ed3335314787f71c01df8ca19660821aff419130aa3cee4af7a6f9d8541109ee",
+  "reviewedSha256": "28c55afd0a8c01d0f937f5b854a43f4a0bd6a335c6dc6f2369eac853eb989e4d",
   "plannedSegments": 6,
   "unresolvedAssets": [],
   "verdict": "READY",
@@ -79,13 +79,13 @@
 
 ## seg-004
 
-- Narrative purpose: 用种子轮和降价回答怎么让人用得起。
+- Narrative purpose: 用种子轮和不同套餐价格回答怎么让人用得起。
 - Viewer state in: 已看见演示被围观。
-- Viewer state out: 知道种子轮进来后，个人价格降到 20 美元并可并行。
-- New information: 2100 万美元、500 到 20、并行 Devin。
-- Scene structure: 种子轮数字落下，价格从 500 收到 20，多个 Devin 并行推进。
+- Viewer state out: 知道 GA 团队版为 500 美元/月，Devin 2.0 个人套餐起价 20 美元/月，并可并行。
+- New information: 2100 万美元、团队版 500 美元/月、个人套餐 20 美元/月起、并行 Devin。
+- Scene structure: 种子轮数字落下，先出现团队版 500 美元/月，再出现个人套餐 20 美元/月起，多个 Devin 并行推进。
 - Visual evidence: 媒体/公司标签同屏。
-- Animation ideas: 500 划掉、20 落下，并行卡片推进。
+- Animation ideas: 团队版 500 美元/月与个人套餐 20 美元/月起分卡出现，并行卡片推进。
 - Asset requirements: 官方平行 Devin 视频与价格卡。
 - Pacing: 十四秒完成获客门槛。
 - Visible action: 价格落下后多个 Devin 同时执行。

@@ -1,6 +1,7 @@
 import {z} from "zod";
 import {ROLE_MODEL_POLICY_VERSION} from "../config/agent-model-policy";
 import {MODEL_BENCHMARK_CONTRACT_VERSION} from "../config/role-model-benchmark";
+import {reasoningProfileSchema} from "../config/reasoning";
 import {agentNameSchema, expectedOutputSchema} from "./agent";
 import {artifactRefSchema} from "./artifact";
 
@@ -66,6 +67,7 @@ export const benchmarkCandidateResultSchema = z
     candidateId: z.string().min(1),
     provider: z.string().min(1),
     model: z.string().min(1),
+    reasoningProfile: reasoningProfileSchema,
     cacheHit: z.boolean(),
     status: z.enum(["SUCCEEDED", "FAILED"]),
     outcome: benchmarkCandidateOutcomeSchema,

@@ -12,6 +12,7 @@ export * from "./checkpoint";
 export * from "./checkpoint-integrity";
 export * from "./concurrency";
 export * from "./config/agent-model-policy";
+export * from "./config/reasoning";
 export * from "./config/role-model-auto-repair";
 export * from "./config/role-model-benchmark";
 export * from "./config/checkpoint";

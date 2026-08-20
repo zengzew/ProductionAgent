@@ -6,6 +6,7 @@ import {
   isHostedLlmEligibleAgent,
   readOptionalAgentModelPolicyFile,
   resolveEffectiveRoleModelPolicy,
+  roleModelPolicySchema,
   type AgentModelPolicyFile,
   type RoleModelPolicy,
   type RoleModelPolicyInput,
@@ -26,6 +27,7 @@ import {
   type HostedChatResult,
   type HostedChatUsage,
 } from "../providers/hosted-chat";
+import type {ReasoningProfile} from "../../config/reasoning";
 import {createAgentRunner, type AgentBackend, type AgentRunner} from "../run-agent";
 
 export type HostedAgentBackend = AgentBackend;
@@ -68,6 +70,7 @@ export type HostedAgentCallRecord = {
   status: "SUCCEEDED" | "FAILED";
   usage: HostedChatUsage;
   retryCount: number;
+  reasoningProfile: ReasoningProfile;
 };
 
 export type HostedAgentBackendOptions = {
@@ -216,10 +219,20 @@ const resolvePolicyFor = (
 ): RoleModelPolicy => {
   if (options.resolvePolicy) return options.resolvePolicy(request.agentName);
   if (options.policy) {
-    return {
-      fallbackMode: "none",
-      ...options.policy,
-    };
+    const policy = options.policy;
+    return roleModelPolicySchema.parse({
+      mode: policy.mode,
+      fallbackMode: policy.fallbackMode ?? "none",
+      provider: policy.provider,
+      endpoint: policy.endpoint,
+      model: policy.model,
+      reasoning: policy.reasoning,
+      temperature: policy.temperature,
+      apiKeyEnv: policy.apiKeyEnv,
+      allowedOrigins: policy.allowedOrigins,
+      timeoutMs: policy.timeoutMs,
+      maxRetries: policy.maxRetries,
+    });
   }
   const fromRepo = options.policies ?? readOptionalAgentModelPolicyFile(options.repoRoot);
   return resolveEffectiveRoleModelPolicy({
@@ -401,6 +414,7 @@ export const createHostedAgentBackend = (
         provider: policy.provider,
         endpoint: policy.endpoint,
         model: policy.model,
+        reasoning: policy.reasoning,
         temperature: policy.temperature,
         timeoutMs: policy.timeoutMs,
         maxRetries: policy.maxRetries,
@@ -504,6 +518,7 @@ export const createHostedAgentBackend = (
         agentName: request.agentName,
         provider: policy?.provider ?? provider.name,
         model: policy?.model ?? "unresolved",
+        reasoningProfile: policy?.reasoning.profile ?? "none",
         executionId: request.executionId,
         attempt: request.attempt,
         latencyMs: Math.max(0, endedAt - startedAt),

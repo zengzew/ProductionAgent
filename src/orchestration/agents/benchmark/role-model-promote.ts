@@ -144,6 +144,7 @@ export const applyRoleModelPromotion = (input: {
         provider: candidatePolicy.provider,
         endpoint: candidatePolicy.endpoint,
         model: candidatePolicy.model,
+        reasoning: candidatePolicy.reasoning,
         temperature: candidatePolicy.temperature,
         apiKeyEnv: candidatePolicy.apiKeyEnv,
         allowedOrigins: [...candidatePolicy.allowedOrigins],

@@ -3,9 +3,9 @@
   "rubricVersion": "oral-review-v2",
   "promptVersion": "oral-judge-v2",
   "reviewedFile": "story/final-script.md",
-  "reviewedSha256": "ed3335314787f71c01df8ca19660821aff419130aa3cee4af7a6f9d8541109ee",
+  "reviewedSha256": "28c55afd0a8c01d0f937f5b854a43f4a0bd6a335c6dc6f2369eac853eb989e4d",
   "sourceDraftFile": "story/script-draft.md",
-  "sourceDraftSha256": "07795f55ef3fcb0e3e9793fd5539f6f5d76e5c725b3afd8ed743ad9edf29816b",
+  "sourceDraftSha256": "443a75919d4299353e129bbb0b62d4a47396485b6f5ef8f58e4b98d23d55104a",
   "round": 1,
   "scores": {
     "chineseNaturalness": 5,
@@ -94,9 +94,9 @@
 
 | 维度       | 得分  | 证据                                               |
 | ---------- | ----- | -------------------------------------------------- |
-| 中文自然度 | 5 / 5 | 用交任务、打开浏览器、投钱、降价等普通动作推进     |
+| 中文自然度 | 5 / 5 | 用交任务、打开浏览器、投钱、套餐变化等普通动作推进 |
 | 口播节奏   | 5 / 5 | Hook 短句落下，中段两句一组，结尾停在估值          |
-| 信息保真   | 5 / 5 | 演示播放量、种子轮、价格、奔驰、融资均保留口径     |
+| 信息保真   | 5 / 5 | 演示播放量、种子轮、两种套餐价格、奔驰、融资均保留口径 |
 
 ## 七项检查
 

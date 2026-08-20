@@ -2,7 +2,7 @@
 {
   "rubricVersion": "product-story-v4",
   "reviewedFile": "story/final-script.md",
-  "reviewedSha256": "ed3335314787f71c01df8ca19660821aff419130aa3cee4af7a6f9d8541109ee",
+  "reviewedSha256": "28c55afd0a8c01d0f937f5b854a43f4a0bd6a335c6dc6f2369eac853eb989e4d",
   "round": 1,
   "scores": {
     "hook": 15,
@@ -57,7 +57,7 @@
 | Conflict               | 13 / 15 | 自己写代码与派活形成对照，没有靠争议维持注意力           |
 | Human element          |  8 / 10 | 三个奥赛程序员和工程师验收可复述                         |
 | Product clarity        | 14 / 15 | 打开浏览器干活先被看见，再补需求和获客                   |
-| Growth logic           | 14 / 15 | 演示冷启动、降价获客后才给估值，不是融资盘点             |
+| Growth logic           | 14 / 15 | 演示冷启动、套餐扩展后才给估值，不是融资盘点             |
 | Technology explanation | 13 / 15 | 只保留会改变体验的自主执行，不讲架构                     |
 | Natural Chinese        | 15 / 15 | 语气正面、句子紧凑                                       |
 

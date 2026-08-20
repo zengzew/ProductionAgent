@@ -11,6 +11,11 @@
       "provider": "openai-compatible",
       "endpoint": "https://api.deepseek.com/chat/completions",
       "model": "deepseek-v4-flash",
+      "reasoning": {
+        "profile": "deepseek-v4-flash",
+        "thinking": {"type": "enabled"},
+        "reasoning_effort": "max"
+      },
       "temperature": 0.4,
       "apiKeyEnv": "DEEPSEEK_API_KEY",
       "allowedOrigins": ["https://api.deepseek.com"],
@@ -21,6 +26,11 @@
       "provider": "openai-compatible",
       "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
       "model": "qwen3.7-plus",
+      "reasoning": {
+        "profile": "qwen3.7-plus",
+        "enable_thinking": true,
+        "thinking_budget": 262144
+      },
       "temperature": 0.4,
       "apiKeyEnv": "QWEN_API_KEY",
       "allowedOrigins": ["https://dashscope.aliyuncs.com"],
@@ -31,6 +41,10 @@
       "provider": "aliyun-bailian",
       "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
       "model": "MiniMax/MiniMax-M2.7",
+      "reasoning": {
+        "profile": "minimax-m2.7",
+        "mode": "native-thinking-only"
+      },
       "temperature": 0.4,
       "apiKeyEnv": "QWEN_API_KEY",
       "allowedOrigins": ["https://dashscope.aliyuncs.com"],

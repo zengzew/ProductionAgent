@@ -101,6 +101,7 @@ Each rollout execution writes
 `content/<episode>/rollout/executions/<role>-<executionId>.json` with:
 
 - `agentName`, `mode`, `provider`, `model`, `policyVersion`
+- actual `reasoningProfile` (never `reasoning_content`)
 - `promptRef`, `inputArtifacts`, `outputArtifacts`
 - `latencyMs`, `attempt`, `executionId`
 - token `usage` when the provider reports it

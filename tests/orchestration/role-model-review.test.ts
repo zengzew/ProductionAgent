@@ -76,6 +76,7 @@ const candidateResult = (input: {
     candidateId: input.candidateId,
     provider: input.provider,
     model: input.model,
+    reasoningProfile: "none",
     cacheHit: false,
     status: "SUCCEEDED",
     outcome: input.eligible ? "PASS" : "FAIL",
@@ -501,6 +502,11 @@ describe("promotion HumanDecision", () => {
       endpoint: "https://api.deepseek.com/chat/completions",
       timeoutMs: 300_000,
       maxRetries: 0,
+      reasoning: {
+        profile: "deepseek-v4-flash",
+        thinking: {type: "enabled"},
+        reasoning_effort: "max",
+      },
     });
     expect(policy.roles["oral-rewriter"].mode).toBe("manual");
     expect(policy.rollout.hostedLlm).toEqual(["oral-rewriter"]);

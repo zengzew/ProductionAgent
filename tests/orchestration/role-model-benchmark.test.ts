@@ -94,6 +94,7 @@ const candidatePolicy = (model: string) => ({
   provider: "openai-compatible",
   endpoint: "https://api.openai.com/v1/chat/completions",
   model,
+  reasoning: {profile: "none"},
   temperature: 0.4,
   apiKeyEnv: "OPENAI_API_KEY",
   allowedOrigins: ["https://api.openai.com"],
@@ -355,7 +356,9 @@ describe("model-benchmark-v1", () => {
       outputTokens: 5,
       totalTokens: 13,
     });
+    expect(first.result.candidates[0]?.reasoningProfile).toBe("none");
     expect(first.result.candidates[0]?.latencyMs).toBeGreaterThanOrEqual(0);
+    expect(JSON.stringify(first.result)).not.toContain("reasoning_content");
     const second = await runRoleModelBenchmark({
       repoRoot,
       request,
@@ -410,6 +413,50 @@ describe("model-benchmark-v1", () => {
         canonicalUnchanged: true,
       }),
     ).toMatchObject({eligible: false, reasons: ["hard-validator-failed"]});
+  });
+
+  it("does not reuse a candidate cache when only reasoning changes", async () => {
+    const {repoRoot, request} = setup();
+    const first = await runRoleModelBenchmark({
+      repoRoot,
+      request,
+      config: benchmarkConfig(),
+      candidateIds: ["model-a"],
+      apiKeyForCandidate: () => "test-key",
+      chat: async () => hostedOutput(request, draftFor(["claim-alpha-001", "claim-alpha-002"])),
+      createdAt: () => "2026-08-19T00:00:00.000Z",
+      sleep: async () => undefined,
+    });
+    const changedConfig = benchmarkConfig();
+    const changedCandidate = changedConfig.candidates["model-a"];
+    if (!changedCandidate) throw new Error("test candidate missing");
+    changedConfig.candidates["model-a"] = {
+      ...changedCandidate,
+      reasoning: {
+        profile: "deepseek-v4-flash",
+        thinking: {type: "enabled"},
+        reasoning_effort: "max",
+      },
+    };
+    let calls = 0;
+    const second = await runRoleModelBenchmark({
+      repoRoot,
+      request,
+      config: changedConfig,
+      candidateIds: ["model-a"],
+      apiKeyForCandidate: () => "test-key",
+      chat: async () => {
+        calls += 1;
+        return hostedOutput(request, draftFor(["claim-alpha-001", "claim-alpha-002"]));
+      },
+      createdAt: () => "2026-08-19T00:00:00.000Z",
+      sleep: async () => undefined,
+    });
+    expect(first.result.candidates[0]?.cacheHit).toBe(false);
+    expect(second.result.candidates[0]?.cacheHit).toBe(false);
+    expect(second.result.candidates[0]?.identity).not.toBe(first.result.candidates[0]?.identity);
+    expect(calls).toBe(1);
+    expect(second.result.automaticPromotion).toBe(false);
   });
 
   it("keeps createContentAgentAdapter on the manual default", async () => {
@@ -493,6 +540,20 @@ describe("model-benchmark-v1", () => {
       expect(candidate.timeoutMs).toBe(300_000);
       expect(candidate.maxRetries).toBe(0);
     }
+    expect(committed.candidates["deepseek-v4-flash"]?.reasoning).toEqual({
+      profile: "deepseek-v4-flash",
+      thinking: {type: "enabled"},
+      reasoning_effort: "max",
+    });
+    expect(committed.candidates["qwen3-7-plus"]?.reasoning).toEqual({
+      profile: "qwen3.7-plus",
+      enable_thinking: true,
+      thinking_budget: 262144,
+    });
+    expect(committed.candidates["minimax-m2-7"]?.reasoning).toEqual({
+      profile: "minimax-m2.7",
+      mode: "native-thinking-only",
+    });
     expect(
       hashBenchmarkIdentity({
         inputHash: left,
@@ -544,6 +605,29 @@ describe("model-benchmark-v1", () => {
         provider: "openai-compatible",
         model: "model-a",
         promptVersion: "prompt-v1:abc",
+      }),
+    );
+    expect(
+      hashBenchmarkIdentity({
+        inputHash: left,
+        agentName: "script-writer",
+        provider: "openai-compatible",
+        model: "deepseek-v4-flash",
+        promptVersion: "prompt-v1:abc",
+        reasoning: {profile: "none"},
+      }),
+    ).not.toBe(
+      hashBenchmarkIdentity({
+        inputHash: left,
+        agentName: "script-writer",
+        provider: "openai-compatible",
+        model: "deepseek-v4-flash",
+        promptVersion: "prompt-v1:abc",
+        reasoning: {
+          profile: "deepseek-v4-flash",
+          thinking: {type: "enabled"},
+          reasoning_effort: "max",
+        },
       }),
     );
   });

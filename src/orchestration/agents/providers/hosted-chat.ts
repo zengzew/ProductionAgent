@@ -1,5 +1,10 @@
 import crypto from "node:crypto";
 import {fetchWithRetry, type RetryableFetchOptions} from "../../../lib/platform/network";
+import {
+  reasoningConfigSchema,
+  type ReasoningConfig,
+  type ReasoningProfile,
+} from "../../config/reasoning";
 
 export type HostedChatRole = "system" | "user";
 
@@ -24,6 +29,7 @@ export type HostedChatCall = {
   provider: string;
   endpoint: string;
   model: string;
+  reasoning: ReasoningConfig;
   temperature: number;
   timeoutMs: number;
   maxRetries: number;
@@ -89,6 +95,72 @@ export const createFakeHostedChatProvider = (input: {
   chatJson: async <T>(call: HostedChatCall): Promise<HostedChatResult<T>> =>
     normalizeHostedChatResult(await input.handler(call)) as HostedChatResult<T>,
 });
+
+type DeepSeekReasoningRequestBody = {
+  thinking: {type: "enabled"};
+  reasoning_effort: "max";
+};
+
+type QwenReasoningRequestBody = {
+  enable_thinking: true;
+  thinking_budget: 262144;
+};
+
+type HostedReasoningRequestBody =
+  DeepSeekReasoningRequestBody | QwenReasoningRequestBody | Record<never, never>;
+
+type HostedReasoningCapability = {
+  provider: string;
+  model: string;
+  profile: Exclude<ReasoningProfile, "none">;
+  requestBody: () => HostedReasoningRequestBody;
+};
+
+const hostedReasoningCapabilities: readonly HostedReasoningCapability[] = [
+  {
+    provider: "openai-compatible",
+    model: "deepseek-v4-flash",
+    profile: "deepseek-v4-flash",
+    requestBody: () => ({
+      thinking: {type: "enabled"},
+      reasoning_effort: "max",
+    }),
+  },
+  {
+    provider: "openai-compatible",
+    model: "qwen3.7-plus",
+    profile: "qwen3.7-plus",
+    requestBody: () => ({
+      enable_thinking: true,
+      thinking_budget: 262144,
+    }),
+  },
+  {
+    provider: "aliyun-bailian",
+    model: "MiniMax/MiniMax-M2.7",
+    profile: "minimax-m2.7",
+    requestBody: () => ({}),
+  },
+];
+
+const reasoningRequestBodyFor = (call: HostedChatCall): HostedReasoningRequestBody => {
+  const reasoning = reasoningConfigSchema.parse(call.reasoning);
+  if (reasoning.profile === "none") return {};
+  const capability = hostedReasoningCapabilities.find(
+    (item) => item.provider === call.provider && item.model === call.model,
+  );
+  if (!capability) {
+    throw new Error(
+      `hosted-chat unsupported reasoning capability: ${call.provider}/${call.model}/${reasoning.profile}`,
+    );
+  }
+  if (capability.profile !== reasoning.profile) {
+    throw new Error(
+      `hosted-chat reasoning profile mismatch: ${call.provider}/${call.model} expects ${capability.profile}, received ${reasoning.profile}`,
+    );
+  }
+  return capability.requestBody();
+};
 
 export const HOSTED_RESPONSE_PREVIEW_LIMIT = 300;
 
@@ -242,6 +314,7 @@ export const createOpenAiCompatibleChatProvider = (
 ): HostedChatProvider => ({
   name: "openai-compatible",
   chatJson: async <T>(call: HostedChatCall): Promise<HostedChatResult<T>> => {
+    const reasoningBody = reasoningRequestBodyFor(call);
     const response = await fetchWithRetry(
       call.endpoint,
       {
@@ -255,6 +328,7 @@ export const createOpenAiCompatibleChatProvider = (
           temperature: call.temperature,
           response_format: {type: "json_object"},
           messages: call.messages,
+          ...reasoningBody,
         }),
       },
       {

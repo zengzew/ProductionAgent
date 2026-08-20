@@ -241,6 +241,7 @@ export const createRoleModelRolloutBackend = (
         fallbackUsed,
         provider: policy.provider,
         model: policy.model,
+        reasoningProfile: policy.reasoning.profile,
         episodeId: request.episodeId,
         executionId: request.executionId,
         attempt: request.attempt,

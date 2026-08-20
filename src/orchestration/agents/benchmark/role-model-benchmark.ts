@@ -31,6 +31,7 @@ import {
   type HostedChatJsonFn,
   type HostedChatProvider,
 } from "../providers/hosted-chat";
+import {reasoningConfigSchema, type ReasoningConfig} from "../../config/reasoning";
 import {createHostedAgentBackend, type HostedAgentCallRecord} from "../adapters/hosted-agent";
 import {evaluateScriptWriterDraft, skippedDownstreamCritic} from "./script-writer-evaluate";
 
@@ -150,6 +151,7 @@ export const hashBenchmarkIdentity = (input: {
   provider: string;
   model: string;
   promptVersion: string;
+  reasoning?: ReasoningConfig;
   repairContextHash?: string;
 }): string =>
   sha256(
@@ -159,6 +161,7 @@ export const hashBenchmarkIdentity = (input: {
       provider: input.provider,
       model: input.model,
       promptVersion: input.promptVersion,
+      reasoning: reasoningConfigSchema.parse(input.reasoning ?? {profile: "none"}),
       repairContextHash: input.repairContextHash ?? EMPTY_REPAIR_CONTEXT_HASH,
     }),
   );
@@ -454,6 +457,7 @@ const runOneCandidate = async (input: {
     agentName: request.agentName,
     provider: policy.provider,
     model: policy.model,
+    reasoning: policy.reasoning,
     promptVersion: `${request.promptRef.schemaVersion}:${request.promptRef.sha256}`,
     repairContextHash,
   });
@@ -582,6 +586,7 @@ const runOneCandidate = async (input: {
     candidateId,
     provider: policy.provider,
     model: policy.model,
+    reasoningProfile: telemetry?.reasoningProfile ?? policy.reasoning.profile,
     cacheHit: false,
     status,
     outcome,
