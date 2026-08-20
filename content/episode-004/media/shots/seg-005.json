@@ -1,15 +1,15 @@
 {
   "artifactRef": {
     "artifactId": "episode-004:media-shot:seg-005",
-    "createdAt": "2026-08-17T14:29:55.901Z",
+    "createdAt": "2026-08-16T16:33:23.187Z",
     "episodeId": "episode-004",
     "mediaType": "application/json",
     "path": "content/episode-004/media/shots/seg-005.json",
     "producer": "media-render-v1",
     "revision": 1,
     "schemaVersion": "media-shot-v1",
-    "sha256": "ac727630084a08df88cc9af55f495a6662a4ccf45b71cde96f0882bfce2f459a",
-    "sizeBytes": 8218
+    "sha256": "64a58b13467502a46e9daf3df2d742016f01a26c0f5337b5b9ada73bf8c3ee93",
+    "sizeBytes": 8322
   },
   "audio": {
     "ducking": {
@@ -34,13 +34,13 @@
       "id": "ffmpeg",
       "version": "ffmpeg-render-proxy-v1"
     },
-    "timelineSha256": "cf4b51e9262ebcd424b429ff46e05a18760887e08905fcf1513ede657e783c7b",
+    "timelineSha256": "e9c961bce7a0ee9cbd0e8e5cd7ce5c7099f78816b913bfc39fb5a91ddcf243a0",
     "version": "media-render-config-v1"
   },
-  "createdAt": "2026-08-17T14:29:55.900Z",
+  "createdAt": "2026-08-16T16:33:23.187Z",
   "crossfadeMs": 0,
-  "durationFrames": 272,
-  "endSeconds": 39.233333333333334,
+  "durationFrames": 286,
+  "endSeconds": 36.021699999999996,
   "episodeId": "episode-004",
   "fade": {
     "inMs": 200,
@@ -125,12 +125,15 @@
     }
   },
   "overlays": {
-    "badge": null,
+    "badge": {
+      "text": "真实画面",
+      "tone": "real"
+    },
     "captionsEnabled": true,
-    "sourceLabel": null
+    "sourceLabel": "Cognition (official YouTube channel) · 真实画面"
   },
   "reasons": [
-    "scene seg-005 at frame 905 (272 frames, 30 fps)",
+    "scene seg-005 at frame 795 (286 frames, 30 fps)",
     "real media episode-004:media-clip:f0cc88c4c37cfea72d221ee9 trimmed 8000..12000ms (recommended 8000..12000ms)",
     "render proxy episode-004:media-render-proxy:seg-005 (video/mp4)",
     "audio mix original 0.259259 / narration 0.740741 duck 10dB"
@@ -138,7 +141,7 @@
   "renderProxyMediaType": "video/mp4",
   "renderProxyRef": {
     "artifactId": "episode-004:media-render-proxy:seg-005",
-    "createdAt": "2026-08-17T14:29:55.739Z",
+    "createdAt": "2026-08-16T16:33:23.134Z",
     "episodeId": "episode-004",
     "mediaType": "video/mp4",
     "path": "content/episode-004/media/render/seg-005.mp4",
@@ -191,8 +194,8 @@
     "visualIntent": "官方客户访谈画面收成案例卡,随后 20 万行 COBOL 与 8 天数字落下,再切到 89% 自用代码卡。"
   },
   "shotId": "episode-004:media-shot:seg-005",
-  "startFrame": 905,
-  "startSeconds": 30.166666666666668,
+  "startFrame": 795,
+  "startSeconds": 26.504999999999995,
   "staticFilePath": "episodes/episode-004/media/seg-005.mp4",
   "transform": {
     "freezeFrameMs": null,

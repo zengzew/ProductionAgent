@@ -1,0 +1,218 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 1.0588235294117647,
+    "startFrame": 0,
+    "endFrame": 32,
+    "text": "任务交出去"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-001",
+    "startSeconds": 1.0588235294117647,
+    "endSeconds": 3.6,
+    "startFrame": 32,
+    "endFrame": 108,
+    "text": "它自己打开浏览器开始干活"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 3.7800000000000002,
+    "endSeconds": 4.8619200000000005,
+    "startFrame": 113,
+    "endFrame": 146,
+    "text": "2024 年 3 月"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 4.8619200000000005,
+    "endSeconds": 7.33488,
+    "startFrame": 146,
+    "endFrame": 220,
+    "text": "Cognition 发布 Devin"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-002",
+    "startSeconds": 7.33488,
+    "endSeconds": 9.344159999999999,
+    "startFrame": 220,
+    "endFrame": 280,
+    "text": "称它是第一个 AI 软件工程师"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-002",
+    "startSeconds": 9.344159999999999,
+    "endSeconds": 11.508,
+    "startFrame": 280,
+    "endFrame": 345,
+    "text": "为什么写代码要它自己开浏览器"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-003",
+    "startSeconds": 11.697,
+    "endSeconds": 14.097,
+    "startFrame": 351,
+    "endFrame": 423,
+    "text": "它有浏览器、编辑器和终端"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-003",
+    "startSeconds": 14.097,
+    "endSeconds": 16.296999999999997,
+    "startFrame": 423,
+    "endFrame": 489,
+    "text": "先列计划，再一步步执行"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-003",
+    "startSeconds": 16.296999999999997,
+    "endSeconds": 17.697,
+    "startFrame": 489,
+    "endFrame": 531,
+    "text": "每一步都看得见"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-004",
+    "startSeconds": 17.877,
+    "endSeconds": 19.065923076923077,
+    "startFrame": 536,
+    "endFrame": 572,
+    "text": "团队做了一个选择"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-004",
+    "startSeconds": 19.065923076923077,
+    "endSeconds": 20.700692307692307,
+    "startFrame": 572,
+    "endFrame": 621,
+    "text": "Devin 2.0 把价格"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-004",
+    "startSeconds": 20.700692307692307,
+    "endSeconds": 21.889615384615382,
+    "startFrame": 621,
+    "endFrame": 657,
+    "text": "从每月 500 美元"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-004",
+    "startSeconds": 21.889615384615382,
+    "endSeconds": 23.673,
+    "startFrame": 657,
+    "endFrame": 710,
+    "text": "降到 20 美元一个任务可以"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-004",
+    "startSeconds": 23.673,
+    "endSeconds": 25.604999999999997,
+    "startFrame": 710,
+    "endFrame": 768,
+    "text": "同时开多个 Devin 并行干"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-005",
+    "startSeconds": 26.504999999999995,
+    "endSeconds": 27.687588235294115,
+    "startFrame": 795,
+    "endFrame": 831,
+    "text": "奔驰把 20 万行"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-005",
+    "startSeconds": 27.687588235294115,
+    "endSeconds": 28.70123529411764,
+    "startFrame": 831,
+    "endFrame": 861,
+    "text": "老代码的改造"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-005",
+    "startSeconds": 28.70123529411764,
+    "endSeconds": 30.390647058823525,
+    "startFrame": 861,
+    "endFrame": 912,
+    "text": "从预计 8 个月压到 8 天"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-005",
+    "startSeconds": 30.390647058823525,
+    "endSeconds": 32.080058823529406,
+    "startFrame": 912,
+    "endFrame": 962,
+    "text": "Cognition 说"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-005",
+    "startSeconds": 32.080058823529406,
+    "endSeconds": 33.431588235294114,
+    "startFrame": 962,
+    "endFrame": 1003,
+    "text": "公司 89% 的代码"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-005",
+    "startSeconds": 33.431588235294114,
+    "endSeconds": 35.120999999999995,
+    "startFrame": 1003,
+    "endFrame": 1054,
+    "text": "现在由 Devin 提交"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-006",
+    "startSeconds": 36.021699999999996,
+    "endSeconds": 38.3257,
+    "startFrame": 1081,
+    "endFrame": 1150,
+    "text": "现在，工程师把任务交给它"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-006",
+    "startSeconds": 38.3257,
+    "endSeconds": 39.4777,
+    "startFrame": 1150,
+    "endFrame": 1184,
+    "text": "负责检查结果"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-006",
+    "startSeconds": 39.4777,
+    "endSeconds": 41.0137,
+    "startFrame": 1184,
+    "endFrame": 1230,
+    "text": "开头那个任务还在"
+  },
+  {
+    "index": 24,
+    "sceneId": "seg-006",
+    "startSeconds": 41.0137,
+    "endSeconds": 43.125699999999995,
+    "startFrame": 1230,
+    "endFrame": 1294,
+    "text": "它自己的浏览器里往下做"
+  }
+]

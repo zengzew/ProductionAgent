@@ -2,44 +2,23 @@
   "asOf": "2026-08-16",
   "events": [
     {
-      "id": "evt-devin-000",
-      "dateLabel": "2023-08",
-      "sortDate": "2023-08-01",
-      "datePrecision": "month",
-      "event": "Scott Wu、Steven Hao、Walden Yan 创立 Cognition；三人均为 IOI 金牌得主。",
-      "eventType": "company",
-      "factIds": [
-        "claim-devin-012",
-        "claim-devin-013"
-      ],
-      "sourceIds": [
-        "src-devin-016",
-        "src-devin-017"
-      ],
-      "relationToPrevious": "not-applicable",
-      "storyFunction": "problem",
-      "notes": "创始人与需求来源；Wu 称奥赛背景有助于教 AI 做程序员。"
-    },
-    {
       "id": "evt-devin-001",
       "dateLabel": "2024-03-12",
       "sortDate": "2024-03-12",
       "datePrecision": "day",
-      "event": "Cognition 发布 Devin，官方称其为第一位 AI 软件工程师；同日发布官方演示视频与 SWE-bench 技术报告；发布前后 Founders Fund 提供 2100 万美元种子轮。",
+      "event": "Cognition 发布 Devin，官方称其为第一位 AI 软件工程师；同日发布官方演示视频与 SWE-bench 技术报告。",
       "eventType": "product",
       "factIds": [
         "claim-devin-002",
         "claim-devin-001",
-        "claim-devin-003",
-        "claim-devin-014",
-        "claim-devin-015"
+        "claim-devin-003"
       ],
       "sourceIds": [
         "src-devin-001",
         "src-devin-002"
       ],
-      "relationToPrevious": "chronology-only",
-      "storyFunction": "distribution-event",
+      "relationToPrevious": "not-applicable",
+      "storyFunction": "problem",
       "notes": "官方博客与视频同日发布（datePublished / 上传日期均为 2024-03-12）。"
     },
     {
@@ -121,8 +100,7 @@
       "event": "Cognition 以 25 亿美元 pre-money 估值融资超 10 亿美元；同日官方博客披露公司 89% 的自有代码由 Devin 提交。",
       "eventType": "growth",
       "factIds": [
-        "claim-devin-008",
-        "claim-devin-016"
+        "claim-devin-008"
       ],
       "sourceIds": [
         "src-devin-007",

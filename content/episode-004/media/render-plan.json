@@ -1,15 +1,15 @@
 {
   "artifactRef": {
     "artifactId": "episode-004:media:render-plan",
-    "createdAt": "2026-08-17T14:29:56.874Z",
+    "createdAt": "2026-08-16T16:33:23.566Z",
     "episodeId": "episode-004",
     "mediaType": "application/json",
     "path": "content/episode-004/media/render-plan.json",
     "producer": "media-render-v1",
     "revision": 1,
     "schemaVersion": "media-render-plan-v1",
-    "sha256": "68a890c7f2c63ad1a254c3de4e815580e9bf90e568cac0c143bd2851b25507c4",
-    "sizeBytes": 58531
+    "sha256": "0176204d5c6c5291e5b2980f12fd866aa1c853ce7b657aaf8256d9ef417144dc",
+    "sizeBytes": 59177
   },
   "config": {
     "canvas": {
@@ -22,10 +22,10 @@
       "id": "ffmpeg",
       "version": "ffmpeg-render-proxy-v1"
     },
-    "timelineSha256": "cf4b51e9262ebcd424b429ff46e05a18760887e08905fcf1513ede657e783c7b",
+    "timelineSha256": "e9c961bce7a0ee9cbd0e8e5cd7ce5c7099f78816b913bfc39fb5a91ddcf243a0",
     "version": "media-render-config-v1"
   },
-  "createdAt": "2026-08-17T14:29:56.872Z",
+  "createdAt": "2026-08-16T16:33:23.565Z",
   "episodeId": "episode-004",
   "fps": 30,
   "layoutVariant": "poke-standard",
@@ -35,15 +35,15 @@
     {
       "artifactRef": {
         "artifactId": "episode-004:media-shot:seg-001",
-        "createdAt": "2026-08-17T14:29:50.946Z",
+        "createdAt": "2026-08-16T16:33:22.005Z",
         "episodeId": "episode-004",
         "mediaType": "application/json",
         "path": "content/episode-004/media/shots/seg-001.json",
         "producer": "media-render-v1",
         "revision": 1,
         "schemaVersion": "media-shot-v1",
-        "sha256": "802078443185d9d997701ccc5a77017ebe41a5a793aa00802f3f99bbd0f1f4c1",
-        "sizeBytes": 8274
+        "sha256": "2d4a3ea48c6c8c79f84760625b70d78a09046322bbd733fede0f26b112c6f353",
+        "sizeBytes": 8378
       },
       "audio": {
         "ducking": {
@@ -68,13 +68,13 @@
           "id": "ffmpeg",
           "version": "ffmpeg-render-proxy-v1"
         },
-        "timelineSha256": "cf4b51e9262ebcd424b429ff46e05a18760887e08905fcf1513ede657e783c7b",
+        "timelineSha256": "e9c961bce7a0ee9cbd0e8e5cd7ce5c7099f78816b913bfc39fb5a91ddcf243a0",
         "version": "media-render-config-v1"
       },
-      "createdAt": "2026-08-17T14:29:50.945Z",
+      "createdAt": "2026-08-16T16:33:22.005Z",
       "crossfadeMs": 0,
       "durationFrames": 113,
-      "endSeconds": 3.7666666666666666,
+      "endSeconds": 3.7800000000000002,
       "episodeId": "episode-004",
       "fade": {
         "inMs": 200,
@@ -159,9 +159,12 @@
         }
       },
       "overlays": {
-        "badge": null,
+        "badge": {
+          "text": "真实画面",
+          "tone": "real"
+        },
         "captionsEnabled": true,
-        "sourceLabel": null
+        "sourceLabel": "Cognition (official YouTube channel) · 真实画面"
       },
       "reasons": [
         "scene seg-001 at frame 0 (113 frames, 30 fps)",
@@ -172,7 +175,7 @@
       "renderProxyMediaType": "video/mp4",
       "renderProxyRef": {
         "artifactId": "episode-004:media-render-proxy:seg-001",
-        "createdAt": "2026-08-17T14:29:50.764Z",
+        "createdAt": "2026-08-16T16:33:21.942Z",
         "episodeId": "episode-004",
         "mediaType": "video/mp4",
         "path": "content/episode-004/media/render/seg-001.mp4",
@@ -279,15 +282,15 @@
     {
       "artifactRef": {
         "artifactId": "episode-004:media-shot:seg-002",
-        "createdAt": "2026-08-17T14:29:52.977Z",
+        "createdAt": "2026-08-16T16:33:22.275Z",
         "episodeId": "episode-004",
         "mediaType": "application/json",
         "path": "content/episode-004/media/shots/seg-002.json",
         "producer": "media-render-v1",
         "revision": 1,
         "schemaVersion": "media-shot-v1",
-        "sha256": "6f713d9a2880f9f85a60fe691096feba09fd6464082d5c4721db98ae52cbaa18",
-        "sizeBytes": 8111
+        "sha256": "73e58edb54369f929313e8ec0eff3b70c0bbab3380892bfeb2ffca237af138c5",
+        "sizeBytes": 8203
       },
       "audio": {
         "ducking": {
@@ -312,13 +315,13 @@
           "id": "ffmpeg",
           "version": "ffmpeg-render-proxy-v1"
         },
-        "timelineSha256": "cf4b51e9262ebcd424b429ff46e05a18760887e08905fcf1513ede657e783c7b",
+        "timelineSha256": "e9c961bce7a0ee9cbd0e8e5cd7ce5c7099f78816b913bfc39fb5a91ddcf243a0",
         "version": "media-render-config-v1"
       },
-      "createdAt": "2026-08-17T14:29:52.976Z",
+      "createdAt": "2026-08-16T16:33:22.275Z",
       "crossfadeMs": 0,
-      "durationFrames": 221,
-      "endSeconds": 11.133333333333333,
+      "durationFrames": 238,
+      "endSeconds": 11.697,
       "episodeId": "episode-004",
       "fade": {
         "inMs": 200,
@@ -403,12 +406,15 @@
         }
       },
       "overlays": {
-        "badge": null,
+        "badge": {
+          "text": "真实画面",
+          "tone": "real"
+        },
         "captionsEnabled": true,
-        "sourceLabel": null
+        "sourceLabel": "Cognition (official YouTube channel) · 真实画面"
       },
       "reasons": [
-        "scene seg-002 at frame 113 (221 frames, 30 fps)",
+        "scene seg-002 at frame 113 (238 frames, 30 fps)",
         "real media episode-004:media-clip:0c99d3720ab2d924d4c07759 trimmed 5000..8000ms (recommended 5000..8000ms)",
         "render proxy episode-004:media-render-proxy:seg-002 (video/mp4)",
         "audio mix original 0.259259 / narration 0.740741 duck 10dB"
@@ -416,7 +422,7 @@
       "renderProxyMediaType": "video/mp4",
       "renderProxyRef": {
         "artifactId": "episode-004:media-render-proxy:seg-002",
-        "createdAt": "2026-08-17T14:29:52.457Z",
+        "createdAt": "2026-08-16T16:33:22.217Z",
         "episodeId": "episode-004",
         "mediaType": "video/mp4",
         "path": "content/episode-004/media/render/seg-002.mp4",
@@ -469,7 +475,7 @@
       },
       "shotId": "episode-004:media-shot:seg-002",
       "startFrame": 113,
-      "startSeconds": 3.7666666666666666,
+      "startSeconds": 3.7800000000000002,
       "staticFilePath": "episodes/episode-004/media/seg-002.mp4",
       "transform": {
         "freezeFrameMs": null,
@@ -523,15 +529,15 @@
     {
       "artifactRef": {
         "artifactId": "episode-004:media-shot:seg-003",
-        "createdAt": "2026-08-17T14:29:54.250Z",
+        "createdAt": "2026-08-16T16:33:22.582Z",
         "episodeId": "episode-004",
         "mediaType": "application/json",
         "path": "content/episode-004/media/shots/seg-003.json",
         "producer": "media-render-v1",
         "revision": 1,
         "schemaVersion": "media-shot-v1",
-        "sha256": "8138f53188d80a60aac5bebd099439c9a2fbf6c2d30b01526e7a271e1f872852",
-        "sizeBytes": 8218
+        "sha256": "ad02c4cbcbca811c225b78fd8184fe4f041499a2c9512f0dd7a0a91d7e0ce601",
+        "sizeBytes": 8298
       },
       "audio": {
         "ducking": {
@@ -556,13 +562,13 @@
           "id": "ffmpeg",
           "version": "ffmpeg-render-proxy-v1"
         },
-        "timelineSha256": "cf4b51e9262ebcd424b429ff46e05a18760887e08905fcf1513ede657e783c7b",
+        "timelineSha256": "e9c961bce7a0ee9cbd0e8e5cd7ce5c7099f78816b913bfc39fb5a91ddcf243a0",
         "version": "media-render-config-v1"
       },
-      "createdAt": "2026-08-17T14:29:54.249Z",
+      "createdAt": "2026-08-16T16:33:22.582Z",
       "crossfadeMs": 0,
-      "durationFrames": 243,
-      "endSeconds": 19.233333333333334,
+      "durationFrames": 185,
+      "endSeconds": 17.877,
       "episodeId": "episode-004",
       "fade": {
         "inMs": 200,
@@ -647,12 +653,15 @@
         }
       },
       "overlays": {
-        "badge": null,
+        "badge": {
+          "text": "真实画面",
+          "tone": "real"
+        },
         "captionsEnabled": true,
-        "sourceLabel": null
+        "sourceLabel": "Cognition (official YouTube channel) · 真实画面"
       },
       "reasons": [
-        "scene seg-003 at frame 334 (243 frames, 30 fps)",
+        "scene seg-003 at frame 351 (185 frames, 30 fps)",
         "real media episode-004:media-clip:1c1db356472d0d93d4ff36ac trimmed 332000..336000ms (recommended 332000..336000ms)",
         "render proxy episode-004:media-render-proxy:seg-003 (video/mp4)",
         "audio mix original 0.259259 / narration 0.740741 duck 10dB"
@@ -660,7 +669,7 @@
       "renderProxyMediaType": "video/mp4",
       "renderProxyRef": {
         "artifactId": "episode-004:media-render-proxy:seg-003",
-        "createdAt": "2026-08-17T14:29:54.052Z",
+        "createdAt": "2026-08-16T16:33:22.526Z",
         "episodeId": "episode-004",
         "mediaType": "video/mp4",
         "path": "content/episode-004/media/render/seg-003.mp4",
@@ -713,8 +722,8 @@
         "visualIntent": "官方演示里 Devin 的计划列表、浏览器、编辑器与终端依次进入画面,随后每一步操作持续可见,标“功能演示”。"
       },
       "shotId": "episode-004:media-shot:seg-003",
-      "startFrame": 334,
-      "startSeconds": 11.133333333333333,
+      "startFrame": 351,
+      "startSeconds": 11.697,
       "staticFilePath": "episodes/episode-004/media/seg-003.mp4",
       "transform": {
         "freezeFrameMs": null,
@@ -768,15 +777,15 @@
     {
       "artifactRef": {
         "artifactId": "episode-004:media-shot:seg-004",
-        "createdAt": "2026-08-17T14:29:55.127Z",
+        "createdAt": "2026-08-16T16:33:22.894Z",
         "episodeId": "episode-004",
         "mediaType": "application/json",
         "path": "content/episode-004/media/shots/seg-004.json",
         "producer": "media-render-v1",
         "revision": 1,
         "schemaVersion": "media-shot-v1",
-        "sha256": "667177bbc499ae10fe2d2a3d1f7c17404672d73585ebc1d0a5bd98134416d19d",
-        "sizeBytes": 8198
+        "sha256": "e05f7c85c39391bc24d244d01cd104b4c65ab24856e5edfeb5937dda89feb98d",
+        "sizeBytes": 8290
       },
       "audio": {
         "ducking": {
@@ -801,13 +810,13 @@
           "id": "ffmpeg",
           "version": "ffmpeg-render-proxy-v1"
         },
-        "timelineSha256": "cf4b51e9262ebcd424b429ff46e05a18760887e08905fcf1513ede657e783c7b",
+        "timelineSha256": "e9c961bce7a0ee9cbd0e8e5cd7ce5c7099f78816b913bfc39fb5a91ddcf243a0",
         "version": "media-render-config-v1"
       },
-      "createdAt": "2026-08-17T14:29:55.126Z",
+      "createdAt": "2026-08-16T16:33:22.894Z",
       "crossfadeMs": 0,
-      "durationFrames": 328,
-      "endSeconds": 30.166666666666668,
+      "durationFrames": 259,
+      "endSeconds": 26.504999999999995,
       "episodeId": "episode-004",
       "fade": {
         "inMs": 200,
@@ -892,12 +901,15 @@
         }
       },
       "overlays": {
-        "badge": null,
+        "badge": {
+          "text": "真实画面",
+          "tone": "real"
+        },
         "captionsEnabled": true,
-        "sourceLabel": null
+        "sourceLabel": "Cognition (official YouTube channel) · 真实画面"
       },
       "reasons": [
-        "scene seg-004 at frame 577 (328 frames, 30 fps)",
+        "scene seg-004 at frame 536 (259 frames, 30 fps)",
         "real media episode-004:media-clip:99faf2d74c1b9d53b300d5fa trimmed 236000..240000ms (recommended 236000..240000ms)",
         "render proxy episode-004:media-render-proxy:seg-004 (video/mp4)",
         "audio mix original 0.259259 / narration 0.740741 duck 10dB"
@@ -905,7 +917,7 @@
       "renderProxyMediaType": "video/mp4",
       "renderProxyRef": {
         "artifactId": "episode-004:media-render-proxy:seg-004",
-        "createdAt": "2026-08-17T14:29:54.969Z",
+        "createdAt": "2026-08-16T16:33:22.838Z",
         "episodeId": "episode-004",
         "mediaType": "video/mp4",
         "path": "content/episode-004/media/render/seg-004.mp4",
@@ -958,8 +970,8 @@
         "visualIntent": "官方演示收成价格对比卡,随后“20 美元”落下,多个平行 Devin 的执行画面铺开,标“功能演示”。"
       },
       "shotId": "episode-004:media-shot:seg-004",
-      "startFrame": 577,
-      "startSeconds": 19.233333333333334,
+      "startFrame": 536,
+      "startSeconds": 17.877,
       "staticFilePath": "episodes/episode-004/media/seg-004.mp4",
       "transform": {
         "freezeFrameMs": null,
@@ -1013,15 +1025,15 @@
     {
       "artifactRef": {
         "artifactId": "episode-004:media-shot:seg-005",
-        "createdAt": "2026-08-17T14:29:55.901Z",
+        "createdAt": "2026-08-16T16:33:23.187Z",
         "episodeId": "episode-004",
         "mediaType": "application/json",
         "path": "content/episode-004/media/shots/seg-005.json",
         "producer": "media-render-v1",
         "revision": 1,
         "schemaVersion": "media-shot-v1",
-        "sha256": "ac727630084a08df88cc9af55f495a6662a4ccf45b71cde96f0882bfce2f459a",
-        "sizeBytes": 8218
+        "sha256": "64a58b13467502a46e9daf3df2d742016f01a26c0f5337b5b9ada73bf8c3ee93",
+        "sizeBytes": 8322
       },
       "audio": {
         "ducking": {
@@ -1046,13 +1058,13 @@
           "id": "ffmpeg",
           "version": "ffmpeg-render-proxy-v1"
         },
-        "timelineSha256": "cf4b51e9262ebcd424b429ff46e05a18760887e08905fcf1513ede657e783c7b",
+        "timelineSha256": "e9c961bce7a0ee9cbd0e8e5cd7ce5c7099f78816b913bfc39fb5a91ddcf243a0",
         "version": "media-render-config-v1"
       },
-      "createdAt": "2026-08-17T14:29:55.900Z",
+      "createdAt": "2026-08-16T16:33:23.187Z",
       "crossfadeMs": 0,
-      "durationFrames": 272,
-      "endSeconds": 39.233333333333334,
+      "durationFrames": 286,
+      "endSeconds": 36.021699999999996,
       "episodeId": "episode-004",
       "fade": {
         "inMs": 200,
@@ -1137,12 +1149,15 @@
         }
       },
       "overlays": {
-        "badge": null,
+        "badge": {
+          "text": "真实画面",
+          "tone": "real"
+        },
         "captionsEnabled": true,
-        "sourceLabel": null
+        "sourceLabel": "Cognition (official YouTube channel) · 真实画面"
       },
       "reasons": [
-        "scene seg-005 at frame 905 (272 frames, 30 fps)",
+        "scene seg-005 at frame 795 (286 frames, 30 fps)",
         "real media episode-004:media-clip:f0cc88c4c37cfea72d221ee9 trimmed 8000..12000ms (recommended 8000..12000ms)",
         "render proxy episode-004:media-render-proxy:seg-005 (video/mp4)",
         "audio mix original 0.259259 / narration 0.740741 duck 10dB"
@@ -1150,7 +1165,7 @@
       "renderProxyMediaType": "video/mp4",
       "renderProxyRef": {
         "artifactId": "episode-004:media-render-proxy:seg-005",
-        "createdAt": "2026-08-17T14:29:55.739Z",
+        "createdAt": "2026-08-16T16:33:23.134Z",
         "episodeId": "episode-004",
         "mediaType": "video/mp4",
         "path": "content/episode-004/media/render/seg-005.mp4",
@@ -1203,8 +1218,8 @@
         "visualIntent": "官方客户访谈画面收成案例卡,随后 20 万行 COBOL 与 8 天数字落下,再切到 89% 自用代码卡。"
       },
       "shotId": "episode-004:media-shot:seg-005",
-      "startFrame": 905,
-      "startSeconds": 30.166666666666668,
+      "startFrame": 795,
+      "startSeconds": 26.504999999999995,
       "staticFilePath": "episodes/episode-004/media/seg-005.mp4",
       "transform": {
         "freezeFrameMs": null,
@@ -1258,15 +1273,15 @@
     {
       "artifactRef": {
         "artifactId": "episode-004:media-shot:seg-006",
-        "createdAt": "2026-08-17T14:29:56.713Z",
+        "createdAt": "2026-08-16T16:33:23.507Z",
         "episodeId": "episode-004",
         "mediaType": "application/json",
         "path": "content/episode-004/media/shots/seg-006.json",
         "producer": "media-render-v1",
         "revision": 1,
         "schemaVersion": "media-shot-v1",
-        "sha256": "14904ef8d81f8a2a55c47df7341c6ffd40dd1871e7caf73a31ea5d401155457f",
-        "sizeBytes": 8217
+        "sha256": "a69ab38ea85e7151ce53b83caabe20067d6ba309c64929c094d4a899645b107e",
+        "sizeBytes": 8320
       },
       "audio": {
         "ducking": {
@@ -1291,13 +1306,13 @@
           "id": "ffmpeg",
           "version": "ffmpeg-render-proxy-v1"
         },
-        "timelineSha256": "cf4b51e9262ebcd424b429ff46e05a18760887e08905fcf1513ede657e783c7b",
+        "timelineSha256": "e9c961bce7a0ee9cbd0e8e5cd7ce5c7099f78816b913bfc39fb5a91ddcf243a0",
         "version": "media-render-config-v1"
       },
-      "createdAt": "2026-08-17T14:29:56.712Z",
+      "createdAt": "2026-08-16T16:33:23.506Z",
       "crossfadeMs": 0,
-      "durationFrames": 180,
-      "endSeconds": 45.233333333333334,
+      "durationFrames": 240,
+      "endSeconds": 44.02569999999999,
       "episodeId": "episode-004",
       "fade": {
         "inMs": 200,
@@ -1382,12 +1397,15 @@
         }
       },
       "overlays": {
-        "badge": null,
+        "badge": {
+          "text": "真实画面",
+          "tone": "real"
+        },
         "captionsEnabled": true,
-        "sourceLabel": null
+        "sourceLabel": "Cognition (official YouTube channel) · 真实画面"
       },
       "reasons": [
-        "scene seg-006 at frame 1177 (180 frames, 30 fps)",
+        "scene seg-006 at frame 1081 (240 frames, 30 fps)",
         "real media episode-004:media-clip:b2fa89a4afdb82beae3b5f1d trimmed 304000..308000ms (recommended 304000..308000ms)",
         "render proxy episode-004:media-render-proxy:seg-006 (video/mp4)",
         "audio mix original 0.259259 / narration 0.740741 duck 10dB"
@@ -1395,7 +1413,7 @@
       "renderProxyMediaType": "video/mp4",
       "renderProxyRef": {
         "artifactId": "episode-004:media-render-proxy:seg-006",
-        "createdAt": "2026-08-17T14:29:56.557Z",
+        "createdAt": "2026-08-16T16:33:23.451Z",
         "episodeId": "episode-004",
         "mediaType": "video/mp4",
         "path": "content/episode-004/media/render/seg-006.mp4",
@@ -1448,8 +1466,8 @@
         "visualIntent": "官方定位卡落下后,回到开场同一条仍在执行的任务画面:它还在自己的浏览器里往下做,持续标“功能演示”。"
       },
       "shotId": "episode-004:media-shot:seg-006",
-      "startFrame": 1177,
-      "startSeconds": 39.233333333333334,
+      "startFrame": 1081,
+      "startSeconds": 36.021699999999996,
       "staticFilePath": "episodes/episode-004/media/seg-006.mp4",
       "transform": {
         "freezeFrameMs": null,
@@ -1501,7 +1519,7 @@
       "visualType": "real-media"
     }
   ],
-  "timelineSha256": "cf4b51e9262ebcd424b429ff46e05a18760887e08905fcf1513ede657e783c7b",
-  "totalFrames": 1357,
-  "totalSeconds": 45.233333333333334
+  "timelineSha256": "e9c961bce7a0ee9cbd0e8e5cd7ce5c7099f78816b913bfc39fb5a91ddcf243a0",
+  "totalFrames": 1321,
+  "totalSeconds": 44.03333333333333
 }
