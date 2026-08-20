@@ -4,16 +4,26 @@ import path from "node:path";
 import {afterEach, describe, expect, it} from "vitest";
 import {
   agentModelPolicyFile,
+  applyAuthorizedRepair,
+  assertProtectedSnapshotUnchanged,
   assertRepairAuthorization,
   buildScriptWriterBenchmarkRequest,
   createFakeHostedChatProvider,
   diagnoseBenchmarkResult,
+  formatBenchmarkOutcome,
+  hashBenchmarkIdentity,
+  hashRepairContext,
   isProtectedRepairPath,
   parseRoleModelAutoRepairConfig,
   parseRoleModelBenchmarkConfig,
+  planCatalogRepair,
   runAutonomousRoleBenchmark,
+  runRoleModelBenchmark,
+  SCRIPT_DRAFT_OUTPUT_FORMAT_SECTION,
   SCRIPT_DRAFT_REQUIRED_MARKERS,
+  selectFairReviewCohort,
   selectRepair,
+  snapshotProtectedPaths,
   stableJson,
   type AgentExecutionRequest,
   type AutoRepairDiagnosis,
@@ -421,6 +431,9 @@ describe("M6 autonomous role benchmark", () => {
             model: "cand-alpha",
             cacheHit: false,
             status: "SUCCEEDED",
+            outcome: "FAIL",
+            repairRound: 0,
+            repairContextHash: "c".repeat(64),
             schemaValid: false,
             expectedOutputsComplete: true,
             hardValidators: {status: "FAIL", failures: ["script-draft-missing-segments"]},
@@ -516,5 +529,298 @@ describe("M6 autonomous role benchmark", () => {
     expect(summary.status).toBe("review-ready");
     expect(summary.apiCalls).toBe(2);
     expect(summary.automaticPromotion).toBe(false);
+  });
+
+  it("does not let benchmark:role reuse a repaired cache identity", async () => {
+    const {repoRoot, episodeId} = setup();
+    writeFile(
+      repoRoot,
+      `content/${episodeId}/prompts/script-writer.md`,
+      `write the draft\n\n${SCRIPT_DRAFT_REQUIRED_MARKERS.join("\n")}\n`,
+    );
+    const config = benchmarkConfig();
+    await runAutonomousRoleBenchmark({
+      repoRoot,
+      episodeId,
+      runId: "auto-cache",
+      benchmarkConfig: config,
+      autoConfig: autoConfig(),
+      env: {OPENAI_API_KEY: "test-key"},
+      chat: async (call) => {
+        const user = call.messages.find((message) => message.role === "user")?.content ?? "";
+        if (!user.includes("CANDIDATE OUTPUT REPAIR")) {
+          return "# Script Draft\n\n状态：`draft-ready`\n";
+        }
+        return hostedOutput(
+          requestFor(repoRoot, episodeId),
+          draftFor(["claim-alpha-001", "claim-alpha-002"]),
+        );
+      },
+      createdAt: () => "2026-08-20T00:00:00.000Z",
+      sleep: async () => undefined,
+      runTests: async () => ({ok: true, output: "ok"}),
+      onProgress: () => undefined,
+    });
+    let roleCalls = 0;
+    const request = requestFor(repoRoot, episodeId);
+    const {result} = await runRoleModelBenchmark({
+      repoRoot,
+      request,
+      config,
+      env: {OPENAI_API_KEY: "test-key"},
+      chat: async () => {
+        roleCalls += 1;
+        return hostedOutput(request, draftFor(["claim-alpha-001", "claim-alpha-002"]));
+      },
+      createdAt: () => "2026-08-20T00:00:00.000Z",
+      sleep: async () => undefined,
+      onProgress: () => undefined,
+    });
+    expect(roleCalls).toBe(2);
+    expect(result.candidates.every((candidate) => candidate.cacheHit === false)).toBe(true);
+    expect(result.candidates.every((candidate) => candidate.repairRound === 0)).toBe(true);
+    expect(result.candidates.map((candidate) => candidate.outcome)).toEqual(["PASS", "PASS"]);
+    expect(
+      hashBenchmarkIdentity({
+        inputHash: result.inputHash,
+        agentName: "script-writer",
+        provider: "openai-compatible",
+        model: "cand-alpha",
+        promptVersion: `${request.promptRef.schemaVersion}:${request.promptRef.sha256}`,
+      }),
+    ).not.toBe(
+      hashBenchmarkIdentity({
+        inputHash: result.inputHash,
+        agentName: "script-writer",
+        provider: "openai-compatible",
+        model: "cand-alpha",
+        promptVersion: `${request.promptRef.schemaVersion}:${request.promptRef.sha256}`,
+        repairContextHash: hashRepairContext({appendix: "CANDIDATE OUTPUT REPAIR", repairRound: 1}),
+      }),
+    );
+  });
+
+  it("keeps repaired and unrepaired candidates out of the same review cohort", () => {
+    const mixed = [
+      {
+        candidateId: "cand-alpha",
+        repairRound: 0,
+        repairContextHash: hashRepairContext(),
+        outcome: "PASS" as const,
+      },
+      {
+        candidateId: "cand-beta",
+        repairRound: 1,
+        repairContextHash: hashRepairContext({appendix: "repair", repairRound: 1}),
+        outcome: "PASS_AFTER_REPAIR" as const,
+      },
+    ].map((item) => ({
+      schemaVersion: "model-benchmark-v1" as const,
+      kind: "candidate" as const,
+      benchmarkId: "bm-test",
+      identity: "d".repeat(64),
+      provider: "openai-compatible",
+      model: item.candidateId,
+      cacheHit: false,
+      status: "SUCCEEDED" as const,
+      schemaValid: true,
+      expectedOutputsComplete: true,
+      hardValidators: {status: "PASS" as const, failures: []},
+      factualContract: {
+        status: "PASS" as const,
+        claimIds: ["claim-alpha-001"],
+        unsupportedClaimIds: [],
+        unsupportedClaimCount: 0,
+        claimCoverage: 1,
+      },
+      downstreamCritic: {
+        status: "not-evaluated" as const,
+        score: null,
+        verdict: null,
+        blockerCount: 0,
+        detail: "not run",
+      },
+      latencyMs: 1,
+      attempt: 1,
+      retryCount: 0,
+      usage: {inputTokens: null, outputTokens: null, totalTokens: null},
+      outputArtifacts: [],
+      outputHashes: [],
+      outputLength: 1,
+      failureDetail: null,
+      promotionEligible: item.repairRound === 0,
+      ineligibilityReasons: item.repairRound === 0 ? [] : ["repaired-payload"],
+      ...item,
+    }));
+    const cohort = selectFairReviewCohort(mixed);
+    expect(cohort).toHaveLength(1);
+    expect(cohort[0]?.candidateId).toBe("cand-alpha");
+    expect(formatBenchmarkOutcome(mixed[1]!)).toBe("PASS_AFTER_REPAIR(round=1)");
+  });
+
+  it("runs a repair executor only against staging and then applies an authorized patch", async () => {
+    const {repoRoot, episodeId} = setup();
+    const promptPath = `content/${episodeId}/prompts/script-writer.md`;
+    const {summary} = await runAutonomousRoleBenchmark({
+      repoRoot,
+      episodeId,
+      runId: "auto-executor",
+      benchmarkConfig: benchmarkConfig(),
+      autoConfig: autoConfig(),
+      env: {OPENAI_API_KEY: "test-key"},
+      repairExecutor: async (task) => {
+        expect(task.stagingRoot).not.toBe(task.repoRoot);
+        const staged = path.join(task.stagingRoot, task.promptPath);
+        fs.appendFileSync(staged, `\n${SCRIPT_DRAFT_OUTPUT_FORMAT_SECTION}`);
+        expect(fs.readFileSync(path.join(task.repoRoot, task.promptPath), "utf8")).toBe(
+          "write the draft\n",
+        );
+        return {files: [], detail: "executor wrote staging only"};
+      },
+      chat: async (call) => {
+        const system = call.messages.find((message) => message.role === "system")?.content ?? "";
+        const ready = SCRIPT_DRAFT_REQUIRED_MARKERS.every((marker) => system.includes(marker));
+        return hostedOutput(
+          requestFor(repoRoot, episodeId),
+          ready ? draftFor(["claim-alpha-001", "claim-alpha-002"]) : segmentTitleDraft,
+        );
+      },
+      createdAt: () => "2026-08-20T00:00:00.000Z",
+      sleep: async () => undefined,
+      runTests: async () => ({ok: true, output: "ok"}),
+      onProgress: () => undefined,
+    });
+    expect(summary.status).toBe("review-ready");
+    expect(fs.readFileSync(path.join(repoRoot, promptPath), "utf8")).toContain("## seg-");
+  });
+
+  it("fails closed when an executor mutates the main working tree", async () => {
+    const {repoRoot, episodeId} = setup();
+    const {summary} = await runAutonomousRoleBenchmark({
+      repoRoot,
+      episodeId,
+      runId: "auto-executor-touch",
+      benchmarkConfig: benchmarkConfig(),
+      autoConfig: autoConfig(),
+      env: {OPENAI_API_KEY: "test-key"},
+      repairExecutor: async (task) => {
+        fs.writeFileSync(path.join(task.repoRoot, task.promptPath), "touched-main\n");
+        return {files: [], detail: "touched main"};
+      },
+      chat: async () => hostedOutput(requestFor(repoRoot, episodeId), segmentTitleDraft),
+      createdAt: () => "2026-08-20T00:00:00.000Z",
+      sleep: async () => undefined,
+      runTests: async () => ({ok: true, output: "ok"}),
+      onProgress: () => undefined,
+    });
+    expect(summary.status).toBe("protected-violation");
+    expect(summary.stopReason).toMatch(/EXECUTOR_TOUCHED_WORKING_TREE/u);
+  });
+
+  it("snapshots nested protected directories", () => {
+    const {repoRoot, episodeId} = setup();
+    writeFile(repoRoot, "editorial-calibration/policies/nested.json", '{"ok":true}\n');
+    const before = snapshotProtectedPaths({repoRoot, episodeId});
+    expect(before["editorial-calibration/policies/nested.json"]).toBeDefined();
+    expect(before[`content/${episodeId}/research/facts.json`]).toBeDefined();
+    writeFile(repoRoot, "editorial-calibration/policies/nested.json", '{"ok":false}\n');
+    const after = snapshotProtectedPaths({repoRoot, episodeId});
+    expect(() => assertProtectedSnapshotUnchanged(before, after)).toThrow(
+      /PROTECTED_PATH_MUTATED:editorial-calibration\/policies\/nested.json/u,
+    );
+  });
+
+  it("writes timeout bounds to disk when the config file exists", async () => {
+    const {repoRoot, episodeId} = setup();
+    const config = benchmarkConfig();
+    writeFile(repoRoot, "config/role-model-benchmark.json", `${stableJson(config)}\n`);
+    const diagnosis = diagnoseBenchmarkResult({
+      repoRoot,
+      promptPath: `content/${episodeId}/prompts/script-writer.md`,
+      result: {
+        schemaVersion: "model-benchmark-v1",
+        kind: "result",
+        benchmarkId: "bm-test",
+        inputHash: "a".repeat(64),
+        episodeId,
+        agentName: "script-writer",
+        policyVersion: "role-model-rollout-v1",
+        candidateIds: ["cand-alpha"],
+        candidates: [
+          {
+            schemaVersion: "model-benchmark-v1",
+            kind: "candidate",
+            benchmarkId: "bm-test",
+            identity: "b".repeat(64),
+            candidateId: "cand-alpha",
+            provider: "openai-compatible",
+            model: "cand-alpha",
+            cacheHit: false,
+            status: "FAILED",
+            outcome: "FAIL",
+            repairRound: 0,
+            repairContextHash: "c".repeat(64),
+            schemaValid: false,
+            expectedOutputsComplete: false,
+            hardValidators: {status: "FAIL", failures: []},
+            factualContract: {
+              status: "PASS",
+              claimIds: [],
+              unsupportedClaimIds: [],
+              unsupportedClaimCount: 0,
+              claimCoverage: 0,
+            },
+            downstreamCritic: {
+              status: "not-evaluated",
+              score: null,
+              verdict: null,
+              blockerCount: 0,
+              detail: "not run",
+            },
+            latencyMs: 1,
+            attempt: 1,
+            retryCount: 0,
+            usage: {inputTokens: null, outputTokens: null, totalTokens: null},
+            outputArtifacts: [],
+            outputHashes: [],
+            outputLength: 0,
+            failureDetail: "网络请求失败（1 次尝试，30000ms 超时）",
+            promotionEligible: false,
+            ineligibilityReasons: ["schema-invalid"],
+          },
+        ],
+        pairwise: [],
+        eligibleCandidateIds: [],
+        automaticPromotion: false,
+        promotionRequires: "explicit-config-or-human-decision",
+        canonicalUnchanged: true,
+        humanReview: {notes: null, preferredCandidateId: null, decisionId: null},
+      },
+    })[0];
+    expect(diagnosis?.code).toBe("transport-timeout");
+    const applied = await applyAuthorizedRepair({
+      repoRoot,
+      episodeId,
+      runId: "timeout-write",
+      diagnosis: diagnosis!,
+      promptPath: `content/${episodeId}/prompts/script-writer.md`,
+      config,
+    });
+    expect(applied.runtimeOverride).toBe(false);
+    expect(applied.files).toContain("config/role-model-benchmark.json");
+    const written = JSON.parse(
+      fs.readFileSync(path.join(repoRoot, "config/role-model-benchmark.json"), "utf8"),
+    ) as {candidates: Record<string, {timeoutMs: number; maxRetries: number}>};
+    expect(written.candidates["cand-alpha"]?.timeoutMs).toBe(300_000);
+    expect(written.candidates["cand-alpha"]?.maxRetries).toBe(0);
+    const {repoRoot: memoryRoot} = setup();
+    const memoryOnly = planCatalogRepair({
+      repoRoot: memoryRoot,
+      diagnosis: diagnosis!,
+      promptPath: `content/${episodeId}/prompts/script-writer.md`,
+      config: benchmarkConfig(),
+    });
+    expect(memoryOnly.runtimeOverride).toBe(true);
+    expect(memoryOnly.files).toEqual([]);
   });
 });

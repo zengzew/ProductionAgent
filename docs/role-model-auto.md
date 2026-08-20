@@ -7,7 +7,33 @@
 
 The loop is `preflight → benchmark → deterministic diagnosis → bounded
 repair → test → rerun → review-ready`. Failure taxonomy and routing are
-decided in code. An executor may apply only an authorized repair.
+decided in code. An executor may apply only an authorized repair, and
+only through a staging worktree.
+
+## Identity and fairness
+
+Candidate cache identity is:
+
+```text
+sha256(inputHash + role + provider + model + prompt version + repairContextHash)
+```
+
+`repairContextHash` is `sha256({appendix, repairRound})`. The base run uses
+an empty appendix and `repairRound=0`. A repair appendix change produces a
+new identity, so `pnpm benchmark:role` cannot reuse a repaired cache.
+
+Outcomes are explicit:
+
+| Outcome                      | Meaning                                 |
+| ---------------------------- | --------------------------------------- |
+| `PASS`                       | First-try success on the frozen payload |
+| `PASS_AFTER_REPAIR(round=n)` | Success only after a repair payload     |
+| `FAIL`                       | Hosted or validator failure             |
+
+Pairwise comparison and blind review only include candidates that share the
+same `repairContextHash`. Mixed base/repair variants are never head-to-head.
+A repaired payload is not promotion-eligible (`repaired-payload`).
+`automaticPromotion` remains `false`.
 
 ## Budgets
 
@@ -30,20 +56,41 @@ Exhaustion stops the loop. It never retries forever.
 | auth, canonical tamper, protected   | stop                 | nothing                                      |
 
 Shared prompt or input edits create a new `inputHash`. Every candidate
-then reruns from round 0. Candidate-output repair invalidates only the
-failing identities.
+then reruns from round 0. Candidate-output repair reruns only the failing
+candidates under a new `repairContextHash`.
+
+## RepairExecutor
+
+```text
+diagnosis → allowPaths/denyPaths
+  → executor writes only in a temp staging worktree
+  → system diffs actual changed paths
+  → assertRepairAuthorization
+  → apply patch
+  → tests
+  → rerun
+```
+
+The executor cannot write the main working tree. If no executor is
+supplied, a deterministic catalog produces the staged patch. Timeout
+repair either atomically writes `config/role-model-benchmark.json` or
+records `runtimeOverride=true` in the journal when that file is absent.
 
 ## Protected
 
-These paths are snapshotted and must not change:
+Snapshots walk every file under:
 
-- Goal 3.2 / Golden Set: `editorial-calibration/`, `prompts/v4/`
-- hard validators: `src/lib/editorial/`, `script-writer-evaluate.ts`
-- `config/agent-model-policy.json`
-- canonical `content/<episode>/story/` and `research/`
+- `editorial-calibration/`
+- `prompts/v4/`
+- `src/lib/editorial/`
+- `src/editorial-calibration/`
+- `content/<episode>/story/`
+- `content/<episode>/research/`
 
-`automaticPromotion` is always `false`. Promotion still needs an explicit
-HumanDecision.
+plus `config/agent-model-policy.json` and `script-writer-evaluate.ts`.
+Added, deleted, or changed files fail closed.
+
+Promotion still needs an explicit HumanDecision.
 
 ## Artifacts
 

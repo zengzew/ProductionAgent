@@ -6,6 +6,9 @@ export type ScriptDraftSegment = {
   section: string;
   targetSeconds: number | null;
   claimIds: string[];
+  sourceIdentity: string;
+  visualIntent: string;
+  factBoundary: string;
   narration: string;
 };
 
@@ -33,23 +36,37 @@ export const SCRIPT_DRAFT_REQUIRED_MARKERS = [
   "### Narration",
 ] as const;
 
+const readField = (block: string, label: string): string => {
+  const prefix = `- ${label}: `;
+  for (const line of block.split("\n")) {
+    if (!line.startsWith(prefix)) continue;
+    return line.slice(prefix.length).trim().replace(/^`/u, "").replace(/`$/u, "");
+  }
+  return "";
+};
+
+export const hasDraftReadyStatus = (markdown: string): boolean =>
+  /^状态：\s*`?draft-ready`?\s*$/mu.test(markdown);
+
 /** Fail-closed: only `## seg-<id>` headings on their own line are segments. */
 export const parseScriptDraftSegments = (markdown: string): ScriptDraftSegment[] => {
   const blocks = markdown.split(/(?=^## seg-[a-z0-9-]+\s*$)/gmu).slice(1);
   return blocks.map((block) => {
     const id = block.match(/^## (seg-[a-z0-9-]+)\s*$/mu)?.[1] ?? "seg-unknown";
-    const section = block.match(/^- Section: `?([^`\n]+)`?/mu)?.[1]?.trim() ?? "";
-    const targetRaw = block.match(/^- Target seconds: `?([0-9.]+)`?/mu)?.[1];
+    const targetRaw = readField(block, "Target seconds");
     const targetSeconds = targetRaw ? Number(targetRaw) : null;
     const claimLine = block.match(/^- Claim IDs: (.+)$/mu)?.[1] ?? "";
     const narration =
       block.match(/### Narration\n\n([\s\S]*?)(?=\n## |\n### |$)/u)?.[1]?.trim() ?? "";
     return {
       id,
-      section,
+      section: readField(block, "Section"),
       targetSeconds:
         targetSeconds !== null && Number.isFinite(targetSeconds) ? targetSeconds : null,
       claimIds: parseClaimIds(claimLine),
+      sourceIdentity: readField(block, "Source identity"),
+      visualIntent: readField(block, "Visual intent"),
+      factBoundary: readField(block, "Fact boundary"),
       narration,
     };
   });
@@ -99,6 +116,9 @@ export const evaluateScriptWriterDraft = (input: {
   }
 
   const hardFailures: string[] = [];
+  if (!hasDraftReadyStatus(input.markdown)) {
+    hardFailures.push("script-draft-not-draft-ready");
+  }
   const claimIds = [...new Set(segments.flatMap((segment) => segment.claimIds))].sort();
   let facts: Map<string, {allowedInNarration: boolean; confidence: string}>;
   try {
@@ -117,6 +137,9 @@ export const evaluateScriptWriterDraft = (input: {
   for (const segment of segments) {
     if (!segment.section) hardFailures.push(`${segment.id}:missing-section`);
     if (segment.claimIds.length === 0) hardFailures.push(`${segment.id}:missing-claim-ids`);
+    if (!segment.sourceIdentity) hardFailures.push(`${segment.id}:missing-source-identity`);
+    if (!segment.visualIntent) hardFailures.push(`${segment.id}:missing-visual-intent`);
+    if (!segment.factBoundary) hardFailures.push(`${segment.id}:missing-fact-boundary`);
     if (!segment.narration) hardFailures.push(`${segment.id}:missing-narration`);
     if (segment.targetSeconds === null || segment.targetSeconds <= 0) {
       hardFailures.push(`${segment.id}:invalid-target-seconds`);

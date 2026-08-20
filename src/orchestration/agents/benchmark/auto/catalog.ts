@@ -1,7 +1,11 @@
+import fs from "node:fs";
+import path from "node:path";
 import {SCRIPT_DRAFT_REQUIRED_MARKERS} from "../script-writer-evaluate";
 import type {RoleModelBenchmarkConfig} from "../../../config/role-model-benchmark";
+import {stableJson} from "../../../stable-json";
 import type {AutoRepairDiagnosis} from "../../../schemas/role-model-auto";
-import {readAutoRepositoryFile, writeAutoRepositoryFile} from "./paths";
+import type {StagedRepairPatch} from "./executor";
+import {readAutoRepositoryFile} from "./paths";
 import {promptDeclaresScriptDraftTemplate} from "./taxonomy";
 
 export const SCRIPT_DRAFT_OUTPUT_FORMAT_SECTION = `## 输出格式
@@ -28,25 +32,42 @@ export const SCRIPT_DRAFT_OUTPUT_FORMAT_SECTION = `## 输出格式
 \`\`\`
 `;
 
-export type CatalogRepairResult = {
+export type CatalogRepairPlan = {
   applied: boolean;
   sharedInputChanged: boolean;
-  files: string[];
+  runtimeOverride: boolean;
+  files: Array<{path: string; content: string}>;
   detail: string;
 };
 
-export const applyCatalogRepair = (input: {
+const boundTimeoutConfig = (config: RoleModelBenchmarkConfig): boolean => {
+  let changed = false;
+  for (const policy of Object.values(config.candidates)) {
+    if (policy.timeoutMs < 300_000) {
+      policy.timeoutMs = 300_000;
+      changed = true;
+    }
+    if (policy.maxRetries > 0) {
+      policy.maxRetries = 0;
+      changed = true;
+    }
+  }
+  return changed;
+};
+
+export const planCatalogRepair = (input: {
   repoRoot: string;
   diagnosis: AutoRepairDiagnosis;
   promptPath: string;
   config: RoleModelBenchmarkConfig;
-}): CatalogRepairResult => {
+}): CatalogRepairPlan => {
   if (input.diagnosis.target === "artifact-output-contract") {
     const current = readAutoRepositoryFile(input.repoRoot, input.promptPath);
     if (promptDeclaresScriptDraftTemplate(current)) {
       return {
         applied: false,
         sharedInputChanged: false,
+        runtimeOverride: false,
         files: [],
         detail: "script-draft template already declared",
       };
@@ -57,41 +78,70 @@ export const applyCatalogRepair = (input: {
         throw new Error(`catalog repair missing required marker: ${marker}`);
       }
     }
-    writeAutoRepositoryFile(input.repoRoot, input.promptPath, next);
     return {
       applied: true,
       sharedInputChanged: true,
-      files: [input.promptPath],
+      runtimeOverride: false,
+      files: [{path: input.promptPath, content: next.endsWith("\n") ? next : `${next}\n`}],
       detail: `declared script-draft template in ${input.promptPath}`,
     };
   }
 
   if (input.diagnosis.code === "transport-timeout") {
-    let changed = false;
-    for (const policy of Object.values(input.config.candidates)) {
-      if (policy.timeoutMs < 300_000) {
-        policy.timeoutMs = 300_000;
-        changed = true;
-      }
-      if (policy.maxRetries > 0) {
-        policy.maxRetries = 0;
-        changed = true;
-      }
+    const changed = boundTimeoutConfig(input.config);
+    if (!changed) {
+      return {
+        applied: false,
+        sharedInputChanged: false,
+        runtimeOverride: false,
+        files: [],
+        detail: "timeout already bounded",
+      };
+    }
+    const relative = "config/role-model-benchmark.json";
+    const absolute = path.join(input.repoRoot, relative);
+    if (!fs.existsSync(absolute)) {
+      return {
+        applied: true,
+        sharedInputChanged: false,
+        runtimeOverride: true,
+        files: [],
+        detail: "raised timeout in memory only; marked runtimeOverride",
+      };
+    }
+    const file = JSON.parse(fs.readFileSync(absolute, "utf8")) as {
+      candidates?: Record<string, {timeoutMs?: number; maxRetries?: number}>;
+    };
+    for (const policy of Object.values(file.candidates ?? {})) {
+      policy.timeoutMs = 300_000;
+      policy.maxRetries = 0;
     }
     return {
-      applied: changed,
+      applied: true,
       sharedInputChanged: false,
-      files: changed ? ["config/role-model-benchmark.json"] : [],
-      detail: changed
-        ? "raised candidate timeout to 300000ms and disabled retries"
-        : "timeout already bounded",
+      runtimeOverride: false,
+      files: [{path: relative, content: `${stableJson(file)}\n`}],
+      detail: "atomically writing config/role-model-benchmark.json timeout bound",
     };
   }
 
   return {
     applied: false,
     sharedInputChanged: false,
+    runtimeOverride: false,
     files: [],
     detail: `no catalog patch for ${input.diagnosis.code}`,
   };
+};
+
+export const writeCatalogPlanToStaging = (
+  stagingRoot: string,
+  plan: CatalogRepairPlan,
+): StagedRepairPatch => {
+  for (const file of plan.files) {
+    const destination = path.join(stagingRoot, file.path);
+    fs.mkdirSync(path.dirname(destination), {recursive: true});
+    fs.writeFileSync(destination, file.content);
+  }
+  return {files: plan.files, detail: plan.detail};
 };

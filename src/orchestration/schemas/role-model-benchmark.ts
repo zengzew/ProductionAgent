@@ -18,6 +18,9 @@ export const benchmarkUsageSchema = z
 
 export const benchmarkPassFailSchema = z.enum(["PASS", "FAIL"]);
 
+export const benchmarkCandidateOutcomes = ["PASS", "PASS_AFTER_REPAIR", "FAIL"] as const;
+export const benchmarkCandidateOutcomeSchema = z.enum(benchmarkCandidateOutcomes);
+
 export const benchmarkInputManifestSchema = z
   .object({
     schemaVersion: z.literal(MODEL_BENCHMARK_CONTRACT_VERSION),
@@ -65,6 +68,9 @@ export const benchmarkCandidateResultSchema = z
     model: z.string().min(1),
     cacheHit: z.boolean(),
     status: z.enum(["SUCCEEDED", "FAILED"]),
+    outcome: benchmarkCandidateOutcomeSchema,
+    repairRound: z.number().int().nonnegative(),
+    repairContextHash: sha256Schema,
     schemaValid: z.boolean(),
     expectedOutputsComplete: z.boolean(),
     hardValidators: z.object({

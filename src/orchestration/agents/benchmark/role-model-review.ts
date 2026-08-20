@@ -3,7 +3,11 @@ import fs from "node:fs";
 import path from "node:path";
 import {ROLE_MODEL_POLICY_VERSION} from "../../config/agent-model-policy";
 import {MODEL_BENCHMARK_CONTRACT_VERSION} from "../../config/role-model-benchmark";
-import {benchmarkResultSchema, type BenchmarkResult} from "../../schemas/role-model-benchmark";
+import {
+  benchmarkResultSchema,
+  type BenchmarkCandidateResult,
+  type BenchmarkResult,
+} from "../../schemas/role-model-benchmark";
 import {
   emptyRoleModelReviewScores,
   roleModelBlindRevealSchema,
@@ -136,6 +140,25 @@ const readCandidateOutput = (
   return fs.existsSync(absolute) ? fs.readFileSync(absolute, "utf8") : "";
 };
 
+export const selectFairReviewCohort = (
+  candidates: readonly BenchmarkCandidateResult[],
+): BenchmarkCandidateResult[] => {
+  const groups = new Map<string, BenchmarkCandidateResult[]>();
+  for (const candidate of candidates) {
+    const current = groups.get(candidate.repairContextHash) ?? [];
+    current.push(candidate);
+    groups.set(candidate.repairContextHash, current);
+  }
+  const ranked = [...groups.values()].sort((left, right) => {
+    if (right.length !== left.length) return right.length - left.length;
+    const leftRound = Math.min(...left.map((item) => item.repairRound));
+    const rightRound = Math.min(...right.map((item) => item.repairRound));
+    if (leftRound !== rightRound) return leftRound - rightRound;
+    return left[0]!.candidateId.localeCompare(right[0]!.candidateId);
+  });
+  return ranked[0] ?? [];
+};
+
 export const loadBenchmarkResult = (
   repoRoot: string,
   episodeId: string,
@@ -161,7 +184,11 @@ export const buildBlindReviewPackage = (input: {
   revealPath: string;
 } => {
   const {result, hash} = loadBenchmarkResult(input.repoRoot, input.episodeId, input.benchmarkId);
-  const mapping = assignBlindLabels(result.candidateIds, `${result.benchmarkId}:${hash}`);
+  const cohort = selectFairReviewCohort(result.candidates);
+  const mapping = assignBlindLabels(
+    cohort.map((candidate) => candidate.candidateId),
+    `${result.benchmarkId}:${hash}:${cohort[0]?.repairContextHash ?? "none"}`,
+  );
   const reviewId = `review-${hash.slice(0, 16)}`;
   const review = roleModelBlindReviewPackageSchema.parse({
     schemaVersion: "role-model-blind-review-v1",

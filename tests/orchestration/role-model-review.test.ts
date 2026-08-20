@@ -7,6 +7,7 @@ import {
   assignBlindLabels,
   buildArtifactRef,
   buildBlindReviewPackage,
+  EMPTY_REPAIR_CONTEXT_HASH,
   loadAgentModelPolicyFile,
   recordRoleModelPromotionDecision,
   resolveRoleModelPolicy,
@@ -72,6 +73,9 @@ const candidateResult = (input: {
     model: input.model,
     cacheHit: false,
     status: "SUCCEEDED",
+    outcome: input.eligible ? "PASS" : "FAIL",
+    repairRound: 0,
+    repairContextHash: EMPTY_REPAIR_CONTEXT_HASH,
     schemaValid: true,
     expectedOutputsComplete: true,
     hardValidators: {

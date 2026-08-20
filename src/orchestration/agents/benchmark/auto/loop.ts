@@ -26,11 +26,13 @@ import {
 } from "../../providers/hosted-chat";
 import {buildBlindReviewPackage} from "../role-model-review";
 import {
-  forgetCachedBenchmarkCandidate,
-  hashBenchmarkIdentity,
+  mergeBenchmarkResults,
   runRoleModelBenchmark,
+  writeBenchmarkAggregate,
   type RoleModelBenchmarkOptions,
 } from "../role-model-benchmark";
+import type {BenchmarkResult} from "../../../schemas/role-model-benchmark";
+import type {RepairExecutor} from "./executor";
 import {buildScriptWriterBenchmarkRequest} from "../script-writer-request";
 import {createAutoRepairBudget} from "./budget";
 import {createAutoJournal, autoSummaryPath} from "./journal";
@@ -82,6 +84,7 @@ export type AutonomousRoleBenchmarkOptions = {
     repoRoot: string,
   ) => {ok: boolean; output: string} | Promise<{ok: boolean; output: string}>;
   onProgress?: RoleModelBenchmarkOptions["onProgress"];
+  repairExecutor?: RepairExecutor;
 };
 
 export type AutonomousRoleBenchmarkResult = {
@@ -120,6 +123,9 @@ export const runAutonomousRoleBenchmark = async (
   let reviewPath: string | null = null;
   let benchmarkId: string | null = null;
   let appendix: string | undefined;
+  let repairRound = 0;
+  let runCandidateIds: string[] | undefined;
+  let previousResult: BenchmarkResult | undefined;
   let protectedUnchanged = true;
   let canonicalUnchanged = true;
   let stopReason: string | null = null;
@@ -236,16 +242,18 @@ export const runAutonomousRoleBenchmark = async (
       const protectedBefore = snapshotProtectedPaths({
         repoRoot: options.repoRoot,
         episodeId: options.episodeId,
-        expectedOutputPaths: request.expectedOutputs.map((item) => item.path),
       });
 
       journal.append("benchmark", `round=${budget.state.rounds}`, {
         appendix: Boolean(appendix),
+        repairRound,
+        candidateIds: runCandidateIds ?? null,
       });
-      const {manifest, result} = await runRoleModelBenchmark({
+      const executed = await runRoleModelBenchmark({
         repoRoot: options.repoRoot,
         request,
         modelSet,
+        candidateIds: runCandidateIds,
         config: benchmarkConfig,
         env: options.env,
         provider: countingProvider,
@@ -255,7 +263,14 @@ export const runAutonomousRoleBenchmark = async (
         sleep: options.sleep,
         onProgress: options.onProgress,
         userMessageAppendix: appendix,
+        repairRound,
       });
+      const {manifest} = executed;
+      let {result} = executed;
+      if (previousResult && runCandidateIds && previousResult.inputHash === manifest.inputHash) {
+        result = mergeBenchmarkResults(previousResult, result, manifest);
+        writeBenchmarkAggregate(options.repoRoot, options.episodeId, manifest.benchmarkId, result);
+      }
       budget.recordRound();
       benchmarkId = manifest.benchmarkId;
       if (!inputHashes.includes(manifest.inputHash)) inputHashes.push(manifest.inputHash);
@@ -273,7 +288,6 @@ export const runAutonomousRoleBenchmark = async (
       const protectedAfterBenchmark = snapshotProtectedPaths({
         repoRoot: options.repoRoot,
         episodeId: options.episodeId,
-        expectedOutputPaths: request.expectedOutputs.map((item) => item.path),
       });
       assertProtectedSnapshotUnchanged(protectedBefore, protectedAfterBenchmark);
 
@@ -304,12 +318,14 @@ export const runAutonomousRoleBenchmark = async (
       }
 
       budget.assertCanRepair();
-      const applied = applyAuthorizedRepair({
+      const applied = await applyAuthorizedRepair({
         repoRoot: options.repoRoot,
         episodeId: options.episodeId,
+        runId,
         diagnosis: chosen,
         promptPath: request.promptRef.path,
         config: benchmarkConfig,
+        executor: options.repairExecutor,
       });
       if (!applied.applied) {
         return finish("stopped", applied.detail);
@@ -321,13 +337,13 @@ export const runAutonomousRoleBenchmark = async (
         mode: applied.mode,
         files: applied.files,
         sharedInputChanged: applied.sharedInputChanged,
+        runtimeOverride: applied.runtimeOverride,
       });
 
       try {
         const protectedAfterRepair = snapshotProtectedPaths({
           repoRoot: options.repoRoot,
           episodeId: options.episodeId,
-          expectedOutputPaths: request.expectedOutputs.map((item) => item.path),
         });
         assertProtectedSnapshotUnchanged(protectedBefore, protectedAfterRepair);
       } catch (error) {
@@ -340,33 +356,27 @@ export const runAutonomousRoleBenchmark = async (
 
       if (applied.sharedInputChanged) {
         appendix = undefined;
+        repairRound = 0;
+        runCandidateIds = undefined;
+        previousResult = undefined;
         journal.append("rerun", "shared prompt/input changed; all candidates reset", {
           previousInputHash: manifest.inputHash,
         });
       } else if (applied.mode === "candidate-output") {
         const outputDiagnoses = lastDiagnoses.filter((item) => item.target === "candidate-output");
         appendix = outputDiagnoses.map((item) => candidateOutputRepairAppendix(item)).join("\n\n");
-        for (const item of outputDiagnoses) {
-          const policy = item.candidateId
-            ? benchmarkConfig.candidates[item.candidateId]
-            : undefined;
-          if (!policy) continue;
-          forgetCachedBenchmarkCandidate(
-            options.repoRoot,
-            options.episodeId,
-            manifest.benchmarkId,
-            hashBenchmarkIdentity({
-              inputHash: manifest.inputHash,
-              agentName: request.agentName,
-              provider: policy.provider,
-              model: policy.model,
-              promptVersion: `${request.promptRef.schemaVersion}:${request.promptRef.sha256}`,
-            }),
-          );
-        }
+        repairRound += 1;
+        runCandidateIds = outputDiagnoses
+          .map((item) => item.candidateId)
+          .filter((item): item is string => Boolean(item));
+        previousResult = result;
+        journal.append("rerun", "candidate-output repair uses a new repairContextHash", {
+          repairRound,
+          candidateIds: runCandidateIds,
+        });
       }
 
-      if (applied.mode === "catalog") {
+      if (applied.mode === "catalog" || applied.mode === "executor") {
         const tests = await (options.runTests ?? defaultRunTests)(options.repoRoot);
         journal.append("test", tests.ok ? "pass" : "fail", {output: tests.output});
         if (!tests.ok) return finish("stopped", "repair tests failed");
@@ -389,7 +399,10 @@ export const runAutonomousRoleBenchmark = async (
       }
       return finish("budget-exhausted", message);
     }
-    if (message.startsWith("PROTECTED_PATH_MUTATED:")) {
+    if (
+      message.startsWith("PROTECTED_PATH_MUTATED:") ||
+      message.startsWith("EXECUTOR_TOUCHED_WORKING_TREE")
+    ) {
       protectedUnchanged = false;
       return finish("protected-violation", message);
     }

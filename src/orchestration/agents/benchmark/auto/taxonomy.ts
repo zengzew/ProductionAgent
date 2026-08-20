@@ -84,7 +84,7 @@ const classifyFailureDetail = (
     return {code: "transport-auth", target: "stop"};
   }
   if (lower.includes("timeout") || lower.includes("超时")) {
-    return {code: "transport-timeout", target: "transport"};
+    return {code: "transport-timeout", target: "harness"};
   }
   if (lower.includes("markdown-only")) {
     return {code: "transport-markdown-only", target: "candidate-output"};
@@ -152,8 +152,12 @@ const classifyCandidate = (input: {
 
   const fieldFailures = failures.filter(
     (item) =>
+      item === "script-draft-not-draft-ready" ||
       item.endsWith(":missing-section") ||
       item.endsWith(":missing-claim-ids") ||
+      item.endsWith(":missing-source-identity") ||
+      item.endsWith(":missing-visual-intent") ||
+      item.endsWith(":missing-fact-boundary") ||
       item.endsWith(":missing-narration") ||
       item.endsWith(":invalid-target-seconds"),
   );

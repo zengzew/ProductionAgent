@@ -128,12 +128,23 @@ export const hashBenchmarkInput = (input: {
     }),
   );
 
+export const hashRepairContext = (input: {appendix?: string; repairRound?: number} = {}): string =>
+  sha256(
+    stableJson({
+      appendix: input.appendix ?? "",
+      repairRound: input.repairRound ?? 0,
+    }),
+  );
+
+export const EMPTY_REPAIR_CONTEXT_HASH = hashRepairContext();
+
 export const hashBenchmarkIdentity = (input: {
   inputHash: string;
   agentName: AgentName;
   provider: string;
   model: string;
   promptVersion: string;
+  repairContextHash?: string;
 }): string =>
   sha256(
     stableJson({
@@ -142,8 +153,29 @@ export const hashBenchmarkIdentity = (input: {
       provider: input.provider,
       model: input.model,
       promptVersion: input.promptVersion,
+      repairContextHash: input.repairContextHash ?? EMPTY_REPAIR_CONTEXT_HASH,
     }),
   );
+
+export const deriveCandidateOutcome = (input: {
+  hostedStatus: "SUCCEEDED" | "FAILED";
+  schemaValid: boolean;
+  hardValidatorStatus: "PASS" | "FAIL";
+  repairRound: number;
+}): "PASS" | "PASS_AFTER_REPAIR" | "FAIL" => {
+  const passed =
+    input.hostedStatus === "SUCCEEDED" && input.schemaValid && input.hardValidatorStatus === "PASS";
+  if (!passed) return "FAIL";
+  return input.repairRound > 0 ? "PASS_AFTER_REPAIR" : "PASS";
+};
+
+export const formatBenchmarkOutcome = (input: {
+  outcome: "PASS" | "PASS_AFTER_REPAIR" | "FAIL";
+  repairRound: number;
+}): string =>
+  input.outcome === "PASS_AFTER_REPAIR"
+    ? `PASS_AFTER_REPAIR(round=${input.repairRound})`
+    : input.outcome;
 
 export const assertFrozenBenchmarkInputs = (
   repoRoot: string,
@@ -183,6 +215,7 @@ export const evaluatePromotionEligibility = (input: {
   canonicalUnsupportedClaimCount: number;
   newBlockerCount: number;
   canonicalUnchanged: boolean;
+  repairRound?: number;
 }): {eligible: boolean; reasons: string[]} => {
   const reasons: string[] = [];
   if (!input.schemaValid) reasons.push("schema-invalid");
@@ -193,6 +226,7 @@ export const evaluatePromotionEligibility = (input: {
   }
   if (input.newBlockerCount > 0) reasons.push("new-blocker");
   if (!input.canonicalUnchanged) reasons.push("canonical-contract-changed");
+  if ((input.repairRound ?? 0) > 0) reasons.push("repaired-payload");
   return {eligible: reasons.length === 0, reasons};
 };
 
@@ -208,6 +242,7 @@ const pairwiseComparisons = (
       const left = ordered[leftIndex];
       const right = ordered[rightIndex];
       if (!left || !right) continue;
+      if (left.repairContextHash !== right.repairContextHash) continue;
       const leftHashes = new Map(left.outputHashes.map((item) => [item.artifactId, item.sha256]));
       const changedArtifactIds = right.outputHashes
         .filter((item) => leftHashes.get(item.artifactId) !== item.sha256)
@@ -245,6 +280,73 @@ const pairwiseComparisons = (
   return pairs;
 };
 
+export const assembleBenchmarkResult = (input: {
+  manifest: BenchmarkInputManifest;
+  candidates: readonly BenchmarkCandidateResult[];
+  humanReview?: BenchmarkHumanReview;
+}): BenchmarkResult => {
+  const ordered = [...input.candidates].sort((left, right) =>
+    left.candidateId.localeCompare(right.candidateId),
+  );
+  return benchmarkResultSchema.parse({
+    schemaVersion: "model-benchmark-v1",
+    kind: "result",
+    benchmarkId: input.manifest.benchmarkId,
+    inputHash: input.manifest.inputHash,
+    episodeId: input.manifest.episodeId,
+    agentName: input.manifest.agentName,
+    policyVersion: ROLE_MODEL_POLICY_VERSION,
+    candidateIds: ordered.map((candidate) => candidate.candidateId),
+    candidates: ordered,
+    pairwise: pairwiseComparisons(ordered),
+    eligibleCandidateIds: ordered
+      .filter((candidate) => candidate.promotionEligible && candidate.outcome === "PASS")
+      .map((candidate) => candidate.candidateId),
+    automaticPromotion: false,
+    promotionRequires: "explicit-config-or-human-decision",
+    canonicalUnchanged: true,
+    humanReview: input.humanReview ?? {
+      notes: null,
+      preferredCandidateId: null,
+      decisionId: null,
+    },
+  });
+};
+
+export const mergeBenchmarkResults = (
+  base: BenchmarkResult,
+  patch: BenchmarkResult,
+  manifest: BenchmarkInputManifest,
+): BenchmarkResult => {
+  const merged = new Map(base.candidates.map((candidate) => [candidate.candidateId, candidate]));
+  for (const candidate of patch.candidates) {
+    merged.set(candidate.candidateId, candidate);
+  }
+  return assembleBenchmarkResult({
+    manifest,
+    candidates: [...merged.values()],
+    humanReview: patch.humanReview,
+  });
+};
+
+export const writeBenchmarkAggregate = (
+  repoRoot: string,
+  episodeId: string,
+  benchmarkId: string,
+  result: BenchmarkResult,
+): void => {
+  writeJsonAtomically(
+    repoRoot,
+    `${benchmarkRootPath(episodeId, benchmarkId)}/benchmark-result.json`,
+    result,
+  );
+  writeJsonAtomically(
+    repoRoot,
+    `${benchmarkRootPath(episodeId, benchmarkId)}/benchmark-comparison.json`,
+    {schemaVersion: "model-benchmark-v1", kind: "comparison", pairwise: result.pairwise},
+  );
+};
+
 export type BenchmarkProgressEvent = {
   phase: "start" | "complete" | "failed";
   candidateId: string;
@@ -280,6 +382,7 @@ export type RoleModelBenchmarkOptions = {
   sleep?: (milliseconds: number) => Promise<void>;
   onProgress?: (event: BenchmarkProgressEvent) => void;
   userMessageAppendix?: string;
+  repairRound?: number;
   runDownstreamCritic?: (input: {
     candidateId: string;
     markdown: string;
@@ -287,12 +390,6 @@ export type RoleModelBenchmarkOptions = {
   }) => BenchmarkDownstreamCritic | Promise<BenchmarkDownstreamCritic>;
   humanReview?: BenchmarkHumanReview;
 };
-
-const defaultHumanReview = (): BenchmarkHumanReview => ({
-  notes: null,
-  preferredCandidateId: null,
-  decisionId: null,
-});
 
 export const candidateCachePath = (
   episodeId: string,
@@ -341,12 +438,18 @@ const runOneCandidate = async (input: {
   canonicalEvaluation: ReturnType<typeof evaluateScriptWriterDraft>;
 }): Promise<BenchmarkCandidateResult> => {
   const {options, request, manifest, candidateId, policy} = input;
+  const repairRound = options.repairRound ?? 0;
+  const repairContextHash = hashRepairContext({
+    appendix: options.userMessageAppendix ?? "",
+    repairRound,
+  });
   const identity = hashBenchmarkIdentity({
     inputHash: manifest.inputHash,
     agentName: request.agentName,
     provider: policy.provider,
     model: policy.model,
     promptVersion: `${request.promptRef.schemaVersion}:${request.promptRef.sha256}`,
+    repairContextHash,
   });
   assertFrozenBenchmarkInputs(options.repoRoot, manifest);
   const cachePath = candidateCachePath(request.episodeId, manifest.benchmarkId, identity);
@@ -446,14 +549,22 @@ const runOneCandidate = async (input: {
     : skippedDownstreamCritic();
   const hardValidatorStatus = evaluation.hardFailures.length === 0 ? "PASS" : "FAIL";
   const newBlockerCount = downstreamCritic.blockerCount;
+  const schemaValid = evaluation.schemaValid && status === "SUCCEEDED";
+  const outcome = deriveCandidateOutcome({
+    hostedStatus: status,
+    schemaValid,
+    hardValidatorStatus,
+    repairRound,
+  });
   const eligibility = evaluatePromotionEligibility({
-    schemaValid: evaluation.schemaValid && status === "SUCCEEDED",
+    schemaValid,
     expectedOutputsComplete,
     hardValidatorStatus,
     unsupportedClaimCount: evaluation.unsupportedClaimIds.length,
     canonicalUnsupportedClaimCount: input.canonicalEvaluation.unsupportedClaimIds.length,
     newBlockerCount,
     canonicalUnchanged: true,
+    repairRound,
   });
 
   const record = benchmarkCandidateResultSchema.parse({
@@ -466,7 +577,10 @@ const runOneCandidate = async (input: {
     model: policy.model,
     cacheHit: false,
     status,
-    schemaValid: evaluation.schemaValid && status === "SUCCEEDED",
+    outcome,
+    repairRound,
+    repairContextHash,
+    schemaValid,
     expectedOutputsComplete,
     hardValidators: {
       status: hardValidatorStatus,
@@ -616,37 +730,11 @@ export const runRoleModelBenchmark = async (
     assertFrozenBenchmarkInputs(options.repoRoot, manifest);
   }
 
-  const ordered = [...results].sort((left, right) =>
-    left.candidateId.localeCompare(right.candidateId),
-  );
-  const result = benchmarkResultSchema.parse({
-    schemaVersion: "model-benchmark-v1",
-    kind: "result",
-    benchmarkId: manifest.benchmarkId,
-    inputHash: manifest.inputHash,
-    episodeId: sharedRequest.episodeId,
-    agentName: sharedRequest.agentName,
-    policyVersion: ROLE_MODEL_POLICY_VERSION,
-    candidateIds: ordered.map((candidate) => candidate.candidateId),
-    candidates: ordered,
-    pairwise: pairwiseComparisons(ordered),
-    eligibleCandidateIds: ordered
-      .filter((candidate) => candidate.promotionEligible)
-      .map((candidate) => candidate.candidateId),
-    automaticPromotion: false,
-    promotionRequires: "explicit-config-or-human-decision",
-    canonicalUnchanged: true,
-    humanReview: options.humanReview ?? defaultHumanReview(),
+  const result = assembleBenchmarkResult({
+    manifest,
+    candidates: results,
+    humanReview: options.humanReview,
   });
-  writeJsonAtomically(
-    options.repoRoot,
-    `${benchmarkRootPath(sharedRequest.episodeId, manifest.benchmarkId)}/benchmark-result.json`,
-    result,
-  );
-  writeJsonAtomically(
-    options.repoRoot,
-    `${benchmarkRootPath(sharedRequest.episodeId, manifest.benchmarkId)}/benchmark-comparison.json`,
-    {schemaVersion: "model-benchmark-v1", kind: "comparison", pairwise: result.pairwise},
-  );
+  writeBenchmarkAggregate(options.repoRoot, sharedRequest.episodeId, manifest.benchmarkId, result);
   return {manifest, result};
 };

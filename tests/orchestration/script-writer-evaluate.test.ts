@@ -104,6 +104,9 @@ describe("script-writer draft markdown contract", () => {
       section: "hook",
       targetSeconds: 3,
       claimIds: ["claim-alpha-001"],
+      sourceIdentity: "官方演示",
+      visualIntent: "任务已输入，随后浏览器打开目标页并开始加载。",
+      factBoundary: "不宣称成功率。",
       narration: "任务交出去，它自己打开浏览器。",
     });
     const evaluation = evaluateScriptWriterDraft({markdown: canonicalDraft, factsJson});
@@ -148,5 +151,21 @@ describe("script-writer draft markdown contract", () => {
     expect(prompt).toContain("第一段不超过 3 秒");
     expect(prompt).toContain("每句事实旁白绑定 Claim ID");
     expect(prompt).not.toContain("prompts/v4/");
+  });
+
+  it("fails closed when draft-ready status is missing", () => {
+    const markdown = canonicalDraft.replace("状态：`draft-ready`\n\n", "");
+    const evaluation = evaluateScriptWriterDraft({markdown, factsJson});
+    expect(evaluation.hardFailures).toContain("script-draft-not-draft-ready");
+  });
+
+  it("fails closed when a declared schema field is missing", () => {
+    const withoutVisual = canonicalDraft.replace(
+      "- Visual intent: 任务已输入，随后浏览器打开目标页并开始加载。\n",
+      "",
+    );
+    const evaluation = evaluateScriptWriterDraft({markdown: withoutVisual, factsJson});
+    expect(evaluation.hardFailures).toContain("seg-001:missing-visual-intent");
+    expect(evaluation.hardFailures).not.toContain("script-draft-missing-segments");
   });
 });

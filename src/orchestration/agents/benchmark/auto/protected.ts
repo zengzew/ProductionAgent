@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
+import path from "node:path";
 import {normalizeRepoPath, resolveAutoRepositoryPath} from "./paths";
 
 const sha256File = (absolutePath: string): string =>
@@ -26,31 +27,39 @@ export const isProtectedRepairPath = (repositoryPath: string, episodeId: string)
   return false;
 };
 
-export const canonicalEpisodePaths = (
-  episodeId: string,
-  expectedOutputPaths: readonly string[],
-): string[] => {
-  const paths = new Set<string>([`content/${episodeId}/story/script-draft.md`]);
-  for (const outputPath of expectedOutputPaths) {
-    paths.add(normalizeRepoPath(outputPath));
+const walkFiles = (absoluteDir: string, repoRoot: string, into: Record<string, string>): void => {
+  if (!fs.existsSync(absoluteDir)) return;
+  const entries = fs.readdirSync(absoluteDir, {withFileTypes: true});
+  for (const entry of entries) {
+    const absolute = path.join(absoluteDir, entry.name);
+    if (entry.isDirectory()) {
+      walkFiles(absolute, repoRoot, into);
+      continue;
+    }
+    if (!entry.isFile()) continue;
+    const relative = normalizeRepoPath(path.relative(repoRoot, absolute));
+    into[relative] = sha256File(absolute);
   }
-  return [...paths].sort();
 };
 
 export const snapshotProtectedPaths = (input: {
   repoRoot: string;
   episodeId: string;
-  expectedOutputPaths: readonly string[];
+  expectedOutputPaths?: readonly string[];
 }): Record<string, string> => {
   const snapshot: Record<string, string> = {};
-  const relatives = [
-    ...PROTECTED_PATHS,
-    ...canonicalEpisodePaths(input.episodeId, input.expectedOutputPaths),
-  ];
-  for (const relative of relatives) {
+  for (const relative of PROTECTED_PATHS) {
     const absolute = resolveAutoRepositoryPath(input.repoRoot, relative);
-    if (!fs.existsSync(absolute)) continue;
+    if (!fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) continue;
     snapshot[relative] = sha256File(absolute);
+  }
+  const directories = [
+    ...PROTECTED_PATH_PREFIXES.map((prefix) => prefix.replace(/\/$/u, "")),
+    `content/${input.episodeId}/story`,
+    `content/${input.episodeId}/research`,
+  ];
+  for (const directory of directories) {
+    walkFiles(path.join(input.repoRoot, directory), input.repoRoot, snapshot);
   }
   return snapshot;
 };
@@ -59,9 +68,35 @@ export const assertProtectedSnapshotUnchanged = (
   before: Record<string, string>,
   after: Record<string, string>,
 ): void => {
-  for (const [relative, hash] of Object.entries(before)) {
-    if (after[relative] !== hash) {
+  const keys = new Set([...Object.keys(before), ...Object.keys(after)]);
+  for (const relative of keys) {
+    if (before[relative] !== after[relative]) {
       throw new Error(`PROTECTED_PATH_MUTATED:${relative}`);
+    }
+  }
+};
+
+export const snapshotRepositoryFiles = (
+  repoRoot: string,
+  relatives: readonly string[],
+): Record<string, string | null> => {
+  const snapshot: Record<string, string | null> = {};
+  for (const relative of relatives) {
+    const absolute = resolveAutoRepositoryPath(repoRoot, relative);
+    snapshot[relative] =
+      fs.existsSync(absolute) && fs.statSync(absolute).isFile() ? sha256File(absolute) : null;
+  }
+  return snapshot;
+};
+
+export const assertFileSnapshotUnchanged = (
+  before: Record<string, string | null>,
+  after: Record<string, string | null>,
+): void => {
+  const keys = new Set([...Object.keys(before), ...Object.keys(after)]);
+  for (const relative of keys) {
+    if (before[relative] !== after[relative]) {
+      throw new Error(`EXECUTOR_TOUCHED_WORKING_TREE:${relative}`);
     }
   }
 };

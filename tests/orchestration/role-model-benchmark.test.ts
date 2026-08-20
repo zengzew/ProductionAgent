@@ -11,6 +11,8 @@ import {
   evaluatePromotionEligibility,
   hashBenchmarkIdentity,
   hashBenchmarkInput,
+  hashRepairContext,
+  EMPTY_REPAIR_CONTEXT_HASH,
   HOSTED_AGENT_RESPONSE_CONTRACT,
   hashHostedResponseContent,
   loadRoleModelBenchmarkConfig,
@@ -389,6 +391,18 @@ describe("model-benchmark-v1", () => {
       evaluatePromotionEligibility({
         schemaValid: true,
         expectedOutputsComplete: true,
+        hardValidatorStatus: "PASS",
+        unsupportedClaimCount: 0,
+        canonicalUnsupportedClaimCount: 0,
+        newBlockerCount: 0,
+        canonicalUnchanged: true,
+        repairRound: 1,
+      }),
+    ).toMatchObject({eligible: false, reasons: ["repaired-payload"]});
+    expect(
+      evaluatePromotionEligibility({
+        schemaValid: true,
+        expectedOutputsComplete: true,
         hardValidatorStatus: "FAIL",
         unsupportedClaimCount: 0,
         canonicalUnsupportedClaimCount: 0,
@@ -488,6 +502,42 @@ describe("model-benchmark-v1", () => {
         promptVersion: "prompt-v1:abc",
       }),
     ).toBe(
+      hashBenchmarkIdentity({
+        inputHash: left,
+        agentName: "script-writer",
+        provider: "openai-compatible",
+        model: "model-a",
+        promptVersion: "prompt-v1:abc",
+      }),
+    );
+    expect(
+      hashBenchmarkIdentity({
+        inputHash: left,
+        agentName: "script-writer",
+        provider: "openai-compatible",
+        model: "model-a",
+        promptVersion: "prompt-v1:abc",
+      }),
+    ).toBe(
+      hashBenchmarkIdentity({
+        inputHash: left,
+        agentName: "script-writer",
+        provider: "openai-compatible",
+        model: "model-a",
+        promptVersion: "prompt-v1:abc",
+        repairContextHash: EMPTY_REPAIR_CONTEXT_HASH,
+      }),
+    );
+    expect(
+      hashBenchmarkIdentity({
+        inputHash: left,
+        agentName: "script-writer",
+        provider: "openai-compatible",
+        model: "model-a",
+        promptVersion: "prompt-v1:abc",
+        repairContextHash: hashRepairContext({appendix: "repair-a", repairRound: 1}),
+      }),
+    ).not.toBe(
       hashBenchmarkIdentity({
         inputHash: left,
         agentName: "script-writer",
