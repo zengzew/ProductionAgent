@@ -7,15 +7,21 @@
     "provider": "openai-compatible",
     "endpoint": "https://api.openai.com/v1/chat/completions",
     "model": "gpt-5-mini",
-    "reasoning": {"profile": "none"},
+    "reasoning": {
+      "profile": "none"
+    },
     "temperature": 0.4,
     "apiKeyEnv": "OPENAI_API_KEY",
-    "allowedOrigins": ["https://api.openai.com"],
+    "allowedOrigins": [
+      "https://api.openai.com"
+    ],
     "timeoutMs": 30000,
     "maxRetries": 2
   },
   "rollout": {
-    "hostedLlm": ["oral-rewriter"],
+    "hostedLlm": [
+      "oral-rewriter"
+    ],
     "shadow": [
       "story-director",
       "viral-director",
@@ -25,7 +31,11 @@
       "fact-guardian",
       "retention-critic"
     ],
-    "manualOnly": ["research-analyst", "visual-director", "delivery-critic"]
+    "manualOnly": [
+      "research-analyst",
+      "visual-director",
+      "delivery-critic"
+    ]
   },
   "roles": {
     "research-analyst": {
@@ -34,10 +44,14 @@
       "provider": "openai-compatible",
       "endpoint": "https://api.openai.com/v1/chat/completions",
       "model": "gpt-5-mini",
-      "reasoning": {"profile": "none"},
+      "reasoning": {
+        "profile": "none"
+      },
       "temperature": 0.2,
       "apiKeyEnv": "OPENAI_API_KEY",
-      "allowedOrigins": ["https://api.openai.com"],
+      "allowedOrigins": [
+        "https://api.openai.com"
+      ],
       "timeoutMs": 30000,
       "maxRetries": 2
     },
@@ -47,10 +61,14 @@
       "provider": "openai-compatible",
       "endpoint": "https://api.openai.com/v1/chat/completions",
       "model": "gpt-5-mini",
-      "reasoning": {"profile": "none"},
+      "reasoning": {
+        "profile": "none"
+      },
       "temperature": 0.4,
       "apiKeyEnv": "OPENAI_API_KEY",
-      "allowedOrigins": ["https://api.openai.com"],
+      "allowedOrigins": [
+        "https://api.openai.com"
+      ],
       "timeoutMs": 30000,
       "maxRetries": 2
     },
@@ -60,10 +78,14 @@
       "provider": "openai-compatible",
       "endpoint": "https://api.openai.com/v1/chat/completions",
       "model": "gpt-5-mini",
-      "reasoning": {"profile": "none"},
+      "reasoning": {
+        "profile": "none"
+      },
       "temperature": 0.5,
       "apiKeyEnv": "OPENAI_API_KEY",
-      "allowedOrigins": ["https://api.openai.com"],
+      "allowedOrigins": [
+        "https://api.openai.com"
+      ],
       "timeoutMs": 30000,
       "maxRetries": 2
     },
@@ -71,14 +93,22 @@
       "mode": "manual",
       "fallbackMode": "none",
       "provider": "openai-compatible",
-      "endpoint": "https://api.openai.com/v1/chat/completions",
-      "model": "gpt-5-mini",
-      "reasoning": {"profile": "none"},
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "model": "deepseek-v4-flash",
+      "reasoning": {
+        "profile": "deepseek-v4-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "reasoning_effort": "max"
+      },
       "temperature": 0.4,
-      "apiKeyEnv": "OPENAI_API_KEY",
-      "allowedOrigins": ["https://api.openai.com"],
-      "timeoutMs": 30000,
-      "maxRetries": 2
+      "apiKeyEnv": "DEEPSEEK_API_KEY",
+      "allowedOrigins": [
+        "https://api.deepseek.com"
+      ],
+      "timeoutMs": 300000,
+      "maxRetries": 0
     },
     "oral-rewriter": {
       "mode": "manual",
@@ -86,9 +116,14 @@
       "provider": "openai-compatible",
       "endpoint": "https://api.openai.com/v1/chat/completions",
       "model": "gpt-5-mini",
+      "reasoning": {
+        "profile": "none"
+      },
       "temperature": 0.4,
       "apiKeyEnv": "OPENAI_API_KEY",
-      "allowedOrigins": ["https://api.openai.com"],
+      "allowedOrigins": [
+        "https://api.openai.com"
+      ],
       "timeoutMs": 30000,
       "maxRetries": 2
     },
@@ -98,10 +133,14 @@
       "provider": "openai-compatible",
       "endpoint": "https://api.openai.com/v1/chat/completions",
       "model": "gpt-5-mini",
-      "reasoning": {"profile": "none"},
+      "reasoning": {
+        "profile": "none"
+      },
       "temperature": 0.2,
       "apiKeyEnv": "OPENAI_API_KEY",
-      "allowedOrigins": ["https://api.openai.com"],
+      "allowedOrigins": [
+        "https://api.openai.com"
+      ],
       "timeoutMs": 30000,
       "maxRetries": 2
     },
@@ -111,10 +150,14 @@
       "provider": "openai-compatible",
       "endpoint": "https://api.openai.com/v1/chat/completions",
       "model": "gpt-5-mini",
-      "reasoning": {"profile": "none"},
+      "reasoning": {
+        "profile": "none"
+      },
       "temperature": 0.2,
       "apiKeyEnv": "OPENAI_API_KEY",
-      "allowedOrigins": ["https://api.openai.com"],
+      "allowedOrigins": [
+        "https://api.openai.com"
+      ],
       "timeoutMs": 30000,
       "maxRetries": 2
     },
@@ -124,10 +167,14 @@
       "provider": "openai-compatible",
       "endpoint": "https://api.openai.com/v1/chat/completions",
       "model": "gpt-5-mini",
-      "reasoning": {"profile": "none"},
+      "reasoning": {
+        "profile": "none"
+      },
       "temperature": 0,
       "apiKeyEnv": "OPENAI_API_KEY",
-      "allowedOrigins": ["https://api.openai.com"],
+      "allowedOrigins": [
+        "https://api.openai.com"
+      ],
       "timeoutMs": 30000,
       "maxRetries": 2
     },
@@ -137,10 +184,14 @@
       "provider": "openai-compatible",
       "endpoint": "https://api.openai.com/v1/chat/completions",
       "model": "gpt-5-mini",
-      "reasoning": {"profile": "none"},
+      "reasoning": {
+        "profile": "none"
+      },
       "temperature": 0.2,
       "apiKeyEnv": "OPENAI_API_KEY",
-      "allowedOrigins": ["https://api.openai.com"],
+      "allowedOrigins": [
+        "https://api.openai.com"
+      ],
       "timeoutMs": 30000,
       "maxRetries": 2
     },
@@ -150,10 +201,14 @@
       "provider": "openai-compatible",
       "endpoint": "https://api.openai.com/v1/chat/completions",
       "model": "gpt-5-mini",
-      "reasoning": {"profile": "none"},
+      "reasoning": {
+        "profile": "none"
+      },
       "temperature": 0.2,
       "apiKeyEnv": "OPENAI_API_KEY",
-      "allowedOrigins": ["https://api.openai.com"],
+      "allowedOrigins": [
+        "https://api.openai.com"
+      ],
       "timeoutMs": 30000,
       "maxRetries": 2
     },
@@ -163,31 +218,32 @@
       "provider": "openai-compatible",
       "endpoint": "https://api.openai.com/v1/chat/completions",
       "model": "gpt-5-mini",
-      "reasoning": {"profile": "none"},
+      "reasoning": {
+        "profile": "none"
+      },
       "temperature": 0.2,
       "apiKeyEnv": "OPENAI_API_KEY",
-      "allowedOrigins": ["https://api.openai.com"],
+      "allowedOrigins": [
+        "https://api.openai.com"
+      ],
       "timeoutMs": 30000,
       "maxRetries": 2
     }
   },
   "episodeOverrides": {
-    "episode-004": {
-      "script-writer": {
-        "provider": "openai",
-        "endpoint": "https://api.openai.com/v1/chat/completions",
-        "model": "gpt-5.6",
-        "apiKeyEnv": "OPENAI_API_KEY",
-        "allowedOrigins": ["https://api.openai.com"]
-      }
-    },
     "episode-005": {
       "script-writer": {
+        "fallbackMode": "none",
         "provider": "deepseek",
         "endpoint": "https://api.deepseek.com/v1/chat/completions",
         "model": "deepseek-chat",
+        "reasoning": {
+          "profile": "none"
+        },
         "apiKeyEnv": "DEEPSEEK_API_KEY",
-        "allowedOrigins": ["https://api.deepseek.com"]
+        "allowedOrigins": [
+          "https://api.deepseek.com"
+        ]
       }
     }
   }
