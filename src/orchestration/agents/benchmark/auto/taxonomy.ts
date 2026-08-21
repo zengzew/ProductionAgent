@@ -110,7 +110,7 @@ const classifyFailureDetail = (
     return {code: "adapter-undeclared-output", target: "adapter"};
   }
   if (lower.includes("incomplete output")) {
-    return {code: "adapter-incomplete-outputs", target: "adapter"};
+    return {code: "artifact-contract-missing-fields", target: "candidate-output"};
   }
   if (lower.includes("benchmark_input_tampered")) {
     return {code: "harness-input-tampered", target: "stop"};
