@@ -40,7 +40,13 @@ story/
 -->
 ```
 
-这里的 JSON 必须是可解析的单个对象，并完整匹配上面的字段、枚举和数组约束；不要用
+这里的 JSON 必须是可解析的单个对象，并完整匹配下面的 exact key shape（不得改名或添加
+额外 key）：`reviewedFiles` 只能包含 `factsSha256`、`sourcesSha256`、
+`timelineSha256`；`emotionalArc` 的每项只能包含 `beatId`、`viewerState`、`storyMove`、
+`targetRange`、`claimIds`；`revealOrder` 的每项只能包含 `order`、`reveal`、
+`withheldAnswer`、`purpose`。其余顶层 key 必须是 `rubricVersion`、`coreStoryQuestion`、
+`audiencePromise`、`sourcedAnswer`、`factBoundary`、`blockers`、`verdict`、`returnTo`，
+并遵守对应枚举与数组约束；不要用
 `## director-brief-gate`、`- status: READY`、Markdown code fence 或省略 JSON
 metadata 来替代它。四个 declared output 仍必须通过 machine response contract 返回，
 `artifactId`、`path` 和 `schemaVersion` 必须逐字复制输入中的 expectedOutputs。
