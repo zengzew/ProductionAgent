@@ -309,9 +309,42 @@ export const selectRepair = (
   return [...diagnoses].sort((left, right) => rank(left.target) - rank(right.target))[0];
 };
 
-export const candidateOutputRepairAppendix = (diagnosis: AutoRepairDiagnosis): string =>
+const roleOutputRepairRequirements = (role: BenchmarkResult["agentName"]): string => {
+  const requirements: Record<BenchmarkResult["agentName"], string> = {
+    "research-analyst":
+      "Return every declared research JSON artifact with its declared schema; do not invent sources or claims.",
+    "story-director":
+      "director-brief.md must contain an HTML comment `<!-- director-brief-gate`, one parseable JSON object matching director-brief-v1, and a closing `-->`; do not use a heading or bullet-list gate.",
+    "viral-director":
+      "viral-strategy.md must contain an HTML comment `<!-- viral-strategy-gate`, one parseable JSON object matching viral-strategy-v2, and a closing `-->`.",
+    "script-writer":
+      "script-draft.md must use the declared ## seg-* fields and draft-ready status; keep every claim inside the facts boundary.",
+    "oral-rewriter":
+      "final-script.md must contain parseable ## seg-* final-script blocks and narration-units tables with story-approved status.",
+    "oral-judge":
+      "oral-review.md must contain an HTML comment `<!-- oral-review-gate`, one parseable oral-review-v1 or oral-review-v2 JSON object, and a decision consistent with scores, checks, blockers, and returnTo.",
+    "audience-critic":
+      "critic-report.md must contain an HTML comment `<!-- critic-gate` with one parseable product-story-v4 JSON object; verdict, thresholds, blockers, and returnTo must agree.",
+    "fact-guardian":
+      "fact-check-report.md must contain an HTML comment `<!-- fact-check-gate` with one parseable fact-guardian-v1 JSON object.",
+    "visual-director":
+      "visual-plan.md must contain an HTML comment `<!-- visual-plan-gate` with one parseable visual-plan-v2 or visual-plan-v3 JSON object.",
+    "retention-critic":
+      "retention-report.md must contain an HTML comment `<!-- retention-gate` with one parseable retention-critic-v2 JSON object.",
+    "delivery-critic":
+      "delivery-critic-report.md must contain an HTML comment `<!-- delivery-gate` with one parseable delivery-critic-v1 JSON object and exact media hashes.",
+  };
+  return requirements[role];
+};
+
+export const candidateOutputRepairAppendix = (
+  diagnosis: AutoRepairDiagnosis,
+  role: BenchmarkResult["agentName"] = "script-writer",
+): string =>
   [
     "CANDIDATE OUTPUT REPAIR:",
+    `Role: ${role}`,
+    `Deterministic role requirements: ${roleOutputRepairRequirements(role)}`,
     `Failure class: ${diagnosis.code}`,
     `Evidence: ${diagnosis.evidence}`,
     diagnosis.instruction,

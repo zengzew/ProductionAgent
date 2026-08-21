@@ -414,7 +414,9 @@ export const runAutonomousRoleBenchmark = async (
         });
       } else if (applied.mode === "candidate-output") {
         const outputDiagnoses = lastDiagnoses.filter((item) => item.target === "candidate-output");
-        appendix = outputDiagnoses.map((item) => candidateOutputRepairAppendix(item)).join("\n\n");
+        appendix = outputDiagnoses
+          .map((item) => candidateOutputRepairAppendix(item, role))
+          .join("\n\n");
         repairRound += 1;
         runCandidateIds = outputDiagnoses
           .map((item) => item.candidateId)

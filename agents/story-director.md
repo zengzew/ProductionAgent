@@ -29,6 +29,22 @@ story/
   three-act-structure.md
 ```
 
+### Machine-readable gate serialization
+
+`director-brief.md` 必须在文件开头使用下面这种 HTML comment metadata 形式写入
+`director-brief-gate`：
+
+```text
+<!-- director-brief-gate
+{ "rubricVersion": "director-brief-v1", "reviewedFiles": { ... }, "coreStoryQuestion": "...", "audiencePromise": "...", "sourcedAnswer": "...", "factBoundary": "...", "emotionalArc": [ ... ], "revealOrder": [ ... ], "blockers": [], "verdict": "READY", "returnTo": "none" }
+-->
+```
+
+这里的 JSON 必须是可解析的单个对象，并完整匹配上面的字段、枚举和数组约束；不要用
+`## director-brief-gate`、`- status: READY`、Markdown code fence 或省略 JSON
+metadata 来替代它。四个 declared output 仍必须通过 machine response contract 返回，
+`artifactId`、`path` 和 `schemaVersion` 必须逐字复制输入中的 expectedOutputs。
+
 `director-brief.md` 是本期的导演决策源。它必须在开头包含
 `director-brief-gate`，绑定当前 `facts.json`、`sources.json` 和 research
 `timeline.json` 的 SHA-256，并明确：
