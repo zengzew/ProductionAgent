@@ -107,7 +107,7 @@ const classifyFailureDetail = (
     return {code: "transport-malformed-json", target: "candidate-output"};
   }
   if (lower.includes("undeclared output")) {
-    return {code: "adapter-undeclared-output", target: "adapter"};
+    return {code: "artifact-contract-missing-fields", target: "candidate-output"};
   }
   if (lower.includes("incomplete output")) {
     return {code: "artifact-contract-missing-fields", target: "candidate-output"};
