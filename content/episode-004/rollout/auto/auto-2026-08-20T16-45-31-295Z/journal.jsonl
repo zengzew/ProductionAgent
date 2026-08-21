@@ -1,0 +1,2 @@
+{"at":"2026-08-20T16:45:31.298Z","data":{"code":"preflight-missing-key","modelSet":"default","role":"script-writer"},"kind":"event","message":"hosted-agent missing API key: DEEPSEEK_API_KEY","phase":"preflight","runId":"auto-2026-08-20T16-45-31-295Z","schemaVersion":"role-model-auto-v1","seq":0}
+{"at":"2026-08-20T16:45:31.299Z","data":{"automaticPromotion":false,"reason":"hosted-agent missing API key: DEEPSEEK_API_KEY"},"kind":"event","message":"status=preflight-failed","phase":"stop","runId":"auto-2026-08-20T16-45-31-295Z","schemaVersion":"role-model-auto-v1","seq":1}

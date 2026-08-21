@@ -1,0 +1,28 @@
+<!-- director-brief-gate
+{"rubricVersion":"director-brief-v1","reviewedFiles":{"facts.json":"2ad183f94c0ef5cf8b1de352e8577c42322e56a7affa5a272ae980fefa8b5dee","sources.json":"988cfcc4bc1af26d5fa98c84970e82a80ca057bbc7cdc7840f29f6e002cf5d2d","timeline.json":"7036193e40d4e877bfbefcbf758279de6941f8f5b074d78fdb2fb825f07601c8","technology.md":"0a49d12281ebfcb72348e813d5320056ab3a4f1e68b753dae50954a19426e5b2","growth-data.md":"69c0c1d77a5a27fef993ee200089af7c2d245e53bf6aed9e9ccbb0898ba46f28"},"coreStoryQuestion":"How did Devin, an AI positioned as the first AI software engineer, get engineers to hand it real tasks — and what did the market pay for that trust?","audiencePromise":"In under 80 seconds, a viewer who has never opened an IDE will understand what changes when software work becomes a task you hand to a visible, autonomous agent, and why capital valued that change in the tens of billions.","sourcedAnswer":"Cognition’s launch demo let people watch Devin open its own browser, edit files, and run commands (claim-devin-001/003/004), positioning it as the first AI software engineer (claim-devin-002). The public demo reached 1.22M+ views (claim-devin-015), while the founders’ algorithmic background and a $21M seed at $350M valuation set the launch context (claim-devin-012/013/014). Access widened from $500/month team pricing at GA to Devin 2.0’s $20/month individual plan with parallel Devins (claim-devin-005/006). Enterprise proof came with Mercedes-Benz: 200k+ lines of COBOL modernized from an estimated 8 months to 8 days in a four-week pilot (claim-devin-007). Cognition itself reported 89% of its committed code is submitted by Devin (claim-devin-008), and in May 2026 the company raised $1B+ at a $2.5B pre-money valuation (claim-devin-016).","factBoundary":"No narration may claim success rates, user adoption counts, revenue, causality from demo views to revenue, or that the $500 team price became the $20 individual plan. Company-reported figures must be labeled as company-reported. SWE-bench 13.86% and 2025 PR merge-rate stats stay out of narration. No invented founder motives, crisis, or turning-point meeting.","emotionalArc":[{"timeRange":"0:00-0:20","claimIds":["claim-devin-001","claim-devin-003","claim-devin-004","claim-devin-002"],"arc":"Awe at a machine doing visible engineering work."},{"timeRange":"0:20-0:52","claimIds":["claim-devin-012","claim-devin-013","claim-devin-014","claim-devin-015","claim-devin-005","claim-devin-006"],"arc":"Respect for why this team could build it, curiosity about how it reached people, and relief as access widened."},{"timeRange":"0:52-1:05","claimIds":["claim-devin-007","claim-devin-008","claim-devin-016"],"arc":"Momentum from enterprise proof to a market valuation that prices the trust."}],"revealOrder":[{"step":1,"timeRange":"0:00-0:20","newInformation":"A software task is handed to Devin; it visibly plans, opens a browser, edits a file, and runs a command.","withheld":"Who built it, how it spread, and what market value it earned.","function":"Establish product mental model and the hook."},{"step":2,"timeRange":"0:20-0:32","newInformation":"Three IOI gold-medalist founders describe the problem as complex algorithmic decisions; launch context includes a $21M seed at $350M valuation.","withheld":"Distribution and pricing evidence.","function":"Answer why this team without inventing psychology."},{"step":3,"timeRange":"0:32-0:42","newInformation":"The official demo was a public artifact with 1.22M+ views; seeing the agent work was the cold-start mechanism.","withheld":"How access and enterprise proof changed later.","function":"Connect product visibility to distribution."},{"step":4,"timeRange":"0:42-0:52","newInformation":"Access widened: GA team pricing was $500/month; Devin 2.0 introduced a $20/month individual plan and parallel Devins.","withheld":"Enterprise customer proof and final capital pricing.","function":"Show a concrete turning interval, not a version list."},{"step":5,"timeRange":"0:52-1:05","newInformation":"Mercedes-Benz cut an estimated 8 months of COBOL modernization to 8 days; Cognition reports 89% of its own code is committed by Devin; $1B+ raised at $2.5B pre-money.","withheld":"Nothing further; this is the market answer.","function":"Resolve the question with enterprise proof and capital-market pricing."}],"blockers":[],"verdict":"READY","returnTo":"none"}
+-->
+# Director Brief — episode-004: Devin
+
+## 导演决策
+- 唯一核心问题：Devin 作为被官方称为第一位 AI 软件工程师的产品，怎样让工程师把真实任务交给它，市场最终为这种信任支付了什么价格。
+- 观众承诺：零背景观众在前 20 秒内能说出产品是“你给任务，AI 自己用浏览器、编辑器和终端把活干出来”；全片以产品动作、分发证据和资本市场证据回答，不用行业趋势或财富想象收尾。
+- 有来源的答案：官方演示可见自主执行（claim-devin-001/003/004）；创始人团队是三名 IOI 金牌得主（claim-devin-012/013），种子轮 2100 万美元、估值 3.5 亿美元（claim-devin-014）；公开演示播放超 122 万次（claim-devin-015）；2024 年 12 月 GA 团队版 500 美元/月，2025 年 4 月 Devin 2.0 个人版 20 美元/月起步并支持平行 Devin（claim-devin-005/006）；2026 年 4 月奔驰案例 20 万行 COBOL、预计 8 个月到 8 天（claim-devin-007）；公司自报 89% 自有代码由 Devin 提交（claim-devin-008）；2026 年 5 月融资超 10 亿美元、pre-money 25 亿美元（claim-devin-016）。
+- 事实边界：不进旁白 SWE-bench 13.86%、2025 年 PR 合并率；不把 500 美元和 20 美元写成同一套餐降价；公司自报口径必须标注；不虚构动机、危机、顿悟或增长归因。
+- 转折区间：2024-12-10 GA 企业定价 → 2025-04-03 Devin 2.0 个人定价与平行 Devin → 2026-04-27 奔驰案例。这是有来源的方向、接入和定价转折区间，不是版本发布清单。
+- 开场回看：不使用默认回看；中段没有改变开场画面含义的来源，结尾停在资本市场证据。
+
+## Reveal order 速览
+1. 0-20 秒：产品正在干活（官方演示）。
+2. 20-32 秒：为什么是这三个人（IOI 金牌 + 种子轮）。
+3. 32-42 秒：公开演示怎么让产品被看见（122 万+ 播放）。
+4. 42-52 秒：接入和定价怎么变宽（$500 团队版 → $20 个人版 + 平行 Devin）。
+5. 52-65 秒：企业证明和资本市场定价（奔驰、89% 自用代码、$1B+ at $2.5B pre）。
+
+## 规模不等于原因
+- 122 万+ 播放只证明公开演示的触达，不证明转化。
+- 25 亿美元 pre-money 只证明资本市场定价，不证明利润或成功率。
+- 89% 自有代码只证明公司自用强度，不直接等于产品质量。
+
+## 可执行性
+- 官方演示视频、Devin 2.0 教程视频、奔驰官方客户视频均已本地下载，可用作同期证据。
+- 所有官方视频需保留“功能演示/官方演示”标签；无真实操作录屏或产品截图时，不把官网首页当动作证据。
