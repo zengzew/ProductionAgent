@@ -73,7 +73,7 @@ const bindRef = (input: {
   });
 
 const outputArtifactId = (episodeId: string, role: AgentName, repositoryPath: string): string =>
-  `${episodeId}:${artifactKindFor(repositoryPath)}:${role}:${leafId(repositoryPath)}`;
+  `${episodeId}:${artifactKindFor(repositoryPath)}:${role}-${leafId(repositoryPath)}`;
 
 /** Builds the exact frozen request declared by a role contract. */
 export const buildRoleBenchmarkRequest = (input: {

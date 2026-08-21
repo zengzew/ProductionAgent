@@ -47,6 +47,11 @@ describe("role-aware benchmark contracts", () => {
       expect(request.expectedOutputs.map((output) => output.path)).toEqual(
         contract.expectedOutputs.map((item) => item.path.replaceAll("<episodeId>", "episode-004")),
       );
+      expect(
+        request.expectedOutputs.every((output) =>
+          /^episode-[a-z0-9-]+:[a-z0-9-]+:[a-z0-9-]+$/u.test(output.artifactId),
+        ),
+      ).toBe(true);
     }
   });
 
