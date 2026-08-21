@@ -20,6 +20,40 @@ story/
   viral-strategy.md
 ```
 
+### Machine-readable gate serialization
+
+`viral-strategy.md` 必须在文件开头使用下面这种 HTML comment metadata 形式写入
+`viral-strategy-gate`：
+
+```text
+<!-- viral-strategy-gate
+{ "rubricVersion": "viral-strategy-v2", "reviewedFiles": { ... }, "selectedHookHeading": "...", "claimIds": [ ... ], "scores": { ... }, "total": 24, "threshold": 20, "blockers": [], "verdict": "READY", "returnTo": "none" }
+-->
+```
+
+这里的 JSON 必须是可解析的单个对象，并完整匹配下面的 exact key shape（不得改名或
+添加额外 key）：`reviewedFiles` 只能包含 `storyBibleSha256`、`storyAngleSha256`、
+`threeActStructureSha256`、`hookCandidatesSha256`、`directorBriefSha256`，每项都必须是
+恰好 64 位、只含 `0-9a-f` 的小写十六进制字符串：前四项是输入文件字节内容的真实
+SHA-256（`story/story-bible.md`、`story/story-angle.md`、`story/three-act-structure.md`、
+`story/director-brief.md`，内容已包含在输入中）；`hookCandidatesSha256` 绑定你本次
+返回的 `story/hook-candidates.md`——先完整写定该文件内容，再按同一字节内容计算真实
+SHA-256 填入；若无法在返回前可靠手算，则给出一个恰好 64 位的小写十六进制格式值。
+严禁使用占位文本（如 `PENDING_COMMIT`）、中文、大写字母、长度不等于 64 或含非
+十六进制字符的值——格式错误会使 gate 校验失败。`scores` 只能包含
+`openingHook`、`curiosityGap`、`emotionalTension`、`informationRevealOrder`、
+`endingPayoff`（每项 0～5 的整数）。其余顶层 key 必须是 `rubricVersion`、
+`selectedHookHeading`、`claimIds`、`total`、`threshold`、`blockers`、`verdict`、
+`returnTo`：`rubricVersion` 固定为 `"viral-strategy-v2"`，`selectedHookHeading` 必须与
+`hook-candidates.md` 中选中候选的标题逐字一致，`claimIds` 必须是现有 `claim-*` IDs
+（只填 `facts.json` 中 `allowedInNarration=true` 且 `confidence` 不为 `low` 的 Claim），
+`total` 是五项分数之和（20～25），`threshold` 固定为 `20`，`verdict` 只能是 `READY`
+或 `REVISE`，`returnTo` 只能是 `none`、`research-analyst`、`story-director` 或
+`viral-director`。不要用 `## viral-strategy-gate`、`- status: READY`、Markdown code
+fence 或省略 JSON metadata 来替代它。两个 declared output 仍必须通过 machine
+response contract 返回，`artifactId`、`path` 和 `schemaVersion` 必须逐字复制输入中的
+expectedOutputs。
+
 ## 必须设计和评估
 
 - `Opening hook`：第一帧已经发生的结果、0～3 秒动作和同期证据。
@@ -31,8 +65,9 @@ story/
 
 `viral-strategy.md` 必须包含 `viral-strategy-gate` 元数据，rubricVersion 使用
 `viral-strategy-v2`，绑定当前 `director-brief.md`、`story-bible.md`、
-`story-angle.md`、`three-act-structure.md` 和 `hook-candidates.md` 的 SHA-256。
-五项各 0～5 分，总分至少 20，任一项至少 3，且没有 blocker，才可标记 `READY`。
+`story-angle.md`、`three-act-structure.md` 和 `hook-candidates.md` 的 SHA-256，
+exact key shape 见上节。五项各 0～5 分，总分至少 20，任一项至少 3，且没有
+blocker，才可标记 `READY`。
 
 ## Goal 3.2 编辑政策
 
