@@ -46,7 +46,9 @@ story/
 `targetRange`、`claimIds`；`revealOrder` 的每项只能包含 `order`、`reveal`、
 `withheldAnswer`、`purpose`。其余顶层 key 必须是 `rubricVersion`、`coreStoryQuestion`、
 `audiencePromise`、`sourcedAnswer`、`factBoundary`、`blockers`、`verdict`、`returnTo`，
-并遵守对应枚举与数组约束；不要用
+`beatId` 必须使用 `beat-01`、`beat-02` 这类两位数字格式，`claimIds` 必须是现有
+`claim-*` IDs，`verdict` 只能是 `READY` 或 `REVISE`，`returnTo` 必须是允许的枚举值，
+并遵守其余对应枚举与数组约束；不要用
 `## director-brief-gate`、`- status: READY`、Markdown code fence 或省略 JSON
 metadata 来替代它。四个 declared output 仍必须通过 machine response contract 返回，
 `artifactId`、`path` 和 `schemaVersion` 必须逐字复制输入中的 expectedOutputs。

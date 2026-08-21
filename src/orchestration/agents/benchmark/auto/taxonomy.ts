@@ -314,7 +314,7 @@ const roleOutputRepairRequirements = (role: BenchmarkResult["agentName"]): strin
     "research-analyst":
       "Return every declared research JSON artifact with its declared schema; do not invent sources or claims.",
     "story-director":
-      "director-brief.md must contain an HTML comment `<!-- director-brief-gate`, one parseable strict director-brief-v1 JSON object, and a closing `-->`; use exact reviewedFiles keys factsSha256/sourcesSha256/timelineSha256, emotionalArc keys beatId/viewerState/storyMove/targetRange/claimIds, and revealOrder keys order/reveal/withheldAnswer/purpose; do not use a heading or bullet-list gate.",
+      "director-brief.md must contain an HTML comment `<!-- director-brief-gate`, one parseable strict director-brief-v1 JSON object, and a closing `-->`; use exact reviewedFiles keys factsSha256/sourcesSha256/timelineSha256, emotionalArc keys beatId/viewerState/storyMove/targetRange/claimIds with beatId values beat-01/beat-02 style, and revealOrder keys order/reveal/withheldAnswer/purpose; do not use a heading or bullet-list gate.",
     "viral-director":
       "viral-strategy.md must contain an HTML comment `<!-- viral-strategy-gate`, one parseable JSON object matching viral-strategy-v2, and a closing `-->`.",
     "script-writer":
