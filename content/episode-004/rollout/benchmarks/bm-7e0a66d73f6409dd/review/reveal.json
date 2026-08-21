@@ -1,0 +1,1 @@
+{"benchmarkId":"bm-7e0a66d73f6409dd","benchmarkResultHash":"706f3576e3285c514e2515febd1fb7c563c7c4862eea3bdc21522bacbe93f24a","episodeId":"episode-004","mapping":[{"candidateId":"qwen3-7-plus","label":"A"},{"candidateId":"deepseek-v4-flash","label":"B"}],"reviewId":"review-promotion-706f3576e3285c51","role":"story-director","schemaVersion":"role-model-blind-reveal-v1"}

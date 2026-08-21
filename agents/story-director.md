@@ -67,6 +67,16 @@ metadata 来替代它。四个 declared output 仍必须通过 machine response 
 
 没有 blocker 且上述决定能被当前研究包执行时，才可标记 `READY`。
 
+### Claim 边界语义
+
+- `emotionalArc` 每项的 `claimIds` 是“进入旁白的正面证据”字段：只允许填写
+  `facts.json` 中 `allowedInNarration=true` 且 `confidence` 不为 `low` 的 Claim。
+- `factBoundary` 以及四个文件正文可以点名 `allowedInNarration=false` 的 Claim
+  （例如 `claim-devin-010`），用于明确“该 Claim 不得进入旁白”；点名排除不等于
+  使用，不算违规。
+- 被 `factBoundary` 排除的 Claim 不得再作为正面证据出现在任何
+  `emotionalArc.claimIds` 中；只有真正用于叙事证据的 Claim 才能进入该字段。
+
 ## 先回答
 
 1. 全片唯一要回答的问题是什么？默认问：创始人抓住了哪个需求，怎么让第一批人

@@ -33,9 +33,6 @@ const outputFor = (
   return artifact ? readArtifact(repoRoot, artifact) : "";
 };
 
-const extractClaimIds = (value: string): string[] =>
-  [...new Set([...value.matchAll(/\bclaim-[a-z0-9-]+\b/gu)].map((match) => match[0]))].sort();
-
 const factsBoundary = (
   factsJson: string,
 ): {allowedClaimIds: string[]; unsupportedClaimIds: (claimIds: readonly string[]) => string[]} => {
@@ -181,6 +178,53 @@ const roleOutput = (role: AgentName, repoRoot: string, outputs: readonly Artifac
   return outputFor(repoRoot, outputs, suffixByRole[role] ?? "");
 };
 
+/**
+ * Roles whose machine-readable gate binds Claims to narration evidence.
+ * Only these roles are subject to the factual boundary; the Claim IDs come
+ * exclusively from the gate's positive structure fields, never from a
+ * full-text regex over the Markdown body.
+ */
+const claimBoundaryRoles = new Set<AgentName>([
+  "story-director",
+  "viral-director",
+  "oral-rewriter",
+]);
+
+/**
+ * Positive narration-evidence Claims taken from machine-readable gate fields.
+ *
+ * - story-director: `emotionalArc[].claimIds` (factBoundary text may name
+ *   excluded Claims and must NOT count as narration evidence).
+ * - viral-director: `claimIds` of the viral strategy gate.
+ * - oral-rewriter: segment `Claim IDs` plus `Narration units` claim cells.
+ *
+ * Critic roles (oral-judge, audience-critic, fact-guardian, retention-critic)
+ * and research-analyst return no narration-bound Claims: they may reference
+ * any existing Claim to review, reject, or explain a blocker without that
+ * reference being a factual regression.
+ */
+const positiveNarrationClaimIds = (role: AgentName, output: string): string[] => {
+  switch (role) {
+    case "story-director":
+      return [
+        ...new Set(parseDirectorBriefGate(output).emotionalArc.flatMap((beat) => beat.claimIds)),
+      ].sort();
+    case "viral-director":
+      return [...new Set(parseViralStrategyGate(output).claimIds)].sort();
+    case "oral-rewriter":
+      return [
+        ...new Set(
+          parseFinalScript(output).flatMap((segment) => [
+            ...segment.claimIds,
+            ...segment.narrationUnits.flatMap((unit) => unit.claimIds),
+          ]),
+        ),
+      ].sort();
+    default:
+      return [];
+  }
+};
+
 export const evaluateRoleBenchmarkOutput = (input: {
   repoRoot: string;
   request: AgentExecutionRequest;
@@ -210,20 +254,30 @@ export const evaluateRoleBenchmarkOutput = (input: {
   if (!output) hardFailures.push("role-output-empty");
   if (output) evaluateRoleGate(input.request.agentName, output, hardFailures);
 
-  const allText = input.outputArtifacts
-    .map((artifact) => readArtifact(input.repoRoot, artifact))
-    .join("\n");
-  const claimIds = extractClaimIds(allText);
-  let unsupportedClaimIds: string[];
-  let claimCoverage = 0;
+  const bindsNarrationClaims = claimBoundaryRoles.has(input.request.agentName);
+  let claimIds: string[] = [];
+  let unsupportedClaimIds: string[] = [];
+  let claimCoverage = 1;
   try {
     const facts = factsBoundary(input.factsJson ?? "[]");
-    unsupportedClaimIds = facts.unsupportedClaimIds(claimIds);
-    const covered = claimIds.filter((claimId) => facts.allowedClaimIds.includes(claimId)).length;
-    claimCoverage = facts.allowedClaimIds.length === 0 ? 1 : covered / facts.allowedClaimIds.length;
+    if (bindsNarrationClaims) {
+      try {
+        claimIds = positiveNarrationClaimIds(input.request.agentName, output);
+      } catch {
+        // The gate is unparseable: evaluateRoleGate already recorded
+        // role-output-gate-invalid. Leave the boundary empty instead of
+        // guessing Claims from free text.
+        claimIds = [];
+      }
+      unsupportedClaimIds = facts.unsupportedClaimIds(claimIds);
+      const covered = claimIds.filter((claimId) => facts.allowedClaimIds.includes(claimId)).length;
+      claimCoverage = facts.allowedClaimIds.length === 0 ? 1 : covered / facts.allowedClaimIds.length;
+    }
   } catch {
+    // facts.json is a frozen input for every enabled role; an unparseable
+    // file fails closed through the facts-unparseable hard failure and
+    // schemaValid=false, so no unsupported Claim marking is needed here.
     hardFailures.push("facts-unparseable");
-    unsupportedClaimIds = claimIds;
   }
   for (const claimId of unsupportedClaimIds) hardFailures.push(`unsupported-claim:${claimId}`);
 
@@ -244,6 +298,6 @@ export const evaluateRoleBenchmarkOutput = (input: {
     claimIds,
     unsupportedClaimIds,
     claimCoverage,
-    outputLength: outputLength || Buffer.byteLength(allText, "utf8"),
+    outputLength: outputLength || Buffer.byteLength(output, "utf8"),
   };
 };

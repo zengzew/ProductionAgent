@@ -119,6 +119,37 @@ Each candidate record includes:
 - latency, attempt, retries, token usage
 - provider, model, actual `reasoningProfile`, output hashes, output length
 
+### Role-aware claim boundary
+
+The factual boundary applies only to roles whose machine-readable gate binds
+Claims to narration evidence, and only through the gate's positive structure
+fields — never through a full-text regex over the Markdown body:
+
+| Role             | Positive narration-evidence fields                    | Boundary |
+| ---------------- | ----------------------------------------------------- | -------- |
+| script-writer    | segment `Claim IDs` (unchanged)                       | strict   |
+| story-director   | `emotionalArc[].claimIds`                             | strict   |
+| viral-director   | gate `claimIds`                                       | strict   |
+| oral-rewriter    | segment `Claim IDs` + `Narration units` claim cells   | strict   |
+| oral-judge / audience-critic / fact-guardian / retention-critic | none                    | none     |
+| research-analyst | none                                                  | none     |
+
+Consequences:
+
+- Story Director may name `allowedInNarration=false` Claims in `factBoundary`
+  (or the brief body) to declare "must not enter narration"; that reference is
+  not an `unsupported-claim`.
+- Only Claims actually bound as positive narration evidence (e.g.
+  `emotionalArc.claimIds`) must satisfy `allowedInNarration=true` and
+  `confidence != low`.
+- Critic roles may cite any existing Claim to review, reject, or explain a
+  blocker; citing a forbidden Claim is never a factual regression.
+- Research Analyst is not subject to the narration claim boundary.
+- Script Writer keeps its existing strict segment-level enforcement.
+
+For roles with no positive narration-evidence fields the claim contract is
+vacuously satisfied (`claimCoverage=1`, no unsupported Claims).
+
 Reasoning content is never stored in benchmark results or telemetry. Only the
 typed profile and ordinary token usage are recorded.
 

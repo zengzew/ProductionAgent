@@ -11,6 +11,9 @@ build/
 downloads/
 /ProductionAgent-episode-*/
 
+# Role benchmark LLM response caches (results and reviews stay tracked)
+content/**/rollout/benchmarks/*/cache/
+
 # Final and intermediate videos (keep Episode 001 comparison baselines)
 output/**/*.mp4
 output/**/*.wav
