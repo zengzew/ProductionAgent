@@ -1,6 +1,7 @@
 import {installCliErrorHandlers} from "./lib/validation";
-import {buildScriptWriterBenchmarkRequest} from "../src/orchestration/agents/benchmark/script-writer-request";
+import {buildRoleBenchmarkRequest} from "../src/orchestration/agents/benchmark/role-request";
 import {runRoleModelBenchmark} from "../src/orchestration/agents/benchmark/role-model-benchmark";
+import {agentNameSchema} from "../src/orchestration/schemas/agent";
 import path from "node:path";
 
 installCliErrorHandlers();
@@ -45,16 +46,15 @@ const parseBenchmarkArgs = (argv: string[]): {episodeId: string; role: string; m
 };
 
 const args = parseBenchmarkArgs(process.argv);
-if (args.role !== "script-writer") {
-  throw new Error(`phase-2 benchmark only supports script-writer, got ${args.role}`);
-}
 if (!/^episode-[a-z0-9-]+$/u.test(args.episodeId)) {
   throw new Error(`Invalid episode id: ${args.episodeId}`);
 }
 
-const request = buildScriptWriterBenchmarkRequest({
+const role = agentNameSchema.parse(args.role);
+const request = buildRoleBenchmarkRequest({
   repoRoot,
   episodeId: args.episodeId,
+  role,
 });
 const {manifest, result} = await runRoleModelBenchmark({
   repoRoot,

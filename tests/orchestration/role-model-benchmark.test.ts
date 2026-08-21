@@ -532,7 +532,19 @@ describe("model-benchmark-v1", () => {
       ),
     ).toBe("content/episode-004/rollout/benchmarks/bm-test/model-a/base/story/script-draft.md");
     const committed = loadRoleModelBenchmarkConfig();
-    expect(committed.allowedRoles).toEqual(["script-writer"]);
+    expect(committed.allowedRoles).toEqual([
+      "research-analyst",
+      "story-director",
+      "viral-director",
+      "script-writer",
+      "oral-rewriter",
+      "oral-judge",
+      "audience-critic",
+      "fact-guardian",
+      "visual-director",
+      "retention-critic",
+      "delivery-critic",
+    ]);
     expect(resolveBenchmarkCandidates("default", committed).map((item) => item.id)).toEqual([
       "deepseek-v4-flash",
       "qwen3-7-plus",

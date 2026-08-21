@@ -139,6 +139,18 @@ describe("Role → ModelPolicy precedence", () => {
       ...agentModelPolicyFile,
       defaults,
       roles: {...agentModelPolicyFile.roles, "script-writer": role},
+      episodeOverrides: {
+        ...agentModelPolicyFile.episodeOverrides,
+        "episode-004": {
+          "script-writer": {
+            provider: "openai",
+            endpoint: "https://api.openai.com/v1/chat/completions",
+            model: "gpt-5.6",
+            apiKeyEnv: "OPENAI_API_KEY",
+            allowedOrigins: ["https://api.openai.com"],
+          },
+        },
+      },
     });
     expect(
       resolveEffectiveRoleModelPolicy({
@@ -164,7 +176,7 @@ describe("Role → ModelPolicy precedence", () => {
     ).toBe("run-model");
   });
 
-  it("keeps committed episode-004 and episode-005 script-writer overrides isolated", () => {
+  it("keeps committed episode-005 script-writer overrides isolated", () => {
     const episode004 = resolveEffectiveRoleModelPolicy({
       agentName: "script-writer",
       episodeId: "episode-004",
@@ -177,7 +189,11 @@ describe("Role → ModelPolicy precedence", () => {
       agentName: "script-writer",
       episodeId: "episode-test",
     });
-    expect(episode004).toMatchObject({provider: "openai", model: "gpt-5.6", mode: "manual"});
+    expect(episode004).toMatchObject({
+      provider: "openai-compatible",
+      model: "deepseek-v4-flash",
+      mode: "manual",
+    });
     expect(episode005).toMatchObject({
       provider: "deepseek",
       model: "deepseek-chat",
@@ -186,7 +202,7 @@ describe("Role → ModelPolicy precedence", () => {
     expect(other.model).toBe(resolveRoleModelPolicy("script-writer").model);
     expect(other.model).not.toBe("gpt-5.6");
     expect(other.model).not.toBe("deepseek-chat");
-    expect(episode004.appliedLayers.episode).toBe(true);
+    expect(episode004.appliedLayers.episode).toBe(false);
     expect(other.appliedLayers.episode).toBe(false);
   });
 
@@ -320,8 +336,8 @@ describe("Role → ModelPolicy rollout adapter", () => {
       agentName: "script-writer",
       mode: "shadow",
       provider: "openai-compatible",
-      model: "gpt-5-mini",
-      reasoningProfile: "none",
+      model: "deepseek-v4-flash",
+      reasoningProfile: "deepseek-v4-flash",
       policyVersion: "role-model-rollout-v1",
       executionId: "exec-rollout-1",
       status: "SUCCEEDED",

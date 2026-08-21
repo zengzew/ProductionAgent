@@ -2,20 +2,16 @@ import {z} from "zod";
 import {ROLE_MODEL_POLICY_VERSION} from "../config/agent-model-policy";
 import {MODEL_BENCHMARK_CONTRACT_VERSION} from "../config/role-model-benchmark";
 import {agentNameSchema} from "./agent";
+import {
+  roleBenchmarkReviewDimensionSchema,
+  roleBenchmarkReviewDimensions,
+} from "../agents/benchmark/role-contract";
 
 const sha256Schema = z.string().regex(/^[a-f0-9]{64}$/u);
 const episodeIdSchema = z.string().regex(/^episode-[a-z0-9-]+$/u);
 const candidateLabelSchema = z.string().regex(/^[A-Z]$/u);
 
-export const roleModelReviewDimensions = [
-  "storyProgression",
-  "clarity",
-  "informationDensity",
-  "claimFidelity",
-  "spokenVideoSuitability",
-  "redundancy",
-  "hookPayoffContinuity",
-] as const;
+export const roleModelReviewDimensions = roleBenchmarkReviewDimensions;
 
 export const roleModelReviewScoreSchema = z.number().int().min(1).max(5);
 
@@ -72,7 +68,7 @@ export const roleModelBlindReviewPackageSchema = z
     benchmarkResultHash: sha256Schema,
     rubric: z.object({
       scale: z.object({min: z.literal(1), max: z.literal(5)}),
-      dimensions: z.array(z.enum(roleModelReviewDimensions)).min(1),
+      dimensions: z.array(roleBenchmarkReviewDimensionSchema).min(1),
     }),
     candidates: z.array(roleModelBlindCandidateSchema).min(1),
     purpose: z.enum(["promotion", "diagnostic", "inspection"]),

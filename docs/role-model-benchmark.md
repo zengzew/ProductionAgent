@@ -1,13 +1,18 @@
-# Role model shadow benchmark
+# Role-aware role-model benchmark
 
-- Status: phase-2 infrastructure
+- Status: role-aware infrastructure
 - Contract: `model-benchmark-v1`
 - Config: `config/role-model-benchmark.json`
+- Role contracts: `config/role-model-contracts.json`
 - Policy version: `role-model-rollout-v1`
 
-This work package compares hosted models for one role on frozen
-ArtifactRefs. It never changes the canonical workflow, RoleModelPolicy,
-or `ORCHESTRATOR=manual`.
+This work package compares hosted models for a role on frozen ArtifactRefs. The
+catalog covers all 11 roles, while execution is capability-gated. Text roles
+may use the hosted text candidates; Research Analyst requires search, Visual
+Director requires multimodal input, and Delivery Critic requires production
+media inspection. A role without its required capability fails closed before
+provider calls. It never changes the canonical workflow, RoleModelPolicy, or
+`ORCHESTRATOR=manual`.
 
 ## Benchmark contract
 
@@ -16,7 +21,7 @@ Every run freezes:
 | Field                      | Meaning                                          |
 | -------------------------- | ------------------------------------------------ |
 | `episodeId`                | Only this episode may be read or written         |
-| `agentName`                | Phase 2 allows `script-writer` only              |
+| `agentName`                | One of the 11 role contracts; capability-gated   |
 | `promptRef` + SHA          | Same prompt bytes for every candidate            |
 | `input ArtifactRefs` + SHA | Same research/story inputs                       |
 | `upstreamGateRefs`         | Same director / viral gates                      |
@@ -28,7 +33,7 @@ Every run freezes:
 benchmark identity for one candidate is:
 
 ```text
-sha256(inputHash + role + provider + model + prompt version + typed reasoning config)
+sha256(inputHash + role + provider + model + prompt version + typed reasoning config + role contract version)
 ```
 
 `reasoning` is a strict discriminated union, not a generic request-options
@@ -85,13 +90,29 @@ Canonical `story/script-draft.md` is never opened for write. A later
 identical identity may reuse a successful cached candidate; a changed
 model, input hash, or reasoning config must re-execute.
 
+## Role contract catalog
+
+`config/role-model-contracts.json` is the deterministic source for each role's
+allowed frozen inputs, expected outputs, hard-validator IDs, evaluator ID,
+promotion requirements, blind-review dimensions, cache identity version and
+repair fairness. `buildRoleBenchmarkRequest` expands only those declared
+paths; it never imports another role's inputs or outputs. Adding an agent role
+without adding its contract fails the contract schema at startup.
+
+The current text rollout order is Story Director → Viral Director → Oral
+Rewriter → Oral Judge → Audience Critic → Fact Guardian → Retention Critic.
+Script Writer remains benchmark-enabled but its promotion is already complete.
+Research, Visual and Delivery remain capability contracts until search,
+multimodal and production-media adapters are configured.
+
 ## Evaluation metrics
 
 Each candidate record includes:
 
 - schema validity
 - expectedOutputs complete
-- hard validators PASS/FAIL (script-writer structure + Claim binding)
+- role-specific hard validators PASS/FAIL plus Claim binding where the role
+  contract reads facts
 - factual contract (claim IDs, unsupported count, coverage)
 - downstream critic result when a runner is supplied; otherwise
   `not-evaluated`
@@ -141,8 +162,8 @@ pnpm benchmark:role \
 ```
 
 Defaults: `--role script-writer`, `--models default`. The command only
-runs a shadow benchmark. It does not modify the canonical script.
-Phase 2 rejects any role other than `script-writer`.
+runs a shadow benchmark. It does not modify canonical artifacts.
+Unsupported capabilities are rejected before API-key checks and provider calls.
 
 Autonomous diagnosis and bounded repair live in
 [`role-model-auto.md`](./role-model-auto.md):
@@ -157,7 +178,7 @@ pnpm benchmark:auto \
 ## Out of scope
 
 - Automatic model router or cost-based selection
-- Research search tools
-- Visual Director / Delivery Critic VLM
+- Configuring the search, multimodal and production-media adapters required by
+  Research Analyst, Visual Director and Delivery Critic
 - Changing Goal 3.2 prompts, Golden Set, or hard validators
 - Official hosted-llm for any new role

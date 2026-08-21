@@ -1,7 +1,19 @@
 {
   "schemaVersion": "model-benchmark-config-v1",
   "policyVersion": "role-model-rollout-v1",
-  "allowedRoles": ["script-writer"],
+  "allowedRoles": [
+    "research-analyst",
+    "story-director",
+    "viral-director",
+    "script-writer",
+    "oral-rewriter",
+    "oral-judge",
+    "audience-critic",
+    "fact-guardian",
+    "visual-director",
+    "retention-critic",
+    "delivery-critic"
+  ],
   "defaultModelSet": "default",
   "modelSets": {
     "default": ["deepseek-v4-flash", "qwen3-7-plus", "minimax-m2-7"]
@@ -17,6 +29,7 @@
         "reasoning_effort": "max"
       },
       "temperature": 0.4,
+      "capabilities": ["text"],
       "apiKeyEnv": "DEEPSEEK_API_KEY",
       "allowedOrigins": ["https://api.deepseek.com"],
       "timeoutMs": 300000,
@@ -32,6 +45,7 @@
         "thinking_budget": 262144
       },
       "temperature": 0.4,
+      "capabilities": ["text"],
       "apiKeyEnv": "QWEN_API_KEY",
       "allowedOrigins": ["https://dashscope.aliyuncs.com"],
       "timeoutMs": 300000,
@@ -46,6 +60,7 @@
         "mode": "native-thinking-only"
       },
       "temperature": 0.4,
+      "capabilities": ["text"],
       "apiKeyEnv": "QWEN_API_KEY",
       "allowedOrigins": ["https://dashscope.aliyuncs.com"],
       "timeoutMs": 300000,

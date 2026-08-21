@@ -10,6 +10,7 @@ import type {
 } from "../../../schemas/role-model-auto";
 import {isProtectedRepairPath} from "./protected";
 import {readAutoRepositoryFile} from "./paths";
+import {getRoleModelContract, resolveRoleContractPath} from "../role-contract";
 
 const DENY_PATHS = [
   "config/agent-model-policy.json",
@@ -20,7 +21,12 @@ const DENY_PATHS = [
   "src/orchestration/agents/benchmark/script-writer-evaluate.ts",
 ] as const;
 
-const allowFor = (target: AutoRepairTarget, episodeId: string, promptPath: string): string[] => {
+const allowFor = (
+  target: AutoRepairTarget,
+  role: BenchmarkResult["agentName"],
+  episodeId: string,
+  promptPath: string,
+): string[] => {
   if (target === "stop" || target === "candidate-output") return [];
   if (target === "transport") {
     return [
@@ -44,11 +50,18 @@ const allowFor = (target: AutoRepairTarget, episodeId: string, promptPath: strin
       "config/role-model-auto-repair.json",
     ];
   }
-  return [promptPath, "agents/script-writer.md", `content/${episodeId}/prompts/script-writer.md`];
+  const contract = getRoleModelContract(role);
+  return [
+    promptPath,
+    ...contract.repairFairness.allowPaths.map((item) => resolveRoleContractPath(episodeId, item)),
+  ];
 };
 
-const denyFor = (episodeId: string): string[] => [
+const denyFor = (role: BenchmarkResult["agentName"], episodeId: string): string[] => [
   ...DENY_PATHS,
+  ...getRoleModelContract(role).repairFairness.denyPaths.map((item) =>
+    resolveRoleContractPath(episodeId, item),
+  ),
   `content/${episodeId}/story/`,
   `content/${episodeId}/research/`,
 ];
@@ -58,6 +71,7 @@ const diagnosis = (input: {
   target: AutoRepairTarget;
   candidateId: string | null;
   evidence: string;
+  role: BenchmarkResult["agentName"];
   episodeId: string;
   promptPath: string;
   instruction: string;
@@ -66,10 +80,10 @@ const diagnosis = (input: {
   target: input.target,
   candidateId: input.candidateId,
   evidence: input.evidence,
-  allowPaths: allowFor(input.target, input.episodeId, input.promptPath).filter(
+  allowPaths: allowFor(input.target, input.role, input.episodeId, input.promptPath).filter(
     (item) => !isProtectedRepairPath(item, input.episodeId),
   ),
-  denyPaths: denyFor(input.episodeId),
+  denyPaths: denyFor(input.role, input.episodeId),
   instruction: input.instruction,
 });
 
@@ -110,6 +124,7 @@ const classifyFailureDetail = (
 const classifyCandidate = (input: {
   candidate: BenchmarkCandidateResult;
   episodeId: string;
+  role: BenchmarkResult["agentName"];
   promptPath: string;
   promptHasTemplate: boolean;
 }): AutoRepairDiagnosis | undefined => {
@@ -121,6 +136,7 @@ const classifyCandidate = (input: {
       ...fromDetail,
       candidateId: candidate.candidateId,
       evidence: detail || candidate.status,
+      role: input.role,
       episodeId: input.episodeId,
       promptPath: input.promptPath,
       instruction:
@@ -142,6 +158,7 @@ const classifyCandidate = (input: {
       target,
       candidateId: candidate.candidateId,
       evidence: failures.join(","),
+      role: input.role,
       episodeId: input.episodeId,
       promptPath: input.promptPath,
       instruction: input.promptHasTemplate
@@ -167,9 +184,35 @@ const classifyCandidate = (input: {
       target: "candidate-output",
       candidateId: candidate.candidateId,
       evidence: fieldFailures.join(","),
+      role: input.role,
       episodeId: input.episodeId,
       promptPath: input.promptPath,
       instruction: "Repair only the candidate artifact fields. Do not relax the parser.",
+    });
+  }
+
+  const structuralFailures = failures.filter(
+    (item) =>
+      item === "role-output-empty" ||
+      item.startsWith("missing-output:") ||
+      item === "role-output-gate-invalid" ||
+      item === "role-output-gate-unparseable" ||
+      item.endsWith("-not-ready") ||
+      item.endsWith("-not-pass") ||
+      item.endsWith("-blocked") ||
+      item.endsWith("-threshold-failed"),
+  );
+  if (structuralFailures.length > 0) {
+    return diagnosis({
+      code: "artifact-contract-missing-fields",
+      target: "candidate-output",
+      candidateId: candidate.candidateId,
+      evidence: structuralFailures.join(","),
+      role: input.role,
+      episodeId: input.episodeId,
+      promptPath: input.promptPath,
+      instruction:
+        "Repair only the candidate declared outputs. Do not relax the role schema or hard validators.",
     });
   }
 
@@ -181,6 +224,7 @@ const classifyCandidate = (input: {
       candidateId: candidate.candidateId,
       evidence:
         unsupported.join(",") || `unsupported=${candidate.factualContract.unsupportedClaimCount}`,
+      role: input.role,
       episodeId: input.episodeId,
       promptPath: input.promptPath,
       instruction:
@@ -194,6 +238,7 @@ const classifyCandidate = (input: {
       target: "candidate-output",
       candidateId: candidate.candidateId,
       evidence: failures.join(",") || "hard-validator-failed",
+      role: input.role,
       episodeId: input.episodeId,
       promptPath: input.promptPath,
       instruction: "Repair only the candidate output. Do not weaken hard validators.",
@@ -206,6 +251,7 @@ const classifyCandidate = (input: {
       target: "candidate-output",
       candidateId: candidate.candidateId,
       evidence: "unsupported-factual-regression",
+      role: input.role,
       episodeId: input.episodeId,
       promptPath: input.promptPath,
       instruction: "Repair only the candidate output. Do not change Claim validators.",
@@ -234,6 +280,7 @@ export const diagnoseBenchmarkResult = (input: {
     const found = classifyCandidate({
       candidate,
       episodeId: input.result.episodeId,
+      role: input.result.agentName,
       promptPath: input.promptPath,
       promptHasTemplate,
     });
@@ -269,6 +316,6 @@ export const candidateOutputRepairAppendix = (diagnosis: AutoRepairDiagnosis): s
     `Evidence: ${diagnosis.evidence}`,
     diagnosis.instruction,
     'ONLY return one JSON object {"outputs":[...]}.',
-    "script-draft.md content must use ## seg-* headings and the declared English field names.",
+    "Every declared output must be returned exactly once with its declared artifactId, path, and schemaVersion.",
     "Do not invent claims. Do not edit validators, Goal 3.2, or canonical files.",
   ].join("\n");

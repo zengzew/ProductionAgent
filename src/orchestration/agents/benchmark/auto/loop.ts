@@ -37,7 +37,7 @@ import {
 } from "../role-model-benchmark";
 import type {BenchmarkResult} from "../../../schemas/role-model-benchmark";
 import type {RepairExecutor} from "./executor";
-import {buildScriptWriterBenchmarkRequest} from "../script-writer-request";
+import {buildRoleBenchmarkRequest} from "../role-request";
 import {createAutoRepairBudget} from "./budget";
 import {createAutoJournal, autoSummaryPath} from "./journal";
 import {writeAutoRepositoryFile} from "./paths";
@@ -45,6 +45,7 @@ import {runAutoPreflight} from "./preflight";
 import {assertProtectedSnapshotUnchanged, snapshotProtectedPaths} from "./protected";
 import {applyAuthorizedRepair} from "./repair";
 import {candidateOutputRepairAppendix, diagnoseBenchmarkResult, selectRepair} from "./taxonomy";
+import {roleContractAllowsCandidateOutputRepair} from "../role-contract";
 
 const defaultNow = (): string => new Date().toISOString();
 
@@ -52,6 +53,13 @@ const sanitizeRunId = (value: string): string =>
   value.replace(/[^a-z0-9-]+/giu, "-").replace(/^-+|-+$/gu, "") || "auto-run";
 
 const defaultRunTests = (repoRoot: string): {ok: boolean; output: string} => {
+  const typecheck = spawnSync("pnpm", ["typecheck"], {cwd: repoRoot, encoding: "utf8"});
+  if (typecheck.status !== 0) {
+    return {
+      ok: false,
+      output: `${typecheck.stdout ?? ""}${typecheck.stderr ?? ""}`.slice(0, 4000),
+    };
+  }
   const result = spawnSync(
     "pnpm",
     [
@@ -61,6 +69,8 @@ const defaultRunTests = (repoRoot: string): {ok: boolean; output: string} => {
       "tests/orchestration/hosted-agent.test.ts",
       "tests/orchestration/script-writer-evaluate.test.ts",
       "tests/orchestration/role-model-benchmark.test.ts",
+      "tests/orchestration/role-model-auto.test.ts",
+      "tests/orchestration/role-model-review.test.ts",
     ],
     {cwd: repoRoot, encoding: "utf8"},
   );
@@ -240,9 +250,10 @@ export const runAutonomousRoleBenchmark = async (
   try {
     while (true) {
       budget.assertCanBenchmark();
-      const request = buildScriptWriterBenchmarkRequest({
+      const request = buildRoleBenchmarkRequest({
         repoRoot: options.repoRoot,
         episodeId: options.episodeId,
+        role,
         createdAt: createdAt(),
       });
       const protectedBefore = snapshotProtectedPaths({
@@ -350,6 +361,10 @@ export const runAutonomousRoleBenchmark = async (
         }
         writeDiagnosticReview();
         return finish("stopped", chosen?.evidence ?? "no authorized repair");
+      }
+
+      if (chosen.target === "candidate-output" && !roleContractAllowsCandidateOutputRepair(role)) {
+        return finish("stopped", `role contract disallows candidate-output repair: ${role}`);
       }
 
       budget.assertCanRepair();

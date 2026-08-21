@@ -33,7 +33,9 @@ import {
 } from "../providers/hosted-chat";
 import {reasoningConfigSchema, type ReasoningConfig} from "../../config/reasoning";
 import {createHostedAgentBackend, type HostedAgentCallRecord} from "../adapters/hosted-agent";
-import {evaluateScriptWriterDraft, skippedDownstreamCritic} from "./script-writer-evaluate";
+import {skippedDownstreamCritic} from "./script-writer-evaluate";
+import {evaluateRoleBenchmarkOutput, type RoleBenchmarkEvaluation} from "./role-aware-evaluate";
+import {getRoleModelContract, roleContractIsExecutable} from "./role-contract";
 
 const sha256 = (value: string): string =>
   crypto.createHash("sha256").update(value, "utf8").digest("hex");
@@ -153,6 +155,7 @@ export const hashBenchmarkIdentity = (input: {
   promptVersion: string;
   reasoning?: ReasoningConfig;
   repairContextHash?: string;
+  roleContractVersion?: string;
 }): string =>
   sha256(
     stableJson({
@@ -163,6 +166,7 @@ export const hashBenchmarkIdentity = (input: {
       promptVersion: input.promptVersion,
       reasoning: reasoningConfigSchema.parse(input.reasoning ?? {profile: "none"}),
       repairContextHash: input.repairContextHash ?? EMPTY_REPAIR_CONTEXT_HASH,
+      roleContractVersion: input.roleContractVersion ?? "role-contract-v1",
     }),
   );
 
@@ -444,7 +448,7 @@ const runOneCandidate = async (input: {
   candidateId: string;
   policy: BenchmarkCandidatePolicy;
   factsJson: string;
-  canonicalEvaluation: ReturnType<typeof evaluateScriptWriterDraft>;
+  canonicalEvaluation: RoleBenchmarkEvaluation;
 }): Promise<BenchmarkCandidateResult> => {
   const {options, request, manifest, candidateId, policy} = input;
   const repairRound = options.repairRound ?? 0;
@@ -460,6 +464,7 @@ const runOneCandidate = async (input: {
     reasoning: policy.reasoning,
     promptVersion: `${request.promptRef.schemaVersion}:${request.promptRef.sha256}`,
     repairContextHash,
+    roleContractVersion: getRoleModelContract(request.agentName).cacheIdentityVersion,
   });
   assertFrozenBenchmarkInputs(options.repoRoot, manifest);
   const cachePath = candidateCachePath(request.episodeId, manifest.benchmarkId, identity);
@@ -541,14 +546,12 @@ const runOneCandidate = async (input: {
   }
 
   const telemetry = hostedCalls.at(-1);
-  const markdown =
-    outputArtifacts[0] && fs.existsSync(path.join(options.repoRoot, outputArtifacts[0].path))
-      ? readRepositoryFile(options.repoRoot, outputArtifacts[0].path)
-      : "";
-  const evaluation = evaluateScriptWriterDraft({
-    markdown,
+  const evaluation = evaluateRoleBenchmarkOutput({
+    repoRoot: options.repoRoot,
+    request,
+    outputArtifacts,
+    status,
     factsJson: input.factsJson,
-    ledgerClaimIds: input.canonicalEvaluation.claimIds,
   });
   const expectedOutputsComplete =
     outputArtifacts.length === request.expectedOutputs.length &&
@@ -556,7 +559,14 @@ const runOneCandidate = async (input: {
       outputArtifacts.some((artifact) => artifact.artifactId === expected.artifactId),
     );
   const downstreamCritic = options.runDownstreamCritic
-    ? await options.runDownstreamCritic({candidateId, markdown, outputArtifacts})
+    ? await options.runDownstreamCritic({
+        candidateId,
+        markdown:
+          outputArtifacts[0] && fs.existsSync(path.join(options.repoRoot, outputArtifacts[0].path))
+            ? readRepositoryFile(options.repoRoot, outputArtifacts[0].path)
+            : "",
+        outputArtifacts,
+      })
     : skippedDownstreamCritic();
   const hardValidatorStatus = evaluation.hardFailures.length === 0 ? "PASS" : "FAIL";
   const newBlockerCount = downstreamCritic.blockerCount;
@@ -691,6 +701,12 @@ export const runRoleModelBenchmark = async (
 ): Promise<{manifest: BenchmarkInputManifest; result: BenchmarkResult}> => {
   const config = options.config ?? loadRoleModelBenchmarkConfig({repoRoot: options.repoRoot});
   assertBenchmarkRoleAllowed(options.request.agentName, config);
+  if (!roleContractIsExecutable(options.request.agentName)) {
+    const contract = getRoleModelContract(options.request.agentName);
+    throw new Error(
+      `benchmark capability contract is not configured for ${options.request.agentName}: ${contract.capabilities.join(",")}`,
+    );
+  }
   const candidates = options.candidateIds
     ? options.candidateIds.map((id) => {
         const policy = config.candidates[id];
@@ -716,12 +732,11 @@ export const runRoleModelBenchmark = async (
   );
 
   const factsJson = factsJsonFromInputs(options.repoRoot, sharedRequest.inputArtifacts);
-  const canonicalPath = sharedRequest.expectedOutputs[0]?.path;
-  const canonicalMarkdown = canonicalPath
-    ? readRepositoryFile(options.repoRoot, canonicalPath)
-    : "";
-  const canonicalEvaluation = evaluateScriptWriterDraft({
-    markdown: canonicalMarkdown,
+  const canonicalEvaluation = evaluateRoleBenchmarkOutput({
+    repoRoot: options.repoRoot,
+    request: sharedRequest,
+    outputArtifacts: manifest.canonicalOutputRefs,
+    status: "SUCCEEDED",
     factsJson,
   });
 

@@ -1,5 +1,5 @@
 import path from "node:path";
-import type {AgentName} from "../src/orchestration/schemas/agent";
+import {agentNameSchema, type AgentName} from "../src/orchestration/schemas/agent";
 import {runAutonomousRoleBenchmark} from "../src/orchestration/agents/benchmark/auto/loop";
 import {installCliErrorHandlers} from "./lib/validation";
 
@@ -49,10 +49,11 @@ if (!/^episode-[a-z0-9-]+$/u.test(args.episodeId)) {
   throw new Error(`Invalid episode id: ${args.episodeId}`);
 }
 
+const role: AgentName = agentNameSchema.parse(args.role);
 const {summary, journalPath, summaryPath, reviewPath} = await runAutonomousRoleBenchmark({
   repoRoot,
   episodeId: args.episodeId,
-  role: args.role as AgentName,
+  role,
   modelSet: args.models,
 });
 

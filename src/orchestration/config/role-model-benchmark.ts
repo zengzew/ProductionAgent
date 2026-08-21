@@ -4,11 +4,19 @@ import {z} from "zod";
 import benchmarkFile from "../../../config/role-model-benchmark.json";
 import {ROLE_MODEL_POLICY_VERSION, roleModelPolicySchema} from "./agent-model-policy";
 import {agentNameSchema, type AgentName} from "../schemas/agent";
+import {
+  roleBenchmarkCapabilitySchema,
+  roleBenchmarkCapabilities,
+  type RoleBenchmarkCapability,
+} from "../agents/benchmark/role-contract";
 
 export const MODEL_BENCHMARK_CONTRACT_VERSION = "model-benchmark-v1" as const;
 
 export const benchmarkCandidatePolicySchema = roleModelPolicySchema
   .omit({mode: true, fallbackMode: true})
+  .extend({
+    capabilities: z.array(roleBenchmarkCapabilitySchema).min(1).optional(),
+  })
   .strict();
 
 export const roleModelBenchmarkConfigSchema = z
@@ -26,7 +34,7 @@ export const roleModelBenchmarkConfigSchema = z
       context.addIssue({
         code: "custom",
         path: ["allowedRoles"],
-        message: "phase-2 benchmark must include script-writer",
+        message: "benchmark catalog must retain script-writer for backward compatibility",
       });
     }
     if (!value.modelSets[value.defaultModelSet]) {
@@ -51,6 +59,10 @@ export const roleModelBenchmarkConfigSchema = z
 
 export type BenchmarkCandidatePolicy = z.infer<typeof benchmarkCandidatePolicySchema>;
 export type RoleModelBenchmarkConfig = z.infer<typeof roleModelBenchmarkConfigSchema>;
+
+export const candidateCapabilities = (
+  policy: Pick<BenchmarkCandidatePolicy, "capabilities">,
+): readonly RoleBenchmarkCapability[] => policy.capabilities ?? [roleBenchmarkCapabilities[0]];
 
 export const roleModelBenchmarkConfig = roleModelBenchmarkConfigSchema.parse(benchmarkFile);
 

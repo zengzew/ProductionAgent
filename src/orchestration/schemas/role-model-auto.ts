@@ -8,6 +8,7 @@ export const autoRepairFailureClasses = [
   "preflight-missing-input",
   "preflight-missing-key",
   "preflight-role-not-allowed",
+  "preflight-capability-not-supported",
   "transport-markdown-only",
   "transport-malformed-json",
   "transport-timeout",

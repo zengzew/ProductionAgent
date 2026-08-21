@@ -1,0 +1,601 @@
+{
+  "schemaVersion": "role-model-contracts-v1",
+  "roles": {
+    "research-analyst": {
+      "benchmarkMode": "capability-gated",
+      "capabilities": ["search"],
+      "promptPath": "agents/research-analyst.md",
+      "allowedFrozenInputs": [],
+      "upstreamGatePaths": [],
+      "expectedOutputs": [
+        {"path": "content/<episodeId>/research/facts.json", "schemaVersion": "research-facts-v1"},
+        {
+          "path": "content/<episodeId>/research/sources.json",
+          "schemaVersion": "research-sources-v1"
+        },
+        {
+          "path": "content/<episodeId>/research/timeline.json",
+          "schemaVersion": "research-timeline-v1"
+        },
+        {
+          "path": "content/<episodeId>/research/technology.md",
+          "schemaVersion": "research-technology-v1"
+        },
+        {
+          "path": "content/<episodeId>/research/growth-data.md",
+          "schemaVersion": "research-growth-data-v1"
+        }
+      ],
+      "evaluator": "research-package",
+      "hardValidators": ["research-package-schema", "source-boundary", "claim-boundary"],
+      "promotionEligibility": [
+        "schema-valid",
+        "hard-validators-pass",
+        "canonical-unchanged",
+        "clean-round-0"
+      ],
+      "blindReviewDimensions": [
+        "clarity",
+        "informationDensity",
+        "claimFidelity",
+        "storyProgression"
+      ],
+      "cacheIdentityVersion": "research-search-v1",
+      "repairFairness": {
+        "candidateOutputRepair": false,
+        "sharedInputRepair": false,
+        "maxPromotionRepairRound": 0,
+        "allowPaths": [],
+        "denyPaths": [
+          "content/<episodeId>/research/",
+          "editorial-calibration/",
+          "src/lib/editorial/"
+        ]
+      }
+    },
+    "story-director": {
+      "benchmarkMode": "enabled",
+      "capabilities": ["text"],
+      "promptPath": "agents/story-director.md",
+      "allowedFrozenInputs": [
+        "content/<episodeId>/research/facts.json",
+        "content/<episodeId>/research/sources.json",
+        "content/<episodeId>/research/timeline.json",
+        "content/<episodeId>/research/technology.md",
+        "content/<episodeId>/research/growth-data.md"
+      ],
+      "upstreamGatePaths": [],
+      "expectedOutputs": [
+        {
+          "path": "content/<episodeId>/story/director-brief.md",
+          "schemaVersion": "director-brief-v1"
+        },
+        {"path": "content/<episodeId>/story/story-bible.md", "schemaVersion": "story-bible-v1"},
+        {"path": "content/<episodeId>/story/story-angle.md", "schemaVersion": "story-angle-v1"},
+        {
+          "path": "content/<episodeId>/story/three-act-structure.md",
+          "schemaVersion": "three-act-structure-v1"
+        }
+      ],
+      "evaluator": "story-director",
+      "hardValidators": ["director-brief-gate", "claim-boundary", "no-narration-output"],
+      "promotionEligibility": [
+        "schema-valid",
+        "hard-validators-pass",
+        "canonical-unchanged",
+        "clean-round-0"
+      ],
+      "blindReviewDimensions": [
+        "storyProgression",
+        "clarity",
+        "claimFidelity",
+        "informationDensity",
+        "hookPayoffContinuity"
+      ],
+      "cacheIdentityVersion": "story-director-v1",
+      "repairFairness": {
+        "candidateOutputRepair": true,
+        "sharedInputRepair": false,
+        "maxPromotionRepairRound": 0,
+        "allowPaths": ["agents/story-director.md", "content/<episodeId>/prompts/story-director.md"],
+        "denyPaths": [
+          "content/<episodeId>/research/",
+          "content/<episodeId>/story/",
+          "config/agent-model-policy.json",
+          "src/lib/editorial/"
+        ]
+      }
+    },
+    "viral-director": {
+      "benchmarkMode": "enabled",
+      "capabilities": ["text"],
+      "promptPath": "agents/viral-director.md",
+      "allowedFrozenInputs": [
+        "content/<episodeId>/research/facts.json",
+        "content/<episodeId>/research/sources.json",
+        "content/<episodeId>/research/timeline.json",
+        "content/<episodeId>/research/technology.md",
+        "content/<episodeId>/research/growth-data.md",
+        "content/<episodeId>/story/director-brief.md",
+        "content/<episodeId>/story/story-bible.md",
+        "content/<episodeId>/story/story-angle.md",
+        "content/<episodeId>/story/three-act-structure.md"
+      ],
+      "upstreamGatePaths": ["content/<episodeId>/story/director-brief.md"],
+      "expectedOutputs": [
+        {
+          "path": "content/<episodeId>/story/hook-candidates.md",
+          "schemaVersion": "hook-candidates-v1"
+        },
+        {
+          "path": "content/<episodeId>/story/viral-strategy.md",
+          "schemaVersion": "viral-strategy-v2"
+        }
+      ],
+      "evaluator": "viral-director",
+      "hardValidators": ["viral-strategy-gate", "claim-boundary", "director-input-binding"],
+      "promotionEligibility": [
+        "schema-valid",
+        "hard-validators-pass",
+        "canonical-unchanged",
+        "clean-round-0"
+      ],
+      "blindReviewDimensions": [
+        "hookPayoffContinuity",
+        "storyProgression",
+        "clarity",
+        "informationDensity",
+        "spokenVideoSuitability"
+      ],
+      "cacheIdentityVersion": "viral-director-v1",
+      "repairFairness": {
+        "candidateOutputRepair": true,
+        "sharedInputRepair": false,
+        "maxPromotionRepairRound": 0,
+        "allowPaths": ["agents/viral-director.md", "content/<episodeId>/prompts/viral-director.md"],
+        "denyPaths": [
+          "content/<episodeId>/research/",
+          "content/<episodeId>/story/",
+          "config/agent-model-policy.json",
+          "src/lib/editorial/"
+        ]
+      }
+    },
+    "script-writer": {
+      "benchmarkMode": "enabled",
+      "capabilities": ["text"],
+      "promptPath": "agents/script-writer.md",
+      "allowedFrozenInputs": [
+        "content/<episodeId>/research/facts.json",
+        "content/<episodeId>/story/director-brief.md",
+        "content/<episodeId>/story/story-bible.md",
+        "content/<episodeId>/story/story-angle.md",
+        "content/<episodeId>/story/three-act-structure.md",
+        "content/<episodeId>/story/hook-candidates.md",
+        "content/<episodeId>/story/viral-strategy.md"
+      ],
+      "upstreamGatePaths": [
+        "content/<episodeId>/story/director-brief.md",
+        "content/<episodeId>/story/viral-strategy.md"
+      ],
+      "expectedOutputs": [
+        {"path": "content/<episodeId>/story/script-draft.md", "schemaVersion": "script-draft-v1"}
+      ],
+      "evaluator": "script-writer",
+      "hardValidators": ["script-draft-schema", "claim-boundary", "editorial-policy-v1"],
+      "promotionEligibility": [
+        "schema-valid",
+        "hard-validators-pass",
+        "canonical-unchanged",
+        "clean-round-0"
+      ],
+      "blindReviewDimensions": [
+        "storyProgression",
+        "clarity",
+        "informationDensity",
+        "claimFidelity",
+        "spokenVideoSuitability",
+        "redundancy",
+        "hookPayoffContinuity"
+      ],
+      "cacheIdentityVersion": "script-writer-v1",
+      "repairFairness": {
+        "candidateOutputRepair": true,
+        "sharedInputRepair": false,
+        "maxPromotionRepairRound": 0,
+        "allowPaths": ["agents/script-writer.md", "content/<episodeId>/prompts/script-writer.md"],
+        "denyPaths": [
+          "content/<episodeId>/research/",
+          "content/<episodeId>/story/",
+          "config/agent-model-policy.json",
+          "src/lib/editorial/",
+          "src/editorial-calibration/"
+        ]
+      }
+    },
+    "oral-rewriter": {
+      "benchmarkMode": "enabled",
+      "capabilities": ["text"],
+      "promptPath": "agents/oral-rewriter.md",
+      "allowedFrozenInputs": [
+        "content/<episodeId>/research/facts.json",
+        "content/<episodeId>/story/story-bible.md",
+        "content/<episodeId>/story/three-act-structure.md",
+        "content/<episodeId>/story/script-draft.md",
+        "content/<episodeId>/story/oral-review.md",
+        "style/voice-guide.md",
+        "style/approved/README.md"
+      ],
+      "upstreamGatePaths": ["content/<episodeId>/story/script-draft.md"],
+      "expectedOutputs": [
+        {"path": "content/<episodeId>/story/final-script.md", "schemaVersion": "final-script-v1"}
+      ],
+      "evaluator": "oral-rewriter",
+      "hardValidators": ["final-script-schema", "claim-boundary", "source-attribution-boundary"],
+      "promotionEligibility": [
+        "schema-valid",
+        "hard-validators-pass",
+        "canonical-unchanged",
+        "clean-round-0"
+      ],
+      "blindReviewDimensions": [
+        "clarity",
+        "claimFidelity",
+        "spokenVideoSuitability",
+        "informationDensity",
+        "redundancy"
+      ],
+      "cacheIdentityVersion": "oral-rewriter-v1",
+      "repairFairness": {
+        "candidateOutputRepair": true,
+        "sharedInputRepair": false,
+        "maxPromotionRepairRound": 0,
+        "allowPaths": ["agents/oral-rewriter.md", "content/<episodeId>/prompts/oral-rewriter.md"],
+        "denyPaths": [
+          "content/<episodeId>/research/",
+          "content/<episodeId>/story/",
+          "config/agent-model-policy.json",
+          "src/lib/editorial/",
+          "editorial-calibration/"
+        ]
+      }
+    },
+    "oral-judge": {
+      "benchmarkMode": "enabled",
+      "capabilities": ["text"],
+      "promptPath": "agents/oral-judge.md",
+      "allowedFrozenInputs": [
+        "content/<episodeId>/research/facts.json",
+        "content/<episodeId>/story/script-draft.md",
+        "content/<episodeId>/story/final-script.md",
+        "style/voice-guide.md",
+        "style/approved/README.md",
+        "docs/contracts/evaluation-rubric.md"
+      ],
+      "upstreamGatePaths": ["content/<episodeId>/story/final-script.md"],
+      "expectedOutputs": [
+        {"path": "content/<episodeId>/story/oral-review.md", "schemaVersion": "oral-review-v2"}
+      ],
+      "evaluator": "oral-judge",
+      "hardValidators": ["oral-review-gate", "oral-review-decision", "reviewed-input-binding"],
+      "promotionEligibility": [
+        "schema-valid",
+        "hard-validators-pass",
+        "canonical-unchanged",
+        "clean-round-0"
+      ],
+      "blindReviewDimensions": [
+        "clarity",
+        "claimFidelity",
+        "spokenVideoSuitability",
+        "informationDensity",
+        "redundancy"
+      ],
+      "cacheIdentityVersion": "oral-judge-v1",
+      "repairFairness": {
+        "candidateOutputRepair": true,
+        "sharedInputRepair": false,
+        "maxPromotionRepairRound": 0,
+        "allowPaths": ["agents/oral-judge.md", "content/<episodeId>/prompts/oral-judge.md"],
+        "denyPaths": [
+          "content/<episodeId>/research/",
+          "content/<episodeId>/story/",
+          "config/agent-model-policy.json",
+          "src/lib/editorial/",
+          "editorial-calibration/"
+        ]
+      }
+    },
+    "audience-critic": {
+      "benchmarkMode": "enabled",
+      "capabilities": ["text"],
+      "promptPath": "agents/audience-critic.md",
+      "allowedFrozenInputs": [
+        "content/<episodeId>/research/facts.json",
+        "content/<episodeId>/research/sources.json",
+        "content/<episodeId>/research/timeline.json",
+        "content/<episodeId>/research/technology.md",
+        "content/<episodeId>/research/growth-data.md",
+        "content/<episodeId>/story/director-brief.md",
+        "content/<episodeId>/story/story-bible.md",
+        "content/<episodeId>/story/story-angle.md",
+        "content/<episodeId>/story/three-act-structure.md",
+        "content/<episodeId>/story/hook-candidates.md",
+        "content/<episodeId>/story/viral-strategy.md",
+        "content/<episodeId>/story/script-draft.md",
+        "content/<episodeId>/story/final-script.md",
+        "content/<episodeId>/story/oral-review.md"
+      ],
+      "upstreamGatePaths": ["content/<episodeId>/story/oral-review.md"],
+      "expectedOutputs": [
+        {"path": "content/<episodeId>/story/critic-report.md", "schemaVersion": "critic-report-v1"}
+      ],
+      "evaluator": "audience-critic",
+      "hardValidators": [
+        "critic-gate",
+        "audience-threshold",
+        "blocker-routing",
+        "reviewed-input-binding"
+      ],
+      "promotionEligibility": [
+        "schema-valid",
+        "hard-validators-pass",
+        "canonical-unchanged",
+        "clean-round-0"
+      ],
+      "blindReviewDimensions": [
+        "storyProgression",
+        "clarity",
+        "informationDensity",
+        "claimFidelity",
+        "spokenVideoSuitability",
+        "hookPayoffContinuity",
+        "redundancy"
+      ],
+      "cacheIdentityVersion": "audience-critic-v1",
+      "repairFairness": {
+        "candidateOutputRepair": true,
+        "sharedInputRepair": false,
+        "maxPromotionRepairRound": 0,
+        "allowPaths": [
+          "agents/audience-critic.md",
+          "content/<episodeId>/prompts/audience-critic.md"
+        ],
+        "denyPaths": [
+          "content/<episodeId>/research/",
+          "content/<episodeId>/story/",
+          "config/agent-model-policy.json",
+          "src/lib/editorial/",
+          "editorial-calibration/"
+        ]
+      }
+    },
+    "fact-guardian": {
+      "benchmarkMode": "enabled",
+      "capabilities": ["text"],
+      "promptPath": "agents/fact-guardian.md",
+      "allowedFrozenInputs": [
+        "content/<episodeId>/research/facts.json",
+        "content/<episodeId>/research/sources.json",
+        "content/<episodeId>/research/timeline.json",
+        "content/<episodeId>/research/technology.md",
+        "content/<episodeId>/research/growth-data.md",
+        "content/<episodeId>/story/final-script.md",
+        "content/<episodeId>/story/oral-review.md",
+        "content/<episodeId>/story/critic-report.md"
+      ],
+      "upstreamGatePaths": [
+        "content/<episodeId>/story/critic-report.md",
+        "content/<episodeId>/story/oral-review.md"
+      ],
+      "expectedOutputs": [
+        {
+          "path": "content/<episodeId>/story/fact-check-report.md",
+          "schemaVersion": "fact-check-report-v1"
+        }
+      ],
+      "evaluator": "fact-guardian",
+      "hardValidators": [
+        "fact-check-gate",
+        "claim-boundary",
+        "blocker-routing",
+        "reviewed-input-binding"
+      ],
+      "promotionEligibility": [
+        "schema-valid",
+        "hard-validators-pass",
+        "canonical-unchanged",
+        "clean-round-0"
+      ],
+      "blindReviewDimensions": [
+        "claimFidelity",
+        "clarity",
+        "informationDensity",
+        "storyProgression"
+      ],
+      "cacheIdentityVersion": "fact-guardian-v1",
+      "repairFairness": {
+        "candidateOutputRepair": true,
+        "sharedInputRepair": false,
+        "maxPromotionRepairRound": 0,
+        "allowPaths": ["agents/fact-guardian.md", "content/<episodeId>/prompts/fact-guardian.md"],
+        "denyPaths": [
+          "content/<episodeId>/research/",
+          "content/<episodeId>/story/",
+          "config/agent-model-policy.json",
+          "src/lib/editorial/",
+          "editorial-calibration/"
+        ]
+      }
+    },
+    "visual-director": {
+      "benchmarkMode": "capability-gated",
+      "capabilities": ["multimodal"],
+      "promptPath": "agents/visual-director.md",
+      "allowedFrozenInputs": [
+        "content/<episodeId>/research/facts.json",
+        "content/<episodeId>/research/sources.json",
+        "content/<episodeId>/research/timeline.json",
+        "content/<episodeId>/research/technology.md",
+        "content/<episodeId>/research/growth-data.md",
+        "content/<episodeId>/story/final-script.md",
+        "content/<episodeId>/story/oral-review.md",
+        "content/<episodeId>/story/critic-report.md",
+        "content/<episodeId>/story/fact-check-report.md",
+        "content/<episodeId>/media/source-manifest.json"
+      ],
+      "upstreamGatePaths": ["content/<episodeId>/story/fact-check-report.md"],
+      "expectedOutputs": [
+        {"path": "content/<episodeId>/story/visual-plan.md", "schemaVersion": "visual-plan-v3"}
+      ],
+      "evaluator": "visual-director",
+      "hardValidators": [
+        "visual-plan-gate",
+        "claim-coverage",
+        "asset-boundary",
+        "reviewed-input-binding"
+      ],
+      "promotionEligibility": [
+        "schema-valid",
+        "hard-validators-pass",
+        "canonical-unchanged",
+        "clean-round-0"
+      ],
+      "blindReviewDimensions": [
+        "clarity",
+        "claimFidelity",
+        "spokenVideoSuitability",
+        "storyProgression",
+        "hookPayoffContinuity"
+      ],
+      "cacheIdentityVersion": "visual-director-multimodal-v1",
+      "repairFairness": {
+        "candidateOutputRepair": false,
+        "sharedInputRepair": false,
+        "maxPromotionRepairRound": 0,
+        "allowPaths": [],
+        "denyPaths": [
+          "content/<episodeId>/research/",
+          "content/<episodeId>/story/",
+          "content/<episodeId>/media/",
+          "config/agent-model-policy.json"
+        ]
+      }
+    },
+    "retention-critic": {
+      "benchmarkMode": "enabled",
+      "capabilities": ["text"],
+      "promptPath": "agents/retention-critic.md",
+      "allowedFrozenInputs": [
+        "content/<episodeId>/research/facts.json",
+        "content/<episodeId>/research/sources.json",
+        "content/<episodeId>/research/timeline.json",
+        "content/<episodeId>/story/final-script.md",
+        "content/<episodeId>/story/viral-strategy.md",
+        "content/<episodeId>/story/visual-plan.md",
+        "content/<episodeId>/story/oral-review.md",
+        "content/<episodeId>/story/critic-report.md",
+        "content/<episodeId>/story/fact-check-report.md"
+      ],
+      "upstreamGatePaths": [
+        "content/<episodeId>/story/visual-plan.md",
+        "content/<episodeId>/story/fact-check-report.md"
+      ],
+      "expectedOutputs": [
+        {
+          "path": "content/<episodeId>/story/retention-report.md",
+          "schemaVersion": "retention-report-v2"
+        }
+      ],
+      "evaluator": "retention-critic",
+      "hardValidators": [
+        "retention-gate",
+        "retention-threshold",
+        "blocker-routing",
+        "reviewed-input-binding"
+      ],
+      "promotionEligibility": [
+        "schema-valid",
+        "hard-validators-pass",
+        "canonical-unchanged",
+        "clean-round-0"
+      ],
+      "blindReviewDimensions": [
+        "hookPayoffContinuity",
+        "storyProgression",
+        "clarity",
+        "spokenVideoSuitability",
+        "informationDensity",
+        "redundancy"
+      ],
+      "cacheIdentityVersion": "retention-critic-v1",
+      "repairFairness": {
+        "candidateOutputRepair": true,
+        "sharedInputRepair": false,
+        "maxPromotionRepairRound": 0,
+        "allowPaths": [
+          "agents/retention-critic.md",
+          "content/<episodeId>/prompts/retention-critic.md"
+        ],
+        "denyPaths": [
+          "content/<episodeId>/research/",
+          "content/<episodeId>/story/",
+          "config/agent-model-policy.json",
+          "src/lib/editorial/",
+          "editorial-calibration/"
+        ]
+      }
+    },
+    "delivery-critic": {
+      "benchmarkMode": "capability-gated",
+      "capabilities": ["production-media"],
+      "promptPath": "agents/delivery-critic.md",
+      "allowedFrozenInputs": [
+        "output/<episodeId>/vertical_9x16.mp4",
+        "output/<episodeId>/subtitles_zh.srt",
+        "content/<episodeId>/production/timeline.json",
+        "content/<episodeId>/production/asset-manifest.json",
+        "content/<episodeId>/production/tts-metadata.json"
+      ],
+      "upstreamGatePaths": [],
+      "expectedOutputs": [
+        {
+          "path": "content/<episodeId>/production/delivery-critic-report.md",
+          "schemaVersion": "delivery-critic-v1"
+        }
+      ],
+      "evaluator": "delivery-critic",
+      "hardValidators": [
+        "delivery-gate",
+        "media-hash-binding",
+        "duration-boundary",
+        "asset-boundary"
+      ],
+      "promotionEligibility": [
+        "schema-valid",
+        "hard-validators-pass",
+        "canonical-unchanged",
+        "clean-round-0"
+      ],
+      "blindReviewDimensions": [
+        "clarity",
+        "claimFidelity",
+        "spokenVideoSuitability",
+        "storyProgression",
+        "hookPayoffContinuity"
+      ],
+      "cacheIdentityVersion": "delivery-critic-production-v1",
+      "repairFairness": {
+        "candidateOutputRepair": false,
+        "sharedInputRepair": false,
+        "maxPromotionRepairRound": 0,
+        "allowPaths": [],
+        "denyPaths": [
+          "output/<episodeId>/",
+          "content/<episodeId>/production/",
+          "config/agent-model-policy.json"
+        ]
+      }
+    }
+  }
+}

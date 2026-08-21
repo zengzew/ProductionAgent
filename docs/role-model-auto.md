@@ -1,21 +1,24 @@
-# Autonomous role benchmark and repair loop
+# Autonomous role-aware benchmark and repair loop
 
-- Status: M6
+- Status: role-aware M7 foundation
 - Contract: `role-model-auto-v1`
 - Config: `config/role-model-auto-repair.json`
 - CLI: `pnpm benchmark:auto --episode <id> --role <role> --models <set>`
 
-The loop is `preflight → benchmark → deterministic diagnosis → bounded
-repair → test → rerun → review-ready`. Failure taxonomy and routing are
-decided in code. An executor may apply only an authorized repair, and
-only through a staging worktree.
+The loop is `preflight → capability check → benchmark → deterministic
+diagnosis → bounded repair → verification workflow → rerun → review-ready`.
+Failure taxonomy and routing are decided in code. An executor may apply only
+an authorized repair, and only through a staging worktree. The same loop is
+available to every enabled text role through the role contract catalog;
+search, multimodal and production-media roles stop at capability preflight
+until their correct adapters exist.
 
 ## Identity and fairness
 
 Candidate cache identity is:
 
 ```text
-sha256(inputHash + role + provider + model + prompt version + typed reasoning config + repairContextHash)
+sha256(inputHash + role + provider + model + prompt version + typed reasoning config + role contract version + repairContextHash)
 ```
 
 `repairContextHash` is `sha256({appendix, repairRound})`. The base run uses
@@ -46,6 +49,11 @@ If that clean eligible cohort has fewer than two candidates, the loop
 does **not** mark `review-ready`; it returns
 `insufficient-comparable-candidates`. `automaticPromotion` remains `false`.
 
+Every role contract separately declares whether candidate-output repair is
+allowed, which prompt paths may be repaired, which paths are denied, and what
+counts as a clean promotion cohort. A repair never broadens the role's frozen
+inputs or output declaration.
+
 ## Budgets
 
 | Cap              | Default | Meaning                                      |
@@ -62,7 +70,7 @@ Exhaustion stops the loop. It never retries forever.
 | Class                               | Target               | May write                                    |
 | ----------------------------------- | -------------------- | -------------------------------------------- |
 | transport / adapter / CLI / harness | that class           | listed harness files only                    |
-| artifact output contract            | Script Writer prompt | `agents/script-writer.md` or episode prompt  |
+| artifact output contract            | role-specific prompt | declared prompt path in the role contract    |
 | editorial / factual                 | candidate-output     | rerun the model into the candidate directory |
 | auth, canonical tamper, protected   | stop                 | nothing                                      |
 
@@ -118,5 +126,9 @@ content/<episode>/rollout/benchmarks/<benchmarkId>/review/blind-review.json
 content/<episode>/rollout/benchmarks/<benchmarkId>/review/diagnostic-review.json
 ```
 
-CI covers the loop with a fake HostedChatProvider. It does not call a
-real model API.
+CI covers the loop with a fake HostedChatProvider. Local benchmark runs use
+the configured DeepSeek, Qwen and MiniMax candidates only when the required
+environment variables are present; missing credentials report only the env
+var name. `pnpm verify:autonomous` runs the repository typecheck, related
+Vitest, orchestration, benchmark and review/promotion gates, adding the full
+suite for high-risk changes.

@@ -1,19 +1,23 @@
-import fs from "node:fs";
 import {
   assertBenchmarkRoleAllowed,
+  candidateCapabilities,
   loadRoleModelBenchmarkConfig,
   resolveBenchmarkCandidates,
   type RoleModelBenchmarkConfig,
 } from "../../../config/role-model-benchmark";
 import type {AgentName} from "../../../schemas/agent";
-import {scriptWriterInputPaths, resolveScriptWriterPromptPath} from "../script-writer-request";
-import {resolveAutoRepositoryPath} from "./paths";
+import {buildRoleBenchmarkRequest} from "../role-request";
+import {getRoleModelContract, roleContractIsExecutable} from "../role-contract";
 
 export type AutoPreflightResult =
   | {ok: true}
   | {
       ok: false;
-      code: "preflight-missing-input" | "preflight-missing-key" | "preflight-role-not-allowed";
+      code:
+        | "preflight-missing-input"
+        | "preflight-missing-key"
+        | "preflight-role-not-allowed"
+        | "preflight-capability-not-supported";
       detail: string;
     };
 
@@ -35,17 +39,21 @@ export const runAutoPreflight = (input: {
       detail: error instanceof Error ? error.message : String(error),
     };
   }
-  if (input.role !== "script-writer") {
+  const contract = getRoleModelContract(input.role);
+  if (!roleContractIsExecutable(input.role)) {
     return {
       ok: false,
-      code: "preflight-role-not-allowed",
-      detail: `auto benchmark only supports script-writer, got ${input.role}`,
+      code: "preflight-capability-not-supported",
+      detail: `${input.role} requires capability: ${contract.capabilities.join(",")}`,
     };
   }
 
-  let promptPath: string;
   try {
-    promptPath = resolveScriptWriterPromptPath(input.repoRoot, input.episodeId);
+    buildRoleBenchmarkRequest({
+      repoRoot: input.repoRoot,
+      episodeId: input.episodeId,
+      role: input.role,
+    });
   } catch (error) {
     return {
       ok: false,
@@ -53,15 +61,22 @@ export const runAutoPreflight = (input: {
       detail: error instanceof Error ? error.message : String(error),
     };
   }
-  const required = [promptPath, ...scriptWriterInputPaths(input.episodeId)];
-  for (const relative of required) {
-    if (!fs.existsSync(resolveAutoRepositoryPath(input.repoRoot, relative))) {
-      return {ok: false, code: "preflight-missing-input", detail: `missing ${relative}`};
-    }
-  }
-
   if (!input.skipApiKeys) {
     const candidates = resolveBenchmarkCandidates(input.modelSet, input.config);
+    const missingCapabilities = candidates
+      .map(({id, policy}) => ({id, capabilities: candidateCapabilities(policy)}))
+      .filter(
+        ({capabilities}) =>
+          !contract.capabilities.every((required) => capabilities.includes(required)),
+      )
+      .map(({id}) => id);
+    if (missingCapabilities.length > 0) {
+      return {
+        ok: false,
+        code: "preflight-capability-not-supported",
+        detail: `${input.role} requires capability: ${contract.capabilities.join(",")}; candidates without it: ${missingCapabilities.join(",")}`,
+      };
+    }
     const env = input.env ?? process.env;
     for (const candidate of candidates) {
       if (!env[candidate.policy.apiKeyEnv]) {

@@ -14,7 +14,6 @@ import {
   roleModelBlindReviewPackageSchema,
   roleModelPromotionDecisionSchema,
   roleModelPromotionRecommendationSchema,
-  roleModelReviewDimensions,
   type RoleModelBlindReveal,
   type RoleModelBlindReviewPackage,
   type RoleModelPromotionDecision,
@@ -22,6 +21,7 @@ import {
 } from "../../schemas/role-model-review";
 import {stableJson} from "../../stable-json";
 import {benchmarkRootPath} from "./role-model-benchmark";
+import {getRoleModelContract} from "./role-contract";
 
 const sha256Bytes = (value: string | Buffer): string =>
   crypto.createHash("sha256").update(value).digest("hex");
@@ -309,7 +309,7 @@ export const buildBlindReviewPackage = (input: {
     purpose,
     rubric: {
       scale: {min: 1, max: 5},
-      dimensions: [...roleModelReviewDimensions],
+      dimensions: [...getRoleModelContract(result.agentName).blindReviewDimensions],
     },
     candidates: mapping.map((entry) => {
       const candidate = result.candidates.find((item) => item.candidateId === entry.candidateId);
