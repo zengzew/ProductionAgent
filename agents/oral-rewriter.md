@@ -54,6 +54,16 @@ Rewrite 轮还必须读取 `story/oral-review.md`，只修复报告指出的问�
 story/final-script.md
 ```
 
+`final-script.md` 必须保留输入脚本的 `## seg-*` 分段和全部字段，并使用精确状态
+`状态：\`story-approved\``。每段必须按顺序同时包含 `### Narration`、对应旁白正文、
+`### Narration units`和表格；不得删除 Narration 正文，只返回表格。Narration units 必须是四列表格，表头依次为`Text | Mode | Claim IDs | Attribution`；不能改成项目符号。每个单元都要保留合法的
+Mode、Claim IDs 和来源归属。Mode 只能使用 `company`、`founder`、
+`independently-verified`、`editorial-analysis`、`demonstration`，不得创造 `spoken`、
+`voiceover`、`action`、`context`或`question`等新值。表格中 Text 按顺序拼接后必须
+与该段 Narration 逐字一致。除 Text 外，Mode、Claim IDs、Attribution 必须从输入脚本
+中对应的 Narration unit 原样继承：拆分一个单元时可以复制其三列元数据；不同 Mode 的
+单元不得合并成一行，也不得把`company`改写成`company-reported` 等近义标签。
+
 ## 改写要求
 
 写完后按 `oral-review-v2` 的七项检查自查一遍：翻译句序、来源称呼、产品阶段、转折

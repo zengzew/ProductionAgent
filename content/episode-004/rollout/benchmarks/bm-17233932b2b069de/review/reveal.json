@@ -1,0 +1,1 @@
+{"benchmarkId":"bm-17233932b2b069de","benchmarkResultHash":"6c20cca4106774c1b94ae1035698866fc6597e10c751fde1652fb4e8b85a743d","episodeId":"episode-004","mapping":[{"candidateId":"deepseek-v4-flash","label":"A"},{"candidateId":"qwen3-7-plus","label":"B"}],"reviewId":"review-promotion-6c20cca4106774c1","role":"oral-rewriter","schemaVersion":"role-model-blind-reveal-v1"}

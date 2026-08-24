@@ -379,6 +379,46 @@ describe("M6 autonomous role benchmark", () => {
     expect(summary.repairsApplied).toBe(0);
   });
 
+  it("finishes review-ready when budget exhaustion leaves two clean candidates", async () => {
+    const {repoRoot, episodeId} = setup();
+    const config = parseRoleModelBenchmarkConfig({
+      schemaVersion: "model-benchmark-config-v1",
+      policyVersion: "role-model-rollout-v1",
+      allowedRoles: ["script-writer"],
+      defaultModelSet: "default",
+      modelSets: {default: ["cand-alpha", "cand-beta", "cand-gamma"]},
+      candidates: {
+        "cand-alpha": candidatePolicy("cand-alpha"),
+        "cand-beta": candidatePolicy("cand-beta"),
+        "cand-gamma": candidatePolicy("cand-gamma"),
+      },
+    });
+    const {summary, reviewPath} = await runAutonomousRoleBenchmark({
+      repoRoot,
+      episodeId,
+      runId: "auto-budget-review-ready",
+      benchmarkConfig: config,
+      autoConfig: autoConfig({maxRounds: 1, maxRepairs: 0, maxApiCalls: 8}),
+      env: {OPENAI_API_KEY: "test-key"},
+      chat: async (call) =>
+        hostedOutput(
+          requestFor(repoRoot, episodeId),
+          call.model === "cand-gamma"
+            ? segmentTitleDraft
+            : draftFor(["claim-alpha-001", "claim-alpha-002"]),
+        ),
+      createdAt: () => "2026-08-20T00:00:00.000Z",
+      sleep: async () => undefined,
+      runTests: async () => ({ok: true, output: "ok"}),
+      onProgress: () => undefined,
+    });
+    expect(summary.status).toBe("review-ready");
+    expect(summary.stopReason).toBeNull();
+    expect(summary.automaticPromotion).toBe(false);
+    expect(summary.diagnoses).toHaveLength(1);
+    expect(reviewPath).toContain("/review/blind-review.json");
+  });
+
   it("rejects protected-path repairs and keeps canonical isolation", () => {
     expect(isProtectedRepairPath("config/agent-model-policy.json", "episode-test")).toBe(true);
     expect(

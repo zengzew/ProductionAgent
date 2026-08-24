@@ -449,6 +449,7 @@ export const runAutonomousRoleBenchmark = async (
           reviewPath = null;
         }
       }
+      if (reviewPath) return finish("review-ready", null);
       return finish("budget-exhausted", message);
     }
     if (
