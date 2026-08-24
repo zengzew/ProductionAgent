@@ -122,18 +122,20 @@
       "mode": "manual",
       "fallbackMode": "none",
       "provider": "openai-compatible",
-      "endpoint": "https://api.openai.com/v1/chat/completions",
-      "model": "gpt-5-mini",
+      "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+      "model": "qwen3.7-plus",
       "reasoning": {
-        "profile": "none"
+        "profile": "qwen3.7-plus",
+        "enable_thinking": true,
+        "thinking_budget": 262144
       },
       "temperature": 0.4,
-      "apiKeyEnv": "OPENAI_API_KEY",
+      "apiKeyEnv": "QWEN_API_KEY",
       "allowedOrigins": [
-        "https://api.openai.com"
+        "https://dashscope.aliyuncs.com"
       ],
-      "timeoutMs": 30000,
-      "maxRetries": 2
+      "timeoutMs": 300000,
+      "maxRetries": 0
     },
     "oral-judge": {
       "mode": "manual",
