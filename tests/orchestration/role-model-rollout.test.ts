@@ -23,6 +23,8 @@ import {
 } from "../../src/orchestration";
 
 const temporaryDirectories: string[] = [];
+const oralRewriterPolicy = agentModelPolicyFile.roles["oral-rewriter"];
+
 afterEach(() => {
   for (const directory of temporaryDirectories.splice(0)) {
     fs.rmSync(directory, {recursive: true, force: true});
@@ -385,7 +387,7 @@ describe("Role → ModelPolicy rollout adapter", () => {
       sleep: async () => undefined,
     });
     await expect(none(request(promptRef, inputRef))).rejects.toThrow(
-      /hosted-agent missing API key: OPENAI_API_KEY/u,
+      `hosted-agent missing API key: ${oralRewriterPolicy.apiKeyEnv}`,
     );
     expect(chat).not.toHaveBeenCalled();
     expect(fs.readFileSync(path.join(repoRoot, outputPath), "utf8")).toBe("canonical manual\n");
@@ -468,9 +470,9 @@ describe("Role → ModelPolicy rollout adapter", () => {
     expect(records[0]).toMatchObject({
       agentName: "oral-rewriter",
       mode: "hosted-llm",
-      provider: "openai-compatible",
-      model: "gpt-5-mini",
-      reasoningProfile: "none",
+      provider: oralRewriterPolicy.provider,
+      model: oralRewriterPolicy.model,
+      reasoningProfile: oralRewriterPolicy.reasoning.profile,
       policyVersion: "role-model-rollout-v1",
       executionId: "exec-rollout-1",
       attempt: 1,
