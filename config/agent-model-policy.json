@@ -80,18 +80,22 @@
       "mode": "manual",
       "fallbackMode": "none",
       "provider": "openai-compatible",
-      "endpoint": "https://api.openai.com/v1/chat/completions",
-      "model": "gpt-5-mini",
+      "endpoint": "https://api.deepseek.com/chat/completions",
+      "model": "deepseek-v4-flash",
       "reasoning": {
-        "profile": "none"
+        "profile": "deepseek-v4-flash",
+        "thinking": {
+          "type": "enabled"
+        },
+        "reasoning_effort": "max"
       },
-      "temperature": 0.5,
-      "apiKeyEnv": "OPENAI_API_KEY",
+      "temperature": 0.4,
+      "apiKeyEnv": "DEEPSEEK_API_KEY",
       "allowedOrigins": [
-        "https://api.openai.com"
+        "https://api.deepseek.com"
       ],
-      "timeoutMs": 30000,
-      "maxRetries": 2
+      "timeoutMs": 300000,
+      "maxRetries": 0
     },
     "script-writer": {
       "mode": "manual",
