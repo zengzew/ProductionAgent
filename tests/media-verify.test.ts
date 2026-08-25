@@ -51,8 +51,9 @@ import {
 } from "../src/media";
 import {
   assertMediaClipVerified,
+  codexMediaVerificationHandoffPaths,
+  createCodexMediaVerificationProvider,
   createDeterministicVerificationProvider,
-  createHostedVerificationProvider,
   createStubShortClipExtractor,
   isMediaClipVerified,
   MEDIA_VERIFICATION_PROMPT_VERSION,
@@ -1392,47 +1393,54 @@ describe("WP-M5.06 multimodal clip verification", () => {
     ).toBe(true);
   });
 
-  it("refuses loopback and private hosted verification endpoints", () => {
-    const valid = {
-      apiKey: "test-key",
-      model: "test-model",
+  it("hands bounded media to Codex and accepts only a hash-bound structured result", async () => {
+    const repoRoot = temporaryRepo();
+    const fixture = await setupRetrieval(repoRoot);
+    const candidate = fixture.result.candidates[0];
+    if (!candidate) throw new Error("fixture candidate missing");
+    const request = makeVerifyRequest({
+      clipId: candidate.clipId,
+      claimIds: fixture.request.claimIds,
+      narration: fixture.request.narration,
+      visualIntent: fixture.request.visualIntent,
+      retrievalResultRef: fixture.retrievalRef,
+    });
+    const provider = createCodexMediaVerificationProvider({repoRoot});
+    await expect(runVerify(repoRoot, request, provider)).rejects.toThrow(
+      /MEDIA_VERIFY_CODEX_RESULT_PENDING/u,
+    );
+
+    const handoff = codexMediaVerificationHandoffPaths(request);
+    const writtenRequest = JSON.parse(
+      fs.readFileSync(path.join(repoRoot, handoff.requestPath), "utf8"),
+    ) as {requestHash: string; clip: {path: string}; keyframes: Array<{path: string}>};
+    expect(writtenRequest.clip.path).toMatch(/-clip\./u);
+    expect(writtenRequest.clip.path).not.toContain("../");
+    expect(
+      writtenRequest.keyframes.every(({path: keyframePath}) => !path.isAbsolute(keyframePath)),
+    ).toBe(true);
+
+    const resultPath = path.join(repoRoot, handoff.resultPath);
+    const result = {
+      schemaVersion: "codex-media-verification-result-v1",
+      executor: "codex",
+      model: "gpt-5.6",
+      requestHash: "0".repeat(64),
+      completedAt: FIXED_NOW,
+      output: passOutput,
     };
-    expect(() =>
-      createHostedVerificationProvider({
-        ...valid,
-        endpoint: "http://api.example.com/v1/chat",
-      }),
-    ).toThrow(/MEDIA_VERIFY_PROVIDER_NOT_HOSTED/u);
-    expect(() =>
-      createHostedVerificationProvider({
-        ...valid,
-        endpoint: "https://127.0.0.1/v1/chat",
-      }),
-    ).toThrow(/MEDIA_VERIFY_PROVIDER_NOT_HOSTED/u);
-    expect(() =>
-      createHostedVerificationProvider({
-        ...valid,
-        endpoint: "https://localhost/v1/chat",
-      }),
-    ).toThrow(/MEDIA_VERIFY_PROVIDER_NOT_HOSTED/u);
-    expect(() =>
-      createHostedVerificationProvider({
-        ...valid,
-        endpoint: "https://192.168.1.10/v1/chat",
-      }),
-    ).toThrow(/MEDIA_VERIFY_PROVIDER_NOT_HOSTED/u);
-    expect(() =>
-      createHostedVerificationProvider({
-        ...valid,
-        endpoint: "https://vlm.local/v1/chat",
-      }),
-    ).toThrow(/MEDIA_VERIFY_PROVIDER_NOT_HOSTED/u);
-    expect(() =>
-      createHostedVerificationProvider({
-        ...valid,
-        endpoint: "https://api.example.com/v1/chat",
-      }),
-    ).not.toThrow();
+    fs.writeFileSync(resultPath, `${JSON.stringify(result, null, 2)}\n`);
+    await expect(runVerify(repoRoot, request, provider)).rejects.toThrow(
+      /MEDIA_VERIFY_CODEX_REQUEST_HASH_MISMATCH/u,
+    );
+    fs.writeFileSync(
+      resultPath,
+      `${JSON.stringify({...result, requestHash: writtenRequest.requestHash}, null, 2)}\n`,
+    );
+    await expect(runVerify(repoRoot, request, provider)).resolves.toMatchObject({
+      status: "ready",
+      verdict: "pass",
+    });
   });
 
   it("records correct ArtifactRef lineage in the artifact registry", async () => {

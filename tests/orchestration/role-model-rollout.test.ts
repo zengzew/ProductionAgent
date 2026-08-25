@@ -8,6 +8,7 @@ import {
   buildArtifactRef,
   createContentAgentAdapter,
   createRoleModelRolloutAdapter,
+  isHostedLlmEligibleAgent,
   mergeRoleModelPolicyLayers,
   parseAgentModelPolicyFile,
   resolveEffectiveRoleModelPolicy,
@@ -100,6 +101,7 @@ const withModes = (
 ) => {
   const next = structuredClone(file);
   for (const [name, mode] of Object.entries(modes) as Array<[AgentName, RoleModelPolicy["mode"]]>) {
+    if (!isHostedLlmEligibleAgent(name)) throw new Error(`${name} has no hosted model policy`);
     next.roles[name].mode = mode;
   }
   return parseAgentModelPolicyFile(next);
@@ -210,7 +212,7 @@ describe("Role → ModelPolicy precedence", () => {
   it("keeps manual as the repository default", () => {
     expect(agentModelPolicyFile.defaults.mode).toBe("manual");
     expect(agentModelPolicyFile.defaults.fallbackMode).toBe("none");
-    for (const name of agentNames) {
+    for (const name of agentNames.filter((name) => name in agentModelPolicyFile.roles)) {
       expect(resolveRoleModelPolicy(name).mode).toBe("manual");
       expect(
         resolveEffectiveRoleModelPolicy({agentName: name, episodeId: "episode-test"}).mode,
@@ -227,7 +229,7 @@ describe("Role → ModelPolicy precedence", () => {
         "fact-guardian",
         "retention-critic",
       ],
-      manualOnly: ["research-analyst", "visual-director", "delivery-critic"],
+      codexCapability: ["research-analyst", "visual-director", "delivery-critic"],
     });
   });
 
@@ -240,7 +242,7 @@ describe("Role → ModelPolicy precedence", () => {
         rollout: agentModelPolicyFile.rollout,
         roles: {},
       }),
-    ).toThrow(/hosted-agent missing policy: research-analyst/u);
+    ).toThrow(/hosted-agent missing policy: story-director/u);
   });
 
   it("rejects hosted-llm and shadow for roles outside the phase-1 allowlist", () => {
@@ -264,7 +266,7 @@ describe("Role → ModelPolicy precedence", () => {
         episodeId: "episode-test",
         runOverride: {mode: "hosted-llm"},
       }),
-    ).toThrow(/visual-director must remain manual/u);
+    ).toThrow(/visual-director is Codex capability-gated/u);
   });
 });
 

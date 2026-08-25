@@ -1,13 +1,13 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import {afterEach, describe, expect, it, vi} from "vitest";
+import {afterEach, describe, expect, it} from "vitest";
 import {
   buildArtifactRef,
+  codexCapabilityGates,
+  createCodexCapabilityAdapter,
   createContentAgentAdapter,
-  createHostedPolishAdapter,
   createManualFileAdapter,
-  type HostedPolishAdapterOptions,
 } from "../../src/orchestration";
 
 const temporaryDirectories: string[] = [];
@@ -103,47 +103,30 @@ describe("M2.1 content-agent adapters", () => {
     });
   });
 
-  it("requires explicit hosted opt-in, HTTPS, credentials, and oral-rewriter scope", async () => {
-    const hostedOutput = {
-      artifactId: "episode-test:story:hosted-script",
-      path: "content/episode-test/story/hosted-script.md",
-      schemaVersion: "final-script-v1",
-    };
-    const chatSpy = vi.fn(async () => ({
-      outputs: [{...hostedOutput, content: "hosted result\n"}],
-    }));
-    const chat = chatSpy as unknown as NonNullable<HostedPolishAdapterOptions["chat"]>;
-    const initial = setup();
-    expect(() =>
-      createHostedPolishAdapter({
-        repoRoot: initial.repoRoot,
-        enabled: false,
-        endpoint: "https://api.openai.com/v1",
-        apiKey: "test-key",
-        model: "test-model",
-        chat,
-      }),
-    ).toThrow(/explicit opt-in/u);
-    expect(chatSpy).not.toHaveBeenCalled();
-
-    const runner = createHostedPolishAdapter({
-      repoRoot: initial.repoRoot,
-      enabled: true,
-      endpoint: "https://api.openai.com/v1",
-      apiKey: "test-key",
-      model: "test-model",
-      chat,
+  it("binds capability-gated role output as a Codex 5.6 artifact", async () => {
+    const {repoRoot, promptRef} = setup();
+    const outputPath = "content/episode-test/research/facts.json";
+    fs.mkdirSync(path.join(repoRoot, path.dirname(outputPath)), {recursive: true});
+    fs.writeFileSync(path.join(repoRoot, outputPath), "{}\n");
+    const result = await createCodexCapabilityAdapter({repoRoot})({
+      ...request(promptRef, [
+        {
+          artifactId: "episode-test:research:facts",
+          path: outputPath,
+          schemaVersion: "facts-v1",
+        },
+      ]),
+      agentName: "research-analyst",
     });
-    await expect(runner(request(initial.promptRef, [hostedOutput]))).resolves.toMatchObject({
-      status: "SUCCEEDED",
-      outputArtifacts: [{path: hostedOutput.path, producer: "hosted-polish:oral-rewriter"}],
+    expect(codexCapabilityGates.executor).toEqual({
+      kind: "codex",
+      model: "gpt-5.6",
+      interaction: "in-session-file-handoff",
+      apiKeyRequired: false,
     });
-    expect(fs.readFileSync(path.join(initial.repoRoot, hostedOutput.path), "utf8")).toBe(
-      "hosted result\n",
+    expect(result.outputArtifacts[0]?.producer).toBe("codex:gpt-5.6:research-analyst");
+    await expect(createCodexCapabilityAdapter({repoRoot})(request(promptRef))).rejects.toThrow(
+      /not a Codex capability-gated role/u,
     );
-    expect(chatSpy).toHaveBeenCalledOnce();
-    await expect(
-      runner({...request(initial.promptRef), executionId: "exec-2", agentName: "story-director"}),
-    ).rejects.toThrow(/only for oral-rewriter/u);
   });
 });

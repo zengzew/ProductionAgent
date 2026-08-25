@@ -533,7 +533,6 @@ describe("model-benchmark-v1", () => {
     ).toBe("content/episode-004/rollout/benchmarks/bm-test/model-a/base/story/script-draft.md");
     const committed = loadRoleModelBenchmarkConfig();
     expect(committed.allowedRoles).toEqual([
-      "research-analyst",
       "story-director",
       "viral-director",
       "script-writer",
@@ -541,9 +540,7 @@ describe("model-benchmark-v1", () => {
       "oral-judge",
       "audience-critic",
       "fact-guardian",
-      "visual-director",
       "retention-critic",
-      "delivery-critic",
     ]);
     expect(resolveBenchmarkCandidates("default", committed).map((item) => item.id)).toEqual([
       "deepseek-v4-flash",
@@ -644,6 +641,15 @@ describe("model-benchmark-v1", () => {
         },
       }),
     );
+  });
+
+  it("keeps Codex capability roles out of the hosted text benchmark", () => {
+    expect(() =>
+      parseRoleModelBenchmarkConfig({
+        ...loadRoleModelBenchmarkConfig(),
+        allowedRoles: ["script-writer", "visual-director"],
+      }),
+    ).toThrow(/visual-director is Codex capability-gated/u);
   });
 
   it("prints start, complete, and failed progress for each candidate", async () => {

@@ -1,5 +1,6 @@
 import path from "node:path";
 import {applyRoleModelPromotion} from "../src/orchestration/agents/benchmark/role-model-promote";
+import {isHostedLlmEligibleAgent} from "../src/orchestration/config/agent-model-policy";
 import {installCliErrorHandlers} from "./lib/validation";
 
 installCliErrorHandlers();
@@ -35,6 +36,9 @@ const result = applyRoleModelPromotion({
   decisionPath: args.decisionPath,
   apply: args.apply,
 });
+if (!isHostedLlmEligibleAgent(result.decision.role)) {
+  throw new Error(`${result.decision.role} is Codex capability-gated and cannot be model-promoted`);
+}
 
 console.log(
   [

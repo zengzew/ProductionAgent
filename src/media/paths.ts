@@ -174,7 +174,7 @@ export const mediaVerificationRepositoryPath = (
 
 /**
  * `media/verifications/<segmentId>/<clipId>-clip.<ext>` — the hash-bound short
- * verification clip bytes the VLM actually saw (never the whole long video).
+ * verification clip bytes Codex actually saw (never the whole long video).
  */
 export const mediaVerificationClipRepositoryPath = (
   episodeId: string,

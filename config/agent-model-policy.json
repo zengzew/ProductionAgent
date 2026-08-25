@@ -27,24 +27,9 @@
       "fact-guardian",
       "retention-critic"
     ],
-    "manualOnly": ["research-analyst", "visual-director", "delivery-critic"]
+    "codexCapability": ["research-analyst", "visual-director", "delivery-critic"]
   },
   "roles": {
-    "research-analyst": {
-      "mode": "manual",
-      "fallbackMode": "none",
-      "provider": "openai-compatible",
-      "endpoint": "https://api.openai.com/v1/chat/completions",
-      "model": "gpt-5-mini",
-      "reasoning": {
-        "profile": "none"
-      },
-      "temperature": 0.2,
-      "apiKeyEnv": "OPENAI_API_KEY",
-      "allowedOrigins": ["https://api.openai.com"],
-      "timeoutMs": 30000,
-      "maxRetries": 2
-    },
     "story-director": {
       "mode": "manual",
       "fallbackMode": "none",
@@ -164,21 +149,6 @@
       "timeoutMs": 300000,
       "maxRetries": 0
     },
-    "visual-director": {
-      "mode": "manual",
-      "fallbackMode": "none",
-      "provider": "openai-compatible",
-      "endpoint": "https://api.openai.com/v1/chat/completions",
-      "model": "gpt-5-mini",
-      "reasoning": {
-        "profile": "none"
-      },
-      "temperature": 0.2,
-      "apiKeyEnv": "OPENAI_API_KEY",
-      "allowedOrigins": ["https://api.openai.com"],
-      "timeoutMs": 30000,
-      "maxRetries": 2
-    },
     "retention-critic": {
       "mode": "manual",
       "fallbackMode": "none",
@@ -195,21 +165,6 @@
       "allowedOrigins": ["https://dashscope.aliyuncs.com"],
       "timeoutMs": 300000,
       "maxRetries": 0
-    },
-    "delivery-critic": {
-      "mode": "manual",
-      "fallbackMode": "none",
-      "provider": "openai-compatible",
-      "endpoint": "https://api.openai.com/v1/chat/completions",
-      "model": "gpt-5-mini",
-      "reasoning": {
-        "profile": "none"
-      },
-      "temperature": 0.2,
-      "apiKeyEnv": "OPENAI_API_KEY",
-      "allowedOrigins": ["https://api.openai.com"],
-      "timeoutMs": 30000,
-      "maxRetries": 2
     }
   },
   "episodeOverrides": {

@@ -6,7 +6,7 @@
 
 - 状态：**完成**。
 - 调用关系结论：`src/lib/tts.ts` 只调用 `pipeline-config.ts`，后者只读取 `config/tts.json`；旧 `polish.json` 只引用旧 `polish-style.json`。仓库脚本、测试和生产入口均未调用这五个文件。
-- 迁移决定：删除上述五个死文件，不保留会继续漂移的 deprecated 运行层。TTS 唯一生产实现为 `src/lib/tts-providers.ts` + `config/tts-v2.json`；polish 唯一生产入口为 `src/lib/polish.ts` + `config/polish-v2.json`。继续排除通用 provider/API-key UI 和自部署模型。
+- 迁移决定：删除上述五个死文件，不保留会继续漂移的 deprecated 运行层。TTS 唯一生产实现为 `src/lib/tts-providers.ts` + `config/tts-v2.json`；旧 standalone polish 入口已删除，口语改写与评审只走角色合同和 role rollout。继续排除通用 provider/API-key UI 和自部署模型。
 - 兼容边界：历史研究报告保留原文；现役 README 与 LangGraph 实施映射已改指向 v2 文件。
 
 ## TD-002：统一禁用写法与 polish 风格规则的唯一来源

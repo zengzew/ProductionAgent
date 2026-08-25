@@ -113,10 +113,10 @@ order, current state, every major decision and owner, artifacts, review rounds,
 feedback routes and closure status. LangGraph state and checkpoints carry
 references; they do not replace these files as the source of truth.
 
-Writing roles still run as file handoffs between independent execution sessions,
-not as in-repo LLM API calls. The automated polish stage may call a configured
-hosted LLM API. The project continues to exclude self-hosted LLM and
-speech-model infrastructure.
+Writing roles run through the role-model rollout or explicit file handoffs. Research Analyst,
+Visual Director and Delivery Critic use the Codex capability gate because their work requires
+search or media inspection. The project continues to exclude self-hosted LLM and speech-model
+infrastructure.
 
 The execution contract and copy-paste prompts live in
 [`agents/README.md`](agents/README.md). Audience Critic and Fact Guardian should
@@ -227,26 +227,27 @@ pnpm validate:research -- --episode episode-002
 - `output/episode-002/subtitles_zh.srt`: timed Simplified Chinese captions
 - `output/episode-002/run-report.md`: execution and verification evidence
 
-## Automated polish and judge
+## Editorial roles and Codex capability gates
 
-- `config/polish-v2.json`: hosted LLM mode, prompt paths, thresholds and
-  maximum rounds
 - `config/editorial-text-rules.json`: versioned banned-pattern, sentence-length,
-  protected-term and spoken-number rules shared by polish and validators
+  protected-term and spoken-number rules shared by role contracts and validators
 - `config/production-contract.json`: global duration, frame-rate, caption,
   timeline-padding and asset-capture limits; episode-specific overrides remain
   in `content/<episode>/episode.config.json`
-- `prompts/v4/`: current Goal 3.2 Oral Rewriter prompt files; the unchanged `polish-judge-v2`
-  preflight remains in `prompts/v3/`, and earlier prompt files are immutable history
+- `prompts/v4/`: protected Oral Rewriter calibration prompts; earlier prompt files are
+  immutable benchmark history
 - `editorial-calibration/policies/prompt-editorial-policy-v1.json`: human-approved, role-scoped
   transferable policy; it does not approve intake samples or load them at runtime
 - `style/approved/`: human-approved few-shot manuscripts
+- `config/codex-capability-gates.json`: Codex 5.6 execution contract for
+  `research-analyst`, `visual-director`, `delivery-critic`, and bounded media verification
 
-Run `pnpm polish` with `OPENAI_API_KEY` (and optionally
-`POLISH_LLM_MODEL`). Prompts, hard constraints, thresholds and
-`style/approved/` are configurable. Every invocation writes a judge report,
-including API/config failures. `pnpm ab:compare` generates old/new narration,
-audio and a human comparison form from the same information draft.
+The old standalone `pnpm polish` / `pnpm ab:compare` path has been removed. Oral rewriting
+and judging now run through their role contracts and role-model rollout. Capability-gated roles
+run inside Codex, write only their declared files, and pass the validator named in the gate config.
+Media verification uses a two-pass local handoff: the first pipeline run writes a bounded short-clip
+request, Codex inspects the listed clip/keyframes and writes the hash-bound result, then the second
+run validates and publishes the canonical verification. No `MEDIA_VERIFY_*` API key is used.
 
 ## Narration providers
 

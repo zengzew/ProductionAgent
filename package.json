@@ -27,8 +27,6 @@
     "validate:workflow": "tsx scripts/validate-workflow.ts",
     "validate:story": "tsx scripts/validate-story.ts",
     "materialize:story": "tsx scripts/materialize-story.ts",
-    "polish": "tsx scripts/polish-script.ts",
-    "ab:compare": "tsx scripts/run-ab.ts",
     "validate:content": "tsx scripts/validate-content.ts",
     "capture": "tsx scripts/capture-assets.ts",
     "tts": "tsx scripts/generate-tts.ts",

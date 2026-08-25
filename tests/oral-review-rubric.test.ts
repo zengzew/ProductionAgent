@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import {describe, expect, it} from "vitest";
-import {polishJudgeSchema} from "../src/lib/editorial/polish";
 import {findOralReviewDecisionErrors, parseOralReviewGate} from "../src/lib/editorial/story";
 
 const hash = "a".repeat(64);
@@ -29,11 +28,6 @@ type CalibrationScores = {
   spokenDelivery: number;
   informationFidelity: number;
 };
-type PreflightScores = {
-  translationese: number;
-  spokenChinese: number;
-  informationFidelity: number;
-};
 type CalibrationCase = {
   id: string;
   kind: string;
@@ -47,19 +41,12 @@ type CalibrationCase = {
     verdict: "PASS" | "REJECT";
     returnTo: "none" | "oral-rewriter";
   };
-  preflight: {
-    scores: PreflightScores;
-    failChecks: CheckName[];
-    verdict: "pass" | "rewrite";
-  };
 };
 type CalibrationFixture = {
   fixtureVersion: string;
   rubricVersion: string;
   promptVersion: string;
   formalMinimumScore: number;
-  polishJudgeRubricVersion: string;
-  polishThresholds: PreflightScores;
   cases: CalibrationCase[];
 };
 
@@ -169,20 +156,10 @@ describe("oral-review-v2 rubric gate", () => {
   });
 
   it("locks calibration versions and existing thresholds", () => {
-    const polishConfig = JSON.parse(
-      fs.readFileSync(new URL("../config/polish-v2.json", import.meta.url), "utf8"),
-    ) as {
-      judgeRubricVersion: string;
-      thresholds: PreflightScores;
-    };
-
     expect(calibrationFixture.fixtureVersion).toBe("oral-judge-calibration-v1");
     expect(calibrationFixture.rubricVersion).toBe("oral-review-v2");
     expect(calibrationFixture.promptVersion).toBe("oral-judge-v2");
     expect(calibrationFixture.formalMinimumScore).toBe(4);
-    expect(calibrationFixture.polishJudgeRubricVersion).toBe("polish-judge-v2");
-    expect(polishConfig.judgeRubricVersion).toBe(calibrationFixture.polishJudgeRubricVersion);
-    expect(polishConfig.thresholds).toEqual(calibrationFixture.polishThresholds);
   });
 
   it("covers the three required calibration boundaries", () => {
@@ -229,42 +206,10 @@ describe("oral-review-v2 rubric gate", () => {
     },
   );
 
-  it.each(calibrationFixture.cases)(
-    "keeps the polish preflight verdict stable for $id",
-    (calibrationCase) => {
-      const failed = new Set(calibrationCase.preflight.failChecks);
-      const judge = polishJudgeSchema.parse({
-        scores: calibrationCase.preflight.scores,
-        checks: Object.fromEntries(
-          requiredChecks.map((check) => [
-            check,
-            {
-              result: failed.has(check) ? "fail" : "pass",
-              evidence: [
-                {segmentId: calibrationCase.id, observation: calibrationCase.decisionRule},
-              ],
-            },
-          ]),
-        ),
-        issues: [calibrationCase.decisionRule],
-        verdict: calibrationCase.preflight.verdict,
-      });
-      const passes =
-        judge.verdict === "pass" &&
-        Object.values(judge.checks).every((check) => check.result === "pass") &&
-        judge.scores.translationese >= calibrationFixture.polishThresholds.translationese &&
-        judge.scores.spokenChinese >= calibrationFixture.polishThresholds.spokenChinese &&
-        judge.scores.informationFidelity >= calibrationFixture.polishThresholds.informationFidelity;
-
-      expect(passes).toBe(calibrationCase.preflight.verdict === "pass");
-    },
-  );
-
   it("publishes every executable fixture in the formal and preflight instructions", () => {
     const calibrationArtifacts = [
       "../docs/contracts/evaluation-rubric.md",
       "../agents/oral-judge.md",
-      "../prompts/v3/judge-system.md",
     ].map((relativePath) => fs.readFileSync(new URL(relativePath, import.meta.url), "utf8"));
 
     for (const artifact of calibrationArtifacts) {
@@ -276,12 +221,5 @@ describe("oral-review-v2 rubric gate", () => {
         );
       }
     }
-
-    const judgeUserPrompt = fs.readFileSync(
-      new URL("../prompts/v3/judge-user.md", import.meta.url),
-      "utf8",
-    );
-    expect(judgeUserPrompt).toContain("局部拗口但不需要听众修复主语或事实口径");
-    expect(judgeUserPrompt).toContain("时间或指标口径存在两种读法");
   });
 });

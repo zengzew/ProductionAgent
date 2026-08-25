@@ -13,7 +13,6 @@ import {
   sha256Json,
   type CacheKind,
 } from "../lib/platform/cache";
-import {fetchWithRetry, type RetryableFetchOptions} from "../lib/platform/network";
 import {
   artifactRefIsIndexed,
   assertArtifactRefBytes,
@@ -80,8 +79,8 @@ import {
  * Takes one Top-K CandidateClip from a WP-M5.05 `media-retrieval-result-v1`
  * artifact and runs a short-clip-level multimodal verification. Only the
  * candidate window is ever materialized (`startMs..endMs` of the original or
- * its normalized proxy) and handed to the VLM — the whole long video is never
- * sent. The VLM observes, diagnoses, and scores; deterministic code performs
+ * its normalized proxy) and handed to Codex — the whole long video is never
+ * exposed. Codex observes, diagnoses, and scores; deterministic code performs
  * the final authorization (`assertMediaClipVerified`).
  *
  * Fail-closed: the candidate must exist in the current, hash-valid retrieval
@@ -160,7 +159,7 @@ const hashExistingRepositoryFiles = (
 };
 
 /* ------------------------------------------------------------------------- *
- * Provider contract (provider-neutral VLM adapter)
+ * Provider contract (provider-neutral media verifier)
  * ------------------------------------------------------------------------- */
 
 export const mediaVerificationProviderOutputSchema = z
@@ -197,7 +196,7 @@ export const mediaVerificationProviderOutputSchema = z
 
 export type MediaVerificationProviderOutput = z.infer<typeof mediaVerificationProviderOutputSchema>;
 
-/** One keyframe still the VLM may see alongside the short clip. */
+/** One keyframe still Codex may see alongside the short clip. */
 export type MediaVerificationProviderKeyframe = {
   path: string;
   timestampMs: number | null;
@@ -232,7 +231,7 @@ export type MediaVerificationProviderInput = {
   claims: Array<{id: string; claim: string}>;
   narration: string;
   visualIntent: string;
-  /** Short verification clip bytes — the only media the VLM may watch. */
+  /** Short verification clip bytes — the only moving media Codex may watch. */
   clip: MediaVerificationProviderClip;
   /** Few optional keyframe stills of the same candidate window. */
   keyframes: MediaVerificationProviderKeyframe[];
@@ -247,14 +246,14 @@ export type MediaVerificationProviderInput = {
 };
 
 /**
- * Provider-neutral VLM verification contract.
+ * Provider-neutral media verification contract.
  *
  * `verify` returns structured output which the pipeline re-validates with
  * `mediaVerificationProviderOutputSchema`; malformed/incomplete output fails
  * closed. The provider observes and scores only — it has no repository access,
  * cannot modify Artifacts, cannot change rights/admission, cannot touch the
- * Claim Ledger, and cannot declare facts true. Real providers are hosted-only,
- * read credentials from the environment, and use bounded timeout/retry.
+ * Claim Ledger, and cannot declare facts true. Production uses the bounded
+ * Codex file handoff below; deterministic providers exist only for tests.
  */
 export type MediaVerificationProvider = {
   readonly id: string;
@@ -308,155 +307,126 @@ export const createDeterministicVerificationProvider = (
   };
 };
 
-export type HostedVerificationProviderConfig = {
-  endpoint: string;
-  apiKey: string;
-  model: string;
-  network?: RetryableFetchOptions;
+export const CODEX_MEDIA_VERIFICATION_REQUEST_VERSION =
+  "codex-media-verification-request-v1" as const;
+export const CODEX_MEDIA_VERIFICATION_RESULT_VERSION =
+  "codex-media-verification-result-v1" as const;
+
+const codexMediaVerificationResultSchema = z
+  .object({
+    schemaVersion: z.literal(CODEX_MEDIA_VERIFICATION_RESULT_VERSION),
+    executor: z.literal("codex"),
+    model: z.literal("gpt-5.6"),
+    requestHash: sha256Schema,
+    completedAt: z.string().datetime(),
+    output: mediaVerificationProviderOutputSchema,
+  })
+  .strict();
+
+const repositoryRelativeMediaPath = (repoRoot: string, absolutePath: string): string => {
+  const relative = path.relative(path.resolve(repoRoot), path.resolve(absolutePath));
+  if (!relative || relative.startsWith("..") || path.isAbsolute(relative)) {
+    throw new Error(`MEDIA_VERIFY_CODEX_PATH_OUTSIDE_REPOSITORY:${absolutePath}`);
+  }
+  return relative.split(path.sep).join("/");
 };
 
-const isNonHostedVerificationHostname = (hostname: string): boolean => {
-  const host = hostname.replace(/^\[|\]$/gu, "").toLowerCase();
-  if (host === "localhost" || host === "127.0.0.1" || host === "::1" || host.endsWith(".local")) {
-    return true;
-  }
-  const ipv4 = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/u.exec(host);
-  if (ipv4) {
-    const octets = ipv4.slice(1).map((part) => Number(part));
-    const [a, b] = octets;
-    if (octets.some((octet) => octet > 255)) return true;
-    if (a === 10 || a === 127 || a === 0) return true;
-    if (a === 169 && b === 254) return true;
-    if (a === 172 && b !== undefined && b >= 16 && b <= 31) return true;
-    if (a === 192 && b === 168) return true;
-    return false;
-  }
-  if (host.includes(":")) {
-    const normalized = host.toLowerCase();
-    return (
-      normalized === "::1" ||
-      normalized.startsWith("fc") ||
-      normalized.startsWith("fd") ||
-      normalized.startsWith("fe80:")
-    );
-  }
-  return false;
+export const codexMediaVerificationHandoffPaths = (input: {
+  episodeId: string;
+  segmentId: string;
+  clipId: string;
+}): {requestPath: string; resultPath: string} => {
+  const verificationPath = mediaVerificationRepositoryPath(
+    input.episodeId,
+    input.segmentId,
+    input.clipId,
+  );
+  const base = verificationPath.replace(/\.json$/u, "");
+  return {
+    requestPath: `${base}.codex-request.json`,
+    resultPath: `${base}.codex-result.json`,
+  };
+};
+
+const writeJsonAtomically = (filePath: string, value: unknown): void => {
+  fs.mkdirSync(path.dirname(filePath), {recursive: true});
+  const temporaryPath = `${filePath}.${process.pid}.tmp`;
+  fs.writeFileSync(temporaryPath, `${JSON.stringify(value, null, 2)}\n`);
+  fs.renameSync(temporaryPath, filePath);
 };
 
 /**
- * Hosted-only VLM adapter. The endpoint must be `https:`, credentials come
- * from the caller (production wiring reads them from env), timeout/retry are
- * bounded by `fetchWithRetry`, and the response is schema-validated before it
- * ever reaches the pipeline. The adapter never writes artifacts and never
- * touches rights.
+ * Production media verification is an explicit Codex file handoff, not a
+ * hosted VLM API. The first run writes a bounded request containing only the
+ * short clip and its keyframes, then fails closed as pending. Codex inspects
+ * those local files and writes the result file; the next run verifies the
+ * request hash and structured output before the canonical artifact is built.
  */
-export const createHostedVerificationProvider = (
-  config: HostedVerificationProviderConfig,
-): MediaVerificationProvider => {
-  let parsed: URL;
-  try {
-    parsed = new URL(config.endpoint);
-  } catch (error) {
-    throw new Error(`MEDIA_VERIFY_PROVIDER_ENDPOINT_INVALID:${config.endpoint}`, {cause: error});
-  }
-  if (parsed.protocol !== "https:") {
-    throw new Error(`MEDIA_VERIFY_PROVIDER_NOT_HOSTED:${config.endpoint}`);
-  }
-  if (isNonHostedVerificationHostname(parsed.hostname)) {
-    throw new Error(`MEDIA_VERIFY_PROVIDER_NOT_HOSTED:${config.endpoint}`);
-  }
-  const network: RetryableFetchOptions = {
-    timeoutMs: 60_000,
-    maxRetries: 2,
-    ...config.network,
-  };
-  return {
-    id: "hosted-vlm",
-    model: config.model,
-    verificationVersion: "hosted-vlm-verify-v1",
-    verify: async (input) => {
-      const payload = {
-        episodeId: input.episodeId,
-        segmentId: input.segmentId,
-        clipId: input.clipId,
-        claimIds: input.claimIds,
-        claims: input.claims,
-        narration: input.narration,
-        visualIntent: input.visualIntent,
-        clip: {
-          mediaType: input.clip.mediaType,
-          startMs: input.clip.startMs,
-          endMs: input.clip.endMs,
-          dataUrl: `data:${input.clip.mediaType};base64,${fs
-            .readFileSync(input.clip.path)
-            .toString("base64")}`,
+export const createCodexMediaVerificationProvider = (input: {
+  repoRoot: string;
+}): MediaVerificationProvider => ({
+  id: "codex",
+  model: "gpt-5.6",
+  verificationVersion: "codex-media-verification-v1",
+  verify: async (providerInput) => {
+    const paths = codexMediaVerificationHandoffPaths(providerInput);
+    const requestBody = {
+      schemaVersion: CODEX_MEDIA_VERIFICATION_REQUEST_VERSION,
+      executor: "codex" as const,
+      model: "gpt-5.6" as const,
+      boundedMediaOnly: true as const,
+      episodeId: providerInput.episodeId,
+      segmentId: providerInput.segmentId,
+      clipId: providerInput.clipId,
+      claimIds: providerInput.claimIds,
+      claims: providerInput.claims,
+      narration: providerInput.narration,
+      visualIntent: providerInput.visualIntent,
+      clip: {
+        ...providerInput.clip,
+        path: repositoryRelativeMediaPath(input.repoRoot, providerInput.clip.path),
+      },
+      keyframes: providerInput.keyframes.map((keyframe) => ({
+        ...keyframe,
+        path: repositoryRelativeMediaPath(input.repoRoot, keyframe.path),
+      })),
+      clipMetadata: providerInput.clipMetadata,
+      resultContract: {
+        schemaVersion: CODEX_MEDIA_VERIFICATION_RESULT_VERSION,
+        envelope: ["executor", "model", "requestHash", "completedAt", "output"],
+        output: {
+          verdict: ["pass", "reject", "uncertain"],
+          scores: ["relevance", "claimMatch", "visualQuality", "misleadingRisk"],
+          observations: ["observedActions", "observedEntities", "observedText"],
+          range: ["recommendedStartMs", "recommendedEndMs"],
+          explanation: ["reasons"],
         },
-        keyframes: input.keyframes.map((keyframe) => ({
-          mediaType: keyframe.mediaType,
-          timestampMs: keyframe.timestampMs,
-          dataUrl: `data:${keyframe.mediaType};base64,${fs
-            .readFileSync(keyframe.path)
-            .toString("base64")}`,
-        })),
-        clipMetadata: input.clipMetadata,
-      };
-      const response = await fetchWithRetry(
-        config.endpoint,
-        {
-          method: "POST",
-          headers: {Authorization: `Bearer ${config.apiKey}`, "Content-Type": "application/json"},
-          body: JSON.stringify(payload),
-        },
-        network,
+        instruction:
+          "Inspect only the listed clip and keyframes. Copy this requestHash into the result envelope; do not alter rights or claim facts.",
+      },
+    };
+    const requestHash = sha256Json(requestBody);
+    const request = {...requestBody, requestHash};
+    const requestPath = resolveMediaRepositoryPath(input.repoRoot, paths.requestPath);
+    const resultPath = resolveMediaRepositoryPath(input.repoRoot, paths.resultPath);
+    writeJsonAtomically(requestPath, request);
+    if (!fs.existsSync(resultPath)) {
+      throw new Error(`MEDIA_VERIFY_CODEX_RESULT_PENDING:${paths.resultPath}`);
+    }
+    let parsed: z.infer<typeof codexMediaVerificationResultSchema>;
+    try {
+      parsed = codexMediaVerificationResultSchema.parse(
+        JSON.parse(fs.readFileSync(resultPath, "utf8")) as unknown,
       );
-      const rawBody = await response.text();
-      let body: {choices?: Array<{message?: {content?: string}}>; error?: {message?: string}} = {};
-      try {
-        body = JSON.parse(rawBody) as typeof body;
-      } catch {
-        if (!response.ok) {
-          throw new Error(`MEDIA_VERIFY_PROVIDER_HTTP:${response.status}:${rawBody.slice(0, 200)}`);
-        }
-        throw new Error("MEDIA_VERIFY_PROVIDER_RESPONSE_NOT_JSON");
-      }
-      if (!response.ok) {
-        throw new Error(
-          `MEDIA_VERIFY_PROVIDER_HTTP:${response.status}:${body.error?.message ?? "unknown"}`,
-        );
-      }
-      const content = body.choices?.[0]?.message?.content;
-      if (!content) {
-        throw new Error("MEDIA_VERIFY_PROVIDER_RESPONSE_EMPTY");
-      }
-      const normalized = content
-        .trim()
-        .replace(/^```(?:json)?\s*/u, "")
-        .replace(/\s*```$/u, "");
-      let parsedOutput: unknown;
-      try {
-        parsedOutput = JSON.parse(normalized) as unknown;
-      } catch (error) {
-        throw new Error("MEDIA_VERIFY_PROVIDER_RESPONSE_NOT_JSON", {cause: error});
-      }
-      try {
-        return mediaVerificationProviderOutputSchema.parse(parsedOutput);
-      } catch (error) {
-        throw new Error("MEDIA_VERIFY_PROVIDER_OUTPUT_INVALID", {cause: error});
-      }
-    },
-  };
-};
-
-/** Hosted-only factory: credentials come from `MEDIA_VERIFY_*` env vars. */
-export const createHostedVerificationProviderFromEnvironment = (): MediaVerificationProvider => {
-  const endpoint = process.env.MEDIA_VERIFY_ENDPOINT;
-  const apiKey = process.env.MEDIA_VERIFY_API_KEY;
-  const model = process.env.MEDIA_VERIFY_MODEL;
-  if (!endpoint || !apiKey || !model) {
-    throw new Error("MEDIA_VERIFY_PROVIDER_NOT_CONFIGURED");
-  }
-  return createHostedVerificationProvider({endpoint, apiKey, model});
-};
+    } catch (error) {
+      throw new Error("MEDIA_VERIFY_CODEX_RESULT_INVALID", {cause: error});
+    }
+    if (parsed.requestHash !== requestHash) {
+      throw new Error("MEDIA_VERIFY_CODEX_REQUEST_HASH_MISMATCH");
+    }
+    return parsed.output;
+  },
+});
 
 /* ------------------------------------------------------------------------- *
  * Short clip materialization
@@ -656,7 +626,7 @@ export type MediaVerificationCacheKeyInput = {
   episodeId: string;
   segmentId: string;
   clipId: string;
-  /** SHA-256 of the materialized short clip bytes the VLM will see. */
+  /** SHA-256 of the materialized short clip bytes Codex will see. */
   clipBytesSha256: string;
   mediaSha256: string;
   indexSha256: string;
@@ -1262,7 +1232,7 @@ export type VerifyMediaClipInput = {
   repoRoot: string;
   episodeId: string;
   request: MediaVerificationRequest;
-  /** VLM adapter; deterministic stub in tests, hosted adapter in production. */
+  /** Media verifier; deterministic stub in tests, Codex file handoff in production. */
   provider: MediaVerificationProvider;
   cache?: FineGrainedCacheStore | null;
   shortClipExtractor?: ShortClipExtractor;
@@ -1368,7 +1338,7 @@ export const verifyMediaClip = async (
     });
 
     // 5. Short clip materialization: only `startMs..endMs` is ever handed to
-    //    the VLM. Analysis source: normalized proxy preferred, original
+    //    Codex. Analysis source: normalized proxy preferred, original
     //    otherwise — lineage always anchors to the original.
     const proxy = manifest.assets.find(
       (value) => value.kind === "proxy" && value.derivedFromMediaId === asset.mediaId,
@@ -1556,7 +1526,7 @@ export const verifyMediaClip = async (
       });
     }
 
-    // 8. Provider call — the VLM sees ONLY the short clip (+ keyframes).
+    // 8. Provider call — Codex sees ONLY the short clip (+ keyframes).
     const claims = claimEntries
       .filter((entry) => request.claimIds.includes(entry.id))
       .map((entry) => ({id: entry.id, claim: entry.claim}));
@@ -1592,6 +1562,7 @@ export const verifyMediaClip = async (
     try {
       rawOutput = await input.provider.verify(providerInput);
     } catch (error) {
+      if (errorMessage(error).startsWith("MEDIA_VERIFY_CODEX_")) throw error;
       throw new Error(`MEDIA_VERIFY_PROVIDER_FAILED:${errorMessage(error)}`, {cause: error});
     }
     let output: MediaVerificationProviderOutput;
@@ -1783,7 +1754,7 @@ export type AssertMediaClipVerifiedInput = {
  * - recommended range legal (inside the candidate range);
  * - episode identity matches everywhere.
  *
- * The VLM cannot bypass this gate: it observes and scores, this function
+ * Codex cannot bypass this gate: it observes and scores, this function
  * authorizes. Returns the verification body on success, throws `MEDIA_VERIFY_*`
  * otherwise.
  */
@@ -1873,7 +1844,7 @@ export const assertMediaClipVerified = (input: AssertMediaClipVerifiedInput): Me
     clipId: verification.clipId,
   });
 
-  // The short clip bytes the VLM saw must still be hash-valid + registered.
+  // The short clip bytes Codex saw must still be hash-valid + registered.
   if (!artifactRefIsIndexed(repoRoot, verification.clipArtifactRef)) {
     throw new Error(`MEDIA_VERIFY_CLIP_NOT_REGISTERED:${verification.clipArtifactRef.artifactId}`);
   }

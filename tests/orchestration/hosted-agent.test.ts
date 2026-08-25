@@ -4,7 +4,6 @@ import path from "node:path";
 import {afterEach, describe, expect, it, vi} from "vitest";
 import {
   agentModelPolicyFile,
-  agentNames,
   buildArtifactRef,
   createContentAgentAdapter,
   createFakeHostedChatProvider,
@@ -137,7 +136,7 @@ describe("RoleModelPolicy", () => {
         schemaVersion: "agent-model-policy-v1",
         roles: {},
       }),
-    ).toThrow(/hosted-agent missing policy: research-analyst/u);
+    ).toThrow(/hosted-agent missing policy: story-director/u);
     expect(() =>
       loadAgentModelPolicyFile({
         file: {
@@ -151,7 +150,7 @@ describe("RoleModelPolicy", () => {
   });
 
   it("keeps manual as the repository default for every role", () => {
-    for (const name of agentNames) {
+    for (const name of hostedLlmEligibleAgentNames) {
       expect(resolveRoleModelPolicy(name).mode).toBe("manual");
     }
     expect(hostedLlmEligibleAgentNames).toEqual([
@@ -172,9 +171,9 @@ describe("RoleModelPolicy", () => {
   });
 
   it("rejects hosted-llm for research, visual, and delivery roles", () => {
-    const file = cloneDefaultPolicies();
-    file.roles["visual-director"].mode = "hosted-llm";
-    expect(() => parseAgentModelPolicyFile(file)).toThrow(/visual-director must remain manual/u);
+    expect(() => resolveRoleModelPolicy("visual-director")).toThrow(
+      /visual-director is Codex capability-gated/u,
+    );
   });
 
   it("rejects arbitrary reasoning request options", () => {

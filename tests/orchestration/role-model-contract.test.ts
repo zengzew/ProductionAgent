@@ -55,7 +55,7 @@ describe("role-aware benchmark contracts", () => {
     }
   });
 
-  it("fails closed for search, multimodal, and production roles", () => {
+  it("routes Codex capability roles away from the hosted text benchmark", () => {
     const config = loadRoleModelBenchmarkConfig({repoRoot});
     for (const role of ["research-analyst", "visual-director", "delivery-critic"] as const) {
       const preflight = runAutoPreflight({
@@ -66,10 +66,8 @@ describe("role-aware benchmark contracts", () => {
         config,
         env: {},
       });
-      expect(preflight).toMatchObject({ok: false, code: "preflight-capability-not-supported"});
-      expect(preflight.ok ? "" : preflight.detail).toContain(
-        getRoleModelContract(role).capabilities[0],
-      );
+      expect(preflight).toMatchObject({ok: false, code: "preflight-role-not-allowed"});
+      expect(preflight.ok ? "" : preflight.detail).toContain(role);
     }
   });
 

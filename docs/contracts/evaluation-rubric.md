@@ -128,10 +128,6 @@ first-pass comprehension or information fidelity; it is not a synonym for any im
 A third failed round routes to `human-editor` regardless of numeric score. `oral-review-v1` has no
 v2 check evidence and therefore cannot be upgraded or selected as a v2 result by reinterpretation.
 
-The automated polish preflight uses `polish-judge-v2`: it applies the same seven checks on a
-ten-point scoring scale before the artifact review. It does not create `oral-review.md`, cannot mark
-the story oral-pass, and cannot replace an independent `oral-review-v2` execution.
-
 ## Audience Critic
 
 Rubric version remains `product-story-v4`.

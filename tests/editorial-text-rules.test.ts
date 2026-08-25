@@ -1,18 +1,17 @@
 import {describe, expect, it} from "vitest";
 import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial/text-rules";
-import {loadPolishV2Config} from "../src/lib/editorial/pipeline-config";
+import {repoPath} from "../src/lib/editorial/pipeline-config";
 
 describe("editorial text rule contract", () => {
   const rules = loadEditorialTextRules();
 
-  it("is the versioned style source loaded by polish", () => {
-    const {config, style} = loadPolishV2Config();
-    expect(config.styleRules).toBe("config/editorial-text-rules.json");
+  it("loads the versioned editorial style source", () => {
+    const style = loadEditorialTextRules(repoPath("config/editorial-text-rules.json"));
     expect(style).toEqual(rules);
     expect(rules.schemaVersion).toBe("editorial-text-rules-v1");
   });
 
-  it("rejects every configured example in polish, story and content", () => {
+  it("rejects every configured example in all editorial scopes", () => {
     for (const rule of rules.bannedPatterns) {
       for (const example of rule.examples) {
         for (const scope of ["polish", "story", "content"] as const) {
@@ -25,7 +24,7 @@ describe("editorial text rule contract", () => {
     }
   });
 
-  it("produces identical banned-rule decisions in both validators and polish", () => {
+  it("produces identical banned-rule decisions in every validator scope", () => {
     const narration = rules.bannedPatterns.map((rule) => rule.examples[0]).join("。");
     const decisions = (["polish", "story", "content"] as const).map((scope) =>
       findTextRuleViolations(narration, rules, scope).map((violation) => violation.id),

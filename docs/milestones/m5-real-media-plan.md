@@ -6,7 +6,7 @@
 - Product constraints (inherited, not renegotiable):
   - Final delivery is 1080×1920 9:16 only
   - Final MP4 duration must read back in 40–80 seconds (target 60)
-  - No self-hosted GPT, LLM, ASR, TTS, or VLM; hosted APIs only
+  - No self-hosted GPT, LLM, ASR, TTS, or VLM; Codex handles capability-gated inspection
   - Facts, Claim Ledger locators, and review records remain source of truth
   - No hand-edit of the final cut; content or component change regenerates
   - Production reads only a frozen content manifest
@@ -43,7 +43,7 @@ percentage target.
 | M5.03 | `src/media/ingest.ts` (**implemented**)                                                         | M5.01, M5.02                            | `tests/media-ingest.test.ts`                                            | Resumable download/import to `content/<ep>/media/assets/`. Original bytes + probe + lineage. Incomplete files never selected.                                                                                                                                                                               |
 | M5.04 | `src/media/understanding.ts` clip index (**implemented**)                                       | M5.03                                   | `tests/media-index.test.ts`                                             | Long video produces hash-bound transcript/scene/keyframe index ArtifactRefs under `media/indexes/`. Cache key: `media-index:<episode>:<mediaId>:<toolVersion>`.                                                                                                                                             |
 | M5.05 | `src/media/retrieve.ts`                                                                         | M5.04                                   | `tests/media-retrieve.test.ts`                                          | Narration/claim → deterministic Top-K clip candidates. Same inputs → same ranking. Claim Ledger ids are the query keys.                                                                                                                                                                                     |
-| M5.06 | `src/media/verify.ts` hosted VLM adapter                                                        | M5.05                                   | `tests/media-verify.test.ts`                                            | VLM sees only short candidate clips, never whole long videos. Hosted-only. `assertMediaClipRenderable` requires `verdict=pass` + hash-valid verification ArtifactRef.                                                                                                                                       |
+| M5.06 | `src/media/verify.ts` Codex media-verification handoff                                          | M5.05                                   | `tests/media-verify.test.ts`                                            | Codex sees only bounded short candidate clips and keyframes, never whole long videos. The structured result is request-hash-bound. `assertMediaClipRenderable` requires `verdict=pass` + hash-valid verification ArtifactRef.                                                                               |
 | M5.07 | `src/media/select.ts`, `src/orchestration/agents/adapters/visual-director.ts` (**implemented**) | M5.06, content loop on foundation graph | `tests/media-selection.test.ts` (13 PASS) plus orchestration regression | Visual Director real-media-first runs **inside** `runContentLoop` as composed by `createFoundationGraph` (`createVisualSlotDirector`). One `visual-slot-v1` artifact per final-script segment; verified real media preferred; structured fallback reason + fixed fallback stage; deterministic tie-breaker. |
 | M5.08 | Remotion real-clip layers (**implemented**)                                                     | M5.06, M5.07                            | `tests/media-remotion.test.ts` (12 PASS)                                | Trim/crop/PiP/caption/mix only from renderable clips. Shot traces to source + timestamp. Output still 1080×1920.                                                                                                                                                                                            |
 | M5.09 | Delivery gate + E2E (**implemented**)                                                           | M5.08, M4.04                            | `tests/media-e2e.test.ts`                                               | Inspect/delivery enforce 40–80s and 9:16. One real-media E2E PASS. One tampered-media E2E FAIL. Observability complete before final approval. Dual-ledger render-time projection (`media-render-manifest-v1`).                                                                                              |
@@ -68,7 +68,7 @@ control. **Do not start M5.02 until M5.01 review is accepted.**
 | Browser capture (optional) | Existing capture tooling                      | none new                | per-episode, no crawl                   |
 | Ingest download            | HTTPS allowlist                               | none                    | resume-only, hashed                     |
 | ASR / transcript           | Hosted API already permitted by decision-0001 | existing hosted key env | M4 cache, per-segment                   |
-| VLM verify                 | Hosted API only                               | existing hosted key env | short clips only; max N clips / episode |
+| media verify               | Codex 5.6 local file handoff                  | no API key              | short clips only; max N clips / episode |
 | TTS                        | Existing MiniMax + Edge fallback              | existing TTS env        | M4 segment cache                        |
 
 Unknown provider, missing key, or self-hosted endpoint is fail-closed.
@@ -107,7 +107,7 @@ M5 exits when all of the following hold:
   original lineage.
 - Long video produces cached transcript/scene/keyframe index ArtifactRefs.
 - Narration/claim (Claim Ledger ids) can retrieve deterministic Top-K candidates.
-- Hosted VLM verifies only short candidate clips, never whole long videos.
+- Codex verifies only short candidate clips and keyframes, never whole long videos.
 - Unverified, rights-blocked, or tampered media cannot render.
 - Visual Director uses real-media-first selection on the foundation-graph
   content loop, with deterministic fallback.

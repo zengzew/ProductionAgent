@@ -2,7 +2,6 @@
   "schemaVersion": "model-benchmark-config-v1",
   "policyVersion": "role-model-rollout-v1",
   "allowedRoles": [
-    "research-analyst",
     "story-director",
     "viral-director",
     "script-writer",
@@ -10,9 +9,7 @@
     "oral-judge",
     "audience-critic",
     "fact-guardian",
-    "visual-director",
-    "retention-critic",
-    "delivery-critic"
+    "retention-critic"
   ],
   "defaultModelSet": "default",
   "modelSets": {

@@ -19,6 +19,7 @@ export * from "./config/reasoning";
 export * from "./config/role-model-auto-repair";
 export * from "./config/role-model-benchmark";
 export * from "./config/checkpoint";
+export * from "./config/codex-capability-gates";
 export * from "./entry";
 export * from "./evaluation";
 export * from "./failure-replay";

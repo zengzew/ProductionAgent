@@ -47,8 +47,9 @@ gate evaluation, and not written to `workflow.json`.
 
 ## Phase-1 enablement
 
-Repository default for every role is still `manual`.
-`createContentAgentAdapter()` without an explicit mode stays `manual-file`.
+Hosted text roles default to `manual`. The three capability-gated roles are outside the hosted
+model policy and use `codex-capability` file handoff.
+`createContentAgentAdapter()` without an explicit mode stays `manual-file` for compatibility.
 
 | Role               | Allowed modes          | Notes                                                 |
 | ------------------ | ---------------------- | ----------------------------------------------------- |
@@ -60,13 +61,13 @@ Repository default for every role is still `manual`.
 | `audience-critic`  | `manual`, `shadow`     |                                                       |
 | `fact-guardian`    | `manual`, `shadow`     |                                                       |
 | `retention-critic` | `manual`, `shadow`     |                                                       |
-| `research-analyst` | `manual`               | Search tools are a later WP                           |
-| `visual-director`  | `manual`               | M5 media / VLM is a later WP                          |
-| `delivery-critic`  | `manual`               | Multimodal review is a later WP                       |
+| `research-analyst` | `codex-capability`     | Codex 5.6 web research + repository handoff           |
+| `visual-director`  | `codex-capability`     | Codex 5.6 image/video inspection + repository handoff |
+| `delivery-critic`  | `codex-capability`     | Codex 5.6 video/audio/subtitle inspection             |
 
 To turn on hosted-llm for Oral Rewriter, set `roles.oral-rewriter.mode` or a
-more specific override to `hosted-llm`. Do not flip the other ten roles to
-hosted-llm in this phase.
+more specific override to `hosted-llm`. Capability-gated roles cannot be placed in hosted text
+rollout or promoted through the role-model benchmark.
 
 ## Episode overrides
 
@@ -126,9 +127,6 @@ or `createRoleModelRolloutAdapter(...)`. The default
 
 ## Out of scope
 
-- Research Analyst web/search tools
-- Visual Director VLM / media reasoning
-- Delivery Critic multimodal review
 - Automatic model selection
 - Model quality optimizer
 - Official hosted-llm for any new role besides the existing Oral Rewriter path

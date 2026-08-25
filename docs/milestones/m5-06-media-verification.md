@@ -89,10 +89,10 @@ type MediaVerificationProvider = {
 - `MediaVerificationProviderOutput` is schema-constrained
   (`mediaVerificationProviderOutputSchema`); the pipeline re-validates it and
   malformed/incomplete output fails closed (`MEDIA_VERIFY_PROVIDER_OUTPUT_INVALID`).
-- Real adapters are hosted-only (`https:` endpoints), read credentials from
-  env (`MEDIA_VERIFY_ENDPOINT` / `MEDIA_VERIFY_API_KEY` / `MEDIA_VERIFY_MODEL`),
-  use bounded timeout/retry (`fetchWithRetry`), and cannot modify Artifacts or
-  rights — they only return observations.
+- Production verification uses the Codex 5.6 bounded local-file handoff. The request contains
+  only the materialized candidate clip and keyframes, never the whole source asset. Codex writes
+  a structured, request-hash-bound result and cannot modify rights or the Claim Ledger. No media
+  verification endpoint or API key is configured.
 - Tests use `createDeterministicVerificationProvider` — no network, no media
   tooling.
 
@@ -208,7 +208,8 @@ bodies.
 `MEDIA_VERIFY_CLIP_NOT_IN_INDEX/CLIP_WINDOW_MISMATCH/WINDOW_OUT_OF_BOUNDS`,
 `MEDIA_VERIFY_PROXY_STALE`, `MEDIA_VERIFY_CLIP_EXTRACTION_FAILED`,
 `MEDIA_VERIFY_CLIP_MEDIA_TYPE_UNSUPPORTED`,
-`MEDIA_VERIFY_PROVIDER_NOT_CONFIGURED/FAILED/OUTPUT_INVALID`,
+`MEDIA_VERIFY_CODEX_RESULT_PENDING/INVALID/REQUEST_HASH_MISMATCH`,
+`MEDIA_VERIFY_PROVIDER_FAILED/OUTPUT_INVALID`,
 `MEDIA_VERIFY_RECOMMENDED_RANGE_OUT_OF_BOUNDS`, `MEDIA_VERIFY_CACHE_KEY_MISMATCH`,
 `MEDIA_VERIFY_VERIFICATION_NOT_REGISTERED/TAMPERED/INVALID/ARTIFACT_MISMATCH/NOT_PASSED`,
 `MEDIA_VERIFY_CLIP_NOT_REGISTERED/CLIP_TAMPERED`, `MEDIA_VERIFY_RESULT_MISSING`.

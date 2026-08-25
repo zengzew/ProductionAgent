@@ -44,7 +44,7 @@ export const shadowRolloutAgentNames = [
   "retention-critic",
 ] as const;
 
-export const manualOnlyAgentNames = [
+export const codexCapabilityAgentNames = [
   "research-analyst",
   "visual-director",
   "delivery-critic",
@@ -52,7 +52,7 @@ export const manualOnlyAgentNames = [
 
 export type HostedLlmRolloutAgentName = (typeof hostedLlmRolloutAgentNames)[number];
 export type ShadowRolloutAgentName = (typeof shadowRolloutAgentNames)[number];
-export type ManualOnlyAgentName = (typeof manualOnlyAgentNames)[number];
+export type CodexCapabilityAgentName = (typeof codexCapabilityAgentNames)[number];
 
 const httpsUrlSchema = z
   .string()
@@ -97,7 +97,6 @@ export const roleModelPolicyPatchSchema = roleModelPolicySchema.partial().strict
 
 const rolePolicyMapSchema = z
   .object({
-    "research-analyst": roleModelPolicySchema,
     "story-director": roleModelPolicySchema,
     "viral-director": roleModelPolicySchema,
     "script-writer": roleModelPolicySchema,
@@ -105,9 +104,7 @@ const rolePolicyMapSchema = z
     "oral-judge": roleModelPolicySchema,
     "audience-critic": roleModelPolicySchema,
     "fact-guardian": roleModelPolicySchema,
-    "visual-director": roleModelPolicySchema,
     "retention-critic": roleModelPolicySchema,
-    "delivery-critic": roleModelPolicySchema,
   })
   .strict();
 
@@ -115,7 +112,6 @@ const episodeIdSchema = z.string().regex(/^episode-[a-z0-9-]+$/u);
 
 const episodeRoleOverrideSchema = z
   .object({
-    "research-analyst": roleModelPolicyPatchSchema.optional(),
     "story-director": roleModelPolicyPatchSchema.optional(),
     "viral-director": roleModelPolicyPatchSchema.optional(),
     "script-writer": roleModelPolicyPatchSchema.optional(),
@@ -123,9 +119,7 @@ const episodeRoleOverrideSchema = z
     "oral-judge": roleModelPolicyPatchSchema.optional(),
     "audience-critic": roleModelPolicyPatchSchema.optional(),
     "fact-guardian": roleModelPolicyPatchSchema.optional(),
-    "visual-director": roleModelPolicyPatchSchema.optional(),
     "retention-critic": roleModelPolicyPatchSchema.optional(),
-    "delivery-critic": roleModelPolicyPatchSchema.optional(),
   })
   .strict();
 
@@ -133,7 +127,7 @@ const rolloutAllowlistSchema = z
   .object({
     hostedLlm: z.array(agentNameSchema),
     shadow: z.array(agentNameSchema),
-    manualOnly: z.array(agentNameSchema),
+    codexCapability: z.array(agentNameSchema),
   })
   .strict();
 
@@ -148,15 +142,6 @@ export const agentModelPolicyFileSchema = z
   })
   .strict()
   .superRefine((value, context) => {
-    for (const name of hostedLlmIneligibleAgentNames) {
-      if (value.roles[name].mode !== "manual") {
-        context.addIssue({
-          code: "custom",
-          path: ["roles", name, "mode"],
-          message: `${name} must remain manual until a dedicated tool/VLM work package`,
-        });
-      }
-    }
     for (const name of value.rollout.hostedLlm) {
       if (!(hostedLlmRolloutAgentNames as readonly string[]).includes(name)) {
         context.addIssue({
@@ -175,14 +160,24 @@ export const agentModelPolicyFileSchema = z
         });
       }
     }
-    for (const name of value.rollout.manualOnly) {
+    for (const name of value.rollout.codexCapability) {
       if (value.rollout.hostedLlm.includes(name) || value.rollout.shadow.includes(name)) {
         context.addIssue({
           code: "custom",
-          path: ["rollout", "manualOnly"],
-          message: `${name} cannot be both manual-only and rolled out`,
+          path: ["rollout", "codexCapability"],
+          message: `${name} cannot be both Codex-capability and hosted rollout`,
         });
       }
+    }
+    if (
+      [...value.rollout.codexCapability].sort().join(",") !==
+      [...codexCapabilityAgentNames].sort().join(",")
+    ) {
+      context.addIssue({
+        code: "custom",
+        path: ["rollout", "codexCapability"],
+        message: "codexCapability must contain exactly the capability-gated roles",
+      });
     }
   });
 
@@ -240,8 +235,8 @@ export const assertModeAllowedForRole = (
   rollout: RolloutAllowlist,
 ): void => {
   if (mode === "manual") return;
-  if ((manualOnlyAgentNames as readonly string[]).includes(agentName)) {
-    throw new Error(`${agentName} must remain manual until a dedicated tool/VLM work package`);
+  if ((codexCapabilityAgentNames as readonly string[]).includes(agentName)) {
+    throw new Error(`${agentName} is Codex capability-gated and has no hosted model policy`);
   }
   if (mode === "hosted-llm" && !rollout.hostedLlm.includes(agentName)) {
     throw new Error(`hosted-llm is not enabled for ${agentName}`);
@@ -252,10 +247,11 @@ export const assertModeAllowedForRole = (
 };
 
 const missingRoleFromUnknown = (value: unknown): AgentName | undefined => {
-  if (!value || typeof value !== "object" || !("roles" in value)) return agentNames[0];
+  if (!value || typeof value !== "object" || !("roles" in value))
+    return hostedLlmEligibleAgentNames[0];
   const roles = (value as {roles?: unknown}).roles;
-  if (!roles || typeof roles !== "object") return agentNames[0];
-  return agentNames.find((name) => !(name in roles));
+  if (!roles || typeof roles !== "object") return hostedLlmEligibleAgentNames[0];
+  return hostedLlmEligibleAgentNames.find((name) => !(name in roles));
 };
 
 export const parseAgentModelPolicyFile = (value: unknown): AgentModelPolicyFile => {
@@ -272,6 +268,9 @@ export const resolveRoleModelPolicy = (
   agentName: AgentName,
   config: AgentModelPolicyFile = agentModelPolicyFile,
 ): RoleModelPolicy => {
+  if (!isHostedLlmEligibleAgent(agentName)) {
+    throw new Error(`${agentName} is Codex capability-gated and has no hosted model policy`);
+  }
   const policy = config.roles[agentName];
   if (!policy) {
     throw new Error(`hosted-agent missing policy: ${agentName}`);
@@ -290,6 +289,9 @@ export const resolveEffectiveRoleModelPolicy = (input: {
   config?: AgentModelPolicyFile;
 }): ResolvedRoleModelPolicy => {
   const config = input.config ?? agentModelPolicyFile;
+  if (!isHostedLlmEligibleAgent(input.agentName)) {
+    throw new Error(`${input.agentName} is Codex capability-gated and has no hosted model policy`);
+  }
   const role = config.roles[input.agentName];
   if (!role) {
     throw new Error(`hosted-agent missing policy: ${input.agentName}`);

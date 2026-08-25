@@ -3,12 +3,6 @@
   "rubricVersion": "oral-review-v2",
   "promptVersion": "oral-judge-v2",
   "formalMinimumScore": 4,
-  "polishJudgeRubricVersion": "polish-judge-v2",
-  "polishThresholds": {
-    "translationese": 8,
-    "spokenChinese": 8,
-    "informationFidelity": 9
-  },
   "cases": [
     {
       "id": "local-awkwardness-non-blocking",
@@ -26,15 +20,6 @@
         "blockers": [],
         "verdict": "PASS",
         "returnTo": "none"
-      },
-      "preflight": {
-        "scores": {
-          "translationese": 8,
-          "spokenChinese": 8,
-          "informationFidelity": 10
-        },
-        "failChecks": [],
-        "verdict": "pass"
       }
     },
     {
@@ -55,15 +40,6 @@
         ],
         "verdict": "REJECT",
         "returnTo": "oral-rewriter"
-      },
-      "preflight": {
-        "scores": {
-          "translationese": 6,
-          "spokenChinese": 8,
-          "informationFidelity": 10
-        },
-        "failChecks": ["translatedSyntax"],
-        "verdict": "rewrite"
       }
     },
     {
@@ -84,15 +60,6 @@
         ],
         "verdict": "REJECT",
         "returnTo": "oral-rewriter"
-      },
-      "preflight": {
-        "scores": {
-          "translationese": 8,
-          "spokenChinese": 8,
-          "informationFidelity": 6
-        },
-        "failChecks": ["informationFidelity"],
-        "verdict": "rewrite"
       }
     }
   ]

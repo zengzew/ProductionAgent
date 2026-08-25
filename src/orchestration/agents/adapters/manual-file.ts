@@ -9,6 +9,7 @@ export type ManualFileAdapterOptions = {
   previousArtifacts?: Readonly<Record<string, ArtifactRef>>;
   mediaType?: (repositoryPath: string) => string;
   createdAt?: () => string;
+  producerFor?: (agentName: string) => string;
 };
 
 const defaultMediaType = (repositoryPath: string): string =>
@@ -50,7 +51,7 @@ export const createManualFileAdapter = (options: ManualFileAdapterOptions): Agen
         path: output.path,
         mediaType: options.mediaType?.(output.path) ?? defaultMediaType(output.path),
         schemaVersion: output.schemaVersion,
-        producer: `manual-file:${request.agentName}`,
+        producer: options.producerFor?.(request.agentName) ?? `manual-file:${request.agentName}`,
         previous: options.previousArtifacts?.[output.artifactId],
         createdAt: options.createdAt?.(),
       }),

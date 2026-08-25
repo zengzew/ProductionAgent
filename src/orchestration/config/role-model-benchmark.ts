@@ -2,7 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 import {z} from "zod";
 import benchmarkFile from "../../../config/role-model-benchmark.json";
-import {ROLE_MODEL_POLICY_VERSION, roleModelPolicySchema} from "./agent-model-policy";
+import {
+  hostedLlmEligibleAgentNames,
+  ROLE_MODEL_POLICY_VERSION,
+  roleModelPolicySchema,
+} from "./agent-model-policy";
 import {agentNameSchema, type AgentName} from "../schemas/agent";
 import {
   roleBenchmarkCapabilitySchema,
@@ -36,6 +40,15 @@ export const roleModelBenchmarkConfigSchema = z
         path: ["allowedRoles"],
         message: "benchmark catalog must retain script-writer for backward compatibility",
       });
+    }
+    for (const [index, agentName] of value.allowedRoles.entries()) {
+      if (!(hostedLlmEligibleAgentNames as readonly string[]).includes(agentName)) {
+        context.addIssue({
+          code: "custom",
+          path: ["allowedRoles", index],
+          message: `${agentName} is Codex capability-gated and cannot use the text benchmark`,
+        });
+      }
     }
     if (!value.modelSets[value.defaultModelSet]) {
       context.addIssue({

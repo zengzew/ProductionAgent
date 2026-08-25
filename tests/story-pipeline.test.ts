@@ -18,7 +18,7 @@ const criticReportPath = path.join(episodeRoot, "story/critic-report.md");
 const factCheckReportPath = path.join(episodeRoot, "story/fact-check-report.md");
 
 describe("product-story short-video pipeline", () => {
-  it("accepts the same alphanumeric segment ids as the polish parser", () => {
+  it("accepts alphanumeric segment ids in the editorial parser", () => {
     const markdown = fs
       .readFileSync(finalScriptPath, "utf8")
       .replace(/^## seg-001$/mu, "## seg-hook");

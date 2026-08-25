@@ -1,9 +1,7 @@
-import fs from "node:fs";
 import path from "node:path";
 import {z} from "zod";
 import {readJson, repoRoot} from "../episode/paths";
 import type {RetryableFetchOptions} from "../platform/network";
-import {editorialTextRulesSchema, loadEditorialTextRules} from "./text-rules";
 
 const normalization = z.object({
   integratedLufs: z.number(),
@@ -11,48 +9,6 @@ const normalization = z.object({
   loudnessRange: z.number().positive(),
   sampleRate: z.number().int().positive(),
   bitrate: z.string().min(1),
-});
-
-export const polishStyleSchema = editorialTextRulesSchema;
-
-const polishConfig = z.object({
-  promptVersion: z.literal("polish-prompt-bundle-v4"),
-  judgeRubricVersion: z.literal("polish-judge-v2"),
-  execution: z.object({
-    mode: z.literal("hosted-llm-api"),
-    networkCalls: z.literal(true),
-    apiKeys: z.literal(true),
-    selfHostedModels: z.literal(false),
-  }),
-  llm: z.object({
-    endpoint: z.string().url(),
-    apiKeyEnv: z.string().min(1),
-    modelEnv: z.string().min(1),
-    defaultModel: z.string().min(1),
-    temperature: z.number().min(0).max(2),
-    network: z.object({
-      timeoutMs: z.number().int().positive(),
-      maxRetries: z.number().int().nonnegative(),
-      retryBaseDelayMs: z.number().int().nonnegative(),
-    }),
-  }),
-  prompts: z.object({
-    polishSystem: z.string(),
-    polishUser: z.string(),
-    judgeSystem: z.string(),
-    judgeUser: z.string(),
-    rewriteUser: z.string(),
-  }),
-  voiceGuide: z.string(),
-  styleRules: z.string(),
-  acceptedSamplesDir: z.string(),
-  sampleCount: z.number().int().nonnegative(),
-  maxRounds: z.number().int().positive(),
-  thresholds: z.object({
-    translationese: z.number().min(0).max(10),
-    spokenChinese: z.number().min(0).max(10),
-    informationFidelity: z.number().min(0).max(10),
-  }),
 });
 
 const ttsConfig = z.object({
@@ -89,7 +45,6 @@ const ttsConfig = z.object({
   }),
 });
 
-export type PolishStyle = z.infer<typeof polishStyleSchema>;
 export type TtsV2Config = z.infer<typeof ttsConfig>;
 export type NetworkConfig = RetryableFetchOptions;
 
@@ -100,21 +55,5 @@ export const repoPath = (relative: string): string => {
   return resolved;
 };
 
-export const loadPolishV2Config = () => {
-  const config = polishConfig.parse(readJson<unknown>(repoPath("config/polish-v2.json")));
-  const style = loadEditorialTextRules(config.styleRules);
-  for (const value of [
-    config.voiceGuide,
-    config.acceptedSamplesDir,
-    ...Object.values(config.prompts),
-  ]) {
-    if (!fs.existsSync(repoPath(value))) throw new Error(`缺少 polish 配置路径：${value}`);
-  }
-  return {config, style};
-};
-
 export const loadTtsV2Config = (): TtsV2Config =>
   ttsConfig.parse(readJson<unknown>(repoPath("config/tts-v2.json")));
-
-export const promptText = (relative: string): string =>
-  fs.readFileSync(repoPath(relative), "utf8").trim();

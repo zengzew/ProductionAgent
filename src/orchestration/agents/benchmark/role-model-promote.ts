@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import {
   loadAgentModelPolicyFile,
+  isHostedLlmEligibleAgent,
   writeAgentModelPolicyFile,
   type AgentModelPolicyFile,
 } from "../../config/agent-model-policy";
@@ -117,6 +118,9 @@ export const applyRoleModelPromotion = (input: {
   }
   if (result.agentName !== decision.role) {
     throw new Error("promotion role does not match benchmark");
+  }
+  if (!isHostedLlmEligibleAgent(decision.role)) {
+    throw new Error(`${decision.role} is Codex capability-gated and cannot be model-promoted`);
   }
 
   if (!input.apply) {

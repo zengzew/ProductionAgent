@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "codex-capability-gates-v1",
+  "executor": {
+    "kind": "codex",
+    "model": "gpt-5.6",
+    "interaction": "in-session-file-handoff",
+    "apiKeyRequired": false
+  },
+  "roles": {
+    "research-analyst": {
+      "contract": "agents/research-analyst.md",
+      "requiredCapabilities": ["web-research", "source-attribution", "repository-files"],
+      "completionValidators": ["pnpm validate:research -- --episode <episode-id>"]
+    },
+    "visual-director": {
+      "contract": "agents/visual-director.md",
+      "requiredCapabilities": ["image-inspection", "video-inspection", "repository-files"],
+      "completionValidators": ["pnpm validate:story -- --episode <episode-id>"]
+    },
+    "delivery-critic": {
+      "contract": "agents/delivery-critic.md",
+      "requiredCapabilities": [
+        "video-inspection",
+        "audio-inspection",
+        "subtitle-inspection",
+        "repository-files"
+      ],
+      "completionValidators": ["pnpm validate:delivery -- --episode <episode-id>"]
+    }
+  },
+  "mediaVerification": {
+    "executor": "codex",
+    "model": "gpt-5.6",
+    "handoff": "bounded-local-files",
+    "wholeSourceMediaAllowed": false,
+    "requiresStructuredResult": true
+  }
+}
