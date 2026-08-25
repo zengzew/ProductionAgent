@@ -17,10 +17,11 @@
   },
   "providers": {
     "minimax": {
-      "label": "MiniMax Speech",
-      "endpoint": "https://api.minimaxi.com/v1/t2a_v2",
-      "apiKeyEnv": "MINIMAX_API_KEY",
-      "model": "speech-2.8-hd",
+      "label": "MiniMax Speech via Alibaba Cloud Model Studio",
+      "apiStyle": "aliyun-bailian",
+      "endpoint": "https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation",
+      "apiKeyEnv": "QWEN_API_KEY",
+      "model": "MiniMax/speech-2.8-hd",
       "voice": "male-qn-qingse",
       "speed": 1.15,
       "pitch": 0,

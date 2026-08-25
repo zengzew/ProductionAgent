@@ -250,9 +250,9 @@ audio and a human comparison form from the same information draft.
 
 ## Narration providers
 
-`config/tts-v2.json` selects the provider. MiniMax is enabled by default and reads
-only `MINIMAX_API_KEY`; missing credentials or provider errors can fall back to
-Edge. Set `defaultProvider` to `edge` to switch back.
+`config/tts-v2.json` selects the provider. MiniMax is enabled by default through
+Alibaba Cloud Model Studio and reads the existing `QWEN_API_KEY`; missing credentials
+or provider errors can fall back to Edge. Set `defaultProvider` to `edge` to switch back.
 
 - Microsoft Edge neural TTS
 - voice: `zh-CN-YunjianNeural`

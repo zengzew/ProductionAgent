@@ -69,6 +69,7 @@ const ttsConfig = z.object({
   providers: z.object({
     minimax: z.object({
       label: z.string(),
+      apiStyle: z.literal("aliyun-bailian"),
       endpoint: z.string().url(),
       apiKeyEnv: z.string(),
       model: z.string(),

@@ -138,14 +138,20 @@ describe("network request safeguards", () => {
   });
 
   it("applies the retrying fetcher to MiniMax TTS", async () => {
-    vi.stubEnv("MINIMAX_API_KEY", "test-key");
+    vi.stubEnv("QWEN_API_KEY", "test-key");
     const config = loadTtsV2Config();
     let calls = 0;
-    const fetchImpl: typeof fetch = async () => {
+    let lastInput: RequestInfo | URL | undefined;
+    let lastRequest: RequestInit | undefined;
+    const fetchImpl: typeof fetch = async (input, init) => {
       calls += 1;
+      lastInput = input;
+      lastRequest = init;
       return calls === 1
-        ? response(500, {base_resp: {status_code: 500, status_msg: "retry"}})
-        : response(200, {base_resp: {status_code: 0}, data: {audio: "00"}});
+        ? response(500, {output: {base_resp: {status_code: 500, status_msg: "retry"}}})
+        : response(200, {
+            output: {base_resp: {status_code: 0, status_msg: "success"}, data: {audio: "00"}},
+          });
     };
     const provider = createMinimaxProvider(config, {
       fetchImpl,
@@ -159,6 +165,23 @@ describe("network request safeguards", () => {
       await provider.synthesize("测试", output);
       expect(calls).toBe(2);
       expect(fs.readFileSync(output)).toEqual(Buffer.from("00", "hex"));
+      expect(String(lastInput)).toBe(
+        "https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation",
+      );
+      expect(lastRequest?.headers).toEqual({
+        Authorization: "Bearer test-key",
+        "Content-Type": "application/json",
+      });
+      expect(JSON.parse(String(lastRequest?.body))).toMatchObject({
+        model: "MiniMax/speech-2.8-hd",
+        input: {
+          text: "测试",
+          voice_setting: {voice_id: "male-qn-qingse"},
+          audio_setting: {format: "mp3"},
+          subtitle_enable: true,
+          output_format: "hex",
+        },
+      });
     } finally {
       fs.rmSync(directory, {recursive: true, force: true});
     }

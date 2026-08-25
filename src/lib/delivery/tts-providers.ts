@@ -193,7 +193,8 @@ export const createMinimaxProvider = (
     speed: settings.speed,
     pitch: settings.pitch,
     cacheConfiguration: {
-      providerImplementationVersion: "minimax-speech-v2",
+      providerImplementationVersion: "minimax-speech-bailian-v1",
+      apiStyle: settings.apiStyle,
       model: settings.model,
       voice: settings.voice,
       speed: settings.speed,
@@ -215,35 +216,47 @@ export const createMinimaxProvider = (
           headers: {Authorization: `Bearer ${key}`, "Content-Type": "application/json"},
           body: JSON.stringify({
             model: settings.model,
-            text,
-            stream: false,
-            voice_setting: {
-              voice_id: settings.voice,
-              speed: settings.speed,
-              vol: settings.volume,
-              pitch: settings.pitch,
+            input: {
+              text,
+              voice_setting: {
+                voice_id: settings.voice,
+                speed: settings.speed,
+                vol: settings.volume,
+                pitch: settings.pitch,
+              },
+              audio_setting: {
+                sample_rate: 32000,
+                bitrate: 128000,
+                format: "mp3",
+                channel: 1,
+              },
+              language_boost: settings.languageBoost,
+              subtitle_enable: settings.requestTimestamps,
+              output_format: "hex",
             },
-            audio_setting: {sample_rate: 32000, bitrate: 128000, format: "mp3", channel: 1},
-            language_boost: settings.languageBoost,
-            subtitle_enable: settings.requestTimestamps,
-            subtitle_type: "word",
-            output_format: "hex",
           }),
         },
         network,
       );
       const body = (await response.json()) as {
-        data?: {audio?: string; subtitle_file?: string};
-        base_resp?: {status_code?: number; status_msg?: string};
+        output?: {
+          data?: {audio?: string; subtitle_file?: string};
+          base_resp?: {status_code?: number; status_msg?: string};
+        };
+        code?: string;
+        message?: string;
       };
-      if (!response.ok || body.base_resp?.status_code !== 0 || !body.data?.audio) {
+      const providerStatus = body.output?.base_resp;
+      const audio = body.output?.data?.audio;
+      if (!response.ok || providerStatus?.status_code !== 0 || !audio) {
         throw new Error(
-          `MiniMax TTS 失败：${body.base_resp?.status_msg ?? `HTTP ${response.status}`}`,
+          `MiniMax TTS 失败：${providerStatus?.status_msg ?? body.message ?? body.code ?? `HTTP ${response.status}`}`,
         );
       }
-      fs.writeFileSync(output, Buffer.from(body.data.audio, "hex"));
-      if (!body.data.subtitle_file) return {};
-      const subtitle = await fetchWithRetry(body.data.subtitle_file, {}, network);
+      fs.writeFileSync(output, Buffer.from(audio, "hex"));
+      const subtitleFile = body.output?.data?.subtitle_file;
+      if (!subtitleFile) return {};
+      const subtitle = await fetchWithRetry(subtitleFile, {}, network);
       if (!subtitle.ok) return {};
       const timestamps = parseProviderTimestamps(await subtitle.json());
       return timestamps.length ? {timestamps} : {};
