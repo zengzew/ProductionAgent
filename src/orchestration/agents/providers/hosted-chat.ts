@@ -104,7 +104,7 @@ export const createFakeHostedChatProvider = (input: {
 });
 
 type DeepSeekReasoningRequestBody = {
-  thinking: {type: "enabled"};
+  enable_thinking: true;
   reasoning_effort: "max";
 };
 
@@ -126,10 +126,10 @@ type HostedReasoningCapability = {
 const hostedReasoningCapabilities: readonly HostedReasoningCapability[] = [
   {
     provider: "openai-compatible",
-    model: "deepseek-v4-flash",
+    model: "deepseek-v4-flash-0731",
     profile: "deepseek-v4-flash",
     requestBody: () => ({
-      thinking: {type: "enabled"},
+      enable_thinking: true,
       reasoning_effort: "max",
     }),
   },

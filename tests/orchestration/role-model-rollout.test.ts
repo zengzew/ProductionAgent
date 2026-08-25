@@ -193,17 +193,16 @@ describe("Role → ModelPolicy precedence", () => {
     });
     expect(episode004).toMatchObject({
       provider: "openai-compatible",
-      model: "deepseek-v4-flash",
+      model: "deepseek-v4-flash-0731",
       mode: "manual",
     });
     expect(episode005).toMatchObject({
-      provider: "deepseek",
-      model: "deepseek-chat",
+      provider: "openai-compatible",
+      model: "deepseek-v4-flash-0731",
       mode: "manual",
     });
     expect(other.model).toBe(resolveRoleModelPolicy("script-writer").model);
     expect(other.model).not.toBe("gpt-5.6");
-    expect(other.model).not.toBe("deepseek-chat");
     expect(episode004.appliedLayers.episode).toBe(false);
     expect(other.appliedLayers.episode).toBe(false);
   });
@@ -338,7 +337,7 @@ describe("Role → ModelPolicy rollout adapter", () => {
       agentName: "script-writer",
       mode: "shadow",
       provider: "openai-compatible",
-      model: "deepseek-v4-flash",
+      model: "deepseek-v4-flash-0731",
       reasoningProfile: "deepseek-v4-flash",
       policyVersion: "role-model-rollout-v1",
       executionId: "exec-rollout-1",
@@ -558,11 +557,11 @@ describe("Role → ModelPolicy rollout adapter", () => {
         },
         "episode-005": {
           "oral-rewriter": {
-            model: "deepseek-chat",
-            provider: "deepseek",
-            endpoint: "https://api.deepseek.com/v1/chat/completions",
-            allowedOrigins: ["https://api.deepseek.com"],
-            apiKeyEnv: "DEEPSEEK_API_KEY",
+            model: "deepseek-v4-flash-0731",
+            provider: "openai-compatible",
+            endpoint: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+            allowedOrigins: ["https://dashscope.aliyuncs.com"],
+            apiKeyEnv: "QWEN_API_KEY",
           },
         },
       },
@@ -585,10 +584,10 @@ describe("Role → ModelPolicy rollout adapter", () => {
       sleep: async () => undefined,
     })(request(second.promptRef, second.inputRef, {episodeId: "episode-005"}));
 
-    expect(seen).toEqual(["gpt-5.6", "deepseek-chat"]);
+    expect(seen).toEqual(["gpt-5.6", "deepseek-v4-flash-0731"]);
     expect(fs.readFileSync(path.join(first.repoRoot, first.outputPath), "utf8")).toBe("gpt-5.6\n");
     expect(fs.readFileSync(path.join(second.repoRoot, second.outputPath), "utf8")).toBe(
-      "deepseek-chat\n",
+      "deepseek-v4-flash-0731\n",
     );
   });
 });

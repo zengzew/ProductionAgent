@@ -21,17 +21,17 @@
   "candidates": {
     "deepseek-v4-flash": {
       "provider": "openai-compatible",
-      "endpoint": "https://api.deepseek.com/chat/completions",
-      "model": "deepseek-v4-flash",
+      "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+      "model": "deepseek-v4-flash-0731",
       "reasoning": {
         "profile": "deepseek-v4-flash",
-        "thinking": {"type": "enabled"},
+        "enable_thinking": true,
         "reasoning_effort": "max"
       },
       "temperature": 0.4,
       "capabilities": ["text"],
-      "apiKeyEnv": "DEEPSEEK_API_KEY",
-      "allowedOrigins": ["https://api.deepseek.com"],
+      "apiKeyEnv": "QWEN_API_KEY",
+      "allowedOrigins": ["https://dashscope.aliyuncs.com"],
       "timeoutMs": 300000,
       "maxRetries": 0
     },

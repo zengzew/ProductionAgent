@@ -498,13 +498,13 @@ describe("promotion HumanDecision", () => {
     const policy = loadAgentModelPolicyFile({repoRoot});
     expect(policy.roles["script-writer"]).toMatchObject({
       mode: "manual",
-      model: "deepseek-v4-flash",
-      endpoint: "https://api.deepseek.com/chat/completions",
+      model: "deepseek-v4-flash-0731",
+      endpoint: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
       timeoutMs: 300_000,
       maxRetries: 0,
       reasoning: {
         profile: "deepseek-v4-flash",
-        thinking: {type: "enabled"},
+        enable_thinking: true,
         reasoning_effort: "max",
       },
     });

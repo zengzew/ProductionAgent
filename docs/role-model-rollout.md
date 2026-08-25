@@ -72,10 +72,10 @@ hosted-llm in this phase.
 
 Committed examples (mode is not flipped; only provider/model/endpoint):
 
-| Episode       | Role            | Provider label | Model           |
-| ------------- | --------------- | -------------- | --------------- |
-| `episode-004` | `script-writer` | `openai`       | `gpt-5.6`       |
-| `episode-005` | `script-writer` | `deepseek`     | `deepseek-chat` |
+| Episode       | Role            | Provider label      | Model                    |
+| ------------- | --------------- | ------------------- | ------------------------ |
+| `episode-004` | `script-writer` | `openai`            | `gpt-5.6`                |
+| `episode-005` | `script-writer` | `openai-compatible` | `deepseek-v4-flash-0731` |
 
 These apply only when resolving that episode. `episode-test` and every other
 episode keep the role policy. Provider is a config label; the transport is

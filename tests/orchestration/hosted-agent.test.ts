@@ -643,13 +643,13 @@ describe("HostedAgentBackend", () => {
     const provider = createOpenAiCompatibleChatProvider({fetchImpl});
     const reasoning = {
       profile: "deepseek-v4-flash" as const,
-      thinking: {type: "enabled" as const},
+      enable_thinking: true as const,
       reasoning_effort: "max" as const,
     };
     const direct = await provider.chatJson({
       provider: "openai-compatible",
-      endpoint: "https://api.deepseek.com/chat/completions",
-      model: "deepseek-v4-flash",
+      endpoint: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+      model: "deepseek-v4-flash-0731",
       reasoning,
       temperature: 0,
       timeoutMs: 1000,
@@ -671,9 +671,9 @@ describe("HostedAgentBackend", () => {
     const runner = createHostedAgentAdapter({
       repoRoot,
       policy: hostedPolicy({
-        endpoint: "https://api.deepseek.com/chat/completions",
-        allowedOrigins: ["https://api.deepseek.com"],
-        model: "deepseek-v4-flash",
+        endpoint: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+        allowedOrigins: ["https://dashscope.aliyuncs.com"],
+        model: "deepseek-v4-flash-0731",
         reasoning,
       }),
       apiKey: "test-key",
@@ -821,11 +821,11 @@ describe("HostedAgentBackend", () => {
 
     await call({
       provider: "openai-compatible",
-      endpoint: "https://api.deepseek.com/chat/completions",
-      model: "deepseek-v4-flash",
+      endpoint: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+      model: "deepseek-v4-flash-0731",
       reasoning: {
         profile: "deepseek-v4-flash",
-        thinking: {type: "enabled"},
+        enable_thinking: true,
         reasoning_effort: "max",
       },
     });
@@ -853,9 +853,9 @@ describe("HostedAgentBackend", () => {
     };
     expect(bodies).toEqual([
       {
-        model: "deepseek-v4-flash",
+        model: "deepseek-v4-flash-0731",
         ...base,
-        thinking: {type: "enabled"},
+        enable_thinking: true,
         reasoning_effort: "max",
       },
       {
@@ -887,7 +887,7 @@ describe("HostedAgentBackend", () => {
         model: "qwen3.7-plus",
         reasoning: {
           profile: "deepseek-v4-flash",
-          thinking: {type: "enabled"},
+          enable_thinking: true,
           reasoning_effort: "max",
         },
         temperature: 0.4,

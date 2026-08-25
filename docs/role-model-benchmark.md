@@ -39,11 +39,11 @@ sha256(inputHash + role + provider + model + prompt version + typed reasoning co
 `reasoning` is a strict discriminated union, not a generic request-options
 bag. The committed profiles map to provider capabilities as follows:
 
-| Candidate           | Typed profile                     | Hosted request parameters                        |
-| ------------------- | --------------------------------- | ------------------------------------------------ |
-| `deepseek-v4-flash` | DeepSeek V4 Flash                 | `thinking.type=enabled`, `reasoning_effort=max`  |
-| `qwen3-7-plus`      | Qwen 3.7 Plus                     | `enable_thinking=true`, `thinking_budget=262144` |
-| `minimax-m2-7`      | MiniMax M2.7 native thinking-only | no extra effort/budget fields                    |
+| Candidate           | Typed profile                      | Hosted request parameters                        |
+| ------------------- | ---------------------------------- | ------------------------------------------------ |
+| `deepseek-v4-flash` | DeepSeek V4 Flash 0731 via Bailian | `enable_thinking=true`, `reasoning_effort=max`   |
+| `qwen3-7-plus`      | Qwen 3.7 Plus                      | `enable_thinking=true`, `thinking_budget=262144` |
+| `minimax-m2-7`      | MiniMax M2.7 native thinking-only  | no extra effort/budget fields                    |
 
 The provider resolves parameters from the exact provider/model capability and
 fails closed for an unsupported profile or mismatch. A changed reasoning
@@ -125,14 +125,14 @@ The factual boundary applies only to roles whose machine-readable gate binds
 Claims to narration evidence, and only through the gate's positive structure
 fields — never through a full-text regex over the Markdown body:
 
-| Role             | Positive narration-evidence fields                    | Boundary |
-| ---------------- | ----------------------------------------------------- | -------- |
-| script-writer    | segment `Claim IDs` (unchanged)                       | strict   |
-| story-director   | `emotionalArc[].claimIds`                             | strict   |
-| viral-director   | gate `claimIds`                                       | strict   |
-| oral-rewriter    | segment `Claim IDs` + `Narration units` claim cells   | strict   |
-| oral-judge / audience-critic / fact-guardian / retention-critic | none                    | none     |
-| research-analyst | none                                                  | none     |
+| Role                                                            | Positive narration-evidence fields                  | Boundary |
+| --------------------------------------------------------------- | --------------------------------------------------- | -------- |
+| script-writer                                                   | segment `Claim IDs` (unchanged)                     | strict   |
+| story-director                                                  | `emotionalArc[].claimIds`                           | strict   |
+| viral-director                                                  | gate `claimIds`                                     | strict   |
+| oral-rewriter                                                   | segment `Claim IDs` + `Narration units` claim cells | strict   |
+| oral-judge / audience-critic / fact-guardian / retention-critic | none                                                | none     |
+| research-analyst                                                | none                                                | none     |
 
 Consequences:
 

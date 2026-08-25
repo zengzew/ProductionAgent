@@ -436,7 +436,7 @@ describe("model-benchmark-v1", () => {
       ...changedCandidate,
       reasoning: {
         profile: "deepseek-v4-flash",
-        thinking: {type: "enabled"},
+        enable_thinking: true,
         reasoning_effort: "max",
       },
     };
@@ -556,7 +556,7 @@ describe("model-benchmark-v1", () => {
     }
     expect(committed.candidates["deepseek-v4-flash"]?.reasoning).toEqual({
       profile: "deepseek-v4-flash",
-      thinking: {type: "enabled"},
+      enable_thinking: true,
       reasoning_effort: "max",
     });
     expect(committed.candidates["qwen3-7-plus"]?.reasoning).toEqual({
@@ -639,7 +639,7 @@ describe("model-benchmark-v1", () => {
         promptVersion: "prompt-v1:abc",
         reasoning: {
           profile: "deepseek-v4-flash",
-          thinking: {type: "enabled"},
+          enable_thinking: true,
           reasoning_effort: "max",
         },
       }),

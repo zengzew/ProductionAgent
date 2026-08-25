@@ -18,11 +18,7 @@ const noReasoningConfigSchema = z
 const deepSeekV4FlashReasoningConfigSchema = z
   .object({
     profile: z.literal("deepseek-v4-flash"),
-    thinking: z
-      .object({
-        type: z.literal("enabled"),
-      })
-      .strict(),
+    enable_thinking: z.literal(true),
     reasoning_effort: z.literal("max"),
   })
   .strict();
