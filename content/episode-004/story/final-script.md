@@ -43,13 +43,13 @@
 
 ### Narration
 
-三个奥赛金牌程序员做了这个产品。他们要让它自己把工程任务干完，工程师负责检查结果。
+三个奥赛金牌程序员做了一个 AI 软件工程师，叫 Devin。他们要让它自己把工程任务干完，工程师负责检查结果。
 
 ### Narration units
 
 | Text                                           | Mode                   | Claim IDs       | Attribution      |
 | ---------------------------------------------- | ---------------------- | --------------- | ---------------- |
-| 三个奥赛金牌程序员做了这个产品。               | independently-verified | claim-devin-012 | 维基与 Bloomberg |
+| 三个奥赛金牌程序员做了一个 AI 软件工程师，叫 Devin。 | independently-verified | claim-devin-012 | 维基与 Bloomberg |
 | 他们要让它自己把工程任务干完，工程师负责检查结果。 | company            | claim-devin-009 | 官方定位         |
 
 ## seg-003
@@ -67,13 +67,14 @@
 
 ### Narration
 
-2024 年 3 月，官方演示发出去，一百多万人看它自己打开浏览器写代码。市场后来给了它什么价？
+2024 年 3 月，官方演示发出去，后来播放量超过一百二十万。视频里，它自己打开浏览器写代码。市场后来给了它什么价？
 
 ### Narration units
 
 | Text                                                         | Mode                   | Claim IDs                       | Attribution        |
 | ------------------------------------------------------------ | ---------------------- | ------------------------------- | ------------------ |
-| 2024 年 3 月，官方演示发出去，一百多万人看它自己打开浏览器写代码。 | independently-verified | claim-devin-015, claim-devin-001 | 官方 YouTube 播放量 |
+| 2024 年 3 月，官方演示发出去，后来播放量超过一百二十万。 | independently-verified | claim-devin-015 | 官方 YouTube 播放量 |
+| 视频里，它自己打开浏览器写代码。                         | demonstration          | claim-devin-001 | 官方功能演示         |
 | 市场后来给了它什么价？                                       | editorial-analysis     | claim-devin-015                 | 由冷启动提出问题   |
 
 ## seg-004
@@ -91,14 +92,14 @@
 
 ### Narration
 
-发布前后，Founders Fund 投了 2100 万美元。2024 年 12 月 GA 时，团队版每月 500 美元；2025 年 4 月 3 日 Devin 2.0 发布时，个人套餐起价每月 20 美元，还能同时开多个 Devin 并行干。
+发布前后，Founders Fund 投了 2100 万美元。2024 年 12 月，团队版正式上线，每月 500 美元；2025 年 4 月 3 日 Devin 2.0 发布时，个人套餐起价每月 20 美元，还能同时开多个 Devin 并行干。
 
 ### Narration units
 
 | Text                                                         | Mode                   | Claim IDs       | Attribution    |
 | ------------------------------------------------------------ | ---------------------- | --------------- | -------------- |
 | 发布前后，Founders Fund 投了 2100 万美元。                   | independently-verified | claim-devin-014 | 维基转述 WSJ   |
-| 2024 年 12 月 GA 时，团队版每月 500 美元；2025 年 4 月 3 日 Devin 2.0 发布时，个人套餐起价每月 20 美元， | company                | claim-devin-005 | 公司披露与媒体 |
+| 2024 年 12 月，团队版正式上线，每月 500 美元；2025 年 4 月 3 日 Devin 2.0 发布时，个人套餐起价每月 20 美元， | company                | claim-devin-005 | 公司披露与媒体 |
 | 还能同时开多个 Devin 并行干。                                 | company                | claim-devin-006 | 公司披露       |
 
 ## seg-005
@@ -116,14 +117,14 @@
 
 ### Narration
 
-奔驰把 20 万行老代码的改造，从预计 8 个月压到 8 天。公司工程师提交的代码里，八成九由 Devin 提交。
+Devin 帮奔驰把 20 万行老代码的改造，从预计 8 个月压到 8 天。Cognition 自己的工程师提交的代码里，八成九由 Devin 提交。
 
 ### Narration units
 
 | Text                                                         | Mode    | Claim IDs       | Attribution |
 | ------------------------------------------------------------ | ------- | --------------- | ----------- |
-| 奔驰把 20 万行老代码的改造，从预计 8 个月压到 8 天。         | company | claim-devin-007 | 官方案例    |
-| 公司工程师提交的代码里，八成九由 Devin 提交。                 | company | claim-devin-008 | 公司披露    |
+| Devin 帮奔驰把 20 万行老代码的改造，从预计 8 个月压到 8 天。 | company | claim-devin-007 | 官方案例    |
+| Cognition 自己的工程师提交的代码里，八成九由 Devin 提交。     | company | claim-devin-008 | 公司披露    |
 
 ## seg-006
 
