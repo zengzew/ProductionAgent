@@ -748,6 +748,11 @@ const gateRetrievalResult = (input: {
   segmentId: string;
   ref: ArtifactRef;
   clipId: string;
+  expectedRequest?: {
+    claimIds: readonly string[];
+    narration: string;
+    visualIntent: string;
+  };
 }): {result: MediaRetrievalResult; candidate: MediaRetrievalCandidate} => {
   const {repoRoot, episodeId, segmentId, clipId} = input;
   const ref = artifactRefSchema.parse(input.ref);
@@ -772,6 +777,19 @@ const gateRetrievalResult = (input: {
   }
   if (result.episodeId !== episodeId || result.segmentId !== segmentId) {
     throw new Error(`MEDIA_VERIFY_RETRIEVAL_MISMATCH:${ref.artifactId}`);
+  }
+  if (input.expectedRequest) {
+    const expectedClaimIds = [...new Set(input.expectedRequest.claimIds)].sort();
+    const actualClaimIds = [...new Set(result.request.claimIds)].sort();
+    if (
+      JSON.stringify(actualClaimIds) !== JSON.stringify(expectedClaimIds) ||
+      normalizeNarration(result.request.narration) !==
+        normalizeNarration(input.expectedRequest.narration) ||
+      normalizeNarration(result.request.visualIntent) !==
+        normalizeNarration(input.expectedRequest.visualIntent)
+    ) {
+      throw new Error(`MEDIA_VERIFY_RETRIEVAL_REQUEST_STALE:${ref.artifactId}`);
+    }
   }
   const candidate = result.candidates.find(
     (value) => value.clipId === clipId && value.episodeId === episodeId,
@@ -843,6 +861,22 @@ const gateVerificationMedia = (input: {
   }
   assertMediaAssetBytesOrThrow(repoRoot, asset);
   return {asset, source};
+};
+
+const verificationAnalysisSource = (input: {
+  repoRoot: string;
+  manifest: MediaSourceManifest;
+  asset: MediaAsset;
+}): MediaAsset => {
+  const proxy = input.manifest.assets.find(
+    (value) => value.kind === "proxy" && value.derivedFromMediaId === input.asset.mediaId,
+  );
+  if (!proxy) return input.asset;
+  assertMediaAssetBytesOrThrow(input.repoRoot, proxy);
+  if (!proxy.derivedFromMediaRef || proxy.derivedFromMediaRef.sha256 !== input.asset.sha256) {
+    throw new Error(`MEDIA_VERIFY_PROXY_STALE:${proxy.mediaId}`);
+  }
+  return proxy;
 };
 
 const gateVerificationClipIndex = (input: {
@@ -1340,19 +1374,7 @@ export const verifyMediaClip = async (
     // 5. Short clip materialization: only `startMs..endMs` is ever handed to
     //    Codex. Analysis source: normalized proxy preferred, original
     //    otherwise — lineage always anchors to the original.
-    const proxy = manifest.assets.find(
-      (value) => value.kind === "proxy" && value.derivedFromMediaId === asset.mediaId,
-    );
-    let analysisSource: MediaAsset;
-    if (proxy) {
-      assertMediaAssetBytesOrThrow(repoRoot, proxy);
-      if (!proxy.derivedFromMediaRef || proxy.derivedFromMediaRef.sha256 !== asset.sha256) {
-        throw new Error(`MEDIA_VERIFY_PROXY_STALE:${proxy.mediaId}`);
-      }
-      analysisSource = proxy;
-    } else {
-      analysisSource = asset;
-    }
+    const analysisSource = verificationAnalysisSource({repoRoot, manifest, asset});
     const dependencyHashes =
       input.cacheDependencyHashes ??
       hashExistingRepositoryFiles(repoRoot, MEDIA_VERIFICATION_DEPENDENCY_PATHS);
@@ -1696,6 +1718,355 @@ export const verifyMediaClip = async (
     emit("media.verification.failed", {reason: errorMessage(error)});
     throw error;
   }
+};
+
+export type RebindMediaVerificationInput = {
+  repoRoot: string;
+  episodeId: string;
+  request: MediaVerificationRequest;
+  /** Registry execution identity for this repair, not a provider execution. */
+  executionId?: string;
+  now?: () => string;
+};
+
+export type RebindMediaVerificationOutcome = {
+  artifactRef: ArtifactRef;
+  clipArtifactRef: ArtifactRef;
+  retrievalResultRef: ArtifactRef;
+  status: "ready";
+  verdict: MediaVerificationVerdict;
+  episodeId: string;
+  segmentId: string;
+  clipId: string;
+  cacheHit: false;
+  reused: true;
+  cacheKey: string;
+  rebind: true;
+};
+
+const sameArtifactBinding = (left: ArtifactRef, right: ArtifactRef): boolean =>
+  left.artifactId === right.artifactId &&
+  left.episodeId === right.episodeId &&
+  left.path === right.path &&
+  left.revision === right.revision &&
+  left.sha256 === right.sha256 &&
+  left.sizeBytes === right.sizeBytes;
+
+const activeIndexedRef = (
+  repoRoot: string,
+  index: ReturnType<typeof readArtifactIndex>,
+  artifactId: string,
+  repositoryPath: string,
+): ArtifactRef | undefined =>
+  index.artifacts
+    .map((record, indexPosition) => ({record, indexPosition}))
+    .filter(
+      ({record}) =>
+        record.ref.artifactId === artifactId &&
+        record.ref.path === repositoryPath &&
+        (record.state === "candidate" || record.state === "selected"),
+    )
+    .sort(
+      (left, right) =>
+        right.record.ref.revision - left.record.ref.revision ||
+        right.indexPosition - left.indexPosition,
+    )
+    .map(({record}) => record.ref)
+    .find((ref) => {
+      try {
+        assertArtifactRefBytes(repoRoot, ref);
+        return true;
+      } catch {
+        return false;
+      }
+    });
+
+const sortedUnique = (values: readonly string[]): string[] => [...new Set(values)].sort();
+
+/**
+ * Rebinds an existing human media review after a deterministic retrieval
+ * refresh. This is deliberately narrower than `verifyMediaClip`: it never
+ * calls a provider and it never changes an observed verdict. It only permits
+ * a new retrieval ref when the candidate, source bytes, exact window, claims,
+ * visual intent, clip bytes, and current ClipIndex are all unchanged.
+ */
+export const rebindMediaVerification = (
+  input: RebindMediaVerificationInput,
+): RebindMediaVerificationOutcome => {
+  const repoRoot = path.resolve(input.repoRoot);
+  const now = input.now ?? (() => new Date().toISOString());
+  const request = normalizeVerificationRequest(input.request);
+  const {episodeId} = request;
+  if (episodeId !== input.episodeId) {
+    throw new Error(`MEDIA_REBIND_EPISODE_MISMATCH:${episodeId}:${input.episodeId}`);
+  }
+
+  // The new retrieval is gated by the same production verification gate used
+  // for a provider call. No repair may bind an arbitrary JSON file.
+  const {candidate} = gateRetrievalResult({
+    repoRoot,
+    episodeId,
+    segmentId: request.segmentId,
+    ref: request.retrievalResultRef,
+    clipId: request.clipId,
+    expectedRequest: {
+      claimIds: request.claimIds,
+      narration: request.narration,
+      visualIntent: request.visualIntent,
+    },
+  });
+  const manifest = readMediaSourceManifest(repoRoot, episodeId);
+  const {asset, source} = gateVerificationMedia({
+    repoRoot,
+    episodeId,
+    manifest,
+    mediaId: candidate.mediaId,
+  });
+  const {indexRef, item} = gateVerificationClipIndex({
+    repoRoot,
+    episodeId,
+    asset,
+    candidate,
+    clipId: request.clipId,
+  });
+  const analysisSource = verificationAnalysisSource({repoRoot, manifest, asset});
+
+  const verificationPath = mediaVerificationRepositoryPath(
+    episodeId,
+    request.segmentId,
+    request.clipId,
+  );
+  const verificationFilePath = resolveMediaRepositoryPath(repoRoot, verificationPath);
+  if (!fs.existsSync(verificationFilePath)) {
+    throw new Error(`MEDIA_REBIND_VERIFICATION_MISSING:${request.clipId}`);
+  }
+  let previous: MediaVerification;
+  try {
+    previous = mediaVerificationSchema.parse(
+      JSON.parse(fs.readFileSync(verificationFilePath, "utf8")) as unknown,
+    );
+  } catch (error) {
+    throw new Error(`MEDIA_REBIND_VERIFICATION_INVALID:${request.clipId}`, {cause: error});
+  }
+
+  if (
+    previous.episodeId !== episodeId ||
+    previous.segmentId !== request.segmentId ||
+    previous.clipId !== request.clipId ||
+    previous.verificationId !==
+      `${episodeId}:media-verification:${request.clipId.replace(/[^a-z0-9-]/gu, "-")}`
+  ) {
+    throw new Error(`MEDIA_REBIND_VERIFICATION_MISMATCH:${request.clipId}`);
+  }
+  if (previous.verdict !== "pass") {
+    throw new Error(`MEDIA_REBIND_VERIFICATION_NOT_PASSED:${request.clipId}`);
+  }
+
+  // Validate the historical review's own content hash before using it as
+  // evidence. The provider output and observed fields below remain unchanged.
+  const previousBodyWithoutArtifactRef = {...previous};
+  Reflect.deleteProperty(previousBodyWithoutArtifactRef, "artifactRef");
+  if (
+    sha256Bytes(Buffer.from(serializeIndexArtifact(previousBodyWithoutArtifactRef), "utf8")) !==
+    previous.artifactRef.sha256
+  ) {
+    throw new Error(`MEDIA_REBIND_VERIFICATION_TAMPERED:${request.clipId}`);
+  }
+
+  if (
+    JSON.stringify(sortedUnique(previous.claimIds)) !==
+      JSON.stringify(sortedUnique(request.claimIds)) ||
+    JSON.stringify(sortedUnique(previous.clipRef.claimIds)) !==
+      JSON.stringify(sortedUnique(request.claimIds)) ||
+    normalizeNarration(previous.clipRef.visualIntent) !== normalizeNarration(request.visualIntent)
+  ) {
+    throw new Error(`MEDIA_REBIND_EVIDENCE_IDENTITY_MISMATCH:${request.clipId}`);
+  }
+  if (
+    previous.clipRef.mediaId !== candidate.mediaId ||
+    previous.clipRef.startMs !== candidate.startMs ||
+    previous.clipRef.endMs !== candidate.endMs ||
+    !sameArtifactBinding(previous.clipRef.sourceMediaRef, asset.artifactRef) ||
+    !sameArtifactBinding(previous.mediaRef, asset.artifactRef) ||
+    previous.sourceSha256 !== asset.artifactRef.sha256 ||
+    candidate.mediaRef.sha256 !== asset.artifactRef.sha256 ||
+    JSON.stringify(previous.clipRef.transcriptRefs) !== JSON.stringify(item.transcriptRefs)
+  ) {
+    throw new Error(`MEDIA_REBIND_MEDIA_IDENTITY_MISMATCH:${request.clipId}`);
+  }
+  const clipExtension = path.extname(previous.clipArtifactRef.path).slice(1);
+  const expectedClipPath = mediaVerificationClipRepositoryPath(
+    episodeId,
+    request.segmentId,
+    request.clipId,
+    clipExtension,
+  );
+  const expectedClipId = `${episodeId}:media-verification-clip:${request.clipId.replace(/[^a-z0-9-]/gu, "-")}`;
+  if (
+    previous.clipArtifactRef.path !== expectedClipPath ||
+    previous.clipArtifactRef.artifactId !== expectedClipId ||
+    previous.clipArtifactRef.mediaType !== analysisSource.mediaType
+  ) {
+    throw new Error(`MEDIA_REBIND_CLIP_IDENTITY_MISMATCH:${request.clipId}`);
+  }
+  try {
+    assertArtifactRefBytes(repoRoot, previous.clipArtifactRef);
+  } catch (error) {
+    throw new Error(`MEDIA_REBIND_CLIP_TAMPERED:${request.clipId}`, {cause: error});
+  }
+  if (
+    previous.recommendedStartMs < candidate.startMs ||
+    previous.recommendedEndMs > candidate.endMs ||
+    previous.recommendedEndMs <= previous.recommendedStartMs
+  ) {
+    throw new Error(`MEDIA_REBIND_RECOMMENDED_RANGE_INVALID:${request.clipId}`);
+  }
+
+  const indexPath = path.resolve(repoRoot, `content/${episodeId}/artifact-index.json`);
+  const expectedIndexVersion = readArtifactIndexVersion(indexPath);
+  const existingIndex = fs.existsSync(indexPath)
+    ? readArtifactIndex(indexPath)
+    : emptyArtifactIndex(episodeId);
+  const previousExternal = activeIndexedRef(
+    repoRoot,
+    existingIndex,
+    previous.artifactRef.artifactId,
+    verificationPath,
+  );
+  const previousClipExternal = activeIndexedRef(
+    repoRoot,
+    existingIndex,
+    previous.clipArtifactRef.artifactId,
+    previous.clipArtifactRef.path,
+  );
+
+  // Once the current retrieval binding and both external registry refs are
+  // already valid, repair is idempotent. Do not rewrite the review merely to
+  // mint another timestamped file version.
+  if (
+    sameArtifactBinding(previous.retrievalResultRef, request.retrievalResultRef) &&
+    previousExternal &&
+    previousClipExternal
+  ) {
+    return {
+      artifactRef: previousExternal,
+      clipArtifactRef: previousClipExternal,
+      retrievalResultRef: request.retrievalResultRef,
+      status: "ready",
+      verdict: previous.verdict,
+      episodeId,
+      segmentId: request.segmentId,
+      clipId: request.clipId,
+      cacheHit: false,
+      reused: true,
+      cacheKey: previous.cacheKey,
+      rebind: true,
+    };
+  }
+
+  const dependencyHashes = hashExistingRepositoryFiles(
+    repoRoot,
+    MEDIA_VERIFICATION_DEPENDENCY_PATHS,
+  );
+  const cacheKey = buildMediaVerificationCacheKey({
+    episodeId,
+    segmentId: request.segmentId,
+    clipId: request.clipId,
+    clipBytesSha256: previous.clipArtifactRef.sha256,
+    mediaSha256: asset.sha256,
+    indexSha256: indexRef.sha256,
+    retrievalResultSha256: request.retrievalResultRef.sha256,
+    claimIds: request.claimIds,
+    narration: request.narration,
+    visualIntent: request.visualIntent,
+    providerId: previous.provider,
+    model: previous.model,
+    verificationVersion: previous.verificationVersion,
+    promptVersion: previous.promptVersion,
+    schemaVersion: MEDIA_VERIFICATION_SCHEMA_VERSION,
+    dependencyHashes,
+  });
+
+  const artifactId = previous.artifactRef.artifactId;
+  const producer = `${MEDIA_VERIFICATION_TOOL_VERSION}:rebind:${previous.provider}:${previous.verificationVersion}`;
+  const bodyWithoutArtifactRef = {
+    ...previous,
+    retrievalResultRef: request.retrievalResultRef,
+    cacheKey,
+    mediaRef: asset.artifactRef,
+    sourceSha256: asset.sha256,
+  };
+  Reflect.deleteProperty(bodyWithoutArtifactRef, "artifactRef");
+  const contentBytes = Buffer.from(serializeIndexArtifact(bodyWithoutArtifactRef), "utf8");
+  const nextRevision = previousExternal ? previousExternal.revision + 1 : 1;
+  const body = mediaVerificationSchema.parse({
+    ...bodyWithoutArtifactRef,
+    artifactRef: artifactRefSchema.parse({
+      ...previous.artifactRef,
+      revision: nextRevision,
+      sha256: sha256Bytes(contentBytes),
+      sizeBytes: contentBytes.byteLength,
+      producer,
+      createdAt: now(),
+    }),
+  });
+  const bytes = Buffer.from(serializeIndexArtifact(body), "utf8");
+
+  copyBytesAtomically(verificationFilePath, bytes);
+  const verificationRef = buildArtifactRef({
+    repoRoot,
+    artifactId,
+    episodeId,
+    path: verificationPath,
+    mediaType: "application/json",
+    schemaVersion: MEDIA_VERIFICATION_SCHEMA_VERSION,
+    producer,
+    ...(previousExternal ? {previous: previousExternal} : {}),
+    createdAt: now(),
+  });
+  const executionId =
+    input.executionId ?? `media-verification-rebind:${request.segmentId}:${request.clipId}`;
+  const clipDependencies = dedupeDependencies([
+    ...readDependencies([asset.artifactRef, analysisSource.artifactRef]),
+    ...decisionDependencies(source),
+  ]);
+  const verificationDependencies = dedupeDependencies([
+    ...readDependencies([
+      previous.clipArtifactRef,
+      request.retrievalResultRef,
+      indexRef,
+      asset.artifactRef,
+    ]),
+    ...decisionDependencies(source),
+  ]);
+  let nextIndex = registerCandidate(
+    existingIndex,
+    previous.clipArtifactRef,
+    executionId,
+    clipDependencies,
+  );
+  nextIndex = registerCandidate(nextIndex, verificationRef, executionId, verificationDependencies);
+  writeArtifactIndexCas({
+    filePath: indexPath,
+    index: nextIndex,
+    expectedVersion: expectedIndexVersion,
+    casRoot: repoRoot,
+  });
+
+  return {
+    artifactRef: verificationRef,
+    clipArtifactRef: previous.clipArtifactRef,
+    retrievalResultRef: request.retrievalResultRef,
+    status: "ready",
+    verdict: body.verdict,
+    episodeId,
+    segmentId: request.segmentId,
+    clipId: request.clipId,
+    cacheHit: false,
+    reused: true,
+    cacheKey,
+    rebind: true,
+  };
 };
 
 /* ------------------------------------------------------------------------- *

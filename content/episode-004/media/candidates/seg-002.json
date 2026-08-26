@@ -1,5 +1,5 @@
 {
-  "cacheKey": "a577ace45c928c1cbe2aca4b6c1a21ca08655b758ce91309ce06bd40a74392ce",
+  "cacheKey": "f5b15d7c4f624ea2ec7916970dc02824e4d4138ee64b4f764dceb2891b148e39",
   "candidates": [
     {
       "clipId": "episode-004:media-clip:655a765fd76992848d3052a5",
@@ -18,7 +18,8 @@
         "sizeBytes": 100929
       },
       "matchedClaimIds": [
-        "claim-devin-002"
+        "claim-devin-009",
+        "claim-devin-012"
       ],
       "mediaId": "episode-004:media:official-upwork-demo",
       "mediaRef": {
@@ -36,763 +37,20 @@
       "mediaSourceId": "episode-004:media-source:official-upwork-demo",
       "rank": 1,
       "reasons": [
-        "claim evidence claim-devin-002 fit 0.375",
-        "narration overlap 0.375",
-        "metadata overlap 0.158",
-        "visual intent overlap 0.091",
+        "claim evidence claim-devin-009 fit 0.200",
+        "claim evidence claim-devin-012 fit 0.111",
+        "metadata overlap 0.100",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.492775,
+      "score": 0.372,
       "scoreBreakdown": {
-        "claim": 0.75,
+        "claim": 0.68,
         "duration": 0.5,
-        "lexical": 0.375,
-        "metadata": 0.157895,
+        "lexical": 0,
+        "metadata": 0.1,
         "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 4000
-    },
-    {
-      "clipId": "episode-004:media-clip:1c1db356472d0d93d4ff36ac",
-      "endMs": 336000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
-        "sizeBytes": 302753
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-parallel-devin",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-parallel-devin",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
-        "sizeBytes": 16115192
-      },
-      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
-      "rank": 2,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.250",
-        "narration overlap 0.250",
-        "metadata overlap 0.105",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.43988,
-      "scoreBreakdown": {
-        "claim": 0.7,
-        "duration": 0.5,
-        "lexical": 0.25,
-        "metadata": 0.105263,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 332000
-    },
-    {
-      "clipId": "episode-004:media-clip:fbe47b1f18a3ebfcd1df056d",
-      "endMs": 12000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
-        "sizeBytes": 392487
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-tutorial-getting-started",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
-        "sizeBytes": 11899871
-      },
-      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 3,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.250",
-        "narration overlap 0.250",
-        "metadata overlap 0.105",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.43988,
-      "scoreBreakdown": {
-        "claim": 0.7,
-        "duration": 0.5,
-        "lexical": 0.25,
-        "metadata": 0.105263,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 8000
-    },
-    {
-      "clipId": "episode-004:media-clip:757568a6cec169f0c54fe5d7",
-      "endMs": 16000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
-        "sizeBytes": 392487
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-tutorial-getting-started",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
-        "sizeBytes": 11899871
-      },
-      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 4,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.250",
-        "narration overlap 0.250",
-        "metadata overlap 0.105",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.43988,
-      "scoreBreakdown": {
-        "claim": 0.7,
-        "duration": 0.5,
-        "lexical": 0.25,
-        "metadata": 0.105263,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 12000
-    },
-    {
-      "clipId": "episode-004:media-clip:22993fbec9eb56148482f31b",
-      "endMs": 160000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
-        "sizeBytes": 392487
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-tutorial-getting-started",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
-        "sizeBytes": 11899871
-      },
-      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 5,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.250",
-        "narration overlap 0.250",
-        "metadata overlap 0.105",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.43988,
-      "scoreBreakdown": {
-        "claim": 0.7,
-        "duration": 0.5,
-        "lexical": 0.25,
-        "metadata": 0.105263,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 156000
-    },
-    {
-      "clipId": "episode-004:media-clip:c5099e2f0e146ed5dc91517e",
-      "endMs": 164000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
-        "sizeBytes": 392487
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-tutorial-getting-started",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
-        "sizeBytes": 11899871
-      },
-      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 6,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.250",
-        "narration overlap 0.250",
-        "metadata overlap 0.105",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.43988,
-      "scoreBreakdown": {
-        "claim": 0.7,
-        "duration": 0.5,
-        "lexical": 0.25,
-        "metadata": 0.105263,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 160000
-    },
-    {
-      "clipId": "episode-004:media-clip:c74ae2e5c8af307eb9a54d06",
-      "endMs": 296000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
-        "sizeBytes": 392487
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-tutorial-getting-started",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
-        "sizeBytes": 11899871
-      },
-      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 7,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.250",
-        "narration overlap 0.250",
-        "metadata overlap 0.105",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.43988,
-      "scoreBreakdown": {
-        "claim": 0.7,
-        "duration": 0.5,
-        "lexical": 0.25,
-        "metadata": 0.105263,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 292000
-    },
-    {
-      "clipId": "episode-004:media-clip:874c2416ec9f620d15aac133",
-      "endMs": 424000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
-        "sizeBytes": 392487
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-tutorial-getting-started",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
-        "sizeBytes": 11899871
-      },
-      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 8,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.250",
-        "narration overlap 0.250",
-        "metadata overlap 0.105",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.43988,
-      "scoreBreakdown": {
-        "claim": 0.7,
-        "duration": 0.5,
-        "lexical": 0.25,
-        "metadata": 0.105263,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 420000
-    },
-    {
-      "clipId": "episode-004:media-clip:61de0eaf8beb0bc4b6b8ec7e",
-      "endMs": 428000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
-        "sizeBytes": 392487
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-tutorial-getting-started",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
-        "sizeBytes": 11899871
-      },
-      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 9,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.250",
-        "narration overlap 0.250",
-        "metadata overlap 0.105",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.43988,
-      "scoreBreakdown": {
-        "claim": 0.7,
-        "duration": 0.5,
-        "lexical": 0.25,
-        "metadata": 0.105263,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 424000
-    },
-    {
-      "clipId": "episode-004:media-clip:5deaaf83c9cc854cc74e827f",
-      "endMs": 432000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
-        "sizeBytes": 392487
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-tutorial-getting-started",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
-        "sizeBytes": 11899871
-      },
-      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 10,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.250",
-        "narration overlap 0.250",
-        "metadata overlap 0.105",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.43988,
-      "scoreBreakdown": {
-        "claim": 0.7,
-        "duration": 0.5,
-        "lexical": 0.25,
-        "metadata": 0.105263,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 428000
-    },
-    {
-      "clipId": "episode-004:media-clip:3cc23bfde3498571d048571d",
-      "endMs": 4000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-upwork-demo",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-upwork-demo/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "f3e0a23847c3bd026d88697914984fc2bcefc863d7bab63add0917ff997bc080",
-        "sizeBytes": 100929
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-upwork-demo",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-upwork-demo",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
-        "sizeBytes": 3174103
-      },
-      "mediaSourceId": "episode-004:media-source:official-upwork-demo",
-      "rank": 11,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.250",
-        "narration overlap 0.250",
-        "metadata overlap 0.105",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.43988,
-      "scoreBreakdown": {
-        "claim": 0.7,
-        "duration": 0.5,
-        "lexical": 0.25,
-        "metadata": 0.105263,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 0
-    },
-    {
-      "clipId": "episode-004:media-clip:0c99d3720ab2d924d4c07759",
-      "endMs": 8000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-demo-intro",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-demo-intro/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "3e995d916e75fc1c5b7c9bdede964a7290efbccf90f1231628eb2d8d90c67fd1",
-        "sizeBytes": 87998
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-demo-intro",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-demo-intro",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
-        "sizeBytes": 2572402
-      },
-      "mediaSourceId": "episode-004:media-source:official-demo-intro",
-      "rank": 12,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.125",
-        "narration overlap 0.125",
-        "metadata overlap 0.053",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.386986,
-      "scoreBreakdown": {
-        "claim": 0.65,
-        "duration": 0.5,
-        "lexical": 0.125,
-        "metadata": 0.052632,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 4000
-    },
-    {
-      "clipId": "episode-004:media-clip:7c62912613b75d11563c7cb7",
-      "endMs": 12000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-demo-intro",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-demo-intro/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "3e995d916e75fc1c5b7c9bdede964a7290efbccf90f1231628eb2d8d90c67fd1",
-        "sizeBytes": 87998
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-demo-intro",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-demo-intro",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-demo-intro.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
-        "sizeBytes": 2572402
-      },
-      "mediaSourceId": "episode-004:media-source:official-demo-intro",
-      "rank": 13,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.125",
-        "narration overlap 0.125",
-        "metadata overlap 0.053",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.386986,
-      "scoreBreakdown": {
-        "claim": 0.65,
-        "duration": 0.5,
-        "lexical": 0.125,
-        "metadata": 0.052632,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 8000
-    },
-    {
-      "clipId": "episode-004:media-clip:e6834f1e9590f5e351915474",
-      "endMs": 4000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-ide-demo",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-ide-demo/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "fe5f5108e807304cd6f23e8544726043af216d556fd29bb43255ee925cabc8e9",
-        "sizeBytes": 68561
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-ide-demo",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-ide-demo",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-ide-demo.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "96770873596f7d625051b6429c1f24aae638dc5595fabb2420d849a912a1f47f",
-        "sizeBytes": 4079169
-      },
-      "mediaSourceId": "episode-004:media-source:official-ide-demo",
-      "rank": 14,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.125",
-        "narration overlap 0.125",
-        "metadata overlap 0.053",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.386986,
-      "scoreBreakdown": {
-        "claim": 0.65,
-        "duration": 0.5,
-        "lexical": 0.125,
-        "metadata": 0.052632,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 0
-    },
-    {
-      "clipId": "episode-004:media-clip:305d88679018aee291c67af4",
-      "endMs": 8000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-ide-demo",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-ide-demo/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "fe5f5108e807304cd6f23e8544726043af216d556fd29bb43255ee925cabc8e9",
-        "sizeBytes": 68561
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-ide-demo",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-ide-demo",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-ide-demo.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "96770873596f7d625051b6429c1f24aae638dc5595fabb2420d849a912a1f47f",
-        "sizeBytes": 4079169
-      },
-      "mediaSourceId": "episode-004:media-source:official-ide-demo",
-      "rank": 15,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.125",
-        "narration overlap 0.125",
-        "metadata overlap 0.053",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.386986,
-      "scoreBreakdown": {
-        "claim": 0.65,
-        "duration": 0.5,
-        "lexical": 0.125,
-        "metadata": 0.052632,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
+        "visualIntent": 0
       },
       "startMs": 4000
     },
@@ -813,7 +71,7 @@
         "sizeBytes": 116329
       },
       "matchedClaimIds": [
-        "claim-devin-002"
+        "claim-devin-012"
       ],
       "mediaId": "episode-004:media:official-mercedes-interview",
       "mediaRef": {
@@ -829,29 +87,27 @@
         "sizeBytes": 3862455
       },
       "mediaSourceId": "episode-004:media-source:official-mercedes-interview",
-      "rank": 16,
+      "rank": 2,
       "reasons": [
-        "claim evidence claim-devin-002 fit 0.125",
-        "narration overlap 0.125",
-        "metadata overlap 0.053",
-        "visual intent overlap 0.091",
+        "claim evidence claim-devin-012 fit 0.222",
+        "metadata overlap 0.050",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.386986,
+      "score": 0.248056,
       "scoreBreakdown": {
-        "claim": 0.65,
+        "claim": 0.388889,
         "duration": 0.5,
-        "lexical": 0.125,
-        "metadata": 0.052632,
+        "lexical": 0,
+        "metadata": 0.05,
         "sourcePreference": 0.6,
-        "visualIntent": 0.090909
+        "visualIntent": 0
       },
       "startMs": 8000
     },
     {
-      "clipId": "episode-004:media-clip:4bde87e1ec57e961cab31590",
-      "endMs": 72000,
+      "clipId": "episode-004:media-clip:56a3b613fa7d6878750c8d34",
+      "endMs": 20000,
       "episodeId": "episode-004",
       "indexRef": {
         "artifactId": "episode-004:media-clip-index:official-mercedes-interview",
@@ -866,7 +122,7 @@
         "sizeBytes": 116329
       },
       "matchedClaimIds": [
-        "claim-devin-002"
+        "claim-devin-009"
       ],
       "mediaId": "episode-004:media:official-mercedes-interview",
       "mediaRef": {
@@ -882,455 +138,1151 @@
         "sizeBytes": 3862455
       },
       "mediaSourceId": "episode-004:media-source:official-mercedes-interview",
-      "rank": 17,
+      "rank": 3,
       "reasons": [
-        "claim evidence claim-devin-002 fit 0.125",
-        "narration overlap 0.125",
-        "metadata overlap 0.053",
-        "visual intent overlap 0.091",
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.386986,
+      "score": 0.2445,
       "scoreBreakdown": {
-        "claim": 0.65,
+        "claim": 0.38,
         "duration": 0.5,
-        "lexical": 0.125,
-        "metadata": 0.052632,
+        "lexical": 0,
+        "metadata": 0.05,
         "sourcePreference": 0.6,
-        "visualIntent": 0.090909
+        "visualIntent": 0
+      },
+      "startMs": 16000
+    },
+    {
+      "clipId": "episode-004:media-clip:99faf2d74c1b9d53b300d5fa",
+      "endMs": 240000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+        "sizeBytes": 302753
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-parallel-devin",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+        "sizeBytes": 16115192
+      },
+      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
+      "rank": 4,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 236000
+    },
+    {
+      "clipId": "episode-004:media-clip:616accba2b83c24d7621afeb",
+      "endMs": 244000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+        "sizeBytes": 302753
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-parallel-devin",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+        "sizeBytes": 16115192
+      },
+      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
+      "rank": 5,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 240000
+    },
+    {
+      "clipId": "episode-004:media-clip:0f2f23aae9ed360bc771d446",
+      "endMs": 264000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+        "sizeBytes": 302753
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-parallel-devin",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+        "sizeBytes": 16115192
+      },
+      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
+      "rank": 6,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 260000
+    },
+    {
+      "clipId": "episode-004:media-clip:82bd43a9f77d690c675c90bf",
+      "endMs": 272000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+        "sizeBytes": 302753
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-parallel-devin",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+        "sizeBytes": 16115192
+      },
+      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
+      "rank": 7,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 268000
+    },
+    {
+      "clipId": "episode-004:media-clip:f2ee47485b694858c452023e",
+      "endMs": 276000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+        "sizeBytes": 302753
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-parallel-devin",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+        "sizeBytes": 16115192
+      },
+      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
+      "rank": 8,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 272000
+    },
+    {
+      "clipId": "episode-004:media-clip:b2fa89a4afdb82beae3b5f1d",
+      "endMs": 308000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+        "sizeBytes": 302753
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-parallel-devin",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+        "sizeBytes": 16115192
+      },
+      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
+      "rank": 9,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 304000
+    },
+    {
+      "clipId": "episode-004:media-clip:711644090a3d72141fa39620",
+      "endMs": 312000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+        "sizeBytes": 302753
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-parallel-devin",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+        "sizeBytes": 16115192
+      },
+      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
+      "rank": 10,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 308000
+    },
+    {
+      "clipId": "episode-004:media-clip:1c1db356472d0d93d4ff36ac",
+      "endMs": 336000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+        "sizeBytes": 302753
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-parallel-devin",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+        "sizeBytes": 16115192
+      },
+      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
+      "rank": 11,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 332000
+    },
+    {
+      "clipId": "episode-004:media-clip:25e8cdd9cdc4a07b9d432b49",
+      "endMs": 340000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+        "sizeBytes": 302753
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-parallel-devin",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-parallel-devin",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+        "sizeBytes": 16115192
+      },
+      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
+      "rank": 12,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 336000
+    },
+    {
+      "clipId": "episode-004:media-clip:1c98d85349ee44ecd2812b1f",
+      "endMs": 4000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+        "sizeBytes": 392487
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-tutorial-getting-started",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+        "sizeBytes": 11899871
+      },
+      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
+      "rank": 13,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-004:media-clip:fbe47b1f18a3ebfcd1df056d",
+      "endMs": 12000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+        "sizeBytes": 392487
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-tutorial-getting-started",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+        "sizeBytes": 11899871
+      },
+      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
+      "rank": 14,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 8000
+    },
+    {
+      "clipId": "episode-004:media-clip:757568a6cec169f0c54fe5d7",
+      "endMs": 16000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+        "sizeBytes": 392487
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-tutorial-getting-started",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+        "sizeBytes": 11899871
+      },
+      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
+      "rank": 15,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 12000
+    },
+    {
+      "clipId": "episode-004:media-clip:10d41cf674c057fc605c9402",
+      "endMs": 20000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+        "sizeBytes": 392487
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-tutorial-getting-started",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+        "sizeBytes": 11899871
+      },
+      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
+      "rank": 16,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 16000
+    },
+    {
+      "clipId": "episode-004:media-clip:3c7cc44c9efe7dc6816b9380",
+      "endMs": 44000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+        "sizeBytes": 392487
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-tutorial-getting-started",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+        "sizeBytes": 11899871
+      },
+      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
+      "rank": 17,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 40000
+    },
+    {
+      "clipId": "episode-004:media-clip:215716398e536700107bdee2",
+      "endMs": 48000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+        "sizeBytes": 392487
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-tutorial-getting-started",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+        "sizeBytes": 11899871
+      },
+      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
+      "rank": 18,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 44000
+    },
+    {
+      "clipId": "episode-004:media-clip:bb286991fc9954485b3c454d",
+      "endMs": 56000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+        "sizeBytes": 392487
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-tutorial-getting-started",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+        "sizeBytes": 11899871
+      },
+      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
+      "rank": 19,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 52000
+    },
+    {
+      "clipId": "episode-004:media-clip:f8b33502e95967f9bcd04d02",
+      "endMs": 60000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+        "sizeBytes": 392487
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-tutorial-getting-started",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+        "sizeBytes": 11899871
+      },
+      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
+      "rank": 20,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 56000
+    },
+    {
+      "clipId": "episode-004:media-clip:2e16dcd564236c5591886a15",
+      "endMs": 72000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+        "sizeBytes": 392487
+      },
+      "matchedClaimIds": [
+        "claim-devin-009"
+      ],
+      "mediaId": "episode-004:media:official-tutorial-getting-started",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-tutorial-getting-started",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+        "sizeBytes": 11899871
+      },
+      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
+      "rank": 21,
+      "reasons": [
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.2445,
+      "scoreBreakdown": {
+        "claim": 0.38,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
       },
       "startMs": 68000
     },
     {
-      "clipId": "episode-004:media-clip:c22a5359cca82ee39a0cd22f",
+      "clipId": "episode-004:media-clip:1ce12cafd2d59f2164c84a20",
       "endMs": 76000,
       "episodeId": "episode-004",
       "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-mercedes-interview",
+        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
         "createdAt": "2026-08-16T12:00:00.000Z",
         "episodeId": "episode-004",
         "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-mercedes-interview/clip-index.json",
+        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
         "producer": "media-understanding-v1:index:semantic-adapter-v1",
         "revision": 1,
         "schemaVersion": "media-clip-index-v1",
-        "sha256": "975b60b19c6d42b8f3560c5a4bd842b271e2bd3d71e138a23adf9482f87fcd6c",
-        "sizeBytes": 116329
+        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+        "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-002"
+        "claim-devin-009"
       ],
-      "mediaId": "episode-004:media:official-mercedes-interview",
+      "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
-        "artifactId": "episode-004:media:official-mercedes-interview",
+        "artifactId": "episode-004:media:official-tutorial-getting-started",
         "createdAt": "2026-08-16T12:00:00.000Z",
         "episodeId": "episode-004",
         "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
         "producer": "media-ingest-v1",
         "revision": 1,
         "schemaVersion": "media-asset-v1",
-        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
-        "sizeBytes": 3862455
+        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+        "sizeBytes": 11899871
       },
-      "mediaSourceId": "episode-004:media-source:official-mercedes-interview",
-      "rank": 18,
+      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
+      "rank": 22,
       "reasons": [
-        "claim evidence claim-devin-002 fit 0.125",
-        "narration overlap 0.125",
-        "metadata overlap 0.053",
-        "visual intent overlap 0.091",
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.386986,
+      "score": 0.2445,
       "scoreBreakdown": {
-        "claim": 0.65,
+        "claim": 0.38,
         "duration": 0.5,
-        "lexical": 0.125,
-        "metadata": 0.052632,
+        "lexical": 0,
+        "metadata": 0.05,
         "sourcePreference": 0.6,
-        "visualIntent": 0.090909
+        "visualIntent": 0
       },
       "startMs": 72000
     },
     {
-      "clipId": "episode-004:media-clip:b020a3c2bf5cefd94158b876",
-      "endMs": 100000,
+      "clipId": "episode-004:media-clip:c3aa73b56529badf488216e4",
+      "endMs": 84000,
       "episodeId": "episode-004",
       "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-mercedes-interview",
+        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
         "createdAt": "2026-08-16T12:00:00.000Z",
         "episodeId": "episode-004",
         "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-mercedes-interview/clip-index.json",
+        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
         "producer": "media-understanding-v1:index:semantic-adapter-v1",
         "revision": 1,
         "schemaVersion": "media-clip-index-v1",
-        "sha256": "975b60b19c6d42b8f3560c5a4bd842b271e2bd3d71e138a23adf9482f87fcd6c",
-        "sizeBytes": 116329
+        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+        "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-002"
+        "claim-devin-009"
       ],
-      "mediaId": "episode-004:media:official-mercedes-interview",
+      "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
-        "artifactId": "episode-004:media:official-mercedes-interview",
+        "artifactId": "episode-004:media:official-tutorial-getting-started",
         "createdAt": "2026-08-16T12:00:00.000Z",
         "episodeId": "episode-004",
         "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
         "producer": "media-ingest-v1",
         "revision": 1,
         "schemaVersion": "media-asset-v1",
-        "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
-        "sizeBytes": 3862455
+        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+        "sizeBytes": 11899871
       },
-      "mediaSourceId": "episode-004:media-source:official-mercedes-interview",
-      "rank": 19,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.125",
-        "narration overlap 0.125",
-        "metadata overlap 0.053",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.386986,
-      "scoreBreakdown": {
-        "claim": 0.65,
-        "duration": 0.5,
-        "lexical": 0.125,
-        "metadata": 0.052632,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 96000
-    },
-    {
-      "clipId": "episode-004:media-clip:f86d8bb93a6234a171e8976c",
-      "endMs": 28000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
-        "sizeBytes": 302753
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-parallel-devin",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-parallel-devin",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
-        "sizeBytes": 16115192
-      },
-      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
-      "rank": 20,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.125",
-        "narration overlap 0.125",
-        "metadata overlap 0.053",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.386986,
-      "scoreBreakdown": {
-        "claim": 0.65,
-        "duration": 0.5,
-        "lexical": 0.125,
-        "metadata": 0.052632,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 24000
-    },
-    {
-      "clipId": "episode-004:media-clip:5a70141cfdcfbf5363cba017",
-      "endMs": 36000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
-        "sizeBytes": 302753
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-parallel-devin",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-parallel-devin",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
-        "sizeBytes": 16115192
-      },
-      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
-      "rank": 21,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.125",
-        "narration overlap 0.125",
-        "metadata overlap 0.053",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.386986,
-      "scoreBreakdown": {
-        "claim": 0.65,
-        "duration": 0.5,
-        "lexical": 0.125,
-        "metadata": 0.052632,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 32000
-    },
-    {
-      "clipId": "episode-004:media-clip:092e294662fa0589895491af",
-      "endMs": 40000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
-        "sizeBytes": 302753
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-parallel-devin",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-parallel-devin",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
-        "sizeBytes": 16115192
-      },
-      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
-      "rank": 22,
-      "reasons": [
-        "claim evidence claim-devin-002 fit 0.125",
-        "narration overlap 0.125",
-        "metadata overlap 0.053",
-        "visual intent overlap 0.091",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.386986,
-      "scoreBreakdown": {
-        "claim": 0.65,
-        "duration": 0.5,
-        "lexical": 0.125,
-        "metadata": 0.052632,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.090909
-      },
-      "startMs": 36000
-    },
-    {
-      "clipId": "episode-004:media-clip:636bbafcd10ae635a2b0a467",
-      "endMs": 192000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
-        "sizeBytes": 302753
-      },
-      "matchedClaimIds": [
-        "claim-devin-002"
-      ],
-      "mediaId": "episode-004:media:official-parallel-devin",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-parallel-devin",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
-        "sizeBytes": 16115192
-      },
-      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
+      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
       "rank": 23,
       "reasons": [
-        "claim evidence claim-devin-002 fit 0.125",
-        "narration overlap 0.125",
-        "metadata overlap 0.053",
-        "visual intent overlap 0.091",
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.386986,
+      "score": 0.2445,
       "scoreBreakdown": {
-        "claim": 0.65,
+        "claim": 0.38,
         "duration": 0.5,
-        "lexical": 0.125,
-        "metadata": 0.052632,
+        "lexical": 0,
+        "metadata": 0.05,
         "sourcePreference": 0.6,
-        "visualIntent": 0.090909
+        "visualIntent": 0
       },
-      "startMs": 188000
+      "startMs": 80000
     },
     {
-      "clipId": "episode-004:media-clip:02085604666f87fa98226032",
-      "endMs": 196000,
+      "clipId": "episode-004:media-clip:c125e7775712253fc01ef9c7",
+      "endMs": 88000,
       "episodeId": "episode-004",
       "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
         "createdAt": "2026-08-16T12:00:00.000Z",
         "episodeId": "episode-004",
         "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
         "producer": "media-understanding-v1:index:semantic-adapter-v1",
         "revision": 1,
         "schemaVersion": "media-clip-index-v1",
-        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
-        "sizeBytes": 302753
+        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+        "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-002"
+        "claim-devin-009"
       ],
-      "mediaId": "episode-004:media:official-parallel-devin",
+      "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
-        "artifactId": "episode-004:media:official-parallel-devin",
+        "artifactId": "episode-004:media:official-tutorial-getting-started",
         "createdAt": "2026-08-16T12:00:00.000Z",
         "episodeId": "episode-004",
         "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
         "producer": "media-ingest-v1",
         "revision": 1,
         "schemaVersion": "media-asset-v1",
-        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
-        "sizeBytes": 16115192
+        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+        "sizeBytes": 11899871
       },
-      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
+      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
       "rank": 24,
       "reasons": [
-        "claim evidence claim-devin-002 fit 0.125",
-        "narration overlap 0.125",
-        "metadata overlap 0.053",
-        "visual intent overlap 0.091",
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.386986,
+      "score": 0.2445,
       "scoreBreakdown": {
-        "claim": 0.65,
+        "claim": 0.38,
         "duration": 0.5,
-        "lexical": 0.125,
-        "metadata": 0.052632,
+        "lexical": 0,
+        "metadata": 0.05,
         "sourcePreference": 0.6,
-        "visualIntent": 0.090909
+        "visualIntent": 0
       },
-      "startMs": 192000
+      "startMs": 84000
     },
     {
-      "clipId": "episode-004:media-clip:0be90a5750480f018c0c8606",
-      "endMs": 212000,
+      "clipId": "episode-004:media-clip:de4de6a4632bb4a76e968433",
+      "endMs": 92000,
       "episodeId": "episode-004",
       "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
         "createdAt": "2026-08-16T12:00:00.000Z",
         "episodeId": "episode-004",
         "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
         "producer": "media-understanding-v1:index:semantic-adapter-v1",
         "revision": 1,
         "schemaVersion": "media-clip-index-v1",
-        "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
-        "sizeBytes": 302753
+        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+        "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-002"
+        "claim-devin-009"
       ],
-      "mediaId": "episode-004:media:official-parallel-devin",
+      "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
-        "artifactId": "episode-004:media:official-parallel-devin",
+        "artifactId": "episode-004:media:official-tutorial-getting-started",
         "createdAt": "2026-08-16T12:00:00.000Z",
         "episodeId": "episode-004",
         "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
         "producer": "media-ingest-v1",
         "revision": 1,
         "schemaVersion": "media-asset-v1",
-        "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
-        "sizeBytes": 16115192
+        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+        "sizeBytes": 11899871
       },
-      "mediaSourceId": "episode-004:media-source:official-parallel-devin",
+      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
       "rank": 25,
       "reasons": [
-        "claim evidence claim-devin-002 fit 0.125",
-        "narration overlap 0.125",
-        "metadata overlap 0.053",
-        "visual intent overlap 0.091",
+        "claim evidence claim-devin-009 fit 0.200",
+        "metadata overlap 0.050",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.386986,
+      "score": 0.2445,
       "scoreBreakdown": {
-        "claim": 0.65,
+        "claim": 0.38,
         "duration": 0.5,
-        "lexical": 0.125,
-        "metadata": 0.052632,
+        "lexical": 0,
+        "metadata": 0.05,
         "sourcePreference": 0.6,
-        "visualIntent": 0.090909
+        "visualIntent": 0
       },
-      "startMs": 208000
+      "startMs": 88000
     }
   ],
   "claimLedger": {
     "path": "content/episode-004/research/facts.json",
-    "sha256": "53010913e4718c9d5c02b703d540e877687b1be57589973cc47055df02dbce9d",
-    "sizeBytes": 7084
+    "sha256": "2ad183f94c0ef5cf8b1de352e8577c42322e56a7affa5a272ae980fefa8b5dee",
+    "sizeBytes": 10147
   },
   "clipIndexRefs": [
     {
@@ -1406,7 +1358,7 @@
       "sizeBytes": 100929
     }
   ],
-  "createdAt": "2026-08-16T12:00:00.000Z",
+  "createdAt": "2026-08-26T15:30:50.420Z",
   "episodeId": "episode-004",
   "evidenceMode": "claim-bound",
   "gate": {
@@ -1431,15 +1383,16 @@
   },
   "request": {
     "claimIds": [
-      "claim-devin-002"
+      "claim-devin-009",
+      "claim-devin-012"
     ],
     "episodeId": "episode-004",
-    "narration": "2024 年 3 月,Cognition 发布 Devin,称它是第一个 AI 软件工程师。为什么写代码要它自己开浏览器?",
+    "narration": "三个奥赛金牌程序员做了这个产品。他们要让它自己把工程任务干完,工程师负责检查结果。",
     "preferredMediaTypes": [],
     "schemaVersion": "media-retrieval-request-v1",
     "segmentId": "seg-002",
     "topK": 25,
-    "visualIntent": "官方演示里 Scott Wu 的发布口播收成标题卡,随后“第一个 AI 软件工程师·官方称”落下,再留下唯一问题。"
+    "visualIntent": "官方演示里的人物口播收成三名创始人名字,随后切回它正在改代码、工程师侧等待检查的画面。"
   },
   "schemaVersion": "media-retrieval-result-v1",
   "segmentId": "seg-002"

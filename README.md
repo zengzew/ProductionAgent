@@ -28,6 +28,16 @@ human gate requires the decision file path printed in the handoff. No approval
 is inferred from an existing artifact, and selecting LangGraph does not change
 the default manual orchestrator.
 
+When a canary finds that a deterministic retrieval artifact was generated for an
+older script request, repair the derived media layer with
+`pnpm media:repair -- --episode episode-004` (optionally add
+`--clip-id <clip-id>`). The repair refreshes retrieval from the current
+`story/script.json` and can rebind an existing human verification only when the
+episode, segment, clip window, source media hash, claims and visual intent are
+identical. It never calls a provider or changes a verdict; unresolved reviews
+are reported as external-capability work and must go through the real media
+inspection handoff before resume.
+
 New episodes render only through `MediaMixVertical` and
 `content/<episode>/media/render-plan.json`. Episode 001–003 keep their frozen
 hand-written compositions under `src/compositions/legacy/`; they are not a

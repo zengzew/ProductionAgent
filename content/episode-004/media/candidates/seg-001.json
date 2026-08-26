@@ -1,5 +1,5 @@
 {
-  "cacheKey": "5744c51ba946076c1d6f0c80d8cdb08372fa67799cb7ec110ea47cf26a8b0d64",
+  "cacheKey": "01c57bb387b771c994a8eeb5cea3ee444b625c1a74dfb822b7be25ee5fa1f9d3",
   "candidates": [
     {
       "clipId": "episode-004:media-clip:56a3b613fa7d6878750c8d34",
@@ -1304,8 +1304,8 @@
   ],
   "claimLedger": {
     "path": "content/episode-004/research/facts.json",
-    "sha256": "53010913e4718c9d5c02b703d540e877687b1be57589973cc47055df02dbce9d",
-    "sizeBytes": 7084
+    "sha256": "2ad183f94c0ef5cf8b1de352e8577c42322e56a7affa5a272ae980fefa8b5dee",
+    "sizeBytes": 10147
   },
   "clipIndexRefs": [
     {
@@ -1381,7 +1381,7 @@
       "sizeBytes": 100929
     }
   ],
-  "createdAt": "2026-08-16T12:00:00.000Z",
+  "createdAt": "2026-08-26T15:30:49.120Z",
   "episodeId": "episode-004",
   "evidenceMode": "claim-bound",
   "gate": {
@@ -1414,7 +1414,7 @@
     "schemaVersion": "media-retrieval-request-v1",
     "segmentId": "seg-001",
     "topK": 25,
-    "visualIntent": "第 0 帧官方演示画面已在进行中:任务已输入,Devin 随后开始规划并打开自带浏览器执行,持续标“功能演示”。"
+    "visualIntent": "第 0 帧官方演示已在进行中:任务已输入,Devin 随后打开自带浏览器并开始加载目标页,持续标“功能演示”。"
   },
   "schemaVersion": "media-retrieval-result-v1",
   "segmentId": "seg-001"

@@ -23569,6 +23569,1224 @@
           "relation": "reads"
         }
       ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-004:media-retrieval:seg-001",
+        "episodeId": "episode-004",
+        "path": "content/episode-004/media/candidates/seg-001.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-retrieval-result-v1",
+        "revision": 1,
+        "sha256": "4549dc83781171972c40b521ae642477c792386e71d6dcca23069ba7c603997a",
+        "sizeBytes": 54304,
+        "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+        "createdAt": "2026-08-26T15:30:49.144Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-retrieval:seg-001",
+      "dependencies": [
+        {
+          "artifactId": "episode-004:media:official-demo-intro",
+          "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+          "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-demo-intro",
+          "path": "content/episode-004/media/indexes/official-demo-intro/clip-index.json",
+          "sha256": "3e995d916e75fc1c5b7c9bdede964a7290efbccf90f1231628eb2d8d90c67fd1",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-demo-intro-aa994a48ed56",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-demo-intro-aa994a48ed56.json",
+          "sha256": "4ae3d4c775599d1d6751363fd6d0eb07bd4574d2365f8118c541cd6a6ae216c7",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-demo-intro-b0252f44edfb",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-demo-intro-b0252f44edfb.json",
+          "sha256": "a6cb57c3a32122002ec31da52fe7da4e8e44e95bfb8e12af659435ea845cc86f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-tutorial-getting-started",
+          "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+          "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
+          "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
+          "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-tutorial-getting-started-7cbe30c5df37",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-tutorial-getting-started-7cbe30c5df37.json",
+          "sha256": "ff76bdf6bad0e1e240e249f9d00b5adb6b233c0b5b2d9811e08a060a5f49b152",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-tutorial-getting-started-98f9d068d5a0",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-tutorial-getting-started-98f9d068d5a0.json",
+          "sha256": "e314aa5e276b4748973fad5b8df1676de40abc86a9eb1b2f0eb7653f54404966",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-parallel-devin",
+          "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+          "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+          "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+          "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-parallel-devin-fc33e0e37ba3",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-parallel-devin-fc33e0e37ba3.json",
+          "sha256": "76bf0357a6468b4a89b04747448273893c2ab6342467c1779121fe2312e881c3",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-parallel-devin-fd50ce90f7ce",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-parallel-devin-fd50ce90f7ce.json",
+          "sha256": "7fd9bce4f42352dbcf32ce310a8c675faa3975b93e87372a45c96b141a564cbc",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-mercedes-interview",
+          "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+          "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-mercedes-interview",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/clip-index.json",
+          "sha256": "975b60b19c6d42b8f3560c5a4bd842b271e2bd3d71e138a23adf9482f87fcd6c",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-mercedes-interview-d26cbe846a78",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-mercedes-interview-d26cbe846a78.json",
+          "sha256": "531ec7b7e4f128b40da77474fec04b062cb5b3343ad15f1fc0e8eefe6ddfdc34",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-mercedes-interview-cfe04518463c",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-mercedes-interview-cfe04518463c.json",
+          "sha256": "c06791cf188643af537c166a25a8675afe7c00bca4895d0b074e5d5147b82222",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-upwork-demo",
+          "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+          "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-upwork-demo",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/clip-index.json",
+          "sha256": "f3e0a23847c3bd026d88697914984fc2bcefc863d7bab63add0917ff997bc080",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-upwork-demo-f708866b8674",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-upwork-demo-f708866b8674.json",
+          "sha256": "6ae5546617abcbf2b4b8b89d39435fb8ee4ac9e3fce21289e95af389d8769aef",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-upwork-demo-65c7e8dc14f5",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-upwork-demo-65c7e8dc14f5.json",
+          "sha256": "462c1f40f9d90161a33df5aad70e74638ca6c7a4ef6f816197e9638f8fbe06b9",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-ide-demo",
+          "path": "content/episode-004/media/assets/official-ide-demo.mp4",
+          "sha256": "96770873596f7d625051b6429c1f24aae638dc5595fabb2420d849a912a1f47f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-ide-demo",
+          "path": "content/episode-004/media/indexes/official-ide-demo/clip-index.json",
+          "sha256": "fe5f5108e807304cd6f23e8544726043af216d556fd29bb43255ee925cabc8e9",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-ide-demo-e17093f5884f",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-ide-demo-e17093f5884f.json",
+          "sha256": "81128e6b298a3dc43a37d977280f9102668aab7269d3efefe136c2ca82aefc33",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-ide-demo-95efcdda94cd",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-ide-demo-95efcdda94cd.json",
+          "sha256": "c0c13682f031bee0ea203c2b942ad97ad177059f8f10c81f79a487a9e33a4bf7",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-004:media-retrieval:seg-002",
+        "episodeId": "episode-004",
+        "path": "content/episode-004/media/candidates/seg-002.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-retrieval-result-v1",
+        "revision": 1,
+        "sha256": "757c5cd160cb63a4e915ed7b71325a395e72106c3636c1ce11aa8c11ccdb66d3",
+        "sizeBytes": 53066,
+        "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+        "createdAt": "2026-08-26T15:30:50.439Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-retrieval:seg-002",
+      "dependencies": [
+        {
+          "artifactId": "episode-004:media:official-demo-intro",
+          "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+          "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-demo-intro",
+          "path": "content/episode-004/media/indexes/official-demo-intro/clip-index.json",
+          "sha256": "3e995d916e75fc1c5b7c9bdede964a7290efbccf90f1231628eb2d8d90c67fd1",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-demo-intro-aa994a48ed56",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-demo-intro-aa994a48ed56.json",
+          "sha256": "4ae3d4c775599d1d6751363fd6d0eb07bd4574d2365f8118c541cd6a6ae216c7",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-demo-intro-b0252f44edfb",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-demo-intro-b0252f44edfb.json",
+          "sha256": "a6cb57c3a32122002ec31da52fe7da4e8e44e95bfb8e12af659435ea845cc86f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-tutorial-getting-started",
+          "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+          "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
+          "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
+          "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-tutorial-getting-started-7cbe30c5df37",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-tutorial-getting-started-7cbe30c5df37.json",
+          "sha256": "ff76bdf6bad0e1e240e249f9d00b5adb6b233c0b5b2d9811e08a060a5f49b152",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-tutorial-getting-started-98f9d068d5a0",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-tutorial-getting-started-98f9d068d5a0.json",
+          "sha256": "e314aa5e276b4748973fad5b8df1676de40abc86a9eb1b2f0eb7653f54404966",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-parallel-devin",
+          "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+          "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+          "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+          "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-parallel-devin-fc33e0e37ba3",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-parallel-devin-fc33e0e37ba3.json",
+          "sha256": "76bf0357a6468b4a89b04747448273893c2ab6342467c1779121fe2312e881c3",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-parallel-devin-fd50ce90f7ce",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-parallel-devin-fd50ce90f7ce.json",
+          "sha256": "7fd9bce4f42352dbcf32ce310a8c675faa3975b93e87372a45c96b141a564cbc",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-mercedes-interview",
+          "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+          "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-mercedes-interview",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/clip-index.json",
+          "sha256": "975b60b19c6d42b8f3560c5a4bd842b271e2bd3d71e138a23adf9482f87fcd6c",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-mercedes-interview-d26cbe846a78",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-mercedes-interview-d26cbe846a78.json",
+          "sha256": "531ec7b7e4f128b40da77474fec04b062cb5b3343ad15f1fc0e8eefe6ddfdc34",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-mercedes-interview-cfe04518463c",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-mercedes-interview-cfe04518463c.json",
+          "sha256": "c06791cf188643af537c166a25a8675afe7c00bca4895d0b074e5d5147b82222",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-upwork-demo",
+          "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+          "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-upwork-demo",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/clip-index.json",
+          "sha256": "f3e0a23847c3bd026d88697914984fc2bcefc863d7bab63add0917ff997bc080",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-upwork-demo-f708866b8674",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-upwork-demo-f708866b8674.json",
+          "sha256": "6ae5546617abcbf2b4b8b89d39435fb8ee4ac9e3fce21289e95af389d8769aef",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-upwork-demo-65c7e8dc14f5",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-upwork-demo-65c7e8dc14f5.json",
+          "sha256": "462c1f40f9d90161a33df5aad70e74638ca6c7a4ef6f816197e9638f8fbe06b9",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-ide-demo",
+          "path": "content/episode-004/media/assets/official-ide-demo.mp4",
+          "sha256": "96770873596f7d625051b6429c1f24aae638dc5595fabb2420d849a912a1f47f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-ide-demo",
+          "path": "content/episode-004/media/indexes/official-ide-demo/clip-index.json",
+          "sha256": "fe5f5108e807304cd6f23e8544726043af216d556fd29bb43255ee925cabc8e9",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-ide-demo-e17093f5884f",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-ide-demo-e17093f5884f.json",
+          "sha256": "81128e6b298a3dc43a37d977280f9102668aab7269d3efefe136c2ca82aefc33",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-ide-demo-95efcdda94cd",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-ide-demo-95efcdda94cd.json",
+          "sha256": "c0c13682f031bee0ea203c2b942ad97ad177059f8f10c81f79a487a9e33a4bf7",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-004:media-verification-clip:episode-004-media-clip-655a765fd76992848d3052a5",
+        "episodeId": "episode-004",
+        "path": "content/episode-004/media/verifications/seg-002/episode-004-media-clip-655a765fd76992848d3052a5-clip.mp4",
+        "mediaType": "video/mp4",
+        "schemaVersion": "media-verification-clip-v1",
+        "revision": 1,
+        "sha256": "0aea7f83160a67f295ad23b377a15e6583489eeef1da542697f621cb533236a1",
+        "sizeBytes": 214173,
+        "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+        "createdAt": "2026-08-16T12:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-verification-rebind:seg-002:episode-004:media-clip:655a765fd76992848d3052a5",
+      "dependencies": [
+        {
+          "artifactId": "episode-004:media:official-upwork-demo",
+          "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+          "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-upwork-demo-proxy",
+          "path": "content/episode-004/media/assets/official-upwork-demo-proxy.mp4",
+          "sha256": "8712a2e8ea9bc02a7bbc96005e5ace8c0b1eb5085b6f3b8795f36e9a9cd74090",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-upwork-demo-f708866b8674",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-upwork-demo-f708866b8674.json",
+          "sha256": "6ae5546617abcbf2b4b8b89d39435fb8ee4ac9e3fce21289e95af389d8769aef",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-upwork-demo-65c7e8dc14f5",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-upwork-demo-65c7e8dc14f5.json",
+          "sha256": "462c1f40f9d90161a33df5aad70e74638ca6c7a4ef6f816197e9638f8fbe06b9",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-004:media-verification:episode-004-media-clip-655a765fd76992848d3052a5",
+        "episodeId": "episode-004",
+        "path": "content/episode-004/media/verifications/seg-002/episode-004-media-clip-655a765fd76992848d3052a5.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-verification-v1",
+        "revision": 1,
+        "sha256": "7b91c341657b240d8b6e4313dcc0971d3cb39eafd8b0e44b7d4c7d8e02e67797",
+        "sizeBytes": 5248,
+        "producer": "media-verification-v1:rebind:human-keyframe-review:human-keyframe-review-v1",
+        "createdAt": "2026-08-26T15:30:51.010Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-verification-rebind:seg-002:episode-004:media-clip:655a765fd76992848d3052a5",
+      "dependencies": [
+        {
+          "artifactId": "episode-004:media-verification-clip:episode-004-media-clip-655a765fd76992848d3052a5",
+          "path": "content/episode-004/media/verifications/seg-002/episode-004-media-clip-655a765fd76992848d3052a5-clip.mp4",
+          "sha256": "0aea7f83160a67f295ad23b377a15e6583489eeef1da542697f621cb533236a1",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-retrieval:seg-002",
+          "path": "content/episode-004/media/candidates/seg-002.json",
+          "sha256": "757c5cd160cb63a4e915ed7b71325a395e72106c3636c1ce11aa8c11ccdb66d3",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-upwork-demo",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/clip-index.json",
+          "sha256": "f3e0a23847c3bd026d88697914984fc2bcefc863d7bab63add0917ff997bc080",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-upwork-demo",
+          "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+          "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-upwork-demo-f708866b8674",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-upwork-demo-f708866b8674.json",
+          "sha256": "6ae5546617abcbf2b4b8b89d39435fb8ee4ac9e3fce21289e95af389d8769aef",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-upwork-demo-65c7e8dc14f5",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-upwork-demo-65c7e8dc14f5.json",
+          "sha256": "462c1f40f9d90161a33df5aad70e74638ca6c7a4ef6f816197e9638f8fbe06b9",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-004:media-retrieval:seg-003",
+        "episodeId": "episode-004",
+        "path": "content/episode-004/media/candidates/seg-003.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-retrieval-result-v1",
+        "revision": 1,
+        "sha256": "9e2c0e23facad38d876a3accec085673f72f8b52527bbd7fa43e006407520423",
+        "sizeBytes": 53186,
+        "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+        "createdAt": "2026-08-26T15:30:52.780Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-retrieval:seg-003",
+      "dependencies": [
+        {
+          "artifactId": "episode-004:media:official-demo-intro",
+          "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+          "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-demo-intro",
+          "path": "content/episode-004/media/indexes/official-demo-intro/clip-index.json",
+          "sha256": "3e995d916e75fc1c5b7c9bdede964a7290efbccf90f1231628eb2d8d90c67fd1",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-demo-intro-aa994a48ed56",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-demo-intro-aa994a48ed56.json",
+          "sha256": "4ae3d4c775599d1d6751363fd6d0eb07bd4574d2365f8118c541cd6a6ae216c7",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-demo-intro-b0252f44edfb",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-demo-intro-b0252f44edfb.json",
+          "sha256": "a6cb57c3a32122002ec31da52fe7da4e8e44e95bfb8e12af659435ea845cc86f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-tutorial-getting-started",
+          "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+          "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
+          "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
+          "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-tutorial-getting-started-7cbe30c5df37",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-tutorial-getting-started-7cbe30c5df37.json",
+          "sha256": "ff76bdf6bad0e1e240e249f9d00b5adb6b233c0b5b2d9811e08a060a5f49b152",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-tutorial-getting-started-98f9d068d5a0",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-tutorial-getting-started-98f9d068d5a0.json",
+          "sha256": "e314aa5e276b4748973fad5b8df1676de40abc86a9eb1b2f0eb7653f54404966",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-parallel-devin",
+          "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+          "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+          "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+          "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-parallel-devin-fc33e0e37ba3",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-parallel-devin-fc33e0e37ba3.json",
+          "sha256": "76bf0357a6468b4a89b04747448273893c2ab6342467c1779121fe2312e881c3",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-parallel-devin-fd50ce90f7ce",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-parallel-devin-fd50ce90f7ce.json",
+          "sha256": "7fd9bce4f42352dbcf32ce310a8c675faa3975b93e87372a45c96b141a564cbc",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-mercedes-interview",
+          "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+          "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-mercedes-interview",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/clip-index.json",
+          "sha256": "975b60b19c6d42b8f3560c5a4bd842b271e2bd3d71e138a23adf9482f87fcd6c",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-mercedes-interview-d26cbe846a78",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-mercedes-interview-d26cbe846a78.json",
+          "sha256": "531ec7b7e4f128b40da77474fec04b062cb5b3343ad15f1fc0e8eefe6ddfdc34",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-mercedes-interview-cfe04518463c",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-mercedes-interview-cfe04518463c.json",
+          "sha256": "c06791cf188643af537c166a25a8675afe7c00bca4895d0b074e5d5147b82222",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-upwork-demo",
+          "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+          "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-upwork-demo",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/clip-index.json",
+          "sha256": "f3e0a23847c3bd026d88697914984fc2bcefc863d7bab63add0917ff997bc080",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-upwork-demo-f708866b8674",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-upwork-demo-f708866b8674.json",
+          "sha256": "6ae5546617abcbf2b4b8b89d39435fb8ee4ac9e3fce21289e95af389d8769aef",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-upwork-demo-65c7e8dc14f5",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-upwork-demo-65c7e8dc14f5.json",
+          "sha256": "462c1f40f9d90161a33df5aad70e74638ca6c7a4ef6f816197e9638f8fbe06b9",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-ide-demo",
+          "path": "content/episode-004/media/assets/official-ide-demo.mp4",
+          "sha256": "96770873596f7d625051b6429c1f24aae638dc5595fabb2420d849a912a1f47f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-ide-demo",
+          "path": "content/episode-004/media/indexes/official-ide-demo/clip-index.json",
+          "sha256": "fe5f5108e807304cd6f23e8544726043af216d556fd29bb43255ee925cabc8e9",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-ide-demo-e17093f5884f",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-ide-demo-e17093f5884f.json",
+          "sha256": "81128e6b298a3dc43a37d977280f9102668aab7269d3efefe136c2ca82aefc33",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-ide-demo-95efcdda94cd",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-ide-demo-95efcdda94cd.json",
+          "sha256": "c0c13682f031bee0ea203c2b942ad97ad177059f8f10c81f79a487a9e33a4bf7",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-004:media-retrieval:seg-004",
+        "episodeId": "episode-004",
+        "path": "content/episode-004/media/candidates/seg-004.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-retrieval-result-v1",
+        "revision": 1,
+        "sha256": "1066c7bcabc60da1e68135e73ff661b3445056d1e043b6e6708f7ca1f9ee44e5",
+        "sizeBytes": 57356,
+        "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+        "createdAt": "2026-08-26T15:30:53.618Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-retrieval:seg-004",
+      "dependencies": [
+        {
+          "artifactId": "episode-004:media:official-demo-intro",
+          "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+          "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-demo-intro",
+          "path": "content/episode-004/media/indexes/official-demo-intro/clip-index.json",
+          "sha256": "3e995d916e75fc1c5b7c9bdede964a7290efbccf90f1231628eb2d8d90c67fd1",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-demo-intro-aa994a48ed56",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-demo-intro-aa994a48ed56.json",
+          "sha256": "4ae3d4c775599d1d6751363fd6d0eb07bd4574d2365f8118c541cd6a6ae216c7",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-demo-intro-b0252f44edfb",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-demo-intro-b0252f44edfb.json",
+          "sha256": "a6cb57c3a32122002ec31da52fe7da4e8e44e95bfb8e12af659435ea845cc86f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-tutorial-getting-started",
+          "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+          "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
+          "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
+          "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-tutorial-getting-started-7cbe30c5df37",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-tutorial-getting-started-7cbe30c5df37.json",
+          "sha256": "ff76bdf6bad0e1e240e249f9d00b5adb6b233c0b5b2d9811e08a060a5f49b152",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-tutorial-getting-started-98f9d068d5a0",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-tutorial-getting-started-98f9d068d5a0.json",
+          "sha256": "e314aa5e276b4748973fad5b8df1676de40abc86a9eb1b2f0eb7653f54404966",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-parallel-devin",
+          "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+          "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+          "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+          "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-parallel-devin-fc33e0e37ba3",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-parallel-devin-fc33e0e37ba3.json",
+          "sha256": "76bf0357a6468b4a89b04747448273893c2ab6342467c1779121fe2312e881c3",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-parallel-devin-fd50ce90f7ce",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-parallel-devin-fd50ce90f7ce.json",
+          "sha256": "7fd9bce4f42352dbcf32ce310a8c675faa3975b93e87372a45c96b141a564cbc",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-mercedes-interview",
+          "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+          "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-mercedes-interview",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/clip-index.json",
+          "sha256": "975b60b19c6d42b8f3560c5a4bd842b271e2bd3d71e138a23adf9482f87fcd6c",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-mercedes-interview-d26cbe846a78",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-mercedes-interview-d26cbe846a78.json",
+          "sha256": "531ec7b7e4f128b40da77474fec04b062cb5b3343ad15f1fc0e8eefe6ddfdc34",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-mercedes-interview-cfe04518463c",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-mercedes-interview-cfe04518463c.json",
+          "sha256": "c06791cf188643af537c166a25a8675afe7c00bca4895d0b074e5d5147b82222",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-upwork-demo",
+          "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+          "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-upwork-demo",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/clip-index.json",
+          "sha256": "f3e0a23847c3bd026d88697914984fc2bcefc863d7bab63add0917ff997bc080",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-upwork-demo-f708866b8674",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-upwork-demo-f708866b8674.json",
+          "sha256": "6ae5546617abcbf2b4b8b89d39435fb8ee4ac9e3fce21289e95af389d8769aef",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-upwork-demo-65c7e8dc14f5",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-upwork-demo-65c7e8dc14f5.json",
+          "sha256": "462c1f40f9d90161a33df5aad70e74638ca6c7a4ef6f816197e9638f8fbe06b9",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-ide-demo",
+          "path": "content/episode-004/media/assets/official-ide-demo.mp4",
+          "sha256": "96770873596f7d625051b6429c1f24aae638dc5595fabb2420d849a912a1f47f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-ide-demo",
+          "path": "content/episode-004/media/indexes/official-ide-demo/clip-index.json",
+          "sha256": "fe5f5108e807304cd6f23e8544726043af216d556fd29bb43255ee925cabc8e9",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-ide-demo-e17093f5884f",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-ide-demo-e17093f5884f.json",
+          "sha256": "81128e6b298a3dc43a37d977280f9102668aab7269d3efefe136c2ca82aefc33",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-ide-demo-95efcdda94cd",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-ide-demo-95efcdda94cd.json",
+          "sha256": "c0c13682f031bee0ea203c2b942ad97ad177059f8f10c81f79a487a9e33a4bf7",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-004:media-retrieval:seg-005",
+        "episodeId": "episode-004",
+        "path": "content/episode-004/media/candidates/seg-005.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-retrieval-result-v1",
+        "revision": 1,
+        "sha256": "2cdb294d070c4165bd56a4a4611c345465f6e7bf19d06e2a61286ab189681d3a",
+        "sizeBytes": 56291,
+        "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+        "createdAt": "2026-08-26T15:30:54.148Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-retrieval:seg-005",
+      "dependencies": [
+        {
+          "artifactId": "episode-004:media:official-demo-intro",
+          "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+          "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-demo-intro",
+          "path": "content/episode-004/media/indexes/official-demo-intro/clip-index.json",
+          "sha256": "3e995d916e75fc1c5b7c9bdede964a7290efbccf90f1231628eb2d8d90c67fd1",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-demo-intro-aa994a48ed56",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-demo-intro-aa994a48ed56.json",
+          "sha256": "4ae3d4c775599d1d6751363fd6d0eb07bd4574d2365f8118c541cd6a6ae216c7",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-demo-intro-b0252f44edfb",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-demo-intro-b0252f44edfb.json",
+          "sha256": "a6cb57c3a32122002ec31da52fe7da4e8e44e95bfb8e12af659435ea845cc86f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-tutorial-getting-started",
+          "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+          "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
+          "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
+          "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-tutorial-getting-started-7cbe30c5df37",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-tutorial-getting-started-7cbe30c5df37.json",
+          "sha256": "ff76bdf6bad0e1e240e249f9d00b5adb6b233c0b5b2d9811e08a060a5f49b152",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-tutorial-getting-started-98f9d068d5a0",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-tutorial-getting-started-98f9d068d5a0.json",
+          "sha256": "e314aa5e276b4748973fad5b8df1676de40abc86a9eb1b2f0eb7653f54404966",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-parallel-devin",
+          "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+          "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+          "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+          "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-parallel-devin-fc33e0e37ba3",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-parallel-devin-fc33e0e37ba3.json",
+          "sha256": "76bf0357a6468b4a89b04747448273893c2ab6342467c1779121fe2312e881c3",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-parallel-devin-fd50ce90f7ce",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-parallel-devin-fd50ce90f7ce.json",
+          "sha256": "7fd9bce4f42352dbcf32ce310a8c675faa3975b93e87372a45c96b141a564cbc",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-mercedes-interview",
+          "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+          "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-mercedes-interview",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/clip-index.json",
+          "sha256": "975b60b19c6d42b8f3560c5a4bd842b271e2bd3d71e138a23adf9482f87fcd6c",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-mercedes-interview-d26cbe846a78",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-mercedes-interview-d26cbe846a78.json",
+          "sha256": "531ec7b7e4f128b40da77474fec04b062cb5b3343ad15f1fc0e8eefe6ddfdc34",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-mercedes-interview-cfe04518463c",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-mercedes-interview-cfe04518463c.json",
+          "sha256": "c06791cf188643af537c166a25a8675afe7c00bca4895d0b074e5d5147b82222",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-upwork-demo",
+          "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+          "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-upwork-demo",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/clip-index.json",
+          "sha256": "f3e0a23847c3bd026d88697914984fc2bcefc863d7bab63add0917ff997bc080",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-upwork-demo-f708866b8674",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-upwork-demo-f708866b8674.json",
+          "sha256": "6ae5546617abcbf2b4b8b89d39435fb8ee4ac9e3fce21289e95af389d8769aef",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-upwork-demo-65c7e8dc14f5",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-upwork-demo-65c7e8dc14f5.json",
+          "sha256": "462c1f40f9d90161a33df5aad70e74638ca6c7a4ef6f816197e9638f8fbe06b9",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-ide-demo",
+          "path": "content/episode-004/media/assets/official-ide-demo.mp4",
+          "sha256": "96770873596f7d625051b6429c1f24aae638dc5595fabb2420d849a912a1f47f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-ide-demo",
+          "path": "content/episode-004/media/indexes/official-ide-demo/clip-index.json",
+          "sha256": "fe5f5108e807304cd6f23e8544726043af216d556fd29bb43255ee925cabc8e9",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-ide-demo-e17093f5884f",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-ide-demo-e17093f5884f.json",
+          "sha256": "81128e6b298a3dc43a37d977280f9102668aab7269d3efefe136c2ca82aefc33",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-ide-demo-95efcdda94cd",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-ide-demo-95efcdda94cd.json",
+          "sha256": "c0c13682f031bee0ea203c2b942ad97ad177059f8f10c81f79a487a9e33a4bf7",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-004:media-retrieval:seg-006",
+        "episodeId": "episode-004",
+        "path": "content/episode-004/media/candidates/seg-006.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-retrieval-result-v1",
+        "revision": 1,
+        "sha256": "2c5cdcce0e05e5de04b86eebe48ec19b0e08745b3843aa634a59de5bcb3e5ccc",
+        "sizeBytes": 41465,
+        "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+        "createdAt": "2026-08-26T15:30:54.597Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-retrieval:seg-006",
+      "dependencies": [
+        {
+          "artifactId": "episode-004:media:official-demo-intro",
+          "path": "content/episode-004/media/assets/official-demo-intro.mp4",
+          "sha256": "8186d4badcd47d51225023b05261865702aca85fdf842ba5d3cfe0c12e5565be",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-demo-intro",
+          "path": "content/episode-004/media/indexes/official-demo-intro/clip-index.json",
+          "sha256": "3e995d916e75fc1c5b7c9bdede964a7290efbccf90f1231628eb2d8d90c67fd1",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-demo-intro-aa994a48ed56",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-demo-intro-aa994a48ed56.json",
+          "sha256": "4ae3d4c775599d1d6751363fd6d0eb07bd4574d2365f8118c541cd6a6ae216c7",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-demo-intro-b0252f44edfb",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-demo-intro-b0252f44edfb.json",
+          "sha256": "a6cb57c3a32122002ec31da52fe7da4e8e44e95bfb8e12af659435ea845cc86f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-tutorial-getting-started",
+          "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
+          "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
+          "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
+          "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-tutorial-getting-started-7cbe30c5df37",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-tutorial-getting-started-7cbe30c5df37.json",
+          "sha256": "ff76bdf6bad0e1e240e249f9d00b5adb6b233c0b5b2d9811e08a060a5f49b152",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-tutorial-getting-started-98f9d068d5a0",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-tutorial-getting-started-98f9d068d5a0.json",
+          "sha256": "e314aa5e276b4748973fad5b8df1676de40abc86a9eb1b2f0eb7653f54404966",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-parallel-devin",
+          "path": "content/episode-004/media/assets/official-parallel-devin.mp4",
+          "sha256": "6321af985ac164f2dfcfd7cc83f0595ea3dafb07fc7d7bccab65825200e9902f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-parallel-devin",
+          "path": "content/episode-004/media/indexes/official-parallel-devin/clip-index.json",
+          "sha256": "c66b80bdbc94c5ca4c034652505369efe972cb30fc4c05217955184ec312d717",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-parallel-devin-fc33e0e37ba3",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-parallel-devin-fc33e0e37ba3.json",
+          "sha256": "76bf0357a6468b4a89b04747448273893c2ab6342467c1779121fe2312e881c3",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-parallel-devin-fd50ce90f7ce",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-parallel-devin-fd50ce90f7ce.json",
+          "sha256": "7fd9bce4f42352dbcf32ce310a8c675faa3975b93e87372a45c96b141a564cbc",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-mercedes-interview",
+          "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+          "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-mercedes-interview",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/clip-index.json",
+          "sha256": "975b60b19c6d42b8f3560c5a4bd842b271e2bd3d71e138a23adf9482f87fcd6c",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-mercedes-interview-d26cbe846a78",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-mercedes-interview-d26cbe846a78.json",
+          "sha256": "531ec7b7e4f128b40da77474fec04b062cb5b3343ad15f1fc0e8eefe6ddfdc34",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-mercedes-interview-cfe04518463c",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-mercedes-interview-cfe04518463c.json",
+          "sha256": "c06791cf188643af537c166a25a8675afe7c00bca4895d0b074e5d5147b82222",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-upwork-demo",
+          "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+          "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-upwork-demo",
+          "path": "content/episode-004/media/indexes/official-upwork-demo/clip-index.json",
+          "sha256": "f3e0a23847c3bd026d88697914984fc2bcefc863d7bab63add0917ff997bc080",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-upwork-demo-f708866b8674",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-upwork-demo-f708866b8674.json",
+          "sha256": "6ae5546617abcbf2b4b8b89d39435fb8ee4ac9e3fce21289e95af389d8769aef",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-upwork-demo-65c7e8dc14f5",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-upwork-demo-65c7e8dc14f5.json",
+          "sha256": "462c1f40f9d90161a33df5aad70e74638ca6c7a4ef6f816197e9638f8fbe06b9",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-ide-demo",
+          "path": "content/episode-004/media/assets/official-ide-demo.mp4",
+          "sha256": "96770873596f7d625051b6429c1f24aae638dc5595fabb2420d849a912a1f47f",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-ide-demo",
+          "path": "content/episode-004/media/indexes/official-ide-demo/clip-index.json",
+          "sha256": "fe5f5108e807304cd6f23e8544726043af216d556fd29bb43255ee925cabc8e9",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-ide-demo-e17093f5884f",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-ide-demo-e17093f5884f.json",
+          "sha256": "81128e6b298a3dc43a37d977280f9102668aab7269d3efefe136c2ca82aefc33",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-ide-demo-95efcdda94cd",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-ide-demo-95efcdda94cd.json",
+          "sha256": "c0c13682f031bee0ea203c2b942ad97ad177059f8f10c81f79a487a9e33a4bf7",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-004:media-verification-clip:episode-004-media-clip-56a3b613fa7d6878750c8d34",
+        "episodeId": "episode-004",
+        "path": "content/episode-004/media/verifications/seg-003/episode-004-media-clip-56a3b613fa7d6878750c8d34-clip.mp4",
+        "mediaType": "video/mp4",
+        "schemaVersion": "media-verification-clip-v1",
+        "revision": 1,
+        "sha256": "bd91b793fb8a80ec40dd5a5d171ac5950d87f1366790ea84f127866b349dbad2",
+        "sizeBytes": 717957,
+        "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+        "createdAt": "2026-08-16T12:00:00.000Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-verification-rebind:seg-003:episode-004:media-clip:56a3b613fa7d6878750c8d34",
+      "dependencies": [
+        {
+          "artifactId": "episode-004:media:official-mercedes-interview",
+          "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+          "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-mercedes-interview-proxy",
+          "path": "content/episode-004/media/assets/official-mercedes-interview-proxy.mp4",
+          "sha256": "7d0b39e5fbcde332e578143681068c9e0454c2992b53e339f7c883e6a671f226",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-mercedes-interview-d26cbe846a78",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-mercedes-interview-d26cbe846a78.json",
+          "sha256": "531ec7b7e4f128b40da77474fec04b062cb5b3343ad15f1fc0e8eefe6ddfdc34",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-mercedes-interview-cfe04518463c",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-mercedes-interview-cfe04518463c.json",
+          "sha256": "c06791cf188643af537c166a25a8675afe7c00bca4895d0b074e5d5147b82222",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-004:media-verification:episode-004-media-clip-56a3b613fa7d6878750c8d34",
+        "episodeId": "episode-004",
+        "path": "content/episode-004/media/verifications/seg-003/episode-004-media-clip-56a3b613fa7d6878750c8d34.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-verification-v1",
+        "revision": 1,
+        "sha256": "34e54a431a176d1dadba072368b3807300bdca929072dd7c768925b7a9fde349",
+        "sizeBytes": 5553,
+        "producer": "media-verification-v1:rebind:human-keyframe-review:human-keyframe-review-v1",
+        "createdAt": "2026-08-26T15:51:39.559Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-verification-rebind:seg-003:episode-004:media-clip:56a3b613fa7d6878750c8d34",
+      "dependencies": [
+        {
+          "artifactId": "episode-004:media-verification-clip:episode-004-media-clip-56a3b613fa7d6878750c8d34",
+          "path": "content/episode-004/media/verifications/seg-003/episode-004-media-clip-56a3b613fa7d6878750c8d34-clip.mp4",
+          "sha256": "bd91b793fb8a80ec40dd5a5d171ac5950d87f1366790ea84f127866b349dbad2",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-retrieval:seg-003",
+          "path": "content/episode-004/media/candidates/seg-003.json",
+          "sha256": "9e2c0e23facad38d876a3accec085673f72f8b52527bbd7fa43e006407520423",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-mercedes-interview",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/clip-index.json",
+          "sha256": "975b60b19c6d42b8f3560c5a4bd842b271e2bd3d71e138a23adf9482f87fcd6c",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-mercedes-interview",
+          "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+          "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-mercedes-interview-d26cbe846a78",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-mercedes-interview-d26cbe846a78.json",
+          "sha256": "531ec7b7e4f128b40da77474fec04b062cb5b3343ad15f1fc0e8eefe6ddfdc34",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-mercedes-interview-cfe04518463c",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-mercedes-interview-cfe04518463c.json",
+          "sha256": "c06791cf188643af537c166a25a8675afe7c00bca4895d0b074e5d5147b82222",
+          "relation": "reads"
+        }
+      ]
+    },
+    {
+      "ref": {
+        "artifactId": "episode-004:media-verification:episode-004-media-clip-56a3b613fa7d6878750c8d34",
+        "episodeId": "episode-004",
+        "path": "content/episode-004/media/verifications/seg-005/episode-004-media-clip-56a3b613fa7d6878750c8d34.json",
+        "mediaType": "application/json",
+        "schemaVersion": "media-verification-v1",
+        "revision": 1,
+        "sha256": "8f6fc22e0bbf3f640b545fdd0b3faaace7ddc5b26bfbd039146f55e588118c61",
+        "sizeBytes": 5382,
+        "producer": "media-verification-v1:rebind:human-keyframe-review:human-keyframe-review-v1",
+        "createdAt": "2026-08-26T15:51:39.658Z"
+      },
+      "state": "candidate",
+      "producedByExecutionId": "media-verification-rebind:seg-005:episode-004:media-clip:56a3b613fa7d6878750c8d34",
+      "dependencies": [
+        {
+          "artifactId": "episode-004:media-verification-clip:episode-004-media-clip-56a3b613fa7d6878750c8d34",
+          "path": "content/episode-004/media/verifications/seg-005/episode-004-media-clip-56a3b613fa7d6878750c8d34-clip.mp4",
+          "sha256": "bd91b793fb8a80ec40dd5a5d171ac5950d87f1366790ea84f127866b349dbad2",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-retrieval:seg-005",
+          "path": "content/episode-004/media/candidates/seg-005.json",
+          "sha256": "2cdb294d070c4165bd56a4a4611c345465f6e7bf19d06e2a61286ab189681d3a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media-clip-index:official-mercedes-interview",
+          "path": "content/episode-004/media/indexes/official-mercedes-interview/clip-index.json",
+          "sha256": "975b60b19c6d42b8f3560c5a4bd842b271e2bd3d71e138a23adf9482f87fcd6c",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:media:official-mercedes-interview",
+          "path": "content/episode-004/media/assets/official-mercedes-interview.mp4",
+          "sha256": "581e7d512464e9f07ae099e1db7d92ce41c058f4c6b4c9a9ca7797c42a2a916a",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-admission-episode-004-official-mercedes-interview-d26cbe846a78",
+          "path": "content/episode-004/production/human-decisions/admission-episode-004-official-mercedes-interview-d26cbe846a78.json",
+          "sha256": "531ec7b7e4f128b40da77474fec04b062cb5b3343ad15f1fc0e8eefe6ddfdc34",
+          "relation": "reads"
+        },
+        {
+          "artifactId": "episode-004:production:human-decision-rights-episode-004-official-mercedes-interview-cfe04518463c",
+          "path": "content/episode-004/production/human-decisions/rights-episode-004-official-mercedes-interview-cfe04518463c.json",
+          "sha256": "c06791cf188643af537c166a25a8675afe7c00bca4895d0b074e5d5147b82222",
+          "relation": "reads"
+        }
+      ]
     }
   ],
   "selected": {

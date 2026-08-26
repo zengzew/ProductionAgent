@@ -475,13 +475,45 @@ const findRegisteredRef = (
   repoRoot: string,
   episodeId: string,
   artifactId: string,
+  expectedPath?: string,
+  requireHashValid = true,
 ): ArtifactRef | undefined => {
   const filePath = path.resolve(repoRoot, `content/${episodeId}/artifact-index.json`);
   if (!fs.existsSync(filePath)) return undefined;
   const index = readArtifactIndex(filePath);
-  const record = index.artifacts.find((candidate) => candidate.ref.artifactId === artifactId);
-  return record?.ref;
+  return index.artifacts
+    .map((record, indexPosition) => ({record, indexPosition}))
+    .filter(
+      ({record}) =>
+        record.ref.artifactId === artifactId &&
+        (expectedPath === undefined || record.ref.path === expectedPath) &&
+        (record.state === "candidate" || record.state === "selected"),
+    )
+    .filter(({record}) => {
+      if (!requireHashValid) return true;
+      try {
+        return artifactBytesMatch(
+          repoRoot,
+          record.ref,
+          resolveMediaRepositoryPath(repoRoot, record.ref.path),
+        );
+      } catch {
+        return false;
+      }
+    })
+    .sort(
+      (left, right) =>
+        right.record.ref.revision - left.record.ref.revision ||
+        right.indexPosition - left.indexPosition,
+    )[0]?.record.ref;
 };
+
+const sameArtifactVersion = (left: ArtifactRef, right: ArtifactRef): boolean =>
+  left.artifactId === right.artifactId &&
+  left.episodeId === right.episodeId &&
+  left.path === right.path &&
+  left.revision === right.revision &&
+  left.sha256 === right.sha256;
 
 const artifactBytesMatch = (repoRoot: string, ref: ArtifactRef, filePath: string): boolean => {
   try {
@@ -501,6 +533,11 @@ const gateRetrievalResult = (input: {
   episodeId: string;
   segmentId: string;
   ref: ArtifactRef | undefined;
+  expectedRequest?: {
+    claimIds: readonly string[];
+    narration: string;
+    visualIntent: string;
+  };
 }): {result: MediaRetrievalResult; ref: ArtifactRef} | null => {
   const {repoRoot, episodeId, segmentId} = input;
   const canonicalPath = resolveMediaRepositoryPath(
@@ -511,7 +548,19 @@ const gateRetrievalResult = (input: {
   let ref: ArtifactRef | undefined = input.ref;
   if (!ref) {
     if (!fileExists) return null; // no retrieval was ever produced → NOT_FOUND
-    ref = findRegisteredRef(repoRoot, episodeId, `${episodeId}:media-retrieval:${segmentId}`);
+    ref = findRegisteredRef(
+      repoRoot,
+      episodeId,
+      `${episodeId}:media-retrieval:${segmentId}`,
+      `content/${episodeId}/media/candidates/${segmentId}.json`,
+    );
+    ref ??= findRegisteredRef(
+      repoRoot,
+      episodeId,
+      `${episodeId}:media-retrieval:${segmentId}`,
+      `content/${episodeId}/media/candidates/${segmentId}.json`,
+      false,
+    );
     if (!ref) {
       throw new Error(
         `MEDIA_SELECT_RETRIEVAL_NOT_REGISTERED:${episodeId}:media-retrieval:${segmentId}`,
@@ -529,6 +578,10 @@ const gateRetrievalResult = (input: {
   if (!artifactBytesMatch(repoRoot, ref, filePath)) {
     throw new Error(`MEDIA_SELECT_RETRIEVAL_TAMPERED:${ref.artifactId}`);
   }
+  const currentRegistered = findRegisteredRef(repoRoot, episodeId, ref.artifactId, ref.path);
+  if (!currentRegistered || !sameArtifactVersion(currentRegistered, ref)) {
+    throw new Error(`MEDIA_SELECT_RETRIEVAL_NOT_REGISTERED:${ref.artifactId}`);
+  }
   let result: MediaRetrievalResult;
   try {
     result = mediaRetrievalResultSchema.parse(
@@ -543,6 +596,19 @@ const gateRetrievalResult = (input: {
   if (result.schemaVersion !== MEDIA_RETRIEVAL_SCHEMA_VERSION) {
     throw new Error(`MEDIA_SELECT_RETRIEVAL_INVALID:${ref.artifactId}`);
   }
+  if (input.expectedRequest) {
+    const expectedClaimIds = [...new Set(input.expectedRequest.claimIds)].sort();
+    const actualClaimIds = [...new Set(result.request.claimIds)].sort();
+    if (
+      JSON.stringify(actualClaimIds) !== JSON.stringify(expectedClaimIds) ||
+      normalizeNarration(result.request.narration) !==
+        normalizeNarration(input.expectedRequest.narration) ||
+      normalizeNarration(result.request.visualIntent) !==
+        normalizeNarration(input.expectedRequest.visualIntent)
+    ) {
+      throw new Error(`MEDIA_SELECT_RETRIEVAL_REQUEST_STALE:${ref.artifactId}`);
+    }
+  }
   return {result, ref};
 };
 
@@ -555,8 +621,9 @@ const readVerificationForCandidate = (input: {
   episodeId: string;
   segmentId: string;
   candidate: MediaRetrievalCandidate;
+  retrievalRef: ArtifactRef;
 }): {verification: MediaVerification; ref: ArtifactRef} | null => {
-  const {repoRoot, episodeId, segmentId, candidate} = input;
+  const {repoRoot, episodeId, segmentId, candidate, retrievalRef} = input;
   const filePath = resolveMediaRepositoryPath(
     repoRoot,
     mediaVerificationRepositoryPath(episodeId, segmentId, candidate.clipId),
@@ -579,6 +646,12 @@ const readVerificationForCandidate = (input: {
   if (verification.schemaVersion !== MEDIA_VERIFICATION_SCHEMA_VERSION) {
     throw new Error(`MEDIA_SELECT_VERIFICATION_INVALID:${candidate.clipId}`);
   }
+  // A verification tied to an older retrieval request is historical evidence,
+  // not evidence for this selection pass. It is ignored until a provider or a
+  // strict evidence-preserving rebind creates a current binding.
+  if (!sameArtifactVersion(verification.retrievalResultRef, retrievalRef)) {
+    return null;
+  }
   // Embedded ref must be self-consistent (hash of the body without artifactRef).
   const bodyWithoutArtifactRef = {...verification};
   Reflect.deleteProperty(bodyWithoutArtifactRef, "artifactRef");
@@ -589,12 +662,34 @@ const readVerificationForCandidate = (input: {
     throw new Error(`MEDIA_SELECT_VERIFICATION_TAMPERED:${candidate.clipId}`);
   }
   // The registered ref must bind the exact file bytes.
-  const registered = findRegisteredRef(repoRoot, episodeId, verification.artifactRef.artifactId);
+  const registered =
+    findRegisteredRef(
+      repoRoot,
+      episodeId,
+      verification.artifactRef.artifactId,
+      verification.artifactRef.path,
+    ) ??
+    findRegisteredRef(
+      repoRoot,
+      episodeId,
+      verification.artifactRef.artifactId,
+      verification.artifactRef.path,
+      false,
+    );
   if (!registered || registered.path !== verification.artifactRef.path) {
     throw new Error(`MEDIA_SELECT_VERIFICATION_NOT_REGISTERED:${candidate.clipId}`);
   }
   if (!artifactBytesMatch(repoRoot, registered, filePath)) {
     throw new Error(`MEDIA_SELECT_VERIFICATION_TAMPERED:${candidate.clipId}`);
+  }
+  const currentRegistered = findRegisteredRef(
+    repoRoot,
+    episodeId,
+    verification.artifactRef.artifactId,
+    verification.artifactRef.path,
+  );
+  if (!currentRegistered || !sameArtifactVersion(currentRegistered, registered)) {
+    throw new Error(`MEDIA_SELECT_VERIFICATION_NOT_REGISTERED:${candidate.clipId}`);
   }
   return {verification, ref: registered};
 };
@@ -690,6 +785,7 @@ const assessCandidates = (input: {
   segmentId: string;
   claimIds: readonly string[];
   result: MediaRetrievalResult;
+  retrievalRef: ArtifactRef;
   manifest: MediaSourceManifest;
   config: VisualSelectionConfig;
 }): CandidateAssessment[] => {
@@ -701,6 +797,7 @@ const assessCandidates = (input: {
       episodeId,
       segmentId,
       candidate,
+      retrievalRef: input.retrievalRef,
     });
     if (!verificationResult) {
       assessments.push({
@@ -744,7 +841,7 @@ const assessCandidates = (input: {
     const evidenceBlocked =
       config.gates.requireClaimEvidence &&
       claimIds.length > 0 &&
-      candidate.matchedClaimIds.length === 0;
+      !claimIds.some((claimId) => candidate.matchedClaimIds.includes(claimId));
     const qualityBlocked = verification.visualQuality < config.gates.minVisualQuality;
     const misleadingBlocked = verification.misleadingRisk > config.gates.maxMisleadingRisk;
     assessments.push({
@@ -1012,6 +1109,11 @@ export const selectVisualSlotForSegment = async (
       episodeId,
       segmentId: segment.segmentId,
       ref: input.retrievalResultRef,
+      expectedRequest: {
+        claimIds: segment.claimIds,
+        narration: segment.narration,
+        visualIntent: segment.visualIntent,
+      },
     });
     let result: MediaRetrievalResult | null = null;
     let retrievalRef: ArtifactRef | null = null;
@@ -1038,6 +1140,7 @@ export const selectVisualSlotForSegment = async (
         segmentId: segment.segmentId,
         claimIds: segment.claimIds,
         result,
+        retrievalRef: retrievalRef!,
         manifest,
         config,
       });

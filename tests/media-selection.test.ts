@@ -52,6 +52,7 @@ import {
   createStubShortClipExtractor,
   mediaVerificationRequestSchema,
   readMediaVerification,
+  rebindMediaVerification,
   verifyMediaClip,
   type MediaVerificationProvider,
   type MediaVerificationProviderOutput,
@@ -639,6 +640,123 @@ describe("WP-M5.07 visual slot real-media-first selection", () => {
         verificationRef: verifyOutcome.artifactRef,
       }).verdict,
     ).toBe("pass");
+  });
+
+  it("rebinds an unchanged human review to a refreshed retrieval and keeps the old review immutable", async () => {
+    const repoRoot = temporaryRepo();
+    const fixture = await setupRetrieval(repoRoot);
+    const candidate = fixture.result.candidates[0];
+    if (!candidate) throw new Error("fixture candidate missing");
+    const original = await runVerify(
+      repoRoot,
+      makeVerifyRequest({
+        clipId: candidate.clipId,
+        claimIds: fixture.request.claimIds,
+        narration: fixture.request.narration,
+        visualIntent: fixture.request.visualIntent,
+        retrievalResultRef: fixture.retrievalRef,
+      }),
+      windowPassProvider(),
+    );
+
+    const refreshed = await runRetrieve(repoRoot, {...fixture.request, topK: 1});
+    expect(refreshed.artifactRef.sha256).not.toBe(fixture.retrievalRef.sha256);
+
+    const rebound = rebindMediaVerification({
+      repoRoot,
+      episodeId,
+      request: makeVerifyRequest({
+        clipId: candidate.clipId,
+        claimIds: fixture.request.claimIds,
+        narration: fixture.request.narration,
+        visualIntent: fixture.request.visualIntent,
+        retrievalResultRef: refreshed.artifactRef,
+      }),
+      now: () => FIXED_NOW,
+    });
+
+    expect(rebound.rebind).toBe(true);
+    expect(rebound.reused).toBe(true);
+    expect(rebound.artifactRef.sha256).not.toBe(original.artifactRef.sha256);
+    expect(rebound.clipArtifactRef.sha256).toBe(original.clipArtifactRef.sha256);
+    const verification = readMediaVerification(repoRoot, episodeId, "seg-001", candidate.clipId);
+    expect(verification.provider).toBe("deterministic-stub");
+    expect(verification.retrievalResultRef.sha256).toBe(refreshed.artifactRef.sha256);
+    expect(
+      assertMediaClipVerified({
+        repoRoot,
+        episodeId,
+        segmentId: "seg-001",
+        clipId: candidate.clipId,
+        verificationRef: rebound.artifactRef,
+      }).verdict,
+    ).toBe("pass");
+    expect(
+      (
+        await selectFor(repoRoot, {
+          segmentId: "seg-001",
+          claimIds: fixture.request.claimIds,
+          narration: fixture.request.narration,
+          visualIntent: fixture.request.visualIntent,
+        })
+      ).selectedType,
+    ).toBe("real-media");
+
+    const repeated = rebindMediaVerification({
+      repoRoot,
+      episodeId,
+      request: makeVerifyRequest({
+        clipId: candidate.clipId,
+        claimIds: fixture.request.claimIds,
+        narration: fixture.request.narration,
+        visualIntent: fixture.request.visualIntent,
+        retrievalResultRef: refreshed.artifactRef,
+      }),
+      now: () => "2026-08-16T00:01:00.000Z",
+    });
+    expect(repeated.artifactRef.revision).toBe(rebound.artifactRef.revision);
+    expect(repeated.artifactRef.sha256).toBe(rebound.artifactRef.sha256);
+    expect(
+      readMediaVerification(repoRoot, episodeId, "seg-001", candidate.clipId).artifactRef.revision,
+    ).toBe(repeated.artifactRef.revision);
+  });
+
+  it("rejects a retrieval artifact whose request is stale for the current script segment", async () => {
+    const repoRoot = temporaryRepo();
+    const fixture = await setupRetrieval(repoRoot);
+    await expect(
+      selectFor(repoRoot, {
+        segmentId: "seg-001",
+        claimIds: fixture.request.claimIds,
+        narration: "当前脚本已经改过的旁白",
+        visualIntent: fixture.request.visualIntent,
+      }),
+    ).rejects.toThrow(/MEDIA_SELECT_RETRIEVAL_REQUEST_STALE/u);
+  });
+
+  it("does not rebind a human review to a retrieval with a stale request", async () => {
+    const repoRoot = temporaryRepo();
+    const fixture = await setupRetrieval(repoRoot);
+    const candidate = fixture.result.candidates[0];
+    if (!candidate) throw new Error("fixture candidate missing");
+    const staleRetrieval = await runRetrieve(repoRoot, {
+      ...fixture.request,
+      narration: "旧的检索请求，不属于当前脚本",
+    });
+
+    expect(() =>
+      rebindMediaVerification({
+        repoRoot,
+        episodeId,
+        request: makeVerifyRequest({
+          clipId: candidate.clipId,
+          claimIds: fixture.request.claimIds,
+          narration: fixture.request.narration,
+          visualIntent: fixture.request.visualIntent,
+          retrievalResultRef: staleRetrieval.artifactRef,
+        }),
+      }),
+    ).toThrow(/MEDIA_VERIFY_RETRIEVAL_REQUEST_STALE/u);
   });
 
   it("never selects a reject/uncertain clip and falls back when nothing passes", async () => {

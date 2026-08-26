@@ -1,17 +1,17 @@
 {
   "artifactRef": {
     "artifactId": "episode-004:media-verification:episode-004-media-clip-56a3b613fa7d6878750c8d34",
-    "createdAt": "2026-08-16T12:00:00.000Z",
+    "createdAt": "2026-08-26T15:51:39.630Z",
     "episodeId": "episode-004",
     "mediaType": "application/json",
     "path": "content/episode-004/media/verifications/seg-005/episode-004-media-clip-56a3b613fa7d6878750c8d34.json",
-    "producer": "media-verification-v1:human-keyframe-review:human-keyframe-review-v1",
+    "producer": "media-verification-v1:rebind:human-keyframe-review:human-keyframe-review-v1",
     "revision": 1,
     "schemaVersion": "media-verification-v1",
-    "sha256": "3756d54873d15ae91e7316e40fc0af0698766f3ad16368520299491050442ccb",
+    "sha256": "49a353d2fdae5ae3b983799be376a2ddc5a191e5b88462721e12f3d3c55c44ae",
     "sizeBytes": 4764
   },
-  "cacheKey": "24b0e3015930cff731473bad51da41b7e82f6edc980ce62a6fe7fa2cd06637a3",
+  "cacheKey": "60aa894776b6a6f5a05656e75c1183c22c0574f8b477c7cad7f3f3b41015a606",
   "claimIds": [
     "claim-devin-007",
     "claim-devin-008"
@@ -108,15 +108,15 @@
   "relevance": 0.8,
   "retrievalResultRef": {
     "artifactId": "episode-004:media-retrieval:seg-005",
-    "createdAt": "2026-08-16T12:00:00.000Z",
+    "createdAt": "2026-08-26T15:30:54.148Z",
     "episodeId": "episode-004",
     "mediaType": "application/json",
     "path": "content/episode-004/media/candidates/seg-005.json",
     "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
     "revision": 1,
     "schemaVersion": "media-retrieval-result-v1",
-    "sha256": "977a2dff5e7c67538ed53645ea2dc862995215bcc82f288a9de52eb1afecb6c4",
-    "sizeBytes": 56290
+    "sha256": "2cdb294d070c4165bd56a4a4611c345465f6e7bf19d06e2a61286ab189681d3a",
+    "sizeBytes": 56291
   },
   "schemaVersion": "media-verification-v1",
   "segmentId": "seg-005",

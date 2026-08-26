@@ -9,7 +9,7 @@
   (`createVisualSlotDirector` content-loop node)
 - Schemas: `visual-slot-v1` (artifact under
   `content/<ep>/media/selections/<segmentId>.json`), `visual-selection-config-v1`
-- Tests: `tests/media-selection.test.ts` (13 PASS)
+- Tests: `tests/media-selection.test.ts` (15 PASS)
 - Observability: `media.selection.started/completed/failed` in
   `media-events.jsonl`
 
@@ -107,11 +107,14 @@ episode `captureAssets`; `data-evidence-card` requires a claim with a metric;
 ## Fail-closed gates (run on every selection, never cached)
 
 - retrieval artifact: episode-scoped, registered, byte-hash-valid, parses, and
-  matches the segment (`MEDIA_SELECT_RETRIEVAL_*`);
+  matches the current segment request's claim ids, narration and visual intent
+  (`MEDIA_SELECT_RETRIEVAL_*`). A retrieval result generated for an older script
+  request is stale and cannot be selected;
 - verification artifact (discovered per candidate at
   `media/verifications/<segmentId>/<clipId>.json`): self-consistent embedded
   ref, registered, byte-hash-valid, episode/segment/clip identity match
-  (`MEDIA_SELECT_VERIFICATION_*`);
+  (`MEDIA_SELECT_VERIFICATION_*`). A verification bound to an older retrieval
+  result is historical evidence and is ineligible for the current selection;
 - source media: current manifest, episode-scoped, registered, byte-hash-valid,
   admission/rights decisions re-read (`MEDIA_SELECT_ASSET_*` /
   `MEDIA_SELECT_SOURCE_*`); revoked rights → ineligible (fallback), tampering →
@@ -138,12 +141,19 @@ registry with `reads` dependencies on: the retrieval result, every
 pass-verified candidate's verification ref, the source media assets, and the
 admission/rights decision refs. `readVisualSlot` reads the artifact bytes
 (source of truth). `selectVisualSlotsForScript` produces one slot per
-final-script segment.
+final-script segment. `pnpm media:repair -- --episode <ep>` refreshes the
+deterministic retrieval artifacts from the current script. Its verification
+rebind path is deliberately narrower than verification: it may only republish
+an unchanged existing human review against a refreshed retrieval when all
+evidence identity fields match; it does not call a provider, manufacture a
+verdict, or replace the original review timestamp. Any other mismatch remains
+an external media-inspection handoff.
 
 ## Error codes
 
 `MEDIA_SELECT_CLAIM_IDS_REQUIRED`,
 `MEDIA_SELECT_RETRIEVAL_REF_EPISODE_MISMATCH/NOT_REGISTERED/TAMPERED/INVALID/MISMATCH`,
+`MEDIA_SELECT_RETRIEVAL_REQUEST_STALE`,
 `MEDIA_SELECT_VERIFICATION_INVALID/EPISODE_MISMATCH/MISMATCH/TAMPERED/NOT_REGISTERED`,
 `MEDIA_SELECT_ASSET_UNKNOWN/EPISODE_MISMATCH/STALE/MISMATCH/NOT_REGISTERED/TAMPERED`,
 `MEDIA_SELECT_SOURCE_UNKNOWN`, `MEDIA_SELECT_MANIFEST_MISSING`,
@@ -158,7 +168,7 @@ graph, no Remotion changes, and `ORCHESTRATOR=manual` behavior is untouched.
 
 ## Acceptance checklist
 
-- [x] `pnpm exec vitest run tests/media-selection.test.ts` (13 PASS)
+- [x] `pnpm exec vitest run tests/media-selection.test.ts` (15 PASS)
 - [x] `pnpm exec vitest run tests/media-contract.test.ts tests/media-discovery.test.ts tests/media-ingest.test.ts tests/media-index.test.ts tests/media-retrieve.test.ts tests/media-verify.test.ts` (119 PASS)
 - [x] `pnpm exec vitest run tests/orchestration --maxWorkers=1` (193 PASS, Node 24)
 - [x] `pnpm typecheck`

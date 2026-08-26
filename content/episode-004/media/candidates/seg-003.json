@@ -1,6 +1,59 @@
 {
-  "cacheKey": "d36fab9463ee8b289313d72f010cdf4e1f8569cdafec4ba6d425274f04354460",
+  "cacheKey": "de53a9098a2e96bfe64bf42925e5d45a63a2627f96065a81cacc3bff27f09062",
   "candidates": [
+    {
+      "clipId": "episode-004:media-clip:655a765fd76992848d3052a5",
+      "endMs": 8000,
+      "episodeId": "episode-004",
+      "indexRef": {
+        "artifactId": "episode-004:media-clip-index:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "application/json",
+        "path": "content/episode-004/media/indexes/official-upwork-demo/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "f3e0a23847c3bd026d88697914984fc2bcefc863d7bab63add0917ff997bc080",
+        "sizeBytes": 100929
+      },
+      "matchedClaimIds": [
+        "claim-devin-001",
+        "claim-devin-015"
+      ],
+      "mediaId": "episode-004:media:official-upwork-demo",
+      "mediaRef": {
+        "artifactId": "episode-004:media:official-upwork-demo",
+        "createdAt": "2026-08-16T12:00:00.000Z",
+        "episodeId": "episode-004",
+        "mediaType": "video/mp4",
+        "path": "content/episode-004/media/assets/official-upwork-demo.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "55edf2ef0a47e0aa3985aa6cf0c2da377350f849fde75e3b36574a87aad986c8",
+        "sizeBytes": 3174103
+      },
+      "mediaSourceId": "episode-004:media-source:official-upwork-demo",
+      "rank": 1,
+      "reasons": [
+        "claim evidence claim-devin-001 fit 0.250",
+        "claim evidence claim-devin-015 fit 0.125",
+        "metadata overlap 0.105",
+        "source preference local-approved (3/5)",
+        "duration proximity 0.500 (4000ms)"
+      ],
+      "score": 0.380789,
+      "scoreBreakdown": {
+        "claim": 0.7,
+        "duration": 0.5,
+        "lexical": 0,
+        "metadata": 0.105263,
+        "sourcePreference": 0.6,
+        "visualIntent": 0
+      },
+      "startMs": 4000
+    },
     {
       "clipId": "episode-004:media-clip:56a3b613fa7d6878750c8d34",
       "endMs": 20000,
@@ -18,8 +71,7 @@
         "sizeBytes": 116329
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-mercedes-interview",
       "mediaRef": {
@@ -35,23 +87,21 @@
         "sizeBytes": 3862455
       },
       "mediaSourceId": "episode-004:media-source:official-mercedes-interview",
-      "rank": 1,
+      "rank": 2,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 16000
     },
@@ -72,8 +122,7 @@
         "sizeBytes": 302753
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-parallel-devin",
       "mediaRef": {
@@ -89,23 +138,21 @@
         "sizeBytes": 16115192
       },
       "mediaSourceId": "episode-004:media-source:official-parallel-devin",
-      "rank": 2,
+      "rank": 3,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 236000
     },
@@ -126,8 +173,7 @@
         "sizeBytes": 302753
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-parallel-devin",
       "mediaRef": {
@@ -143,23 +189,21 @@
         "sizeBytes": 16115192
       },
       "mediaSourceId": "episode-004:media-source:official-parallel-devin",
-      "rank": 3,
+      "rank": 4,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 240000
     },
@@ -180,8 +224,7 @@
         "sizeBytes": 302753
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-parallel-devin",
       "mediaRef": {
@@ -197,23 +240,21 @@
         "sizeBytes": 16115192
       },
       "mediaSourceId": "episode-004:media-source:official-parallel-devin",
-      "rank": 4,
+      "rank": 5,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 260000
     },
@@ -234,8 +275,7 @@
         "sizeBytes": 302753
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-parallel-devin",
       "mediaRef": {
@@ -251,23 +291,21 @@
         "sizeBytes": 16115192
       },
       "mediaSourceId": "episode-004:media-source:official-parallel-devin",
-      "rank": 5,
+      "rank": 6,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 268000
     },
@@ -288,8 +326,7 @@
         "sizeBytes": 302753
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-parallel-devin",
       "mediaRef": {
@@ -305,23 +342,21 @@
         "sizeBytes": 16115192
       },
       "mediaSourceId": "episode-004:media-source:official-parallel-devin",
-      "rank": 6,
+      "rank": 7,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 272000
     },
@@ -342,8 +377,7 @@
         "sizeBytes": 302753
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-parallel-devin",
       "mediaRef": {
@@ -359,23 +393,21 @@
         "sizeBytes": 16115192
       },
       "mediaSourceId": "episode-004:media-source:official-parallel-devin",
-      "rank": 7,
+      "rank": 8,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 304000
     },
@@ -396,8 +428,7 @@
         "sizeBytes": 302753
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-parallel-devin",
       "mediaRef": {
@@ -413,23 +444,21 @@
         "sizeBytes": 16115192
       },
       "mediaSourceId": "episode-004:media-source:official-parallel-devin",
-      "rank": 8,
+      "rank": 9,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 308000
     },
@@ -450,8 +479,7 @@
         "sizeBytes": 302753
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-parallel-devin",
       "mediaRef": {
@@ -467,23 +495,21 @@
         "sizeBytes": 16115192
       },
       "mediaSourceId": "episode-004:media-source:official-parallel-devin",
-      "rank": 9,
+      "rank": 10,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 332000
     },
@@ -504,8 +530,7 @@
         "sizeBytes": 302753
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-parallel-devin",
       "mediaRef": {
@@ -521,23 +546,21 @@
         "sizeBytes": 16115192
       },
       "mediaSourceId": "episode-004:media-source:official-parallel-devin",
-      "rank": 10,
+      "rank": 11,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 336000
     },
@@ -558,8 +581,7 @@
         "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
@@ -575,23 +597,21 @@
         "sizeBytes": 11899871
       },
       "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 11,
+      "rank": 12,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 0
     },
@@ -612,8 +632,7 @@
         "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
@@ -629,23 +648,21 @@
         "sizeBytes": 11899871
       },
       "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 12,
+      "rank": 13,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 8000
     },
@@ -666,8 +683,7 @@
         "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
@@ -683,23 +699,21 @@
         "sizeBytes": 11899871
       },
       "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 13,
+      "rank": 14,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 12000
     },
@@ -720,8 +734,7 @@
         "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
@@ -737,23 +750,21 @@
         "sizeBytes": 11899871
       },
       "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 14,
+      "rank": 15,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 16000
     },
@@ -774,8 +785,7 @@
         "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
@@ -791,23 +801,21 @@
         "sizeBytes": 11899871
       },
       "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 15,
+      "rank": 16,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 40000
     },
@@ -828,8 +836,7 @@
         "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
@@ -845,23 +852,21 @@
         "sizeBytes": 11899871
       },
       "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 16,
+      "rank": 17,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 44000
     },
@@ -882,8 +887,7 @@
         "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
@@ -899,23 +903,21 @@
         "sizeBytes": 11899871
       },
       "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 17,
+      "rank": 18,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 52000
     },
@@ -936,8 +938,7 @@
         "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
@@ -953,23 +954,21 @@
         "sizeBytes": 11899871
       },
       "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 18,
+      "rank": 19,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 56000
     },
@@ -990,8 +989,7 @@
         "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
@@ -1007,23 +1005,21 @@
         "sizeBytes": 11899871
       },
       "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 19,
+      "rank": 20,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 68000
     },
@@ -1044,8 +1040,7 @@
         "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
@@ -1061,23 +1056,21 @@
         "sizeBytes": 11899871
       },
       "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 20,
+      "rank": 21,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 72000
     },
@@ -1098,8 +1091,7 @@
         "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
@@ -1115,23 +1107,21 @@
         "sizeBytes": 11899871
       },
       "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 21,
+      "rank": 22,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 80000
     },
@@ -1152,8 +1142,7 @@
         "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
@@ -1169,23 +1158,21 @@
         "sizeBytes": 11899871
       },
       "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 22,
+      "rank": 23,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 84000
     },
@@ -1206,8 +1193,7 @@
         "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
@@ -1223,23 +1209,21 @@
         "sizeBytes": 11899871
       },
       "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 23,
+      "rank": 24,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
       "startMs": 88000
     },
@@ -1260,62 +1244,7 @@
         "sizeBytes": 392487
       },
       "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
-      ],
-      "mediaId": "episode-004:media:official-tutorial-getting-started",
-      "mediaRef": {
-        "artifactId": "episode-004:media:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "video/mp4",
-        "path": "content/episode-004/media/assets/official-tutorial-getting-started.mp4",
-        "producer": "media-ingest-v1",
-        "revision": 1,
-        "schemaVersion": "media-asset-v1",
-        "sha256": "e610922064eab31d852f32dedad61753eec919bce538a7a53d7bfa8c68713d35",
-        "sizeBytes": 11899871
-      },
-      "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
-      "rank": 24,
-      "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
-        "source preference local-approved (3/5)",
-        "duration proximity 0.500 (4000ms)"
-      ],
-      "score": 0.372771,
-      "scoreBreakdown": {
-        "claim": 0.666667,
-        "duration": 0.5,
-        "lexical": 0,
-        "metadata": 0.045455,
-        "sourcePreference": 0.6,
-        "visualIntent": 0.142857
-      },
-      "startMs": 96000
-    },
-    {
-      "clipId": "episode-004:media-clip:4be1cb8e555cde48b32ba888",
-      "endMs": 112000,
-      "episodeId": "episode-004",
-      "indexRef": {
-        "artifactId": "episode-004:media-clip-index:official-tutorial-getting-started",
-        "createdAt": "2026-08-16T12:00:00.000Z",
-        "episodeId": "episode-004",
-        "mediaType": "application/json",
-        "path": "content/episode-004/media/indexes/official-tutorial-getting-started/clip-index.json",
-        "producer": "media-understanding-v1:index:semantic-adapter-v1",
-        "revision": 1,
-        "schemaVersion": "media-clip-index-v1",
-        "sha256": "41b50c6798978772bd6afa64c203978d858861dcc9c7ced7ea5f08219ae5a521",
-        "sizeBytes": 392487
-      },
-      "matchedClaimIds": [
-        "claim-devin-003",
-        "claim-devin-004"
+        "claim-devin-001"
       ],
       "mediaId": "episode-004:media:official-tutorial-getting-started",
       "mediaRef": {
@@ -1333,29 +1262,27 @@
       "mediaSourceId": "episode-004:media-source:official-tutorial-getting-started",
       "rank": 25,
       "reasons": [
-        "claim evidence claim-devin-003 fit 0.167",
-        "claim evidence claim-devin-004 fit 0.167",
-        "metadata overlap 0.045",
-        "visual intent overlap 0.143",
+        "claim evidence claim-devin-001 fit 0.250",
+        "metadata overlap 0.053",
         "source preference local-approved (3/5)",
         "duration proximity 0.500 (4000ms)"
       ],
-      "score": 0.372771,
+      "score": 0.252895,
       "scoreBreakdown": {
-        "claim": 0.666667,
+        "claim": 0.4,
         "duration": 0.5,
         "lexical": 0,
-        "metadata": 0.045455,
+        "metadata": 0.052632,
         "sourcePreference": 0.6,
-        "visualIntent": 0.142857
+        "visualIntent": 0
       },
-      "startMs": 108000
+      "startMs": 96000
     }
   ],
   "claimLedger": {
     "path": "content/episode-004/research/facts.json",
-    "sha256": "53010913e4718c9d5c02b703d540e877687b1be57589973cc47055df02dbce9d",
-    "sizeBytes": 7084
+    "sha256": "2ad183f94c0ef5cf8b1de352e8577c42322e56a7affa5a272ae980fefa8b5dee",
+    "sizeBytes": 10147
   },
   "clipIndexRefs": [
     {
@@ -1431,7 +1358,7 @@
       "sizeBytes": 100929
     }
   ],
-  "createdAt": "2026-08-16T12:00:00.000Z",
+  "createdAt": "2026-08-26T15:30:52.762Z",
   "episodeId": "episode-004",
   "evidenceMode": "claim-bound",
   "gate": {
@@ -1456,16 +1383,16 @@
   },
   "request": {
     "claimIds": [
-      "claim-devin-003",
-      "claim-devin-004"
+      "claim-devin-001",
+      "claim-devin-015"
     ],
     "episodeId": "episode-004",
-    "narration": "它有浏览器、编辑器和终端,先列计划,再一步步执行,每一步都看得见。",
+    "narration": "2024 年 3 月,官方演示发出去,一百多万人看它自己打开浏览器写代码。市场后来给了它什么价?",
     "preferredMediaTypes": [],
     "schemaVersion": "media-retrieval-request-v1",
     "segmentId": "seg-003",
     "topK": 25,
-    "visualIntent": "官方演示里 Devin 的计划列表、浏览器、编辑器与终端依次进入画面,随后每一步操作持续可见,标“功能演示”。"
+    "visualIntent": "官方演示播放量数字落下,同时浏览器仍在工作,问题叠在画面上。"
   },
   "schemaVersion": "media-retrieval-result-v1",
   "segmentId": "seg-003"
