@@ -4,6 +4,11 @@ import {buildArtifactRef} from "../../artifact-registry";
 import type {AgentExecutionRequest, AgentName} from "../../schemas/agent";
 import {
   getRoleModelContract,
+  roleContractArtifactKind,
+  roleContractInputArtifactId,
+  roleContractGateArtifactId,
+  roleContractLeafId,
+  roleContractOutputArtifactId,
   resolveRoleContractPath,
   roleContractPromptPath,
 } from "./role-contract";
@@ -16,21 +21,6 @@ const mediaTypeFor = (repositoryPath: string): string => {
   if (repositoryPath.endsWith(".mp4")) return "video/mp4";
   if (repositoryPath.endsWith(".srt")) return "text/plain";
   return "text/markdown";
-};
-
-const leafId = (repositoryPath: string): string => {
-  const base = repositoryPath.split("/").at(-1) ?? "artifact";
-  return base.replace(/\.[a-z0-9]+$/iu, "").replace(/[^a-z0-9-]+/gu, "-");
-};
-
-const artifactKindFor = (repositoryPath: string): string => {
-  if (repositoryPath.includes("/research/")) return "research";
-  if (repositoryPath.includes("/production/")) return "production";
-  if (repositoryPath.includes("/media/")) return "media";
-  if (repositoryPath.startsWith("output/")) return "delivery";
-  if (repositoryPath.startsWith("style/")) return "style";
-  if (repositoryPath.startsWith("docs/")) return "contract";
-  return "story";
 };
 
 const resolveRepositoryPath = (repoRoot: string, repositoryPath: string): string => {
@@ -58,12 +48,15 @@ const bindRef = (input: {
   episodeId: string;
   repositoryPath: string;
   kind: string;
+  artifactId?: string;
   schemaVersion?: string;
   createdAt: string;
 }): ReturnType<typeof buildArtifactRef> =>
   buildArtifactRef({
     repoRoot: input.repoRoot,
-    artifactId: `${input.episodeId}:${input.kind}:${leafId(input.repositoryPath)}`,
+    artifactId:
+      input.artifactId ??
+      `${input.episodeId}:${input.kind}:${roleContractLeafId(input.repositoryPath)}`,
     episodeId: input.episodeId,
     path: input.repositoryPath,
     mediaType: mediaTypeFor(input.repositoryPath),
@@ -71,9 +64,6 @@ const bindRef = (input: {
     producer: "benchmark-fixture",
     createdAt: input.createdAt,
   });
-
-const outputArtifactId = (episodeId: string, role: AgentName, repositoryPath: string): string =>
-  `${episodeId}:${artifactKindFor(repositoryPath)}:${role}-${leafId(repositoryPath)}`;
 
 /** Builds the exact frozen request declared by a role contract. */
 export const buildRoleBenchmarkRequest = (input: {
@@ -127,7 +117,8 @@ export const buildRoleBenchmarkRequest = (input: {
       repoRoot: input.repoRoot,
       episodeId: input.episodeId,
       repositoryPath,
-      kind: artifactKindFor(repositoryPath),
+      kind: roleContractArtifactKind(repositoryPath),
+      artifactId: roleContractInputArtifactId(input.episodeId, repositoryPath),
       createdAt,
     }),
   );
@@ -137,6 +128,7 @@ export const buildRoleBenchmarkRequest = (input: {
       episodeId: input.episodeId,
       repositoryPath,
       kind: "gate",
+      artifactId: roleContractGateArtifactId(input.episodeId, repositoryPath),
       createdAt,
     }),
   );
@@ -151,7 +143,7 @@ export const buildRoleBenchmarkRequest = (input: {
     promptRef,
     inputArtifacts,
     expectedOutputs: outputContracts.map((output) => ({
-      artifactId: outputArtifactId(input.episodeId, input.role, output.path),
+      artifactId: roleContractOutputArtifactId(input.episodeId, input.role, output.path),
       path: output.path,
       schemaVersion: output.schemaVersion,
     })),

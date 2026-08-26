@@ -83,6 +83,7 @@ export type ContentRevisionExecution = {
 export type ContentNodeContext = {
   episodeId: string;
   runId: string;
+  approvalEpoch?: number;
   round: number;
   artifacts: Readonly<Record<string, ArtifactRef>>;
   artifactIndex: ArtifactIndex;
@@ -382,6 +383,7 @@ const contextFor = (
 ): ContentNodeContext => ({
   episodeId: state.episodeId,
   runId: state.runId,
+  approvalEpoch: state.approvalEpoch,
   round,
   artifacts: artifactsForState(state, index),
   artifactIndex: index,
@@ -434,6 +436,42 @@ const normalizeCriticMap = (
     return [name, execution] as const;
   });
   return Object.fromEntries(entries) as NormalizedCritics;
+};
+
+const registerCriticResultRefs = (
+  index: ArtifactIndex,
+  critics: NormalizedCritics,
+): ArtifactIndex => {
+  let next = index;
+  for (const name of contentCriticNames) {
+    const execution = critics[name];
+    const resultRef = execution?.resultRef;
+    if (!resultRef || resultRef.schemaVersion !== "critic-output-v1") continue;
+    const selected = selectedRefMap(next).get(resultRef.artifactId);
+    if (
+      selected &&
+      selected.revision === resultRef.revision &&
+      selected.sha256 === resultRef.sha256
+    ) {
+      continue;
+    }
+    next = markStaleTransitively(next, [resultRef.artifactId]);
+    next = registerCandidate(
+      next,
+      resultRef,
+      execution.result.executionId,
+      execution.result.reviewedArtifacts.map((ref) =>
+        artifactDependencySchema.parse({
+          artifactId: ref.artifactId,
+          path: ref.path,
+          sha256: ref.sha256,
+          relation: "reviews",
+        }),
+      ),
+    );
+    next = selectArtifact(next, resultRef);
+  }
+  return artifactIndexSchema.parse(next);
 };
 
 const criticExecutions = (critics: NormalizedCritics): ContentCriticExecution[] =>
@@ -664,6 +702,8 @@ const staleDescendantRecords = (
   for (const record of index.artifacts) {
     if (
       record.state === "stale" &&
+      record.ref.schemaVersion !== "critic-output-v1" &&
+      !record.dependencies.some((dependency) => dependency.relation === "reviews") &&
       !changed.has(record.ref.artifactId) &&
       reachable.has(record.ref.artifactId)
     ) {
@@ -1102,6 +1142,7 @@ export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLo
     round: initialRound,
     trace,
   });
+  index = registerCriticResultRefs(index, bestCritics);
   allCritics.push(bestCritics);
   let bestGate = evaluateContentGate(bestCritics, index);
   trace.push({
@@ -1341,6 +1382,7 @@ export const runContentLoop = async (input: ContentLoopInput): Promise<ContentLo
       round: revisionRound,
       trace,
     });
+    candidateIndex = registerCriticResultRefs(candidateIndex, candidateCritics);
     allCritics.push(candidateCritics);
     const candidateGate = evaluateContentGate(candidateCritics, candidateIndex);
     trace.push({

@@ -1,4 +1,4 @@
-import {agentNames, type AgentName} from "../schemas/agent";
+import {agentNames, type AgentExecutionRequest, type AgentName} from "../schemas/agent";
 import type {AgentRunner} from "../agents/run-agent";
 import type {ArtifactIndex, ArtifactRef} from "../schemas/artifact";
 import {hashArtifactInputs, stableEventId, type ExecutionEventSink} from "../observability";
@@ -62,8 +62,8 @@ const phaseByAgent: Record<AgentName, ProductionState["phase"]> = {
 };
 
 const promptControlArtifact = (artifacts: Record<string, ArtifactRef>): ArtifactRef => {
-  // The foundation stub has no role-specific prompt registry yet. Prefer an explicit control
-  // artifact, then use artifact identity ordering so object insertion order cannot change traces.
+  // Prefer an explicit control artifact, then use artifact identity ordering so object insertion
+  // order cannot change traces when a caller has not supplied a role-specific prompt ref.
   const ordered = Object.values(artifacts).sort((left, right) =>
     left.artifactId.localeCompare(right.artifactId),
   );
@@ -82,6 +82,7 @@ const refsForContentGate = (state: ProductionState): ArtifactRef[] =>
   Object.values(state.artifacts)
     .filter(
       (ref) =>
+        !ref.artifactId.includes(":control:") &&
         !ref.path.includes("/production/") &&
         !ref.path.includes("/_manifest/") &&
         ref.artifactId !== state.contentManifestRef?.artifactId,
@@ -221,8 +222,16 @@ export type FoundationObservabilityOptions = {
   reportPath?: string;
   repoRoot?: string;
   checkpointVersion?: string;
+  runnerVersion?: string;
   enforce?: boolean;
 };
+
+export type FoundationAgentRequestBuilder = (input: {
+  state: ProductionState;
+  agentName: AgentName;
+  attempt: number;
+  defaults: AgentExecutionRequest;
+}) => AgentExecutionRequest;
 
 export const createFoundationGraph = (input: {
   runAgent: AgentRunner;
@@ -248,7 +257,9 @@ export const createFoundationGraph = (input: {
     maxRevisionRounds?: number;
   };
   observability?: FoundationObservabilityOptions;
+  agentRequestFor?: FoundationAgentRequestBuilder;
   production?: FoundationNode;
+  afterProduction?: (state: ProductionState) => "execute_agent" | "final_approval";
   concurrency?: ConcurrencyConfig;
 }) => {
   const now = input.observability?.now ?? input.now ?? (() => new Date().toISOString());
@@ -401,8 +412,25 @@ export const createFoundationGraph = (input: {
     }
     const attempt = (state.attempts[agentName] ?? 0) + 1;
     const promptRef = promptControlArtifact(state.artifacts);
-    const inputArtifacts = Object.values(state.artifacts);
     const executionId = `${state.runId}:${agentName}:${attempt}`;
+    const defaultRequest: AgentExecutionRequest = {
+      contractVersion: "agent-execution-v1",
+      executionId,
+      episodeId: state.episodeId,
+      agentName,
+      attempt,
+      revisionRound: state.round,
+      promptRef,
+      inputArtifacts: Object.values(state.artifacts),
+      expectedOutputs: [],
+      upstreamGateRefs: [],
+      revisionBudgetRemaining: 0,
+    };
+    const request =
+      input.agentRequestFor?.({state, agentName, attempt, defaults: defaultRequest}) ??
+      defaultRequest;
+    const inputArtifacts = request.inputArtifacts;
+    const runnerVersion = input.observability?.runnerVersion ?? "foundation-v1";
     const startedAt = now();
     if (input.observability) {
       const inputSetHash = hashArtifactInputs(inputArtifacts);
@@ -424,19 +452,6 @@ export const createFoundationGraph = (input: {
         inputSetHash,
       });
       input.observability.eventSink(startedEvent);
-      const request: Parameters<AgentRunner>[0] = {
-        contractVersion: "agent-execution-v1",
-        executionId,
-        episodeId: state.episodeId,
-        agentName,
-        attempt,
-        revisionRound: state.round,
-        promptRef,
-        inputArtifacts,
-        expectedOutputs: [],
-        upstreamGateRefs: [],
-        revisionBudgetRemaining: 0,
-      };
       let agentError: unknown;
       let result: Awaited<ReturnType<AgentRunner>> | undefined;
       try {
@@ -514,7 +529,7 @@ export const createFoundationGraph = (input: {
           }),
         );
         if (agentError !== undefined) throw agentError;
-        throw new Error(`foundation stub returned ${result?.status ?? "UNKNOWN"} for ${agentName}`);
+        throw new Error(`agent runner returned ${result?.status ?? "UNKNOWN"} for ${agentName}`);
       }
       const endedAt = now();
       const canonicalEventSummaries = [
@@ -640,7 +655,7 @@ export const createFoundationGraph = (input: {
         worktreeState: "unknown" as const,
         inputSetHash: hashArtifactInputs(inputArtifacts),
         runtime: `node-${process.versions.node}`,
-        runnerVersion: "m1-stub-v1",
+        runnerVersion,
       },
     };
     const startedEvent: ExecutionEvent = {
@@ -654,21 +669,9 @@ export const createFoundationGraph = (input: {
       decision: null,
     };
     emit(startedEvent);
-    const result = await input.runAgent({
-      contractVersion: "agent-execution-v1",
-      executionId,
-      episodeId: state.episodeId,
-      agentName,
-      attempt,
-      revisionRound: state.round,
-      promptRef,
-      inputArtifacts,
-      expectedOutputs: [],
-      upstreamGateRefs: [],
-      revisionBudgetRemaining: 0,
-    });
+    const result = await input.runAgent(request);
     if (result.status !== "SUCCEEDED") {
-      throw new Error(`foundation stub returned ${result.status} for ${agentName}`);
+      throw new Error(`agent runner returned ${result.status} for ${agentName}`);
     }
     const endedAt = now();
     const completedEvent: ExecutionEvent = {
@@ -1099,6 +1102,7 @@ export const createFoundationGraph = (input: {
         ? "finalize"
         : "final_approval",
     production: input.production,
+    afterProduction: input.afterProduction,
     checkpointer: input.checkpointer,
     repoRoot: formalRepoRoot,
     concurrency: input.concurrency,

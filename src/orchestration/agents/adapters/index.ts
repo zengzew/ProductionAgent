@@ -27,4 +27,5 @@ export * from "./manual-file";
 export * from "./role-model-rollout";
 export * from "./deterministic-tool";
 export * from "./visual-director";
+export * from "./content-loop";
 export * from "../providers/hosted-chat";

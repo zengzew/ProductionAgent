@@ -18,6 +18,16 @@ update the source-of-truth files, then run the explicit validation, materialize,
 TTS, timeline, render and review commands for each approved stage.
 `ORCHESTRATOR=manual` is the default.
 
+The opt-in production entrypoint is available with
+`ORCHESTRATOR=langgraph pnpm orchestrate --episode episode-004`. It persists a
+reference-only checkpoint under `.orchestration/`, uses the configured role
+policy and production adapters, and pauses for external capability handoffs or
+formal content, unfreeze and final approvals. Resume an existing run with
+`ORCHESTRATOR=langgraph pnpm orchestrate --episode episode-004 --resume`; a
+human gate requires the decision file path printed in the handoff. No approval
+is inferred from an existing artifact, and selecting LangGraph does not change
+the default manual orchestrator.
+
 New episodes render only through `MediaMixVertical` and
 `content/<episode>/media/render-plan.json`. Episode 001–003 keep their frozen
 hand-written compositions under `src/compositions/legacy/`; they are not a
@@ -25,14 +35,15 @@ template for a new product. Unknown episode IDs fail closed in
 `src/lib/episode/render-contract.ts`. See [`docs/README.md`](docs/README.md) for the
 current contract and milestone index.
 
-`src/orchestration/` is a real LangGraph-backed foundation, but it is not a
-single command that crosses human approval boundaries. M1 and M2 are
-exit-accepted: they provide the reference-only graph/checkpoint skeleton and
-the bounded content evaluation, single-owner revision, best-version selection
-and freeze foundation. WP-M3-01 adds opt-in deterministic adapters for the
-existing production scripts, and WP-M3-02 adds an opt-in LangGraph production
-subgraph with bounded delivery repair; artifact files remain the content source
-of truth.
+`src/orchestration/` is a real LangGraph-backed production entrypoint when
+explicitly selected: it crosses only declared adapter boundaries and pauses at
+human or external-capability gates. M1 and M2 are exit-accepted: they provide
+the reference-only graph/checkpoint skeleton and the bounded content
+evaluation, single-owner revision, best-version selection and freeze
+foundation. WP-M3-01 adds opt-in deterministic adapters for the existing
+production scripts, and WP-M3-02 adds an opt-in LangGraph production subgraph
+with bounded delivery repair; artifact files remain the content source of
+truth.
 
 WP-M3-04 now provides the formal `human-decision-v1` protocol for content,
 unfreeze and final approval: every decision is persisted as a hash-bound

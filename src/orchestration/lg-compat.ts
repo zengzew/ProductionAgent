@@ -435,6 +435,9 @@ export const pauseForStubApproval = <T>(payload: T): unknown => interrupt(payloa
 
 export const pauseForUnfreezeApproval = <T>(payload: T): unknown => interrupt(payload);
 
+/** External tools (Codex capability, media inspection, or a file handoff) must resolve explicitly. */
+export const pauseForExternalCapability = <T>(payload: T): unknown => interrupt(payload);
+
 export const resumeAfterStubApproval = (value: unknown): Command => new Command({resume: value});
 
 export const compileFoundationGraph = (input: {
@@ -450,6 +453,7 @@ export const compileFoundationGraph = (input: {
   ) => "continue" | "content_loop" | "content_approval" | "final_approval";
   afterContentLoop?: (state: ProductionState) => "content_loop" | "content_approval";
   afterContentApproval?: (state: ProductionState) => "production" | "execute_agent";
+  afterProduction?: (state: ProductionState) => "execute_agent" | "final_approval";
   afterFinalApproval?: (state: ProductionState) => "final_approval" | "finalize";
   checkpointer: LocalCheckpointer;
   repoRoot?: string;
@@ -487,7 +491,10 @@ export const compileFoundationGraph = (input: {
       finalize: "finalize",
     })
     .addEdge("finalize", END);
-  graph.addEdge("production", "final_approval");
+  graph.addConditionalEdges("production", input.afterProduction ?? (() => "final_approval"), {
+    execute_agent: "execute_agent",
+    final_approval: "final_approval",
+  });
   const compiled = graph.compile({checkpointer: input.checkpointer});
   return wrapGraphWithOrchestrationConcurrency(compiled, {
     repoRoot: input.repoRoot,

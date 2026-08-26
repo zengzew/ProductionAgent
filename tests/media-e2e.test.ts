@@ -65,8 +65,12 @@ describe("WP-M5.09 delivery gate + real-media E2E", () => {
           {
             id: "asset-official-still",
             type: "image",
+            path: "content/episode-false-green/media/official.webp",
             sourceUrl: "https://example.com/official.webp",
-            rightsBasis: "editorial test fixture",
+            owner: "example.com",
+            licenseOrBasis: "editorial test fixture",
+            capturedAt: "2026-08-26T00:00:00.000Z",
+            usage: "official editorial still",
             approved: true,
             claimIds: [],
             usedInRender: true,
@@ -91,9 +95,7 @@ describe("WP-M5.09 delivery gate + real-media E2E", () => {
           ],
         } as never,
       }),
-    ).toThrow(
-      /MEDIA_DELIVERY_DECLARED_STILL_NOT_RENDERED:asset-official-still:seg-001/u,
-    );
+    ).toThrow(/MEDIA_DELIVERY_DECLARED_STILL_NOT_RENDERED:asset-official-still:seg-001/u);
   });
 
   itSlow("real-media E2E produces a 9:16 40–80s readout and Delivery PASS", async () => {

@@ -33,6 +33,7 @@ export * from "./legacy-import";
 export * from "./observability";
 export * from "./observability-gate";
 export * from "./production";
+export * from "./production-entrypoint";
 export * from "./revision";
 export * from "./replay";
 export * from "./routing";

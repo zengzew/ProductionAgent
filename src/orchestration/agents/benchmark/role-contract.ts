@@ -162,6 +162,37 @@ export const roleContractOutputPaths = (
     path: resolveRoleContractPath(episodeId, output.path),
   }));
 
+/** Stable artifact identity helpers shared by benchmark and production entrypoints. */
+export const roleContractLeafId = (repositoryPath: string): string => {
+  const base = repositoryPath.split("/").at(-1) ?? "artifact";
+  return base.replace(/\.[a-z0-9]+$/iu, "").replace(/[^a-z0-9-]+/gu, "-");
+};
+
+export const roleContractArtifactKind = (repositoryPath: string): string => {
+  if (repositoryPath.includes("/research/")) return "research";
+  if (repositoryPath.includes("/production/")) return "production";
+  if (repositoryPath.includes("/media/")) return "media";
+  if (repositoryPath.startsWith("output/")) return "delivery";
+  if (repositoryPath.startsWith("style/")) return "style";
+  if (repositoryPath.startsWith("docs/")) return "contract";
+  return "story";
+};
+
+export const roleContractOutputArtifactId = (
+  episodeId: string,
+  role: AgentName,
+  repositoryPath: string,
+): string =>
+  role === "script-writer" && repositoryPath.endsWith("/script-draft.md")
+    ? `${episodeId}:story:script-draft`
+    : `${episodeId}:${roleContractArtifactKind(repositoryPath)}:${role}-${roleContractLeafId(repositoryPath)}`;
+
+export const roleContractInputArtifactId = (episodeId: string, repositoryPath: string): string =>
+  `${episodeId}:${roleContractArtifactKind(repositoryPath)}:${roleContractLeafId(repositoryPath)}`;
+
+export const roleContractGateArtifactId = (episodeId: string, repositoryPath: string): string =>
+  `${episodeId}:gate:${roleContractLeafId(repositoryPath)}`;
+
 export const roleContractPromptPath = (
   repoRoot: string,
   role: AgentName,

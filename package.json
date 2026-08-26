@@ -44,6 +44,7 @@
     "decide:role-model": "tsx scripts/decide-role-model.ts",
     "promote:role-model": "tsx scripts/promote-role-model.ts",
     "verify:autonomous": "tsx scripts/verify-autonomous.ts",
+    "orchestrate": "tsx scripts/orchestrate.ts",
     "render": "pnpm render:vertical"
   },
   "dependencies": {
