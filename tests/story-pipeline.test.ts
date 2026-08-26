@@ -25,6 +25,16 @@ describe("product-story short-video pipeline", () => {
     expect(parseFinalScript(markdown)[0]?.id).toBe("seg-hook");
   });
 
+  it("parses comma-separated Claim IDs inside one contract code span", () => {
+    const markdown = fs
+      .readFileSync(finalScriptPath, "utf8")
+      .replace(/^- Claim IDs: .+$/mu, "- Claim IDs: `claim-alpha-001, claim-beta-002`");
+    expect(parseFinalScript(markdown)[0]?.claimIds).toEqual([
+      "claim-alpha-001",
+      "claim-beta-002",
+    ]);
+  });
+
   it("keeps the structured final script aligned to the configured Hook budget", () => {
     const markdown = fs.readFileSync(finalScriptPath, "utf8");
     const segments = parseFinalScript(markdown);

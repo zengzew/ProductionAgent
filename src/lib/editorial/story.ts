@@ -348,7 +348,12 @@ const readField = (block: string, label: string): string => {
 };
 
 const parseClaimIds = (value: string): string[] =>
-  [...value.matchAll(/`(claim-[^`]+)`/gu)].map((match) => match[1] as string);
+  [...value.matchAll(/`([^`]+)`/gu)].flatMap((match) =>
+    (match[1] ?? "")
+      .split(",")
+      .map((claimId) => claimId.trim())
+      .filter((claimId) => /^claim-[a-z0-9-]+$/u.test(claimId)),
+  );
 
 const parseNarrationUnits = (block: string): NarrationUnit[] => {
   const table = block.match(/### Narration units\n\n([\s\S]+)$/u)?.[1];

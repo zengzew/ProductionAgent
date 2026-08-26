@@ -23,6 +23,8 @@
     "targetSeconds": 20,
     "firstSegmentMaximumSeconds": 3,
     "actionTerms": [
+      "画",
+      "生成",
       "提醒",
       "打开",
       "复制",

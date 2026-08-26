@@ -31,10 +31,18 @@ export type HostedChatCall = {
   model: string;
   reasoning: ReasoningConfig;
   temperature: number;
+  stream?: boolean;
+  maxCompletionTokens?: number;
   timeoutMs: number;
   maxRetries: number;
   apiKey: string;
   messages: HostedChatMessage[];
+};
+
+type HostedChatStreamResult = {
+  content: string;
+  usage: unknown;
+  reasoningContentPresent: boolean;
 };
 
 export type HostedChatResult<T> = {
@@ -300,6 +308,133 @@ const extractChatMessageContent = (content: unknown): string | undefined => {
   return text.trim() ? text : undefined;
 };
 
+const extractChatDeltaContent = (content: unknown): string => {
+  if (typeof content === "string") return content;
+  if (!Array.isArray(content)) return "";
+  return content
+    .map((part) => {
+      if (typeof part === "string") return part;
+      if (part && typeof part === "object" && "text" in part && typeof part.text === "string") {
+        return part.text;
+      }
+      return "";
+    })
+    .join("");
+};
+
+const readStreamChunkWithIdleTimeout = async (
+  reader: ReadableStreamDefaultReader<Uint8Array>,
+  timeoutMs: number,
+): Promise<ReadableStreamReadResult<Uint8Array>> =>
+  new Promise((resolve, reject) => {
+    let settled = false;
+    const timer = setTimeout(() => {
+      if (settled) return;
+      settled = true;
+      void reader.cancel("hosted-chat stream idle timeout");
+      reject(new Error(`hosted-chat stream stalled for ${timeoutMs}ms`));
+    }, timeoutMs);
+    void reader.read().then(
+      (result) => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        resolve(result);
+      },
+      (error: unknown) => {
+        if (settled) return;
+        settled = true;
+        clearTimeout(timer);
+        reject(error instanceof Error ? error : new Error(String(error)));
+      },
+    );
+  });
+
+const parseHostedChatEventStream = async (
+  response: Response,
+  timeoutMs: number,
+): Promise<HostedChatStreamResult> => {
+  if (!response.body) {
+    throw new Error("hosted-chat streaming response has no body");
+  }
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let content = "";
+  let usage: unknown;
+  let reasoningContentPresent = false;
+  let finished = false;
+
+  const consumeLine = (line: string): void => {
+    if (!line.startsWith("data:")) return;
+    const data = line.slice(5).trimStart();
+    if (!data) return;
+    if (data.trim() === "[DONE]") {
+      finished = true;
+      return;
+    }
+    let event: {
+      choices?: Array<{
+        delta?: {content?: unknown; reasoning_content?: unknown};
+        message?: {content?: unknown; reasoning_content?: unknown};
+      }>;
+      usage?: unknown;
+      error?: {message?: unknown};
+      code?: unknown;
+    };
+    try {
+      event = JSON.parse(data) as typeof event;
+    } catch (error) {
+      throw new Error(
+        `hosted-chat stream returned malformed event (status=${response.status} sha256=${hashHostedResponseContent(data)})`,
+        {cause: error},
+      );
+    }
+    if (event.error || event.code) {
+      throw new Error(`hosted-chat stream returned an error (status=${response.status})`);
+    }
+    const choice = event.choices?.[0];
+    const delta = choice?.delta ?? choice?.message;
+    content += extractChatDeltaContent(delta?.content);
+    reasoningContentPresent ||=
+      delta?.reasoning_content !== undefined && delta.reasoning_content !== null;
+    if (event.usage !== undefined) usage = event.usage;
+  };
+
+  while (!finished) {
+    const {done, value} = await readStreamChunkWithIdleTimeout(reader, timeoutMs);
+    buffer += decoder.decode(value, {stream: !done});
+    const lines = buffer.split(/\r?\n/u);
+    const remainder = lines.pop() ?? "";
+    buffer = done ? "" : remainder;
+    for (const line of lines) consumeLine(line);
+    if (done) {
+      if (remainder) consumeLine(remainder);
+      break;
+    }
+  }
+  return {content, usage, reasoningContentPresent};
+};
+
+const fetchHostedChatStream = async (
+  call: HostedChatCall,
+  init: RequestInit,
+  fetchImpl: typeof fetch,
+): Promise<Response> => {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), call.timeoutMs);
+  try {
+    return await fetchImpl(call.endpoint, {...init, signal: controller.signal});
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(`网络请求失败（1 次尝试，${call.timeoutMs}ms 超时）：${message}`, {
+      cause: error,
+    });
+  } finally {
+    clearTimeout(timer);
+  }
+};
+
 const parseReasoningOutputsCandidate = (content: unknown): string | undefined => {
   if (typeof content !== "string" || !content.trim()) return undefined;
   let parsed: unknown;
@@ -378,31 +513,55 @@ export const createOpenAiCompatibleChatProvider = (
   name: "openai-compatible",
   chatJson: async <T>(call: HostedChatCall): Promise<HostedChatResult<T>> => {
     const reasoningBody = reasoningRequestBodyFor(call);
-    const response = await fetchWithRetry(
-      call.endpoint,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${call.apiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model: call.model,
-          temperature: call.temperature,
-          response_format: {type: "json_object"},
-          messages: call.messages,
-          ...reasoningBody,
-        }),
+    const requestInit: RequestInit = {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${call.apiKey}`,
+        "Content-Type": "application/json",
       },
-      {
-        timeoutMs: call.timeoutMs,
-        maxRetries: 0,
-        fetchImpl: options.fetchImpl,
-        sleep: options.sleep,
-      },
-    );
-    const rawBody = await response.text();
+      body: JSON.stringify({
+        model: call.model,
+        temperature: call.temperature,
+        response_format: {type: "json_object"},
+        messages: call.messages,
+        ...(call.maxCompletionTokens === undefined
+          ? {}
+          : {max_completion_tokens: call.maxCompletionTokens}),
+        ...(call.stream ? {stream: true, stream_options: {include_usage: true}} : {}),
+        ...reasoningBody,
+      }),
+    };
+    const response = call.stream
+      ? await fetchHostedChatStream(call, requestInit, options.fetchImpl ?? fetch)
+      : await fetchWithRetry(call.endpoint, requestInit, {
+          timeoutMs: call.timeoutMs,
+          maxRetries: 0,
+          fetchImpl: options.fetchImpl,
+          sleep: options.sleep,
+        });
     const secrets = [call.apiKey];
+    let rawBody: string;
+    if (
+      call.stream &&
+      response.status >= 200 &&
+      response.status < 300 &&
+      response.headers.get("content-type")?.includes("text/event-stream")
+    ) {
+      const streamed = await parseHostedChatEventStream(response, call.timeoutMs);
+      rawBody = JSON.stringify({
+        choices: [
+          {
+            message: {
+              content: streamed.content,
+              ...(streamed.reasoningContentPresent ? {reasoning_content: true} : {}),
+            },
+          },
+        ],
+        usage: streamed.usage,
+      });
+    } else {
+      rawBody = await response.text();
+    }
     const parsed = parseChatResponseBody(rawBody, response.status, secrets);
     const normalized = stripJsonFence(parsed.content);
     try {

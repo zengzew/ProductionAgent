@@ -23,7 +23,7 @@
       "apiKeyEnv": "QWEN_API_KEY",
       "model": "MiniMax/speech-2.8-hd",
       "voice": "male-qn-qingse",
-      "speed": 1.15,
+      "speed": 1.4,
       "pitch": 0,
       "volume": 1,
       "languageBoost": "Chinese",

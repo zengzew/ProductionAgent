@@ -1,6 +1,14 @@
 import React from "react";
 import {Audio, Video} from "@remotion/media";
-import {AbsoluteFill, Freeze, Img, staticFile, useCurrentFrame, useVideoConfig} from "remotion";
+import {
+  AbsoluteFill,
+  Freeze,
+  Img,
+  interpolate,
+  staticFile,
+  useCurrentFrame,
+  useVideoConfig,
+} from "remotion";
 import type {Timeline} from "../schemas/episode";
 import {
   mediaShotAudioGainsAtFrame,
@@ -318,9 +326,227 @@ export const FallbackVisualLayer: React.FC<{
   scene: Timeline["scenes"][number];
   shot: MediaShot | null;
 }> = ({scene}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
   const lines = visibleOnScreenText(scene.onScreenText);
   const headline = lines[0] ?? "";
   const rest = lines.slice(1);
+  const pulse = interpolate(frame % Math.round(fps * 2), [0, fps, fps * 2], [0.9, 1.04, 0.9]);
+  const enter = interpolate(frame, [0, Math.round(fps * 0.55)], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  const Grid = () => (
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        opacity: 0.24,
+        backgroundImage:
+          "linear-gradient(rgba(232,197,71,.22) 1px, transparent 1px), linear-gradient(90deg, rgba(232,197,71,.22) 1px, transparent 1px)",
+        backgroundSize: "72px 72px",
+      }}
+    />
+  );
+  const Source = ({children}: {children: React.ReactNode}) => (
+    <div
+      style={{
+        position: "absolute",
+        top: 118,
+        left: 64,
+        right: 64,
+        color: COLORS.muted,
+        fontSize: 25,
+        letterSpacing: 0.4,
+      }}
+    >
+      {children}
+    </div>
+  );
+  const LogoMark = ({large = false}: {large?: boolean}) => {
+    const size = large ? 520 : 360;
+    return (
+      <div style={{position: "relative", width: size, height: size, transform: `scale(${pulse})`}}>
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            border: `8px solid ${COLORS.gold}`,
+            borderRadius: "50%",
+            boxShadow: "0 0 90px rgba(232,197,71,.28)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: -42,
+            bottom: -42,
+            width: 5,
+            background: "rgba(232,197,71,.55)",
+            transform: "rotate(32deg)",
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            left: "20%",
+            top: "19%",
+            color: COLORS.ink,
+            fontSize: large ? 250 : 170,
+            fontWeight: 860,
+            lineHeight: 1,
+          }}
+        >
+          R
+        </div>
+      </div>
+    );
+  };
+
+  const sceneVisual = (() => {
+    if (scene.scene === "hook-logo-result" || scene.scene === "geometric-process") {
+      return (
+        <>
+          <Grid />
+          <Source>功能演示 · ITmedia 2026-08-13</Source>
+          <div
+            style={{
+              position: "absolute",
+              top: 270,
+              left: 280,
+              opacity: scene.scene === "hook-logo-result" ? 1 : enter,
+            }}
+          >
+            <LogoMark large />
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              top: 900,
+              left: 80,
+              right: 80,
+              padding: "38px 44px",
+              borderRadius: 30,
+              background: "rgba(24,27,35,.92)",
+              border: `2px solid ${COLORS.gold}`,
+            }}
+          >
+            <div style={{fontSize: 84, fontWeight: 860, color: COLORS.gold}}>5,000,000+</div>
+            <div style={{fontSize: 32, marginTop: 8}}>帖子展示 · 不是用户数</div>
+          </div>
+        </>
+      );
+    }
+    if (scene.scene === "product-prompt-design") {
+      return (
+        <>
+          <Source>Rikyū · 自然语言生成设计 · 功能演示</Source>
+          <div
+            style={{
+              position: "absolute",
+              top: 260,
+              left: 64,
+              right: 64,
+              padding: 42,
+              borderRadius: 34,
+              background: COLORS.card,
+              border: `1px solid ${COLORS.line}`,
+              opacity: enter,
+            }}
+          >
+            <div style={{fontSize: 28, color: COLORS.muted}}>你想设计什么？</div>
+            <div style={{fontSize: 48, marginTop: 18}}>给咖啡店做一个 Logo</div>
+            <div style={{height: 5, marginTop: 28, background: COLORS.gold, width: `${enter * 100}%`}} />
+          </div>
+          <div style={{position: "absolute", top: 610, left: 360}}><LogoMark /></div>
+          <div style={{position: "absolute", top: 1080, left: 80, right: 80, display: "flex", gap: 18}}>
+            {["Logo", "网页", "社交", "印刷"].map((label) => (
+              <div key={label} style={{flex: 1, padding: "28px 10px", borderRadius: 22, background: COLORS.card, fontSize: 29}}>{label}</div>
+            ))}
+          </div>
+        </>
+      );
+    }
+    if (scene.scene === "contrast-seven-users") {
+      return (
+        <>
+          <Source>创始人公开回顾 · 2026 年 7 月</Source>
+          <div style={{position: "absolute", top: 300, left: 80, right: 80, textAlign: "left"}}>
+            <div style={{fontSize: 34, color: COLORS.muted}}>上线首日</div>
+            <div style={{fontSize: 330, fontWeight: 900, lineHeight: 1, color: COLORS.gold}}>7</div>
+            <div style={{fontSize: 58, fontWeight: 760}}>名用户</div>
+            <div style={{marginTop: 110, height: 2, background: COLORS.line}} />
+            <div style={{marginTop: 72, fontSize: 54, lineHeight: 1.35}}>后来，为什么一天内<br />有一万人来试？</div>
+          </div>
+        </>
+      );
+    }
+    if (scene.scene === "ten-thousand-disclosure") {
+      return (
+        <>
+          <Source>创始人公开披露 · 经 ITmedia 报道</Source>
+          <div style={{position: "absolute", inset: "330px 64px auto", padding: "70px 48px", borderRadius: 38, background: COLORS.card, border: `2px solid ${COLORS.real}`, opacity: enter}}>
+            <div style={{fontSize: 34, color: COLORS.muted}}>发布后一天内</div>
+            <div style={{fontSize: 180, fontWeight: 900, color: COLORS.real, letterSpacing: -8}}>10,000+</div>
+            <div style={{fontSize: 52, fontWeight: 760}}>人使用 Rikyū</div>
+            <div style={{fontSize: 28, marginTop: 46, color: COLORS.muted}}>2026-08-12 · 不是注册或留存口径</div>
+          </div>
+        </>
+      );
+    }
+    if (scene.scene === "media-user-shares") {
+      return (
+        <>
+          <Source>ITmedia 2026-08-13 · 用户公开分享</Source>
+          <div style={{position: "absolute", top: 260, left: 70, right: 70}}>
+            {["我的咖啡店 Logo", "几何过程很有趣", "生成结果分享"].map((label, index) => (
+              <div key={label} style={{marginTop: index ? -32 : 0, marginLeft: index * 36, padding: "40px", height: 280, borderRadius: 34, background: index === 1 ? "#202633" : COLORS.card, border: `1px solid ${COLORS.line}`, transform: `rotate(${index - 1}deg)`}}>
+                <div style={{display: "flex", alignItems: "center", gap: 28}}>
+                  <div style={{width: 110, height: 110, borderRadius: 55, border: `5px solid ${COLORS.gold}`, display: "grid", placeItems: "center", fontSize: 58, fontWeight: 850}}>R</div>
+                  <div style={{fontSize: 42, fontWeight: 750}}>{label}</div>
+                </div>
+                <div style={{marginTop: 30, height: 12, width: `${80 - index * 12}%`, borderRadius: 9, background: COLORS.line}} />
+              </div>
+            ))}
+          </div>
+        </>
+      );
+    }
+    if (scene.scene === "pricing-mcp") {
+      return (
+        <>
+          <Source>官网与条款 · 截至 2026-08-25</Source>
+          <div style={{position: "absolute", top: 250, left: 70, right: 70, display: "flex", gap: 22}}>
+            <div style={{flex: 1, padding: "50px 34px", borderRadius: 34, background: COLORS.card}}><div style={{fontSize: 32, color: COLORS.muted}}>免费</div><div style={{fontSize: 82, fontWeight: 880, color: COLORS.gold}}>2,000</div><div style={{fontSize: 30}}>积分</div></div>
+            <div style={{flex: 1, padding: "50px 34px", borderRadius: 34, background: COLORS.card, border: `2px solid ${COLORS.real}`}}><div style={{fontSize: 32, color: COLORS.muted}}>商用 + SVG</div><div style={{fontSize: 82, fontWeight: 880, color: COLORS.real}}>$5</div><div style={{fontSize: 30}}>每月起</div></div>
+          </div>
+          <div style={{position: "absolute", top: 790, left: 100, right: 100, display: "grid", placeItems: "center"}}>
+            <div style={{padding: "28px 42px", borderRadius: 999, background: "#272d39", fontSize: 42}}>Claude / Codex</div>
+            <div style={{height: 160, width: 5, background: COLORS.gold}} />
+            <div style={{padding: "34px 64px", borderRadius: 999, background: COLORS.gold, color: COLORS.void, fontSize: 48, fontWeight: 850}}>Rikyū</div>
+            <div style={{fontSize: 29, color: COLORS.muted, marginTop: 26}}>MCP · 从外部发起设计</div>
+          </div>
+        </>
+      );
+    }
+    if (scene.scene === "closing-process-price") {
+      return (
+        <>
+          <Grid />
+          <Source>功能演示 · 当前公开价格</Source>
+          <div style={{position: "absolute", top: 280, left: 330}}><LogoMark /></div>
+          <div style={{position: "absolute", top: 860, left: 70, right: 70, padding: "44px", borderRadius: 34, background: COLORS.card, border: `2px solid ${COLORS.gold}`}}>
+            <div style={{fontSize: 44}}>首日 7 人 → 一天 10,000+ 人</div>
+            <div style={{fontSize: 62, fontWeight: 860, marginTop: 32, color: COLORS.gold}}>免费试 · 商用 $5/月起</div>
+          </div>
+        </>
+      );
+    }
+    return null;
+  })();
+
   return (
     <AbsoluteFill
       style={{
@@ -330,12 +556,13 @@ export const FallbackVisualLayer: React.FC<{
         color: COLORS.ink,
         fontFamily: SANS,
         textAlign: "center",
+        background: "radial-gradient(circle at 50% 35%, #171c26 0%, #08090d 62%)",
       }}
     >
-      {headline ? (
+      {sceneVisual ?? (headline ? (
         <div style={{fontSize: 56, lineHeight: 1.2, fontWeight: 780}}>{headline}</div>
-      ) : null}
-      {rest.length > 0 ? (
+      ) : null)}
+      {!sceneVisual && rest.length > 0 ? (
         <div style={{marginTop: 28, fontSize: 36, lineHeight: 1.45, color: COLORS.muted}}>
           {rest.join("\n")}
         </div>
@@ -416,7 +643,7 @@ export const MediaShotScene: React.FC<{
 }> = ({scene, shot, isFirst}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const opacity = mediaShotVideoOpacityAtFrame({
+  const calculatedOpacity = mediaShotVideoOpacityAtFrame({
     frame,
     fps,
     durationFrames: shot.durationFrames,
@@ -424,6 +651,7 @@ export const MediaShotScene: React.FC<{
     crossfadeMs: shot.crossfadeMs,
     isFirst,
   });
+  const opacity = isFirst ? 1 : calculatedOpacity;
   return (
     <AbsoluteFill style={{opacity, background: COLORS.void}}>
       {shot.visualType === "real-media" && shot.staticFilePath ? (

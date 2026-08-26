@@ -55,6 +55,7 @@ const ttsMetadata = readJsonFile<TtsMetadata>(
 const ttsFilesBySegment = new Map(ttsMetadata.files.map((file) => [file.segmentId, file]));
 
 let cursorSeconds = 0;
+let cursorFrame = 0;
 let captionIndex = 1;
 const captions: Array<{
   index: number;
@@ -73,7 +74,7 @@ const scenes = script.segments.map((segment, index) => {
   const startSeconds = cursorSeconds;
   const tailSeconds = timelineTailSeconds(episodeConfig, segment);
   const endSeconds = startSeconds + audioDurationSeconds + tailSeconds;
-  const startFrame = Math.round(startSeconds * fps);
+  const startFrame = cursorFrame;
   const durationFrames = Math.max(1, Math.round((audioDurationSeconds + tailSeconds) * fps));
   const plannedCues = captionPlanBySegment.get(segment.id);
   if (!plannedCues) throw new Error(`字幕规划缺少段落：${segment.id}`);
@@ -115,6 +116,7 @@ const scenes = script.segments.map((segment, index) => {
   }
 
   cursorSeconds = endSeconds;
+  cursorFrame += durationFrames;
   return {
     ...segment,
     index,
@@ -127,7 +129,7 @@ const scenes = script.segments.map((segment, index) => {
   };
 });
 
-const totalFrames = Math.ceil(cursorSeconds * fps);
+const totalFrames = cursorFrame;
 const timeline = {
   episodeId,
   layoutVariant: renderContract.layoutVariant,

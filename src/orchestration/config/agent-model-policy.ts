@@ -86,6 +86,8 @@ export const roleModelPolicySchema = z
     model: z.string().min(1),
     reasoning: reasoningConfigSchema.default({profile: "none"}),
     temperature: z.number().min(0).max(2),
+    stream: z.boolean().optional(),
+    maxCompletionTokens: z.number().int().positive().max(393_216).optional(),
     apiKeyEnv: z.string().regex(/^[A-Z][A-Z0-9_]*$/u),
     allowedOrigins: z.array(httpsOriginSchema).min(1),
     timeoutMs: z.number().int().positive().max(300_000),

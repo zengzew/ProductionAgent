@@ -1,0 +1,62 @@
+[
+  {
+    "id": "src-rikyu-site",
+    "title": "Rikyū official website",
+    "publisher": "Rikyū",
+    "url": "https://rikyu.ai/",
+    "publishedAt": "",
+    "accessedAt": "2026-08-25",
+    "sourceType": "official",
+    "notes": "官网产品页；支持从自然语言需求生成 Logo、网页、社交与印刷设计，MCP 连接 Claude/Codex，三百万以上素材及当前价格。页面宣传语按公司口径处理。"
+  },
+  {
+    "id": "src-rikyu-terms",
+    "title": "Rikyū Terms of Service",
+    "publisher": "Rikyū",
+    "url": "https://rikyu.ai/ja/terms",
+    "publishedAt": "2026-07-20",
+    "accessedAt": "2026-08-25",
+    "sourceType": "official",
+    "notes": "官方条款将服务定义为 AI 设计服务，列明提供者为铃木海星，并确认可通过 MCP 等连接 Codex、Claude 等外部服务。"
+  },
+  {
+    "id": "src-rikyu-privacy",
+    "title": "Rikyū Privacy Policy",
+    "publisher": "Rikyū",
+    "url": "https://rikyu.ai/ja/privacy",
+    "publishedAt": "2026-08-21",
+    "accessedAt": "2026-08-25",
+    "sourceType": "official",
+    "notes": "官方隐私政策再次列明个人信息处理者为铃木海星，并描述账户、提示词、上传素材、项目、设计与导出数据。"
+  },
+  {
+    "id": "src-rikyu-founder-x-logo",
+    "title": "Logo geometric design feature launch post",
+    "publisher": "Kaisei Suzuki on X",
+    "url": "https://x.com/kaiseisuzuk/status/2086794677693690213",
+    "publishedAt": "2026-08-10",
+    "accessedAt": "2026-08-25",
+    "sourceType": "founder",
+    "notes": "开发者发布几何 Logo 功能的原始帖子；原帖在无登录抓取中不稳定，内容与日期由 ITmedia 和公开索引交叉核对。可作为后续素材候选，使用前需做权利与画面审核。"
+  },
+  {
+    "id": "src-rikyu-itmedia",
+    "title": "个人开发的 AI 设计工具 Rikyū，几何设计功能引发关注",
+    "publisher": "ITmedia NEWS",
+    "url": "https://www.itmedia.co.jp/news/article/2608/13/2000000514/",
+    "publishedAt": "2026-08-13",
+    "accessedAt": "2026-08-25",
+    "sourceType": "media",
+    "notes": "独立媒体报道：个人开发者铃木海星、几何 Logo 功能、发帖时超过五百万展示、用户分享生成结果、开发者披露功能发布后一天超过一万人使用，以及五美元起付费计划。"
+  },
+  {
+    "id": "src-rikyu-founder-feed",
+    "title": "Kaisei Suzuki public X feed mirror",
+    "publisher": "TwStalker mirror of @kaiseisuzuk",
+    "url": "https://twstalker.com/kaiseisuzuk",
+    "publishedAt": "2026-08",
+    "accessedAt": "2026-08-25",
+    "sourceType": "social",
+    "notes": "第三方公开索引，保留开发者公开帖的可检索文本：首日七名用户、几何 Logo 功能发布、随后两万用户。仅作创始人口述的可访问镜像，不升级为独立验证。"
+  }
+]

@@ -40,6 +40,7 @@ const renderContracts: Readonly<Record<string, RenderContract>> = {
   "episode-m5e2e": mediaMix("poke-standard"),
   "episode-004": mediaMix("poke-standard"),
   "episode-005": mediaMix("poke-standard"),
+  "episode-006": mediaMix("poke-standard"),
 };
 
 export const getRenderContract = (episodeId: string): RenderContract => {

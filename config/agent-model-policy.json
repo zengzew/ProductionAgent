@@ -11,6 +11,7 @@
       "profile": "none"
     },
     "temperature": 0.4,
+    "stream": false,
     "apiKeyEnv": "OPENAI_API_KEY",
     "allowedOrigins": ["https://api.openai.com"],
     "timeoutMs": 30000,
@@ -42,6 +43,8 @@
         "reasoning_effort": "max"
       },
       "temperature": 0.4,
+      "stream": true,
+      "maxCompletionTokens": 49152,
       "apiKeyEnv": "QWEN_API_KEY",
       "allowedOrigins": ["https://dashscope.aliyuncs.com"],
       "timeoutMs": 300000,
@@ -59,6 +62,8 @@
         "reasoning_effort": "max"
       },
       "temperature": 0.4,
+      "stream": true,
+      "maxCompletionTokens": 49152,
       "apiKeyEnv": "QWEN_API_KEY",
       "allowedOrigins": ["https://dashscope.aliyuncs.com"],
       "timeoutMs": 300000,
@@ -76,6 +81,8 @@
         "reasoning_effort": "max"
       },
       "temperature": 0.4,
+      "stream": true,
+      "maxCompletionTokens": 49152,
       "apiKeyEnv": "QWEN_API_KEY",
       "allowedOrigins": ["https://dashscope.aliyuncs.com"],
       "timeoutMs": 300000,
@@ -93,6 +100,8 @@
         "thinking_budget": 262144
       },
       "temperature": 0.4,
+      "stream": true,
+      "maxCompletionTokens": 300000,
       "apiKeyEnv": "QWEN_API_KEY",
       "allowedOrigins": ["https://dashscope.aliyuncs.com"],
       "timeoutMs": 300000,
@@ -110,6 +119,8 @@
         "thinking_budget": 262144
       },
       "temperature": 0.4,
+      "stream": true,
+      "maxCompletionTokens": 300000,
       "apiKeyEnv": "QWEN_API_KEY",
       "allowedOrigins": ["https://dashscope.aliyuncs.com"],
       "timeoutMs": 300000,
@@ -127,6 +138,8 @@
         "thinking_budget": 262144
       },
       "temperature": 0.4,
+      "stream": true,
+      "maxCompletionTokens": 300000,
       "apiKeyEnv": "QWEN_API_KEY",
       "allowedOrigins": ["https://dashscope.aliyuncs.com"],
       "timeoutMs": 300000,
@@ -144,6 +157,8 @@
         "thinking_budget": 262144
       },
       "temperature": 0.4,
+      "stream": true,
+      "maxCompletionTokens": 300000,
       "apiKeyEnv": "QWEN_API_KEY",
       "allowedOrigins": ["https://dashscope.aliyuncs.com"],
       "timeoutMs": 300000,
@@ -161,6 +176,8 @@
         "thinking_budget": 262144
       },
       "temperature": 0.4,
+      "stream": true,
+      "maxCompletionTokens": 300000,
       "apiKeyEnv": "QWEN_API_KEY",
       "allowedOrigins": ["https://dashscope.aliyuncs.com"],
       "timeoutMs": 300000,

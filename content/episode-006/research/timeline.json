@@ -1,0 +1,70 @@
+{
+  "asOf": "2026-08-25",
+  "events": [
+    {
+      "id": "ev-rikyu-001",
+      "dateLabel": "2026-07 前后",
+      "sortDate": "2026-07-20",
+      "datePrecision": "as-of",
+      "event": "开发者回顾 Rikyū 首日只有七名用户；严格的产品 idea 来源未公开。",
+      "eventType": "growth",
+      "factIds": ["claim-rikyu-005", "claim-rikyu-011"],
+      "sourceIds": ["src-rikyu-founder-feed", "src-rikyu-site", "src-rikyu-itmedia"],
+      "relationToPrevious": "not-applicable",
+      "storyFunction": "context",
+      "notes": "创始人口述的早期规模；不补写动机或失败原因。"
+    },
+    {
+      "id": "ev-rikyu-002",
+      "dateLabel": "2026-08-10",
+      "sortDate": "2026-08-10",
+      "datePrecision": "day",
+      "event": "发布几何 Logo 功能，并在 X 展示 Logo 与圆、直线、网格组成的设计过程。",
+      "eventType": "product",
+      "factIds": ["claim-rikyu-006", "claim-rikyu-012"],
+      "sourceIds": ["src-rikyu-founder-x-logo", "src-rikyu-itmedia"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "turning-point",
+      "notes": "发布行为可确认；视觉是否是实际内部构造过程不能确认。"
+    },
+    {
+      "id": "ev-rikyu-003",
+      "dateLabel": "2026-08-12",
+      "sortDate": "2026-08-12",
+      "datePrecision": "day",
+      "event": "开发者披露功能发布后一天内超过一万人使用 Rikyū。",
+      "eventType": "growth",
+      "factIds": ["claim-rikyu-009"],
+      "sourceIds": ["src-rikyu-itmedia"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "validation",
+      "notes": "开发者口径；研究没有因果或转化漏斗数据。"
+    },
+    {
+      "id": "ev-rikyu-004",
+      "dateLabel": "2026-08-13",
+      "sortDate": "2026-08-13",
+      "datePrecision": "day",
+      "event": "ITmedia 报道发布帖超过五百万展示，并观察到用户分享自己生成的 Logo。",
+      "eventType": "distribution",
+      "factIds": ["claim-rikyu-007", "claim-rikyu-008"],
+      "sourceIds": ["src-rikyu-itmedia"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "public-expansion",
+      "notes": "只证明可观察的传播规模与分享行为，不证明长期增长原因。"
+    },
+    {
+      "id": "ev-rikyu-005",
+      "dateLabel": "截至 2026-08-25",
+      "sortDate": "2026-08-25",
+      "datePrecision": "as-of",
+      "event": "官网提供免费入口与每月五美元起的付费计划，同时支持 MCP 连接常用 AI。",
+      "eventType": "product",
+      "factIds": ["claim-rikyu-003", "claim-rikyu-010"],
+      "sourceIds": ["src-rikyu-site", "src-rikyu-terms", "src-rikyu-itmedia"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "durability-test",
+      "notes": "公开产品与价格状态；不是收入或资本市场定价。"
+    }
+  ]
+}

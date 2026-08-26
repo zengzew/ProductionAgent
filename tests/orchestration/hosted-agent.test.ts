@@ -871,6 +871,72 @@ describe("HostedAgentBackend", () => {
     expect(JSON.stringify(bodies)).not.toContain("reasoning_content");
   });
 
+  it("streams bounded output and never returns reasoning deltas", async () => {
+    const requestBodies: Array<Record<string, unknown>> = [];
+    const reasoningSecret = "private chain of thought must be discarded";
+    const encoder = new TextEncoder();
+    const events = [
+      {
+        choices: [{delta: {reasoning_content: reasoningSecret}}],
+      },
+      {choices: [{delta: {content: '{"ok":'}}]},
+      {choices: [{delta: {content: "true}"}}]},
+      {
+        choices: [],
+        usage: {prompt_tokens: 11, completion_tokens: 7, total_tokens: 18},
+      },
+    ];
+    const payload = `${events.map((event) => `data: ${JSON.stringify(event)}\n\n`).join("")}data: [DONE]\n\n`;
+    const splitAt = Math.floor(payload.length / 2);
+    const provider = createOpenAiCompatibleChatProvider({
+      fetchImpl: async (_input, init) => {
+        requestBodies.push(JSON.parse(String(init?.body)) as Record<string, unknown>);
+        const stream = new ReadableStream<Uint8Array>({
+          start(controller) {
+            controller.enqueue(encoder.encode(payload.slice(0, splitAt)));
+            controller.enqueue(encoder.encode(payload.slice(splitAt)));
+            controller.close();
+          },
+        });
+        return new Response(stream, {
+          status: 200,
+          headers: {"content-type": "text/event-stream; charset=utf-8"},
+        });
+      },
+    });
+
+    const result = await provider.chatJson<{ok: boolean}>({
+      provider: "openai-compatible",
+      endpoint: "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+      model: "deepseek-v4-flash-0731",
+      reasoning: {
+        profile: "deepseek-v4-flash",
+        enable_thinking: true,
+        reasoning_effort: "max",
+      },
+      temperature: 0.4,
+      stream: true,
+      maxCompletionTokens: 49_152,
+      timeoutMs: 1000,
+      maxRetries: 0,
+      apiKey: "test-key",
+      messages: [{role: "user", content: "ping"}],
+    });
+
+    expect(result).toEqual({
+      value: {ok: true},
+      usage: {inputTokens: 11, outputTokens: 7, totalTokens: 18},
+    });
+    expect(requestBodies).toEqual([
+      expect.objectContaining({
+        stream: true,
+        stream_options: {include_usage: true},
+        max_completion_tokens: 49_152,
+      }),
+    ]);
+    expect(JSON.stringify(result)).not.toContain(reasoningSecret);
+  });
+
   it("fails closed when a typed profile does not match provider/model capability", async () => {
     let fetchCalls = 0;
     const provider = createOpenAiCompatibleChatProvider({

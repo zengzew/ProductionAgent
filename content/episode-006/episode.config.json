@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "episode-config-v2",
+  "id": "episode-006",
+  "slug": "rikyu-visible-logo-process",
+  "product": "Rikyū",
+  "title": "首日只有七名用户，它怎样把 Logo 的生成过程变成传播入口",
+  "language": "zh-CN",
+  "targetSeconds": 60,
+  "production": {
+    "timelineTailSeconds": {
+      "seg-001": 0.18,
+      "seg-002": 0.9,
+      "seg-003": 0.9,
+      "seg-004": 0.9,
+      "seg-005": 0.9,
+      "seg-006": 0.9
+    },
+    "hookAttributionSubjects": ["Rikyū", "Rikyu", "Rikyū AI"]
+  },
+  "selection": "selected",
+  "selectionReason": "Rikyū 官网、开发者公开账号与 ITmedia 报道共同支持产品动作、个人开发者身份、首日七名用户、几何 Logo 功能的传播及单日超过一万名用户；核心动作可由真实页面和可追溯发布素材在竖屏中呈现。",
+  "publishStatus": "evaluation",
+  "publishBlocker": "本集仅做本地制作与评审；不发布、不上传，不把故事批准视为生产批准。",
+  "asOf": "2026-08-25",
+  "captureAssets": [{"file": "rikyu-home.png", "url": "https://rikyu.ai/"}]
+}

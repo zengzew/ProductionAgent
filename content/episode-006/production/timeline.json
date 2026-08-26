@@ -1,0 +1,189 @@
+{
+  "episodeId": "episode-006",
+  "layoutVariant": "poke-standard",
+  "fps": 30,
+  "totalFrames": 1727,
+  "totalSeconds": 57.56666666666667,
+  "ttsProvider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "captionAlignment": "provider-timestamps",
+  "scenes": [
+    {
+      "id": "seg-001",
+      "section": "hook",
+      "narration": "一个 Logo 自己画出来，累计展示超五百万次。",
+      "onScreenText": [
+        "功能演示；ITmedia 2026-08-13；帖子展示 5,000,000+；功能发布后一天 10,000+ 人使用（创始人公开披露，经 ITmedia 报道）"
+      ],
+      "claimIds": [
+        "claim-rikyu-006",
+        "claim-rikyu-007",
+        "claim-rikyu-009"
+      ],
+      "scene": "hook-logo-result",
+      "visualIntent": "三步可见变化：第 0 帧先显示一个已完成 Logo 与“AI 画 Logo 的完整过程”；画面回到淡色网格，圆出现并锁定，直线穿过圆心、辅助线切分后 Logo 轮廓再次成形；右上角证据卡同时出现“ITmedia 2026-08-13”“帖子展示 5,000,000+”“功能发布后一天 10,000+ 人使用（创始人公开披露，经 ITmedia 报道）”，来源卡不遮挡几何变化。",
+      "targetSeconds": 3,
+      "index": 0,
+      "startFrame": 0,
+      "durationFrames": 107,
+      "startSeconds": 0,
+      "endSeconds": 3.558542,
+      "audioDurationSeconds": 3.378542,
+      "audio": "episodes/episode-006/audio/seg-001.mp3"
+    },
+    {
+      "id": "seg-002",
+      "section": "hook",
+      "narration": "这是 Rikyū：个人开发的 AI 设计服务，你说需求，它生成 Logo、网页、社交和印刷设计。",
+      "onScreenText": [
+        "Rikyū 官网，2026-08-25 访问"
+      ],
+      "claimIds": [
+        "claim-rikyu-001"
+      ],
+      "scene": "product-prompt-design",
+      "visualIntent": "两步可见变化：真实操作录屏中，官网输入框逐字打出“给咖啡店做一个 Logo”；右侧从空白状态生成一个具体 Logo 成品并放大，随后补出网页、社交、印刷设计缩略图。角标“Rikyū 官网，2026-08-25 访问”。",
+      "targetSeconds": 7,
+      "index": 1,
+      "startFrame": 107,
+      "durationFrames": 235,
+      "startSeconds": 3.558542,
+      "endSeconds": 11.401334,
+      "audioDurationSeconds": 6.942792,
+      "audio": "episodes/episode-006/audio/seg-002.mp3"
+    },
+    {
+      "id": "seg-003",
+      "section": "hook",
+      "narration": "官网说，不用会设计、也不用反复猜；可上线首日，只有 7 名用户。为什么后来一天内有一万人来试？",
+      "onScreenText": [
+        "官网主张：无需设计技能，不用反复猜测；2026 年 7 月上线首日：7 名用户（创始人回顾）"
+      ],
+      "claimIds": [
+        "claim-rikyu-002",
+        "claim-rikyu-005",
+        "claim-rikyu-009"
+      ],
+      "scene": "contrast-seven-users",
+      "visualIntent": "三步可见变化：文字卡“无需设计技能，不用反复猜测”先弹出；随后对比牌“2026 年 7 月上线首日：7 名用户”落下；对比牌旁小字“功能发布后一天 10,000+ 人使用（创始人公开披露）”作为前文数字的回标。",
+      "targetSeconds": 10,
+      "index": 2,
+      "startFrame": 342,
+      "durationFrames": 252,
+      "startSeconds": 11.401334,
+      "endSeconds": 19.795751,
+      "audioDurationSeconds": 7.494417,
+      "audio": "episodes/episode-006/audio/seg-003.mp3"
+    },
+    {
+      "id": "seg-004",
+      "section": "turning-point",
+      "narration": "8 月 10 日，开发者发布一个功能：把 Logo 生成过程拆成圆、直线和网格来画。",
+      "onScreenText": [
+        "X @kaiseisuzuk，2026-08-10；功能演示"
+      ],
+      "claimIds": [
+        "claim-rikyu-006"
+      ],
+      "scene": "geometric-process",
+      "visualIntent": "两步可见变化：发布帖卡片先出现，来源标“X @kaiseisuzuk，2026-08-10”；随后进入几何动画：网格铺满画布、圆出现并锁定、直线穿过圆心、辅助线切分、Logo 轮廓成形。全程角落标注“功能演示”。",
+      "targetSeconds": 12,
+      "index": 3,
+      "startFrame": 594,
+      "durationFrames": 203,
+      "startSeconds": 19.795751,
+      "endSeconds": 26.570417999999997,
+      "audioDurationSeconds": 5.874667,
+      "audio": "episodes/episode-006/audio/seg-004.mp3"
+    },
+    {
+      "id": "seg-005",
+      "section": "turning-point",
+      "narration": "8 月 12 日，一个数字被公开：发布后一天内，超过一万人使用 Rikyū。",
+      "onScreenText": [
+        "2026-08-12；发布后一天内，超过一万人使用 Rikyū（创始人公开披露，经 ITmedia 报道）"
+      ],
+      "claimIds": [
+        "claim-rikyu-009"
+      ],
+      "scene": "ten-thousand-disclosure",
+      "visualIntent": "两步可见变化：披露卡出现，日期“2026-08-12”与正文“发布后一天内，超过一万人使用 Rikyū”逐行打出；随后 10,000+ 数字放大弹出，来源小字“创始人公开披露，经 ITmedia 报道”。",
+      "targetSeconds": 7,
+      "index": 4,
+      "startFrame": 797,
+      "durationFrames": 182,
+      "startSeconds": 26.570417999999997,
+      "endSeconds": 32.648481,
+      "audioDurationSeconds": 5.178063,
+      "audio": "episodes/episode-006/audio/seg-005.mp3"
+    },
+    {
+      "id": "seg-006",
+      "section": "turning-point",
+      "narration": "ITmedia 记录：这条帖展示超五百万次，用户晒出自己生成的 Logo，说过程有趣。",
+      "onScreenText": [
+        "ITmedia 2026-08-13；帖子展示 5,000,000+；用户晒出 Logo 并评论过程有趣"
+      ],
+      "claimIds": [
+        "claim-rikyu-007",
+        "claim-rikyu-008"
+      ],
+      "scene": "media-user-shares",
+      "visualIntent": "两步可见变化：ITmedia 报道卡出现，含“2026-08-13”“帖子展示 5,000,000+ 次”；随即切换为用户分享帖拼图：用户晒出的 Logo 与评论“设计过程有趣、体验经过打磨”，小字“ITmedia 观察到用户分享”。",
+      "targetSeconds": 8,
+      "index": 5,
+      "startFrame": 979,
+      "durationFrames": 217,
+      "startSeconds": 32.648481,
+      "endSeconds": 39.887544,
+      "audioDurationSeconds": 6.339063,
+      "audio": "episodes/episode-006/audio/seg-006.mp3"
+    },
+    {
+      "id": "seg-007",
+      "section": "payoff",
+      "narration": "今天免费入口有 2,000 积分；商用和 SVG 导出，每月 5 美元起。它还能接 Claude、Codex，从外部直接发起设计。",
+      "onScreenText": [
+        "官网与条款，截至 2026-08-25；免费 2,000 积分；商用与 SVG 导出每月 5 美元起；MCP 连接 Claude",
+        "Codex"
+      ],
+      "claimIds": [
+        "claim-rikyu-003",
+        "claim-rikyu-010"
+      ],
+      "scene": "pricing-mcp",
+      "visualIntent": "两步可见变化：官网价格证据卡出现，列出“免费计划 2,000 积分”“Basic 每月 5 美元起，开放商用与 SVG 导出”；随后 MCP 连接示意图亮起：Claude、Codex 图标经连线指向 Rikyū，标注“可从外部 AI 发起设计操作”。",
+      "targetSeconds": 10,
+      "index": 6,
+      "startFrame": 1196,
+      "durationFrames": 291,
+      "startSeconds": 39.887544,
+      "endSeconds": 49.595043999999994,
+      "audioDurationSeconds": 8.8075,
+      "audio": "episodes/episode-006/audio/seg-007.mp3"
+    },
+    {
+      "id": "seg-008",
+      "section": "payoff",
+      "narration": "首日 7 人，到一天一万人，中间是这段看得见的过程；今天免费积分就能试，商用从 5 美元起。",
+      "onScreenText": [
+        "免费 2,000 积分起；商用与 SVG 导出每月 5 美元起"
+      ],
+      "claimIds": [
+        "claim-rikyu-005",
+        "claim-rikyu-009",
+        "claim-rikyu-006",
+        "claim-rikyu-010"
+      ],
+      "scene": "closing-process-price",
+      "visualIntent": "两步可见变化：几何 Logo 过程短循环再次播放（网格铺开、圆锁定、直线切分、轮廓成形）；画面底部叠加价格条“免费 2,000 积分起 / 商用与 SVG 导出每月 5 美元起”，不做新数字。",
+      "targetSeconds": 8,
+      "index": 7,
+      "startFrame": 1487,
+      "durationFrames": 240,
+      "startSeconds": 49.595043999999994,
+      "endSeconds": 57.58398199999999,
+      "audioDurationSeconds": 7.088938,
+      "audio": "episodes/episode-006/audio/seg-008.mp3"
+    }
+  ]
+}

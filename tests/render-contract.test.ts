@@ -27,6 +27,10 @@ describe("render contract", () => {
       composition: "MediaMixVertical",
     });
     expect(getRenderContract("episode-005").renderer).toBe("media-mix");
+    expect(getRenderContract("episode-006")).toMatchObject({
+      renderer: "media-mix",
+      composition: "MediaMixVertical",
+    });
     expect(getRenderContract("episode-m5e2e").renderer).toBe("media-mix");
     expect(generatedTimelinePath("episode-002")).toBe(
       "content/episode-002/production/timeline.json",

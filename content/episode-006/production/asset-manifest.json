@@ -1,0 +1,28 @@
+[
+  {
+    "id": "asset-rikyu-generated",
+    "type": "generated",
+    "path": "src/compositions/MediaMixEpisode.tsx",
+    "sourceUrl": "",
+    "owner": "Generated in this repository",
+    "licenseOrBasis": "Original code-native graphics created for this project.",
+    "capturedAt": "2026-08-26",
+    "usage": "MediaMix programmatic action scenes, evidence cards, pricing cards and caption overlay.",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": ["claim-rikyu-001","claim-rikyu-002","claim-rikyu-003","claim-rikyu-005","claim-rikyu-006","claim-rikyu-007","claim-rikyu-008","claim-rikyu-009","claim-rikyu-010"]
+  },
+  {
+    "id": "asset-rikyu-home-capture",
+    "type": "screenshot",
+    "path": "public/episodes/episode-006/captured/rikyu-home.png",
+    "sourceUrl": "https://rikyu.ai/",
+    "owner": "Rikyū official website",
+    "licenseOrBasis": "Captured for factual editorial review; not authorized into the strict media render gate without a separate rights decision.",
+    "capturedAt": "2026-08-25",
+    "usage": "Visual Director reference only; excluded from the render until the media rights gate has an explicit human decision.",
+    "approved": true,
+    "usedInRender": false,
+    "claimIds": ["claim-rikyu-001","claim-rikyu-002","claim-rikyu-010"]
+  }
+]

@@ -1,0 +1,138 @@
+{
+  "requestedProvider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "provider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "providerId": "minimax",
+  "fallbackUsed": false,
+  "fallbackReason": "",
+  "generatedAt": "2026-08-26T01:45:56.586Z",
+  "voice": "male-qn-qingse",
+  "speed": 1.4,
+  "pitch": 0,
+  "normalization": "loudnorm I=-16 TP=-1.5 LRA=7",
+  "credentialRequired": true,
+  "networkRequired": true,
+  "alignmentStrategy": "provider-timestamps",
+  "files": [
+    {
+      "segmentId": "seg-001",
+      "file": "episodes/episode-006/audio/seg-001.mp3",
+      "timestamps": [
+        {
+          "text": "一个 Logo 自己画出来,累计展示超五百万次。",
+          "startMs": 0,
+          "endMs": 3278.503401360544
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-002",
+      "file": "episodes/episode-006/audio/seg-002.mp3",
+      "timestamps": [
+        {
+          "text": "这是 Rikyū:个人开发的 AI 设计服务,你说需求,它生成 Logo、网页、社交和印刷设计。",
+          "startMs": 0,
+          "endMs": 6842.766439909297
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-003",
+      "file": "episodes/episode-006/audio/seg-003.mp3",
+      "timestamps": [
+        {
+          "text": "官网说,不用会设计、也不用反复猜;",
+          "startMs": 0,
+          "endMs": 2848.934240362812
+        },
+        {
+          "text": "可上线首日,只有 7 名用户。",
+          "startMs": 2949,
+          "endMs": 4973.625850340136
+        },
+        {
+          "text": "为什么后来一天内有一万人来试?",
+          "startMs": 5074,
+          "endMs": 7284.385487528345
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-004",
+      "file": "episodes/episode-006/audio/seg-004.mp3",
+      "timestamps": [
+        {
+          "text": "8 月 10 日,开发者发布一个功能:把 Logo 生成过程拆成圆、直线和网格来画。",
+          "startMs": 0,
+          "endMs": 5774.648526077097
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-005",
+      "file": "episodes/episode-006/audio/seg-005.mp3",
+      "timestamps": [
+        {
+          "text": "8 月 12 日,一个数字被公开:发布后一天内,超过一万人使用 Rikyū。",
+          "startMs": 0,
+          "endMs": 5078.049886621316
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-006",
+      "file": "episodes/episode-006/audio/seg-006.mp3",
+      "timestamps": [
+        {
+          "text": "ITmedia 记录:这条帖展示超五百万次,用户晒出自己生成的 Logo,说过程有趣。",
+          "startMs": 0,
+          "endMs": 6239.047619047619
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-007",
+      "file": "episodes/episode-006/audio/seg-007.mp3",
+      "timestamps": [
+        {
+          "text": "今天免费入口有 2,000 积分;",
+          "startMs": 0,
+          "endMs": 2001.40589569161
+        },
+        {
+          "text": "商用和 SVG 导出,每月 5 美元起。",
+          "startMs": 2101,
+          "endMs": 5007.984126984127
+        },
+        {
+          "text": "它还能接 Claude、Codex,从外部直接发起设计。",
+          "startMs": 5108,
+          "endMs": 8595.482993197278
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-008",
+      "file": "episodes/episode-006/audio/seg-008.mp3",
+      "timestamps": [
+        {
+          "text": "首日 7 人,到一天一万人,中间是这段看得见的过程;",
+          "startMs": 0,
+          "endMs": 3975.1020408163267
+        },
+        {
+          "text": "今天免费积分就能试,商用从 5 美元起。",
+          "startMs": 4075,
+          "endMs": 6923.9342403628125
+        }
+      ],
+      "timestampSource": "minimax:word"
+    }
+  ]
+}
