@@ -1,7 +1,7 @@
 {
   "schemaVersion": "director-workflow-v1",
   "episodeId": "episode-006",
-  "coreStoryQuestion": "Rikyū 抓住的“不用设计技能、说需求就出设计”的需求，怎样从首日 7 名用户变成一天超一万人使用，市场又给了它什么价？",
+  "coreStoryQuestion": "一个首日只有七名用户的个人 AI 设计服务，怎样通过一次公开的几何 Logo 演示，换来一天超过一万人使用的规模反馈？",
   "currentStatus": "delivery-approved",
   "revisionPolicy": {
     "maximumCreativeRounds": 3,
@@ -9,32 +9,32 @@
     "visualChangeRestartsAt": "retention-critic"
   },
   "stages": [
-    {"id":"research-analyst","owner":"research-analyst","status":"complete","artifacts":["content/episode-006/research/facts.json","content/episode-006/research/sources.json","content/episode-006/research/timeline.json"],"decision":"以官网、创始人公开披露与同期媒体报道建立需求、冷启动、传播规模和价格边界。"},
-    {"id":"story-director","owner":"story-director","status":"complete","artifacts":["content/episode-006/story/director-brief.md","content/episode-006/story/story-bible.md","content/episode-006/story/story-angle.md","content/episode-006/story/three-act-structure.md"],"decision":"围绕首日 7 人到一天超一万人使用的可核实转折组织单一故事问题。"},
-    {"id":"viral-director","owner":"viral-director","status":"complete","artifacts":["content/episode-006/story/hook-candidates.md","content/episode-006/story/viral-strategy.md"],"decision":"以 500 万展示与一天超一万人使用的结果开场。"},
-    {"id":"script-writer","owner":"script-writer","status":"complete","artifacts":["content/episode-006/story/script-draft.md"],"decision":"按产品动作、7 人冷启动、几何过程传播和订阅价格推进。"},
-    {"id":"oral-rewriter","owner":"oral-rewriter","status":"complete","artifacts":["content/episode-006/story/final-script.md"],"decision":"完成目标 63 秒的自然中文口播。"},
-    {"id":"oral-judge","owner":"oral-judge","status":"complete","artifacts":["content/episode-006/story/oral-review.md"],"decision":"口播合同与可说性检查通过。"},
-    {"id":"audience-critic","owner":"audience-critic","status":"complete","artifacts":["content/episode-006/story/critic-report.md"],"decision":"观众理解与叙事门通过，得分 86。"},
-    {"id":"fact-guardian","owner":"fact-guardian","status":"complete","artifacts":["content/episode-006/story/fact-check-report.md"],"decision":"事实、口径与 claim 绑定通过。"},
-    {"id":"visual-director","owner":"visual-director","status":"complete","artifacts":["content/episode-006/story/visual-plan.md"],"decision":"采用官网实拍、程序化几何过程和证据卡组成 MediaMix 画面。"},
-    {"id":"retention-critic","owner":"retention-critic","status":"complete","artifacts":["content/episode-006/story/retention-report.md"],"decision":"留存代理指标以 86 分通过生产门。"},
-    {"id":"delivery-critic","owner":"delivery-critic","status":"complete","artifacts":["content/episode-006/production/delivery-critic-report.md","output/episode-006/vertical_9x16.mp4","output/episode-006/subtitles_zh.srt"],"decision":"Codex 5.6 实际检查最终视频、音轨、字幕、首帧、有界短片与关键帧后批准交付。"}
+    {"id":"research-analyst","owner":"research-analyst","status":"complete","artifacts":["content/episode-006/research/facts.json","content/episode-006/research/sources.json","content/episode-006/research/timeline.json"],"decision":"用官网、开发者公开披露和同期媒体报道建立需求、冷启动、传播规模与价格边界。"},
+    {"id":"story-director","owner":"story-director","status":"complete","artifacts":["content/episode-006/story/director-brief.md","content/episode-006/story/story-bible.md","content/episode-006/story/story-angle.md","content/episode-006/story/three-act-structure.md"],"decision":"围绕首日七人到公开演示后一天超一万人使用的可核实转折组织单一故事问题。"},
+    {"id":"viral-director","owner":"viral-director","status":"complete","artifacts":["content/episode-006/story/hook-candidates.md","content/episode-006/story/viral-strategy.md"],"decision":"以官方几何网格与成品 Logo 的真实同框画面建立前三秒动作。"},
+    {"id":"script-writer","owner":"script-writer","status":"complete","artifacts":["content/episode-006/story/script-draft.md"],"decision":"按产品结果、使用入口、七人冷启动、公开演示、规模反馈和当前价格推进。"},
+    {"id":"oral-rewriter","owner":"oral-rewriter","status":"complete","artifacts":["content/episode-006/story/final-script.md"],"decision":"完成七段自然中文口播并保留来源口径。"},
+    {"id":"oral-judge","owner":"oral-judge","status":"complete","artifacts":["content/episode-006/story/oral-review.md"],"decision":"口播合同、自然度与可说性检查通过。"},
+    {"id":"audience-critic","owner":"audience-critic","status":"complete","artifacts":["content/episode-006/story/critic-report.md"],"decision":"观众理解与产品故事门以 85 分通过。"},
+    {"id":"fact-guardian","owner":"fact-guardian","status":"complete","artifacts":["content/episode-006/story/fact-check-report.md"],"decision":"七段旁白与十二个事实单元全部通过 Claim 绑定。"},
+    {"id":"visual-director","owner":"visual-director","status":"complete","artifacts":["content/episode-006/story/visual-plan.md"],"decision":"七段全部使用官网或开发者 X 帖的真实产品图，并叠加最少必要的证据卡。"},
+    {"id":"retention-critic","owner":"retention-critic","status":"complete","artifacts":["content/episode-006/story/retention-report.md"],"decision":"留存代理指标以 88 分通过生产门。"},
+    {"id":"delivery-critic","owner":"delivery-critic","status":"complete","artifacts":["content/episode-006/production/delivery-critic-report.md","output/episode-006/vertical_9x16.mp4","output/episode-006/subtitles_zh.srt"],"decision":"Codex 5.6 实际检查最终 MP4、音轨、字幕、有界短片和关键帧后批准交付。"}
   ],
   "decisions": [
-    {"id":"decision-core-story-question","owner":"story-director","decision":"解释 Rikyū 如何从首日 7 人走到功能发布后一天超一万人使用，并以公开价格收尾。","rationale":"这是研究材料中同时具备产品动作、冷启动反差和市场价格的单一可复述问题。","artifact":"content/episode-006/story/director-brief.md","claimIds":["claim-rikyu-005","claim-rikyu-009","claim-rikyu-010"]},
-    {"id":"decision-attention-strategy","owner":"viral-director","decision":"首屏先给 500 万展示与一天超一万人使用的反常结果。","rationale":"陌生观众无需背景即可理解规模反差。","artifact":"content/episode-006/story/viral-strategy.md","claimIds":["claim-rikyu-007","claim-rikyu-009"]},
-    {"id":"decision-information-draft","owner":"script-writer","decision":"从产品结果推进到需求、7 人起点、可见设计过程、用户分享与价格。","rationale":"避免按发布日期或功能清单平铺。","artifact":"content/episode-006/story/script-draft.md","claimIds":[]},
-    {"id":"decision-spoken-delivery","owner":"oral-rewriter","decision":"使用自然中文口播并保留来源口径。","rationale":"让观众在前二十秒建立产品与故事问题。","artifact":"content/episode-006/story/final-script.md","claimIds":[]},
-    {"id":"decision-audience-clearance","owner":"audience-critic","decision":"当前脚本通过观众门。","rationale":"核心问题、信息推进和正面结尾均达到门槛。","artifact":"content/episode-006/story/critic-report.md","claimIds":[]},
-    {"id":"decision-factual-clearance","owner":"fact-guardian","decision":"当前脚本通过事实门。","rationale":"规模数字保留来源口径，不推导转化、收入或估值。","artifact":"content/episode-006/story/fact-check-report.md","claimIds":[]},
-    {"id":"decision-visual-language","owner":"visual-director","decision":"使用官网实拍、程序化过程和来源证据卡。","rationale":"所有关键旁白都有可见动作或同期来源支持。","artifact":"content/episode-006/story/visual-plan.md","claimIds":["claim-rikyu-001","claim-rikyu-006","claim-rikyu-007","claim-rikyu-009","claim-rikyu-010"]},
-    {"id":"decision-production-readiness","owner":"retention-critic","decision":"以 86 分批准进入生产。","rationale":"四个时间窗均通过且没有阻断风险。","artifact":"content/episode-006/story/retention-report.md","claimIds":[]},
-    {"id":"decision-final-delivery","owner":"delivery-critic","decision":"批准当前 1080×1920 竖屏 MP4 通过交付门。","rationale":"最终成片 57.566667 秒；视频、音频、字幕、首帧、12 秒有界短片和跨段关键帧均完成实际检查。","artifact":"content/episode-006/production/delivery-critic-report.md","claimIds":[]}
+    {"id":"decision-core-story-question","owner":"story-director","decision":"解释 Rikyū 怎样从首日七人走到一次公开演示后的单日规模反馈。","rationale":"这是同时具有产品动作、冷启动反差与可核实结果的单一可复述问题。","artifact":"content/episode-006/story/director-brief.md","claimIds":["claim-rikyu-005","claim-rikyu-006","claim-rikyu-009"]},
+    {"id":"decision-attention-strategy","owner":"viral-director","decision":"首屏直接展示官方几何网格与成品 Logo。","rationale":"陌生观众无需先听产品历史即可看懂从过程到结果的视觉反差。","artifact":"content/episode-006/story/viral-strategy.md","claimIds":["claim-rikyu-006"]},
+    {"id":"decision-information-draft","owner":"script-writer","decision":"从真实设计结果推进到入口、公开动作、规模和价格。","rationale":"避免按发布日期和功能清单平铺。","artifact":"content/episode-006/story/script-draft.md","claimIds":[]},
+    {"id":"decision-spoken-delivery","owner":"oral-rewriter","decision":"使用七段自然中文口播并保留来源边界。","rationale":"让观众在前二十秒建立产品心智和继续观看的问题。","artifact":"content/episode-006/story/final-script.md","claimIds":[]},
+    {"id":"decision-audience-clearance","owner":"audience-critic","decision":"当前脚本以 85 分通过观众门。","rationale":"核心问题、产品心智、信息推进和正面结尾达到门槛。","artifact":"content/episode-006/story/critic-report.md","claimIds":[]},
+    {"id":"decision-factual-clearance","owner":"fact-guardian","decision":"当前脚本通过事实门。","rationale":"规模数字保持来源口径，不推导转化、留存、收入或估值。","artifact":"content/episode-006/story/fact-check-report.md","claimIds":[]},
+    {"id":"decision-visual-language","owner":"visual-director","decision":"所有七段都以对应官网或官方 X 图片为主体。","rationale":"真实产品结果和公开演示直接支撑旁白，程序化元素只承担标注和数据层。","artifact":"content/episode-006/story/visual-plan.md","claimIds":["claim-rikyu-001","claim-rikyu-002","claim-rikyu-006","claim-rikyu-007","claim-rikyu-009","claim-rikyu-010"]},
+    {"id":"decision-production-readiness","owner":"retention-critic","decision":"以 88 分批准进入生产。","rationale":"四个时间窗均通过且没有阻断风险。","artifact":"content/episode-006/story/retention-report.md","claimIds":[]},
+    {"id":"decision-final-delivery","owner":"delivery-critic","decision":"批准当前 1080×1920 竖屏 MP4 通过交付门。","rationale":"最终读回 47.666667 秒，七段真实图片均 hash-bound 入片，视频、音轨、字幕、有界短片和关键帧完成实际检查。","artifact":"content/episode-006/production/delivery-critic-report.md","claimIds":[]}
   ],
   "reviewCycles": [
-    {"id":"review-audience-round-01","critic":"audience-critic","round":1,"reportPath":"content/episode-006/story/critic-report.md","reportSha256":"e3782311cd9d14f791313777f78f9116e6ec4e925abcca3a2241e743b98307f1","verdict":"PASS","routes":[]},
-    {"id":"review-retention-round-01","critic":"retention-critic","round":1,"reportPath":"content/episode-006/story/retention-report.md","reportSha256":"7cce52e20d4458d2304bae840d523be46dcaf1041db57d81c8ccae44d3f2fb64","verdict":"PASS","routes":[]},
-    {"id":"review-delivery-round-01","critic":"delivery-critic","round":1,"reportPath":"content/episode-006/production/delivery-critic-report.md","reportSha256":"1b410f47da3f88b8d417bfef7375bd8fa2611d86a4d098f553ca5a02e1b83081","verdict":"PASS","routes":[]}
+    {"id":"review-audience-round-01","critic":"audience-critic","round":1,"reportPath":"content/episode-006/story/critic-report.md","reportSha256":"8740f3b0cf09954be999285dd95e4527cc05c1804503a6820819d0ad128d55a0","verdict":"PASS","routes":[]},
+    {"id":"review-retention-round-01","critic":"retention-critic","round":1,"reportPath":"content/episode-006/story/retention-report.md","reportSha256":"463f55a4a31d22d9109daf6af9f80f3e9d5d5d7d5b74198f54245eda355f69fa","verdict":"PASS","routes":[]},
+    {"id":"review-delivery-round-01","critic":"delivery-critic","round":1,"reportPath":"content/episode-006/production/delivery-critic-report.md","reportSha256":"f3a651e187375120871d3839d1e628e8aab0a21315fa2f331738ea564efde541","verdict":"PASS","routes":[]}
   ]
 }

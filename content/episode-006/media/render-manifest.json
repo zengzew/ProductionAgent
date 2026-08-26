@@ -1,43 +1,167 @@
 {
   "artifactRef": {
     "artifactId": "episode-006:media:render-manifest",
-    "createdAt": "2026-08-26T01:47:02.003Z",
+    "createdAt": "2026-08-26T07:57:17.533Z",
     "episodeId": "episode-006",
     "mediaType": "application/json",
     "path": "content/episode-006/media/render-manifest.json",
     "producer": "media-render-manifest-v1",
     "revision": 1,
     "schemaVersion": "media-render-manifest-v1",
-    "sha256": "815a218345126a27c63fd1b352384d1c16b0276b83fb41be28b9c7180839fb6a",
-    "sizeBytes": 4216
+    "sha256": "83593299c94f1216deb1d55cf134372a940047377fcb1a92e477956872805f67",
+    "sizeBytes": 8830
   },
-  "assetManifestSha256": "24996950363bae6bac83ff110fcfc8169ffb39bd887836923182b0d9010fb05a",
+  "assetManifestSha256": "b509ccf569986406af7e3b28504817cff393e3d3140d1ef61ca1ca121c32996d",
   "assets": [],
   "clips": [],
-  "createdAt": "2026-08-26T01:47:02.003Z",
+  "createdAt": "2026-08-26T07:57:17.533Z",
   "episodeId": "episode-006",
   "officialAssets": [
     {
       "approved": true,
       "capturedAt": "2026-08-26",
       "claimIds": [
-        "claim-rikyu-001",
-        "claim-rikyu-002",
-        "claim-rikyu-003",
         "claim-rikyu-005",
-        "claim-rikyu-006",
         "claim-rikyu-007",
-        "claim-rikyu-008",
         "claim-rikyu-009",
         "claim-rikyu-010"
       ],
       "id": "asset-rikyu-generated",
-      "licenseOrBasis": "Original code-native graphics created for this project.",
+      "licenseOrBasis": "Original code-native overlays created for this project.",
       "owner": "Generated in this repository",
       "path": "src/compositions/MediaMixEpisode.tsx",
       "sourceUrl": "",
       "type": "generated",
-      "usage": "MediaMix programmatic action scenes, evidence cards, pricing cards and caption overlay.",
+      "usage": "Text labels, evidence numbers and caption overlay only; never substitutes for product imagery.",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-08-26",
+      "claimIds": [
+        "claim-rikyu-006"
+      ],
+      "id": "asset-rikyu-x-gorilla-grid",
+      "licenseOrBasis": "Official public product demonstration image admitted for local factual editorial production; publication remains separately gated.",
+      "owner": "Kaisei Suzuki official X post",
+      "path": "public/episodes/episode-006/real/official-x-gorilla-grid.webp",
+      "segmentIds": [
+        "seg-001"
+      ],
+      "sourceUrl": "https://x.com/kaiseisuzuk/status/2086794677693690213",
+      "type": "image",
+      "usage": "seg-001 first-frame geometric construction grid with visible final gorilla logo.",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-08-26",
+      "claimIds": [
+        "claim-rikyu-001",
+        "claim-rikyu-002"
+      ],
+      "id": "asset-rikyu-waypause-identity",
+      "licenseOrBasis": "Official public product result admitted for local factual editorial production; publication remains separately gated.",
+      "owner": "Rikyū official website",
+      "path": "public/episodes/episode-006/real/official-waypause-visual-identity.webp",
+      "segmentIds": [
+        "seg-002"
+      ],
+      "sourceUrl": "https://rikyu.ai/",
+      "type": "image",
+      "usage": "seg-002 real Waypause logo and visual identity outcome.",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-08-26",
+      "claimIds": [
+        "claim-rikyu-003"
+      ],
+      "id": "asset-rikyu-waypause-landing",
+      "licenseOrBasis": "Official public product result admitted for local factual editorial production; publication remains separately gated.",
+      "owner": "Rikyū official website",
+      "path": "public/episodes/episode-006/real/official-waypause-landing-page.webp",
+      "segmentIds": [
+        "seg-003"
+      ],
+      "sourceUrl": "https://rikyu.ai/",
+      "type": "image",
+      "usage": "seg-003 real landing-page result behind the plain-language external-AI entry overlay.",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-08-26",
+      "claimIds": [
+        "claim-rikyu-005",
+        "claim-rikyu-006"
+      ],
+      "id": "asset-rikyu-x-lion-grid",
+      "licenseOrBasis": "Official public product demonstration image admitted for local factual editorial production; publication remains separately gated.",
+      "owner": "Kaisei Suzuki official X post",
+      "path": "public/episodes/episode-006/real/official-x-lion-grid.webp",
+      "segmentIds": [
+        "seg-004"
+      ],
+      "sourceUrl": "https://x.com/kaiseisuzuk/status/2086794677693690213",
+      "type": "image",
+      "usage": "seg-004 second authentic geometric construction example for the developer distribution action.",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-08-26",
+      "claimIds": [
+        "claim-rikyu-009"
+      ],
+      "id": "asset-rikyu-x-gorilla-final",
+      "licenseOrBasis": "Official public product result admitted for local factual editorial production; publication remains separately gated.",
+      "owner": "Kaisei Suzuki official X post",
+      "path": "public/episodes/episode-006/real/official-x-gorilla-final.webp",
+      "segmentIds": [
+        "seg-005"
+      ],
+      "sourceUrl": "https://x.com/kaiseisuzuk/status/2086794677693690213",
+      "type": "image",
+      "usage": "seg-005 authentic finished logo under the source-bound 10,000+ overlay.",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-08-26",
+      "claimIds": [
+        "claim-rikyu-007",
+        "claim-rikyu-008"
+      ],
+      "id": "asset-rikyu-x-lion-final",
+      "licenseOrBasis": "Official public product result admitted for local factual editorial production; publication remains separately gated.",
+      "owner": "Kaisei Suzuki official X post",
+      "path": "public/episodes/episode-006/real/official-x-lion-final.webp",
+      "segmentIds": [
+        "seg-006"
+      ],
+      "sourceUrl": "https://x.com/kaiseisuzuk/status/2086794677693690213",
+      "type": "image",
+      "usage": "seg-006 authentic shared result under the ITmedia reach overlay.",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-08-26",
+      "claimIds": [
+        "claim-rikyu-010"
+      ],
+      "id": "asset-rikyu-waypause-poster",
+      "licenseOrBasis": "Official public product result admitted for local factual editorial production; publication remains separately gated.",
+      "owner": "Rikyū official website",
+      "path": "public/episodes/episode-006/real/official-waypause-city-poster.webp",
+      "segmentIds": [
+        "seg-007"
+      ],
+      "sourceUrl": "https://rikyu.ai/",
+      "type": "image",
+      "usage": "seg-007 polished official poster result behind the current free and paid plan overlay.",
       "usedInRender": true
     },
     {
@@ -49,91 +173,82 @@
         "claim-rikyu-010"
       ],
       "id": "asset-rikyu-home-capture",
-      "licenseOrBasis": "Captured for factual editorial review; not authorized into the strict media render gate without a separate rights decision.",
+      "licenseOrBasis": "Captured for factual editorial review; excluded because the narrower official result assets are more legible in 9:16.",
       "owner": "Rikyū official website",
       "path": "public/episodes/episode-006/captured/rikyu-home.png",
       "sourceUrl": "https://rikyu.ai/",
       "type": "screenshot",
-      "usage": "Visual Director reference only; excluded from the render until the media rights gate has an explicit human decision.",
+      "usage": "Visual Director reference only.",
       "usedInRender": false
     }
   ],
-  "renderPlanSha256": "abffcd6442c313f0f615c21addf97a901307ffc052ee2ef7dbb85710ee410b3e",
+  "renderPlanSha256": "6e6fda6309059ddbe0f6477934fcea9256777e6297312414d4749859dccf4920",
   "schemaVersion": "media-render-manifest-v1",
   "sourceManifestSha256": null,
   "sources": [],
-  "timelineSha256": "7520ff0d1650925180bc8ff7c0118076a9eceb2bbbde255c55d0a82ebe8a7bc9",
+  "timelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
   "usage": [
     {
       "clipRef": null,
-      "fallbackReason": "no visual slot artifact (media selection not run)",
+      "fallbackReason": "approved editorial still selected for seg-001",
       "fallbackType": null,
-      "officialAssetId": null,
+      "officialAssetId": "asset-rikyu-x-gorilla-grid",
       "segmentId": "seg-001",
-      "selectedType": "programmatic-visual",
+      "selectedType": "official-screenshot",
       "verificationSha256": null
     },
     {
       "clipRef": null,
-      "fallbackReason": "no visual slot artifact (media selection not run)",
+      "fallbackReason": "approved editorial still selected for seg-002",
       "fallbackType": null,
-      "officialAssetId": null,
+      "officialAssetId": "asset-rikyu-waypause-identity",
       "segmentId": "seg-002",
-      "selectedType": "programmatic-visual",
+      "selectedType": "official-screenshot",
       "verificationSha256": null
     },
     {
       "clipRef": null,
-      "fallbackReason": "no visual slot artifact (media selection not run)",
+      "fallbackReason": "approved editorial still selected for seg-003",
       "fallbackType": null,
-      "officialAssetId": null,
+      "officialAssetId": "asset-rikyu-waypause-landing",
       "segmentId": "seg-003",
-      "selectedType": "programmatic-visual",
+      "selectedType": "official-screenshot",
       "verificationSha256": null
     },
     {
       "clipRef": null,
-      "fallbackReason": "no visual slot artifact (media selection not run)",
+      "fallbackReason": "approved editorial still selected for seg-004",
       "fallbackType": null,
-      "officialAssetId": null,
+      "officialAssetId": "asset-rikyu-x-lion-grid",
       "segmentId": "seg-004",
-      "selectedType": "programmatic-visual",
+      "selectedType": "official-screenshot",
       "verificationSha256": null
     },
     {
       "clipRef": null,
-      "fallbackReason": "no visual slot artifact (media selection not run)",
+      "fallbackReason": "approved editorial still selected for seg-005",
       "fallbackType": null,
-      "officialAssetId": null,
+      "officialAssetId": "asset-rikyu-x-gorilla-final",
       "segmentId": "seg-005",
-      "selectedType": "programmatic-visual",
+      "selectedType": "official-screenshot",
       "verificationSha256": null
     },
     {
       "clipRef": null,
-      "fallbackReason": "no visual slot artifact (media selection not run)",
+      "fallbackReason": "approved editorial still selected for seg-006",
       "fallbackType": null,
-      "officialAssetId": null,
+      "officialAssetId": "asset-rikyu-x-lion-final",
       "segmentId": "seg-006",
-      "selectedType": "programmatic-visual",
+      "selectedType": "official-screenshot",
       "verificationSha256": null
     },
     {
       "clipRef": null,
-      "fallbackReason": "no visual slot artifact (media selection not run)",
+      "fallbackReason": "approved editorial still selected for seg-007",
       "fallbackType": null,
-      "officialAssetId": null,
+      "officialAssetId": "asset-rikyu-waypause-poster",
       "segmentId": "seg-007",
-      "selectedType": "programmatic-visual",
-      "verificationSha256": null
-    },
-    {
-      "clipRef": null,
-      "fallbackReason": "no visual slot artifact (media selection not run)",
-      "fallbackType": null,
-      "officialAssetId": null,
-      "segmentId": "seg-008",
-      "selectedType": "programmatic-visual",
+      "selectedType": "official-screenshot",
       "verificationSha256": null
     }
   ]

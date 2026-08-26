@@ -7,7 +7,7 @@
     "publishedAt": "",
     "accessedAt": "2026-08-25",
     "sourceType": "official",
-    "notes": "官网产品页；支持从自然语言需求生成 Logo、网页、社交与印刷设计，MCP 连接 Claude/Codex，三百万以上素材及当前价格。页面宣传语按公司口径处理。"
+    "notes": "官网产品页；支持从自然语言需求生成 Logo、网页、社交与印刷设计，MCP 连接 Claude/Codex，三百万以上素材及当前价格。官网同时公开 Waypause、Elias、Lowbell 等项目的 Logo、海报、社交图与落地页成品，可作为真实产品结果画面；页面宣传语按公司口径处理。"
   },
   {
     "id": "src-rikyu-terms",
@@ -37,7 +37,7 @@
     "publishedAt": "2026-08-10",
     "accessedAt": "2026-08-25",
     "sourceType": "founder",
-    "notes": "开发者发布几何 Logo 功能的原始帖子；原帖在无登录抓取中不稳定，内容与日期由 ITmedia 和公开索引交叉核对。可作为后续素材候选，使用前需做权利与画面审核。"
+    "notes": "已直接检查开发者原帖、发布者、日期与四张原始配图：大猩猩和狮子的几何构成网格各配一张成品 Logo。内容与日期也由 ITmedia 交叉核对。四张图可证明公开展示的几何设计过程与结果，不证明模型内部先按几何规则构造。"
   },
   {
     "id": "src-rikyu-itmedia",

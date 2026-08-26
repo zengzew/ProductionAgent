@@ -1,15 +1,15 @@
 {
   "artifactRef": {
     "artifactId": "episode-006:media-shot:seg-003",
-    "createdAt": "2026-08-26T01:47:01.930Z",
+    "createdAt": "2026-08-26T07:57:17.425Z",
     "episodeId": "episode-006",
     "mediaType": "application/json",
     "path": "content/episode-006/media/shots/seg-003.json",
     "producer": "media-render-v1",
     "revision": 1,
     "schemaVersion": "media-shot-v1",
-    "sha256": "df14abb3e69ce137f9815873026ef8f9f341084462bc7a325c165d8fdf8cee30",
-    "sizeBytes": 2302
+    "sha256": "501e640cce3ce745e0df336338152279b042c37f5ca9419c65aea671e8def79a",
+    "sizeBytes": 2593
   },
   "audio": {
     "ducking": {
@@ -34,20 +34,22 @@
       "id": "ffmpeg",
       "version": "ffmpeg-render-proxy-v1"
     },
-    "timelineSha256": "7520ff0d1650925180bc8ff7c0118076a9eceb2bbbde255c55d0a82ebe8a7bc9",
+    "timelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
     "version": "media-render-config-v1"
   },
-  "createdAt": "2026-08-26T01:47:01.930Z",
+  "createdAt": "2026-08-26T07:57:17.425Z",
   "crossfadeMs": 0,
-  "durationFrames": 252,
-  "endSeconds": 19.795751,
+  "durationFrames": 250,
+  "endSeconds": 22.791709,
   "episodeId": "episode-006",
   "fade": {
     "inMs": 200,
     "outMs": 200
   },
-  "fallbackImagePath": null,
-  "fallbackReason": "no visual slot artifact (media selection not run)",
+  "fallbackImageAssetId": "asset-rikyu-waypause-landing",
+  "fallbackImagePath": "episodes/episode-006/media/official-waypause-landing-page.webp",
+  "fallbackImageSha256": "55ae2a612d5d4d7e785d36a8e270bcbb778e09ae5ca047f083da109090b108e5",
+  "fallbackReason": "approved editorial still selected for seg-003",
   "fallbackType": null,
   "gate": {
     "clipVerified": false,
@@ -59,14 +61,17 @@
   },
   "lineage": null,
   "overlays": {
-    "badge": null,
+    "badge": {
+      "text": "官方素材",
+      "tone": "official"
+    },
     "captionsEnabled": true,
-    "sourceLabel": null
+    "sourceLabel": "Rikyū official website"
   },
   "reasons": [
-    "scene seg-003 at frame 342 (252 frames, 30 fps)",
-    "fallback none: no visual slot artifact (media selection not run)",
-    "visualType programmatic-visual (fixed stage order official screenshot → data card → programmatic)"
+    "scene seg-003 at frame 434 (250 frames, 30 fps)",
+    "fallback none: approved editorial still selected for seg-003",
+    "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
   ],
   "renderProxyMediaType": null,
   "renderProxyRef": null,
@@ -75,8 +80,8 @@
   "segmentId": "seg-003",
   "selectedMediaClipRef": null,
   "shotId": "episode-006:media-shot:seg-003",
-  "startFrame": 342,
-  "startSeconds": 11.401334,
+  "startFrame": 434,
+  "startSeconds": 14.465980000000002,
   "staticFilePath": null,
   "transform": {
     "freezeFrameMs": null,
@@ -111,5 +116,5 @@
   },
   "trim": null,
   "verificationRef": null,
-  "visualType": "programmatic-visual"
+  "visualType": "official-screenshot"
 }

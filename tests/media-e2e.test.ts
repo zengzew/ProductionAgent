@@ -5,6 +5,7 @@ import {afterEach, describe, expect, it} from "vitest";
 import {FineGrainedCacheStore} from "../src/lib/platform/cache";
 import {productionContract} from "../src/lib/episode/production-contract";
 import {
+  assertDeclaredEditorialStillsRendered,
   assertMediaDeliveryGate,
   assertOutputInspectionMeetsDeliveryContract,
   assertVerticalInspectionMeetsDeliveryContract,
@@ -52,6 +53,49 @@ const expectGateError = (fn: () => void, pattern: RegExp): void => {
 };
 
 describe("WP-M5.09 delivery gate + real-media E2E", () => {
+  it("fails closed when an approved editorial still is declared but absent from its shot", () => {
+    const repoRoot = temporaryRepo();
+    const episodeId = "episode-false-green";
+    const manifestDirectory = path.join(repoRoot, "content", episodeId, "production");
+    fs.mkdirSync(manifestDirectory, {recursive: true});
+    fs.writeFileSync(
+      path.join(manifestDirectory, "asset-manifest.json"),
+      `${JSON.stringify(
+        [
+          {
+            id: "asset-official-still",
+            type: "image",
+            sourceUrl: "https://example.com/official.webp",
+            rightsBasis: "editorial test fixture",
+            approved: true,
+            claimIds: [],
+            usedInRender: true,
+            segmentIds: ["seg-001"],
+          },
+        ],
+        null,
+        2,
+      )}\n`,
+    );
+
+    expect(() =>
+      assertDeclaredEditorialStillsRendered({
+        repoRoot,
+        episodeId,
+        plan: {
+          shots: [
+            {
+              segmentId: "seg-001",
+              visualType: "programmatic-visual",
+            },
+          ],
+        } as never,
+      }),
+    ).toThrow(
+      /MEDIA_DELIVERY_DECLARED_STILL_NOT_RENDERED:asset-official-still:seg-001/u,
+    );
+  });
+
   itSlow("real-media E2E produces a 9:16 40–80s readout and Delivery PASS", async () => {
     const repoRoot = temporaryRepo();
     const ready = await setupReadyMediaEpisode(repoRoot);

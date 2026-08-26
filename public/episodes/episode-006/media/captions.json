@@ -3,261 +3,216 @@
     "index": 1,
     "sceneId": "seg-001",
     "startSeconds": 0,
-    "endSeconds": 1.8031768707482996,
+    "endSeconds": 2.4890249433106577,
     "startFrame": 0,
-    "endFrame": 54,
-    "text": "一个 Logo 自己画出来"
+    "endFrame": 75,
+    "text": "几何网格旁出现了一张成品 Logo"
   },
   {
     "index": 2,
-    "sceneId": "seg-001",
-    "startSeconds": 1.8031768707482996,
-    "endSeconds": 3.278503401360544,
-    "startFrame": 54,
-    "endFrame": 98,
-    "text": "累计展示超五百万次"
+    "sceneId": "seg-002",
+    "startSeconds": 2.7690420000000002,
+    "endSeconds": 4.61080183436853,
+    "startFrame": 83,
+    "endFrame": 138,
+    "text": "Rikyū 是个人提供的"
   },
   {
     "index": 3,
     "sceneId": "seg-002",
-    "startSeconds": 3.558542,
-    "endSeconds": 4.819051607351713,
-    "startFrame": 107,
-    "endFrame": 145,
-    "text": "这是 Rikyū"
+    "startSeconds": 4.61080183436853,
+    "endSeconds": 5.6153981076604556,
+    "startFrame": 138,
+    "endFrame": 168,
+    "text": "AI 设计服务"
   },
   {
     "index": 4,
     "sceneId": "seg-002",
-    "startSeconds": 4.819051607351713,
-    "endSeconds": 6.799852418904404,
-    "startFrame": 145,
-    "endFrame": 204,
-    "text": "个人开发的 AI 设计服务"
+    "startSeconds": 5.6153981076604556,
+    "endSeconds": 7.624590654244306,
+    "startFrame": 168,
+    "endFrame": 229,
+    "text": "想自己做品牌的人描述需求"
   },
   {
     "index": 5,
     "sceneId": "seg-002",
-    "startSeconds": 6.799852418904404,
-    "endSeconds": 9.140798832557586,
-    "startFrame": 204,
-    "endFrame": 274,
-    "text": "你说需求它生成 Logo、网页"
+    "startSeconds": 7.624590654244306,
+    "endSeconds": 9.298917776397516,
+    "startFrame": 229,
+    "endFrame": 279,
+    "text": "就能拿到 Logo、网页"
   },
   {
     "index": 6,
     "sceneId": "seg-002",
-    "startSeconds": 9.140798832557586,
-    "endSeconds": 10.401308439909297,
-    "startFrame": 274,
-    "endFrame": 312,
-    "text": "社交和印刷设计"
+    "startSeconds": 9.298917776397516,
+    "endSeconds": 10.470946761904761,
+    "startFrame": 279,
+    "endFrame": 314,
+    "text": "社交和印刷成品"
   },
   {
     "index": 7,
-    "sceneId": "seg-003",
-    "startSeconds": 11.401334,
-    "endSeconds": 13.029296423064464,
-    "startFrame": 342,
-    "endFrame": 391,
-    "text": "官网说不用会设计"
+    "sceneId": "seg-002",
+    "startSeconds": 10.470946761904761,
+    "endSeconds": 12.199004423064464,
+    "startFrame": 314,
+    "endFrame": 366,
+    "text": "官网说，不用会设计"
   },
   {
     "index": 8,
-    "sceneId": "seg-003",
-    "startSeconds": 13.029296423064464,
-    "endSeconds": 15.270618477427334,
-    "startFrame": 391,
-    "endFrame": 458,
-    "text": "也不用反复猜可上线首日"
+    "sceneId": "seg-002",
+    "startSeconds": 12.199004423064464,
+    "endSeconds": 13.419976240362812,
+    "startFrame": 366,
+    "endFrame": 403,
+    "text": "也不用反复猜"
   },
   {
     "index": 9,
     "sceneId": "seg-003",
-    "startSeconds": 15.270618477427334,
-    "endSeconds": 16.374959850340137,
-    "startFrame": 458,
-    "endFrame": 491,
-    "text": "只有 7 名用户"
+    "startSeconds": 14.465980000000002,
+    "endSeconds": 15.58502761904762,
+    "startFrame": 434,
+    "endFrame": 468,
+    "text": "直接说需求就行"
   },
   {
     "index": 10,
     "sceneId": "seg-003",
-    "startSeconds": 16.374959850340137,
-    "endSeconds": 17.73841142144477,
-    "startFrame": 491,
-    "endFrame": 532,
-    "text": "为什么后来一天内"
+    "startSeconds": 15.58502761904762,
+    "endSeconds": 17.475535555555556,
+    "startFrame": 468,
+    "endFrame": 524,
+    "text": "也能把 Claude、Codex"
   },
   {
     "index": 11,
     "sceneId": "seg-003",
-    "startSeconds": 17.73841142144477,
-    "endSeconds": 18.685719487528345,
-    "startFrame": 532,
-    "endFrame": 561,
-    "text": "有一万人来试"
+    "startSeconds": 17.475535555555556,
+    "endSeconds": 18.75450380952381,
+    "startFrame": 524,
+    "endFrame": 563,
+    "text": "接进来从那边发起设计"
   },
   {
     "index": 12,
-    "sceneId": "seg-004",
-    "startSeconds": 19.795751,
-    "endSeconds": 22.24560188985089,
-    "startFrame": 594,
-    "endFrame": 667,
-    "text": "8 月 10 日开发者发布一个功能"
+    "sceneId": "seg-003",
+    "startSeconds": 18.75450380952381,
+    "endSeconds": 19.896032631578947,
+    "startFrame": 563,
+    "endFrame": 597,
+    "text": "这样一个小工具"
   },
   {
     "index": 13,
-    "sceneId": "seg-004",
-    "startSeconds": 22.24560188985089,
-    "endSeconds": 23.82050603332646,
-    "startFrame": 667,
-    "endFrame": 715,
-    "text": "把 Logo 生成过程"
+    "sceneId": "seg-003",
+    "startSeconds": 19.896032631578947,
+    "endSeconds": 21.68069428571429,
+    "startFrame": 597,
+    "endFrame": 650,
+    "text": "怎么让陌生用户愿意试一次"
   },
   {
     "index": 14,
     "sceneId": "seg-004",
-    "startSeconds": 23.82050603332646,
-    "endSeconds": 25.570399526077097,
-    "startFrame": 715,
-    "endFrame": 767,
-    "text": "拆成圆、直线和网格来画"
+    "startSeconds": 22.791709,
+    "endSeconds": 24.10343635760971,
+    "startFrame": 684,
+    "endFrame": 723,
+    "text": "开发者自己回顾"
   },
   {
     "index": 15,
-    "sceneId": "seg-005",
-    "startSeconds": 26.570417999999997,
-    "endSeconds": 28.601637954648524,
-    "startFrame": 797,
-    "endFrame": 858,
-    "text": "8 月 12 日一个数字被公开"
+    "sceneId": "seg-004",
+    "startSeconds": 24.10343635760971,
+    "endSeconds": 26.414959566893426,
+    "startFrame": 723,
+    "endFrame": 792,
+    "text": "上线首日只有 7 个用户随后"
   },
   {
     "index": 16,
-    "sceneId": "seg-005",
-    "startSeconds": 28.601637954648524,
-    "endSeconds": 29.617247931972784,
-    "startFrame": 858,
-    "endFrame": 889,
-    "text": "发布后一天内"
+    "sceneId": "seg-004",
+    "startSeconds": 26.414959566893426,
+    "endSeconds": 28.775713535147393,
+    "startFrame": 792,
+    "endFrame": 863,
+    "text": "他把几何 Logo 的演示发到 X"
   },
   {
     "index": 17,
     "sceneId": "seg-005",
-    "startSeconds": 29.617247931972784,
-    "endSeconds": 31.64846788662131,
-    "startFrame": 889,
-    "endFrame": 949,
-    "text": "超过一万人使用 Rikyū"
+    "startSeconds": 29.837750999999997,
+    "endSeconds": 31.25060814285714,
+    "startFrame": 895,
+    "endFrame": 938,
+    "text": "演示公开后的一天里"
   },
   {
     "index": 18,
-    "sceneId": "seg-006",
-    "startSeconds": 32.648481,
-    "endSeconds": 34.16608717760617,
-    "startFrame": 979,
-    "endFrame": 1025,
-    "text": "ITmedia 记录"
+    "sceneId": "seg-005",
+    "startSeconds": 31.25060814285714,
+    "endSeconds": 32.66346528571428,
+    "startFrame": 938,
+    "endFrame": 980,
+    "text": "有超过一万人使用它"
   },
   {
     "index": 19,
     "sceneId": "seg-006",
-    "startSeconds": 34.16608717760617,
-    "endSeconds": 35.85231626383526,
-    "startFrame": 1025,
-    "endFrame": 1076,
-    "text": "这条帖展示超五百万次"
+    "startSeconds": 33.66347999999999,
+    "endSeconds": 34.94951974923302,
+    "startFrame": 1010,
+    "endFrame": 1048,
+    "text": "那一条公开演示帖"
   },
   {
     "index": 20,
     "sceneId": "seg-006",
-    "startSeconds": 35.85231626383526,
-    "endSeconds": 38.044414075933076,
-    "startFrame": 1076,
-    "endFrame": 1141,
-    "text": "用户晒出自己生成的 Logo"
+    "startSeconds": 34.94951974923302,
+    "endSeconds": 37.198828558471,
+    "startFrame": 1048,
+    "endFrame": 1116,
+    "text": "展示次数超过五百万也有人分享"
   },
   {
     "index": 21,
     "sceneId": "seg-006",
-    "startSeconds": 38.044414075933076,
-    "endSeconds": 38.887528619047615,
-    "startFrame": 1141,
-    "endFrame": 1167,
-    "text": "说过程有趣"
+    "startSeconds": 37.198828558471,
+    "endSeconds": 38.463055963718816,
+    "startFrame": 1116,
+    "endFrame": 1154,
+    "text": "自己生成的 Logo"
   },
   {
     "index": 22,
     "sceneId": "seg-007",
-    "startSeconds": 39.887544,
-    "endSeconds": 41.88894989569161,
-    "startFrame": 1197,
-    "endFrame": 1257,
-    "text": "今天免费入口有 2,000 积分"
+    "startSeconds": 39.51008399999999,
+    "endSeconds": 40.95421098412697,
+    "startFrame": 1185,
+    "endFrame": 1229,
+    "text": "它就是 Rikyū 的公开演示"
   },
   {
     "index": 23,
     "sceneId": "seg-007",
-    "startSeconds": 41.88894989569161,
-    "endSeconds": 44.895528126984125,
-    "startFrame": 1257,
-    "endFrame": 1347,
-    "text": "商用和 SVG 导出每月 5 美元起"
+    "startSeconds": 40.95421098412697,
+    "endSeconds": 43.84852844444444,
+    "startFrame": 1229,
+    "endFrame": 1315,
+    "text": "现在想开始官网给 2000 免费积分"
   },
   {
     "index": 24,
     "sceneId": "seg-007",
-    "startSeconds": 44.895528126984125,
-    "endSeconds": 47.1752208707483,
-    "startFrame": 1347,
-    "endFrame": 1415,
-    "text": "它还能接 Claude、Codex"
-  },
-  {
-    "index": 25,
-    "sceneId": "seg-007",
-    "startSeconds": 47.1752208707483,
-    "endSeconds": 48.48302699319728,
-    "startFrame": 1415,
-    "endFrame": 1454,
-    "text": "从外部直接发起设计"
-  },
-  {
-    "index": 26,
-    "sceneId": "seg-008",
-    "startSeconds": 49.595043999999994,
-    "endSeconds": 51.487949733722054,
-    "startFrame": 1488,
-    "endFrame": 1545,
-    "text": "首日 7 人到一天一万人"
-  },
-  {
-    "index": 27,
-    "sceneId": "seg-008",
-    "startSeconds": 51.487949733722054,
-    "endSeconds": 53.57014604081632,
-    "startFrame": 1545,
-    "endFrame": 1607,
-    "text": "中间是这段看得见的过程"
-  },
-  {
-    "index": 28,
-    "sceneId": "seg-008",
-    "startSeconds": 53.57014604081632,
-    "endSeconds": 55.27256951020408,
-    "startFrame": 1607,
-    "endFrame": 1658,
-    "text": "今天免费积分就能试"
-  },
-  {
-    "index": 29,
-    "sceneId": "seg-008",
-    "startSeconds": 55.27256951020408,
-    "endSeconds": 56.518978240362806,
-    "startFrame": 1658,
-    "endFrame": 1696,
-    "text": "商用从 5 美元起"
+    "startSeconds": 43.84852844444444,
+    "endSeconds": 46.64297288888888,
+    "startFrame": 1315,
+    "endFrame": 1399,
+    "text": "每月 5 美元起就能导出 SVG 并商用"
   }
 ]

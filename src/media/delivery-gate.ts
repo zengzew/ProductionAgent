@@ -4,6 +4,7 @@ import path from "node:path";
 import {z} from "zod";
 import {assertSpawnSucceeded, parseFiniteNumber} from "../lib/platform/process";
 import {productionContract, type ProductionContract} from "../lib/episode/production-contract";
+import {assetSchema} from "../schemas/episode";
 import {
   assertObservabilityComplete,
   type ObservabilityGateInput,
@@ -207,10 +208,46 @@ export type MediaDeliveryGateResult = {
   observability: ObservabilityGateResult | null;
 };
 
+export const assertDeclaredEditorialStillsRendered = (input: {
+  repoRoot: string;
+  episodeId: string;
+  plan: MediaRenderPlan;
+}): void => {
+  const manifestPath = path.resolve(
+    input.repoRoot,
+    `content/${input.episodeId}/production/asset-manifest.json`,
+  );
+  if (!fs.existsSync(manifestPath)) return;
+  const assets = z
+    .array(assetSchema)
+    .parse(JSON.parse(fs.readFileSync(manifestPath, "utf8")) as unknown);
+  const declared = assets.filter(
+    (asset) =>
+      asset.approved &&
+      asset.usedInRender &&
+      (asset.type === "screenshot" || asset.type === "image") &&
+      (asset.segmentIds?.length ?? 0) > 0,
+  );
+  for (const asset of declared) {
+    for (const segmentId of asset.segmentIds ?? []) {
+      const shot = input.plan.shots.find((candidate) => candidate.segmentId === segmentId);
+      if (
+        !shot ||
+        shot.visualType !== "official-screenshot" ||
+        shot.fallbackImageAssetId !== asset.id ||
+        !shot.fallbackImageSha256
+      ) {
+        throw new Error(`MEDIA_DELIVERY_DECLARED_STILL_NOT_RENDERED:${asset.id}:${segmentId}`);
+      }
+    }
+  }
+};
+
 export const assertMediaDeliveryGate = (input: MediaDeliveryGateInput): MediaDeliveryGateResult => {
   const repoRoot = path.resolve(input.repoRoot);
   const {episodeId} = input;
   const plan = assertMediaRenderPlanRenderable({repoRoot, episodeId});
+  assertDeclaredEditorialStillsRendered({repoRoot, episodeId, plan});
   if (input.persistProjection) {
     buildMediaRenderManifest({repoRoot, episodeId, now: input.now});
   }

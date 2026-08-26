@@ -140,6 +140,8 @@ export const assetSchema = z.object({
   approved: z.boolean(),
   usedInRender: z.boolean(),
   claimIds: z.array(z.string()),
+  /** Optional explicit shot admission for approved still-image assets. */
+  segmentIds: z.array(z.string().regex(/^seg-[a-z0-9-]+$/u)).optional(),
 });
 
 export const timelineSceneSchema = segmentSchema.extend({

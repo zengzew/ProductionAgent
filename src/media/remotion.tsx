@@ -282,27 +282,177 @@ export const OfficialScreenshotLayer: React.FC<{
   shot: MediaShot;
   src: string;
   label: string;
-}> = ({shot, src, label}) => {
+  scene: Timeline["scenes"][number];
+}> = ({shot, src, label, scene}) => {
   const frame = useCurrentFrame();
   const {fps, width, height} = useVideoConfig();
+  const progress = Math.min(1, frame / Math.max(1, shot.durationFrames - 1));
+  const scale = interpolate(progress, [0, 1], [1, 1.045]);
+  const enter = interpolate(frame, [0, Math.round(fps * 0.35)], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  const overlay = (() => {
+    const base: React.CSSProperties = {
+      position: "absolute",
+      left: 54,
+      right: 54,
+      zIndex: 6,
+      fontFamily: SANS,
+      color: "#fff",
+    };
+    const card: React.CSSProperties = {
+      borderRadius: 24,
+      background: "rgba(9,11,16,.90)",
+      border: "1px solid rgba(255,255,255,.14)",
+      boxShadow: "0 24px 70px rgba(0,0,0,.42)",
+    };
+    if (scene.scene === "几何网格与成品 Logo 同框") {
+      return (
+        <div style={{...base, top: 120, opacity: enter}}>
+          <div style={{fontSize: 30, fontWeight: 850, letterSpacing: 5}}>RIKYŪ</div>
+          <div style={{marginTop: 14, fontSize: 54, lineHeight: 1.12, fontWeight: 840}}>
+            几何构成 → 成品 Logo
+          </div>
+          <div style={{marginTop: 14, fontSize: 24, color: "rgba(255,255,255,.76)"}}>
+            开发者官方 X · 公开演示不代表内部算法
+          </div>
+        </div>
+      );
+    }
+    if (scene.scene === "产品定义与整套品牌资产") {
+      return (
+        <div style={{...base, top: 112, opacity: enter}}>
+          <div style={{fontSize: 28, fontWeight: 800, color: "#d9ff51"}}>RIKYŪ 真实案例</div>
+          <div style={{marginTop: 12, fontSize: 51, lineHeight: 1.15, fontWeight: 840}}>
+            一句需求，变成整套品牌资产
+          </div>
+          <div style={{display: "flex", gap: 12, marginTop: 18}}>
+            {["LOGO", "网页", "社交", "印刷"].map((item) => (
+              <div key={item} style={{...card, padding: "9px 15px", fontSize: 24}}>{item}</div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+    if (scene.scene === "两个使用入口") {
+      return (
+        <div style={{...base, top: 100, opacity: enter}}>
+          <div style={{...card, padding: "22px 26px"}}>
+            <div style={{fontSize: 22, color: "rgba(255,255,255,.62)"}}>说出你的需求</div>
+            <div style={{marginTop: 8, fontSize: 36, fontWeight: 760}}>给咖啡品牌做一套视觉</div>
+          </div>
+          <div style={{display: "flex", alignItems: "center", gap: 13, marginTop: 18}}>
+            {["Claude", "Codex"].map((item) => (
+              <div key={item} style={{...card, padding: "13px 20px", fontSize: 26, fontWeight: 760}}>{item}</div>
+            ))}
+            <div style={{fontSize: 28}}>→ 在常用 AI 里发起设计</div>
+          </div>
+          <div style={{marginTop: 12, fontSize: 20, color: "rgba(255,255,255,.62)"}}>功能示意</div>
+        </div>
+      );
+    }
+    if (scene.scene === "低起点与公开演示动作") {
+      return (
+        <div style={{...base, top: 110, opacity: enter, display: "flex", gap: 16, alignItems: "stretch"}}>
+          <div style={{...card, padding: "20px 24px", flex: 1}}>
+            <div style={{fontSize: 24, color: "rgba(255,255,255,.68)"}}>上线首日 · 开发者回顾</div>
+            <div style={{fontSize: 72, fontWeight: 900, color: "#d9ff51"}}>7 人</div>
+          </div>
+          <div style={{...card, padding: "20px 24px", flex: 1, display: "flex", alignItems: "center", fontSize: 34, fontWeight: 820}}>
+            随后发布到 X →
+          </div>
+        </div>
+      );
+    }
+    if (scene.scene === "规模数字") {
+      return (
+        <div style={{...base, top: 108, opacity: enter}}>
+          <div style={{...card, padding: "24px 30px"}}>
+            <div style={{fontSize: 25, color: "rgba(255,255,255,.66)"}}>发布后一天 · 开发者披露</div>
+            <div style={{fontSize: 98, lineHeight: 1.05, fontWeight: 920, color: "#d9ff51"}}>10,000+</div>
+            <div style={{fontSize: 34, fontWeight: 740}}>人使用 Rikyū</div>
+          </div>
+        </div>
+      );
+    }
+    if (scene.scene === "传播与用户反馈") {
+      return (
+        <div style={{...base, top: 108, opacity: enter}}>
+          <div style={{...card, padding: "24px 30px"}}>
+            <div style={{fontSize: 25, color: "rgba(255,255,255,.66)"}}>ITmedia 2026-08-13</div>
+            <div style={{fontSize: 88, lineHeight: 1.05, fontWeight: 920, color: "#d9ff51"}}>5,000,000+</div>
+            <div style={{fontSize: 32, fontWeight: 740}}>帖子展示 · 有人分享生成结果</div>
+          </div>
+        </div>
+      );
+    }
+    if (scene.scene === "当前入口与定价") {
+      return (
+        <div style={{...base, top: 108, opacity: enter}}>
+          <div style={{fontSize: 27, fontWeight: 800, color: "#d9ff51"}}>RIKYŪ · 现在可以这样开始</div>
+          <div style={{display: "flex", gap: 16, marginTop: 14}}>
+            <div style={{...card, padding: "20px 24px", flex: 1}}>
+              <div style={{fontSize: 24, color: "rgba(255,255,255,.66)"}}>FREE</div>
+              <div style={{fontSize: 48, fontWeight: 880}}>2,000 积分</div>
+            </div>
+            <div style={{...card, padding: "20px 24px", flex: 1}}>
+              <div style={{fontSize: 24, color: "rgba(255,255,255,.66)"}}>BASIC</div>
+              <div style={{fontSize: 48, fontWeight: 880}}>$5 / 月起</div>
+              <div style={{fontSize: 22, marginTop: 6}}>SVG · 商用</div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return null;
+  })();
   return (
-    <AbsoluteFill style={{overflow: "hidden"}}>
-      <div style={transformStyle(shot, frame, fps, {width, height})}>
+    <AbsoluteFill style={{overflow: "hidden", background: "#090b10"}}>
+      <Img
+        src={src}
+        style={{
+          position: "absolute",
+          inset: -80,
+          width: width + 160,
+          height: height + 160,
+          objectFit: "cover",
+          filter: "blur(58px) brightness(.42) saturate(.9)",
+          transform: `scale(${1.12 + progress * 0.04})`,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          left: 58,
+          right: 58,
+          top: 330,
+          bottom: 360,
+          overflow: "hidden",
+          borderRadius: 30,
+          border: "1px solid rgba(255,255,255,.16)",
+          boxShadow: "0 38px 100px rgba(0,0,0,.48)",
+          background: "#fff",
+        }}
+      >
         <Img
           src={src}
           style={{
             width: "100%",
             height: "100%",
-            objectFit: reframeObjectFit(shot.transform.reframe.mode),
+            objectFit: "contain",
+            transform: `scale(${scale})`,
           }}
         />
       </div>
+      {overlay}
       {label && !isProductionMetaTag(label) ? (
         <div
           style={{
             position: "absolute",
-            left: 48,
-            bottom: 200,
+            left: 58,
+            bottom: 314,
             padding: "10px 16px",
             borderRadius: 999,
             background: "rgba(8,9,13,.88)",
@@ -581,11 +731,14 @@ const BADGE_COLORS: Record<string, string> = {
   demo: COLORS.demo,
 };
 
-export const MediaShotOverlays: React.FC<{shot: MediaShot}> = ({shot}) => {
+export const MediaShotOverlays: React.FC<{shot: MediaShot; hideSource?: boolean}> = ({
+  shot,
+  hideSource = false,
+}) => {
   const badgeText = shot.overlays.badge?.text ?? "";
   const sourceLabel = shot.overlays.sourceLabel ?? "";
   const showBadge = Boolean(badgeText) && !isProductionMetaTag(badgeText);
-  const showSource = Boolean(sourceLabel) && !isProductionMetaTag(sourceLabel);
+  const showSource = !hideSource && Boolean(sourceLabel) && !isProductionMetaTag(sourceLabel);
   if (!showBadge && !showSource) return null;
   return (
     <>
@@ -664,15 +817,16 @@ export const MediaShotScene: React.FC<{
           <MediaShotOriginalAudio shot={shot} src={staticFile(shot.staticFilePath)} />
         </>
       ) : shot.visualType === "official-screenshot" && shot.fallbackImagePath ? (
-        <OfficialScreenshotLayer
-          shot={shot}
-          src={staticFile(shot.fallbackImagePath)}
-          label={shot.overlays.sourceLabel ?? ""}
-        />
+          <OfficialScreenshotLayer
+            shot={shot}
+            src={staticFile(shot.fallbackImagePath)}
+            label={shot.overlays.sourceLabel ?? ""}
+            scene={scene}
+          />
       ) : (
         <FallbackVisualLayer scene={scene} shot={shot} />
       )}
-      <MediaShotOverlays shot={shot} />
+      <MediaShotOverlays shot={shot} hideSource={shot.visualType === "official-screenshot"} />
     </AbsoluteFill>
   );
 };

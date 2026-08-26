@@ -2,19 +2,19 @@
 {
   "rubricVersion": "delivery-critic-v1",
   "reviewedVideo": "output/episode-006/vertical_9x16.mp4",
-  "reviewedVideoSha256": "443537e848657a8e7734ff2aeb5a04f03116e333e2da51302ba705f641e02677",
+  "reviewedVideoSha256": "b761f2217928fe6349f76bcda9c4ead967c35ee6170af94f6de2aa61cd5bccb8",
   "reviewedSubtitles": "output/episode-006/subtitles_zh.srt",
-  "reviewedSubtitlesSha256": "4ec214bdd18de06fc6b98630326d3c2c63ffb2d4a0332a95135a74eff05baae2",
+  "reviewedSubtitlesSha256": "e6666442d942eabfe545e7656ad792de85f954d962a378e3cfbf2b44431a4970",
   "reviewedTimeline": "content/episode-006/production/timeline.json",
-  "reviewedTimelineSha256": "7520ff0d1650925180bc8ff7c0118076a9eceb2bbbde255c55d0a82ebe8a7bc9",
+  "reviewedTimelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
   "metrics": {
     "captionWordBreaks": 0,
     "englishWordBreaks": 0,
     "microCueThresholdSeconds": 1,
-    "microCueCount": 2,
-    "microCueRatio": 0.068966,
+    "microCueCount": 0,
+    "microCueRatio": 0,
     "microCueRatioLimit": 0.1,
-    "minimumCueSeconds": 0.844,
+    "minimumCueSeconds": 1.004,
     "firstFrameZeroContextReadable": true,
     "speechClippingOrSwallowing": false
   },
@@ -26,85 +26,31 @@
 
 # Rikyū Delivery Critic Report
 
-审核对象：当前 1080×1920、30 fps 竖版 MP4、SRT、production timeline、TTS
-metadata、asset manifest、output inspection，以及有界首帧和关键帧证据。
-
-结论：**PASS**
-
-本报告是 Delivery Critic 成片门，不是 HumanDecision、发布批准或已发布状态。
-`episode.config.json` 的 `publishStatus` 仍为 `evaluation`。
+审核角色：Codex 5.6 Capability Gate。结论：**PASS**。本报告只批准下面 hash-bound 的本地成片，不代表 HumanDecision、发布或上线。
 
 ## 产物绑定
 
 | 产物 | SHA-256 |
 | --- | --- |
-| `output/episode-006/vertical_9x16.mp4` | `443537e848657a8e7734ff2aeb5a04f03116e333e2da51302ba705f641e02677` |
-| `output/episode-006/subtitles_zh.srt` | `4ec214bdd18de06fc6b98630326d3c2c63ffb2d4a0332a95135a74eff05baae2` |
-| `content/episode-006/production/timeline.json` | `7520ff0d1650925180bc8ff7c0118076a9eceb2bbbde255c55d0a82ebe8a7bc9` |
-| `output/episode-006/inspection.json` | `5c84215d09195b6d73614cbfcc390e04b5c1a9da6ec8ee04cd4ae7cd1611b896` |
-| `content/episode-006/production/tts-metadata.json` | `0183dc8ea0011e582def2865931141992c38e25bb37424cdb2e97ee357754623` |
-| `content/episode-006/production/asset-manifest.json` | `24996950363bae6bac83ff110fcfc8169ffb39bd887836923182b0d9010fb05a` |
-| `content/episode-006/production/captions.generated.json` | `722b2184edfc0775fc59abe72bc6a427ed05db2f476e8cbef2f020d7d1aef32d` |
-| `content/episode-006/story/caption-plan.json` | `c9c271cee8ae52393238eb307b1b632c6dbbe5c2d31be2a326a9ca2d3b9c4e57` |
+| `output/episode-006/vertical_9x16.mp4` | `b761f2217928fe6349f76bcda9c4ead967c35ee6170af94f6de2aa61cd5bccb8` |
+| `output/episode-006/subtitles_zh.srt` | `e6666442d942eabfe545e7656ad792de85f954d962a378e3cfbf2b44431a4970` |
+| `content/episode-006/production/timeline.json` | `da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce` |
+| `output/episode-006/inspection.json` | `f0ec95d921a9e85e5958565e3c0eb3d24c9d4e88ba4998bedb519ae1ed7f056f` |
+| `content/episode-006/media/render-plan.json` | `0cea070cf5eba8e31546e51b7079cc0e4ecf6471c715cb755c4767bc7a9034a1` |
+| `content/episode-006/production/asset-manifest.json` | `b509ccf569986406af7e3b28504817cff393e3d3140d1ef61ca1ca121c32996d` |
+| `content/episode-006/production/tts-metadata.json` | `169ab60e1adf28c9266332edc85183f5bdaa69a5a044146afb0c1d83032ba7c5` |
 
-## 有界媒体证据
+## Codex 实际媒体复核
 
-| 证据 | SHA-256 | 检查结果 |
-| --- | --- | --- |
-| `/private/tmp/episode006-review/bounded-0-12-v3.mp4` | `64ff9d7a3f5a3a3276c7bd38aff0876889f7495802a7faaabbb5a74deeb03015` | 12.067 秒，1080×1920、30 fps，含 H.264 视频与 AAC 48 kHz 双声道音轨 |
-| `/private/tmp/episode006-review/first-frame-v3.png` | `8353d639dcf92fc1a40517e6e744572901f452b9affc5dc60e1123b176fefd67` | 1080×1920；首屏同时显示 Logo 构造结果、`功能演示 · ITmedia 2026-08-13`、`5,000,000+ 帖子展示 · 不是用户数` 与首句字幕 |
-| `/private/tmp/episode006-review/keyframes-grid-v3.png` | `47c013e3cfb48c1f3702b0977b4d593ea86b3df1ded9dc0fba157d0d8a3a29f8` | 关键镜头覆盖产品需求输入、7 名用户、几何功能、10,000+ 披露、用户分享、价格与 MCP；中央证据与底部字幕没有明显遮挡 |
+- 最终 MP4 读回为 H.264、1080×1920、30 fps，时长 47.666667 秒；含 AAC LC、48 kHz 双声道音轨，峰值 -1.7 dB。
+- 实际检查了 `output/episode-006/verification/bounded-00-12.mp4`（SHA-256 `5202ef8afca550e6aa1b8ccd66438526b6a61be836dc09e6be09a4dcb5ce3a87`）以及 0.2、3.5、10.5、18、27、34、41、46 秒关键帧。首帧同时出现 RIKYŪ、真实几何 Logo 图、来源标签和字幕；中后段覆盖产品项目图、入口动作、7 名用户、10,000+ 使用、5,000,000+ 展示和价格结尾。
+- 第一轮关键帧发现来源标签重复，已返回 render 修复并重新生成 render-plan 和 MP4；上述 hashes 与关键帧均来自修复后的第二轮成片。
+- 逐帧核对显示 7 个场景都实际使用 `asset-manifest.json` 声明的对应官网/X 图片；每个 shot 的 `fallbackImageAssetId` 和 `fallbackImageSha256` 与源文件、公网投影副本一致。没有再以程序化占位画面冒充真实素材。
+- 音轨波形、声道、采样率、峰值和静音区间已读回；大于约 1 秒的静音都位于场景换气尾部，没有跨越旁白段的缺音或异常长静音。7 段 TTS metadata 均为真实 MiniMax provider，`fallback=false`。
+- SRT 共 24 条 cue，与 generated captions 一致；没有中英文词内断裂，小于 1 秒的 cue 为 0，最短 1.004 秒。关键帧确认字幕位于底部安全区，未遮挡主图、关键数字、来源标签或价格卡。
 
-首屏不要求观众先理解 Rikyū 名称：中央是 Logo 构造结果，顶部明确标“功能演示”，
-数字卡明确写“帖子展示 · 不是用户数”，首句字幕说明 Logo 正在自己画出来。零背景
-观众可在前三秒内识别产品动作与传播口径，`firstFrameZeroContextReadable` 判为 true。
+## 假绿灯阻断证明
 
-## 字幕检查
+Delivery gate 现在额外检查所有 `approved=true`、`usedInRender=true` 且绑定 `segmentIds` 的图片：对应场景必须是 `official-screenshot`，并绑定同一 assetId 与非空 SHA；任一声明素材未真正入片都会报 `MEDIA_DELIVERY_DECLARED_STILL_NOT_RENDERED`。本片 7/7 场景满足该门。
 
-- 当前 SRT 共 29 条 cue；小于 1.0 秒的 cue 为 2 条，占比
-  `2 / 29 = 0.068966`，低于 0.1 上限。
-- 最短 cue 为第 21 条“说过程有趣”，时长 0.844 秒；第 11 条“有一万人来试”为
-  0.948 秒。其余 cue 均不低于 1.0 秒。
-- 逐 cue 检查未发现中文词组在词中断开；`Rikyū`、`AI`、`Logo`、`ITmedia`、
-  `SVG`、`Claude`、`Codex` 等英文或拉丁字母专名均完整保留在单条 cue 内。
-- 字幕位于底部安全区；首帧和关键帧网格中未遮住 Logo、7、10,000+、5,000,000+、
-  价格卡或 MCP 连线等证据重点。
-
-## 画面与素材边界
-
-- 最终画面为 MediaMix 程序化图形。`asset-rikyu-generated` 已批准并用于 render，
-  覆盖本片使用的 Claim；合成产品过程首次出现时标有“功能演示”。
-- `asset-rikyu-home-capture` 的 `usedInRender` 为 false；未经独立权利决定的官网截图
-  没有进入成片，因此不存在不可辨认、缺来源标签或 manifest 用途不一致的问题。
-- 关键帧显示命题变化时证据形态也变化：产品输入、冷启动数字、几何功能、披露数据、
-  用户分享、价格和 MCP 分开呈现；结尾的 Logo 过程与 7 → 10,000+、当前价格组合后
-  获得收束含义，不是无信息增量的重复填时长。
-
-## 音频机器复核
-
-- ffprobe：AAC LC，48 kHz，双声道，音轨从 0 秒开始，时长 56.7467 秒；视频时长
-  57.5667 秒，尾部约 0.82 秒为画面收尾。
-- ffmpeg `volumedetect`：平均音量 -17.3 dB，峰值 -1.7 dB，无 0 dBFS 削波证据。
-- ffmpeg `silencedetect=noise=-40dB:d=0.5` 检出的主要 1.1–1.26 秒静音位于场景尾部，
-  与 timeline 的 scene tail 对齐；未发现跨越整段旁白的异常长静音。
-- TTS metadata 显示 8 段均由 MiniMax Speech 生成、无 fallback，provider timestamps
-  覆盖全部旁白；timeline 为每段音频保留 0.18/0.9 秒尾部。GUI 播放未作为本次判定
-  证据，`speechClippingOrSwallowing: false` 基于音轨完整性、峰值、静音分布和 provider
-  时间戳；不声称完成了耳机主观听音。
-
-## 最终复审
-
-| 检查 | 结果 | 当前产物证据 |
-| --- | --- | --- |
-| 画面规格与时长 | PASS | H.264，1080×1920，30 fps，最终读回 57.5667 秒，位于 40–80 秒范围 |
-| 首帧零背景可懂 | PASS | 功能演示、Logo 构造结果、传播口径与首句字幕同屏；核心动作未晚于 3 秒 |
-| 中文字幕边界 | PASS | 29 cue，未发现词中断裂；generated captions 与 SRT 文本一致 |
-| 英文单词边界 | PASS | 所有英文与拉丁字母专名保持完整 |
-| 微 cue | PASS | 2 条，占 6.8966%，最短 0.844 秒，未超过 10% 硬门 |
-| 素材与来源 | PASS | render 只使用已批准程序化资产；官网截图明确未进入 render |
-| 证据可读性 | PASS | 关键数字、产品动作、价格与 MCP 在 9:16 中可辨认，字幕不遮重点 |
-| 音轨技术状态 | PASS | AAC 48 kHz 双声道，峰值 -1.7 dB，无异常长静音或缺失段证据 |
-| 结尾兑现 | PASS | 回看几何过程并接到 7 → 10,000+ 与当前价格，无通用 CTA |
-
-本报告只证明上述 hash-bound 成片通过 Delivery Critic 门。未创建 HumanDecision，未发布、
-上传或改变 `publishStatus`。
+最终状态：视频、音频、字幕、真实素材绑定和 40–80 秒交付合同均通过；blocker 为空，`returnTo=none`。

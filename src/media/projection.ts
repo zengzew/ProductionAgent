@@ -214,7 +214,11 @@ const projectBody = (input: ProjectMediaRenderManifestInput): ProjectedBody => {
       });
     }
     const fallbackImage = shot.fallbackImagePath;
-    const officialAsset = fallbackImage ? (officialByPath.get(fallbackImage) ?? null) : null;
+    const officialAsset = shot.fallbackImageAssetId
+      ? (official.assets.find((asset) => asset.id === shot.fallbackImageAssetId) ?? null)
+      : fallbackImage
+        ? (officialByPath.get(fallbackImage) ?? null)
+        : null;
     usage.push({
       segmentId: shot.segmentId,
       selectedType: shot.visualType,

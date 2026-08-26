@@ -1,213 +1,155 @@
-# Rikyū 脚本初稿 — episode-006
+# 最终脚本 — episode-006（Rikyū）
 
 状态：`story-approved`
-
-选中 Hook：`一段几何 Logo 过程，被 500 万+ 次展示`
 
 ## seg-001
 
 - Section: `hook`
 - Target seconds: `3`
-- Claim IDs: `claim-rikyu-006, claim-rikyu-007, claim-rikyu-009`
-- Source identity: 功能演示；ITmedia 2026-08-13；创始人公开披露（经 ITmedia 报道）
-- Visual intent: 三步可见变化：第 0 帧先显示一个已完成 Logo 与“AI 画 Logo 的完整过程”；画面回到淡色网格，圆出现并锁定，直线穿过圆心、辅助线切分后 Logo 轮廓再次成形；右上角证据卡同时出现“ITmedia 2026-08-13”“帖子展示 5,000,000+”“功能发布后一天 10,000+ 人使用（创始人公开披露，经 ITmedia 报道）”，来源卡不遮挡几何变化。
-- Fact boundary: 500 万是展示次数，不是观众人数；1 万是单日使用人数口径，不建立转化率。
-- Time range: 00:00–00:03
-- On-screen text: 功能演示；ITmedia 2026-08-13；帖子展示 5,000,000+；功能发布后一天 10,000+ 人使用（创始人公开披露，经 ITmedia 报道）
-- Scene: `hook-logo-result`
-- Pace switch: 快切，口播只带动作与一个规模刻度，不逐字读卡。
+- Claim IDs: `claim-rikyu-006`
+- Source identity: 官方 X 帖（铃木海星发布）；ITmedia 交叉核对
+- Scene: 几何网格与成品 Logo 同框
+- Visual intent: 画面开始于官方 X 帖中的大猩猩几何网格特写，圆、直线、节点清晰可见；标签“官方 X 帖”固定在角落；随后同一帖的成品大猩猩 Logo 叠入，与网格同框；右上角小字“公开演示，不代表内部算法”。动作：网格特写 → 成品 Logo 并置。
+- Pace switch: 硬切 + 大字卡“同一场演示：过程与成品”
+- Fact boundary: 只展示官方公开画面；不宣称网格代表模型内部构造；不读日期。
 
 ### Narration
 
-一个 Logo 自己画出来，累计展示超五百万次。
+几何网格旁，出现了一张成品 Logo。
 
 ### Narration units
 
 | Text | Mode | Claim IDs | Attribution |
-|---|---|---|---|
-| 一个 Logo 自己画出来， | demonstration | claim-rikyu-006 | 功能演示 |
-| 累计展示超五百万次。 | independently-verified | claim-rikyu-007 | ITmedia 2026-08-13 |
+| --- | --- | --- | --- |
+| 几何网格旁，出现了一张成品 Logo。 | demonstration | claim-rikyu-006 | src-rikyu-founder-x-logo；ITmedia 交叉核对 |
 
 ## seg-002
 
-- Section: `hook`
-- Target seconds: `7`
-- Claim IDs: `claim-rikyu-001`
-- Source identity: Rikyū 官网（2026-08-25 访问）
-- Visual intent: 两步可见变化：真实操作录屏中，官网输入框逐字打出“给咖啡店做一个 Logo”；右侧从空白状态生成一个具体 Logo 成品并放大，随后补出网页、社交、印刷设计缩略图。角标“Rikyū 官网，2026-08-25 访问”。
-- Fact boundary: 产品定义由官网、条款与独立媒体交叉核对；不宣称覆盖所有设计场景。
-- Time range: 00:03–00:10
-- On-screen text: Rikyū 官网，2026-08-25 访问
-- Scene: `product-prompt-design`
-- Pace switch: 输入时保持匀速；具体 Logo 成品出现时放慢并放大。
+- Section: `product`
+- Target seconds: `8`
+- Claim IDs: `claim-rikyu-001, claim-rikyu-002`
+- Source identity: 官网 rikyu.ai 项目成品组与需求说明
+- Scene: 产品定义与整套品牌资产
+- Visual intent: 官网三个项目组 Waypause、Elias、Lowbell 依次出现：每个项目先展示 Logo 定稿，随后同组海报、社交图、落地页并排展开，形成“单个 Logo → 整套品牌资产”的可见变化；画面角落来源标签“官网 rikyu.ai”；官网需求说明文字区域同步亮起。
+- Pace switch: 放慢，画面稳定
+- Fact boundary: 产品定义来自官网与条款；“不用会设计、不用反复猜”是官网主张，不是对所有用户能力的客观断言。
 
 ### Narration
 
-这是 Rikyū：个人开发的 AI 设计服务，你说需求，它生成 Logo、网页、社交和印刷设计。
+Rikyū 是个人提供的 AI 设计服务：想自己做品牌的人，描述需求，就能拿到 Logo、网页、社交和印刷成品。官网说，不用会设计，也不用反复猜。
 
 ### Narration units
 
 | Text | Mode | Claim IDs | Attribution |
-|---|---|---|---|
-| 这是 Rikyū： | independently-verified | claim-rikyu-001 | Rikyū 官网（2026-08-25 访问） |
-| 个人开发的 AI 设计服务， | independently-verified | claim-rikyu-001 | Rikyū 官网（2026-08-25 访问） |
-| 你说需求， | independently-verified | claim-rikyu-001 | Rikyū 官网（2026-08-25 访问） |
-| 它生成 Logo、网页、社交和印刷设计。 | independently-verified | claim-rikyu-001 | Rikyū 官网（2026-08-25 访问） |
+| --- | --- | --- | --- |
+| Rikyū 是个人提供的 AI 设计服务：想自己做品牌的人，描述需求，就能拿到 Logo、网页、社交和印刷成品。 | company | claim-rikyu-001 | src-rikyu-site；src-rikyu-terms；src-rikyu-itmedia |
+| 官网说，不用会设计，也不用反复猜。 | company | claim-rikyu-002 | src-rikyu-site |
 
 ## seg-003
 
-- Section: `hook`
-- Target seconds: `10`
-- Claim IDs: `claim-rikyu-002, claim-rikyu-005, claim-rikyu-009`
-- Source identity: Rikyū 官网主张；创始人公开回顾（公开索引，2026-07 前后）
-- Visual intent: 三步可见变化：文字卡“无需设计技能，不用反复猜测”先弹出；随后对比牌“2026 年 7 月上线首日：7 名用户”落下；对比牌旁小字“功能发布后一天 10,000+ 人使用（创始人公开披露）”作为前文数字的回标。
-- Fact boundary: 7 人是创始人回顾口径，日期只到 2026 年 7 月附近；问题只留悬念，不承诺因果答案。
-- Time range: 00:10–00:18
-- On-screen text: 官网主张：无需设计技能，不用反复猜测；2026 年 7 月上线首日：7 名用户（创始人回顾）
-- Scene: `contrast-seven-users`
-- Pace switch: 产品主张快速收起；数字 7 落下后停顿，再抛出问题。
+- Section: `entry`
+- Target seconds: `7`
+- Claim IDs: `claim-rikyu-003`
+- Source identity: 官网与条款中的 MCP 连接说明
+- Scene: 两个使用入口
+- Visual intent: 功能演示（全程标注“功能演示”）：输入框出现一句需求“给咖啡品牌做一个 Logo”，随后成品卡片从输入框下方出现；再切到连接示意图，Claude 与 Codex 图标经 MCP 节点连接到 Rikyū 并点亮“发起设计”。动作：文字需求 → 成品出现；外部工具连接 → 发起操作。
+- Pace switch: 加快，进入“怎么用”
+- Fact boundary: 不是真实操作录屏；输入到输出为功能示意；不解释 MCP 协议实现；不宣称任何外部 AI 均可连接成功。
 
 ### Narration
 
-官网说，不用会设计、也不用反复猜；可上线首日，只有 7 名用户。为什么后来一天内有一万人来试？
+直接说需求就行；也能把 Claude、Codex 接进来，从那边发起设计。这样一个小工具，怎么让陌生用户愿意试一次？
 
 ### Narration units
 
 | Text | Mode | Claim IDs | Attribution |
-|---|---|---|---|
-| 官网说， | company | claim-rikyu-002 | Rikyū 官网主张 |
-| 不用会设计、也不用反复猜； | company | claim-rikyu-002 | Rikyū 官网主张 |
-| 可上线首日， | founder | claim-rikyu-005 | 创始人公开回顾（公开索引，2026-07 前后） |
-| 只有 7 名用户。 | founder | claim-rikyu-005 | 创始人公开回顾（公开索引，2026-07 前后） |
-| 为什么后来一天内有一万人来试？ | founder | claim-rikyu-009 | 创始人公开披露（经 ITmedia 报道） |
+| --- | --- | --- | --- |
+| 直接说需求就行；也能把 Claude、Codex 接进来，从那边发起设计。 | demonstration | claim-rikyu-003 | src-rikyu-site；src-rikyu-terms |
+| 这样一个小工具，怎么让陌生用户愿意试一次？ | editorial-analysis | claim-rikyu-003 | src-rikyu-site；src-rikyu-terms |
 
 ## seg-004
 
 - Section: `turning-point`
-- Target seconds: `12`
-- Claim IDs: `claim-rikyu-006`
-- Source identity: X @kaiseisuzuk 发布帖 2026-08-10（或标注“功能演示”）
-- Visual intent: 两步可见变化：发布帖卡片先出现，来源标“X @kaiseisuzuk，2026-08-10”；随后进入几何动画：网格铺满画布、圆出现并锁定、直线穿过圆心、辅助线切分、Logo 轮廓成形。全程角落标注“功能演示”。
-- Fact boundary: 只说产品呈现几何设计过程，不推断模型内部按几何规则构造。
-- Time range: 00:18–00:30
-- On-screen text: X @kaiseisuzuk，2026-08-10；功能演示
-- Scene: `geometric-process`
-- Pace switch: 发布帖卡停留一拍；进入几何过程后每 2 秒新增一个构造元素。
+- Target seconds: `8`
+- Claim IDs: `claim-rikyu-005, claim-rikyu-006`
+- Source identity: 创始人公开回顾；官方 X 帖
+- Scene: 低起点与公开演示动作
+- Visual intent: 先出现数字卡“首日 7 名用户”，角落标签“创始人公开回顾”；随后切到官方 X 帖原始四图：大猩猩与狮子的几何网格和成品 Logo 同屏展示，角落标签“官方 X 帖”。动作：低起点数字卡 → 开发者发布动作画面。
+- Pace switch: 收紧，制造低起点与公开动作的对比
+- Fact boundary: 7 人是创始人回顾口径；与后续规模只呈先后关系，不建立因果；不补写作原因或动机。
 
 ### Narration
 
-8 月 10 日，开发者发布一个功能：把 Logo 生成过程拆成圆、直线和网格来画。
+开发者自己回顾，上线首日只有 7 个用户。随后，他把几何 Logo 的演示发到 X。
 
 ### Narration units
 
 | Text | Mode | Claim IDs | Attribution |
-|---|---|---|---|
-| 8 月 10 日， | independently-verified | claim-rikyu-006 | X @kaiseisuzuk 发布帖 2026-08-10 |
-| 开发者发布一个功能： | independently-verified | claim-rikyu-006 | X @kaiseisuzuk 发布帖 2026-08-10 |
-| 把 Logo 生成过程拆成圆、直线和网格来画。 | independently-verified | claim-rikyu-006 | X @kaiseisuzuk 发布帖 2026-08-10 |
+| --- | --- | --- | --- |
+| 开发者自己回顾，上线首日只有 7 个用户。 | founder | claim-rikyu-005 | src-rikyu-founder-feed |
+| 随后，他把几何 Logo 的演示发到 X。 | demonstration | claim-rikyu-006 | src-rikyu-founder-x-logo；src-rikyu-itmedia |
 
 ## seg-005
 
-- Section: `turning-point`
+- Section: `scale`
 - Target seconds: `7`
 - Claim IDs: `claim-rikyu-009`
-- Source identity: 创始人公开披露（经 ITmedia 报道）
-- Visual intent: 两步可见变化：披露卡出现，日期“2026-08-12”与正文“发布后一天内，超过一万人使用 Rikyū”逐行打出；随后 10,000+ 数字放大弹出，来源小字“创始人公开披露，经 ITmedia 报道”。
-- Fact boundary: 单日使用人数为创始人口径，不等于注册、留存或收入。
-- Time range: 00:30–00:37
-- On-screen text: 2026-08-12；发布后一天内，超过一万人使用 Rikyū（创始人公开披露，经 ITmedia 报道）
-- Scene: `ten-thousand-disclosure`
-- Pace switch: 日期和披露正文逐行出现；10,000+ 数字落下时停顿。
+- Source identity: ITmedia 报道中的开发者披露
+- Scene: 规模数字
+- Visual intent: 画面做程序化对比：左侧“首日 7 用户”缩小，右侧“发布后一天 10,000+”放大；来源标签“开发者披露 / ITmedia 报道”与数字同帧；数字出现时对比图完成变化。
+- Pace switch: 画面简化，数字突出
+- Fact boundary: 一万人使用是开发者披露、媒体记录口径；与首日 7 人仅先后关系；不构成转化率、留存或收入。
 
 ### Narration
 
-8 月 12 日，一个数字被公开：发布后一天内，超过一万人使用 Rikyū。
+演示公开后的一天里，有超过一万人使用它。
 
 ### Narration units
 
 | Text | Mode | Claim IDs | Attribution |
-|---|---|---|---|
-| 8 月 12 日， | founder | claim-rikyu-009 | 创始人公开披露（经 ITmedia 报道） |
-| 一个数字被公开： | founder | claim-rikyu-009 | 创始人公开披露（经 ITmedia 报道） |
-| 发布后一天内， | founder | claim-rikyu-009 | 创始人公开披露（经 ITmedia 报道） |
-| 超过一万人使用 Rikyū。 | founder | claim-rikyu-009 | 创始人公开披露（经 ITmedia 报道） |
+| --- | --- | --- | --- |
+| 演示公开后的一天里，有超过一万人使用它。 | founder | claim-rikyu-009 | src-rikyu-itmedia |
 
 ## seg-006
 
-- Section: `turning-point`
-- Target seconds: `8`
+- Section: `reach`
+- Target seconds: `7`
 - Claim IDs: `claim-rikyu-007, claim-rikyu-008`
-- Source identity: ITmedia 报道 2026-08-13
-- Visual intent: 两步可见变化：ITmedia 报道卡出现，含“2026-08-13”“帖子展示 5,000,000+ 次”；随即切换为用户分享帖拼图：用户晒出的 Logo 与评论“设计过程有趣、体验经过打磨”，小字“ITmedia 观察到用户分享”。
-- Fact boundary: 500 万是展示次数；用户分享是可观察行为，不代表总体满意度或采用原因。
-- Time range: 00:37–00:45
-- On-screen text: ITmedia 2026-08-13；帖子展示 5,000,000+；用户晒出 Logo 并评论过程有趣
-- Scene: `media-user-shares`
-- Pace switch: 报道标题先停留阅读；再切入可读的用户分享与评论原文裁切。
+- Source identity: ITmedia 报道
+- Scene: 传播与用户反馈
+- Visual intent: ITmedia 标题卡出现，随后 X 帖子展示次数大字“500万+”放大；旁边叠加用户分享的生成 Logo 图形反馈（可视化示意）；来源标签“ITmedia 报道”全程同帧。动作：报道卡 → 展示数字 → 分享反馈。
+- Pace switch: 稍放慢，让展示数被看清
+- Fact boundary: 展示次数与分享行为来自独立媒体观察；不等于用户数、留存或收入；不将 500 万与 1 万相除。
 
 ### Narration
 
-ITmedia 记录：这条帖展示超五百万次，用户晒出自己生成的 Logo，说过程有趣。
+那一条公开演示帖，展示次数超过五百万；也有人分享自己生成的 Logo。
 
 ### Narration units
 
 | Text | Mode | Claim IDs | Attribution |
-|---|---|---|---|
-| ITmedia 记录： | independently-verified | claim-rikyu-007 | ITmedia 报道 2026-08-13 |
-| 这条帖展示超五百万次， | independently-verified | claim-rikyu-007 | ITmedia 报道 2026-08-13 |
-| 用户晒出自己生成的 Logo， | independently-verified | claim-rikyu-008 | ITmedia 报道 2026-08-13 |
-| 说过程有趣。 | independently-verified | claim-rikyu-008 | ITmedia 报道 2026-08-13 |
+| --- | --- | --- | --- |
+| 那一条公开演示帖，展示次数超过五百万； | independently-verified | claim-rikyu-007 | src-rikyu-itmedia |
+| 也有人分享自己生成的 Logo。 | independently-verified | claim-rikyu-008 | src-rikyu-itmedia |
 
 ## seg-007
 
-- Section: `payoff`
+- Section: `pricing`
 - Target seconds: `10`
-- Claim IDs: `claim-rikyu-003, claim-rikyu-010`
-- Source identity: Rikyū 官网与条款（截至 2026-08-25）
-- Visual intent: 两步可见变化：官网价格证据卡出现，列出“免费计划 2,000 积分”“Basic 每月 5 美元起，开放商用与 SVG 导出”；随后 MCP 连接示意图亮起：Claude、Codex 图标经连线指向 Rikyū，标注“可从外部 AI 发起设计操作”。
-- Fact boundary: 定价与功能状态截至 2026-08-25；价格不等于收入、融资或估值。
-- Time range: 00:45–00:55
-- On-screen text: 官网与条款，截至 2026-08-25；免费 2,000 积分；商用与 SVG 导出每月 5 美元起；MCP 连接 Claude/Codex
-- Scene: `pricing-mcp`
-- Pace switch: 价格卡逐项点亮；MCP 连线在口播提到 Claude、Codex 时出现。
+- Claim IDs: `claim-rikyu-010`
+- Source identity: 官网价格页 rikyu.ai
+- Scene: 当前入口与定价
+- Visual intent: 官网价格区块从全页中放大，Free 与 Basic 两个计划被高亮：Free 显示 2000 初始积分，Basic 显示每月 5 美元起、含 SVG 导出与商业使用；来源标签“官网 rikyu.ai”与价格同帧。动作：价格页整体 → 高亮免费与 Basic。
+- Pace switch: 收束，速度放慢
+- Fact boundary: 公开价格截至官网访问日；不构成收入、融资或估值；不预测成功。
 
 ### Narration
 
-今天免费入口有 2,000 积分；商用和 SVG 导出，每月 5 美元起。它还能接 Claude、Codex，从外部直接发起设计。
+它就是 Rikyū 的公开演示。现在想开始，官网给 2000 免费积分，每月 5 美元起，就能导出 SVG 并商用。
 
 ### Narration units
 
 | Text | Mode | Claim IDs | Attribution |
-|---|---|---|---|
-| 今天免费入口有 2,000 积分； | independently-verified | claim-rikyu-010 | Rikyū 官网与条款（截至 2026-08-25） |
-| 商用和 SVG 导出， | independently-verified | claim-rikyu-010 | Rikyū 官网与条款（截至 2026-08-25） |
-| 每月 5 美元起。 | independently-verified | claim-rikyu-010 | Rikyū 官网与条款（截至 2026-08-25） |
-| 它还能接 Claude、Codex， | independently-verified | claim-rikyu-003 | Rikyū 官网与条款（截至 2026-08-25） |
-| 从外部直接发起设计。 | independently-verified | claim-rikyu-003 | Rikyū 官网与条款（截至 2026-08-25） |
-
-## seg-008
-
-- Section: `payoff`
-- Target seconds: `8`
-- Claim IDs: `claim-rikyu-005, claim-rikyu-009, claim-rikyu-006, claim-rikyu-010`
-- Source identity: 官网价格页（截至 2026-08-25）；几何 Logo 功能演示短循环
-- Visual intent: 两步可见变化：几何 Logo 过程短循环再次播放（网格铺开、圆锁定、直线切分、轮廓成形）；画面底部叠加价格条“免费 2,000 积分起 / 商用与 SVG 导出每月 5 美元起”，不做新数字。
-- Fact boundary: 回看不承担新 Claim；价格只作为当前订阅门槛，不写成增长原因。
-- Time range: 00:55–01:03
-- On-screen text: 免费 2,000 积分起；商用与 SVG 导出每月 5 美元起
-- Scene: `closing-process-price`
-- Pace switch: 几何过程短循环后停在成品与价格条；最后一秒不再新增信息。
-
-### Narration
-
-首日 7 人，到一天一万人，中间是这段看得见的过程；今天免费积分就能试，商用从 5 美元起。
-
-### Narration units
-
-| Text | Mode | Claim IDs | Attribution |
-|---|---|---|---|
-| 首日 7 人， | founder | claim-rikyu-005 | 创始人公开回顾（公开索引，2026-07 前后） |
-| 到一天一万人， | founder | claim-rikyu-009 | 创始人公开披露（经 ITmedia 报道） |
-| 中间是这段看得见的过程； | independently-verified | claim-rikyu-006 | 几何 Logo 功能演示 |
-| 今天免费积分就能试， | independently-verified | claim-rikyu-010 | 官网价格页（截至 2026-08-25） |
-| 商用从 5 美元起。 | independently-verified | claim-rikyu-010 | 官网价格页（截至 2026-08-25） |
+| --- | --- | --- | --- |
+| 它就是 Rikyū 的公开演示。 | editorial-analysis | claim-rikyu-006 | src-rikyu-founder-x-logo；src-rikyu-itmedia |
+| 现在想开始，官网给 2000 免费积分，每月 5 美元起，就能导出 SVG 并商用。 | company | claim-rikyu-010 | src-rikyu-site；src-rikyu-itmedia |

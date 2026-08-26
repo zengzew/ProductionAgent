@@ -13,7 +13,7 @@ import {
   type CacheKind,
 } from "../lib/platform/cache";
 import {assertTimelineMatchesEpisode, generatedCaptionsPath} from "../lib/episode/render-contract";
-import {timelineSchema, type Timeline} from "../schemas/episode";
+import {assetSchema, timelineSchema, type Asset, type Timeline} from "../schemas/episode";
 import {
   artifactRefIsIndexed,
   assertArtifactRefBytes,
@@ -486,6 +486,10 @@ export const mediaShotSchema = z
       .string()
       .regex(/^episodes\/episode-[a-z0-9-]+\/media\/[a-z0-9][a-z0-9._-]*\.(?:png|jpe?g|webp)$/u)
       .nullable(),
+    /** SHA-256 of the exact still-image bytes rendered by Remotion. */
+    fallbackImageSha256: sha256Schema.nullable(),
+    /** Asset-manifest id or MediaAsset id that authorized the still image. */
+    fallbackImageAssetId: z.string().min(1).nullable(),
     /** Deterministic hard-gate snapshot taken at build time. */
     gate: mediaShotGateSchema,
     config: mediaRenderConfigSchema,
@@ -542,6 +546,13 @@ export const mediaShotSchema = z
           code: "custom",
           path: ["fallbackImagePath"],
           message: "real-media shot must not carry a fallback image path",
+        });
+      }
+      if (value.fallbackImageSha256 !== null || value.fallbackImageAssetId !== null) {
+        context.addIssue({
+          code: "custom",
+          path: ["fallbackImageSha256"],
+          message: "real-media shot must not carry fallback image identity",
         });
       }
       if (!value.trim) {
@@ -658,11 +669,31 @@ export const mediaShotSchema = z
           message: "official-screenshot shot requires a capture asset path",
         });
       }
+      if (
+        value.visualType === "official-screenshot" &&
+        (value.fallbackImageSha256 === null || value.fallbackImageAssetId === null)
+      ) {
+        context.addIssue({
+          code: "custom",
+          path: ["fallbackImageSha256"],
+          message: "official-screenshot shot requires hash-bound asset identity",
+        });
+      }
       if (value.visualType !== "official-screenshot" && value.fallbackImagePath !== null) {
         context.addIssue({
           code: "custom",
           path: ["fallbackImagePath"],
           message: "only official-screenshot shots may carry a fallback image path",
+        });
+      }
+      if (
+        value.visualType !== "official-screenshot" &&
+        (value.fallbackImageSha256 !== null || value.fallbackImageAssetId !== null)
+      ) {
+        context.addIssue({
+          code: "custom",
+          path: ["fallbackImageSha256"],
+          message: "only official-screenshot shots may carry fallback image identity",
         });
       }
       if (value.audio.originalAudioGain !== 0) {
@@ -1640,7 +1671,7 @@ export const assertMediaShotRenderable = (input: {
       throw new Error(`MEDIA_RENDER_FALLBACK_AUDIO_INVALID:${segmentId}`);
     }
     if (shot.visualType === "official-screenshot") {
-      if (!shot.fallbackImagePath) {
+      if (!shot.fallbackImagePath || !shot.fallbackImageSha256 || !shot.fallbackImageAssetId) {
         throw new Error(`MEDIA_RENDER_FALLBACK_IMAGE_MISSING:${segmentId}`);
       }
       const publicAbsolute = path.resolve(repoRoot, "public", shot.fallbackImagePath);
@@ -1648,16 +1679,28 @@ export const assertMediaShotRenderable = (input: {
         throw new Error(`MEDIA_RENDER_FALLBACK_IMAGE_MISSING:${segmentId}`);
       }
       const publicSha = sha256File(publicAbsolute);
-      const asset = listOfficialScreenshotAssets(repoRoot, episodeId).find(
-        (candidate) => candidate.sha256 === publicSha,
-      );
-      if (!asset) {
-        throw new Error(`MEDIA_RENDER_FALLBACK_IMAGE_UNBOUND:${segmentId}`);
+      if (publicSha !== shot.fallbackImageSha256) {
+        throw new Error(`MEDIA_RENDER_FALLBACK_IMAGE_TAMPERED:${segmentId}`);
       }
-      try {
-        assertArtifactRefBytes(repoRoot, asset.artifactRef);
-      } catch (error) {
-        throw wrapGateError("FALLBACK_IMAGE_TAMPERED", error);
+      const editorial = readApprovedEditorialStill(repoRoot, episodeId, segmentId);
+      if (editorial?.id === shot.fallbackImageAssetId) {
+        const sourceAbsolute = path.resolve(repoRoot, editorial.path);
+        if (!fs.existsSync(sourceAbsolute) || sha256File(sourceAbsolute) !== publicSha) {
+          throw new Error(`MEDIA_RENDER_FALLBACK_IMAGE_TAMPERED:${segmentId}`);
+        }
+      } else {
+        const asset = listOfficialScreenshotAssets(repoRoot, episodeId).find(
+          (candidate) =>
+            candidate.mediaId === shot.fallbackImageAssetId && candidate.sha256 === publicSha,
+        );
+        if (!asset) {
+          throw new Error(`MEDIA_RENDER_FALLBACK_IMAGE_UNBOUND:${segmentId}`);
+        }
+        try {
+          assertArtifactRefBytes(repoRoot, asset.artifactRef);
+        } catch (error) {
+          throw wrapGateError("FALLBACK_IMAGE_TAMPERED", error);
+        }
       }
     }
   }
@@ -1775,27 +1818,73 @@ const FALLBACK_DEFAULT_AUDIO: MediaShotAudio = {
 
 const DEFAULT_FADE = {inMs: 200, outMs: 200};
 
+const readApprovedEditorialStill = (
+  repoRoot: string,
+  episodeId: string,
+  segmentId: string,
+): Asset | null => {
+  const manifestPath = path.resolve(
+    repoRoot,
+    `content/${episodeId}/production/asset-manifest.json`,
+  );
+  if (!fs.existsSync(manifestPath)) return null;
+  const assets = z
+    .array(assetSchema)
+    .parse(JSON.parse(fs.readFileSync(manifestPath, "utf8")) as unknown);
+  return (
+    assets.find(
+      (asset) =>
+        asset.approved &&
+        asset.usedInRender &&
+        (asset.type === "screenshot" || asset.type === "image") &&
+        asset.segmentIds?.includes(segmentId),
+    ) ?? null
+  );
+};
+
+type ProjectedOfficialStill = {
+  publicPath: string;
+  sha256: string;
+  assetId: string;
+};
+
 /**
- * Projects the first admitted, rights-approved, hash-valid image MediaAsset
- * into `public/episodes/<ep>/media/` for Remotion `staticFile`.
+ * Projects the segment-bound approved editorial still, or the legacy admitted
+ * MediaAsset fallback, into `public/episodes/<ep>/media/`.
  */
-const projectOfficialScreenshotPath = (repoRoot: string, episodeId: string): string => {
-  const asset = findOfficialScreenshotAsset(repoRoot, episodeId);
-  if (!asset) {
-    throw new Error(`MEDIA_RENDER_OFFICIAL_SCREENSHOT_MISSING:${episodeId}`);
+const projectOfficialScreenshotPath = (
+  repoRoot: string,
+  episodeId: string,
+  segmentId: string,
+): ProjectedOfficialStill => {
+  const editorial = readApprovedEditorialStill(repoRoot, episodeId, segmentId);
+  const mediaAsset = editorial ? null : findOfficialScreenshotAsset(repoRoot, episodeId);
+  if (!editorial && !mediaAsset) {
+    throw new Error(`MEDIA_RENDER_OFFICIAL_SCREENSHOT_MISSING:${episodeId}:${segmentId}`);
   }
-  assertArtifactRefBytes(repoRoot, asset.artifactRef);
-  const filename = path.posix.basename(asset.artifactRef.path);
+  const sourcePath = editorial
+    ? path.resolve(repoRoot, editorial.path)
+    : resolveMediaRepositoryPath(repoRoot, mediaAsset!.artifactRef.path);
+  if (!fs.existsSync(sourcePath)) {
+    throw new Error(`MEDIA_RENDER_OFFICIAL_SCREENSHOT_MISSING:${episodeId}:${segmentId}`);
+  }
+  if (mediaAsset) assertArtifactRefBytes(repoRoot, mediaAsset.artifactRef);
+  const sourceSha256 = sha256File(sourcePath);
+  if (mediaAsset && sourceSha256 !== mediaAsset.sha256) {
+    throw new Error(`MEDIA_RENDER_OFFICIAL_SCREENSHOT_TAMPERED:${episodeId}:${segmentId}`);
+  }
+  const filename = path.posix.basename(sourcePath);
   const publicRelative = `episodes/${episodeId}/media/${filename}`;
   const publicAbsolute = path.resolve(repoRoot, "public", publicRelative);
-  copyBytesAtomically(
-    publicAbsolute,
-    fs.readFileSync(resolveMediaRepositoryPath(repoRoot, asset.artifactRef.path)),
-  );
-  if (sha256File(publicAbsolute) !== asset.sha256) {
-    throw new Error(`MEDIA_RENDER_OFFICIAL_SCREENSHOT_TAMPERED:${episodeId}`);
+  copyBytesAtomically(publicAbsolute, fs.readFileSync(sourcePath));
+  if (sha256File(publicAbsolute) !== sourceSha256) {
+    throw new Error(`MEDIA_RENDER_OFFICIAL_SCREENSHOT_TAMPERED:${episodeId}:${segmentId}`);
   }
-  return publicRelative;
+  return {
+    publicPath: publicRelative,
+    sha256: sourceSha256,
+    assetId: editorial?.id ?? mediaAsset!.mediaId,
+  };
 };
 
 const defaultOverlays = (): MediaShotOverlays => ({
@@ -2141,6 +2230,8 @@ export const buildMediaShotForSegment = (input: BuildMediaShotInput): BuildMedia
         staticFilePath,
         renderProxyMediaType,
         fallbackImagePath: null,
+        fallbackImageSha256: null,
+        fallbackImageAssetId: null,
         gate,
         config,
         reasons,
@@ -2203,10 +2294,14 @@ export const buildMediaShotForSegment = (input: BuildMediaShotInput): BuildMedia
     }
 
     // Fallback shot (official screenshot / data card / programmatic).
-    visualType = slot?.selectedType ?? "programmatic-visual";
+    const editorialStill = readApprovedEditorialStill(repoRoot, episodeId, segmentId);
+    visualType = slot?.selectedType ?? (editorialStill ? "official-screenshot" : "programmatic-visual");
     const fallbackType: VisualSlotFallbackType | null = slot?.fallbackType ?? null;
     const fallbackReason =
-      slot?.fallbackReason ?? "no visual slot artifact (media selection not run)";
+      slot?.fallbackReason ??
+      (editorialStill
+        ? `approved editorial still selected for ${segmentId}`
+        : "no visual slot artifact (media selection not run)");
     gate.slotValid = slot !== null;
     gate.hashesValid = true;
     audio = mediaShotAudioSchema.parse({
@@ -2215,13 +2310,20 @@ export const buildMediaShotForSegment = (input: BuildMediaShotInput): BuildMedia
     });
     const overlays = mediaShotOverlaySchema.parse({
       ...defaultOverlays(),
+      ...(editorialStill
+        ? {
+            sourceLabel: editorialStill.owner,
+            badge: {text: "官方素材", tone: "official" as const},
+          }
+        : {}),
       ...input.overlays,
     });
     const transform = deepMergeTransform(DEFAULT_TRANSFORM, input.transform);
-    const fallbackImagePath =
+    const officialStill =
       visualType === "official-screenshot"
-        ? projectOfficialScreenshotPath(repoRoot, episodeId)
+        ? projectOfficialScreenshotPath(repoRoot, episodeId, segmentId)
         : null;
+    const fallbackImagePath = officialStill?.publicPath ?? null;
     const dependencies = dedupeDependencies([
       ...(slot ? readDependencies([slot.artifactRef]) : []),
     ]);
@@ -2259,6 +2361,8 @@ export const buildMediaShotForSegment = (input: BuildMediaShotInput): BuildMedia
       staticFilePath: null,
       renderProxyMediaType: null,
       fallbackImagePath,
+      fallbackImageSha256: officialStill?.sha256 ?? null,
+      fallbackImageAssetId: officialStill?.assetId ?? null,
       gate,
       config,
       reasons,

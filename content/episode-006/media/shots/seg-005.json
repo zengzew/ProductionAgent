@@ -1,15 +1,15 @@
 {
   "artifactRef": {
     "artifactId": "episode-006:media-shot:seg-005",
-    "createdAt": "2026-08-26T01:47:01.944Z",
+    "createdAt": "2026-08-26T07:57:17.458Z",
     "episodeId": "episode-006",
     "mediaType": "application/json",
     "path": "content/episode-006/media/shots/seg-005.json",
     "producer": "media-render-v1",
     "revision": 1,
     "schemaVersion": "media-shot-v1",
-    "sha256": "574c249e65f81bdf760f8c08a9045067f36041bd113c0f7a85ccea4741d6944d",
-    "sizeBytes": 2311
+    "sha256": "494f0792337f8bfa64e1621e24047c8aee4c53c2186422eb4e655b318eabdb0e",
+    "sizeBytes": 2600
   },
   "audio": {
     "ducking": {
@@ -34,20 +34,22 @@
       "id": "ffmpeg",
       "version": "ffmpeg-render-proxy-v1"
     },
-    "timelineSha256": "7520ff0d1650925180bc8ff7c0118076a9eceb2bbbde255c55d0a82ebe8a7bc9",
+    "timelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
     "version": "media-render-config-v1"
   },
-  "createdAt": "2026-08-26T01:47:01.944Z",
+  "createdAt": "2026-08-26T07:57:17.458Z",
   "crossfadeMs": 0,
-  "durationFrames": 182,
-  "endSeconds": 32.648481,
+  "durationFrames": 115,
+  "endSeconds": 33.66347999999999,
   "episodeId": "episode-006",
   "fade": {
     "inMs": 200,
     "outMs": 200
   },
-  "fallbackImagePath": null,
-  "fallbackReason": "no visual slot artifact (media selection not run)",
+  "fallbackImageAssetId": "asset-rikyu-x-gorilla-final",
+  "fallbackImagePath": "episodes/episode-006/media/official-x-gorilla-final.webp",
+  "fallbackImageSha256": "f39ed54ec7304d8992271183bb3121a465d4457213b77f8c09691094136298a1",
+  "fallbackReason": "approved editorial still selected for seg-005",
   "fallbackType": null,
   "gate": {
     "clipVerified": false,
@@ -59,14 +61,17 @@
   },
   "lineage": null,
   "overlays": {
-    "badge": null,
+    "badge": {
+      "text": "官方素材",
+      "tone": "official"
+    },
     "captionsEnabled": true,
-    "sourceLabel": null
+    "sourceLabel": "Kaisei Suzuki official X post"
   },
   "reasons": [
-    "scene seg-005 at frame 797 (182 frames, 30 fps)",
-    "fallback none: no visual slot artifact (media selection not run)",
-    "visualType programmatic-visual (fixed stage order official screenshot → data card → programmatic)"
+    "scene seg-005 at frame 895 (115 frames, 30 fps)",
+    "fallback none: approved editorial still selected for seg-005",
+    "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
   ],
   "renderProxyMediaType": null,
   "renderProxyRef": null,
@@ -75,8 +80,8 @@
   "segmentId": "seg-005",
   "selectedMediaClipRef": null,
   "shotId": "episode-006:media-shot:seg-005",
-  "startFrame": 797,
-  "startSeconds": 26.570417999999997,
+  "startFrame": 895,
+  "startSeconds": 29.837750999999997,
   "staticFilePath": null,
   "transform": {
     "freezeFrameMs": null,
@@ -111,5 +116,5 @@
   },
   "trim": null,
   "verificationRef": null,
-  "visualType": "programmatic-visual"
+  "visualType": "official-screenshot"
 }
