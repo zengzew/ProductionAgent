@@ -38,7 +38,6 @@ const passingScoreValues: Readonly<Record<CriticName, Readonly<Record<string, nu
     midVideoEngagement: 20,
     endingSatisfaction: 20,
   },
-  "compliance-critic": {platformPolicy: 1, advertisingLanguage: 1, brandSafety: 1},
   "delivery-critic": {
     artifactIntegrity: 1,
     durationAndVerticalFormat: 1,

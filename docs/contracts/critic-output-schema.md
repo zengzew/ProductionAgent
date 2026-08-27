@@ -11,7 +11,6 @@ This schema normalizes results from:
 - Audience Critic
 - Fact Guardian
 - Retention Critic
-- Compliance Critic (`compliance_check` system node)
 - Delivery Critic
 
 It is designed for deterministic routing. Natural-language report bodies remain useful for editors,
@@ -21,14 +20,13 @@ but an orchestrator MUST consume only the leading JSON gate.
 
 The current report paths and gate markers remain unchanged:
 
-| Critic            | Artifact                               | Existing marker    | Current rubric version |
-| ----------------- | -------------------------------------- | ------------------ | ---------------------- |
-| Oral Judge        | `story/oral-review.md`                 | `oral-review-gate` | `oral-review-v2`       |
-| Audience Critic   | `story/critic-report.md`               | `critic-gate`      | `product-story-v4`     |
-| Fact Guardian     | `story/fact-check-report.md`           | `fact-check-gate`  | `fact-guardian-v1`     |
-| Retention Critic  | `story/retention-report.md`            | `retention-gate`   | `retention-critic-v2`  |
-| Compliance Critic | `story/compliance-report.md`           | `compliance-gate`  | `compliance-critic-v1` |
-| Delivery Critic   | `production/delivery-critic-report.md` | `delivery-gate`    | `delivery-critic-v1`   |
+| Critic           | Artifact                               | Existing marker    | Current rubric version |
+| ---------------- | -------------------------------------- | ------------------ | ---------------------- |
+| Oral Judge       | `story/oral-review.md`                 | `oral-review-gate` | `oral-review-v2`       |
+| Audience Critic  | `story/critic-report.md`               | `critic-gate`      | `product-story-v4`     |
+| Fact Guardian    | `story/fact-check-report.md`           | `fact-check-gate`  | `fact-guardian-v1`     |
+| Retention Critic | `story/retention-report.md`            | `retention-gate`   | `retention-critic-v2`  |
+| Delivery Critic  | `production/delivery-critic-report.md` | `delivery-gate`    | `delivery-critic-v1`   |
 
 `critic-output-v1` is an additive envelope inside the existing marker. Existing required fields such
 as `reviewedSha256`, legacy `scores`, `verdict`, and `returnTo` MUST remain until their validators are
@@ -192,10 +190,6 @@ retention.first-30-seconds
 retention.mid-video
 retention.ending
 
-compliance.platform-policy
-compliance.advertising-language
-compliance.brand-safety
-
 delivery.caption-split
 delivery.caption-timing
 delivery.audio
@@ -210,8 +204,7 @@ delivery.asset-manifest
 ```
 
 Adding a category requires its critic profile, rubric, and routing-table update in the same change.
-The three compliance categories are the additive `critic-output-v1` family reserved by Goal 3.1 and
-ADR-002; future incompatible category semantics require a new schema version.
+Future incompatible category semantics require a new schema version.
 
 ## Owner and route enumerations
 
@@ -311,7 +304,6 @@ profiles below.
         "audience-critic",
         "fact-guardian",
         "retention-critic",
-        "compliance-critic",
         "delivery-critic"
       ]
     },
@@ -473,17 +465,6 @@ Required legacy fields remain both reviewed artifact hashes, four 0..25 `scores`
 
 `resolvedFeedback` MUST map each prior open issue to before/after ArtifactRefs. Reusing a prior hash
 cannot resolve an issue.
-
-### Compliance Critic profile
-
-`compliance_check` is a deterministic system node, not a twelfth editorial role. It reviews the
-selected narration and visual plan after Visual Director and emits the common `critic-output-v1`
-envelope with `rubricVersion=compliance-critic-v1`.
-
-Allowed issue families are `contract.*` and `compliance.*`. Every open compliance issue is blocking;
-there is no warning-only numeric average. Copy and platform-policy issues route to Script Writer,
-visual brand-safety issues route to Visual Director, and the normal single-owner/budget policy still
-applies. The node reruns with Audience, Retention, and Fact after every candidate revision.
 
 ### Delivery Critic profile
 

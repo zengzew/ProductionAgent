@@ -7,7 +7,6 @@ export const criticNames = [
   "audience-critic",
   "fact-guardian",
   "retention-critic",
-  "compliance-critic",
   "delivery-critic",
 ] as const;
 
@@ -42,9 +41,6 @@ export const issueCategories = [
   "retention.first-30-seconds",
   "retention.mid-video",
   "retention.ending",
-  "compliance.platform-policy",
-  "compliance.advertising-language",
-  "compliance.brand-safety",
   "delivery.caption-split",
   "delivery.caption-timing",
   "delivery.audio",

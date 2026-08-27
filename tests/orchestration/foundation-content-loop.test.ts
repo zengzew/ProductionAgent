@@ -114,7 +114,6 @@ describe("foundation graph content loop composition", () => {
       "audience-critic": 0,
       "retention-critic": 0,
       "fact-guardian": 0,
-      "compliance-critic": 0,
     };
     const ownerCalls: string[] = [];
     const findArtifact = (context: ContentNodeContext, suffix: string): ArtifactRef => {
@@ -154,7 +153,6 @@ describe("foundation graph content loop composition", () => {
             "audience-critic": criticRunner("audience-critic"),
             "retention-critic": criticRunner("retention-critic"),
             "fact-guardian": criticRunner("fact-guardian"),
-            "compliance-critic": criticRunner("compliance-critic"),
           },
           reviseOwner: async (request) => {
             ownerCalls.push(request.ownerAgent);
@@ -253,7 +251,6 @@ describe("foundation graph content loop composition", () => {
             "audience-critic": criticRunner("audience-critic"),
             "retention-critic": criticRunner("retention-critic"),
             "fact-guardian": criticRunner("fact-guardian"),
-            "compliance-critic": criticRunner("compliance-critic"),
           },
         },
       },

@@ -17,8 +17,8 @@ rendering changes.
 ## Decision summary
 
 M2 now satisfies the implementation plan's bounded content-loop exit contract. `runContentLoop`
-executes the Visual Director followed by parallel Audience, Retention, Fact, and Compliance checks;
-routes one owner; stages a candidate and its refreshed descendants; reruns all four checks; applies
+executes the Visual Director followed by parallel Audience, Retention, and Fact checks;
+routes one owner; stages a candidate and its refreshed descendants; reruns all three checks; applies
 regression, no-progress, oscillation, budget, and strategy controls; and promotes a candidate only
 when ADR-003 `selectBest()` accepts it. Rejected candidates remain audit references while the ledger's
 selected and best pointers remain unchanged.
@@ -36,8 +36,7 @@ M2 failures.
 | Deterministic single-owner routing                   | **PASS** | `selectPrimaryRoute()` remains the only route selector. The loop dispatches only the selected route's issue IDs and `authorizedArtifactIds`; `content-loop.test.ts` and `content-loop-bounded.test.ts` verify Viral Director and Script Writer routes.                                                                                                                                   |
 | Authorized-artifact-only revision                    | **PASS** | `applySelectedRevisions()` rejects an artifact outside the route-derived allowlist. The golden loop asserts that an `attention.hook` issue authorizes only the hook artifact.                                                                                                                                                                                                            |
 | Downstream stale propagation and refresh             | **PASS** | The staged candidate uses `markStaleTransitively()`, requires the exact stale descendant set, verifies dependency hashes, refreshes every descendant, and reruns all critics. `content-loop.test.ts` covers hook → script/narration/visual-plan propagation.                                                                                                                             |
-| Four-way content critic fan-out                      | **PASS** | `contentCriticNames` contains Audience, Retention, Fact, and Compliance. `runCritics()` uses one parallel group before revision and after every candidate. The golden integration test verifies all four run twice.                                                                                                                                                                      |
-| Compliance schema, rubric, and profile               | **PASS** | `critic-output-v1` now includes `compliance-critic` and three `compliance.*` categories; `evaluation.ts` defines the binary `compliance-critic-v1` rubric; `config/ownership.json` maps every new category to one owner. `critic-output.test.ts` and the bounded loop test cover rejection, routing, rerun, and PASS.                                                                    |
+| Three-way content critic fan-out                     | **PASS** | `contentCriticNames` contains Audience, Retention, and Fact. `runCritics()` uses one parallel group before revision and after every candidate. The golden integration test verifies all three run twice.                                                                                                                                                                                 |
 | Revision ledger is part of the loop                  | **PASS** | `runContentLoop` accepts an existing `RevisionLedger`, validates it against the current selection, creates one when absent, records every valid candidate attempt, and returns the updated ledger. Attempts bind before/candidate/evaluation refs, disposition, regression and oscillation IDs, usage, and immutable best/selected refs. The ledger body never enters `ProductionState`. |
 | Creative, cost, and wall-clock budgets               | **PASS** | Creative rounds are checked before dispatch. Cost and wall-clock usage are recorded for every attempt and checked before the next dispatch. Exhaustion produces `human-escalation-v1` and leaves best selected. Integration tests cover creative round 3, exact cost exhaustion, and exact wall-clock exhaustion.                                                                        |
 | Hard/score regression and no-progress                | **PASS** | Each candidate runs through `assessRevision()` and `selectBest()`. Hard or score regression, unchanged bytes, or an unchanged targeted issue records a rejected attempt and cannot advance selected/best. Integration coverage includes a new fact blocker and a higher weighted total with a protected-dimension drop.                                                                  |
@@ -91,5 +90,5 @@ validation were not run because this change does not alter episode content or me
 
 **PASS.** M2 is exit-accepted against `WP-M2-01..07`. The bounded revision loop now retains the best
 valid version, stops predictably on budget or oscillation, protects existing locked ranges, reruns all
-four content critics, and can produce the exact selected reference set required by the atomic content
+three content critics, and can produce the exact selected reference set required by the atomic content
 freeze. M3 remains unstarted.

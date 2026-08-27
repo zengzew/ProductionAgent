@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import {assertArtifactRefBytes, buildArtifactRef} from "../../artifact-registry";
+import {assertArtifactRefBytes} from "../../artifact-registry";
 import {recomputeCriticEvaluation, validateCriticResult} from "../../evaluation";
 import {
   parseCriticGate,
@@ -41,7 +41,7 @@ export type RoleBackedContentLoopOptions = {
   roleForOutputPath?: (repositoryPath: string) => AgentName | undefined;
 };
 
-type LegacyCriticName = Exclude<ContentCriticName, "compliance-critic">;
+type LegacyCriticName = ContentCriticName;
 
 const recordValue = (value: unknown, field: string): unknown => {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
@@ -215,50 +215,6 @@ const roleCritic =
     });
   };
 
-const complianceCritic =
-  (options: RoleBackedContentLoopOptions): ContentCriticRunner =>
-  async (context) => {
-    const repositoryPath = `content/${context.episodeId}/story/compliance-critic-output.json`;
-    const artifactId = `${context.episodeId}:story:compliance-critic-output`;
-    const existing = Object.values(context.artifacts).find((ref) => ref.artifactId === artifactId);
-    const absolutePath = path.resolve(options.repoRoot, repositoryPath);
-    if (!fs.existsSync(absolutePath)) {
-      pauseForExternalCapability({
-        gate: "external-capability",
-        capability: "compliance-critic",
-        episodeId: context.episodeId,
-        runId: context.runId,
-        approvalEpoch: context.approvalEpoch ?? 0,
-        artifactRefs: Object.values(context.artifacts).sort((left, right) =>
-          left.artifactId.localeCompare(right.artifactId),
-        ),
-        expectedOutputPath: repositoryPath,
-        resumeCommand: `ORCHESTRATOR=langgraph pnpm orchestrate --episode ${context.episodeId} --resume`,
-        nextAction: `Run the external compliance capability and place its validated critic-output-v1 JSON at ${repositoryPath}; then resume.`,
-      });
-    }
-    if (!fs.existsSync(absolutePath)) {
-      throw new Error(`EXTERNAL_CAPABILITY_UNRESOLVED:compliance-critic:${repositoryPath}`);
-    }
-    const resultRef = buildArtifactRef({
-      repoRoot: options.repoRoot,
-      artifactId,
-      episodeId: context.episodeId,
-      path: repositoryPath,
-      mediaType: "application/json",
-      schemaVersion: "critic-output-v1",
-      producer: "external-capability:compliance-critic",
-      ...(existing ? {previous: existing} : {}),
-    });
-    const result = validateCriticResult(
-      JSON.parse(readArtifactText(options.repoRoot, resultRef)) as unknown,
-    );
-    if (result.episodeId !== context.episodeId || result.critic !== "compliance-critic") {
-      throw new Error("CONTENT_EXTERNAL_CAPABILITY_RESULT_MISMATCH");
-    }
-    return {result, resultRef};
-  };
-
 const revisionRunner =
   (options: RoleBackedContentLoopOptions): OwnerRevisionRunner =>
   async (request) => {
@@ -386,7 +342,6 @@ export const createRoleBackedContentLoopNodes = (
       ],
       dimensions: (gate) => dimensionsFromScores(recordValue(gate, "scores")),
     }),
-    "compliance-critic": complianceCritic(input),
   };
 
   return {

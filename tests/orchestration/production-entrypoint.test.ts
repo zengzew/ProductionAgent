@@ -79,19 +79,14 @@ const createPassingContentNodes = (repoRoot: string, episodeId: string): Content
             ? `content/${episodeId}/story/critic-report.md`
             : critic === "fact-guardian"
               ? `content/${episodeId}/story/fact-check-report.md`
-              : critic === "retention-critic"
-                ? `content/${episodeId}/story/retention-report.md`
-                : `content/${episodeId}/story/compliance-critic-output.json`;
+              : `content/${episodeId}/story/retention-report.md`;
         write(repoRoot, repositoryPath, JSON.stringify(result, null, 2) + "\n");
         const resultRef = buildArtifactRef({
           repoRoot,
-          artifactId:
-            critic === "compliance-critic"
-              ? `${episodeId}:story:compliance-critic-output`
-              : roleContractOutputArtifactId(episodeId, critic, repositoryPath),
+          artifactId: roleContractOutputArtifactId(episodeId, critic, repositoryPath),
           episodeId,
           path: repositoryPath,
-          mediaType: repositoryPath.endsWith(".json") ? "application/json" : "text/markdown",
+          mediaType: "text/markdown",
           schemaVersion: "critic-output-v1",
           producer: `entrypoint-fixture:${critic}`,
           createdAt: "2026-08-26T00:00:00.000Z",

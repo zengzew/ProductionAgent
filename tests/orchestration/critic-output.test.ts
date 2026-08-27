@@ -31,7 +31,6 @@ const criticNames = [
   "audience-critic",
   "fact-guardian",
   "retention-critic",
-  "compliance-critic",
   "delivery-critic",
 ] as const satisfies readonly CriticName[];
 
@@ -92,21 +91,6 @@ describe("M2.1 critic output and evaluation", () => {
         microCueRatio: productionContract.captions.microCueRatioLimit + 0.000001,
       }).failures,
     ).toEqual(["delivery.duration-render", "delivery.caption-timing"]);
-  });
-
-  it("enforces the Compliance Critic binary profile", () => {
-    const complianceIssue = issue("compliance-critic", "compliance.advertising-language");
-    const result = recomputeCriticEvaluation({
-      critic: "compliance-critic",
-      rubricVersion: "compliance-critic-v1",
-      dimensions: criticScoresFixture("compliance-critic").map((dimension) =>
-        dimension.id === "advertisingLanguage" ? {...dimension, score: 0} : dimension,
-      ),
-      issues: [complianceIssue],
-    });
-    expect(result.verdict).toBe("REJECT");
-    expect(result.blockers).toEqual([complianceIssue.id]);
-    expect(result.evaluation.normalizedTotal).toBe(65);
   });
 
   it("rejects model-authored arithmetic and validates issue structure", () => {

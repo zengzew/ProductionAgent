@@ -51,12 +51,7 @@ import {
 } from "../routing";
 import {assertReferenceOnlyState, type ProductionState} from "../state";
 
-export const contentCriticNames = [
-  "audience-critic",
-  "retention-critic",
-  "fact-guardian",
-  "compliance-critic",
-] as const;
+export const contentCriticNames = ["audience-critic", "retention-critic", "fact-guardian"] as const;
 
 export const contentLoopOwnedAgentNames = [
   "visual-director",
@@ -1029,15 +1024,6 @@ const targetDimensionsFor = (
     }
     if (issue.category === "retention.ending") {
       selectors.add("retention-critic:endingSatisfaction");
-    }
-    if (issue.category === "compliance.platform-policy") {
-      selectors.add("compliance-critic:platformPolicy");
-    }
-    if (issue.category === "compliance.advertising-language") {
-      selectors.add("compliance-critic:advertisingLanguage");
-    }
-    if (issue.category === "compliance.brand-safety") {
-      selectors.add("compliance-critic:brandSafety");
     }
   }
   return selectors.size > 0 ? [...selectors].sort() : undefined;

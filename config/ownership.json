@@ -182,21 +182,6 @@
       "routeTarget": "viral-director",
       "restartAt": "viral-director"
     },
-    "compliance.platform-policy": {
-      "owner": "script-writer",
-      "routeTarget": "script-writer",
-      "restartAt": "script-writer"
-    },
-    "compliance.advertising-language": {
-      "owner": "script-writer",
-      "routeTarget": "script-writer",
-      "restartAt": "script-writer"
-    },
-    "compliance.brand-safety": {
-      "owner": "visual-director",
-      "routeTarget": "visual-director",
-      "restartAt": "visual-director"
-    },
     "delivery.caption-split": {
       "owner": "production-executor",
       "routeTarget": "captions",

@@ -366,7 +366,6 @@ const scoreRegressionThreshold = (critic: CriticName): number | undefined => {
     case "retention-critic":
       return 3;
     case "fact-guardian":
-    case "compliance-critic":
     case "delivery-critic":
       return undefined;
   }
@@ -440,11 +439,7 @@ const evaluateDimensionRegression = (
 
     const drop = prior.score - next.score;
     if (drop <= 0) continue;
-    if (
-      critic === "fact-guardian" ||
-      critic === "compliance-critic" ||
-      critic === "delivery-critic"
-    ) {
+    if (critic === "fact-guardian" || critic === "delivery-critic") {
       if (next.score < (floor ?? 1) && prior.score >= (priorFloor ?? floor ?? 1)) {
         pushUnique(
           hard,

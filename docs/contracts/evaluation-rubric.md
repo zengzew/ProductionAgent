@@ -280,21 +280,6 @@ containing a high issue in that time range.
 - Ending: the opening action/result must gain meaning from the middle and resolve before any optional
   close. Market forecasts, generic wealth questions, and generic models cannot substitute for payoff.
 
-## Compliance Critic
-
-The rubric version is `compliance-critic-v1`. This is a binary system profile over the selected
-narration and visual plan.
-
-| Dimension            | Weight | Pass standard                                                                     |
-| -------------------- | ------ | --------------------------------------------------------------------------------- |
-| Platform policy      | 0.40   | No selected copy or visual violates an applicable platform publication rule.      |
-| Advertising language | 0.35   | Claims and promotional wording avoid prohibited or unsupported advertising text.  |
-| Brand safety         | 0.25   | Product, people, source labels, and visual context remain safe and non-deceptive. |
-
-Threshold is 100 and every dimension floor is 1. Any open `compliance.*` issue is a blocker and
-REJECTS the candidate. Scores are recomputed like Fact Guardian's binary profile; a passing dimension
-cannot compensate for a failing one.
-
 ## Delivery Critic
 
 Rubric version remains `delivery-critic-v1`. Like Fact Guardian, this is a binary weighted rubric.

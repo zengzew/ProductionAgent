@@ -141,13 +141,11 @@ describe("GOLDEN-002 content revision loop", () => {
       "audience-critic": 0,
       "retention-critic": 0,
       "fact-guardian": 0,
-      "compliance-critic": 0,
     };
     const reviewedHashes: Record<ContentCriticName, string[][]> = {
       "audience-critic": [],
       "retention-critic": [],
       "fact-guardian": [],
-      "compliance-critic": [],
     };
     const visualCalls: number[] = [];
     const ownerCalls: Array<{
@@ -168,9 +166,7 @@ describe("GOLDEN-002 content revision loop", () => {
             ? [currentHook, findArtifact(context, "script"), findArtifact(context, "narration")]
             : critic === "retention-critic"
               ? [currentHook, findArtifact(context, "script"), findArtifact(context, "visual-plan")]
-              : critic === "fact-guardian"
-                ? [findArtifact(context, "story-brief"), findArtifact(context, "script")]
-                : [findArtifact(context, "narration"), findArtifact(context, "visual-plan")];
+              : [findArtifact(context, "story-brief"), findArtifact(context, "script")];
         const issues =
           critic === "audience-critic" && criticCalls[critic] === 1 ? [hookIssue(currentHook)] : [];
         return makeCriticResult({
@@ -195,7 +191,6 @@ describe("GOLDEN-002 content revision loop", () => {
           "audience-critic": criticRunner("audience-critic"),
           "retention-critic": criticRunner("retention-critic"),
           "fact-guardian": criticRunner("fact-guardian"),
-          "compliance-critic": criticRunner("compliance-critic"),
         },
         reviseOwner: async (request) => {
           ownerCalls.push({
@@ -304,7 +299,6 @@ describe("GOLDEN-002 content revision loop", () => {
       "audience-critic": 2,
       "retention-critic": 2,
       "fact-guardian": 2,
-      "compliance-critic": 2,
     });
     for (const name of contentCriticNames) {
       expect(reviewedHashes[name]).toHaveLength(2);
@@ -314,7 +308,7 @@ describe("GOLDEN-002 content revision loop", () => {
       result.trace.filter(
         (step) => step.parallel && contentCriticNames.includes(step.node as ContentCriticName),
       ),
-    ).toHaveLength(8);
+    ).toHaveLength(6);
     expect(assertReferenceOnlyState(result.state)).toEqual(result.state);
     expect(JSON.stringify(result.state)).not.toContain("hook v2");
   });

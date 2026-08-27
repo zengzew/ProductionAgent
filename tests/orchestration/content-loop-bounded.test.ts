@@ -203,7 +203,7 @@ describe("bounded content revision integration", () => {
     expect(result.revisionLedger.best[current.initial.artifactId]?.sha256).not.toBe(
       current.initial.sha256,
     );
-    expect(Object.values(critics.calls)).toEqual([3, 3, 3, 3]);
+    expect(Object.values(critics.calls)).toEqual([3, 3, 3]);
   });
 
   it.each([
@@ -394,41 +394,6 @@ describe("bounded content revision integration", () => {
     expect(result.revisionLedger.best[current.initial.artifactId]?.sha256).toBe(
       current.initial.sha256,
     );
-  });
-
-  it("routes and reruns the Compliance Critic before selecting a compliant candidate", async () => {
-    const current = fixture();
-    const critics = criticNodes(current.initial, ({critic, call, current: ref}) => {
-      if (critic !== "compliance-critic" || call > 1) return {};
-      return {
-        issues: [
-          issueFor(ref, {
-            id: "issue-compliance-r1-01",
-            category: "compliance.advertising-language",
-            severity: "blocker",
-            ownerAgent: "script-writer",
-            routeTarget: "script-writer",
-          }),
-        ],
-        scores: {advertisingLanguage: 0},
-      };
-    });
-    const result = await runContentLoop({
-      state: stateFor(current.initial),
-      artifactIndex: current.index,
-      nodes: {
-        critics: critics.nodes,
-        reviseOwner: (request) => {
-          expect(request.ownerAgent).toBe("script-writer");
-          return revisionFor(current, "B");
-        },
-      },
-    });
-
-    expect(result.status).toBe("completed");
-    expect(result.route).toMatchObject({ownerAgent: "script-writer"});
-    expect(critics.calls["compliance-critic"]).toBe(2);
-    expect(result.state.gates["compliance-critic"]).toBe("pass");
   });
 
   it("blocks an automated owner revision that overlaps an existing locked range", async () => {
