@@ -1,5 +1,5 @@
 <!-- viral-strategy-gate
-{ "rubricVersion": "viral-strategy-v2", "reviewedFiles": { "storyBibleSha256": "94f207f23c549c2c34c7ed8fbdeafa50f82469a2fc9a103249d024f7b4861dcf", "storyAngleSha256": "f37939b7906355840dd3f2f72a04e35d2024d30c77ecac7d18ec440509442095", "threeActStructureSha256": "5083fe1683cba5eb11b2339b154db6457acdd8a04a8d49f5fcc07cb6964dca4e", "hookCandidatesSha256": "a3f6c9d1e4b2a7c8f0d5e6b9a1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0", "directorBriefSha256": "b155d9b24b15fb1c98319e586b2048e3bf11329b486200d693945f47c8d9a87f" }, "selectedHookHeading": "候选 A（选中）— 同一场演示：几何网格与成品 Logo 同帧出现", "claimIds": ["claim-rikyu-001","claim-rikyu-002","claim-rikyu-003","claim-rikyu-005","claim-rikyu-006","claim-rikyu-007","claim-rikyu-008","claim-rikyu-009","claim-rikyu-010"], "scores": { "openingHook": 5, "curiosityGap": 5, "emotionalTension": 4, "informationRevealOrder": 5, "endingPayoff": 4 }, "total": 23, "threshold": 20, "blockers": [], "verdict": "READY", "returnTo": "none" }
+{ "rubricVersion": "viral-strategy-v2", "reviewedFiles": { "storyBibleSha256": "f07bba176855423398206a7ba528ca03df7748ab377acfc396e6b9dd3f126b58", "storyAngleSha256": "5b3783f6d31c5bc6f129d578c47c3e9ea4689443bd94e5367a12db1970735f20", "threeActStructureSha256": "4fde159c2c28aa59d1de7ca25467075d1263bd26dd95778dde2d64ee6d6e6729", "hookCandidatesSha256": "503d316b06c3bb1af0f11160feaf80726fcc96c404c1d75bbfef39f6d384998c", "directorBriefSha256": "b40766114f3cc44e08cf5b0e191113cea4b9b7b3a8d57a85320fc9702791a578" }, "selectedHookHeading": "候选 A（选中）— 同一场演示：几何网格与成品 Logo 同帧出现", "claimIds": ["claim-rikyu-001","claim-rikyu-002","claim-rikyu-003","claim-rikyu-005","claim-rikyu-006","claim-rikyu-007","claim-rikyu-008","claim-rikyu-009","claim-rikyu-010"], "scores": { "openingHook": 5, "curiosityGap": 5, "emotionalTension": 4, "informationRevealOrder": 5, "endingPayoff": 4 }, "total": 23, "threshold": 20, "blockers": [], "verdict": "READY", "returnTo": "none" }
 -->
 
 # Viral Strategy — episode-006（Rikyū）
@@ -11,7 +11,7 @@
 - 事实边界：不使用 claim-rikyu-011、claim-rikyu-012；不把 5M 展示与 10K 使用相除；不把 5 美元说成收入或估值。
 - 本次不是程序化填空：首帧的证据来自官方 X 帖原始四图，产品证据来自官网真实项目组，结尾停在官网价格区块；每个数字都有来源标签。
 
-## 1. Opening hook
+## Opening hook
 
 - 目标：0–3 秒内，零背景观众看见一个已经发生的结果，并留下“这是什么”的问题。
 - 画面：
@@ -21,7 +21,7 @@
 - 旁白预算：约 20 字；不读日期；产品名若出现只作为画面标签，不承担首帧解释。
 - 边界：成品与网格“同框出现”不等于“网格是内部算法”；不出现模型推理、训练或构造链的表述。
 
-## 2. Curiosity gap
+## Curiosity gap
 
 - 第 3–20 秒观众已知：网上有一场公开演示，几何网格旁边出现了成品 Logo；这个演示不是静止的最终展示，而是“过程+结果”并置。
 - 观众仍不知道（且是唯一等待的答案）：这个能出成品的工具，是靠什么被陌生用户看见的？
@@ -31,14 +31,14 @@
   - 被谁看见：开发者先从首日 7 人起步，随后把几何 Logo 演示公开到 X；ITmedia 随后记录传播尺度与用户分享（claim-rikyu-005、006、009、007、008）。
 - 禁止：不堆“为什么火”“这会不会改变设计行业”等来源不支持的反问；不提前泄露收入/估值缺位。
 
-## 3. Emotional tension
+## Emotional tension
 
 - 用户愿望：不需要设计技能，也不需要反复描述，就能得到可用的品牌成品（官网口径，claim-rikyu-002）。
 - 代价/选择：免费计划给 2000 积分；商用权限与 SVG 导出从 Basic 每月 5 美元起。观众会掂量：这个“说需求得成品”的工具，值不值得现在开始用（claim-rikyu-010）。
 - 规模对照：个人开发的产品首日只有 7 名用户（创始人口述）；随后出现一次可核实的公开动作。该对照制造“低起点 vs 被看见后的规模”，只标 sequence-only，不制造危机、不渲染“爆红”。
 - 具体执行：在 Act II 的转折处用“首日 7 人”来源标签与官方 X 帖演示并置，维持“它凭什么被看见”的张力，不转入创始人奋斗或行业焦虑。
 
-## 4. Information reveal order
+## Information reveal order
 
 | 次序 | 揭示 | 新增信息 | 仍等待 | Claims | 同期证据 |
 | --- | --- | --- | --- | --- | --- |
@@ -52,7 +52,7 @@
 - 延后设计：把 5 美元/免费积分放到最后，是因为先有结果和规模，价格才有“当前起点”的含义；不是因为它能改变事实或合规判断。
 - 不强加因果：第 4→5 行只呈现先后顺序；旁白不得使用“因此”“导致”“转化”等因果词。
 
-## 5. Ending payoff
+## Ending payoff
 
 - 开场问题：同框的网格与成品 Logo，到底是什么？
 - 结尾回答：它是 Rikyū 的演示结果，而 Rikyū 现在是一个可以免费拿 2000 积分开始、每月 5 美元起打开商用与 SVG 导出的产品。当前入口是公开价格页，不是收入、融资或估值。

@@ -1,20 +1,20 @@
 {
   "artifactRef": {
     "artifactId": "episode-006:media:render-manifest",
-    "createdAt": "2026-08-26T07:57:17.533Z",
+    "createdAt": "2026-08-27T03:33:11.611Z",
     "episodeId": "episode-006",
     "mediaType": "application/json",
     "path": "content/episode-006/media/render-manifest.json",
     "producer": "media-render-manifest-v1",
     "revision": 1,
     "schemaVersion": "media-render-manifest-v1",
-    "sha256": "83593299c94f1216deb1d55cf134372a940047377fcb1a92e477956872805f67",
+    "sha256": "8e69f47315bc99e92b9432aa9e5b5dcac5ad4a5125b45eb7d892ebae93f5a46e",
     "sizeBytes": 8830
   },
   "assetManifestSha256": "b509ccf569986406af7e3b28504817cff393e3d3140d1ef61ca1ca121c32996d",
   "assets": [],
   "clips": [],
-  "createdAt": "2026-08-26T07:57:17.533Z",
+  "createdAt": "2026-08-27T03:33:11.611Z",
   "episodeId": "episode-006",
   "officialAssets": [
     {
@@ -182,11 +182,11 @@
       "usedInRender": false
     }
   ],
-  "renderPlanSha256": "6e6fda6309059ddbe0f6477934fcea9256777e6297312414d4749859dccf4920",
+  "renderPlanSha256": "d1d0a50e21efea88d1ddfe38c0b8e058b61e04e7ce5dad300e289b1287f26cea",
   "schemaVersion": "media-render-manifest-v1",
   "sourceManifestSha256": null,
   "sources": [],
-  "timelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
+  "timelineSha256": "ce226f83bfab88dc271834506239ef627ebc840f894c4b219fe4c8c9326e3eac",
   "usage": [
     {
       "clipRef": null,

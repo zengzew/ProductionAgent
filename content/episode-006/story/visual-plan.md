@@ -1,5 +1,5 @@
 <!-- visual-plan-gate
-{"rubricVersion":"visual-plan-v3","reviewedFile":"story/final-script.md","reviewedSha256":"9da397d3458768eb625c5c49101bced42f20a7013500b3cf02197edc9f23bbc8","plannedSegments":7,"unresolvedAssets":[],"verdict":"READY","returnTo":"none"}
+{"rubricVersion":"visual-plan-v3","reviewedFile":"story/final-script.md","reviewedSha256":"b76cb12409994f28cf7e8f7d39bf0608313feef67519980d16ed4d1d0aa7d74b","plannedSegments":7,"unresolvedAssets":[],"verdict":"READY","returnTo":"none"}
 -->
 
 # Visual Plan — episode-006（Rikyū）
@@ -27,9 +27,9 @@
 - Asset requirements: 已准入开发者官方 X 原图，无缺口。
 - Pacing: 3 秒内两次可见焦点变化；首帧无空白、无等待。
 - Visible action: 完整原图出现 → 网格被放大 → 成品 Logo 被框选。
-- Evidence type: still-page
+- Evidence type: official-ui-crop
 - Focal crop: 先读大猩猩构成网格，再读右下成品 Logo；保留足够边缘证明二者同图。
-- Visual event: 0.0 秒产品名与原图；0.5 秒推入网格；1.8 秒焦点移至成品。
+- Visual event: 0.0 秒产品名与原图出现；0.5 秒高亮并推进网格；1.8 秒切到成品焦点。
 - Media preference: 开发者官方原图优先于程序化复刻；不需要回退。
 - Render target: 几何网格与成品 Logo 同框
 - Claim IDs: claim-rikyu-006
@@ -48,7 +48,7 @@
 - Visible action: Logo 被框选 → 色彩/排版被框选 → 输出类型依次点亮。
 - Evidence type: official-ui-crop
 - Focal crop: 中央身份板，保证标志与色彩可读，字幕不压住下部应用区。
-- Visual event: 0 秒案例名；2 秒 Logo；4 秒色彩；6 秒输出类型。
+- Visual event: 0 秒案例名出现；2 秒高亮 Logo；4 秒切到色彩；6 秒输出类型依次出现。
 - Media preference: 官网真实产品结果优先；不用品牌首页或合成 mockup。
 - Render target: 产品定义与整套品牌资产
 - Claim IDs: claim-rikyu-001, claim-rikyu-002
@@ -86,7 +86,7 @@
 - Visible action: 七人卡出现 → 卡片收起 → 网格细节被框选 → 发布动作标签出现。
 - Evidence type: still-page
 - Focal crop: 狮子构成网格与右下成品标志，不复用 seg-001 的大猩猩焦点。
-- Visual event: 0 秒七人；2 秒原图；4 秒构成细节；6 秒发布标签。
+- Visual event: 0 秒七人卡出现；2 秒切到原图；4 秒高亮构成细节；6 秒发布标签出现。
 - Media preference: 开发者官方发布素材优先于仿 X 帖卡；无需回退。
 - Render target: 低起点与公开演示动作
 - Claim IDs: claim-rikyu-005, claim-rikyu-006
@@ -105,7 +105,7 @@
 - Visible action: 成品出现 → 时间口径出现 → 10,000+ 放大 → 来源标签锁定。
 - Evidence type: data-graphic
 - Focal crop: 上半部成品 Logo，下半部单一数字与口径；字幕在最底安全区。
-- Visual event: 0 秒成品；1.5 秒口径；3 秒数字；5 秒来源。
+- Visual event: 0 秒成品出现；1.5 秒口径出现；3 秒数字放大；5 秒来源高亮。
 - Media preference: 官方成品 + 程序化数据层优先于抽象数字卡。
 - Render target: 规模数字
 - Claim IDs: claim-rikyu-009
@@ -124,7 +124,7 @@
 - Visible action: 成品出现 → ITmedia 来源进入 → 展示数字出现 → 成品缩成分享卡。
 - Evidence type: news-quote
 - Focal crop: 狮子成品与单一展示数字；来源条保持可读。
-- Visual event: 0 秒成品；2 秒来源；3 秒数字；5 秒分享动作。
+- Visual event: 0 秒成品出现；2 秒来源条进入；3 秒数字出现；5 秒切到分享动作。
 - Media preference: 官方成品与独立媒体口径优先；不伪造原始用户帖。
 - Render target: 传播与用户反馈
 - Claim IDs: claim-rikyu-007, claim-rikyu-008
@@ -143,7 +143,7 @@
 - Visible action: 海报结果出现 → Free 卡出现 → Basic 卡替换 → 两档与结果并列停住。
 - Evidence type: official-ui-crop
 - Focal crop: 海报中央人物与霓虹 Logo，价格卡置于上半部留白，不压字幕。
-- Visual event: 0 秒海报；2 秒免费；5 秒五美元；8 秒最终并列。
+- Visual event: 0 秒海报出现；2 秒免费卡进入；5 秒切到五美元卡；8 秒最终并列高亮。
 - Media preference: 官网真实成品 + 来源绑定价格层；不以未捕获的价格页冒充真实页面。
 - Render target: 当前入口与定价
-- Claim IDs: claim-rikyu-010
+- Claim IDs: claim-rikyu-006, claim-rikyu-010

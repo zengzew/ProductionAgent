@@ -2,8 +2,8 @@
   "episodeId": "episode-006",
   "layoutVariant": "poke-standard",
   "fps": 30,
-  "totalFrames": 1430,
-  "totalSeconds": 47.666666666666664,
+  "totalFrames": 1247,
+  "totalSeconds": 41.56666666666667,
   "ttsProvider": "MiniMax Speech via Alibaba Cloud Model Studio",
   "captionAlignment": "provider-timestamps",
   "scenes": [
@@ -13,7 +13,8 @@
       "narration": "几何网格旁，出现了一张成品 Logo。",
       "onScreenText": [
         "RIKYŪ",
-        "几何构成 → 成品 Logo",
+        "官方功能演示",
+        "几何网格生成成品 Logo",
         "开发者官方 X"
       ],
       "claimIds": [
@@ -24,15 +25,15 @@
       "targetSeconds": 3,
       "index": 0,
       "startFrame": 0,
-      "durationFrames": 83,
+      "durationFrames": 67,
       "startSeconds": 0,
-      "endSeconds": 2.7690420000000002,
-      "audioDurationSeconds": 2.589042,
+      "endSeconds": 2.246604,
+      "audioDurationSeconds": 2.066604,
       "audio": "episodes/episode-006/audio/seg-001.mp3"
     },
     {
       "id": "seg-002",
-      "section": "product",
+      "section": "hook",
       "narration": "Rikyū 是个人提供的 AI 设计服务：想自己做品牌的人，描述需求，就能拿到 Logo、网页、社交和印刷成品。官网说，不用会设计，也不用反复猜。",
       "onScreenText": [
         "一句需求，变成整套品牌资产",
@@ -46,16 +47,16 @@
       "visualIntent": "Waypause 真实视觉识别板出现 → Logo 被框选 → 色彩与应用类型依次点亮。",
       "targetSeconds": 8,
       "index": 1,
-      "startFrame": 83,
-      "durationFrames": 351,
-      "startSeconds": 2.7690420000000002,
-      "endSeconds": 14.465980000000002,
-      "audioDurationSeconds": 10.796938,
+      "startFrame": 67,
+      "durationFrames": 303,
+      "startSeconds": 2.246604,
+      "endSeconds": 12.355042,
+      "audioDurationSeconds": 9.208438,
       "audio": "episodes/episode-006/audio/seg-002.mp3"
     },
     {
       "id": "seg-003",
-      "section": "entry",
+      "section": "hook",
       "narration": "直接说需求就行；也能把 Claude、Codex 接进来，从那边发起设计。这样一个小工具，怎么让陌生用户愿意试一次？",
       "onScreenText": [
         "给咖啡品牌做一套视觉",
@@ -67,13 +68,13 @@
       ],
       "scene": "两个使用入口",
       "visualIntent": "需求输入条出现 → 真实落地页结果被勾选 → Claude/Codex 入口被点亮。",
-      "targetSeconds": 7,
+      "targetSeconds": 9,
       "index": 2,
-      "startFrame": 434,
-      "durationFrames": 250,
-      "startSeconds": 14.465980000000002,
-      "endSeconds": 22.791709,
-      "audioDurationSeconds": 7.425729,
+      "startFrame": 370,
+      "durationFrames": 224,
+      "startSeconds": 12.355042,
+      "endSeconds": 19.835479999999997,
+      "audioDurationSeconds": 6.580438,
       "audio": "episodes/episode-006/audio/seg-003.mp3"
     },
     {
@@ -82,6 +83,7 @@
       "narration": "开发者自己回顾，上线首日只有 7 个用户。随后，他把几何 Logo 的演示发到 X。",
       "onScreenText": [
         "上线首日 7 人",
+        "官方功能演示",
         "随后发布到 X"
       ],
       "claimIds": [
@@ -92,11 +94,11 @@
       "visualIntent": "七人来源卡出现 → 狮子构成原图露出 → 构成细节被框选 → 发布动作标签出现。",
       "targetSeconds": 8,
       "index": 3,
-      "startFrame": 684,
-      "durationFrames": 211,
-      "startSeconds": 22.791709,
-      "endSeconds": 29.837750999999997,
-      "audioDurationSeconds": 6.146042,
+      "startFrame": 594,
+      "durationFrames": 181,
+      "startSeconds": 19.835479999999997,
+      "endSeconds": 25.881792999999995,
+      "audioDurationSeconds": 5.146313,
       "audio": "episodes/episode-006/audio/seg-004.mp3"
     },
     {
@@ -115,11 +117,11 @@
       "visualIntent": "大猩猩成品出现 → 时间口径出现 → 10,000+ 放大 → 来源锁定。",
       "targetSeconds": 7,
       "index": 4,
-      "startFrame": 895,
-      "durationFrames": 115,
-      "startSeconds": 29.837750999999997,
-      "endSeconds": 33.66347999999999,
-      "audioDurationSeconds": 2.925729,
+      "startFrame": 775,
+      "durationFrames": 99,
+      "startSeconds": 25.881792999999995,
+      "endSeconds": 29.185084999999994,
+      "audioDurationSeconds": 2.403292,
       "audio": "episodes/episode-006/audio/seg-005.mp3"
     },
     {
@@ -139,11 +141,11 @@
       "visualIntent": "狮子成品出现 → ITmedia 来源进入 → 展示数字出现 → 成品缩成分享卡。",
       "targetSeconds": 7,
       "index": 5,
-      "startFrame": 1010,
-      "durationFrames": 175,
-      "startSeconds": 33.66347999999999,
-      "endSeconds": 39.51008399999999,
-      "audioDurationSeconds": 4.946604,
+      "startFrame": 874,
+      "durationFrames": 155,
+      "startSeconds": 29.185084999999994,
+      "endSeconds": 34.352459999999994,
+      "audioDurationSeconds": 4.267375,
       "audio": "episodes/episode-006/audio/seg-006.mp3"
     },
     {
@@ -156,17 +158,18 @@
         "SVG · 商用"
       ],
       "claimIds": [
+        "claim-rikyu-006",
         "claim-rikyu-010"
       ],
       "scene": "当前入口与定价",
       "visualIntent": "Waypause 海报结果出现 → Free 卡出现 → Basic 卡替换 → 结果与两档并列。",
       "targetSeconds": 10,
       "index": 6,
-      "startFrame": 1185,
-      "durationFrames": 245,
-      "startSeconds": 39.51008399999999,
-      "endSeconds": 47.68356299999999,
-      "audioDurationSeconds": 7.273479,
+      "startFrame": 1029,
+      "durationFrames": 218,
+      "startSeconds": 34.352459999999994,
+      "endSeconds": 41.60350199999999,
+      "audioDurationSeconds": 6.351042,
       "audio": "episodes/episode-006/audio/seg-007.mp3"
     }
   ]

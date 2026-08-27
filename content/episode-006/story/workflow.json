@@ -30,11 +30,11 @@
     {"id":"decision-factual-clearance","owner":"fact-guardian","decision":"当前脚本通过事实门。","rationale":"规模数字保持来源口径，不推导转化、留存、收入或估值。","artifact":"content/episode-006/story/fact-check-report.md","claimIds":[]},
     {"id":"decision-visual-language","owner":"visual-director","decision":"所有七段都以对应官网或官方 X 图片为主体。","rationale":"真实产品结果和公开演示直接支撑旁白，程序化元素只承担标注和数据层。","artifact":"content/episode-006/story/visual-plan.md","claimIds":["claim-rikyu-001","claim-rikyu-002","claim-rikyu-006","claim-rikyu-007","claim-rikyu-009","claim-rikyu-010"]},
     {"id":"decision-production-readiness","owner":"retention-critic","decision":"以 88 分批准进入生产。","rationale":"四个时间窗均通过且没有阻断风险。","artifact":"content/episode-006/story/retention-report.md","claimIds":[]},
-    {"id":"decision-final-delivery","owner":"delivery-critic","decision":"批准当前 1080×1920 竖屏 MP4 通过交付门。","rationale":"最终读回 47.666667 秒，七段真实图片均 hash-bound 入片，视频、音轨、字幕、有界短片和关键帧完成实际检查。","artifact":"content/episode-006/production/delivery-critic-report.md","claimIds":[]}
+    {"id":"decision-final-delivery","owner":"delivery-critic","decision":"批准当前 1080×1920 竖屏 MP4 通过交付门。","rationale":"最终读回 41.566667 秒，七段真实图片均 hash-bound 入片，视频、音轨、字幕、有界短片和关键帧完成实际检查。","artifact":"content/episode-006/production/delivery-critic-report.md","claimIds":[]}
   ],
   "reviewCycles": [
-    {"id":"review-audience-round-01","critic":"audience-critic","round":1,"reportPath":"content/episode-006/story/critic-report.md","reportSha256":"8740f3b0cf09954be999285dd95e4527cc05c1804503a6820819d0ad128d55a0","verdict":"PASS","routes":[]},
-    {"id":"review-retention-round-01","critic":"retention-critic","round":1,"reportPath":"content/episode-006/story/retention-report.md","reportSha256":"463f55a4a31d22d9109daf6af9f80f3e9d5d5d7d5b74198f54245eda355f69fa","verdict":"PASS","routes":[]},
-    {"id":"review-delivery-round-01","critic":"delivery-critic","round":1,"reportPath":"content/episode-006/production/delivery-critic-report.md","reportSha256":"f3a651e187375120871d3839d1e628e8aab0a21315fa2f331738ea564efde541","verdict":"PASS","routes":[]}
+    {"id":"review-audience-round-01","critic":"audience-critic","round":1,"reportPath":"content/episode-006/story/critic-report.md","reportSha256":"e0e1078df8e1c6a520f6f3931db7582ddc012e29b6ccc3a31456939ce9a755df","verdict":"PASS","routes":[]},
+    {"id":"review-retention-round-01","critic":"retention-critic","round":1,"reportPath":"content/episode-006/story/retention-report.md","reportSha256":"5deb917093122f44b4018a1f90162dcb7ea285ba54ddba29133c57a575bb3234","verdict":"PASS","routes":[]},
+    {"id":"review-delivery-round-01","critic":"delivery-critic","round":1,"reportPath":"content/episode-006/production/delivery-critic-report.md","reportSha256":"b7192a99e99d9cb0419dc9520cd92a3035727447e3e1b2b41382b4dd7dc6d3ee","verdict":"PASS","routes":[]}
   ]
 }

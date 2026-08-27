@@ -1,15 +1,15 @@
 {
   "artifactRef": {
     "artifactId": "episode-006:media:render-plan",
-    "createdAt": "2026-08-26T07:57:17.501Z",
+    "createdAt": "2026-08-27T03:33:11.579Z",
     "episodeId": "episode-006",
     "mediaType": "application/json",
     "path": "content/episode-006/media/render-plan.json",
     "producer": "media-render-v1",
     "revision": 1,
     "schemaVersion": "media-render-plan-v1",
-    "sha256": "6e6fda6309059ddbe0f6477934fcea9256777e6297312414d4749859dccf4920",
-    "sizeBytes": 25382
+    "sha256": "d1d0a50e21efea88d1ddfe38c0b8e058b61e04e7ce5dad300e289b1287f26cea",
+    "sizeBytes": 25361
   },
   "config": {
     "canvas": {
@@ -22,10 +22,10 @@
       "id": "ffmpeg",
       "version": "ffmpeg-render-proxy-v1"
     },
-    "timelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
+    "timelineSha256": "ce226f83bfab88dc271834506239ef627ebc840f894c4b219fe4c8c9326e3eac",
     "version": "media-render-config-v1"
   },
-  "createdAt": "2026-08-26T07:57:17.500Z",
+  "createdAt": "2026-08-27T03:33:11.579Z",
   "episodeId": "episode-006",
   "fps": 30,
   "layoutVariant": "poke-standard",
@@ -35,15 +35,15 @@
     {
       "artifactRef": {
         "artifactId": "episode-006:media-shot:seg-001",
-        "createdAt": "2026-08-26T07:57:17.380Z",
+        "createdAt": "2026-08-27T03:33:11.445Z",
         "episodeId": "episode-006",
         "mediaType": "application/json",
         "path": "content/episode-006/media/shots/seg-001.json",
         "producer": "media-render-v1",
         "revision": 1,
         "schemaVersion": "media-shot-v1",
-        "sha256": "a947221b4f0bb6576c2de61cb0345ebeccad46a75d2af7c3a152ef575efef9c0",
-        "sizeBytes": 2576
+        "sha256": "0d900560d979fd7ef5a65d66c25b05ff9f4476ec20ef344503b9a74dbd75ed1f",
+        "sizeBytes": 2566
       },
       "audio": {
         "ducking": {
@@ -68,13 +68,13 @@
           "id": "ffmpeg",
           "version": "ffmpeg-render-proxy-v1"
         },
-        "timelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
+        "timelineSha256": "ce226f83bfab88dc271834506239ef627ebc840f894c4b219fe4c8c9326e3eac",
         "version": "media-render-config-v1"
       },
-      "createdAt": "2026-08-26T07:57:17.379Z",
+      "createdAt": "2026-08-27T03:33:11.445Z",
       "crossfadeMs": 0,
-      "durationFrames": 83,
-      "endSeconds": 2.7690420000000002,
+      "durationFrames": 67,
+      "endSeconds": 2.246604,
       "episodeId": "episode-006",
       "fade": {
         "inMs": 200,
@@ -103,7 +103,7 @@
         "sourceLabel": "Kaisei Suzuki official X post"
       },
       "reasons": [
-        "scene seg-001 at frame 0 (83 frames, 30 fps)",
+        "scene seg-001 at frame 0 (67 frames, 30 fps)",
         "fallback none: approved editorial still selected for seg-001",
         "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
       ],
@@ -155,15 +155,15 @@
     {
       "artifactRef": {
         "artifactId": "episode-006:media-shot:seg-002",
-        "createdAt": "2026-08-26T07:57:17.403Z",
+        "createdAt": "2026-08-27T03:33:11.472Z",
         "episodeId": "episode-006",
         "mediaType": "application/json",
         "path": "content/episode-006/media/shots/seg-002.json",
         "producer": "media-render-v1",
         "revision": 1,
         "schemaVersion": "media-shot-v1",
-        "sha256": "a50e75a6b494a4ba08d64f3272e069ce97f4987a65a604311a8468a093183550",
-        "sizeBytes": 2604
+        "sha256": "6169655a6352a6c428d5de378bbbc96c8d543ae05e6576a74d2dc66ac31f6511",
+        "sizeBytes": 2585
       },
       "audio": {
         "ducking": {
@@ -188,13 +188,13 @@
           "id": "ffmpeg",
           "version": "ffmpeg-render-proxy-v1"
         },
-        "timelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
+        "timelineSha256": "ce226f83bfab88dc271834506239ef627ebc840f894c4b219fe4c8c9326e3eac",
         "version": "media-render-config-v1"
       },
-      "createdAt": "2026-08-26T07:57:17.403Z",
+      "createdAt": "2026-08-27T03:33:11.472Z",
       "crossfadeMs": 0,
-      "durationFrames": 351,
-      "endSeconds": 14.465980000000002,
+      "durationFrames": 303,
+      "endSeconds": 12.355042,
       "episodeId": "episode-006",
       "fade": {
         "inMs": 200,
@@ -223,7 +223,7 @@
         "sourceLabel": "Rikyū official website"
       },
       "reasons": [
-        "scene seg-002 at frame 83 (351 frames, 30 fps)",
+        "scene seg-002 at frame 67 (303 frames, 30 fps)",
         "fallback none: approved editorial still selected for seg-002",
         "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
       ],
@@ -234,8 +234,8 @@
       "segmentId": "seg-002",
       "selectedMediaClipRef": null,
       "shotId": "episode-006:media-shot:seg-002",
-      "startFrame": 83,
-      "startSeconds": 2.7690420000000002,
+      "startFrame": 67,
+      "startSeconds": 2.246604,
       "staticFilePath": null,
       "transform": {
         "freezeFrameMs": null,
@@ -275,14 +275,14 @@
     {
       "artifactRef": {
         "artifactId": "episode-006:media-shot:seg-003",
-        "createdAt": "2026-08-26T07:57:17.425Z",
+        "createdAt": "2026-08-27T03:33:11.499Z",
         "episodeId": "episode-006",
         "mediaType": "application/json",
         "path": "content/episode-006/media/shots/seg-003.json",
         "producer": "media-render-v1",
         "revision": 1,
         "schemaVersion": "media-shot-v1",
-        "sha256": "501e640cce3ce745e0df336338152279b042c37f5ca9419c65aea671e8def79a",
+        "sha256": "24ccbcafb2d3890e358fe6294ae04bb99be2c7c90793822af307695ee00dfabf",
         "sizeBytes": 2593
       },
       "audio": {
@@ -308,13 +308,13 @@
           "id": "ffmpeg",
           "version": "ffmpeg-render-proxy-v1"
         },
-        "timelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
+        "timelineSha256": "ce226f83bfab88dc271834506239ef627ebc840f894c4b219fe4c8c9326e3eac",
         "version": "media-render-config-v1"
       },
-      "createdAt": "2026-08-26T07:57:17.425Z",
+      "createdAt": "2026-08-27T03:33:11.499Z",
       "crossfadeMs": 0,
-      "durationFrames": 250,
-      "endSeconds": 22.791709,
+      "durationFrames": 224,
+      "endSeconds": 19.835479999999997,
       "episodeId": "episode-006",
       "fade": {
         "inMs": 200,
@@ -343,7 +343,7 @@
         "sourceLabel": "Rikyū official website"
       },
       "reasons": [
-        "scene seg-003 at frame 434 (250 frames, 30 fps)",
+        "scene seg-003 at frame 370 (224 frames, 30 fps)",
         "fallback none: approved editorial still selected for seg-003",
         "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
       ],
@@ -354,8 +354,8 @@
       "segmentId": "seg-003",
       "selectedMediaClipRef": null,
       "shotId": "episode-006:media-shot:seg-003",
-      "startFrame": 434,
-      "startSeconds": 14.465980000000002,
+      "startFrame": 370,
+      "startSeconds": 12.355042,
       "staticFilePath": null,
       "transform": {
         "freezeFrameMs": null,
@@ -395,15 +395,15 @@
     {
       "artifactRef": {
         "artifactId": "episode-006:media-shot:seg-004",
-        "createdAt": "2026-08-26T07:57:17.441Z",
+        "createdAt": "2026-08-27T03:33:11.516Z",
         "episodeId": "episode-006",
         "mediaType": "application/json",
         "path": "content/episode-006/media/shots/seg-004.json",
         "producer": "media-render-v1",
         "revision": 1,
         "schemaVersion": "media-shot-v1",
-        "sha256": "0f65be690a64a692c704393b139b87194b711a139d8a0c922f2cf13e0866ee3b",
-        "sizeBytes": 2584
+        "sha256": "fb2050798573d744e7b204df03133ff76ae84937969b2f0043501fb842452325",
+        "sizeBytes": 2593
       },
       "audio": {
         "ducking": {
@@ -428,13 +428,13 @@
           "id": "ffmpeg",
           "version": "ffmpeg-render-proxy-v1"
         },
-        "timelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
+        "timelineSha256": "ce226f83bfab88dc271834506239ef627ebc840f894c4b219fe4c8c9326e3eac",
         "version": "media-render-config-v1"
       },
-      "createdAt": "2026-08-26T07:57:17.441Z",
+      "createdAt": "2026-08-27T03:33:11.516Z",
       "crossfadeMs": 0,
-      "durationFrames": 211,
-      "endSeconds": 29.837750999999997,
+      "durationFrames": 181,
+      "endSeconds": 25.881792999999995,
       "episodeId": "episode-006",
       "fade": {
         "inMs": 200,
@@ -463,7 +463,7 @@
         "sourceLabel": "Kaisei Suzuki official X post"
       },
       "reasons": [
-        "scene seg-004 at frame 684 (211 frames, 30 fps)",
+        "scene seg-004 at frame 594 (181 frames, 30 fps)",
         "fallback none: approved editorial still selected for seg-004",
         "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
       ],
@@ -474,8 +474,8 @@
       "segmentId": "seg-004",
       "selectedMediaClipRef": null,
       "shotId": "episode-006:media-shot:seg-004",
-      "startFrame": 684,
-      "startSeconds": 22.791709,
+      "startFrame": 594,
+      "startSeconds": 19.835479999999997,
       "staticFilePath": null,
       "transform": {
         "freezeFrameMs": null,
@@ -515,15 +515,15 @@
     {
       "artifactRef": {
         "artifactId": "episode-006:media-shot:seg-005",
-        "createdAt": "2026-08-26T07:57:17.458Z",
+        "createdAt": "2026-08-27T03:33:11.533Z",
         "episodeId": "episode-006",
         "mediaType": "application/json",
         "path": "content/episode-006/media/shots/seg-005.json",
         "producer": "media-render-v1",
         "revision": 1,
         "schemaVersion": "media-shot-v1",
-        "sha256": "494f0792337f8bfa64e1621e24047c8aee4c53c2186422eb4e655b318eabdb0e",
-        "sizeBytes": 2600
+        "sha256": "9cabbf9ed39d6be9c1edabf84e22b37e991f3f96bb50900445b05aa86a56aa51",
+        "sizeBytes": 2599
       },
       "audio": {
         "ducking": {
@@ -548,13 +548,13 @@
           "id": "ffmpeg",
           "version": "ffmpeg-render-proxy-v1"
         },
-        "timelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
+        "timelineSha256": "ce226f83bfab88dc271834506239ef627ebc840f894c4b219fe4c8c9326e3eac",
         "version": "media-render-config-v1"
       },
-      "createdAt": "2026-08-26T07:57:17.458Z",
+      "createdAt": "2026-08-27T03:33:11.533Z",
       "crossfadeMs": 0,
-      "durationFrames": 115,
-      "endSeconds": 33.66347999999999,
+      "durationFrames": 99,
+      "endSeconds": 29.185084999999994,
       "episodeId": "episode-006",
       "fade": {
         "inMs": 200,
@@ -583,7 +583,7 @@
         "sourceLabel": "Kaisei Suzuki official X post"
       },
       "reasons": [
-        "scene seg-005 at frame 895 (115 frames, 30 fps)",
+        "scene seg-005 at frame 775 (99 frames, 30 fps)",
         "fallback none: approved editorial still selected for seg-005",
         "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
       ],
@@ -594,8 +594,8 @@
       "segmentId": "seg-005",
       "selectedMediaClipRef": null,
       "shotId": "episode-006:media-shot:seg-005",
-      "startFrame": 895,
-      "startSeconds": 29.837750999999997,
+      "startFrame": 775,
+      "startSeconds": 25.881792999999995,
       "staticFilePath": null,
       "transform": {
         "freezeFrameMs": null,
@@ -635,14 +635,14 @@
     {
       "artifactRef": {
         "artifactId": "episode-006:media-shot:seg-006",
-        "createdAt": "2026-08-26T07:57:17.474Z",
+        "createdAt": "2026-08-27T03:33:11.551Z",
         "episodeId": "episode-006",
         "mediaType": "application/json",
         "path": "content/episode-006/media/shots/seg-006.json",
         "producer": "media-render-v1",
         "revision": 1,
         "schemaVersion": "media-shot-v1",
-        "sha256": "b516a9df651a3b27222cfc61c9c4f51088e0a63b2e0acc0bc59023146ac86449",
+        "sha256": "5815e722fc41f9cf734b6b725b947827120f0a57eee32a64554f8945650299ec",
         "sizeBytes": 2595
       },
       "audio": {
@@ -668,13 +668,13 @@
           "id": "ffmpeg",
           "version": "ffmpeg-render-proxy-v1"
         },
-        "timelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
+        "timelineSha256": "ce226f83bfab88dc271834506239ef627ebc840f894c4b219fe4c8c9326e3eac",
         "version": "media-render-config-v1"
       },
-      "createdAt": "2026-08-26T07:57:17.474Z",
+      "createdAt": "2026-08-27T03:33:11.551Z",
       "crossfadeMs": 0,
-      "durationFrames": 175,
-      "endSeconds": 39.51008399999999,
+      "durationFrames": 155,
+      "endSeconds": 34.352459999999994,
       "episodeId": "episode-006",
       "fade": {
         "inMs": 200,
@@ -703,7 +703,7 @@
         "sourceLabel": "Kaisei Suzuki official X post"
       },
       "reasons": [
-        "scene seg-006 at frame 1010 (175 frames, 30 fps)",
+        "scene seg-006 at frame 874 (155 frames, 30 fps)",
         "fallback none: approved editorial still selected for seg-006",
         "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
       ],
@@ -714,8 +714,8 @@
       "segmentId": "seg-006",
       "selectedMediaClipRef": null,
       "shotId": "episode-006:media-shot:seg-006",
-      "startFrame": 1010,
-      "startSeconds": 33.66347999999999,
+      "startFrame": 874,
+      "startSeconds": 29.185084999999994,
       "staticFilePath": null,
       "transform": {
         "freezeFrameMs": null,
@@ -755,15 +755,15 @@
     {
       "artifactRef": {
         "artifactId": "episode-006:media-shot:seg-007",
-        "createdAt": "2026-08-26T07:57:17.491Z",
+        "createdAt": "2026-08-27T03:33:11.568Z",
         "episodeId": "episode-006",
         "mediaType": "application/json",
         "path": "content/episode-006/media/shots/seg-007.json",
         "producer": "media-render-v1",
         "revision": 1,
         "schemaVersion": "media-shot-v1",
-        "sha256": "baf7d2c57cdef367998f7fecc3cdbce3e7a5bca174822e9d32a96ec078a149fe",
-        "sizeBytes": 2600
+        "sha256": "8479f125f241b2d2895b3070dd8f2f39fdc308aafbfbed0f295ef9c9b242aea1",
+        "sizeBytes": 2601
       },
       "audio": {
         "ducking": {
@@ -788,13 +788,13 @@
           "id": "ffmpeg",
           "version": "ffmpeg-render-proxy-v1"
         },
-        "timelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
+        "timelineSha256": "ce226f83bfab88dc271834506239ef627ebc840f894c4b219fe4c8c9326e3eac",
         "version": "media-render-config-v1"
       },
-      "createdAt": "2026-08-26T07:57:17.491Z",
+      "createdAt": "2026-08-27T03:33:11.568Z",
       "crossfadeMs": 0,
-      "durationFrames": 245,
-      "endSeconds": 47.68356299999999,
+      "durationFrames": 218,
+      "endSeconds": 41.60350199999999,
       "episodeId": "episode-006",
       "fade": {
         "inMs": 200,
@@ -823,7 +823,7 @@
         "sourceLabel": "Rikyū official website"
       },
       "reasons": [
-        "scene seg-007 at frame 1185 (245 frames, 30 fps)",
+        "scene seg-007 at frame 1029 (218 frames, 30 fps)",
         "fallback none: approved editorial still selected for seg-007",
         "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
       ],
@@ -834,8 +834,8 @@
       "segmentId": "seg-007",
       "selectedMediaClipRef": null,
       "shotId": "episode-006:media-shot:seg-007",
-      "startFrame": 1185,
-      "startSeconds": 39.51008399999999,
+      "startFrame": 1029,
+      "startSeconds": 34.352459999999994,
       "staticFilePath": null,
       "transform": {
         "freezeFrameMs": null,
@@ -873,7 +873,7 @@
       "visualType": "official-screenshot"
     }
   ],
-  "timelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
-  "totalFrames": 1430,
-  "totalSeconds": 47.666666666666664
+  "timelineSha256": "ce226f83bfab88dc271834506239ef627ebc840f894c4b219fe4c8c9326e3eac",
+  "totalFrames": 1247,
+  "totalSeconds": 41.56666666666667
 }

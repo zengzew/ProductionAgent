@@ -1,15 +1,15 @@
 {
   "artifactRef": {
     "artifactId": "episode-006:media-shot:seg-004",
-    "createdAt": "2026-08-26T07:57:17.441Z",
+    "createdAt": "2026-08-27T03:33:11.516Z",
     "episodeId": "episode-006",
     "mediaType": "application/json",
     "path": "content/episode-006/media/shots/seg-004.json",
     "producer": "media-render-v1",
     "revision": 1,
     "schemaVersion": "media-shot-v1",
-    "sha256": "0f65be690a64a692c704393b139b87194b711a139d8a0c922f2cf13e0866ee3b",
-    "sizeBytes": 2584
+    "sha256": "fb2050798573d744e7b204df03133ff76ae84937969b2f0043501fb842452325",
+    "sizeBytes": 2593
   },
   "audio": {
     "ducking": {
@@ -34,13 +34,13 @@
       "id": "ffmpeg",
       "version": "ffmpeg-render-proxy-v1"
     },
-    "timelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
+    "timelineSha256": "ce226f83bfab88dc271834506239ef627ebc840f894c4b219fe4c8c9326e3eac",
     "version": "media-render-config-v1"
   },
-  "createdAt": "2026-08-26T07:57:17.441Z",
+  "createdAt": "2026-08-27T03:33:11.516Z",
   "crossfadeMs": 0,
-  "durationFrames": 211,
-  "endSeconds": 29.837750999999997,
+  "durationFrames": 181,
+  "endSeconds": 25.881792999999995,
   "episodeId": "episode-006",
   "fade": {
     "inMs": 200,
@@ -69,7 +69,7 @@
     "sourceLabel": "Kaisei Suzuki official X post"
   },
   "reasons": [
-    "scene seg-004 at frame 684 (211 frames, 30 fps)",
+    "scene seg-004 at frame 594 (181 frames, 30 fps)",
     "fallback none: approved editorial still selected for seg-004",
     "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
   ],
@@ -80,8 +80,8 @@
   "segmentId": "seg-004",
   "selectedMediaClipRef": null,
   "shotId": "episode-006:media-shot:seg-004",
-  "startFrame": 684,
-  "startSeconds": 22.791709,
+  "startFrame": 594,
+  "startSeconds": 19.835479999999997,
   "staticFilePath": null,
   "transform": {
     "freezeFrameMs": null,

@@ -1,15 +1,15 @@
 {
   "artifactRef": {
     "artifactId": "episode-006:media-shot:seg-007",
-    "createdAt": "2026-08-26T07:57:17.491Z",
+    "createdAt": "2026-08-27T03:33:11.568Z",
     "episodeId": "episode-006",
     "mediaType": "application/json",
     "path": "content/episode-006/media/shots/seg-007.json",
     "producer": "media-render-v1",
     "revision": 1,
     "schemaVersion": "media-shot-v1",
-    "sha256": "baf7d2c57cdef367998f7fecc3cdbce3e7a5bca174822e9d32a96ec078a149fe",
-    "sizeBytes": 2600
+    "sha256": "8479f125f241b2d2895b3070dd8f2f39fdc308aafbfbed0f295ef9c9b242aea1",
+    "sizeBytes": 2601
   },
   "audio": {
     "ducking": {
@@ -34,13 +34,13 @@
       "id": "ffmpeg",
       "version": "ffmpeg-render-proxy-v1"
     },
-    "timelineSha256": "da93cf8cc2ad828cfa0eccbd46145576a4d0c90b6812c4e1ad7e350cf3b0d4ce",
+    "timelineSha256": "ce226f83bfab88dc271834506239ef627ebc840f894c4b219fe4c8c9326e3eac",
     "version": "media-render-config-v1"
   },
-  "createdAt": "2026-08-26T07:57:17.491Z",
+  "createdAt": "2026-08-27T03:33:11.568Z",
   "crossfadeMs": 0,
-  "durationFrames": 245,
-  "endSeconds": 47.68356299999999,
+  "durationFrames": 218,
+  "endSeconds": 41.60350199999999,
   "episodeId": "episode-006",
   "fade": {
     "inMs": 200,
@@ -69,7 +69,7 @@
     "sourceLabel": "Rikyū official website"
   },
   "reasons": [
-    "scene seg-007 at frame 1185 (245 frames, 30 fps)",
+    "scene seg-007 at frame 1029 (218 frames, 30 fps)",
     "fallback none: approved editorial still selected for seg-007",
     "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
   ],
@@ -80,8 +80,8 @@
   "segmentId": "seg-007",
   "selectedMediaClipRef": null,
   "shotId": "episode-006:media-shot:seg-007",
-  "startFrame": 1185,
-  "startSeconds": 39.51008399999999,
+  "startFrame": 1029,
+  "startSeconds": 34.352459999999994,
   "staticFilePath": null,
   "transform": {
     "freezeFrameMs": null,

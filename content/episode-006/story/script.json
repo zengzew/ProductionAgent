@@ -5,7 +5,7 @@
       "id": "seg-001",
       "section": "hook",
       "narration": "几何网格旁，出现了一张成品 Logo。",
-      "onScreenText": ["RIKYŪ", "几何构成 → 成品 Logo", "开发者官方 X"],
+      "onScreenText": ["RIKYŪ", "官方功能演示", "几何网格生成成品 Logo", "开发者官方 X"],
       "claimIds": ["claim-rikyu-006"],
       "scene": "几何网格与成品 Logo 同框",
       "visualIntent": "官方大猩猩构成图完整出现 → 网格放大 → 成品 Logo 被框选。",
@@ -13,7 +13,7 @@
     },
     {
       "id": "seg-002",
-      "section": "product",
+      "section": "hook",
       "narration": "Rikyū 是个人提供的 AI 设计服务：想自己做品牌的人，描述需求，就能拿到 Logo、网页、社交和印刷成品。官网说，不用会设计，也不用反复猜。",
       "onScreenText": ["一句需求，变成整套品牌资产", "LOGO · 网页 · 社交 · 印刷"],
       "claimIds": ["claim-rikyu-001", "claim-rikyu-002"],
@@ -23,19 +23,19 @@
     },
     {
       "id": "seg-003",
-      "section": "entry",
+      "section": "hook",
       "narration": "直接说需求就行；也能把 Claude、Codex 接进来，从那边发起设计。这样一个小工具，怎么让陌生用户愿意试一次？",
       "onScreenText": ["给咖啡品牌做一套视觉", "Claude · Codex → 在常用 AI 里发起设计", "功能示意"],
       "claimIds": ["claim-rikyu-003"],
       "scene": "两个使用入口",
       "visualIntent": "需求输入条出现 → 真实落地页结果被勾选 → Claude/Codex 入口被点亮。",
-      "targetSeconds": 7
+      "targetSeconds": 9
     },
     {
       "id": "seg-004",
       "section": "turning-point",
       "narration": "开发者自己回顾，上线首日只有 7 个用户。随后，他把几何 Logo 的演示发到 X。",
-      "onScreenText": ["上线首日 7 人", "随后发布到 X"],
+      "onScreenText": ["上线首日 7 人", "官方功能演示", "随后发布到 X"],
       "claimIds": ["claim-rikyu-005", "claim-rikyu-006"],
       "scene": "低起点与公开演示动作",
       "visualIntent": "七人来源卡出现 → 狮子构成原图露出 → 构成细节被框选 → 发布动作标签出现。",
@@ -66,7 +66,7 @@
       "section": "pricing",
       "narration": "它就是 Rikyū 的公开演示。现在想开始，官网给 2000 免费积分，每月 5 美元起，就能导出 SVG 并商用。",
       "onScreenText": ["FREE · 2,000 积分", "BASIC · $5 / 月起", "SVG · 商用"],
-      "claimIds": ["claim-rikyu-010"],
+      "claimIds": ["claim-rikyu-006", "claim-rikyu-010"],
       "scene": "当前入口与定价",
       "visualIntent": "Waypause 海报结果出现 → Free 卡出现 → Basic 卡替换 → 结果与两档并列。",
       "targetSeconds": 10

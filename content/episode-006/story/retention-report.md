@@ -2,11 +2,10 @@
 {
   "rubricVersion": "retention-critic-v2",
   "reviewedFile": "story/final-script.md",
-  "reviewedSha256": "9da397d3458768eb625c5c49101bced42f20a7013500b3cf02197edc9f23bbc8",
+  "reviewedSha256": "b76cb12409994f28cf7e8f7d39bf0608313feef67519980d16ed4d1d0aa7d74b",
   "visualPlanFile": "story/visual-plan.md",
-  "visualPlanSha256": "a84ba2ecf0be46a0f7c5ccc95dbd1cd96e9d1bfd7cdee87348aa083cfe505e98",
+  "visualPlanSha256": "19b0da44b09ed8f35ff7f938e4a5ea0116e9096466f6257e6b8d69c373ff02dd",
   "round": 1,
-  "previousReview": null,
   "resolvedFeedback": [],
   "scores": {
     "first3Seconds": 22,
@@ -154,3 +153,19 @@
 3. **feedback-003**（low）：seg-004 开头需增加过渡句，将‘低起点’与‘如何被看见’的问题连接。责任角色：script-writer。
 
 这些风险不构成 blocker，但建议在后续修订中处理，以提升零背景观众的留存率。
+
+## First 3 seconds
+
+官方几何构成图、成品 Logo、RIKYŪ 标签和来源同屏，零背景观众能立刻识别公开设计演示。
+
+## First 30 seconds
+
+前 20 秒完成产品定义、真实项目结果与两个入口，随后以首日七人接入公开发布动作。
+
+## Mid-video engagement
+
+狮子网格、大猩猩成品、10,000+ 使用与 5,000,000+ 展示按不同证据形态逐段推进。
+
+## Ending satisfaction
+
+Waypause 官方海报承接免费 2,000 积分与每月 5 美元起的 SVG/商用入口，不使用通用 CTA。

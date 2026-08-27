@@ -4,9 +4,9 @@
   "providerId": "minimax",
   "fallbackUsed": false,
   "fallbackReason": "",
-  "generatedAt": "2026-08-26T07:50:52.204Z",
+  "generatedAt": "2026-08-27T03:29:21.027Z",
   "voice": "male-qn-qingse",
-  "speed": 1.4,
+  "speed": 1.65,
   "pitch": 0,
   "normalization": "loudnorm I=-16 TP=-1.5 LRA=7",
   "credentialRequired": true,
@@ -20,7 +20,7 @@
         {
           "text": "几何网格旁,出现了一张成品 Logo。",
           "startMs": 0,
-          "endMs": 2489.024943310658
+          "endMs": 1966.5759637188212
         }
       ],
       "timestampSource": "minimax:word"
@@ -32,12 +32,12 @@
         {
           "text": "Rikyū 是个人提供的 AI 设计服务:想自己做品牌的人,描述需求,就能拿到 Logo、网页、社交和印刷成品。",
           "startMs": 0,
-          "endMs": 7701.9047619047615
+          "endMs": 6668.616780045351
         },
         {
           "text": "官网说,不用会设计,也不用反复猜。",
-          "startMs": 7802,
-          "endMs": 10650.934240362812
+          "startMs": 6769,
+          "endMs": 9037.43537414966
         }
       ],
       "timestampSource": "minimax:word"
@@ -49,17 +49,17 @@
         {
           "text": "直接说需求就行;",
           "startMs": 0,
-          "endMs": 1119.0476190476193
+          "endMs": 956.5079365079366
         },
         {
           "text": "也能把 Claude、Codex 接进来,从那边发起设计。",
-          "startMs": 1219,
-          "endMs": 4288.523809523809
+          "startMs": 1057,
+          "endMs": 3998.814058956916
         },
         {
           "text": "这样一个小工具,怎么让陌生用户愿意试一次?",
-          "startMs": 4389,
-          "endMs": 7214.714285714286
+          "startMs": 4099,
+          "endMs": 6367.43537414966
         }
       ],
       "timestampSource": "minimax:word"
@@ -71,12 +71,12 @@
         {
           "text": "开发者自己回顾,上线首日只有 7 个用户。",
           "startMs": 0,
-          "endMs": 3185.6235827664395
+          "endMs": 2814.104308390023
         },
         {
           "text": "随后,他把几何 Logo 的演示发到 X。",
-          "startMs": 3286,
-          "endMs": 5984.004535147393
+          "startMs": 2914,
+          "endMs": 5008.285714285714
         }
       ],
       "timestampSource": "minimax:word"
@@ -88,7 +88,7 @@
         {
           "text": "演示公开后的一天里,有超过一万人使用它。",
           "startMs": 0,
-          "endMs": 2825.714285714286
+          "endMs": 2303.265306122449
         }
       ],
       "timestampSource": "minimax:word"
@@ -100,12 +100,12 @@
         {
           "text": "那一条公开演示帖,展示次数超过五百万;",
           "startMs": 0,
-          "endMs": 2732.834467120181
+          "endMs": 2535.4648526077094
         },
         {
           "text": "也有人分享自己生成的 Logo。",
-          "startMs": 2833,
-          "endMs": 4799.575963718821
+          "startMs": 2635,
+          "endMs": 4102.34693877551
         }
       ],
       "timestampSource": "minimax:word"
@@ -117,12 +117,12 @@
         {
           "text": "它就是 Rikyū 的公开演示。",
           "startMs": 0,
-          "endMs": 1444.1269841269843
+          "endMs": 1269.9773242630386
         },
         {
           "text": "现在想开始,官网给 2000 免费积分,每月 5 美元起,就能导出 SVG 并商用。",
-          "startMs": 1544,
-          "endMs": 7132.888888888889
+          "startMs": 1370,
+          "endMs": 6181.0204081632655
         }
       ],
       "timestampSource": "minimax:word"

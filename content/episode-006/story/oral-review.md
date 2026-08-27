@@ -3,7 +3,7 @@
   "rubricVersion": "oral-review-v2",
   "promptVersion": "oral-judge-v2",
   "reviewedFile": "story/final-script.md",
-  "reviewedSha256": "9da397d3458768eb625c5c49101bced42f20a7013500b3cf02197edc9f23bbc8",
+  "reviewedSha256": "b76cb12409994f28cf7e8f7d39bf0608313feef67519980d16ed4d1d0aa7d74b",
   "sourceDraftFile": "story/script-draft.md",
   "sourceDraftSha256": "1e2252a735d8f3c7c8713128160c83ce34c5100264b5eecbeee30ce659642bcd",
   "round": 1,
