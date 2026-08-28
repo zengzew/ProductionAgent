@@ -177,13 +177,13 @@ const decisionFor = (input: {
 });
 
 describe("production LangGraph entrypoint", () => {
-  it("keeps explicit manual mode isolated from the graph command", async () => {
+  it("keeps manual mode isolated from the opt-in graph command", async () => {
     const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), "production-agent-entry-switch-"));
     temporaryDirectories.push(repoRoot);
     const result = await runEpisodeOrchestrator({
       repoRoot,
       episodeId: "episode-entrypoint-switch",
-      env: {...process.env, ORCHESTRATOR: "manual"},
+      env: {...process.env, ORCHESTRATOR: undefined},
     });
     expect(result).toMatchObject({
       mode: "manual",

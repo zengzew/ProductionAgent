@@ -271,7 +271,8 @@ export const evaluateRoleBenchmarkOutput = (input: {
       }
       unsupportedClaimIds = facts.unsupportedClaimIds(claimIds);
       const covered = claimIds.filter((claimId) => facts.allowedClaimIds.includes(claimId)).length;
-      claimCoverage = facts.allowedClaimIds.length === 0 ? 1 : covered / facts.allowedClaimIds.length;
+      claimCoverage =
+        facts.allowedClaimIds.length === 0 ? 1 : covered / facts.allowedClaimIds.length;
     }
   } catch {
     // facts.json is a frozen input for every enabled role; an unparseable

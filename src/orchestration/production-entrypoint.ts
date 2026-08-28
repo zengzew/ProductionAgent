@@ -869,8 +869,7 @@ export const createLangGraphEntrypoint = (
       ...(input.media ?? {}),
       repoRoot,
       episodeId: input.episodeId,
-      enabled:
-        input.mediaLifecycle ?? mediaManifestAvailable,
+      enabled: input.mediaLifecycle ?? mediaManifestAvailable,
       env: input.env ?? process.env,
     },
   };
@@ -1060,8 +1059,8 @@ export const runLangGraphEpisode = async (
       // parent-only delivery completion and must remain authoritative.
       const latestState =
         (pause?.gate === "external-capability"
-          ? nestedState ?? outerState
-          : outerState ?? nestedState) ?? assertReferenceOnlyState(result);
+          ? (nestedState ?? outerState)
+          : (outerState ?? nestedState)) ?? assertReferenceOnlyState(result);
       if (pause) {
         const handoff = createHandoff({
           repoRoot,
@@ -1097,7 +1096,8 @@ export const runLangGraphEpisode = async (
       if (input.resume && unresolvedExternalCapabilityError(error)) {
         const previousHandoff = readHandoff(repoRoot, input.episodeId, runId);
         if (previousHandoff?.gate === "external-capability") {
-          const nestedState = nestedProductionStateFromError(error) ?? (await runtime.readProductionState());
+          const nestedState =
+            nestedProductionStateFromError(error) ?? (await runtime.readProductionState());
           return {
             mode: "langgraph",
             status: "paused",

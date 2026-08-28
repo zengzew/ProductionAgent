@@ -48,7 +48,9 @@ afterEach(() => {
 const episodeId = "episode-m5";
 const sourceId = "episode-m5:media-source:founder";
 
-const baseSource = (overrides: Record<string, unknown> = {}): ProposeMediaSourceInput["source"] => ({
+const baseSource = (
+  overrides: Record<string, unknown> = {},
+): ProposeMediaSourceInput["source"] => ({
   sourceId,
   sourceUrl: "https://example.com/founder-demo.mp4",
   publisher: "Example Corp",
@@ -334,9 +336,9 @@ describe("WP-M5.02 media discovery and source admission", () => {
         decision: {...wrongGate, gate: "media-admission"} as HumanDecision,
       }),
     ).toThrow(/MEDIA_DISCOVERY_GATE_MISMATCH/u);
-    expect(getMediaSource(readMediaSourceManifest(repoRoot, episodeId), sourceId)?.rightsStatus).toBe(
-      "review-required",
-    );
+    expect(
+      getMediaSource(readMediaSourceManifest(repoRoot, episodeId), sourceId)?.rightsStatus,
+    ).toBe("review-required");
 
     // The rights decision anchors to the post-admission manifest.
     const rightsRef = manifestRefFor(repoRoot, episodeId);
@@ -410,9 +412,7 @@ describe("WP-M5.02 media discovery and source admission", () => {
       }),
     ).toThrow(/MEDIA_DISCOVERY_CANDIDATE_LIMIT/u);
     // Re-proposing an existing candidate at the limit stays idempotent.
-    expect(
-      propose(repoRoot, baseSource(), {config: tinyConfig}).source.sourceId,
-    ).toBe(sourceId);
+    expect(propose(repoRoot, baseSource(), {config: tinyConfig}).source.sourceId).toBe(sourceId);
   });
 
   it("fails closed on source-manifest CAS conflicts", () => {
@@ -451,9 +451,9 @@ describe("WP-M5.02 media discovery and source admission", () => {
     expect(second.source).toEqual(first.source);
     expect(readMediaSourceManifest(repoRoot, episodeId).sources).toHaveLength(1);
 
-    expect(() =>
-      propose(repoRoot, baseSource({publisher: "Different Corp"})),
-    ).toThrow(/MEDIA_SOURCE_ID_CONFLICT/u);
+    expect(() => propose(repoRoot, baseSource({publisher: "Different Corp"}))).toThrow(
+      /MEDIA_SOURCE_ID_CONFLICT/u,
+    );
   });
 
   it("keeps regression suites green and never downloads bytes", () => {

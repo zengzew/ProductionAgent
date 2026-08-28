@@ -55,8 +55,7 @@ const COLORS = {
   demo: "#c9844a",
 };
 
-const PRODUCTION_META_TAG =
-  /真实画面|数据证据|真实页面|功能演示|程序化画面|Claim Ledger|真实音频/u;
+const PRODUCTION_META_TAG = /真实画面|数据证据|真实页面|功能演示|程序化画面|Claim Ledger|真实音频/u;
 
 const isProductionMetaTag = (text: string): boolean => PRODUCTION_META_TAG.test(text);
 
@@ -330,7 +329,9 @@ export const OfficialScreenshotLayer: React.FC<{
           </div>
           <div style={{display: "flex", gap: 12, marginTop: 18}}>
             {["LOGO", "网页", "社交", "印刷"].map((item) => (
-              <div key={item} style={{...card, padding: "9px 15px", fontSize: 24}}>{item}</div>
+              <div key={item} style={{...card, padding: "9px 15px", fontSize: 24}}>
+                {item}
+              </div>
             ))}
           </div>
         </div>
@@ -345,7 +346,12 @@ export const OfficialScreenshotLayer: React.FC<{
           </div>
           <div style={{display: "flex", alignItems: "center", gap: 13, marginTop: 18}}>
             {["Claude", "Codex"].map((item) => (
-              <div key={item} style={{...card, padding: "13px 20px", fontSize: 26, fontWeight: 760}}>{item}</div>
+              <div
+                key={item}
+                style={{...card, padding: "13px 20px", fontSize: 26, fontWeight: 760}}
+              >
+                {item}
+              </div>
             ))}
             <div style={{fontSize: 28}}>→ 在常用 AI 里发起设计</div>
           </div>
@@ -355,12 +361,31 @@ export const OfficialScreenshotLayer: React.FC<{
     }
     if (scene.scene === "低起点与公开演示动作") {
       return (
-        <div style={{...base, top: 110, opacity: enter, display: "flex", gap: 16, alignItems: "stretch"}}>
+        <div
+          style={{
+            ...base,
+            top: 110,
+            opacity: enter,
+            display: "flex",
+            gap: 16,
+            alignItems: "stretch",
+          }}
+        >
           <div style={{...card, padding: "20px 24px", flex: 1}}>
             <div style={{fontSize: 24, color: "rgba(255,255,255,.68)"}}>上线首日 · 开发者回顾</div>
             <div style={{fontSize: 72, fontWeight: 900, color: "#d9ff51"}}>7 人</div>
           </div>
-          <div style={{...card, padding: "20px 24px", flex: 1, display: "flex", alignItems: "center", fontSize: 34, fontWeight: 820}}>
+          <div
+            style={{
+              ...card,
+              padding: "20px 24px",
+              flex: 1,
+              display: "flex",
+              alignItems: "center",
+              fontSize: 34,
+              fontWeight: 820,
+            }}
+          >
             随后发布到 X →
           </div>
         </div>
@@ -370,8 +395,12 @@ export const OfficialScreenshotLayer: React.FC<{
       return (
         <div style={{...base, top: 108, opacity: enter}}>
           <div style={{...card, padding: "24px 30px"}}>
-            <div style={{fontSize: 25, color: "rgba(255,255,255,.66)"}}>发布后一天 · 开发者披露</div>
-            <div style={{fontSize: 98, lineHeight: 1.05, fontWeight: 920, color: "#d9ff51"}}>10,000+</div>
+            <div style={{fontSize: 25, color: "rgba(255,255,255,.66)"}}>
+              发布后一天 · 开发者披露
+            </div>
+            <div style={{fontSize: 98, lineHeight: 1.05, fontWeight: 920, color: "#d9ff51"}}>
+              10,000+
+            </div>
             <div style={{fontSize: 34, fontWeight: 740}}>人使用 Rikyū</div>
           </div>
         </div>
@@ -382,7 +411,9 @@ export const OfficialScreenshotLayer: React.FC<{
         <div style={{...base, top: 108, opacity: enter}}>
           <div style={{...card, padding: "24px 30px"}}>
             <div style={{fontSize: 25, color: "rgba(255,255,255,.66)"}}>ITmedia 2026-08-13</div>
-            <div style={{fontSize: 88, lineHeight: 1.05, fontWeight: 920, color: "#d9ff51"}}>5,000,000+</div>
+            <div style={{fontSize: 88, lineHeight: 1.05, fontWeight: 920, color: "#d9ff51"}}>
+              5,000,000+
+            </div>
             <div style={{fontSize: 32, fontWeight: 740}}>帖子展示 · 有人分享生成结果</div>
           </div>
         </div>
@@ -391,7 +422,9 @@ export const OfficialScreenshotLayer: React.FC<{
     if (scene.scene === "当前入口与定价") {
       return (
         <div style={{...base, top: 108, opacity: enter}}>
-          <div style={{fontSize: 27, fontWeight: 800, color: "#d9ff51"}}>RIKYŪ · 现在可以这样开始</div>
+          <div style={{fontSize: 27, fontWeight: 800, color: "#d9ff51"}}>
+            RIKYŪ · 现在可以这样开始
+          </div>
           <div style={{display: "flex", gap: 16, marginTop: 14}}>
             <div style={{...card, padding: "20px 24px", flex: 1}}>
               <div style={{fontSize: 24, color: "rgba(255,255,255,.66)"}}>FREE</div>
@@ -610,12 +643,29 @@ export const FallbackVisualLayer: React.FC<{
           >
             <div style={{fontSize: 28, color: COLORS.muted}}>你想设计什么？</div>
             <div style={{fontSize: 48, marginTop: 18}}>给咖啡店做一个 Logo</div>
-            <div style={{height: 5, marginTop: 28, background: COLORS.gold, width: `${enter * 100}%`}} />
+            <div
+              style={{height: 5, marginTop: 28, background: COLORS.gold, width: `${enter * 100}%`}}
+            />
           </div>
-          <div style={{position: "absolute", top: 610, left: 360}}><LogoMark /></div>
-          <div style={{position: "absolute", top: 1080, left: 80, right: 80, display: "flex", gap: 18}}>
+          <div style={{position: "absolute", top: 610, left: 360}}>
+            <LogoMark />
+          </div>
+          <div
+            style={{position: "absolute", top: 1080, left: 80, right: 80, display: "flex", gap: 18}}
+          >
             {["Logo", "网页", "社交", "印刷"].map((label) => (
-              <div key={label} style={{flex: 1, padding: "28px 10px", borderRadius: 22, background: COLORS.card, fontSize: 29}}>{label}</div>
+              <div
+                key={label}
+                style={{
+                  flex: 1,
+                  padding: "28px 10px",
+                  borderRadius: 22,
+                  background: COLORS.card,
+                  fontSize: 29,
+                }}
+              >
+                {label}
+              </div>
             ))}
           </div>
         </>
@@ -630,7 +680,11 @@ export const FallbackVisualLayer: React.FC<{
             <div style={{fontSize: 330, fontWeight: 900, lineHeight: 1, color: COLORS.gold}}>7</div>
             <div style={{fontSize: 58, fontWeight: 760}}>名用户</div>
             <div style={{marginTop: 110, height: 2, background: COLORS.line}} />
-            <div style={{marginTop: 72, fontSize: 54, lineHeight: 1.35}}>后来，为什么一天内<br />有一万人来试？</div>
+            <div style={{marginTop: 72, fontSize: 54, lineHeight: 1.35}}>
+              后来，为什么一天内
+              <br />
+              有一万人来试？
+            </div>
           </div>
         </>
       );
@@ -639,11 +693,25 @@ export const FallbackVisualLayer: React.FC<{
       return (
         <>
           <Source>创始人公开披露 · 经 ITmedia 报道</Source>
-          <div style={{position: "absolute", inset: "330px 64px auto", padding: "70px 48px", borderRadius: 38, background: COLORS.card, border: `2px solid ${COLORS.real}`, opacity: enter}}>
+          <div
+            style={{
+              position: "absolute",
+              inset: "330px 64px auto",
+              padding: "70px 48px",
+              borderRadius: 38,
+              background: COLORS.card,
+              border: `2px solid ${COLORS.real}`,
+              opacity: enter,
+            }}
+          >
             <div style={{fontSize: 34, color: COLORS.muted}}>发布后一天内</div>
-            <div style={{fontSize: 180, fontWeight: 900, color: COLORS.real, letterSpacing: -8}}>10,000+</div>
+            <div style={{fontSize: 180, fontWeight: 900, color: COLORS.real, letterSpacing: -8}}>
+              10,000+
+            </div>
             <div style={{fontSize: 52, fontWeight: 760}}>人使用 Rikyū</div>
-            <div style={{fontSize: 28, marginTop: 46, color: COLORS.muted}}>2026-08-12 · 不是注册或留存口径</div>
+            <div style={{fontSize: 28, marginTop: 46, color: COLORS.muted}}>
+              2026-08-12 · 不是注册或留存口径
+            </div>
           </div>
         </>
       );
@@ -654,12 +722,45 @@ export const FallbackVisualLayer: React.FC<{
           <Source>ITmedia 2026-08-13 · 用户公开分享</Source>
           <div style={{position: "absolute", top: 260, left: 70, right: 70}}>
             {["我的咖啡店 Logo", "几何过程很有趣", "生成结果分享"].map((label, index) => (
-              <div key={label} style={{marginTop: index ? -32 : 0, marginLeft: index * 36, padding: "40px", height: 280, borderRadius: 34, background: index === 1 ? "#202633" : COLORS.card, border: `1px solid ${COLORS.line}`, transform: `rotate(${index - 1}deg)`}}>
+              <div
+                key={label}
+                style={{
+                  marginTop: index ? -32 : 0,
+                  marginLeft: index * 36,
+                  padding: "40px",
+                  height: 280,
+                  borderRadius: 34,
+                  background: index === 1 ? "#202633" : COLORS.card,
+                  border: `1px solid ${COLORS.line}`,
+                  transform: `rotate(${index - 1}deg)`,
+                }}
+              >
                 <div style={{display: "flex", alignItems: "center", gap: 28}}>
-                  <div style={{width: 110, height: 110, borderRadius: 55, border: `5px solid ${COLORS.gold}`, display: "grid", placeItems: "center", fontSize: 58, fontWeight: 850}}>R</div>
+                  <div
+                    style={{
+                      width: 110,
+                      height: 110,
+                      borderRadius: 55,
+                      border: `5px solid ${COLORS.gold}`,
+                      display: "grid",
+                      placeItems: "center",
+                      fontSize: 58,
+                      fontWeight: 850,
+                    }}
+                  >
+                    R
+                  </div>
                   <div style={{fontSize: 42, fontWeight: 750}}>{label}</div>
                 </div>
-                <div style={{marginTop: 30, height: 12, width: `${80 - index * 12}%`, borderRadius: 9, background: COLORS.line}} />
+                <div
+                  style={{
+                    marginTop: 30,
+                    height: 12,
+                    width: `${80 - index * 12}%`,
+                    borderRadius: 9,
+                    background: COLORS.line,
+                  }}
+                />
               </div>
             ))}
           </div>
@@ -670,15 +771,59 @@ export const FallbackVisualLayer: React.FC<{
       return (
         <>
           <Source>官网与条款 · 截至 2026-08-25</Source>
-          <div style={{position: "absolute", top: 250, left: 70, right: 70, display: "flex", gap: 22}}>
-            <div style={{flex: 1, padding: "50px 34px", borderRadius: 34, background: COLORS.card}}><div style={{fontSize: 32, color: COLORS.muted}}>免费</div><div style={{fontSize: 82, fontWeight: 880, color: COLORS.gold}}>2,000</div><div style={{fontSize: 30}}>积分</div></div>
-            <div style={{flex: 1, padding: "50px 34px", borderRadius: 34, background: COLORS.card, border: `2px solid ${COLORS.real}`}}><div style={{fontSize: 32, color: COLORS.muted}}>商用 + SVG</div><div style={{fontSize: 82, fontWeight: 880, color: COLORS.real}}>$5</div><div style={{fontSize: 30}}>每月起</div></div>
+          <div
+            style={{position: "absolute", top: 250, left: 70, right: 70, display: "flex", gap: 22}}
+          >
+            <div style={{flex: 1, padding: "50px 34px", borderRadius: 34, background: COLORS.card}}>
+              <div style={{fontSize: 32, color: COLORS.muted}}>免费</div>
+              <div style={{fontSize: 82, fontWeight: 880, color: COLORS.gold}}>2,000</div>
+              <div style={{fontSize: 30}}>积分</div>
+            </div>
+            <div
+              style={{
+                flex: 1,
+                padding: "50px 34px",
+                borderRadius: 34,
+                background: COLORS.card,
+                border: `2px solid ${COLORS.real}`,
+              }}
+            >
+              <div style={{fontSize: 32, color: COLORS.muted}}>商用 + SVG</div>
+              <div style={{fontSize: 82, fontWeight: 880, color: COLORS.real}}>$5</div>
+              <div style={{fontSize: 30}}>每月起</div>
+            </div>
           </div>
-          <div style={{position: "absolute", top: 790, left: 100, right: 100, display: "grid", placeItems: "center"}}>
-            <div style={{padding: "28px 42px", borderRadius: 999, background: "#272d39", fontSize: 42}}>Claude / Codex</div>
+          <div
+            style={{
+              position: "absolute",
+              top: 790,
+              left: 100,
+              right: 100,
+              display: "grid",
+              placeItems: "center",
+            }}
+          >
+            <div
+              style={{padding: "28px 42px", borderRadius: 999, background: "#272d39", fontSize: 42}}
+            >
+              Claude / Codex
+            </div>
             <div style={{height: 160, width: 5, background: COLORS.gold}} />
-            <div style={{padding: "34px 64px", borderRadius: 999, background: COLORS.gold, color: COLORS.void, fontSize: 48, fontWeight: 850}}>Rikyū</div>
-            <div style={{fontSize: 29, color: COLORS.muted, marginTop: 26}}>MCP · 从外部发起设计</div>
+            <div
+              style={{
+                padding: "34px 64px",
+                borderRadius: 999,
+                background: COLORS.gold,
+                color: COLORS.void,
+                fontSize: 48,
+                fontWeight: 850,
+              }}
+            >
+              Rikyū
+            </div>
+            <div style={{fontSize: 29, color: COLORS.muted, marginTop: 26}}>
+              MCP · 从外部发起设计
+            </div>
           </div>
         </>
       );
@@ -688,10 +833,25 @@ export const FallbackVisualLayer: React.FC<{
         <>
           <Grid />
           <Source>功能演示 · 当前公开价格</Source>
-          <div style={{position: "absolute", top: 280, left: 330}}><LogoMark /></div>
-          <div style={{position: "absolute", top: 860, left: 70, right: 70, padding: "44px", borderRadius: 34, background: COLORS.card, border: `2px solid ${COLORS.gold}`}}>
+          <div style={{position: "absolute", top: 280, left: 330}}>
+            <LogoMark />
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              top: 860,
+              left: 70,
+              right: 70,
+              padding: "44px",
+              borderRadius: 34,
+              background: COLORS.card,
+              border: `2px solid ${COLORS.gold}`,
+            }}
+          >
             <div style={{fontSize: 44}}>首日 7 人 → 一天 10,000+ 人</div>
-            <div style={{fontSize: 62, fontWeight: 860, marginTop: 32, color: COLORS.gold}}>免费试 · 商用 $5/月起</div>
+            <div style={{fontSize: 62, fontWeight: 860, marginTop: 32, color: COLORS.gold}}>
+              免费试 · 商用 $5/月起
+            </div>
           </div>
         </>
       );
@@ -711,9 +871,10 @@ export const FallbackVisualLayer: React.FC<{
         background: "radial-gradient(circle at 50% 35%, #171c26 0%, #08090d 62%)",
       }}
     >
-      {sceneVisual ?? (headline ? (
-        <div style={{fontSize: 56, lineHeight: 1.2, fontWeight: 780}}>{headline}</div>
-      ) : null)}
+      {sceneVisual ??
+        (headline ? (
+          <div style={{fontSize: 56, lineHeight: 1.2, fontWeight: 780}}>{headline}</div>
+        ) : null)}
       {!sceneVisual && rest.length > 0 ? (
         <div style={{marginTop: 28, fontSize: 36, lineHeight: 1.45, color: COLORS.muted}}>
           {rest.join("\n")}
@@ -821,12 +982,12 @@ export const MediaShotScene: React.FC<{
           <MediaShotOriginalAudio shot={shot} src={staticFile(shot.staticFilePath)} />
         </>
       ) : shot.visualType === "official-screenshot" && shot.fallbackImagePath ? (
-          <OfficialScreenshotLayer
-            shot={shot}
-            src={staticFile(shot.fallbackImagePath)}
-            label={shot.overlays.sourceLabel ?? ""}
-            scene={scene}
-          />
+        <OfficialScreenshotLayer
+          shot={shot}
+          src={staticFile(shot.fallbackImagePath)}
+          label={shot.overlays.sourceLabel ?? ""}
+          scene={scene}
+        />
       ) : (
         <FallbackVisualLayer scene={scene} shot={shot} />
       )}

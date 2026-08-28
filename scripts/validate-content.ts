@@ -3,7 +3,10 @@ import path from "node:path";
 import {assetSchema, episodeConfigSchema, factSchema} from "../src/schemas/episode";
 import {episodeId, episodeRoot, repoRoot} from "../src/lib/episode/paths";
 import {captionPartsFromPlan, visibleLength} from "../src/lib/delivery/captions";
-import {containsGenericCta, findVisualAssetContractViolations} from "../src/lib/editorial/story-quality";
+import {
+  containsGenericCta,
+  findVisualAssetContractViolations,
+} from "../src/lib/editorial/story-quality";
 import {findTextRuleViolations, loadEditorialTextRules} from "../src/lib/editorial/text-rules";
 import {
   assertEpisodeMatchesProductionContract,

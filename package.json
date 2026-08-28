@@ -18,8 +18,8 @@
   "scripts": {
     "preview": "remotion studio src/index.ts",
     "lint": "eslint . --max-warnings=0",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
+    "format": "prettier --write \"*.{json,md,mjs,ts,yaml,yml}\" .prettierrc.json \".github/**/*.{yaml,yml}\" \"{agents,config,docs,prompts,scripts,src,style,tests}/**/*.{json,md,mjs,ts,tsx,yaml,yml}\"",
+    "format:check": "prettier --check \"*.{json,md,mjs,ts,yaml,yml}\" .prettierrc.json \".github/**/*.{yaml,yml}\" \"{agents,config,docs,prompts,scripts,src,style,tests}/**/*.{json,md,mjs,ts,tsx,yaml,yml}\"",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",

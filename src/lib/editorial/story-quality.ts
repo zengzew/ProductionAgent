@@ -141,7 +141,8 @@ export const parseEvidenceType = (value: string): VisualEvidenceType | undefined
   return visualEvidenceTypes.find((type) => type === token);
 };
 
-export const narrationClaimsVisibleAction = (text: string): boolean => actionClaimPattern.test(text);
+export const narrationClaimsVisibleAction = (text: string): boolean =>
+  actionClaimPattern.test(text);
 
 export const findSeenActionViolations = (
   sections: VisualPlanV3Section[],
@@ -203,7 +204,10 @@ export const findActionVisualIntentViolations = (
     if (!visibleStepPattern.test(segment.visualIntent)) {
       violations.push(`${segment.id} 的 visualIntent 必须写出至少两步可见变化`);
     }
-    if (/官网首页|品牌首页|落地页/u.test(segment.visualIntent) && !visibleStepPattern.test(segment.visualIntent)) {
+    if (
+      /官网首页|品牌首页|落地页/u.test(segment.visualIntent) &&
+      !visibleStepPattern.test(segment.visualIntent)
+    ) {
       violations.push(`${segment.id} 不能只用官网首页代替动作过程`);
     }
   }

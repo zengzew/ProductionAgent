@@ -166,9 +166,9 @@ if (result.phase !== "production_ready") {
 }
 ```
 
-The explicit `ORCHESTRATOR=manual` path and all existing `pnpm` production
-commands remain unchanged. The default `ORCHESTRATOR=langgraph` path uses the
-same adapter contracts from the orchestration boundary.
+The default `ORCHESTRATOR=manual` path and all existing `pnpm` production
+commands remain unchanged. The adapter layer is opt-in through explicit
+`ORCHESTRATOR=langgraph` selection at the orchestration boundary.
 
 ## WP-M4-03 fine-grained production caches
 

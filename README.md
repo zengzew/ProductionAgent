@@ -12,23 +12,24 @@ and landscape Poke packages are not part of this repository.
 
 ## Current execution boundary
 
-The production path remains artifact-driven: people or independent execution
-sessions (any agent harness; roles never bind to a specific one) update the
-source-of-truth files, then run the explicit validation, materialize, TTS,
-timeline, render and review commands for each approved stage. The checkpointed
-Graph entrypoint coordinates this path and pauses at its formal gates.
-`ORCHESTRATOR=langgraph` is now the default; set `ORCHESTRATOR=manual`
-explicitly to use the existing stage-specific manual path.
+The default production path remains artifact-driven and manual: people or
+independent execution sessions (any agent harness; roles never bind to a
+specific one) update the source-of-truth files, then run the explicit
+validation, materialize, TTS, timeline, render and review commands for each
+approved stage.
+`ORCHESTRATOR=manual` is the default. The checkpointed Graph entrypoint remains
+available only through explicit `ORCHESTRATOR=langgraph` selection and pauses at
+its formal gates.
 
-The production LangGraph entrypoint is available with
+The opt-in production LangGraph entrypoint is available with
 `ORCHESTRATOR=langgraph pnpm orchestrate --episode episode-004`. It persists a
 reference-only checkpoint under `.orchestration/`, uses the configured role
 policy and production adapters, and pauses for external capability handoffs or
 formal content, unfreeze and final approvals. Resume an existing run with
 `ORCHESTRATOR=langgraph pnpm orchestrate --episode episode-004 --resume`; a
 human gate requires the decision file path printed in the handoff. No approval
-is inferred from an existing artifact. The explicit `ORCHESTRATOR=manual` path
-remains available as the rollback path.
+is inferred from an existing artifact, and selecting LangGraph does not change
+the default manual orchestrator.
 
 When a canary finds that a deterministic retrieval artifact was generated for an
 older script request, repair the derived media layer with
@@ -66,7 +67,9 @@ current-epoch content approval is required by the Graph production path.
 Final approval records only internal state and never uploads or publishes.
 WP-M3-03 remains the bounded L4 unfreeze path, now normalized to the same
 formal decision artifact while retaining its legacy request/editor contract.
-The explicit `ORCHESTRATOR=manual` path remains unchanged. See
+The default `ORCHESTRATOR=manual` path remains unchanged. A future default
+switch requires two real canaries to satisfy the agreed acceptance criteria.
+See
 [`docs/contracts/production-adapters.md`](docs/contracts/production-adapters.md) and
 [`docs/contracts/human-decision.md`](docs/contracts/human-decision.md).
 

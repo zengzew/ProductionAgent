@@ -7,7 +7,13 @@ import {
   createFineGrainedCacheFromEnvironment,
   hashRepositoryFiles,
 } from "../src/lib/platform/cache";
-import {ensureDir, episodeRoot, publicEpisodeRoot, readJson, repoRoot} from "../src/lib/episode/paths";
+import {
+  ensureDir,
+  episodeRoot,
+  publicEpisodeRoot,
+  readJson,
+  repoRoot,
+} from "../src/lib/episode/paths";
 import {installCliErrorHandlers} from "./lib/validation";
 
 installCliErrorHandlers();

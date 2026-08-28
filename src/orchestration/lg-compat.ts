@@ -51,10 +51,7 @@ import {
   productionStageNames,
   type ProductionStageName,
 } from "./schemas/production";
-import {
-  mediaGraphStageNames,
-  type MediaGraphStageName,
-} from "./schemas/media-graph";
+import {mediaGraphStageNames, type MediaGraphStageName} from "./schemas/media-graph";
 import {
   withControlledOrchestrationRun,
   withOptimisticFileCas,
@@ -547,7 +544,15 @@ export type ProductionGraphDestination =
 
 export const mediaGraphNodeNames: Record<
   MediaGraphStageName,
-  Exclude<ProductionGraphDestination, ProductionStageName | "production_ready" | "production_human_escalation" | "production_repair_router" | "production_unfreeze_review" | "production_unfreeze_apply">
+  Exclude<
+    ProductionGraphDestination,
+    | ProductionStageName
+    | "production_ready"
+    | "production_human_escalation"
+    | "production_repair_router"
+    | "production_unfreeze_review"
+    | "production_unfreeze_apply"
+  >
 > = {
   discovery: "media_discovery",
   retrieve: "media_retrieve",
@@ -559,8 +564,7 @@ export const mediaGraphNodeNames: Record<
 };
 
 export type MediaGraphNodeName =
-  | (typeof mediaGraphNodeNames)[MediaGraphStageName]
-  | "media_pre_render_repair";
+  (typeof mediaGraphNodeNames)[MediaGraphStageName] | "media_pre_render_repair";
 
 type ProductionGraphNodeName =
   | "production_ready"
@@ -631,14 +635,8 @@ export const compileProductionGraph = (input: {
     .addNode("media_select", input.mediaNodes?.media_select ?? (() => ({})))
     .addNode("media_render_plan", input.mediaNodes?.media_render_plan ?? (() => ({})))
     .addNode("media_pre_render", input.mediaNodes?.media_pre_render ?? (() => ({})))
-    .addNode(
-      "media_pre_render_repair",
-      input.mediaNodes?.media_pre_render_repair ?? (() => ({})),
-    )
-    .addNode(
-      "media_delivery_critic",
-      input.mediaNodes?.media_delivery_critic ?? (() => ({})),
-    )
+    .addNode("media_pre_render_repair", input.mediaNodes?.media_pre_render_repair ?? (() => ({})))
+    .addNode("media_delivery_critic", input.mediaNodes?.media_delivery_critic ?? (() => ({})))
     .addNode(productionStageNodeNames["materialize:story"], input.stageNodes["materialize:story"])
     .addNode(productionStageNodeNames["validate:content"], input.stageNodes["validate:content"])
     .addNode(productionStageNodeNames.capture, input.stageNodes.capture)

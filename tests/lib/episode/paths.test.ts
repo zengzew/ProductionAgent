@@ -38,9 +38,9 @@ describe("lib episode paths", () => {
         {},
       ),
     ).toBe("episode-004");
-    expect(() =>
-      resolveEpisodeId(["node", "scripts/benchmark-role.ts", "--episode"], {}),
-    ).toThrow(/缺少值/u);
+    expect(() => resolveEpisodeId(["node", "scripts/benchmark-role.ts", "--episode"], {})).toThrow(
+      /缺少值/u,
+    );
     expect(() =>
       resolveEpisodeId(
         [

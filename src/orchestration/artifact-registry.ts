@@ -71,10 +71,7 @@ export const snapshotSelectedArtifactHistory = (input: {
   const requested = new Map(
     input.refs
       .filter((ref) => ref.episodeId === input.episodeId)
-      .map((ref) => [
-        `${ref.artifactId}:${ref.revision}:${ref.sha256}:${ref.path}`,
-        ref,
-      ]),
+      .map((ref) => [`${ref.artifactId}:${ref.revision}:${ref.sha256}:${ref.path}`, ref]),
   );
   const selectedRecords = index.artifacts.filter((record) => {
     if (record.state !== "selected") return false;
@@ -134,7 +131,9 @@ export const snapshotSelectedArtifactHistory = (input: {
           record.ref.sha256 === pointer.sha256 &&
           record.ref.path === pointer.path,
       );
-      const migratedPath = selected ? pathByIdentity.get(artifactVersionKey(selected.ref)) : undefined;
+      const migratedPath = selected
+        ? pathByIdentity.get(artifactVersionKey(selected.ref))
+        : undefined;
       return [artifactId, migratedPath ? {...pointer, path: migratedPath} : pointer];
     }),
   );

@@ -2295,7 +2295,8 @@ export const buildMediaShotForSegment = (input: BuildMediaShotInput): BuildMedia
 
     // Fallback shot (official screenshot / data card / programmatic).
     const editorialStill = readApprovedEditorialStill(repoRoot, episodeId, segmentId);
-    visualType = slot?.selectedType ?? (editorialStill ? "official-screenshot" : "programmatic-visual");
+    visualType =
+      slot?.selectedType ?? (editorialStill ? "official-screenshot" : "programmatic-visual");
     const fallbackType: VisualSlotFallbackType | null = slot?.fallbackType ?? null;
     const fallbackReason =
       slot?.fallbackReason ??
@@ -2534,9 +2535,7 @@ export const buildMediaRenderPlanForTimeline = (
     createdAt: now(),
   };
   const contentBytes = Buffer.from(serializeIndexArtifact(bodyWithoutArtifactRef), "utf8");
-  const artifactRevision = input.previousArtifactRef
-    ? input.previousArtifactRef.revision + 1
-    : 1;
+  const artifactRevision = input.previousArtifactRef ? input.previousArtifactRef.revision + 1 : 1;
   const embeddedArtifactRef = artifactRefSchema.parse({
     artifactId: planId,
     episodeId,

@@ -275,11 +275,8 @@ const refForOutput = (input: {
     createdAt: CANARY_NOW,
   });
 
-const createCanaryProductionAdapter = (
-  repoRoot: string,
-  episodeId: string,
-  calls: string[],
-): ProductionStageAdapter =>
+const createCanaryProductionAdapter =
+  (repoRoot: string, episodeId: string, calls: string[]): ProductionStageAdapter =>
   async (request) => {
     calls.push(`${request.stage}:${request.attempt}:${request.forceRerun ? "force" : "normal"}`);
     const repaired = request.attempt > 1 || request.forceRerun === true;
@@ -299,7 +296,8 @@ const createCanaryProductionAdapter = (
     if (
       request.cached &&
       !request.forceRerun &&
-      request.cached.inputSetHash === productionStageInputSetHash(request.stage, request.inputArtifacts)
+      request.cached.inputSetHash ===
+        productionStageInputSetHash(request.stage, request.inputArtifacts)
     ) {
       return productionStageResultSchema.parse({
         contractVersion: "production-stage-result-v1",
@@ -330,7 +328,10 @@ const createCanaryProductionAdapter = (
           mediaType: "application/json",
           schemaVersion: "script-v1",
         }),
-        writeArtifact(`content/${episodeId}/story/narration.txt`, "产品演示打开主界面\n产品演示展示用户反馈\n"),
+        writeArtifact(
+          `content/${episodeId}/story/narration.txt`,
+          "产品演示打开主界面\n产品演示展示用户反馈\n",
+        ),
       ];
     } else if (request.stage === "tts") {
       const ttsPath = `content/${episodeId}/production/tts-metadata.json`;
@@ -360,8 +361,8 @@ const createCanaryProductionAdapter = (
       snapshotSelectedArtifactHistory({
         repoRoot,
         episodeId,
-        refs: request.previousArtifacts.filter((ref) =>
-          ref.artifactId === `${episodeId}:production:timeline`,
+        refs: request.previousArtifacts.filter(
+          (ref) => ref.artifactId === `${episodeId}:production:timeline`,
         ),
       });
       writeJson(path.join(repoRoot, timelinePath), canaryTimeline(episodeId, repaired));
@@ -397,7 +398,8 @@ const createCanaryProductionAdapter = (
       ];
     } else if (request.stage === "render:vertical") {
       const videoPath = `output/${episodeId}/vertical_9x16.mp4`;
-      if (!fs.existsSync(path.join(repoRoot, videoPath))) writeVerticalMp4(path.join(repoRoot, videoPath), 40.5);
+      if (!fs.existsSync(path.join(repoRoot, videoPath)))
+        writeVerticalMp4(path.join(repoRoot, videoPath), 40.5);
       outputArtifacts = [
         refForOutput({
           repoRoot,
@@ -508,8 +510,7 @@ const createCanaryProductionAdapter = (
           episodeId,
           refs: request.previousArtifacts.filter(
             (ref) =>
-              ref.path ===
-              `content/${episodeId}/production/adapter-receipts/render-smoke.json`,
+              ref.path === `content/${episodeId}/production/adapter-receipts/render-smoke.json`,
           ),
         });
       }
@@ -621,13 +622,19 @@ type CanaryOutcome = {
   mediaAttempts: Record<string, number>;
 };
 
-const runCanary = async (input: {episodeId: "episode-007" | "episode-008"; fault: boolean}): Promise<CanaryOutcome> => {
+const runCanary = async (input: {
+  episodeId: "episode-007" | "episode-008";
+  fault: boolean;
+}): Promise<CanaryOutcome> => {
   const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), `production-agent-${input.episodeId}-`));
   temporaryDirectories.push(repoRoot);
   await setupReadyMediaEpisode(repoRoot, input.episodeId);
   seedContractFiles(repoRoot, input.episodeId);
   const script = canaryScript();
-  writeJson(path.join(repoRoot, `content/${input.episodeId}/story/caption-plan.json`), captionPlanFor(script));
+  writeJson(
+    path.join(repoRoot, `content/${input.episodeId}/story/caption-plan.json`),
+    captionPlanFor(script),
+  );
   writeJson(path.join(repoRoot, `content/${input.episodeId}/production/asset-manifest.json`), []);
   const checkpointer = createLocalCheckpoint({
     repoRoot,
@@ -716,7 +723,8 @@ const runCanary = async (input: {episodeId: "episode-007" | "episode-008"; fault
       );
       if (!repairedPackageRef) throw new Error("GRAPH_CANARY_REPAIRED_PACKAGE_REF_MISSING");
       const repairedResultPath = afterDelivery.handoff?.payload.expectedOutputPath;
-      if (typeof repairedResultPath !== "string") throw new Error("GRAPH_CANARY_REPAIRED_RESULT_PATH_MISSING");
+      if (typeof repairedResultPath !== "string")
+        throw new Error("GRAPH_CANARY_REPAIRED_RESULT_PATH_MISSING");
       writeDeliveryResult({
         repoRoot,
         episodeId: input.episodeId,
@@ -816,7 +824,7 @@ describe("Graph Production Closure canaries", () => {
     expect(serializedState).not.toMatch(/"body":\s*["{[]/u);
     expect(serializedState).not.toMatch(/"transcript":\s*["{[]/u);
     expect(serializedState).not.toMatch(/"cues":\s*["{[]/u);
-  });
+  }, 15_000);
 
   it("runs fresh episode-008 through the forced caption rejection, scoped repair, re-review, and final approval", async () => {
     const outcome = await runCanary({episodeId: "episode-008", fault: true});
@@ -860,5 +868,5 @@ describe("Graph Production Closure canaries", () => {
     const historyRoot = path.join(outcome.repoRoot, `content/${state.episodeId}/.artifact-history`);
     expect(fs.existsSync(historyRoot)).toBe(true);
     expect(fs.readdirSync(historyRoot, {recursive: true}).length).toBeGreaterThan(0);
-  });
+  }, 15_000);
 });

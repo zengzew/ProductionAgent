@@ -29,10 +29,7 @@ describe("product-story short-video pipeline", () => {
     const markdown = fs
       .readFileSync(finalScriptPath, "utf8")
       .replace(/^- Claim IDs: .+$/mu, "- Claim IDs: `claim-alpha-001, claim-beta-002`");
-    expect(parseFinalScript(markdown)[0]?.claimIds).toEqual([
-      "claim-alpha-001",
-      "claim-beta-002",
-    ]);
+    expect(parseFinalScript(markdown)[0]?.claimIds).toEqual(["claim-alpha-001", "claim-beta-002"]);
   });
 
   it("keeps the structured final script aligned to the configured Hook budget", () => {

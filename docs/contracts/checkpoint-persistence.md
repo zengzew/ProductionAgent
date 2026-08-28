@@ -9,9 +9,9 @@ bounded control summaries.
 
 `config/checkpoint.json` is the checked-in default. It selects SQLite and stores
 the local database at `.orchestration/checkpoints.sqlite`. The default is also
-used when `CHECKPOINT_BACKEND` is absent, so the default `ORCHESTRATOR=langgraph`
-path and explicit `ORCHESTRATOR=manual` local/dev callers use the same SQLite
-behavior.
+used when `CHECKPOINT_BACKEND` is absent, so an explicitly selected
+`ORCHESTRATOR=langgraph` path uses SQLite without changing the default manual
+orchestrator.
 
 Production callers can select PostgreSQL without changing a graph node:
 

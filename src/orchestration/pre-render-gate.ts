@@ -11,7 +11,10 @@ import {
 } from "../../scripts/lib/validation";
 import {findCaptionSemanticBoundaryIssues} from "../lib/delivery/captions";
 import {measureCaptionDelivery, parseSrt} from "../lib/delivery/delivery";
-import {assertTimelineMatchesProductionContract, productionContract} from "../lib/episode/production-contract";
+import {
+  assertTimelineMatchesProductionContract,
+  productionContract,
+} from "../lib/episode/production-contract";
 import {generatedCaptionsPath} from "../lib/episode/render-contract";
 import {assertArtifactRefBytes} from "./artifact-registry";
 import {hashArtifactInputs} from "./observability";
@@ -92,9 +95,16 @@ export const runPreRenderGate = (input: PreRenderGateInput): PreRenderGate => {
     unexpectedGapsAbsent: false,
   };
 
-  const required = [scriptPath, captionPlanPath, generatedCaptionsFile, timelinePath, subtitlesPath];
+  const required = [
+    scriptPath,
+    captionPlanPath,
+    generatedCaptionsFile,
+    timelinePath,
+    subtitlesPath,
+  ];
   for (const requiredPath of required) {
-    if (!fs.existsSync(requiredPath)) add(`PRE_RENDER_REQUIRED_ARTIFACT_MISSING:${path.relative(input.repoRoot, requiredPath)}`);
+    if (!fs.existsSync(requiredPath))
+      add(`PRE_RENDER_REQUIRED_ARTIFACT_MISSING:${path.relative(input.repoRoot, requiredPath)}`);
   }
   if (blockers.length > 0) {
     return preRenderGateSchema.parse({
@@ -138,7 +148,9 @@ export const runPreRenderGate = (input: PreRenderGateInput): PreRenderGate => {
     if (timeline.episodeId !== input.episodeId) add("PRE_RENDER_TIMELINE_EPISODE_MISMATCH");
     assertTimelineMatchesProductionContract(timeline);
   } catch (error) {
-    add(`PRE_RENDER_TIMELINE_CONTRACT_FAILED:${error instanceof Error ? error.message : String(error)}`);
+    add(
+      `PRE_RENDER_TIMELINE_CONTRACT_FAILED:${error instanceof Error ? error.message : String(error)}`,
+    );
   }
 
   checks.timelineMatchesScript =
@@ -154,12 +166,17 @@ export const runPreRenderGate = (input: PreRenderGateInput): PreRenderGate => {
   const hookEnd = hookScenes.at(-1)?.endSeconds ?? Number.POSITIVE_INFINITY;
   checks.hookWithinTarget = hookEnd <= productionContract.hook.targetSeconds;
   if (!checks.hookWithinTarget) {
-    add(`PRE_RENDER_HOOK_EXCEEDS_TARGET:${hookEnd.toFixed(3)}>${productionContract.hook.targetSeconds}`);
+    add(
+      `PRE_RENDER_HOOK_EXCEEDS_TARGET:${hookEnd.toFixed(3)}>${productionContract.hook.targetSeconds}`,
+    );
   }
   const firstSceneEnd = timeline.scenes[0]?.endSeconds ?? Number.POSITIVE_INFINITY;
-  checks.firstSceneWithinTarget = firstSceneEnd <= productionContract.hook.firstSegmentMaximumSeconds;
+  checks.firstSceneWithinTarget =
+    firstSceneEnd <= productionContract.hook.firstSegmentMaximumSeconds;
   if (!checks.firstSceneWithinTarget) {
-    add(`PRE_RENDER_FIRST_SCENE_EXCEEDS_TARGET:${firstSceneEnd.toFixed(3)}>${productionContract.hook.firstSegmentMaximumSeconds}`);
+    add(
+      `PRE_RENDER_FIRST_SCENE_EXCEEDS_TARGET:${firstSceneEnd.toFixed(3)}>${productionContract.hook.firstSegmentMaximumSeconds}`,
+    );
   }
 
   const mismatchIds = captionPlanMismatchIds({
@@ -185,12 +202,17 @@ export const runPreRenderGate = (input: PreRenderGateInput): PreRenderGate => {
   if (!checks.captionBoundariesValid) add(`PRE_RENDER_CAPTION_SEMANTIC_BOUNDARY:${semanticCount}`);
 
   try {
-    const measured = measureCaptionDelivery(cues, productionContract.captions.microCueThresholdSeconds);
+    const measured = measureCaptionDelivery(
+      cues,
+      productionContract.captions.microCueThresholdSeconds,
+    );
     checks.captionDurationsValid =
       measured.microCueRatio <= productionContract.captions.microCueRatioLimit;
     if (!checks.captionDurationsValid) add("PRE_RENDER_MICRO_CUE_RATIO_EXCEEDED");
   } catch (error) {
-    add(`PRE_RENDER_CAPTION_DURATION_FAILED:${error instanceof Error ? error.message : String(error)}`);
+    add(
+      `PRE_RENDER_CAPTION_DURATION_FAILED:${error instanceof Error ? error.message : String(error)}`,
+    );
   }
 
   checks.captionOverlapsAbsent = cues.every(
@@ -199,11 +221,14 @@ export const runPreRenderGate = (input: PreRenderGateInput): PreRenderGate => {
   if (!checks.captionOverlapsAbsent) add("PRE_RENDER_CAPTION_OVERLAP");
   const maxExpectedGapSeconds = 1;
   checks.unexpectedGapsAbsent = cues.every(
-    (cue, index) => index === 0 || cue.startSeconds - (cues[index - 1]?.endSeconds ?? 0) <= maxExpectedGapSeconds,
+    (cue, index) =>
+      index === 0 || cue.startSeconds - (cues[index - 1]?.endSeconds ?? 0) <= maxExpectedGapSeconds,
   );
   if (!checks.unexpectedGapsAbsent) add("PRE_RENDER_UNEXPECTED_CAPTION_GAP");
 
-  const returnTo = blockers.some((blocker) => blocker.includes("CAPTION")) ? "captions" : "timeline";
+  const returnTo = blockers.some((blocker) => blocker.includes("CAPTION"))
+    ? "captions"
+    : "timeline";
   return preRenderGateSchema.parse({
     schemaVersion: PRE_RENDER_GATE_SCHEMA_VERSION,
     episodeId: input.episodeId,

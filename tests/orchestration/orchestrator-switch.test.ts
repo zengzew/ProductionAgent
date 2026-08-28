@@ -2,8 +2,8 @@ import {describe, expect, it} from "vitest";
 import {runSelectedOrchestrator, selectOrchestrator} from "../../src/orchestration";
 
 describe("M1.2 manual/LangGraph rollout switch", () => {
-  it("uses LangGraph by default and keeps manual as the safe fallback", () => {
-    expect(selectOrchestrator()).toBe("langgraph");
+  it("keeps manual as the default and safe fallback", () => {
+    expect(selectOrchestrator()).toBe("manual");
     expect(selectOrchestrator("langgraph")).toBe("langgraph");
     expect(selectOrchestrator("manual")).toBe("manual");
     expect(selectOrchestrator("LANGGRAPH")).toBe("manual");
@@ -38,9 +38,9 @@ describe("M1.2 manual/LangGraph rollout switch", () => {
 
     calls.length = 0;
     await expect(runSelectedOrchestrator({manual, langgraph})).resolves.toEqual({
-      mode: "langgraph",
-      result: "langgraph-result",
+      mode: "manual",
+      result: "manual-result",
     });
-    expect(calls).toEqual(["langgraph"]);
+    expect(calls).toEqual(["manual"]);
   });
 });

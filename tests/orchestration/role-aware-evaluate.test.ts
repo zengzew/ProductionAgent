@@ -92,12 +92,7 @@ const outputSuffixByRole: Partial<Record<AgentName, string>> = {
   "research-analyst": "/research/facts.json",
 };
 
-const evaluate = (input: {
-  role: AgentName;
-  output: string;
-  facts?: string;
-  suffix?: string;
-}) => {
+const evaluate = (input: {role: AgentName; output: string; facts?: string; suffix?: string}) => {
   const suffix = input.suffix ?? outputSuffixByRole[input.role] ?? "/story/test.md";
   const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), "production-agent-role-aware-"));
   temporaryDirectories.push(repoRoot);
@@ -127,11 +122,9 @@ const directorBrief = (overrides: {
   beatClaimIds?: string[][];
   body?: string;
 }): string => {
-  const beats = (overrides.beatClaimIds ?? [
-    ["claim-devin-001"],
-    ["claim-devin-009"],
-    ["claim-devin-016"],
-  ]).map((claimIds, index) => ({
+  const beats = (
+    overrides.beatClaimIds ?? [["claim-devin-001"], ["claim-devin-009"], ["claim-devin-016"]]
+  ).map((claimIds, index) => ({
     beatId: `beat-0${index + 1}`,
     viewerState: `viewer state ${index + 1}`,
     storyMove: `story move ${index + 1}`,
@@ -181,18 +174,16 @@ describe("role-aware claim boundary", () => {
     });
     expect(evaluation.hardFailures).toEqual([]);
     expect(evaluation.unsupportedClaimIds).toEqual([]);
-    expect(evaluation.claimIds).toEqual([
-      "claim-devin-001",
-      "claim-devin-009",
-      "claim-devin-016",
-    ]);
+    expect(evaluation.claimIds).toEqual(["claim-devin-001", "claim-devin-009", "claim-devin-016"]);
     expect(evaluation.claimCoverage).toBe(3 / 3);
   });
 
   it("B: story-director emotionalArc.claimIds using a forbidden claim fails", () => {
     const evaluation = evaluate({
       role: "story-director",
-      output: directorBrief({beatClaimIds: [["claim-devin-010"], ["claim-devin-001"], ["claim-devin-016"]]}),
+      output: directorBrief({
+        beatClaimIds: [["claim-devin-010"], ["claim-devin-001"], ["claim-devin-016"]],
+      }),
     });
     expect(evaluation.hardFailures).toContain("unsupported-claim:claim-devin-010");
     expect(evaluation.unsupportedClaimIds).toEqual(["claim-devin-010"]);
@@ -282,7 +273,13 @@ ${JSON.stringify(gate)}
       },
       selectedHookHeading: "任务交出去，它自己打开浏览器",
       claimIds: ["claim-devin-001", "claim-devin-010"],
-      scores: {openingHook: 4, curiosityGap: 4, emotionalTension: 4, informationRevealOrder: 4, endingPayoff: 4},
+      scores: {
+        openingHook: 4,
+        curiosityGap: 4,
+        emotionalTension: 4,
+        informationRevealOrder: 4,
+        endingPayoff: 4,
+      },
       total: 20,
       threshold: 20,
       blockers: [],

@@ -154,11 +154,7 @@ const runToken = (runId: string): string => encodeURIComponent(runId);
 export const deliveryCriticReviewPackagePath = (episodeId: string, runId: string): string =>
   `.orchestration/handoffs/${episodeId}/${runToken(runId)}.delivery-critic-review-package.json`;
 
-export const deliveryCriticResultPath = (
-  episodeId: string,
-  runId: string,
-  attempt = 1,
-): string =>
+export const deliveryCriticResultPath = (episodeId: string, runId: string, attempt = 1): string =>
   `.orchestration/handoffs/${episodeId}/${runToken(runId)}.delivery-critic-result${
     attempt > 1 ? `.attempt-${attempt}` : ""
   }.json`;
@@ -256,10 +252,7 @@ export const validateDeliveryCriticResult = (input: {
 }): DeliveryCriticResult => {
   const reviewPackage = deliveryCriticReviewPackageSchema.parse(input.package);
   const result = deliveryCriticResultSchema.parse(input.result);
-  if (
-    reviewPackage.episodeId !== input.episodeId ||
-    reviewPackage.runId !== input.runId
-  ) {
+  if (reviewPackage.episodeId !== input.episodeId || reviewPackage.runId !== input.runId) {
     throw new Error("DELIVERY_CRITIC_PACKAGE_IDENTITY_MISMATCH");
   }
   if (
@@ -303,11 +296,13 @@ export const validateDeliveryCriticResult = (input: {
     throw new Error("DELIVERY_CRITIC_PRIMARY_REVIEW_REF_MISMATCH");
   }
   for (const ref of [result.reviewedVideo, result.reviewedSubtitles, result.reviewedTimeline]) {
-    if (!includesRef(packageRefs, ref)) throw new Error(`DELIVERY_CRITIC_REVIEW_REF_NOT_IN_PACKAGE:${ref.artifactId}`);
+    if (!includesRef(packageRefs, ref))
+      throw new Error(`DELIVERY_CRITIC_REVIEW_REF_NOT_IN_PACKAGE:${ref.artifactId}`);
     assertArtifactRefBytes(input.repoRoot, ref);
   }
   for (const ref of [...result.reviewedKeyframes, ...result.reviewedClips]) {
-    if (!includesRef(packageRefs, ref)) throw new Error(`DELIVERY_CRITIC_REVIEW_REF_NOT_IN_PACKAGE:${ref.artifactId}`);
+    if (!includesRef(packageRefs, ref))
+      throw new Error(`DELIVERY_CRITIC_REVIEW_REF_NOT_IN_PACKAGE:${ref.artifactId}`);
     assertArtifactRefBytes(input.repoRoot, ref);
   }
   const gate = result.deliveryGate;

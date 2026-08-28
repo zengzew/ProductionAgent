@@ -23,20 +23,14 @@ import {
   type MediaVerificationProvider,
   type ShortClipExtractor,
 } from "../../media/verify";
-import {
-  readMediaRetrievalResult,
-  retrieveMediaCandidates,
-} from "../../media/retrieve";
+import {readMediaRetrievalResult, retrieveMediaCandidates} from "../../media/retrieve";
 import {readMediaSourceManifest} from "../../media/manifest";
 import {
   getMediaSource,
   isMediaSourceAdmitted,
   isMediaSourceRightsApproved,
 } from "../../media/discovery";
-import {
-  readMediaClipIndex,
-  readMediaUnderstandingStatus,
-} from "../../media/understanding";
+import {readMediaClipIndex, readMediaUnderstandingStatus} from "../../media/understanding";
 import {selectVisualSlotForSegment} from "../../media/select";
 import {
   mediaClipIndexRepositoryPath,
@@ -49,7 +43,11 @@ import {mediaSourceManifestSchema} from "../../media/schemas";
 import {scriptSchema} from "../../schemas/episode";
 import {generatedCaptionsPath} from "../../lib/episode/render-contract";
 import {hashArtifactInputs} from "../observability";
-import {pauseForExternalCapability, type FoundationNode, type ProductionGraphDestination} from "../lg-compat";
+import {
+  pauseForExternalCapability,
+  type FoundationNode,
+  type ProductionGraphDestination,
+} from "../lg-compat";
 import type {ProductionState, ProductionStateUpdate} from "../state";
 import {
   mediaGraphStageCheckpointSchema,
@@ -70,7 +68,10 @@ import {
   type DeliveryCriticReviewPackage,
 } from "../schemas/delivery-critic";
 import {PRE_RENDER_GATE_SCHEMA_VERSION, runPreRenderGate} from "../pre-render-gate";
-import {productionStageNames as productionStageOrder, type ProductionStageName} from "../schemas/production";
+import {
+  productionStageNames as productionStageOrder,
+  type ProductionStageName,
+} from "../schemas/production";
 
 export type MediaLifecycleOptions = {
   repoRoot: string;
@@ -227,10 +228,16 @@ const refForFile = (input: {
   });
 };
 
-const findStateRef = (state: ProductionState, predicate: (ref: ArtifactRef) => boolean): ArtifactRef | undefined =>
+const findStateRef = (
+  state: ProductionState,
+  predicate: (ref: ArtifactRef) => boolean,
+): ArtifactRef | undefined =>
   Object.values(state.artifacts)
     .filter(predicate)
-    .sort((left, right) => right.revision - left.revision || left.artifactId.localeCompare(right.artifactId))[0];
+    .sort(
+      (left, right) =>
+        right.revision - left.revision || left.artifactId.localeCompare(right.artifactId),
+    )[0];
 
 const outputRefsFor = (state: ProductionState, stage: MediaGraphStageName): ArtifactRef[] =>
   state.mediaStages[stage]?.outputArtifacts ?? [];
@@ -276,7 +283,10 @@ const mediaInputsFor = (state: ProductionState, stage: MediaGraphStageName): Art
     return uniqueRefs([...common, ...successfulMediaRefs(state, ["discovery", "retrieve"])]);
   }
   if (stage === "select") {
-    return uniqueRefs([...common, ...successfulMediaRefs(state, ["discovery", "retrieve", "verify"])]);
+    return uniqueRefs([
+      ...common,
+      ...successfulMediaRefs(state, ["discovery", "retrieve", "verify"]),
+    ]);
   }
   if (stage === "render-plan") {
     return uniqueRefs([
@@ -387,7 +397,12 @@ const checkpointUpdate = (input: {
   };
 };
 
-const ensureRefs = (input: {repoRoot: string; episodeId: string; refs: readonly ArtifactRef[]; executionId: string}): void => {
+const ensureRefs = (input: {
+  repoRoot: string;
+  episodeId: string;
+  refs: readonly ArtifactRef[];
+  executionId: string;
+}): void => {
   const refs = uniqueRefs(input.refs);
   if (refs.length === 0) return;
   ensureArtifactIndexForRefs({
@@ -404,7 +419,8 @@ const mediaStageReusable = (
   stage: MediaGraphStageName,
 ): boolean => {
   const checkpoint = state.mediaStages[stage];
-  if (!checkpoint || (checkpoint.status !== "SUCCEEDED" && checkpoint.status !== "SKIPPED")) return false;
+  if (!checkpoint || (checkpoint.status !== "SUCCEEDED" && checkpoint.status !== "SKIPPED"))
+    return false;
   const inputs = mediaInputsFor(state, stage);
   return (
     checkpoint.inputSetHash === hashArtifactInputs(inputs) &&
@@ -472,156 +488,164 @@ const sourceManifestRef = (input: {
     createdAt: input.now,
   });
 
-const discoveryNode = (input: MediaLifecycleOptions): FoundationNode => (state) => {
-  const now = nowString(input);
-  const inputs = mediaInputsFor(state, "discovery");
-  const manifestPath = mediaSourceManifestRepositoryPath(state.episodeId);
-  const absoluteManifest = repositoryFile(input.repoRoot, manifestPath);
-  if (!fs.existsSync(absoluteManifest)) {
-    return pauseForMediaCapability({
-      capability: "media-discovery",
-      state,
-      inputArtifacts: inputs,
-      expectedOutputPath: manifestPath,
-      requiredContract: "media-source-manifest-v1",
-      nextAction: `Provide an admitted, rights-approved media-source-manifest-v1 at ${manifestPath}, register the current asset refs, then resume this run.`,
-    });
-  }
-  const manifest = mediaSourceManifestSchema.parse(
-    JSON.parse(fs.readFileSync(absoluteManifest, "utf8")) as unknown,
-  );
-  const manifestRef = sourceManifestRef({repoRoot: input.repoRoot, state, now});
-  const outputs: ArtifactRef[] = [manifestRef];
-  for (const asset of manifest.assets) {
-    const source = getMediaSource(manifest, asset.mediaSourceId);
-    if (!source || !isMediaSourceAdmitted(source) || !isMediaSourceRightsApproved(source)) {
+const discoveryNode =
+  (input: MediaLifecycleOptions): FoundationNode =>
+  (state) => {
+    const now = nowString(input);
+    const inputs = mediaInputsFor(state, "discovery");
+    const manifestPath = mediaSourceManifestRepositoryPath(state.episodeId);
+    const absoluteManifest = repositoryFile(input.repoRoot, manifestPath);
+    if (!fs.existsSync(absoluteManifest)) {
       return pauseForMediaCapability({
-        capability: "media-discovery-admission",
+        capability: "media-discovery",
         state,
-        inputArtifacts: [...inputs, manifestRef],
+        inputArtifacts: inputs,
         expectedOutputPath: manifestPath,
         requiredContract: "media-source-manifest-v1",
-        nextAction: `Complete the formal media admission and rights decision for ${asset.mediaId}, update the manifest without changing unrelated sources, then resume.`,
-        extra: {mediaId: asset.mediaId, sourceId: asset.mediaSourceId},
+        nextAction: `Provide an admitted, rights-approved media-source-manifest-v1 at ${manifestPath}, register the current asset refs, then resume this run.`,
       });
     }
-    assertArtifactRefBytes(input.repoRoot, asset.artifactRef);
-    if (!artifactRefIsIndexed(input.repoRoot, asset.artifactRef)) {
-      return pauseForMediaCapability({
-        capability: "media-discovery-registry",
-        state,
-        inputArtifacts: [...inputs, manifestRef, asset.artifactRef],
-        expectedOutputPath: `content/${state.episodeId}/artifact-index.json`,
-        requiredContract: "artifact-index-v1",
-        nextAction: `Register and select the current asset ref ${asset.artifactRef.artifactId} in the episode artifact index, then resume.`,
-        extra: {mediaId: asset.mediaId},
-      });
-    }
-    outputs.push(asset.artifactRef);
-    if (!asset.mediaType.startsWith("video/") && !asset.mediaType.startsWith("audio/")) continue;
-    const status = readMediaUnderstandingStatus(input.repoRoot, state.episodeId, asset.mediaId);
-    const clipStatus = status?.stages["clip-index"];
-    const clipReady =
-      Boolean(status) &&
-      status!.mediaSha256 === asset.sha256 &&
-      clipStatus?.availability === "available" &&
-      Boolean(clipStatus.ref) &&
-      currentRef(input.repoRoot, clipStatus.ref);
-    if (!clipReady) {
-      return pauseForMediaCapability({
-        capability: "media-discovery-indexing",
-        state,
-        inputArtifacts: [...inputs, manifestRef, asset.artifactRef],
-        expectedOutputPath: mediaClipIndexRepositoryPath(state.episodeId, asset.mediaId.slice(`${state.episodeId}:media:`.length)),
-        requiredContract: "media-source-manifest-v1 + media-clip-index-v1 + media-understanding-status-v1",
-        nextAction: `Run the bounded media indexing pipeline for ${asset.mediaId} and verify the current clip-index/status artifacts, then resume. Do not substitute a synthetic clip index.`,
-        extra: {mediaId: asset.mediaId},
-      });
-    }
-    readMediaClipIndex(input.repoRoot, state.episodeId, asset.mediaId);
-    outputs.push(clipStatus!.ref!);
-    const statusPath = mediaUnderstandingStatusRepositoryPath(
-      state.episodeId,
-      asset.mediaId.slice(`${state.episodeId}:media:`.length),
+    const manifest = mediaSourceManifestSchema.parse(
+      JSON.parse(fs.readFileSync(absoluteManifest, "utf8")) as unknown,
     );
-    const statusFile = repositoryFile(input.repoRoot, statusPath);
-    if (fs.existsSync(statusFile)) {
-      outputs.push(
-        refForFile({
-          repoRoot: input.repoRoot,
-          episodeId: state.episodeId,
+    const manifestRef = sourceManifestRef({repoRoot: input.repoRoot, state, now});
+    const outputs: ArtifactRef[] = [manifestRef];
+    for (const asset of manifest.assets) {
+      const source = getMediaSource(manifest, asset.mediaSourceId);
+      if (!source || !isMediaSourceAdmitted(source) || !isMediaSourceRightsApproved(source)) {
+        return pauseForMediaCapability({
+          capability: "media-discovery-admission",
           state,
-          artifactId: `${state.episodeId}:media:understanding-status-${asset.mediaId.slice(`${state.episodeId}:media:`.length)}`,
-          repositoryPath: statusPath,
-          mediaType: "application/json",
-          schemaVersion: "media-understanding-status-v1",
-          producer: "orchestrator:media-discovery",
-          createdAt: now,
-        }),
+          inputArtifacts: [...inputs, manifestRef],
+          expectedOutputPath: manifestPath,
+          requiredContract: "media-source-manifest-v1",
+          nextAction: `Complete the formal media admission and rights decision for ${asset.mediaId}, update the manifest without changing unrelated sources, then resume.`,
+          extra: {mediaId: asset.mediaId, sourceId: asset.mediaSourceId},
+        });
+      }
+      assertArtifactRefBytes(input.repoRoot, asset.artifactRef);
+      if (!artifactRefIsIndexed(input.repoRoot, asset.artifactRef)) {
+        return pauseForMediaCapability({
+          capability: "media-discovery-registry",
+          state,
+          inputArtifacts: [...inputs, manifestRef, asset.artifactRef],
+          expectedOutputPath: `content/${state.episodeId}/artifact-index.json`,
+          requiredContract: "artifact-index-v1",
+          nextAction: `Register and select the current asset ref ${asset.artifactRef.artifactId} in the episode artifact index, then resume.`,
+          extra: {mediaId: asset.mediaId},
+        });
+      }
+      outputs.push(asset.artifactRef);
+      if (!asset.mediaType.startsWith("video/") && !asset.mediaType.startsWith("audio/")) continue;
+      const status = readMediaUnderstandingStatus(input.repoRoot, state.episodeId, asset.mediaId);
+      const clipStatus = status?.stages["clip-index"];
+      const clipReady =
+        Boolean(status) &&
+        status!.mediaSha256 === asset.sha256 &&
+        clipStatus?.availability === "available" &&
+        Boolean(clipStatus.ref) &&
+        currentRef(input.repoRoot, clipStatus.ref);
+      if (!clipReady) {
+        return pauseForMediaCapability({
+          capability: "media-discovery-indexing",
+          state,
+          inputArtifacts: [...inputs, manifestRef, asset.artifactRef],
+          expectedOutputPath: mediaClipIndexRepositoryPath(
+            state.episodeId,
+            asset.mediaId.slice(`${state.episodeId}:media:`.length),
+          ),
+          requiredContract:
+            "media-source-manifest-v1 + media-clip-index-v1 + media-understanding-status-v1",
+          nextAction: `Run the bounded media indexing pipeline for ${asset.mediaId} and verify the current clip-index/status artifacts, then resume. Do not substitute a synthetic clip index.`,
+          extra: {mediaId: asset.mediaId},
+        });
+      }
+      readMediaClipIndex(input.repoRoot, state.episodeId, asset.mediaId);
+      outputs.push(clipStatus!.ref!);
+      const statusPath = mediaUnderstandingStatusRepositoryPath(
+        state.episodeId,
+        asset.mediaId.slice(`${state.episodeId}:media:`.length),
       );
+      const statusFile = repositoryFile(input.repoRoot, statusPath);
+      if (fs.existsSync(statusFile)) {
+        outputs.push(
+          refForFile({
+            repoRoot: input.repoRoot,
+            episodeId: state.episodeId,
+            state,
+            artifactId: `${state.episodeId}:media:understanding-status-${asset.mediaId.slice(`${state.episodeId}:media:`.length)}`,
+            repositoryPath: statusPath,
+            mediaType: "application/json",
+            schemaVersion: "media-understanding-status-v1",
+            producer: "orchestrator:media-discovery",
+            createdAt: now,
+          }),
+        );
+      }
     }
-  }
-  ensureRefs({
-    repoRoot: input.repoRoot,
-    episodeId: state.episodeId,
-    refs: outputs,
-    executionId: `${state.runId}:media:discovery`,
-  });
-  return checkpointUpdate({
-    state,
-    stage: "discovery",
-    inputArtifacts: inputs,
-    outputArtifacts: outputs,
-    decision: {
-      code: "MEDIA_DISCOVERY_READY",
-      summary: `admitted ${manifest.sources.length} source(s) and discovered ${manifest.assets.length} asset(s)`,
-    },
-  });
-};
-
-const retrieveNode = (input: MediaLifecycleOptions): FoundationNode => async (state) => {
-  const inputs = mediaInputsFor(state, "retrieve");
-  const script = readScript(input.repoRoot, state.episodeId);
-  const outputs: ArtifactRef[] = [];
-  for (const segment of script.segments) {
-    const outcome = await retrieveMediaCandidates({
+    ensureRefs({
       repoRoot: input.repoRoot,
       episodeId: state.episodeId,
-      request: {
-        schemaVersion: "media-retrieval-request-v1",
-        episodeId: state.episodeId,
-        segmentId: segment.id,
-        claimIds: segment.claimIds,
-        narration: segment.narration,
-        visualIntent: segment.visualIntent,
-        preferredMediaTypes: ["video", "audio"],
-        topK: 3,
-        durationTargetMs: Math.round(segment.targetSeconds * 1000),
-      },
-      cache: input.cache,
-      runId: state.runId,
-      traceId: `${state.episodeId}:run:${state.runId}`,
-      now: input.now,
+      refs: outputs,
+      executionId: `${state.runId}:media:discovery`,
     });
-    outputs.push(outcome.artifactRef);
-  }
-  ensureRefs({
-    repoRoot: input.repoRoot,
-    episodeId: state.episodeId,
-    refs: outputs,
-    executionId: `${state.runId}:media:retrieve`,
-  });
-  return checkpointUpdate({
-    state,
-    stage: "retrieve",
-    inputArtifacts: inputs,
-    outputArtifacts: outputs,
-    decision: {
-      code: "MEDIA_RETRIEVAL_COMPLETED",
-      summary: `retrieval completed for ${outputs.length} script segment(s)`,
-    },
-  });
-};
+    return checkpointUpdate({
+      state,
+      stage: "discovery",
+      inputArtifacts: inputs,
+      outputArtifacts: outputs,
+      decision: {
+        code: "MEDIA_DISCOVERY_READY",
+        summary: `admitted ${manifest.sources.length} source(s) and discovered ${manifest.assets.length} asset(s)`,
+      },
+    });
+  };
+
+const retrieveNode =
+  (input: MediaLifecycleOptions): FoundationNode =>
+  async (state) => {
+    const inputs = mediaInputsFor(state, "retrieve");
+    const script = readScript(input.repoRoot, state.episodeId);
+    const outputs: ArtifactRef[] = [];
+    for (const segment of script.segments) {
+      const outcome = await retrieveMediaCandidates({
+        repoRoot: input.repoRoot,
+        episodeId: state.episodeId,
+        request: {
+          schemaVersion: "media-retrieval-request-v1",
+          episodeId: state.episodeId,
+          segmentId: segment.id,
+          claimIds: segment.claimIds,
+          narration: segment.narration,
+          visualIntent: segment.visualIntent,
+          preferredMediaTypes: ["video", "audio"],
+          topK: 3,
+          durationTargetMs: Math.round(segment.targetSeconds * 1000),
+        },
+        cache: input.cache,
+        runId: state.runId,
+        traceId: `${state.episodeId}:run:${state.runId}`,
+        now: input.now,
+      });
+      outputs.push(outcome.artifactRef);
+    }
+    ensureRefs({
+      repoRoot: input.repoRoot,
+      episodeId: state.episodeId,
+      refs: outputs,
+      executionId: `${state.runId}:media:retrieve`,
+    });
+    return checkpointUpdate({
+      state,
+      stage: "retrieve",
+      inputArtifacts: inputs,
+      outputArtifacts: outputs,
+      decision: {
+        code: "MEDIA_RETRIEVAL_COMPLETED",
+        summary: `retrieval completed for ${outputs.length} script segment(s)`,
+      },
+    });
+  };
 
 const pendingResultPath = (error: unknown): string | undefined => {
   const message = error instanceof Error ? error.message : String(error);
@@ -630,294 +654,319 @@ const pendingResultPath = (error: unknown): string | undefined => {
     : undefined;
 };
 
-const verifyNode = (input: MediaLifecycleOptions): FoundationNode => async (state) => {
-  const inputs = mediaInputsFor(state, "verify");
-  const script = readScript(input.repoRoot, state.episodeId);
-  const retrievalRefs = outputRefsFor(state, "retrieve");
-  const outputs: ArtifactRef[] = [];
-  const verifiedClipIds = new Set<string>();
-  const provider = input.verificationProvider ?? createCodexMediaVerificationProvider({repoRoot: input.repoRoot});
-  for (const segment of script.segments) {
-    const retrievalRef = retrievalRefs.find((ref) => ref.artifactId === `${state.episodeId}:media-retrieval:${segment.id}`);
-    if (!retrievalRef) throw new Error(`MEDIA_GRAPH_RETRIEVAL_REF_MISSING:${segment.id}`);
-    const retrieval = readMediaRetrievalResult(input.repoRoot, state.episodeId, segment.id);
-    const candidate = retrieval.candidates[0];
-    if (!candidate) continue;
-    // A verification artifact is clip-scoped while retrieval candidates are
-    // segment-scoped. If two segments choose the same clip, verify it once;
-    // the later selection remains fail-closed until it has segment-scoped
-    // evidence instead of creating a same-revision identity collision.
-    if (verifiedClipIds.has(candidate.clipId)) continue;
-    verifiedClipIds.add(candidate.clipId);
-    const request = {
-      schemaVersion: "media-verification-request-v1" as const,
-      episodeId: state.episodeId,
-      segmentId: segment.id,
-      clipId: candidate.clipId,
-      claimIds: segment.claimIds,
-      narration: segment.narration,
-      visualIntent: segment.visualIntent,
-      retrievalResultRef: retrievalRef,
-      maxKeyframes: 3,
-    };
-    try {
-      const verificationPath = repositoryFile(
-        input.repoRoot,
-        mediaVerificationRepositoryPath(state.episodeId, segment.id, candidate.clipId),
+const verifyNode =
+  (input: MediaLifecycleOptions): FoundationNode =>
+  async (state) => {
+    const inputs = mediaInputsFor(state, "verify");
+    const script = readScript(input.repoRoot, state.episodeId);
+    const retrievalRefs = outputRefsFor(state, "retrieve");
+    const outputs: ArtifactRef[] = [];
+    const verifiedClipIds = new Set<string>();
+    const provider =
+      input.verificationProvider ??
+      createCodexMediaVerificationProvider({repoRoot: input.repoRoot});
+    for (const segment of script.segments) {
+      const retrievalRef = retrievalRefs.find(
+        (ref) => ref.artifactId === `${state.episodeId}:media-retrieval:${segment.id}`,
       );
-      if (fs.existsSync(verificationPath)) {
-        const previous = readMediaVerification(input.repoRoot, state.episodeId, segment.id, candidate.clipId);
-        if (previous.verdict === "pass" && previous.retrievalResultRef.sha256 === retrievalRef.sha256) {
-          const rebound = rebindMediaVerification({
-            repoRoot: input.repoRoot,
-            episodeId: state.episodeId,
-            request,
-            executionId: `${state.runId}:media:verify:rebind:${segment.id}`,
-            now: input.now,
-          });
-          outputs.push(rebound.artifactRef, rebound.clipArtifactRef);
-          continue;
+      if (!retrievalRef) throw new Error(`MEDIA_GRAPH_RETRIEVAL_REF_MISSING:${segment.id}`);
+      const retrieval = readMediaRetrievalResult(input.repoRoot, state.episodeId, segment.id);
+      const candidate = retrieval.candidates[0];
+      if (!candidate) continue;
+      // A verification artifact is clip-scoped while retrieval candidates are
+      // segment-scoped. If two segments choose the same clip, verify it once;
+      // the later selection remains fail-closed until it has segment-scoped
+      // evidence instead of creating a same-revision identity collision.
+      if (verifiedClipIds.has(candidate.clipId)) continue;
+      verifiedClipIds.add(candidate.clipId);
+      const request = {
+        schemaVersion: "media-verification-request-v1" as const,
+        episodeId: state.episodeId,
+        segmentId: segment.id,
+        clipId: candidate.clipId,
+        claimIds: segment.claimIds,
+        narration: segment.narration,
+        visualIntent: segment.visualIntent,
+        retrievalResultRef: retrievalRef,
+        maxKeyframes: 3,
+      };
+      try {
+        const verificationPath = repositoryFile(
+          input.repoRoot,
+          mediaVerificationRepositoryPath(state.episodeId, segment.id, candidate.clipId),
+        );
+        if (fs.existsSync(verificationPath)) {
+          const previous = readMediaVerification(
+            input.repoRoot,
+            state.episodeId,
+            segment.id,
+            candidate.clipId,
+          );
+          if (
+            previous.verdict === "pass" &&
+            previous.retrievalResultRef.sha256 === retrievalRef.sha256
+          ) {
+            const rebound = rebindMediaVerification({
+              repoRoot: input.repoRoot,
+              episodeId: state.episodeId,
+              request,
+              executionId: `${state.runId}:media:verify:rebind:${segment.id}`,
+              now: input.now,
+            });
+            outputs.push(rebound.artifactRef, rebound.clipArtifactRef);
+            continue;
+          }
         }
+        const outcome = await verifyMediaClip({
+          repoRoot: input.repoRoot,
+          episodeId: state.episodeId,
+          request,
+          provider,
+          cache: input.cache,
+          shortClipExtractor: input.shortClipExtractor,
+          runId: state.runId,
+          traceId: `${state.episodeId}:run:${state.runId}`,
+          now: input.now,
+        });
+        outputs.push(outcome.artifactRef, outcome.clipArtifactRef);
+      } catch (error) {
+        const resultPath = pendingResultPath(error);
+        if (!resultPath) throw error;
+        pauseForMediaCapability({
+          capability: "media-verification",
+          state,
+          inputArtifacts: [...inputs, retrievalRef, candidate.mediaRef, candidate.indexRef],
+          expectedOutputPath: resultPath,
+          requiredContract: "codex-media-verification-result-v1",
+          nextAction: `Inspect only the bounded short clip and keyframes named by the Codex request, write the hash-bound result JSON at ${resultPath}, then resume. Do not edit rights or claim facts.`,
+          extra: {segmentId: segment.id, clipId: candidate.clipId},
+        });
       }
-      const outcome = await verifyMediaClip({
+    }
+    ensureRefs({
+      repoRoot: input.repoRoot,
+      episodeId: state.episodeId,
+      refs: outputs,
+      executionId: `${state.runId}:media:verify`,
+    });
+    return checkpointUpdate({
+      state,
+      stage: "verify",
+      inputArtifacts: inputs,
+      outputArtifacts: outputs.length > 0 ? outputs : [state.contentManifestRef!],
+      decision: {
+        code: "MEDIA_VERIFICATION_COMPLETED",
+        summary: `verified ${outputs.filter((ref) => ref.artifactId.includes(":media-verification:")).length} candidate clip(s); unrepresented segments remain fallback-only`,
+      },
+    });
+  };
+
+const selectNode =
+  (input: MediaLifecycleOptions): FoundationNode =>
+  async (state) => {
+    const inputs = mediaInputsFor(state, "select");
+    const script = readScript(input.repoRoot, state.episodeId);
+    const retrievalRefs = outputRefsFor(state, "retrieve");
+    const outputs: ArtifactRef[] = [];
+    for (const segment of script.segments) {
+      const retrievalRef = retrievalRefs.find(
+        (ref) => ref.artifactId === `${state.episodeId}:media-retrieval:${segment.id}`,
+      );
+      const outcome = await selectVisualSlotForSegment({
         repoRoot: input.repoRoot,
         episodeId: state.episodeId,
-        request,
-        provider,
-        cache: input.cache,
-        shortClipExtractor: input.shortClipExtractor,
+        segment: {
+          segmentId: segment.id,
+          claimIds: segment.claimIds,
+          narration: segment.narration,
+          visualIntent: segment.visualIntent,
+          durationTargetMs: Math.round(segment.targetSeconds * 1000),
+        },
+        ...(retrievalRef ? {retrievalResultRef: retrievalRef} : {}),
         runId: state.runId,
         traceId: `${state.episodeId}:run:${state.runId}`,
         now: input.now,
       });
-      outputs.push(outcome.artifactRef, outcome.clipArtifactRef);
-    } catch (error) {
-      const resultPath = pendingResultPath(error);
-      if (!resultPath) throw error;
-      pauseForMediaCapability({
-        capability: "media-verification",
-        state,
-        inputArtifacts: [...inputs, retrievalRef, candidate.mediaRef, candidate.indexRef],
-        expectedOutputPath: resultPath,
-        requiredContract: "codex-media-verification-result-v1",
-        nextAction: `Inspect only the bounded short clip and keyframes named by the Codex request, write the hash-bound result JSON at ${resultPath}, then resume. Do not edit rights or claim facts.`,
-        extra: {segmentId: segment.id, clipId: candidate.clipId},
-      });
+      outputs.push(outcome.artifactRef);
     }
-  }
-  ensureRefs({
-    repoRoot: input.repoRoot,
-    episodeId: state.episodeId,
-    refs: outputs,
-    executionId: `${state.runId}:media:verify`,
-  });
-  return checkpointUpdate({
-    state,
-    stage: "verify",
-    inputArtifacts: inputs,
-    outputArtifacts: outputs.length > 0 ? outputs : [state.contentManifestRef!],
-    decision: {
-      code: "MEDIA_VERIFICATION_COMPLETED",
-      summary: `verified ${outputs.filter((ref) => ref.artifactId.includes(":media-verification:")).length} candidate clip(s); unrepresented segments remain fallback-only`,
-    },
-  });
-};
-
-const selectNode = (input: MediaLifecycleOptions): FoundationNode => async (state) => {
-  const inputs = mediaInputsFor(state, "select");
-  const script = readScript(input.repoRoot, state.episodeId);
-  const retrievalRefs = outputRefsFor(state, "retrieve");
-  const outputs: ArtifactRef[] = [];
-  for (const segment of script.segments) {
-    const retrievalRef = retrievalRefs.find((ref) => ref.artifactId === `${state.episodeId}:media-retrieval:${segment.id}`);
-    const outcome = await selectVisualSlotForSegment({
+    ensureRefs({
       repoRoot: input.repoRoot,
       episodeId: state.episodeId,
-      segment: {
-        segmentId: segment.id,
-        claimIds: segment.claimIds,
-        narration: segment.narration,
-        visualIntent: segment.visualIntent,
-        durationTargetMs: Math.round(segment.targetSeconds * 1000),
+      refs: outputs,
+      executionId: `${state.runId}:media:select`,
+    });
+    return checkpointUpdate({
+      state,
+      stage: "select",
+      inputArtifacts: inputs,
+      outputArtifacts: outputs,
+      decision: {
+        code: "MEDIA_VISUAL_SELECTION_COMPLETED",
+        summary: `selected a visual slot for ${outputs.length} script segment(s)`,
       },
-      ...(retrievalRef ? {retrievalResultRef: retrievalRef} : {}),
+    });
+  };
+
+const renderPlanNode =
+  (input: MediaLifecycleOptions): FoundationNode =>
+  (state) => {
+    const inputs = mediaInputsFor(state, "render-plan");
+    const planArtifactId = `${state.episodeId}:media:render-plan`;
+    const planRepositoryPath = mediaRenderPlanRepositoryPath(state.episodeId);
+    const previousPlan =
+      state.mediaStages["render-plan"]?.outputArtifacts.find(
+        (ref) => ref.artifactId === planArtifactId && currentRef(input.repoRoot, ref),
+      ) ?? indexedRefFor(input.repoRoot, state.episodeId, planArtifactId, planRepositoryPath);
+    if (previousPlan) {
+      snapshotSelectedArtifactHistory({
+        repoRoot: input.repoRoot,
+        episodeId: state.episodeId,
+        refs: [previousPlan],
+      });
+    }
+    const plan = buildMediaRenderPlanForTimeline({
+      repoRoot: input.repoRoot,
+      episodeId: state.episodeId,
+      ...(previousPlan ? {previousArtifactRef: previousPlan} : {}),
+      cache: input.cache,
+      proxyExtractor: input.proxyExtractor,
       runId: state.runId,
       traceId: `${state.episodeId}:run:${state.runId}`,
       now: input.now,
     });
-    outputs.push(outcome.artifactRef);
-  }
-  ensureRefs({
-    repoRoot: input.repoRoot,
-    episodeId: state.episodeId,
-    refs: outputs,
-    executionId: `${state.runId}:media:select`,
-  });
-  return checkpointUpdate({
-    state,
-    stage: "select",
-    inputArtifacts: inputs,
-    outputArtifacts: outputs,
-    decision: {
-      code: "MEDIA_VISUAL_SELECTION_COMPLETED",
-      summary: `selected a visual slot for ${outputs.length} script segment(s)`,
-    },
-  });
-};
-
-const renderPlanNode = (input: MediaLifecycleOptions): FoundationNode => (state) => {
-  const inputs = mediaInputsFor(state, "render-plan");
-  const planArtifactId = `${state.episodeId}:media:render-plan`;
-  const planRepositoryPath = mediaRenderPlanRepositoryPath(state.episodeId);
-  const previousPlan =
-    state.mediaStages["render-plan"]?.outputArtifacts.find(
-      (ref) => ref.artifactId === planArtifactId && currentRef(input.repoRoot, ref),
-    ) ??
-    indexedRefFor(input.repoRoot, state.episodeId, planArtifactId, planRepositoryPath);
-  if (previousPlan) {
-    snapshotSelectedArtifactHistory({
+    assertMediaRenderPlanRenderable({repoRoot: input.repoRoot, episodeId: state.episodeId});
+    const planRef = refForFile({
       repoRoot: input.repoRoot,
       episodeId: state.episodeId,
-      refs: [previousPlan],
+      state,
+      artifactId: planArtifactId,
+      repositoryPath: planRepositoryPath,
+      mediaType: "application/json",
+      schemaVersion: "media-render-plan-v1",
+      producer: "media-render-v1",
+      createdAt: plan.createdAt,
+      ...(previousPlan ? {previous: previousPlan} : {}),
     });
-  }
-  const plan = buildMediaRenderPlanForTimeline({
-    repoRoot: input.repoRoot,
-    episodeId: state.episodeId,
-    ...(previousPlan ? {previousArtifactRef: previousPlan} : {}),
-    cache: input.cache,
-    proxyExtractor: input.proxyExtractor,
-    runId: state.runId,
-    traceId: `${state.episodeId}:run:${state.runId}`,
-    now: input.now,
-  });
-  assertMediaRenderPlanRenderable({repoRoot: input.repoRoot, episodeId: state.episodeId});
-  const planRef = refForFile({
-    repoRoot: input.repoRoot,
-    episodeId: state.episodeId,
-    state,
-    artifactId: planArtifactId,
-    repositoryPath: planRepositoryPath,
-    mediaType: "application/json",
-    schemaVersion: "media-render-plan-v1",
-    producer: "media-render-v1",
-    createdAt: plan.createdAt,
-    ...(previousPlan ? {previous: previousPlan} : {}),
-  });
-  ensureRefs({
-    repoRoot: input.repoRoot,
-    episodeId: state.episodeId,
-    refs: [planRef],
-    executionId: `${state.runId}:media:render-plan`,
-  });
-  return checkpointUpdate({
-    state,
-    stage: "render-plan",
-    inputArtifacts: inputs,
-    outputArtifacts: [planRef],
-    decision: {
-      code: "MEDIA_RENDER_PLAN_READY",
-      summary: `render plan bound to timeline ${plan.timelineSha256}`,
-    },
-  });
-};
+    ensureRefs({
+      repoRoot: input.repoRoot,
+      episodeId: state.episodeId,
+      refs: [planRef],
+      executionId: `${state.runId}:media:render-plan`,
+    });
+    return checkpointUpdate({
+      state,
+      stage: "render-plan",
+      inputArtifacts: inputs,
+      outputArtifacts: [planRef],
+      decision: {
+        code: "MEDIA_RENDER_PLAN_READY",
+        summary: `render plan bound to timeline ${plan.timelineSha256}`,
+      },
+    });
+  };
 
-const preRenderNode = (input: MediaLifecycleOptions): FoundationNode => (state) => {
-  const preRenderPaths = [
-    `content/${state.episodeId}/story/script.json`,
-    `content/${state.episodeId}/story/caption-plan.json`,
-    generatedCaptionsPath(state.episodeId),
-    `content/${state.episodeId}/production/timeline.json`,
-    `output/${state.episodeId}/subtitles_zh.srt`,
-  ];
-  const canonicalRefs = preRenderPaths.flatMap((repositoryPath) => {
-    const existing = findStateRef(state, (ref) => ref.path === repositoryPath);
-    if (existing) return [existing];
-    if (!fs.existsSync(repositoryFile(input.repoRoot, repositoryPath))) return [];
-    const leaf = repositoryPath.split("/").at(-1)?.replace(/\.[^.]+$/u, "") ?? "artifact";
-    return [
-      refForFile({
+const preRenderNode =
+  (input: MediaLifecycleOptions): FoundationNode =>
+  (state) => {
+    const preRenderPaths = [
+      `content/${state.episodeId}/story/script.json`,
+      `content/${state.episodeId}/story/caption-plan.json`,
+      generatedCaptionsPath(state.episodeId),
+      `content/${state.episodeId}/production/timeline.json`,
+      `output/${state.episodeId}/subtitles_zh.srt`,
+    ];
+    const canonicalRefs = preRenderPaths.flatMap((repositoryPath) => {
+      const existing = findStateRef(state, (ref) => ref.path === repositoryPath);
+      if (existing) return [existing];
+      if (!fs.existsSync(repositoryFile(input.repoRoot, repositoryPath))) return [];
+      const leaf =
+        repositoryPath
+          .split("/")
+          .at(-1)
+          ?.replace(/\.[^.]+$/u, "") ?? "artifact";
+      return [
+        refForFile({
+          repoRoot: input.repoRoot,
+          episodeId: state.episodeId,
+          state,
+          artifactId: `${state.episodeId}:production:pre-render-input-${leaf}`,
+          repositoryPath,
+          mediaType: repositoryPath.endsWith(".srt") ? "application/x-subrip" : "application/json",
+          schemaVersion: "pre-render-input-v1",
+          producer: "orchestrator:pre-render-gate",
+          createdAt: nowString(input),
+        }),
+      ];
+    });
+    const inputs = uniqueRefs([...mediaInputsFor(state, "pre-render"), ...canonicalRefs]);
+    const gate = runPreRenderGate({
+      repoRoot: input.repoRoot,
+      episodeId: state.episodeId,
+      inputArtifacts: inputs,
+      now: input.now,
+    });
+    const repositoryPath = `content/${state.episodeId}/production/pre-render-gate.json`;
+    const previousGate = findStateRef(state, (ref) => ref.path === repositoryPath);
+    if (previousGate) {
+      snapshotSelectedArtifactHistory({
         repoRoot: input.repoRoot,
         episodeId: state.episodeId,
-        state,
-        artifactId: `${state.episodeId}:production:pre-render-input-${leaf}`,
-        repositoryPath,
-        mediaType: repositoryPath.endsWith(".srt") ? "application/x-subrip" : "application/json",
-        schemaVersion: "pre-render-input-v1",
-        producer: "orchestrator:pre-render-gate",
-        createdAt: nowString(input),
-      }),
-    ];
-  });
-  const inputs = uniqueRefs([...mediaInputsFor(state, "pre-render"), ...canonicalRefs]);
-  const gate = runPreRenderGate({
-    repoRoot: input.repoRoot,
-    episodeId: state.episodeId,
-    inputArtifacts: inputs,
-    now: input.now,
-  });
-  const repositoryPath = `content/${state.episodeId}/production/pre-render-gate.json`;
-  const previousGate = findStateRef(state, (ref) => ref.path === repositoryPath);
-  if (previousGate) {
-    snapshotSelectedArtifactHistory({
+        refs: [previousGate],
+      });
+    }
+    const absolute = repositoryFile(input.repoRoot, repositoryPath);
+    fs.mkdirSync(path.dirname(absolute), {recursive: true});
+    fs.writeFileSync(absolute, `${JSON.stringify(gate, null, 2)}\n`, "utf8");
+    const gateRef = refForFile({
       repoRoot: input.repoRoot,
       episodeId: state.episodeId,
-      refs: [previousGate],
+      state,
+      artifactId: `${state.episodeId}:production:pre-render-gate`,
+      repositoryPath,
+      mediaType: "application/json",
+      schemaVersion: PRE_RENDER_GATE_SCHEMA_VERSION,
+      producer: "orchestrator:pre-render-gate",
+      createdAt: gate.checkedAt,
     });
-  }
-  const absolute = repositoryFile(input.repoRoot, repositoryPath);
-  fs.mkdirSync(path.dirname(absolute), {recursive: true});
-  fs.writeFileSync(absolute, `${JSON.stringify(gate, null, 2)}\n`, "utf8");
-  const gateRef = refForFile({
-    repoRoot: input.repoRoot,
-    episodeId: state.episodeId,
-    state,
-    artifactId: `${state.episodeId}:production:pre-render-gate`,
-    repositoryPath,
-    mediaType: "application/json",
-    schemaVersion: PRE_RENDER_GATE_SCHEMA_VERSION,
-    producer: "orchestrator:pre-render-gate",
-    createdAt: gate.checkedAt,
-  });
-  ensureRefs({
-    repoRoot: input.repoRoot,
-    episodeId: state.episodeId,
-    refs: [gateRef],
-    executionId: `${state.runId}:media:pre-render`,
-  });
-  if (gate.verdict === "PASS") {
+    ensureRefs({
+      repoRoot: input.repoRoot,
+      episodeId: state.episodeId,
+      refs: [gateRef],
+      executionId: `${state.runId}:media:pre-render`,
+    });
+    if (gate.verdict === "PASS") {
+      return checkpointUpdate({
+        state,
+        stage: "pre-render",
+        inputArtifacts: inputs,
+        outputArtifacts: [gateRef],
+        extraArtifacts: canonicalRefs,
+        decision: {code: "PRE_RENDER_GATE_PASSED", summary: "pre-render contract gates passed"},
+      });
+    }
+    const issue = makeIssue({
+      issueId: `${state.episodeId}:pre-render:${gate.inputSetHash.slice(0, 12)}`,
+      category: gate.returnTo === "captions" ? "delivery.caption-timing" : "delivery.timeline",
+      returnTo: gate.returnTo,
+      restartAt: gate.returnTo === "content" ? "content-approval" : "timeline",
+      summary: gate.blockers.join("; ") || "pre-render gate rejected the current production inputs",
+    });
     return checkpointUpdate({
       state,
       stage: "pre-render",
       inputArtifacts: inputs,
-      outputArtifacts: [gateRef],
-      extraArtifacts: canonicalRefs,
-      decision: {code: "PRE_RENDER_GATE_PASSED", summary: "pre-render contract gates passed"},
+      outputArtifacts: [],
+      extraArtifacts: [gateRef, ...canonicalRefs],
+      status: "FAILED",
+      issues: [issue],
+      decision: {code: "PRE_RENDER_GATE_REJECTED", summary: issue.summary},
+      failure: {
+        code: "PRE_RENDER_GATE_REJECTED",
+        retryable: false,
+        detail: issue.summary,
+      },
     });
-  }
-  const issue = makeIssue({
-    issueId: `${state.episodeId}:pre-render:${gate.inputSetHash.slice(0, 12)}`,
-    category: gate.returnTo === "captions" ? "delivery.caption-timing" : "delivery.timeline",
-    returnTo: gate.returnTo,
-    restartAt: gate.returnTo === "content" ? "content-approval" : "timeline",
-    summary: gate.blockers.join("; ") || "pre-render gate rejected the current production inputs",
-  });
-  return checkpointUpdate({
-    state,
-    stage: "pre-render",
-    inputArtifacts: inputs,
-    outputArtifacts: [],
-    extraArtifacts: [gateRef, ...canonicalRefs],
-    status: "FAILED",
-    issues: [issue],
-    decision: {code: "PRE_RENDER_GATE_REJECTED", summary: issue.summary},
-    failure: {
-      code: "PRE_RENDER_GATE_REJECTED",
-      retryable: false,
-      detail: issue.summary,
-    },
-  });
-};
+  };
 
 const preRenderRepairNode = (): FoundationNode => (state) => {
   const checkpoint = state.mediaStages["pre-render"];
@@ -961,7 +1010,8 @@ const preRenderRepairNode = (): FoundationNode => (state) => {
   const restartAt = "timeline" as const;
   const authorizedArtifactIds = new Set<string>();
   for (const stage of productionStageOrder.slice(productionStageOrder.indexOf(restartAt))) {
-    for (const ref of state.productionStages[stage]?.outputArtifacts ?? []) authorizedArtifactIds.add(ref.artifactId);
+    for (const ref of state.productionStages[stage]?.outputArtifacts ?? [])
+      authorizedArtifactIds.add(ref.artifactId);
   }
   const nextRound = state.productionRepair.round + 1;
   return {
@@ -1000,21 +1050,33 @@ const preRenderRepairNode = (): FoundationNode => (state) => {
 const pickPackageRef = (state: ProductionState): ArtifactRef | undefined =>
   findStateRef(state, (ref) => ref.artifactId === `${state.episodeId}:media:render-plan`);
 
-const deliveryPackageFor = (input: MediaLifecycleOptions, state: ProductionState): {package: DeliveryCriticReviewPackage; ref: ArtifactRef} => {
+const deliveryPackageFor = (
+  input: MediaLifecycleOptions,
+  state: ProductionState,
+): {package: DeliveryCriticReviewPackage; ref: ArtifactRef} => {
   const now = nowString(input);
   const episodeId = state.episodeId;
   const requireRef = (repositoryPath: string, label: string): ArtifactRef => {
     const ref = findStateRef(state, (candidate) => candidate.path === repositoryPath);
-    if (!ref || !artifactRefBytesMatch(input.repoRoot, ref)) throw new Error(`MEDIA_DELIVERY_CRITIC_${label}_MISSING`);
+    if (!ref || !artifactRefBytesMatch(input.repoRoot, ref))
+      throw new Error(`MEDIA_DELIVERY_CRITIC_${label}_MISSING`);
     return ref;
   };
   const video = requireRef(`output/${episodeId}/vertical_9x16.mp4`, "VIDEO");
   const subtitles = requireRef(`output/${episodeId}/subtitles_zh.srt`, "SUBTITLES");
   const timeline = requireRef(`content/${episodeId}/production/timeline.json`, "TIMELINE");
   const inspection = requireRef(`output/${episodeId}/inspection.json`, "INSPECTION");
-  const ttsMetadata = findStateRef(state, (ref) => ref.path === `content/${episodeId}/production/tts-metadata.json`) ?? null;
+  const ttsMetadata =
+    findStateRef(
+      state,
+      (ref) => ref.path === `content/${episodeId}/production/tts-metadata.json`,
+    ) ?? null;
   const plan = pickPackageRef(state) ?? null;
-  const preRenderGate = findStateRef(state, (ref) => ref.path === `content/${episodeId}/production/pre-render-gate.json`) ?? null;
+  const preRenderGate =
+    findStateRef(
+      state,
+      (ref) => ref.path === `content/${episodeId}/production/pre-render-gate.json`,
+    ) ?? null;
   const keyframes: ArtifactRef[] = [];
   try {
     const manifest = readMediaSourceManifest(input.repoRoot, episodeId);
@@ -1095,7 +1157,11 @@ const deliveryPackageFor = (input: MediaLifecycleOptions, state: ProductionState
   return {package: packageBody, ref};
 };
 
-const effectiveGate = (input: MediaLifecycleOptions, state: ProductionState, result: DeliveryCriticResult) => {
+const effectiveGate = (
+  input: MediaLifecycleOptions,
+  state: ProductionState,
+  result: DeliveryCriticResult,
+) => {
   if (
     input.env?.GRAPH_CANARY_FAULT === "delivery-caption-cue" &&
     state.mediaStages["delivery-critic"]?.decision.code !== "GRAPH_CANARY_FAULT_INJECTED"
@@ -1110,156 +1176,174 @@ const effectiveGate = (input: MediaLifecycleOptions, state: ProductionState, res
   return result.deliveryGate;
 };
 
-const deliveryCriticNode = (input: MediaLifecycleOptions): FoundationNode => (state) => {
-  const inputs = mediaInputsFor(state, "delivery-critic");
-  const prepared = deliveryPackageFor(input, state);
-  const resultAttempt = (state.mediaStages["delivery-critic"]?.attempt ?? 0) + 1;
-  const resultPath = deliveryCriticResultPath(state.episodeId, state.runId, resultAttempt);
-  const resultFile = repositoryFile(input.repoRoot, resultPath);
-  if (!fs.existsSync(resultFile)) {
-    return pauseForMediaCapability({
-      capability: "media-delivery-critic",
-      state,
-      inputArtifacts: [...inputs, prepared.ref],
-      expectedOutputPath: resultPath,
-      requiredContract: "delivery-critic-result-v1",
-      nextAction: `Inspect the bounded review package at ${deliveryCriticReviewPackagePath(state.episodeId, state.runId)}, write a package/hash-bound delivery-critic-result-v1 at ${resultPath}, then resume.`,
-      extra: {packagePath: deliveryCriticReviewPackagePath(state.episodeId, state.runId)},
-    });
-  }
-  let validated: DeliveryCriticResult;
-  try {
-    const result = readDeliveryCriticResult(input.repoRoot, state.episodeId, state.runId, resultAttempt);
-    const packageFromDisk = readDeliveryCriticReviewPackage(input.repoRoot, state.episodeId, state.runId);
-    validated = validateDeliveryCriticResult({
+const deliveryCriticNode =
+  (input: MediaLifecycleOptions): FoundationNode =>
+  (state) => {
+    const inputs = mediaInputsFor(state, "delivery-critic");
+    const prepared = deliveryPackageFor(input, state);
+    const resultAttempt = (state.mediaStages["delivery-critic"]?.attempt ?? 0) + 1;
+    const resultPath = deliveryCriticResultPath(state.episodeId, state.runId, resultAttempt);
+    const resultFile = repositoryFile(input.repoRoot, resultPath);
+    if (!fs.existsSync(resultFile)) {
+      return pauseForMediaCapability({
+        capability: "media-delivery-critic",
+        state,
+        inputArtifacts: [...inputs, prepared.ref],
+        expectedOutputPath: resultPath,
+        requiredContract: "delivery-critic-result-v1",
+        nextAction: `Inspect the bounded review package at ${deliveryCriticReviewPackagePath(state.episodeId, state.runId)}, write a package/hash-bound delivery-critic-result-v1 at ${resultPath}, then resume.`,
+        extra: {packagePath: deliveryCriticReviewPackagePath(state.episodeId, state.runId)},
+      });
+    }
+    let validated: DeliveryCriticResult;
+    try {
+      const result = readDeliveryCriticResult(
+        input.repoRoot,
+        state.episodeId,
+        state.runId,
+        resultAttempt,
+      );
+      const packageFromDisk = readDeliveryCriticReviewPackage(
+        input.repoRoot,
+        state.episodeId,
+        state.runId,
+      );
+      validated = validateDeliveryCriticResult({
+        repoRoot: input.repoRoot,
+        episodeId: state.episodeId,
+        runId: state.runId,
+        threadId: state.episodeId,
+        packageRef: prepared.ref,
+        package: packageFromDisk,
+        result,
+      });
+    } catch (error) {
+      return pauseForMediaCapability({
+        capability: "media-delivery-critic",
+        state,
+        inputArtifacts: [...inputs, prepared.ref],
+        expectedOutputPath: resultPath,
+        requiredContract: "delivery-critic-result-v1",
+        nextAction: `The existing Delivery Critic result is missing, malformed, stale, or hash-bound to an older package. Re-inspect ${deliveryCriticReviewPackagePath(state.episodeId, state.runId)}, replace only the result JSON at ${resultPath}, then resume.`,
+        extra: {
+          packagePath: deliveryCriticReviewPackagePath(state.episodeId, state.runId),
+          validationError: error instanceof Error ? error.message : String(error),
+        },
+      });
+    }
+    const gate = effectiveGate(input, state, validated);
+    const reportPath = `content/${state.episodeId}/production/delivery-critic-report.md`;
+    const reportAbsolute = repositoryFile(input.repoRoot, reportPath);
+    const previousReport = findStateRef(state, (ref) => ref.path === reportPath);
+    if (previousReport) {
+      snapshotSelectedArtifactHistory({
+        repoRoot: input.repoRoot,
+        episodeId: state.episodeId,
+        refs: [previousReport],
+      });
+    }
+    fs.mkdirSync(path.dirname(reportAbsolute), {recursive: true});
+    fs.writeFileSync(reportAbsolute, deliveryCriticReportMarkdown(gate), "utf8");
+    const reportRef = refForFile({
       repoRoot: input.repoRoot,
       episodeId: state.episodeId,
-      runId: state.runId,
-      threadId: state.episodeId,
-      packageRef: prepared.ref,
-      package: packageFromDisk,
-      result,
-    });
-  } catch (error) {
-    return pauseForMediaCapability({
-      capability: "media-delivery-critic",
       state,
-      inputArtifacts: [...inputs, prepared.ref],
-      expectedOutputPath: resultPath,
-      requiredContract: "delivery-critic-result-v1",
-      nextAction: `The existing Delivery Critic result is missing, malformed, stale, or hash-bound to an older package. Re-inspect ${deliveryCriticReviewPackagePath(state.episodeId, state.runId)}, replace only the result JSON at ${resultPath}, then resume.`,
-      extra: {
-        packagePath: deliveryCriticReviewPackagePath(state.episodeId, state.runId),
-        validationError: error instanceof Error ? error.message : String(error),
+      artifactId: `${state.episodeId}:delivery:critic-report`,
+      repositoryPath: reportPath,
+      mediaType: "text/markdown",
+      schemaVersion: "delivery-critic-report-v1",
+      producer: "orchestrator:media-delivery-critic",
+      createdAt: validated.completedAt,
+    });
+    const resultRef = refForFile({
+      repoRoot: input.repoRoot,
+      episodeId: state.episodeId,
+      state,
+      artifactId: `${state.episodeId}:delivery:critic-result`,
+      repositoryPath: resultPath,
+      mediaType: "application/json",
+      schemaVersion: "delivery-critic-result-v1",
+      producer: "external:delivery-critic",
+      createdAt: validated.completedAt,
+    });
+    ensureRefs({
+      repoRoot: input.repoRoot,
+      episodeId: state.episodeId,
+      refs: [prepared.ref, reportRef, resultRef],
+      executionId: `${state.runId}:media:delivery-critic`,
+    });
+    const faultInjected = gate !== validated.deliveryGate;
+    const mediaRoute = validated.issues.find((issue) =>
+      issue.returnTo.startsWith("media-"),
+    )?.returnTo;
+    const mediaIssues: MediaGraphIssueSummary[] = validated.issues
+      .filter((issue) => issue.returnTo.startsWith("media-"))
+      .map((issue) => ({
+        issueId: issue.issueId,
+        category: issue.category,
+        severity: issue.severity,
+        owner: issue.owner,
+        locator: issue.locator,
+        returnTo: issue.returnTo as MediaGraphIssueSummary["returnTo"],
+        restartAt: issue.returnTo,
+        summary: issue.summary,
+      }));
+    if (faultInjected) {
+      mediaIssues.push(
+        makeIssue({
+          issueId: `${state.episodeId}:delivery:canary-caption-cue`,
+          category: "delivery.caption-timing",
+          returnTo: "captions",
+          restartAt: "timeline",
+          summary: "controlled canary fault rejected one delivery caption cue",
+        }),
+      );
+    }
+    const decisionCode = faultInjected
+      ? "GRAPH_CANARY_FAULT_INJECTED"
+      : validated.verdict === "PASS"
+        ? "DELIVERY_CRITIC_PASS"
+        : mediaRoute
+          ? `DELIVERY_CRITIC_REJECTED_${mediaRoute}`
+          : "DELIVERY_CRITIC_REJECTED";
+    const update = checkpointUpdate({
+      state,
+      stage: "delivery-critic",
+      inputArtifacts: inputs,
+      outputArtifacts: [prepared.ref, reportRef, resultRef],
+      issues: mediaIssues,
+      decision: {
+        code: decisionCode,
+        summary:
+          validated.verdict === "PASS"
+            ? "external Delivery Critic passed the bounded package"
+            : `external Delivery Critic rejected the package; returnTo=${gate.returnTo}`,
       },
     });
-  }
-  const gate = effectiveGate(input, state, validated);
-  const reportPath = `content/${state.episodeId}/production/delivery-critic-report.md`;
-  const reportAbsolute = repositoryFile(input.repoRoot, reportPath);
-  const previousReport = findStateRef(state, (ref) => ref.path === reportPath);
-  if (previousReport) {
-    snapshotSelectedArtifactHistory({
-      repoRoot: input.repoRoot,
-      episodeId: state.episodeId,
-      refs: [previousReport],
-    });
-  }
-  fs.mkdirSync(path.dirname(reportAbsolute), {recursive: true});
-  fs.writeFileSync(reportAbsolute, deliveryCriticReportMarkdown(gate), "utf8");
-  const reportRef = refForFile({
-    repoRoot: input.repoRoot,
-    episodeId: state.episodeId,
-    state,
-    artifactId: `${state.episodeId}:delivery:critic-report`,
-    repositoryPath: reportPath,
-    mediaType: "text/markdown",
-    schemaVersion: "delivery-critic-report-v1",
-    producer: "orchestrator:media-delivery-critic",
-    createdAt: validated.completedAt,
-  });
-  const resultRef = refForFile({
-    repoRoot: input.repoRoot,
-    episodeId: state.episodeId,
-    state,
-    artifactId: `${state.episodeId}:delivery:critic-result`,
-    repositoryPath: resultPath,
-    mediaType: "application/json",
-    schemaVersion: "delivery-critic-result-v1",
-    producer: "external:delivery-critic",
-    createdAt: validated.completedAt,
-  });
-  ensureRefs({
-    repoRoot: input.repoRoot,
-    episodeId: state.episodeId,
-    refs: [prepared.ref, reportRef, resultRef],
-    executionId: `${state.runId}:media:delivery-critic`,
-  });
-  const faultInjected = gate !== validated.deliveryGate;
-  const mediaRoute = validated.issues.find((issue) => issue.returnTo.startsWith("media-"))?.returnTo;
-  const mediaIssues: MediaGraphIssueSummary[] = validated.issues
-    .filter((issue) => issue.returnTo.startsWith("media-"))
-    .map((issue) => ({
-      issueId: issue.issueId,
-      category: issue.category,
-      severity: issue.severity,
-      owner: issue.owner,
-      locator: issue.locator,
-      returnTo: issue.returnTo as MediaGraphIssueSummary["returnTo"],
-      restartAt: issue.returnTo,
-      summary: issue.summary,
-    }));
-  if (faultInjected) {
-    mediaIssues.push(
-      makeIssue({
-        issueId: `${state.episodeId}:delivery:canary-caption-cue`,
-        category: "delivery.caption-timing",
-        returnTo: "captions",
-        restartAt: "timeline",
-        summary: "controlled canary fault rejected one delivery caption cue",
-      }),
-    );
-  }
-  const decisionCode = faultInjected
-    ? "GRAPH_CANARY_FAULT_INJECTED"
-    : validated.verdict === "PASS"
-      ? "DELIVERY_CRITIC_PASS"
-      : mediaRoute
-        ? `DELIVERY_CRITIC_REJECTED_${mediaRoute}`
-        : "DELIVERY_CRITIC_REJECTED";
-  const update = checkpointUpdate({
-    state,
-    stage: "delivery-critic",
-    inputArtifacts: inputs,
-    outputArtifacts: [prepared.ref, reportRef, resultRef],
-    issues: mediaIssues,
-    decision: {
-      code: decisionCode,
-      summary:
-        validated.verdict === "PASS"
-          ? "external Delivery Critic passed the bounded package"
-          : `external Delivery Critic rejected the package; returnTo=${gate.returnTo}`,
-    },
-  });
-  return update;
-};
+    return update;
+  };
 
 const deliveryResultRoute = (state: ProductionState): ProductionGraphDestination | undefined => {
   const code = state.mediaStages["delivery-critic"]?.decision.code ?? "";
   const mediaRoute = code.match(/^DELIVERY_CRITIC_REJECTED_(media-.+)$/u)?.[1] as
-    | MediaGraphIssueSummary["returnTo"]
-    | undefined;
+    MediaGraphIssueSummary["returnTo"] | undefined;
   if (!mediaRoute) return undefined;
-  const target = Object.entries(mediaStageDestination).find(([stage]) => `media-${stage}` === mediaRoute)?.[1];
+  const target = Object.entries(mediaStageDestination).find(
+    ([stage]) => `media-${stage}` === mediaRoute,
+  )?.[1];
   return target;
 };
 
-export const createMediaLifecycle = (input: MediaLifecycleOptions): MediaLifecycleNodes | undefined => {
+export const createMediaLifecycle = (
+  input: MediaLifecycleOptions,
+): MediaLifecycleNodes | undefined => {
   if (input.enabled === false) return undefined;
   const enabled =
     input.enabled ??
     (input.episodeId
-      ? fs.existsSync(repositoryFile(input.repoRoot, mediaSourceManifestRepositoryPath(input.episodeId)))
+      ? fs.existsSync(
+          repositoryFile(input.repoRoot, mediaSourceManifestRepositoryPath(input.episodeId)),
+        )
       : false);
   // The default decision is made by the entrypoint with the real episode id.
   // Direct callers can force the lifecycle with enabled:true.
@@ -1275,7 +1359,9 @@ export const createMediaLifecycle = (input: MediaLifecycleOptions): MediaLifecyc
     "delivery-critic": deliveryCriticNode(input),
   };
   const chooseStart = (state: ProductionState): ProductionGraphDestination => {
-    const first = mediaGraphStageNames.find((stage) => !mediaStageReusable(input.repoRoot, state, stage));
+    const first = mediaGraphStageNames.find(
+      (stage) => !mediaStageReusable(input.repoRoot, state, stage),
+    );
     return first ? mediaStageDestination[first] : "production_ready";
   };
   const afterProductionStage = (
@@ -1305,7 +1391,9 @@ export const createMediaLifecycle = (input: MediaLifecycleOptions): MediaLifecyc
     if (stage === "select") return "media_render_plan";
     if (stage === "render-plan") return "media_pre_render";
     if (stage === "pre-render") return "render:smoke";
-    return mediaStageDestination[mediaGraphStageNames[mediaGraphStageNames.indexOf(stage) + 1] ?? "delivery-critic"];
+    return mediaStageDestination[
+      mediaGraphStageNames[mediaGraphStageNames.indexOf(stage) + 1] ?? "delivery-critic"
+    ];
   };
   return {nodes, chooseStart, afterProductionStage, afterMediaStage};
 };

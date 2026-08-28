@@ -26,15 +26,13 @@ const segmentIdSchema = z.string().regex(/^seg-[a-z0-9-]+$/u);
 const scriptSegments = (
   repoRoot: string,
   episodeId: string,
-):
-  | Array<{
-      segmentId: string;
-      claimIds: string[];
-      narration: string;
-      visualIntent: string;
-      durationTargetMs: number | null;
-    }>
-  | null => {
+): Array<{
+  segmentId: string;
+  claimIds: string[];
+  narration: string;
+  visualIntent: string;
+  durationTargetMs: number | null;
+}> | null => {
   const scriptPath = path.resolve(repoRoot, `content/${episodeId}/story/script.json`);
   if (!fs.existsSync(scriptPath)) return null;
   const parsed = z

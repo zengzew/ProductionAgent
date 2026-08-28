@@ -122,7 +122,9 @@ export const productionStageInputArtifacts = (
   for (const ref of refs) {
     byIdentity.set(`${ref.artifactId}:${ref.revision}:${ref.sha256}`, ref);
   }
-  return [...byIdentity.values()].sort((left, right) => left.artifactId.localeCompare(right.artifactId));
+  return [...byIdentity.values()].sort((left, right) =>
+    left.artifactId.localeCompare(right.artifactId),
+  );
 };
 
 export const productionStageRequestForState = (input: {

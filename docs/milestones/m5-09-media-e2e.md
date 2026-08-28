@@ -41,9 +41,9 @@ acceptance scripts into a repeatable, isolated test.
    blocks approval. Passing `observability` into the gate still runs the M4
    completeness checker.
 
-`ORCHESTRATOR=langgraph` is now the default; explicit `ORCHESTRATOR=manual`
-behavior is unchanged. Goal 3.2 / Golden Set / hard validators are unchanged.
-No publish/upload path is added.
+`ORCHESTRATOR=manual` remains the default. The real-media Graph path is
+available through explicit `ORCHESTRATOR=langgraph` selection. Goal 3.2 /
+Golden Set / hard validators are unchanged. No publish/upload path is added.
 
 ## Projection contract
 
@@ -108,7 +108,7 @@ rights, admission, and registry gates are the real code paths.
 
 - Episode 001–003 (`legacy-composition`) do not run the media gate.
 - Media-mix episodes without a render plan fail closed at delivery.
-- Explicit `ORCHESTRATOR=manual` behavior is unchanged; LangGraph is the default.
+- Default `ORCHESTRATOR=manual` behavior is unchanged; LangGraph remains opt-in.
 - No new event types; no self-hosted models; no social publish.
 
 ## Acceptance checklist

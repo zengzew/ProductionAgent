@@ -4,22 +4,13 @@
 /research/
 /story/
 /storyboard/
-/content/*/story/script.json
-/content/*/story/polished-script.json
-/content/*/story/polished-caption-plan.json
-/content/*/production/polish-judge-report.json
-/content/*/production/timeline.json
-/content/*/production/captions.generated.json
-/content/*/media/**
-# Historical read-only episode artifacts: their bytes are hash-bound in run reports,
-# artifact indexes and freeze manifests, so they must never be reformatted in place.
-/content/*/story/final-script.md
-/content/*/story/oral-review.md
-/content/*/story/three-act-structure.md
-/content/*/story/viral-strategy.md
-/content/*/production/comparison-report.md
-/content/*/production/delivery-critic-report.md
-reports/code-review-*.md
+# Episode, benchmark and run-report history is read-only. Its bytes are hash-bound
+# by artifact indexes, freeze manifests and review records.
+/content/
+/reports/
+
+# Generated projections are regenerated from their source of truth.
+/**/*.generated.*
 src/GensparkStory.tsx
 scripts/generate_music.sh
 scripts/generate_voiceover.py

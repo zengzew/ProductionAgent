@@ -2,8 +2,8 @@
 
 - Status: accepted scope; M5.01 implemented; M5.02 implemented; M5.03 implemented; M5.04 implemented (`docs/milestones/m5-04-media-index.md`); M5.05 implemented (`docs/milestones/m5-05-media-retrieval.md`); M5.06 implemented (`docs/milestones/m5-06-media-verification.md`); M5.07 implemented (`docs/milestones/m5-07-visual-director-selection.md`); M5.08 implemented (`docs/milestones/m5-08-media-remotion.md`); M5.09 implemented (`docs/milestones/m5-09-media-e2e.md`)
 - Predecessor: M4 exit-accepted (`docs/milestones/m4-acceptance-report.md`)
-- Default orchestrator: `ORCHESTRATOR=langgraph`; explicit `ORCHESTRATOR=manual`
-  remains available as the rollback path
+- Default orchestrator: `ORCHESTRATOR=manual`; keep LangGraph opt-in until two
+  real canaries satisfy the agreed acceptance criteria
 - Product constraints (inherited, not renegotiable):
   - Final delivery is 1080×1920 9:16 only
   - Final MP4 duration must read back in 40–80 seconds (target 60)
