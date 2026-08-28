@@ -15,6 +15,7 @@ import {
   mergeArtifactRefs,
   mergeBudget,
   mergeCompletedAgents,
+  mergeDecisionSummaries,
   mergeEvaluationSummaries,
   mergeEventSummaries,
   mergeNumberMap,
@@ -26,6 +27,7 @@ import {
   mergeProductionAuthorization,
   mergeMax,
   mergeLockedRanges,
+  mergeMediaStageSummaries,
   mergeProductionIssueSummaries,
   mergeProductionRepair,
   mergeProductionStageSummaries,
@@ -49,6 +51,10 @@ import {
   productionStageNames,
   type ProductionStageName,
 } from "./schemas/production";
+import {
+  mediaGraphStageNames,
+  type MediaGraphStageName,
+} from "./schemas/media-graph";
 import {
   withControlledOrchestrationRun,
   withOptimisticFileCas,
@@ -113,11 +119,15 @@ const ProductionStateAnnotation = Annotation.Root({
     default: () => ({}),
   }),
   decisions: Annotation<ProductionState["decisions"]>({
-    reducer: mergeStrictRecord,
+    reducer: mergeDecisionSummaries,
     default: () => ({}),
   }),
   productionStages: Annotation<ProductionState["productionStages"]>({
     reducer: mergeProductionStageSummaries,
+    default: () => ({}),
+  }),
+  mediaStages: Annotation<ProductionState["mediaStages"]>({
+    reducer: mergeMediaStageSummaries,
     default: () => ({}),
   }),
   productionIssues: Annotation<ProductionState["productionIssues"]>({
@@ -525,7 +535,32 @@ export type ProductionGraphDestination =
   | "production_repair_router"
   | "production_unfreeze_review"
   | "production_unfreeze_apply"
+  | "media_discovery"
+  | "media_retrieve"
+  | "media_verify"
+  | "media_select"
+  | "media_render_plan"
+  | "media_pre_render"
+  | "media_pre_render_repair"
+  | "media_delivery_critic"
   | ProductionStageName;
+
+export const mediaGraphNodeNames: Record<
+  MediaGraphStageName,
+  Exclude<ProductionGraphDestination, ProductionStageName | "production_ready" | "production_human_escalation" | "production_repair_router" | "production_unfreeze_review" | "production_unfreeze_apply">
+> = {
+  discovery: "media_discovery",
+  retrieve: "media_retrieve",
+  verify: "media_verify",
+  select: "media_select",
+  "render-plan": "media_render_plan",
+  "pre-render": "media_pre_render",
+  "delivery-critic": "media_delivery_critic",
+};
+
+export type MediaGraphNodeName =
+  | (typeof mediaGraphNodeNames)[MediaGraphStageName]
+  | "media_pre_render_repair";
 
 type ProductionGraphNodeName =
   | "production_ready"
@@ -533,6 +568,7 @@ type ProductionGraphNodeName =
   | "production_repair_router"
   | "production_unfreeze_review"
   | "production_unfreeze_apply"
+  | MediaGraphNodeName
   | (typeof productionStageNodeNames)[ProductionStageName];
 
 export const compileProductionGraph = (input: {
@@ -545,6 +581,11 @@ export const compileProductionGraph = (input: {
   humanEscalation: FoundationNode;
   chooseStart: (state: ProductionState) => ProductionGraphDestination;
   afterStage: (state: ProductionState, stage: ProductionStageName) => ProductionGraphDestination;
+  mediaNodes?: Partial<Record<MediaGraphNodeName, FoundationNode>>;
+  afterMediaStage?: (
+    state: ProductionState,
+    stage: MediaGraphStageName,
+  ) => ProductionGraphDestination;
   afterRepairRoute: (state: ProductionState) => ProductionGraphDestination;
   afterUnfreezeReview: (
     state: ProductionState,
@@ -559,6 +600,14 @@ export const compileProductionGraph = (input: {
     production_repair_router: "production_repair_router",
     production_unfreeze_review: "production_unfreeze_review",
     production_unfreeze_apply: "production_unfreeze_apply",
+    media_discovery: "media_discovery",
+    media_retrieve: "media_retrieve",
+    media_verify: "media_verify",
+    media_select: "media_select",
+    media_render_plan: "media_render_plan",
+    media_pre_render: "media_pre_render",
+    media_pre_render_repair: "media_pre_render_repair",
+    media_delivery_critic: "media_delivery_critic",
     "materialize:story": productionStageNodeNames["materialize:story"],
     "validate:content": productionStageNodeNames["validate:content"],
     capture: productionStageNodeNames.capture,
@@ -576,6 +625,20 @@ export const compileProductionGraph = (input: {
     .addNode("production_unfreeze_apply", input.unfreezeApply)
     .addNode("production_ready", input.productionReady)
     .addNode("production_human_escalation", input.humanEscalation)
+    .addNode("media_discovery", input.mediaNodes?.media_discovery ?? (() => ({})))
+    .addNode("media_retrieve", input.mediaNodes?.media_retrieve ?? (() => ({})))
+    .addNode("media_verify", input.mediaNodes?.media_verify ?? (() => ({})))
+    .addNode("media_select", input.mediaNodes?.media_select ?? (() => ({})))
+    .addNode("media_render_plan", input.mediaNodes?.media_render_plan ?? (() => ({})))
+    .addNode("media_pre_render", input.mediaNodes?.media_pre_render ?? (() => ({})))
+    .addNode(
+      "media_pre_render_repair",
+      input.mediaNodes?.media_pre_render_repair ?? (() => ({})),
+    )
+    .addNode(
+      "media_delivery_critic",
+      input.mediaNodes?.media_delivery_critic ?? (() => ({})),
+    )
     .addNode(productionStageNodeNames["materialize:story"], input.stageNodes["materialize:story"])
     .addNode(productionStageNodeNames["validate:content"], input.stageNodes["validate:content"])
     .addNode(productionStageNodeNames.capture, input.stageNodes.capture)
@@ -592,12 +655,21 @@ export const compileProductionGraph = (input: {
       production_human_escalation: "production_human_escalation",
     })
     .addEdge("production_unfreeze_apply", "production_start")
+    .addEdge("media_pre_render_repair", productionStageNodeNames.timeline)
     .addEdge("production_ready", END)
     .addEdge("production_human_escalation", END);
   for (const stage of productionStageNames) {
     graph = graph.addConditionalEdges(
       productionStageNodeName(stage),
       (state) => input.afterStage(state, stage),
+      destinations,
+    );
+  }
+  for (const stage of mediaGraphStageNames) {
+    const nodeName = mediaGraphNodeNames[stage];
+    graph = graph.addConditionalEdges(
+      nodeName,
+      (state) => input.afterMediaStage?.(state, stage) ?? "production_ready",
       destinations,
     );
   }

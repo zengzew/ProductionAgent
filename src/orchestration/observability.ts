@@ -191,7 +191,9 @@ export const createExecutionEventSink = (input: {
   return (event) => appendExecutionEvent(filePath, event);
 };
 
-export const hashArtifactInputs = (artifacts: ExecutionEvent["inputArtifacts"]): string =>
+export const hashArtifactInputs = (
+  artifacts: ReadonlyArray<ExecutionEvent["inputArtifacts"][number]>,
+): string =>
   crypto
     .createHash("sha256")
     .update(

@@ -137,6 +137,7 @@ const stateChannels = (value: Record<string, unknown>): Record<string, unknown> 
     "decisions",
     "haltReason",
     "productionStages",
+    "mediaStages",
     "productionIssues",
     "lockedRanges",
     "processedDecisionIds",

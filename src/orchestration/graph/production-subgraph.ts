@@ -75,6 +75,9 @@ import {
   createObservabilityControlEvent,
   type ObservabilityEvent,
 } from "../observability-gate";
+import {createMediaLifecycle, type MediaLifecycleOptions} from "./media-lifecycle";
+
+export type {MediaLifecycleOptions} from "./media-lifecycle";
 
 export type ProductionSubgraphOptions = {
   repoRoot: string;
@@ -88,6 +91,7 @@ export type ProductionSubgraphOptions = {
   observability?: ProductionObservabilityOptions;
   unfreeze?: ProductionUnfreezeOptions;
   concurrency?: ConcurrencyConfig;
+  media?: MediaLifecycleOptions;
 };
 
 export type ProductionSubgraphRunInput = ProductionSubgraphOptions & {
@@ -562,6 +566,12 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
       }),
   );
   const maxRepairRounds = input.maxRepairRounds ?? DEFAULT_PRODUCTION_REPAIR_ROUNDS;
+  const media = input.media
+    ? createMediaLifecycle({
+        ...input.media,
+        repoRoot: input.repoRoot,
+      })
+    : undefined;
 
   const emitControl = (control: {
     state: ProductionState;
@@ -631,6 +641,8 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
       state.productionRepair.status === "production-ready" ||
       state.phase === "production_ready"
     ) {
+      const mediaStart = media?.chooseStart(state);
+      if (mediaStart && mediaStart !== "production_ready") return mediaStart;
       return firstNonReusableStage(input.repoRoot, state) ?? "production_ready";
     }
     if (state.productionRepair.status === "unfreeze-review") {
@@ -652,13 +664,28 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
       return "production_repair_router";
     }
     if (state.phase === "halted") return "production_human_escalation";
-    return firstNonReusableStage(input.repoRoot, state) ?? "production_ready";
+    // The media graph consumes the canonical script and timeline produced by
+    // the deterministic production stages. Keep the pre-render production
+    // prefix ahead of media discovery so an opt-in run cannot enter retrieval
+    // with only a frozen final-script markdown artifact.
+    const firstProductionStage = firstNonReusableStage(input.repoRoot, state);
+    const timelineIndex = productionStageOrder.indexOf("timeline");
+    if (
+      firstProductionStage &&
+      productionStageOrder.indexOf(firstProductionStage) <= timelineIndex
+    ) {
+      return firstProductionStage;
+    }
+    const mediaStart = media?.chooseStart(state);
+    if (mediaStart && mediaStart !== "production_ready") return mediaStart;
+    return firstProductionStage ?? "production_ready";
   };
 
   const stageNodes = Object.fromEntries(
     productionStageOrder.map((stage) => [
       stage,
       createProductionStageNode({
+        repoRoot: input.repoRoot,
         stage,
         adapter,
         requireFormalApproval: input.requireFormalApproval,
@@ -885,6 +912,7 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
         : "production_human_escalation";
     }
     if (stage === "validate:delivery") return "production_ready";
+    if (media) return media.afterProductionStage(state, stage);
     return stageDestination(stage);
   };
 
@@ -1483,6 +1511,19 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
     humanEscalation,
     chooseStart,
     afterStage,
+    mediaNodes: media
+      ? {
+          media_discovery: media.nodes.discovery!,
+          media_retrieve: media.nodes.retrieve!,
+          media_verify: media.nodes.verify!,
+          media_select: media.nodes.select!,
+          media_render_plan: media.nodes["render-plan"]!,
+          media_pre_render: media.nodes["pre-render"]!,
+          media_pre_render_repair: media.nodes["pre-render-repair"]!,
+          media_delivery_critic: media.nodes["delivery-critic"]!,
+        }
+      : undefined,
+    afterMediaStage: media?.afterMediaStage,
     afterRepairRoute,
     afterUnfreezeReview,
     checkpointer: input.checkpointer,

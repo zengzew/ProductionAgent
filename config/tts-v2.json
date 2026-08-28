@@ -22,7 +22,7 @@
       "endpoint": "https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation",
       "apiKeyEnv": "QWEN_API_KEY",
       "model": "MiniMax/speech-2.8-hd",
-      "voice": "male-qn-qingse",
+      "voice": "Chinese (Mandarin)_Reliable_Executive",
       "speed": 1.65,
       "pitch": 0,
       "volume": 1,

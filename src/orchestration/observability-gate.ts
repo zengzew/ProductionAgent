@@ -2,7 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import {z} from "zod";
-import {assertArtifactRefsBytes} from "./artifact-registry";
+import {assertArtifactRefBytesWithHistory} from "./artifact-registry";
 import {productionStateControlHash} from "./checkpoint-integrity";
 import {
   hashExecutionEvents,
@@ -890,7 +890,7 @@ const verifyArtifacts = (
   ]);
   try {
     if (input.repoRoot) {
-      assertArtifactRefsBytes(input.repoRoot, refs);
+      for (const ref of refs) assertArtifactRefBytesWithHistory(input.repoRoot, ref);
       return "bytes";
     }
     if (input.artifactVerifier) {

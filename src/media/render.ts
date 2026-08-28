@@ -2442,6 +2442,8 @@ const readEpisodeTimeline = (
 export type BuildMediaRenderPlanInput = {
   repoRoot: string;
   episodeId: string;
+  /** Previous selected plan, when rebuilding the same artifact identity. */
+  previousArtifactRef?: ArtifactRef;
   timeline?: Timeline;
   timelineSha256?: string;
   config?: Omit<MediaRenderConfig, "timelineSha256">;
@@ -2532,13 +2534,16 @@ export const buildMediaRenderPlanForTimeline = (
     createdAt: now(),
   };
   const contentBytes = Buffer.from(serializeIndexArtifact(bodyWithoutArtifactRef), "utf8");
+  const artifactRevision = input.previousArtifactRef
+    ? input.previousArtifactRef.revision + 1
+    : 1;
   const embeddedArtifactRef = artifactRefSchema.parse({
     artifactId: planId,
     episodeId,
     path: mediaRenderPlanRepositoryPath(episodeId),
     mediaType: "application/json",
     schemaVersion: MEDIA_RENDER_PLAN_SCHEMA_VERSION,
-    revision: 1,
+    revision: artifactRevision,
     sha256: sha256Bytes(contentBytes),
     sizeBytes: contentBytes.byteLength,
     producer: MEDIA_RENDER_TOOL_VERSION,
@@ -2559,6 +2564,7 @@ export const buildMediaRenderPlanForTimeline = (
     mediaType: "application/json",
     schemaVersion: MEDIA_RENDER_PLAN_SCHEMA_VERSION,
     producer: MEDIA_RENDER_TOOL_VERSION,
+    ...(input.previousArtifactRef ? {previous: input.previousArtifactRef} : {}),
     createdAt: now(),
   });
   registerMediaRenderCandidate({

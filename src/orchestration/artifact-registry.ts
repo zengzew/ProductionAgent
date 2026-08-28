@@ -41,6 +41,143 @@ export const artifactRefBytesMatch = (repoRoot: string, ref: ArtifactRef): boole
   }
 };
 
+const artifactVersionKey = (ref: Pick<ArtifactRef, "artifactId" | "sha256">): string =>
+  `${ref.artifactId}:${ref.sha256}`;
+
+/**
+ * Historical copies live under the episode so an overwritten canonical path never destroys
+ * evidence referenced by an earlier execution event.
+ */
+export const artifactHistoryPathFor = (episodeId: string, ref: ArtifactRef): string => {
+  const safeArtifactId = ref.artifactId.replace(/[^a-z0-9-]+/gu, "-");
+  const extension = path.extname(ref.path) || ".bin";
+  return `content/${episodeId}/.artifact-history/${safeArtifactId}/r${ref.revision}-${ref.sha256}${extension}`;
+};
+
+/**
+ * Snapshots selected refs before a known producer rewrites their canonical paths. The canonical
+ * file is intentionally left in place for the current producer; only the registry's historical
+ * ref is moved to the immutable copy. Callers should invoke this before writing the new bytes.
+ */
+export const snapshotSelectedArtifactHistory = (input: {
+  repoRoot: string;
+  episodeId: string;
+  refs: readonly ArtifactRef[];
+}): ArtifactIndex | undefined => {
+  const filePath = artifactIndexPath(input.repoRoot, input.episodeId);
+  if (!fs.existsSync(filePath)) return undefined;
+  const expectedVersion = readArtifactIndexVersion(filePath);
+  const index = readArtifactIndex(filePath);
+  const requested = new Map(
+    input.refs
+      .filter((ref) => ref.episodeId === input.episodeId)
+      .map((ref) => [
+        `${ref.artifactId}:${ref.revision}:${ref.sha256}:${ref.path}`,
+        ref,
+      ]),
+  );
+  const selectedRecords = index.artifacts.filter((record) => {
+    if (record.state !== "selected") return false;
+    const pointer = index.selected[record.ref.artifactId];
+    return Boolean(
+      pointer &&
+      pointer.revision === record.ref.revision &&
+      pointer.sha256 === record.ref.sha256 &&
+      pointer.path === record.ref.path &&
+      requested.has(
+        `${record.ref.artifactId}:${record.ref.revision}:${record.ref.sha256}:${record.ref.path}`,
+      ) &&
+      !record.ref.path.includes("/.artifact-history/"),
+    );
+  });
+  if (selectedRecords.length === 0) return index;
+
+  const pathByIdentity = new Map<string, string>();
+  for (const record of selectedRecords) {
+    if (!artifactRefBytesMatch(input.repoRoot, record.ref)) {
+      throw new Error(`ARTIFACT_HISTORY_SOURCE_HASH_MISMATCH:${record.ref.artifactId}`);
+    }
+    const historyPath = artifactHistoryPathFor(input.episodeId, record.ref);
+    const source = resolveRepositoryPath(input.repoRoot, record.ref.path);
+    const target = resolveRepositoryPath(input.repoRoot, historyPath);
+    if (fs.existsSync(target)) {
+      if (!artifactRefBytesMatch(input.repoRoot, {...record.ref, path: historyPath})) {
+        throw new Error(`ARTIFACT_HISTORY_SNAPSHOT_COLLISION:${historyPath}`);
+      }
+    } else {
+      fs.mkdirSync(path.dirname(target), {recursive: true});
+      fs.copyFileSync(source, target);
+    }
+    pathByIdentity.set(artifactVersionKey(record.ref), historyPath);
+  }
+
+  const migratedRecords = index.artifacts.map((record) => {
+    const migratedPath = pathByIdentity.get(artifactVersionKey(record.ref));
+    const ref = migratedPath ? {...record.ref, path: migratedPath} : record.ref;
+    return {
+      ...record,
+      ref,
+      dependencies: record.dependencies.map((dependency) => {
+        const dependencyPath = pathByIdentity.get(
+          artifactVersionKey({artifactId: dependency.artifactId, sha256: dependency.sha256}),
+        );
+        return dependencyPath ? {...dependency, path: dependencyPath} : dependency;
+      }),
+    };
+  });
+  const migratedSelected = Object.fromEntries(
+    Object.entries(index.selected).map(([artifactId, pointer]) => {
+      const selected = index.artifacts.find(
+        (record) =>
+          record.ref.artifactId === artifactId &&
+          record.ref.revision === pointer.revision &&
+          record.ref.sha256 === pointer.sha256 &&
+          record.ref.path === pointer.path,
+      );
+      const migratedPath = selected ? pathByIdentity.get(artifactVersionKey(selected.ref)) : undefined;
+      return [artifactId, migratedPath ? {...pointer, path: migratedPath} : pointer];
+    }),
+  );
+  const nextIndex = artifactIndexSchema.parse({
+    ...index,
+    artifacts: migratedRecords,
+    selected: migratedSelected,
+  });
+  writeArtifactIndexCas({
+    filePath,
+    index: nextIndex,
+    expectedVersion,
+    casRoot: input.repoRoot,
+  });
+  return nextIndex;
+};
+
+/** Resolves an old event ref to its immutable registry snapshot when its canonical path changed. */
+export const registeredArtifactRefForBytes = (
+  repoRoot: string,
+  ref: ArtifactRef,
+): ArtifactRef | undefined => {
+  if (artifactRefBytesMatch(repoRoot, ref)) return ref;
+  const filePath = artifactIndexPath(repoRoot, ref.episodeId);
+  if (!fs.existsSync(filePath)) return undefined;
+  const index = readArtifactIndex(filePath);
+  const candidates = index.artifacts
+    .filter(
+      (record) =>
+        record.ref.artifactId === ref.artifactId &&
+        record.ref.revision === ref.revision &&
+        record.ref.sha256 === ref.sha256,
+    )
+    .sort((left, right) => Number(right.state === "selected") - Number(left.state === "selected"));
+  return candidates.find((record) => artifactRefBytesMatch(repoRoot, record.ref))?.ref;
+};
+
+export const assertArtifactRefBytesWithHistory = (repoRoot: string, ref: ArtifactRef): void => {
+  if (!registeredArtifactRefForBytes(repoRoot, ref)) {
+    throw new Error(`ARTIFACT_HASH_MISMATCH:${ref.artifactId}`);
+  }
+};
+
 /** Fails closed when a persisted state reference no longer names its recorded bytes. */
 export const assertArtifactRefBytes = (repoRoot: string, ref: ArtifactRef): void => {
   if (!artifactRefBytesMatch(repoRoot, ref)) {

@@ -176,7 +176,7 @@ describe("network request safeguards", () => {
         model: "MiniMax/speech-2.8-hd",
         input: {
           text: "测试",
-          voice_setting: {voice_id: "male-qn-qingse"},
+          voice_setting: {voice_id: "Chinese (Mandarin)_Reliable_Executive"},
           audio_setting: {format: "mp3"},
           subtitle_enable: true,
           output_format: "hex",

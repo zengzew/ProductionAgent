@@ -35,8 +35,8 @@ calls `assertProductionStart(state, {requireFormalApproval: true})`; missing,
 manifest-mismatched, or old-epoch authorization is rejected. Any content
 direct-edit or later unfreeze makes prior authorization stale by epoch.
 
-The LangGraph path is opt-in at the orchestration boundary so
-`ORCHESTRATOR=manual` remains the default. `createFoundationGraph({repoRoot})`
+The LangGraph path is the default at the orchestration boundary;
+`ORCHESTRATOR=manual` remains an explicit fallback. `createFoundationGraph({repoRoot})`
 uses formal content/final handlers; the production subgraph accepts
 `requireFormalApproval: true` for a strict start check. Legacy M3.3 unfreeze
 resume payloads are normalized into the same formal artifact while the legacy

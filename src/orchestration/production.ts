@@ -24,6 +24,7 @@ import {
   type ProductionStageAdapter,
 } from "./agents/adapters/deterministic-tool";
 import {assertArtifactRefsBytes} from "./artifact-registry";
+import {ensureArtifactIndexForRefs} from "./human-decision";
 import {readExecutionEventLog, stableEventId} from "./observability";
 import {
   defaultBoundedRetryPolicy,
@@ -44,6 +45,7 @@ import {
   type ObservabilityEvent,
   type ObservabilityEventSink,
 } from "./observability-gate";
+import {mediaProductionInputArtifacts} from "./graph/media-lifecycle";
 
 const boundedSummary = (value: string, maxBytes = 500): string => {
   if (Buffer.byteLength(value, "utf8") <= maxBytes) return value;
@@ -111,9 +113,16 @@ export const productionStageInputArtifacts = (
   stage: ProductionStageName,
 ): ArtifactRef[] => {
   if (!state.contentManifestRef) throw new Error("PRODUCTION_CONTENT_MANIFEST_REQUIRED");
-  return [state.contentManifestRef, ...priorStageArtifacts(state, stage)].sort((left, right) =>
-    left.artifactId.localeCompare(right.artifactId),
-  );
+  const refs = [
+    state.contentManifestRef,
+    ...priorStageArtifacts(state, stage),
+    ...mediaProductionInputArtifacts(state, stage),
+  ];
+  const byIdentity = new Map<string, ArtifactRef>();
+  for (const ref of refs) {
+    byIdentity.set(`${ref.artifactId}:${ref.revision}:${ref.sha256}`, ref);
+  }
+  return [...byIdentity.values()].sort((left, right) => left.artifactId.localeCompare(right.artifactId));
 };
 
 export const productionStageRequestForState = (input: {
@@ -720,6 +729,7 @@ export const runProductionPipeline = async (
 
 export const createProductionStageNode =
   (input: {
+    repoRoot?: string;
     stage: ProductionStageName;
     adapter: ProductionStageAdapter;
     authorizedArtifactIds?: (state: ProductionState) => readonly string[] | undefined;
@@ -736,7 +746,9 @@ export const createProductionStageNode =
       state,
       stage: input.stage,
       adapter: input.adapter,
-      upstreamArtifacts: priorStageArtifacts(state, input.stage),
+      upstreamArtifacts: productionStageInputArtifacts(state, input.stage).filter(
+        (ref) => ref.artifactId !== state.contentManifestRef?.artifactId,
+      ),
       authorizedArtifactIds: input.authorizedArtifactIds?.(state),
       forceRerun: input.forceRerun?.(state),
       retryPolicy: input.retryPolicy,
@@ -747,6 +759,19 @@ export const createProductionStageNode =
     });
     const request = execution.request;
     const result = execution.result;
+    const resultArtifacts = [
+      ...result.outputArtifacts,
+      ...result.issues.map((issue) => issue.issueRef),
+    ];
+    if (input.repoRoot && resultArtifacts.length > 0) {
+      assertArtifactRefsBytes(input.repoRoot, resultArtifacts);
+      ensureArtifactIndexForRefs({
+        repoRoot: input.repoRoot,
+        episodeId: state.episodeId,
+        refs: resultArtifacts,
+        executionId: request.executionId,
+      });
+    }
     const update = productionStageStateUpdate(request, result, {enableDeliveryRepair: true});
     if (
       request.forceRerun &&

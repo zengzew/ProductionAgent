@@ -12,6 +12,7 @@ import {
 } from "../../../lib/episode/render-contract";
 import {
   buildArtifactRef,
+  artifactHistoryPathFor,
   emptyArtifactIndex,
   markStaleTransitively,
   readArtifactIndex,
@@ -840,12 +841,6 @@ const restoreIndex = (filePath: string, previous: Buffer | undefined): void => {
 const artifactVersionKey = (ref: Pick<ArtifactRef, "artifactId" | "sha256">): string =>
   `${ref.artifactId}:${ref.sha256}`;
 
-const historyPathFor = (episodeId: string, ref: ArtifactRef): string => {
-  const safeArtifactId = ref.artifactId.replace(/[^a-z0-9-]+/gu, "-");
-  const extension = path.extname(ref.path) || ".bin";
-  return `content/${episodeId}/.artifact-history/${safeArtifactId}/r${ref.revision}-${ref.sha256}${extension}`;
-};
-
 type SnapshotTransaction = {
   index: ArtifactIndex;
   commit: () => void;
@@ -888,7 +883,7 @@ const snapshotSelectedArtifacts = (input: {
       if (bytes.byteLength !== record.ref.sizeBytes || sha256(bytes) !== record.ref.sha256) {
         continue;
       }
-      const historyPath = historyPathFor(input.episodeId, record.ref);
+      const historyPath = artifactHistoryPathFor(input.episodeId, record.ref);
       const target = resolveRepositoryPath(input.repoRoot, historyPath);
       if (fs.existsSync(target)) {
         const existing = fs.readFileSync(target);

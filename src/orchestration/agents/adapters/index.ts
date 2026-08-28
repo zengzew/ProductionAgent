@@ -13,7 +13,7 @@ export type ContentAgentAdapterOptions =
   | ({mode: "hosted-agent"} & HostedAgentAdapterOptions)
   | ({mode: "role-rollout"} & RoleModelRolloutAdapterOptions);
 
-/** Manual file handoffs remain the default when no mode is selected. */
+/** The content adapter defaults to manual-file when no adapter mode is selected. */
 export const createContentAgentAdapter = (options: ContentAgentAdapterOptions): AgentRunner => {
   if (options.mode === "codex-capability") return createCodexCapabilityAdapter(options);
   if (options.mode === "hosted-agent") return createHostedAgentAdapter(options);

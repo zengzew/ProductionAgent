@@ -177,7 +177,7 @@ const decisionFor = (input: {
 });
 
 describe("production LangGraph entrypoint", () => {
-  it("keeps manual mode isolated from the opt-in graph command", async () => {
+  it("keeps explicit manual mode isolated from the graph command", async () => {
     const repoRoot = fs.mkdtempSync(path.join(os.tmpdir(), "production-agent-entry-switch-"));
     temporaryDirectories.push(repoRoot);
     const result = await runEpisodeOrchestrator({

@@ -15,6 +15,7 @@ import {
 } from "./schemas/human-decision";
 import {unfreezeStateSchema} from "./schemas/unfreeze";
 import {PRODUCTION_STATE_SCHEMA_VERSION} from "./schemas/migrations/versions";
+import {mediaGraphStageCheckpointSchema} from "./schemas/media-graph";
 
 export {PRODUCTION_STATE_SCHEMA_VERSION} from "./schemas/migrations/versions";
 
@@ -156,6 +157,7 @@ export const productionStateSchema = z
     decisions: z.record(z.string(), controlledDecisionSchema),
     haltReason: z.string().max(500).optional(),
     productionStages: z.record(z.string(), productionStageCheckpointSchema).default({}),
+    mediaStages: z.record(z.string(), mediaGraphStageCheckpointSchema).default({}),
     productionIssues: z.record(z.string(), productionIssueSummarySchema).default({}),
     lockedRanges: z.array(humanLockedRangeSchema).default([]),
     processedDecisionIds: z.array(z.string().min(1)).default([]),
@@ -195,6 +197,7 @@ export const productionStateFieldNames = Object.keys(productionStateSchema.shape
 export type ProductionState = z.infer<typeof productionStateSchema>;
 export type ProductionStateUpdate = Partial<ProductionState>;
 export type ProductionStageSummary = ProductionState["productionStages"][string];
+export type MediaGraphStageSummary = ProductionState["mediaStages"][string];
 export type ProductionIssueSummary = ProductionState["productionIssues"][string];
 
 const forbiddenBodyKeys = new Set([
@@ -296,6 +299,7 @@ export const createInitialProductionState = (input: {
     attempts: {},
     decisions: {},
     productionStages: {},
+    mediaStages: {},
     productionIssues: {},
     lockedRanges: [],
     processedDecisionIds: [],
@@ -334,6 +338,7 @@ export {
   mergeArtifactRefs,
   mergeBudget,
   mergeCompletedAgents,
+  mergeDecisionSummaries,
   mergeEvaluationSummaries,
   mergeEventSummaries,
   mergeMax,
@@ -345,6 +350,7 @@ export {
   mergeProcessedDecisionIds,
   mergeProductionAuthorization,
   mergeProductionIssueSummaries,
+  mergeMediaStageSummaries,
   mergeProductionRepair,
   mergeRevisionSummaries,
   mergeLockedRanges,

@@ -15,10 +15,10 @@ const args = parseOrchestrateArgs(process.argv.slice(2), {
 if ("help" in args) {
   console.log(
     [
-      "Usage: pnpm orchestrate --episode <episode-id> [--resume] [--approval-file <path>]",
+      "Usage: pnpm orchestrate --episode <episode-id> [--run <run-id>] [--resume] [--approval-file <path>|--capability-result <path>]",
       "",
-      "ORCHESTRATOR=manual (default) preserves the existing stage-specific manual path.",
-      "ORCHESTRATOR=langgraph runs the checkpointed production entrypoint and pauses at human or external gates.",
+      "ORCHESTRATOR=langgraph (default) runs the checkpointed production entrypoint and pauses at human or external gates.",
+      "ORCHESTRATOR=manual explicitly preserves the existing stage-specific manual path.",
     ].join("\n"),
   );
 } else {

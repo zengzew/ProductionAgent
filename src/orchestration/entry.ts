@@ -3,8 +3,12 @@ import type {RuntimeIdentity} from "./identity";
 
 export type OrchestratorMode = "manual" | "langgraph";
 
-export const selectOrchestrator = (value = process.env.ORCHESTRATOR): OrchestratorMode =>
-  value === "langgraph" ? "langgraph" : "manual";
+export const selectOrchestrator = (value = process.env.ORCHESTRATOR): OrchestratorMode => {
+  if (value === undefined) return "langgraph";
+  if (value === "langgraph") return "langgraph";
+  if (value === "manual") return "manual";
+  return "manual";
+};
 
 export const runSelectedOrchestrator = async <T>(input: {
   value?: string;

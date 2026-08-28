@@ -2,6 +2,10 @@ import {agentNames} from "./schemas/agent";
 import type {ArtifactRef} from "./schemas/artifact";
 import {stableJsonEqual} from "./stable-json";
 import {productionRepairStateSchema, productionStageCheckpointSchema} from "./schemas/production";
+import {
+  mediaGraphStageCheckpointSchema,
+  type MediaGraphStageCheckpoint,
+} from "./schemas/media-graph";
 import {humanLockedRangeSchema, productionAuthorizationSchema} from "./schemas/human-decision";
 import {unfreezeStateSchema, type UnfreezeState} from "./schemas/unfreeze";
 import {productionPhases, type ProductionState, type ProductionStageSummary} from "./state";
@@ -162,6 +166,25 @@ export const mergeStrictRecord = <T>(
   );
 };
 
+/** Media graph decisions are retry checkpoints; other decisions remain strict. */
+export const mergeDecisionSummaries = <T>(
+  current: Record<string, T>,
+  update: Record<string, T>,
+): Record<string, T> => {
+  const keys = [...new Set([...Object.keys(current), ...Object.keys(update)])].sort();
+  return Object.fromEntries(
+    keys.map((key) => {
+      const left = current[key];
+      const right = update[key];
+      if (left !== undefined && right !== undefined && !stableJsonEqual(left, right)) {
+        if (key.startsWith("media:")) return [key, right];
+        throw new Error(`state reducer collision for ${key}`);
+      }
+      return [key, left ?? (right as T)];
+    }),
+  );
+};
+
 const productionStatusRank: Record<ProductionStageSummary["status"], number> = {
   FAILED: 0,
   SKIPPED: 1,
@@ -201,6 +224,47 @@ export const mergeProductionStageSummaries = (
       }
       if (!stableJsonEqual(left, validatedRight)) {
         throw new Error(`production stage checkpoint collision for ${key}`);
+      }
+      return [key, left];
+    }),
+  );
+};
+
+const mediaStatusRank: Record<MediaGraphStageCheckpoint["status"], number> = {
+  FAILED: 0,
+  SKIPPED: 1,
+  SUCCEEDED: 2,
+};
+
+/** Same-input latest-attempt convergence for the reference-only media graph. */
+export const mergeMediaStageSummaries = (
+  current: ProductionState["mediaStages"],
+  update: ProductionState["mediaStages"],
+): ProductionState["mediaStages"] => {
+  const keys = [...new Set([...Object.keys(current), ...Object.keys(update)])].sort();
+  return Object.fromEntries(
+    keys.map((key) => {
+      const left = current[key];
+      const right = update[key];
+      if (!left) return [key, mediaGraphStageCheckpointSchema.parse(right)];
+      if (!right) return [key, left];
+      const validatedRight = mediaGraphStageCheckpointSchema.parse(right);
+      if (left.stage !== validatedRight.stage) {
+        throw new Error(`media stage reducer collision for ${key}`);
+      }
+      if (left.inputSetHash !== validatedRight.inputSetHash) {
+        return [key, validatedRight.attempt >= left.attempt ? validatedRight : left];
+      }
+      if (validatedRight.attempt > left.attempt) return [key, validatedRight];
+      if (validatedRight.attempt < left.attempt) return [key, left];
+      if (mediaStatusRank[validatedRight.status] > mediaStatusRank[left.status]) {
+        return [key, validatedRight];
+      }
+      if (mediaStatusRank[validatedRight.status] < mediaStatusRank[left.status]) {
+        return [key, left];
+      }
+      if (!stableJsonEqual(left, validatedRight)) {
+        throw new Error(`media stage checkpoint collision for ${key}`);
       }
       return [key, left];
     }),

@@ -3,9 +3,10 @@
 本项目当前使用“角色化 Prompt + 文件交接”模拟多 Agent。每个角色只修改自己负责的
 文件，文件是角色之间唯一的正式交接，不以聊天记录作为 source of truth。
 
-`src/orchestration/` 是 opt-in 控制面：默认 `ORCHESTRATOR=manual`，分阶段命令仍是
-生产入口。编排层只保存 ArtifactRef，禁止把研究包或脚本正文写入 checkpoint。不把
-LangGraph 做成默认的跨人工门禁单命令。本项目继续排除自部署 GPT、LLM 和语音模型。
+`src/orchestration/` 是生产控制面：默认 `ORCHESTRATOR=langgraph`，显式
+`ORCHESTRATOR=manual` 仍可使用分阶段手工入口。编排层只保存 ArtifactRef，禁止把
+研究包或脚本正文写入 checkpoint；LangGraph 不绕过人工门禁。本项目继续排除自部署
+GPT、LLM 和语音模型。
 
 这些角色不绑定任何特定 Agent Harness：Harness 随时可能更换，角色定义只约定角色
 Prompt、只读输入、可写输出与评审独立性，不约定由哪个工具执行。当前由人工或任意

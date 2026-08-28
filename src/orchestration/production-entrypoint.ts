@@ -57,6 +57,7 @@ import {
 import {createFoundationGraph} from "./graph/main-graph";
 import {
   createProductionSubgraph,
+  type MediaLifecycleOptions,
   type ProductionSubgraphOptions,
   type ProductionUnfreezeOptions,
 } from "./graph/production-subgraph";
@@ -86,6 +87,7 @@ import {
   unfreezeContentGateResultSchema,
   unfreezeEditSchema,
 } from "./schemas/unfreeze";
+import {readMediaSourceManifest} from "../media/manifest";
 
 export type ProductionEntrypointOptions = {
   repoRoot: string;
@@ -102,6 +104,8 @@ export type ProductionEntrypointOptions = {
   productionAdapter?: ProductionStageAdapter;
   productionAdapterOptions?: Omit<DeterministicToolAdapterOptions, "repoRoot">;
   maxProductionRepairRounds?: number;
+  mediaLifecycle?: boolean;
+  media?: Omit<MediaLifecycleOptions, "repoRoot" | "episodeId">;
   unfreeze?: ProductionUnfreezeOptions;
   concurrency?: ConcurrencyConfig;
   now?: () => string;
@@ -119,6 +123,7 @@ export type LangGraphEntrypointRuntime = {
   config: RuntimeCheckpointConfig;
   productionConfig: RuntimeCheckpointConfig;
   checkpointer: import("./lg-compat").LocalCheckpointer;
+  readProductionState: () => Promise<ProductionState | undefined>;
   close: () => Promise<void>;
 };
 
@@ -151,6 +156,7 @@ export type OrchestratorRunResult = {
 export type ProductionEntrypointRunOptions = ProductionEntrypointOptions & {
   resume?: boolean;
   approvalFile?: string;
+  capabilityResultFile?: string;
   resumeValue?: unknown;
 };
 
@@ -404,7 +410,7 @@ const createRoleAgentRunner = (input: {
         approvalEpoch: 0,
         artifactRefs: [request.promptRef, ...request.inputArtifacts, ...request.upstreamGateRefs],
         expectedOutputPaths: request.expectedOutputs.map((output) => output.path),
-        resumeCommand: `ORCHESTRATOR=langgraph pnpm orchestrate --episode ${input.episodeId} --resume`,
+        resumeCommand: `ORCHESTRATOR=langgraph pnpm orchestrate --episode ${input.episodeId} --run ${input.runId} --resume`,
         nextAction: `Resolve the ${request.agentName} capability and place all declared output files in the repository, then resume.`,
       });
       return delegated(request);
@@ -422,7 +428,7 @@ const createRoleAgentRunner = (input: {
         approvalEpoch: 0,
         artifactRefs: [request.promptRef, ...request.inputArtifacts, ...request.upstreamGateRefs],
         expectedOutputPaths: request.expectedOutputs.map((output) => output.path),
-        resumeCommand: `ORCHESTRATOR=langgraph pnpm orchestrate --episode ${input.episodeId} --resume`,
+        resumeCommand: `ORCHESTRATOR=langgraph pnpm orchestrate --episode ${input.episodeId} --run ${input.runId} --resume`,
         nextAction: `Place the missing declared output files in the repository, then resume this run.`,
       });
       result = await run(request);
@@ -496,6 +502,24 @@ const stateFromSnapshot = (snapshot: unknown): ProductionState | undefined => {
   return assertReferenceOnlyState(values);
 };
 
+const stateFromSnapshotIfPresent = (snapshot: unknown): ProductionState | undefined => {
+  const values = asRecord(asRecord(snapshot)?.values);
+  if (
+    !values ||
+    typeof values.schemaVersion !== "string" ||
+    typeof values.episodeId !== "string" ||
+    typeof values.runId !== "string"
+  ) {
+    return undefined;
+  }
+  return stateFromSnapshot(snapshot);
+};
+
+type NestedProductionError = Error & {productionState?: ProductionState};
+
+const nestedProductionStateFromError = (error: unknown): ProductionState | undefined =>
+  error instanceof Error ? (error as NestedProductionError).productionState : undefined;
+
 const artifactRefsFromPayload = (
   payload: Record<string, unknown>,
   state: ProductionState,
@@ -525,7 +549,7 @@ const createHandoff = (input: {
       ? input.payload.approvalEpoch
       : input.state.approvalEpoch;
   const decisionFile = decisionPathFor(input.repoRoot, input.episodeId, input.runId);
-  const baseResume = `ORCHESTRATOR=langgraph pnpm orchestrate --episode ${input.episodeId} --resume`;
+  const baseResume = `ORCHESTRATOR=langgraph pnpm orchestrate --episode ${input.episodeId} --run ${input.runId} --resume`;
   const resumeCommand =
     gate === "external-capability" ? baseResume : `${baseResume} --approval-file ${decisionFile}`;
   const nextAction =
@@ -595,7 +619,7 @@ const pauseForExternalFile = (input: {
   expectedOutputPath: string;
   nextAction: string;
 }): never => {
-  const resumeCommand = `ORCHESTRATOR=langgraph pnpm orchestrate --episode ${input.episodeId} --resume`;
+  const resumeCommand = `ORCHESTRATOR=langgraph pnpm orchestrate --episode ${input.episodeId} --run ${input.runId} --resume`;
   pauseForExternalCapability({
     gate: "external-capability",
     capability: input.capability,
@@ -754,6 +778,14 @@ export const createLangGraphEntrypoint = (
     createExternalUnfreezeOptions({
       repoRoot,
     });
+  const mediaManifestAvailable = (() => {
+    try {
+      readMediaSourceManifest(repoRoot, input.episodeId);
+      return true;
+    } catch {
+      return false;
+    }
+  })();
   const runAgent = createRoleAgentRunner({
     repoRoot,
     episodeId: input.episodeId,
@@ -833,11 +865,33 @@ export const createLangGraphEntrypoint = (
     observability: productionObservability,
     unfreeze,
     concurrency: input.concurrency,
+    media: {
+      ...(input.media ?? {}),
+      repoRoot,
+      episodeId: input.episodeId,
+      enabled:
+        input.mediaLifecycle ?? mediaManifestAvailable,
+      env: input.env ?? process.env,
+    },
   };
   const productionGraph = createProductionSubgraph(productionOptions);
   const production: FoundationNode = async (state) => {
-    const result = await productionGraph.invoke(state, productionConfig);
-    return result as ProductionState;
+    let result: unknown;
+    try {
+      result = await productionGraph.invoke(state, productionConfig);
+    } catch (error) {
+      const nestedSnapshot = await productionGraph.getState(productionConfig);
+      const nestedState = stateFromSnapshot(nestedSnapshot);
+      if (nestedState && error instanceof Error) {
+        (error as NestedProductionError).productionState = nestedState;
+      }
+      throw error;
+    }
+    // A nested graph can pause before its parent node returns. Read the
+    // nested checkpoint so completed media stages remain visible in the
+    // parent state across the external capability boundary.
+    const nestedSnapshot = await productionGraph.getState(productionConfig);
+    return stateFromSnapshot(nestedSnapshot) ?? (result as ProductionState);
   };
   const graph = createFoundationGraph({
     runAgent,
@@ -865,7 +919,10 @@ export const createLangGraphEntrypoint = (
       }),
     production,
     afterProduction: (state) =>
-      state.completedAgents.includes("delivery-critic") ? "final_approval" : "execute_agent",
+      state.completedAgents.includes("delivery-critic") ||
+      state.mediaStages["delivery-critic"]?.status === "SUCCEEDED"
+        ? "final_approval"
+        : "execute_agent",
     concurrency: input.concurrency,
   });
   return {
@@ -874,6 +931,15 @@ export const createLangGraphEntrypoint = (
     config,
     productionConfig,
     checkpointer,
+    readProductionState: async () => {
+      const nestedSnapshot = await productionGraph.getState(productionConfig);
+      const nestedState = stateFromSnapshotIfPresent(nestedSnapshot);
+      if (!nestedState) return undefined;
+      return Object.keys(nestedState.productionStages).length > 0 ||
+        Object.keys(nestedState.mediaStages).length > 0
+        ? nestedState
+        : undefined;
+    },
     close: async () => {
       if (!input.checkpointer) await closeCheckpointBackend(checkpointer);
     },
@@ -959,6 +1025,10 @@ export const runLangGraphEpisode = async (
         const approvalPath = repositoryPath(repoRoot, input.approvalFile);
         resumeValue = JSON.parse(fs.readFileSync(approvalPath, "utf8")) as unknown;
       }
+      if (input.resume && resumeValue === undefined && input.capabilityResultFile) {
+        const capabilityPath = repositoryPath(repoRoot, input.capabilityResultFile);
+        resumeValue = JSON.parse(fs.readFileSync(capabilityPath, "utf8")) as unknown;
+      }
       if (input.resume && resumeValue === undefined) {
         const previousHandoff = readHandoff(repoRoot, input.episodeId, runId);
         if (previousHandoff && previousHandoff.gate !== "external-capability") {
@@ -982,8 +1052,16 @@ export const runLangGraphEpisode = async (
         ? await runtime.graph.invoke(resumeCheckpoint(resumeValue), runtime.config)
         : await runtime.graph.invoke(state, runtime.config);
       const snapshot = await runtime.graph.getState(runtime.config);
-      const latestState = stateFromSnapshot(snapshot) ?? assertReferenceOnlyState(result);
+      const outerState = stateFromSnapshot(snapshot);
+      const nestedState = await runtime.readProductionState();
       const pause = interruptPayloads(result)[0] ?? snapshotInterruptPayloads(snapshot)[0];
+      // A nested production pause owns the newest media checkpoints. Once the
+      // parent has advanced to a human gate, its state also contains the
+      // parent-only delivery completion and must remain authoritative.
+      const latestState =
+        (pause?.gate === "external-capability"
+          ? nestedState ?? outerState
+          : outerState ?? nestedState) ?? assertReferenceOnlyState(result);
       if (pause) {
         const handoff = createHandoff({
           repoRoot,
@@ -1019,13 +1097,14 @@ export const runLangGraphEpisode = async (
       if (input.resume && unresolvedExternalCapabilityError(error)) {
         const previousHandoff = readHandoff(repoRoot, input.episodeId, runId);
         if (previousHandoff?.gate === "external-capability") {
+          const nestedState = nestedProductionStateFromError(error) ?? (await runtime.readProductionState());
           return {
             mode: "langgraph",
             status: "paused",
             episodeId: input.episodeId,
             runId,
             threadId: input.episodeId,
-            state,
+            state: nestedState ?? state,
             handoff: previousHandoff,
             nextAction: previousHandoff.nextAction,
           };
@@ -1052,6 +1131,7 @@ export type ParsedOrchestrateArgs = {
   episodeId: string;
   resume: boolean;
   approvalFile?: string;
+  capabilityResultFile?: string;
   runId?: string;
   repoRoot: string;
   databasePath?: string;
@@ -1063,6 +1143,7 @@ export const parseOrchestrateArgs = (
 ): ParsedOrchestrateArgs | {help: true} => {
   let episodeId: string | undefined;
   let approvalFile: string | undefined;
+  let capabilityResultFile: string | undefined;
   let runId: string | undefined;
   let repoRoot = defaults.repoRoot;
   let databasePath: string | undefined;
@@ -1085,7 +1166,12 @@ export const parseOrchestrateArgs = (
       index += 1;
       continue;
     }
-    if (arg === "--run-id" && next) {
+    if ((arg === "--capability-result" || arg === "--capability-result-file") && next) {
+      capabilityResultFile = next;
+      index += 1;
+      continue;
+    }
+    if ((arg === "--run" || arg === "--run-id") && next) {
       runId = next;
       index += 1;
       continue;
@@ -1103,8 +1189,10 @@ export const parseOrchestrateArgs = (
     throw new Error(`ORCHESTRATOR_UNKNOWN_ARGUMENT:${arg}`);
   }
   if (!episodeId) throw new Error("ORCHESTRATOR_EPISODE_REQUIRED:use --episode episode-004");
-  if (resume && runId) throw new Error("ORCHESTRATOR_RESUME_RUN_ID_IS_READ_FROM_CHECKPOINT");
-  return {episodeId, resume, approvalFile, runId, repoRoot, databasePath};
+  if (approvalFile && capabilityResultFile) {
+    throw new Error("ORCHESTRATOR_RESUME_INPUTS_ARE_MUTUALLY_EXCLUSIVE");
+  }
+  return {episodeId, resume, approvalFile, capabilityResultFile, runId, repoRoot, databasePath};
 };
 
 export const productionStageStatusSummary = (
