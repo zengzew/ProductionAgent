@@ -20,6 +20,55 @@ export const emptyArtifactIndex = (episodeId: string): ArtifactIndex =>
     selected: {},
   });
 
+export const ARTIFACT_HASH_BOUNDARIES = [
+  "external-input",
+  "checkpoint-resume",
+  "pre-render",
+  "final-approval",
+] as const;
+
+export type ArtifactHashBoundary = (typeof ARTIFACT_HASH_BOUNDARIES)[number];
+export type ArtifactHashCheckMode = "reuse" | "recompute";
+
+export type ArtifactHashCheckOptions = {
+  /** Default `reuse` caches digest+stat for the rest of this process. */
+  mode?: ArtifactHashCheckMode;
+  /** Trust boundaries always re-read bytes; they imply `recompute`. */
+  boundary?: ArtifactHashBoundary;
+};
+
+export type ArtifactHashCacheStats = {
+  hashes: number;
+  reuseHits: number;
+  entries: number;
+};
+
+type FileHashCacheEntry = {
+  digest: string;
+  sizeBytes: number;
+  mtimeMs: number;
+  ino: number;
+  dev: number;
+};
+
+const fileHashCache = new Map<string, FileHashCacheEntry>();
+const hashCacheStats = {hashes: 0, reuseHits: 0};
+
+export const artifactHashCheckMode = (options?: ArtifactHashCheckOptions): ArtifactHashCheckMode =>
+  options?.boundary !== undefined || options?.mode === "recompute" ? "recompute" : "reuse";
+
+export const artifactHashCacheStats = (): ArtifactHashCacheStats => ({
+  hashes: hashCacheStats.hashes,
+  reuseHits: hashCacheStats.reuseHits,
+  entries: fileHashCache.size,
+});
+
+export const resetArtifactHashCache = (): void => {
+  fileHashCache.clear();
+  hashCacheStats.hashes = 0;
+  hashCacheStats.reuseHits = 0;
+};
+
 const resolveRepositoryPath = (repoRoot: string, repositoryPath: string): string => {
   const absolutePath = path.resolve(repoRoot, repositoryPath);
   const relative = path.relative(repoRoot, absolutePath);
@@ -29,13 +78,57 @@ const resolveRepositoryPath = (repoRoot: string, repositoryPath: string): string
   return absolutePath;
 };
 
-export const artifactRefBytesMatch = (repoRoot: string, ref: ArtifactRef): boolean => {
+const hashFileAt = (
+  absolutePath: string,
+  mode: ArtifactHashCheckMode,
+): {digest: string; sizeBytes: number} => {
+  const stat = fs.statSync(absolutePath);
+  if (!stat.isFile()) {
+    throw new Error(`artifact path is not a file: ${absolutePath}`);
+  }
+  if (mode === "reuse") {
+    const cached = fileHashCache.get(absolutePath);
+    if (
+      cached &&
+      cached.sizeBytes === stat.size &&
+      cached.mtimeMs === stat.mtimeMs &&
+      cached.ino === stat.ino &&
+      cached.dev === stat.dev
+    ) {
+      hashCacheStats.reuseHits += 1;
+      return {digest: cached.digest, sizeBytes: cached.sizeBytes};
+    }
+  }
+  const bytes = fs.readFileSync(absolutePath);
+  const digest = crypto.createHash("sha256").update(bytes).digest("hex");
+  const after = fs.statSync(absolutePath);
+  fileHashCache.set(absolutePath, {
+    digest,
+    sizeBytes: bytes.byteLength,
+    mtimeMs: after.mtimeMs,
+    ino: after.ino,
+    dev: after.dev,
+  });
+  hashCacheStats.hashes += 1;
+  return {digest, sizeBytes: bytes.byteLength};
+};
+
+/**
+ * Byte check for an ArtifactRef. Same-process graph nodes reuse a digest cached
+ * against size/mtime/inode. External input, checkpoint resume, pre-render and
+ * final approval pass `boundary` so the file is hashed again.
+ */
+export const artifactRefBytesMatch = (
+  repoRoot: string,
+  ref: ArtifactRef,
+  options?: ArtifactHashCheckOptions,
+): boolean => {
   try {
-    const bytes = fs.readFileSync(resolveRepositoryPath(repoRoot, ref.path));
-    return (
-      bytes.byteLength === ref.sizeBytes &&
-      crypto.createHash("sha256").update(bytes).digest("hex") === ref.sha256
+    const hashed = hashFileAt(
+      resolveRepositoryPath(repoRoot, ref.path),
+      artifactHashCheckMode(options),
     );
+    return hashed.sizeBytes === ref.sizeBytes && hashed.digest === ref.sha256;
   } catch {
     return false;
   }
@@ -91,14 +184,20 @@ export const snapshotSelectedArtifactHistory = (input: {
 
   const pathByIdentity = new Map<string, string>();
   for (const record of selectedRecords) {
-    if (!artifactRefBytesMatch(input.repoRoot, record.ref)) {
+    if (!artifactRefBytesMatch(input.repoRoot, record.ref, {mode: "recompute"})) {
       throw new Error(`ARTIFACT_HISTORY_SOURCE_HASH_MISMATCH:${record.ref.artifactId}`);
     }
     const historyPath = artifactHistoryPathFor(input.episodeId, record.ref);
     const source = resolveRepositoryPath(input.repoRoot, record.ref.path);
     const target = resolveRepositoryPath(input.repoRoot, historyPath);
     if (fs.existsSync(target)) {
-      if (!artifactRefBytesMatch(input.repoRoot, {...record.ref, path: historyPath})) {
+      if (
+        !artifactRefBytesMatch(
+          input.repoRoot,
+          {...record.ref, path: historyPath},
+          {mode: "recompute"},
+        )
+      ) {
         throw new Error(`ARTIFACT_HISTORY_SNAPSHOT_COLLISION:${historyPath}`);
       }
     } else {
@@ -178,14 +277,22 @@ export const assertArtifactRefBytesWithHistory = (repoRoot: string, ref: Artifac
 };
 
 /** Fails closed when a persisted state reference no longer names its recorded bytes. */
-export const assertArtifactRefBytes = (repoRoot: string, ref: ArtifactRef): void => {
-  if (!artifactRefBytesMatch(repoRoot, ref)) {
+export const assertArtifactRefBytes = (
+  repoRoot: string,
+  ref: ArtifactRef,
+  options?: ArtifactHashCheckOptions,
+): void => {
+  if (!artifactRefBytesMatch(repoRoot, ref, options)) {
     throw new Error(`ARTIFACT_HASH_MISMATCH:${ref.artifactId}`);
   }
 };
 
-export const assertArtifactRefsBytes = (repoRoot: string, refs: readonly ArtifactRef[]): void => {
-  for (const ref of refs) assertArtifactRefBytes(repoRoot, ref);
+export const assertArtifactRefsBytes = (
+  repoRoot: string,
+  refs: readonly ArtifactRef[],
+  options?: ArtifactHashCheckOptions,
+): void => {
+  for (const ref of refs) assertArtifactRefBytes(repoRoot, ref, options);
 };
 
 const artifactIndexPath = (repoRoot: string, episodeId: string): string =>
@@ -260,16 +367,22 @@ export const buildArtifactRef = (input: {
   schemaVersion: string;
   producer: string;
   previous?: ArtifactRef;
+  forceRevision?: boolean;
   createdAt?: string;
   legacyProvenance?: LegacyArtifactProvenance;
 }): ArtifactRef => {
-  const bytes = fs.readFileSync(resolveRepositoryPath(input.repoRoot, input.path));
-  const sha256 = crypto.createHash("sha256").update(bytes).digest("hex");
+  const hashed = hashFileAt(resolveRepositoryPath(input.repoRoot, input.path), "recompute");
   const previous = input.previous;
   if (previous && previous.artifactId !== input.artifactId) {
     throw new Error("previous reference belongs to another artifact");
   }
-  const revision = previous ? previous.revision + Number(previous.sha256 !== sha256) : 1;
+  const revision = previous
+    ? previous.revision + Number(input.forceRevision === true || previous.sha256 !== hashed.digest)
+    : 1;
+  const createdAt =
+    previous && previous.sha256 === hashed.digest && input.forceRevision !== true
+      ? previous.createdAt
+      : (input.createdAt ?? new Date().toISOString());
 
   return artifactRefSchema.parse({
     artifactId: input.artifactId,
@@ -278,10 +391,10 @@ export const buildArtifactRef = (input: {
     mediaType: input.mediaType,
     schemaVersion: input.schemaVersion,
     revision,
-    sha256,
-    sizeBytes: bytes.byteLength,
+    sha256: hashed.digest,
+    sizeBytes: hashed.sizeBytes,
     producer: input.producer,
-    createdAt: input.createdAt ?? new Date().toISOString(),
+    createdAt,
     ...(input.legacyProvenance ? {legacyProvenance: input.legacyProvenance} : {}),
   });
 };
@@ -362,7 +475,10 @@ export const registerCandidate = (
     }
   }
   const duplicate = index.artifacts.find(
-    (record) => record.ref.artifactId === ref.artifactId && record.ref.sha256 === ref.sha256,
+    (record) =>
+      record.ref.artifactId === ref.artifactId &&
+      record.ref.revision === ref.revision &&
+      record.ref.sha256 === ref.sha256,
   );
   if (duplicate) {
     return index;

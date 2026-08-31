@@ -114,7 +114,7 @@ describe("WP-M2-05 revision detection", () => {
       before: [ref("script", "a".repeat(64))],
       candidate: [ref("script", "b".repeat(64), 2)],
       beforeEvaluations: [result("audience-critic")],
-      candidateEvaluations: [result("audience-critic", {rubricVersion: "product-story-v5"})],
+      candidateEvaluations: [result("audience-critic", {rubricVersion: "product-story-v6"})],
     });
     expect(report.comparable).toBe(false);
     expect(report.incomparableCritics).toEqual(["audience-critic"]);

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "193b6c253aa1bc45ced322561fe4d6f120b7ff3070b771de8e8ad1b941e3ed1a",
+  "completedAt": "2026-08-31T03:28:00.000Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.93,
+    "claimMatch": 0.8,
+    "visualQuality": 0.9,
+    "misleadingRisk": 0.05,
+    "observedActions": [
+      "the Gamma AI start screen offers Generate as a prompt-based creation path",
+      "the cursor visually emphasizes the Generate card"
+    ],
+    "observedEntities": ["Gamma"],
+    "observedText": ["Get started with AI", "Generate", "Begin with a prompt"],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 4000,
+    "reasons": [
+      "The official product clip directly shows the prompt-first Generate entry point and is visually clean.",
+      "It is suitable as the persistent product-demo layer while the three-month rebuild evidence appears only as a brief overlay."
+    ]
+  }
+}

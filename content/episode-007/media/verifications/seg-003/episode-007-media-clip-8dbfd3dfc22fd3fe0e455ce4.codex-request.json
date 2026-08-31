@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "codex-media-verification-request-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "boundedMediaOnly": true,
+  "episodeId": "episode-007",
+  "segmentId": "seg-003",
+  "clipId": "episode-007:media-clip:8dbfd3dfc22fd3fe0e455ce4",
+  "claimIds": [
+    "claim-gamma-002"
+  ],
+  "claims": [
+    {
+      "id": "claim-gamma-002",
+      "claim": "三位创始人认为传统 PowerPoint 模板让人把精力花在格式而非想法上，因此 2020 年开始做 Gamma。"
+    }
+  ],
+  "narration": "三位创始人 2020 年开始做它,因为他们认为,PowerPoint 模板让人把时间花在格式,而不是想法上。",
+  "visualIntent": "TechCrunch 报道标题出现 → PowerPoint 模板网格被缩小 → Gamma 卡片结果放大并高亮。",
+  "clip": {
+    "path": "content/episode-007/media/verifications/seg-003/episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4-clip.mp4",
+    "sha256": "6f8f1a449ebac45f1141d94cab0342dabf4459e9686e1230ba09477a535bb61e",
+    "sizeBytes": 3597634,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 4000,
+    "sourceMediaId": "episode-007:media:gamma-share",
+    "sourceMediaSha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c"
+  },
+  "keyframes": [
+    {
+      "path": "content/episode-007/media/indexes/gamma-share/keyframes/keyframe-0-2000.jpg",
+      "timestampMs": 2000,
+      "sha256": "db9c484d3c6ece03d18763f76a8f041b06354915e09cf430f8e3afe2e82fa2ce",
+      "sizeBytes": 33223,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "Gamma Share product interface shows collaboration permissions, link sharing, invitations, and export to PDF, PowerPoint, or PNG.",
+    "observedText": "",
+    "keywords": [
+      "Gamma",
+      "Share",
+      "Export",
+      "collaboration",
+      "分享",
+      "协作",
+      "导出"
+    ],
+    "entities": [
+      "Gamma"
+    ],
+    "semanticTags": [
+      "产品界面",
+      "分享入口",
+      "协作权限",
+      "导出"
+    ],
+    "speaker": null
+  },
+  "resultContract": {
+    "schemaVersion": "codex-media-verification-result-v1",
+    "envelope": [
+      "executor",
+      "model",
+      "requestHash",
+      "completedAt",
+      "output"
+    ],
+    "output": {
+      "verdict": [
+        "pass",
+        "reject",
+        "uncertain"
+      ],
+      "scores": [
+        "relevance",
+        "claimMatch",
+        "visualQuality",
+        "misleadingRisk"
+      ],
+      "observations": [
+        "observedActions",
+        "observedEntities",
+        "observedText"
+      ],
+      "range": [
+        "recommendedStartMs",
+        "recommendedEndMs"
+      ],
+      "explanation": [
+        "reasons"
+      ]
+    },
+    "instruction": "Inspect only the listed clip and keyframes. Copy this requestHash into the result envelope; do not alter rights or claim facts."
+  },
+  "requestHash": "65c06d8b140382b1343bada2d89b89c699a1e9609a75a243389a06331e4f9a4d"
+}

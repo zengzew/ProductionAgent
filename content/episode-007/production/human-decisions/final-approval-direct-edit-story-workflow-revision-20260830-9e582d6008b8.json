@@ -1,0 +1,643 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+  "runId": "run-20260828-gamma-real-007",
+  "gate": "final-approval",
+  "decision": "direct-edit",
+  "reviewer": "zengze",
+  "timestamp": "2026-08-30T22:40:00+08:00",
+  "reason": "按人工 review 的七项问题直接修订：先建立具体使用场景，延后问题转折，规范年份读法，删除无信息句，解释 AI 第一屏机制，前置市场结果，并加入创始人访谈和文章证据；重新生成且 final-approval 保持暂停。",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-007:delivery:vertical-video",
+      "episodeId": "episode-007",
+      "path": "output/episode-007/vertical_9x16.mp4",
+      "mediaType": "video/mp4",
+      "schemaVersion": "video-vertical-v1",
+      "revision": 2,
+      "sha256": "1b30ae6bd90eba038a67cd67864a41b24fd32416db8f97391d1c210a0fe81845",
+      "sizeBytes": 10642554,
+      "producer": "production-adapter:render:vertical",
+      "createdAt": "2026-08-30T04:37:43.230Z"
+    }
+  ],
+  "approvalEpoch": 3,
+  "authorizations": [],
+  "edits": [
+    {
+      "artifactId": "episode-007:research:research-analyst-facts",
+      "owner": "research-analyst",
+      "before": {
+        "artifactId": "episode-007:research:research-analyst-facts",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/research/facts.json",
+        "mediaType": "application/json",
+        "schemaVersion": "research-facts-v1",
+        "revision": 1,
+        "sha256": "6468adf9d524bafd11340cf55f6b2205a2ca19bf995262b9d0ee9dc0e782b282",
+        "sizeBytes": 5845,
+        "producer": "codex:gpt-5.6:research-analyst",
+        "createdAt": "2026-08-28T09:19:03.684Z"
+      },
+      "after": {
+        "artifactId": "episode-007:research:research-analyst-facts",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/research/facts.json",
+        "mediaType": "application/json",
+        "schemaVersion": "research-facts-v1",
+        "revision": 2,
+        "sha256": "f6ad19ef8935ab2636b43d3dec2c1328a92e89ba1f57511b80025273b8a41f50",
+        "sizeBytes": 6381,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "content/episode-007/research/facts.json"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+        "timestamp": "2026-08-30T22:40:00+08:00",
+        "approvalEpoch": 3
+      }
+    },
+    {
+      "artifactId": "episode-007:research:research-analyst-sources",
+      "owner": "research-analyst",
+      "before": {
+        "artifactId": "episode-007:research:research-analyst-sources",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/research/sources.json",
+        "mediaType": "application/json",
+        "schemaVersion": "research-sources-v1",
+        "revision": 1,
+        "sha256": "31cbcc21b1effe9a3e6d969901eb7a99714f1d7fcec1d3741eb8aea5debb59c5",
+        "sizeBytes": 2521,
+        "producer": "codex:gpt-5.6:research-analyst",
+        "createdAt": "2026-08-28T09:19:03.685Z"
+      },
+      "after": {
+        "artifactId": "episode-007:research:research-analyst-sources",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/research/sources.json",
+        "mediaType": "application/json",
+        "schemaVersion": "research-sources-v1",
+        "revision": 2,
+        "sha256": "9e28fcaec0553ca2bcf46f166d89d4fd18fbe582dd46507d0b47a250c1cc04aa",
+        "sizeBytes": 3106,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "content/episode-007/research/sources.json"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+        "timestamp": "2026-08-30T22:40:00+08:00",
+        "approvalEpoch": 3
+      }
+    },
+    {
+      "artifactId": "episode-007:story:story-director-director-brief",
+      "owner": "story-director",
+      "before": {
+        "artifactId": "episode-007:story:story-director-director-brief",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/director-brief.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "director-brief-v1",
+        "revision": 1,
+        "sha256": "2532e3e3ecd05f54a598374b45596fd1bf8cffe605daca9da37d1cc063cdb006",
+        "sizeBytes": 3285,
+        "producer": "manual-file:story-director",
+        "createdAt": "2026-08-28T09:19:03.764Z"
+      },
+      "after": {
+        "artifactId": "episode-007:story:story-director-director-brief",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/director-brief.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "director-brief-v1",
+        "revision": 2,
+        "sha256": "f82ef9d5a57d62cfc4ccb72e0692c407a6a511caaff71e433a40321b246accec",
+        "sizeBytes": 3734,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "content/episode-007/story/director-brief.md"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+        "timestamp": "2026-08-30T22:40:00+08:00",
+        "approvalEpoch": 3
+      }
+    },
+    {
+      "artifactId": "episode-007:story:story-director-story-bible",
+      "owner": "story-director",
+      "before": {
+        "artifactId": "episode-007:story:story-director-story-bible",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/story-bible.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "story-bible-v1",
+        "revision": 1,
+        "sha256": "03f8e9e72613ac2bb0caf1aff1ee94be844fb321878bdd552a58cc5de00a9503",
+        "sizeBytes": 1421,
+        "producer": "manual-file:story-director",
+        "createdAt": "2026-08-28T09:19:03.766Z"
+      },
+      "after": {
+        "artifactId": "episode-007:story:story-director-story-bible",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/story-bible.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "story-bible-v1",
+        "revision": 2,
+        "sha256": "5e95f036246465424549e44f3f894d625f4a252a19a152524ed427b8815ec8ec",
+        "sizeBytes": 1465,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "content/episode-007/story/story-bible.md"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+        "timestamp": "2026-08-30T22:40:00+08:00",
+        "approvalEpoch": 3
+      }
+    },
+    {
+      "artifactId": "episode-007:story:story-director-story-angle",
+      "owner": "story-director",
+      "before": {
+        "artifactId": "episode-007:story:story-director-story-angle",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/story-angle.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "story-angle-v1",
+        "revision": 1,
+        "sha256": "99c5d480f8ea37364c55d2896758d91a278eeff19e1b75ac382b754626438d3f",
+        "sizeBytes": 554,
+        "producer": "manual-file:story-director",
+        "createdAt": "2026-08-28T09:19:03.767Z"
+      },
+      "after": {
+        "artifactId": "episode-007:story:story-director-story-angle",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/story-angle.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "story-angle-v1",
+        "revision": 2,
+        "sha256": "4f4b441c0911d4be2a3676c6eeaec0d22517542becc773e295cbb4e1b495ade5",
+        "sizeBytes": 621,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "content/episode-007/story/story-angle.md"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+        "timestamp": "2026-08-30T22:40:00+08:00",
+        "approvalEpoch": 3
+      }
+    },
+    {
+      "artifactId": "episode-007:story:story-director-three-act-structure",
+      "owner": "story-director",
+      "before": {
+        "artifactId": "episode-007:story:story-director-three-act-structure",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/three-act-structure.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "three-act-structure-v1",
+        "revision": 1,
+        "sha256": "902327e95dc754411fcbf2604acbeea6827bf846275f46568077ca5c3f6fc5e5",
+        "sizeBytes": 732,
+        "producer": "manual-file:story-director",
+        "createdAt": "2026-08-28T09:19:03.768Z"
+      },
+      "after": {
+        "artifactId": "episode-007:story:story-director-three-act-structure",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/three-act-structure.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "three-act-structure-v1",
+        "revision": 2,
+        "sha256": "a8392cf323f2cb1da376af07d692ff93f3db93171b343d9464f3164b4b5469d5",
+        "sizeBytes": 740,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "content/episode-007/story/three-act-structure.md"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+        "timestamp": "2026-08-30T22:40:00+08:00",
+        "approvalEpoch": 3
+      }
+    },
+    {
+      "artifactId": "episode-007:story:viral-director-hook-candidates",
+      "owner": "viral-director",
+      "before": {
+        "artifactId": "episode-007:story:viral-director-hook-candidates",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/hook-candidates.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "hook-candidates-v1",
+        "revision": 1,
+        "sha256": "d3fd7e05df398eee37bf9d89dc8c01112f7463a506fb489bbc3cdb0ca34495c2",
+        "sizeBytes": 1742,
+        "producer": "manual-file:viral-director",
+        "createdAt": "2026-08-28T09:19:03.813Z"
+      },
+      "after": {
+        "artifactId": "episode-007:story:viral-director-hook-candidates",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/hook-candidates.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "hook-candidates-v1",
+        "revision": 2,
+        "sha256": "4a5f86658ba8ba9b91ca47897aba0438be5778236f0273ea79a7622cea0f9349",
+        "sizeBytes": 1825,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "content/episode-007/story/hook-candidates.md"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+        "timestamp": "2026-08-30T22:40:00+08:00",
+        "approvalEpoch": 3
+      }
+    },
+    {
+      "artifactId": "episode-007:story:viral-director-viral-strategy",
+      "owner": "viral-director",
+      "before": {
+        "artifactId": "episode-007:story:viral-director-viral-strategy",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/viral-strategy.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "viral-strategy-v2",
+        "revision": 1,
+        "sha256": "b3b2a5679b37591e989a902a4ce35c4b74f374356d65ffff9f3dfb6195460572",
+        "sizeBytes": 1829,
+        "producer": "manual-file:viral-director",
+        "createdAt": "2026-08-28T09:19:03.814Z"
+      },
+      "after": {
+        "artifactId": "episode-007:story:viral-director-viral-strategy",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/viral-strategy.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "viral-strategy-v2",
+        "revision": 2,
+        "sha256": "4fb03aa6dc3acb963e582b7b25ab1bc3a68895585563764d5eea65c6950d7a57",
+        "sizeBytes": 1900,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "content/episode-007/story/viral-strategy.md"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+        "timestamp": "2026-08-30T22:40:00+08:00",
+        "approvalEpoch": 3
+      }
+    },
+    {
+      "artifactId": "episode-007:story:script-draft",
+      "owner": "script-writer",
+      "before": {
+        "artifactId": "episode-007:story:script-draft",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/script-draft.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "script-draft-v1",
+        "revision": 1,
+        "sha256": "7e2f70cd241e26e3369cb349866ab60c1fb36f6610e9f3c8e30f50d932f226d7",
+        "sizeBytes": 1043,
+        "producer": "manual-file:script-writer",
+        "createdAt": "2026-08-28T09:19:03.864Z"
+      },
+      "after": {
+        "artifactId": "episode-007:story:script-draft",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/script-draft.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "script-draft-v1",
+        "revision": 2,
+        "sha256": "050ef8dc158f3e8a007cb2177b1913acc8c0fe66f83367a302d0fa35739fc6d0",
+        "sizeBytes": 973,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "content/episode-007/story/script-draft.md"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+        "timestamp": "2026-08-30T22:40:00+08:00",
+        "approvalEpoch": 3
+      }
+    },
+    {
+      "artifactId": "episode-007:story:oral-rewriter-final-script",
+      "owner": "oral-rewriter",
+      "before": {
+        "artifactId": "episode-007:story:oral-rewriter-final-script",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/final-script.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "final-script-v1",
+        "revision": 2,
+        "sha256": "483734b02c2ef43ed125c0c1951f8cc6e8c32faff29396c42b144c0caf11723a",
+        "sizeBytes": 7461,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-29T00:10:00.000Z"
+      },
+      "after": {
+        "artifactId": "episode-007:story:oral-rewriter-final-script",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/final-script.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "final-script-v1",
+        "revision": 3,
+        "sha256": "32102513bab1f4f98bca01787c145672bf21dca87c6fa8202fc2e6fe4e9e2e4a",
+        "sizeBytes": 8418,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "content/episode-007/story/final-script.md"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+        "timestamp": "2026-08-30T22:40:00+08:00",
+        "approvalEpoch": 3
+      }
+    },
+    {
+      "artifactId": "episode-007:story:oral-judge-oral-review",
+      "owner": "oral-judge",
+      "before": {
+        "artifactId": "episode-007:story:oral-judge-oral-review",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/oral-review.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "oral-review-v2",
+        "revision": 1,
+        "sha256": "43cad5bb8cb50db3a13617f484862ae98639a27734181f51f0a443d1763e0519",
+        "sizeBytes": 1642,
+        "producer": "manual-file:oral-judge",
+        "createdAt": "2026-08-28T09:19:04.248Z"
+      },
+      "after": {
+        "artifactId": "episode-007:story:oral-judge-oral-review",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/oral-review.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "oral-review-v2",
+        "revision": 2,
+        "sha256": "623bcb1c5ab6adc569fef8c96830b8a6d265775f08cdefae9431370c761a933f",
+        "sizeBytes": 2620,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "content/episode-007/story/oral-review.md"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+        "timestamp": "2026-08-30T22:40:00+08:00",
+        "approvalEpoch": 3
+      }
+    },
+    {
+      "artifactId": "episode-007:story:audience-critic-critic-report",
+      "owner": "audience-critic",
+      "before": {
+        "artifactId": "episode-007:story:audience-critic-critic-report",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/critic-report.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "critic-report-v1",
+        "revision": 1,
+        "sha256": "49519c3fbf6a15e1f53d8efb8abb67942218a572d4c9b1a4a07c5de629da43df",
+        "sizeBytes": 1153,
+        "producer": "manual-file:audience-critic",
+        "createdAt": "2026-08-28T09:22:26.265Z"
+      },
+      "after": {
+        "artifactId": "episode-007:story:audience-critic-critic-report",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/critic-report.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "critic-report-v1",
+        "revision": 2,
+        "sha256": "f2528af11332b4d7a4fd287a58bdb8a0939dd05186eb6e73876e81cadae0cef7",
+        "sizeBytes": 3052,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "content/episode-007/story/critic-report.md"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+        "timestamp": "2026-08-30T22:40:00+08:00",
+        "approvalEpoch": 3
+      }
+    },
+    {
+      "artifactId": "episode-007:story:fact-guardian-fact-check-report",
+      "owner": "fact-guardian",
+      "before": {
+        "artifactId": "episode-007:story:fact-guardian-fact-check-report",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/fact-check-report.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "fact-check-report-v1",
+        "revision": 1,
+        "sha256": "6aae26bff66ff899416f9d862f80a36b52369f190baf9b029e1b60c7598fbd67",
+        "sizeBytes": 618,
+        "producer": "manual-file:fact-guardian",
+        "createdAt": "2026-08-28T09:22:26.270Z"
+      },
+      "after": {
+        "artifactId": "episode-007:story:fact-guardian-fact-check-report",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/fact-check-report.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "fact-check-report-v1",
+        "revision": 2,
+        "sha256": "8a625263333c773cb5496fbffc361c36e3feafbd739317dca0763d8f1aef4eab",
+        "sizeBytes": 763,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "content/episode-007/story/fact-check-report.md"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+        "timestamp": "2026-08-30T22:40:00+08:00",
+        "approvalEpoch": 3
+      }
+    },
+    {
+      "artifactId": "episode-007:story:visual-director-visual-plan",
+      "owner": "visual-director",
+      "before": {
+        "artifactId": "episode-007:story:visual-director-visual-plan",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/visual-plan.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "visual-plan-v3",
+        "revision": 1,
+        "sha256": "51dfa93a5a7349a4a572548c3726c004a83a86b07967ed944e7c170f5e1f95ac",
+        "sizeBytes": 7546,
+        "producer": "codex:gpt-5.6:visual-director",
+        "createdAt": "2026-08-28T09:22:26.251Z"
+      },
+      "after": {
+        "artifactId": "episode-007:story:visual-director-visual-plan",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/visual-plan.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "visual-plan-v3",
+        "revision": 2,
+        "sha256": "cf9ff6c2ffd5373fd8213d34a0b4974947c5d7370f48606069feae9424f34d6f",
+        "sizeBytes": 8633,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "content/episode-007/story/visual-plan.md"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+        "timestamp": "2026-08-30T22:40:00+08:00",
+        "approvalEpoch": 3
+      }
+    },
+    {
+      "artifactId": "episode-007:story:retention-critic-retention-report",
+      "owner": "retention-critic",
+      "before": {
+        "artifactId": "episode-007:story:retention-critic-retention-report",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/retention-report.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "retention-report-v2",
+        "revision": 1,
+        "sha256": "156e598c57f48520e2332ef96b1b029bc1aaa30f8f46319efb5697b6a961c5dc",
+        "sizeBytes": 1583,
+        "producer": "manual-file:retention-critic",
+        "createdAt": "2026-08-28T09:22:26.268Z"
+      },
+      "after": {
+        "artifactId": "episode-007:story:retention-critic-retention-report",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/retention-report.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "retention-report-v2",
+        "revision": 2,
+        "sha256": "40a01ad9b2b5ee5abce68d3ae747ee8aeca503da27d1baf67959c41c00ec06fd",
+        "sizeBytes": 1798,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "content/episode-007/story/retention-report.md"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-direct-edit-story-workflow-revision-20260830",
+        "timestamp": "2026-08-30T22:40:00+08:00",
+        "approvalEpoch": 3
+      }
+    }
+  ]
+}

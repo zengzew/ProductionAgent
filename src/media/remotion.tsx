@@ -62,6 +62,13 @@ const isProductionMetaTag = (text: string): boolean => PRODUCTION_META_TAG.test(
 const visibleOnScreenText = (texts: readonly string[]): string[] =>
   texts.filter((text) => text.trim().length > 0 && !isProductionMetaTag(text));
 
+const evidenceSnippets = (texts: readonly string[]): string[] =>
+  texts
+    .flatMap((text) => text.split(/[；;]/u))
+    .map((text) => text.trim())
+    .filter((text) => text.length > 0 && !isProductionMetaTag(text))
+    .slice(0, 3);
+
 const reframeObjectFit = (mode: MediaShot["transform"]["reframe"]["mode"]): "cover" | "contain" =>
   mode === "cover" ? "cover" : "contain";
 
@@ -251,6 +258,99 @@ export const MediaShotOriginalAudio: React.FC<{shot: MediaShot; src: string}> = 
         }).originalGain
       }
     />
+  );
+};
+
+/** Brief evidence overlay; the underlying product demo remains the visual track. */
+export const RealMediaEvidenceOverlay: React.FC<{
+  scene: Timeline["scenes"][number];
+  shot: MediaShot;
+}> = ({scene, shot}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const snippets = evidenceSnippets(scene.onScreenText);
+  const start = Math.min(Math.round(fps * 1.1), Math.round(shot.durationFrames * 0.22));
+  const end = Math.min(shot.durationFrames - 5, start + Math.round(fps * 1.8));
+  const opacity = interpolate(
+    frame,
+    [start, start + 7, Math.max(start + 8, end - 7), end],
+    [0, 1, 1, 0],
+    {extrapolateLeft: "clamp", extrapolateRight: "clamp"},
+  );
+  const evidenceStillOpacity = shot.evidenceImagePath
+    ? interpolate(frame, [start, start + 7, Math.max(start + 8, end - 7), end], [0, 1, 1, 0], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      })
+    : 0;
+  return (
+    <>
+      <div
+        style={{
+          position: "absolute",
+          top: 72,
+          left: 48,
+          padding: "9px 15px",
+          borderRadius: 999,
+          background: "rgba(8,9,13,.82)",
+          color: "rgba(255,255,255,.86)",
+          fontFamily: SANS,
+          fontSize: 22,
+          fontWeight: 650,
+          zIndex: 8,
+        }}
+      >
+        GAMMA 产品演示 · B-roll
+      </div>
+      {snippets.length > 0 ? (
+        <div
+          style={{
+            position: "absolute",
+            left: 54,
+            right: 54,
+            top: 210,
+            padding: "22px 26px",
+            borderRadius: 24,
+            background: "rgba(8,9,13,.88)",
+            border: "1px solid rgba(255,255,255,.15)",
+            boxShadow: "0 18px 50px rgba(0,0,0,.35)",
+            color: "#fff",
+            fontFamily: SANS,
+            fontSize: 34,
+            lineHeight: 1.3,
+            fontWeight: 760,
+            opacity,
+            zIndex: 8,
+          }}
+        >
+          {snippets.join(" · ")}
+        </div>
+      ) : null}
+      {shot.evidenceImagePath ? (
+        <div
+          style={{
+            position: "absolute",
+            left: 74,
+            right: 74,
+            top: 350,
+            height: 640,
+            padding: 14,
+            borderRadius: 28,
+            background: "rgba(8,9,13,.92)",
+            border: "1px solid rgba(255,255,255,.2)",
+            boxShadow: "0 24px 70px rgba(0,0,0,.5)",
+            opacity: evidenceStillOpacity,
+            overflow: "hidden",
+            zIndex: 9,
+          }}
+        >
+          <Img
+            src={staticFile(shot.evidenceImagePath)}
+            style={{width: "100%", height: "100%", objectFit: "cover", borderRadius: 18}}
+          />
+        </div>
+      ) : null}
+    </>
   );
 };
 
@@ -980,6 +1080,9 @@ export const MediaShotScene: React.FC<{
             <RealVideoLayer shot={shot} src={staticFile(shot.staticFilePath)} />
           )}
           <MediaShotOriginalAudio shot={shot} src={staticFile(shot.staticFilePath)} />
+          {!shot.renderProxyMediaType?.startsWith("audio/") ? (
+            <RealMediaEvidenceOverlay scene={scene} shot={shot} />
+          ) : null}
         </>
       ) : shot.visualType === "official-screenshot" && shot.fallbackImagePath ? (
         <OfficialScreenshotLayer

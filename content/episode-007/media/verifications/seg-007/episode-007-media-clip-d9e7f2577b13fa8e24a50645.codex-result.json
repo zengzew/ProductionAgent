@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "5e84cfcba73d5ea8db129893007b13cfaa26e264d7c4b9d7681973f8a44e649b",
+  "completedAt": "2026-08-29T05:39:30.000Z",
+  "output": {
+    "verdict": "reject",
+    "relevance": 0.24,
+    "claimMatch": 0.08,
+    "visualQuality": 0.9,
+    "misleadingRisk": 0.8,
+    "observedActions": [
+      "The Gamma editor cycles a presentation card through several layout alternatives"
+    ],
+    "observedEntities": [
+      "Gamma",
+      "Eyewear competitive report"
+    ],
+    "observedText": [
+      "Technological Innovations",
+      "Smart Glasses",
+      "Advanced Lenses",
+      "Virtual Try-On",
+      "3D Printed Eyewear"
+    ],
+    "recommendedStartMs": 8000,
+    "recommendedEndMs": 12000,
+    "reasons": [
+      "The bounded clip clearly demonstrates layout editing in Gamma.",
+      "It contains no company article, ARR, Series B financing, or valuation evidence.",
+      "Using it for the financial claim would falsely imply the product UI substantiates those figures."
+    ]
+  }
+}

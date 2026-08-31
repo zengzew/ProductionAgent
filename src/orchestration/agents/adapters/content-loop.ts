@@ -206,7 +206,7 @@ const roleCritic =
       critic: input.role,
       resultRef,
       rubricVersion: stringValue(recordValue(gate, "rubricVersion"), "rubricVersion"),
-      round: Number(recordValue(gate, "round") ?? context.round + 1),
+      round: typeof gate.round === "number" ? gate.round : context.round + 1,
       reviewedArtifacts,
       dimensions: input.dimensions(gate),
       verdict: stringValue(recordValue(gate, "verdict"), "verdict"),

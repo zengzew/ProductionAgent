@@ -1,0 +1,263 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 1.075273368606702,
+    "startFrame": 0,
+    "endFrame": 32,
+    "text": "估值二十一亿美元"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-001",
+    "startSeconds": 1.075273368606702,
+    "endSeconds": 2.4193650793650794,
+    "startFrame": 32,
+    "endFrame": 73,
+    "text": "Gamma 做对了什么"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 3.019375,
+    "endSeconds": 4.772017320085929,
+    "startFrame": 91,
+    "endFrame": 143,
+    "text": "做销售提案、课堂讲义"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 4.772017320085929,
+    "endSeconds": 7.108873746867168,
+    "startFrame": 143,
+    "endFrame": 213,
+    "text": "或融资路演时，只写一个主题"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-002",
+    "startSeconds": 7.108873746867168,
+    "endSeconds": 8.861516066953097,
+    "startFrame": 213,
+    "endFrame": 266,
+    "text": "它先给你一份能编辑"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-002",
+    "startSeconds": 8.861516066953097,
+    "endSeconds": 10.419420351473924,
+    "startFrame": 266,
+    "endFrame": 313,
+    "text": "能分享的演示初稿"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-003",
+    "startSeconds": 11.219438,
+    "endSeconds": 12.452745936507936,
+    "startFrame": 337,
+    "endFrame": 374,
+    "text": "创始人最初发现"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-003",
+    "startSeconds": 12.452745936507936,
+    "endSeconds": 14.038427569160998,
+    "startFrame": 374,
+    "endFrame": 421,
+    "text": "做演示的人常把精力"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-003",
+    "startSeconds": 14.038427569160998,
+    "endSeconds": 15.62410920181406,
+    "startFrame": 421,
+    "endFrame": 469,
+    "text": "耗在选模板、调格式上"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-003",
+    "startSeconds": 15.62410920181406,
+    "endSeconds": 17.420769866079766,
+    "startFrame": 469,
+    "endFrame": 523,
+    "text": "真正卡住创作的，是打开"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-003",
+    "startSeconds": 17.420769866079766,
+    "endSeconds": 18.608202172335602,
+    "startFrame": 523,
+    "endFrame": 558,
+    "text": "产品后的空白页"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-004",
+    "startSeconds": 19.47523,
+    "endSeconds": 21.534685782312923,
+    "startFrame": 584,
+    "endFrame": 646,
+    "text": "团队随后花约三个月重构"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-004",
+    "startSeconds": 21.534685782312923,
+    "endSeconds": 24.252113597883596,
+    "startFrame": 646,
+    "endFrame": 728,
+    "text": "第一屏不再让用户自己搭结构"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-004",
+    "startSeconds": 24.252113597883596,
+    "endSeconds": 25.863118888888888,
+    "startFrame": 728,
+    "endFrame": 776,
+    "text": "而是先问要做什么"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-004",
+    "startSeconds": 25.863118888888888,
+    "endSeconds": 28.279626825396825,
+    "startFrame": 776,
+    "endFrame": 848,
+    "text": "再生成卡片、版式和内容初稿"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-005",
+    "startSeconds": 29.116646999999997,
+    "endSeconds": 30.628188950113376,
+    "startFrame": 873,
+    "endFrame": 919,
+    "text": "接着改文字、换版式"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-005",
+    "startSeconds": 30.628188950113376,
+    "endSeconds": 32.13973090022675,
+    "startFrame": 919,
+    "endFrame": 964,
+    "text": "再发成链接给同事"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-005",
+    "startSeconds": 32.13973090022675,
+    "endSeconds": 33.671567634920635,
+    "startFrame": 964,
+    "endFrame": 1010,
+    "text": "变化就在第一步"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-005",
+    "startSeconds": 33.671567634920635,
+    "endSeconds": 36.33084881405895,
+    "startFrame": 1010,
+    "endFrame": 1090,
+    "text": "用户先跨过空白页再继续修改"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-006",
+    "startSeconds": 37.175876,
+    "endSeconds": 39.28997123809524,
+    "startFrame": 1115,
+    "endFrame": 1179,
+    "text": "AI 版发布后的最初几天"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-006",
+    "startSeconds": 39.28997123809524,
+    "endSeconds": 41.211876000000004,
+    "startFrame": 1179,
+    "endFrame": 1236,
+    "text": "创始人称日注册从数百"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-006",
+    "startSeconds": 41.211876000000004,
+    "endSeconds": 43.90254266666667,
+    "startFrame": 1236,
+    "endFrame": 1317,
+    "text": "升到约一万之后主要靠口碑传播"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-007",
+    "startSeconds": 44.702564,
+    "endSeconds": 46.098224654545454,
+    "startFrame": 1341,
+    "endFrame": 1383,
+    "text": "它改掉的，是用户"
+  },
+  {
+    "index": 24,
+    "sceneId": "seg-007",
+    "startSeconds": 46.098224654545454,
+    "endSeconds": 47.668342890909095,
+    "startFrame": 1383,
+    "endFrame": 1430,
+    "text": "开始创作前的那一步"
+  },
+  {
+    "index": 25,
+    "sceneId": "seg-007",
+    "startSeconds": 47.668342890909095,
+    "endSeconds": 48.715088381818184,
+    "startFrame": 1430,
+    "endFrame": 1461,
+    "text": "到 2025 年"
+  },
+  {
+    "index": 26,
+    "sceneId": "seg-007",
+    "startSeconds": 48.715088381818184,
+    "endSeconds": 49.936291454545454,
+    "startFrame": 1461,
+    "endFrame": 1498,
+    "text": "公司公布 ARR"
+  },
+  {
+    "index": 27,
+    "sceneId": "seg-007",
+    "startSeconds": 49.936291454545454,
+    "endSeconds": 50.98303694545454,
+    "startFrame": 1498,
+    "endFrame": 1529,
+    "text": "超过一亿美元"
+  },
+  {
+    "index": 28,
+    "sceneId": "seg-007",
+    "startSeconds": 50.98303694545454,
+    "endSeconds": 52.90207034545455,
+    "startFrame": 1529,
+    "endFrame": 1587,
+    "text": "完成六千八百万美元 B 轮"
+  },
+  {
+    "index": 29,
+    "sceneId": "seg-007",
+    "startSeconds": 52.90207034545455,
+    "endSeconds": 54.297731,
+    "startFrame": 1587,
+    "endFrame": 1629,
+    "text": "估值二十一亿美元"
+  }
+]

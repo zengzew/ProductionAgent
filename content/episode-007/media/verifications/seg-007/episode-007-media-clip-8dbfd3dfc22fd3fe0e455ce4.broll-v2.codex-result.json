@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "923beaa93586af6f5b10a297b007bbf67dc9d8e56d78212bbc66fa74e0729660",
+  "completedAt": "2026-08-31T03:34:00.000Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.58,
+    "claimMatch": 0.1,
+    "visualQuality": 0.9,
+    "misleadingRisk": 0.08,
+    "observedActions": [
+      "the cursor selects Gamma's Share control",
+      "the product presents a clear sharing entry point for the finished work"
+    ],
+    "observedEntities": ["Gamma"],
+    "observedText": ["Share"],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 4000,
+    "reasons": [
+      "The official Share clip gives the ending a real product completion state rather than a full-screen data card.",
+      "It does not establish ARR, financing, or valuation, but those sourced figures are separate brief overlays and the B-roll does not contradict them."
+    ]
+  }
+}

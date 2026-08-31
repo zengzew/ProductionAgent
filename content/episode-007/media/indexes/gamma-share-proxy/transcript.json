@@ -1,0 +1,37 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-007:media:gamma-share-proxy",
+    "createdAt": "2026-08-28T14:27:31.362Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-share-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "253448635521322b510db8af0826a859dc1c53fefe66c0ed339dafb238288552",
+    "sizeBytes": 1023906
+  },
+  "asrVersion": "none",
+  "availability": "unavailable",
+  "durationMs": 10000,
+  "episodeId": "episode-007",
+  "mediaId": "episode-007:media:gamma-share-proxy",
+  "model": null,
+  "provider": "none",
+  "schemaVersion": "media-transcript-v1",
+  "segments": [],
+  "sourceMediaRef": {
+    "artifactId": "episode-007:media:gamma-share-proxy",
+    "createdAt": "2026-08-28T14:27:31.362Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-share-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "253448635521322b510db8af0826a859dc1c53fefe66c0ed339dafb238288552",
+    "sizeBytes": 1023906
+  },
+  "toolVersion": "media-asr-v1",
+  "unavailableReason": "no-asr-provider-configured"
+}

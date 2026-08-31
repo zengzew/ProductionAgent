@@ -27,6 +27,22 @@ scores, routes, invalidation, checkpoints, and replay decisions are deterministi
 
 Default CI MUST be credential-free and network-free.
 
+## Execution layers
+
+These layers decide _when_ to run tests. They do not replace the schema/policy
+tables below, and they do not prove creative quality.
+
+| Layer                 | Trigger                                           | Content                                                           |
+| --------------------- | ------------------------------------------------- | ----------------------------------------------------------------- |
+| Fast                  | Every local change                                | Format, types, affected unit tests, schema. `pnpm test:affected`. |
+| Contract              | PR or rights/hash/checkpoint/resume/media changes | One Vitest coverage run in CI. Do not also run `pnpm test`.       |
+| Production acceptance | New Episode or release                            | Real media, real TTS, render, Codex inspection, human approval.   |
+
+Mechanical checks (banned-word regex, hook punctuation, score fields) belong to
+Fast/Contract. They MUST NOT be reported as evidence that the video will retain
+viewers. Mapping lives in `src/orchestration/affected-tests.ts`. See
+[`verification-layers.md`](verification-layers.md).
+
 ## Fixture layout
 
 When implemented, fixtures SHOULD use:
@@ -333,6 +349,7 @@ records. Unknown model, token, cost, duration, and historical revisions remain e
 Run existing repository commands against the fixture layout:
 
 ```bash
+pnpm validate:episode -- --profile production
 pnpm validate:research
 pnpm validate:workflow
 pnpm validate:story
@@ -340,7 +357,9 @@ pnpm validate:content
 pnpm validate:delivery
 ```
 
-No new contract implementation may break these entry points without an explicit versioned migration.
+`validate:episode` is the command-layer merge (`fast` / `production` / `release`).
+The independent `validate:*` entry points MUST remain. No new contract
+implementation may break them without an explicit versioned migration.
 
 ### `LEGACY-005`
 

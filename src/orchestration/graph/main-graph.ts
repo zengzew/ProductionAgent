@@ -1,8 +1,13 @@
 import {agentNames, type AgentExecutionRequest, type AgentName} from "../schemas/agent";
 import type {AgentRunner} from "../agents/run-agent";
 import type {ArtifactIndex, ArtifactRef} from "../schemas/artifact";
-import {hashArtifactInputs, stableEventId, type ExecutionEventSink} from "../observability";
-import type {ExecutionEvent} from "../schemas/execution-event";
+import {
+  ExecutionLogIntegrityError,
+  hashArtifactInputs,
+  stableEventId,
+  type ExecutionEventSink,
+} from "../observability";
+import {observabilityEventSchema, type ExecutionEvent} from "../schemas/execution-event";
 import type {CacheEvent} from "../schemas/cache-event";
 import {assertReferenceOnlyState, type ProductionState} from "../state";
 import {
@@ -78,21 +83,38 @@ const promptControlArtifact = (artifacts: Record<string, ArtifactRef>): Artifact
   return ref;
 };
 
-const refsForContentGate = (state: ProductionState): ArtifactRef[] =>
-  Object.values(state.artifacts)
-    .filter(
-      (ref) =>
-        !ref.artifactId.includes(":control:") &&
-        !ref.path.includes("/production/") &&
-        !ref.path.includes("/_manifest/") &&
-        ref.artifactId !== state.contentManifestRef?.artifactId,
-    )
-    .sort((left, right) => left.artifactId.localeCompare(right.artifactId));
-
-const refsForFinalGate = (state: ProductionState): ArtifactRef[] =>
-  Object.values(state.artifacts).sort((left, right) =>
+const latestRefsByArtifactId = (refs: readonly ArtifactRef[]): ArtifactRef[] => {
+  const latest = new Map<string, ArtifactRef>();
+  for (const ref of refs) {
+    const previous = latest.get(ref.artifactId);
+    if (
+      !previous ||
+      ref.revision > previous.revision ||
+      (ref.revision === previous.revision && ref.createdAt > previous.createdAt)
+    ) {
+      latest.set(ref.artifactId, ref);
+    }
+  }
+  return [...latest.values()].sort((left, right) =>
     left.artifactId.localeCompare(right.artifactId),
   );
+};
+
+const refsForContentGate = (state: ProductionState): ArtifactRef[] =>
+  latestRefsByArtifactId(Object.values(state.artifacts)).filter(
+    (ref) =>
+      !ref.artifactId.includes(":control:") &&
+      !ref.artifactId.includes(":delivery:") &&
+      !ref.artifactId.includes(":media") &&
+      !ref.artifactId.includes(":production:") &&
+      !ref.path.includes("/production/") &&
+      !ref.path.includes("/_manifest/") &&
+      !ref.producer.startsWith("production-adapter:") &&
+      ref.artifactId !== state.contentManifestRef?.artifactId,
+  );
+
+const refsForFinalGate = (state: ProductionState): ArtifactRef[] =>
+  latestRefsByArtifactId(Object.values(state.artifacts));
 
 const decisionInputRefs = (decision: HumanDecision): ArtifactRef[] =>
   decision.artifactRefs.filter(
@@ -104,6 +126,17 @@ const decisionInputRefs = (decision: HumanDecision): ArtifactRef[] =>
           edit.after.sha256 === ref.sha256,
       ),
   );
+
+const refsForDecisionSeed = (
+  gateRefs: readonly ArtifactRef[],
+  decision: HumanDecision,
+): ArtifactRef[] => {
+  const editedArtifactIds = new Set(decision.edits.map((edit) => edit.artifactId));
+  return [
+    ...gateRefs.filter((ref) => !editedArtifactIds.has(ref.artifactId)),
+    ...decisionInputRefs(decision),
+  ];
+};
 
 const sameArtifactVersion = (left: ArtifactRef, right: ArtifactRef): boolean =>
   left.artifactId === right.artifactId &&
@@ -296,7 +329,10 @@ export const createFoundationGraph = (input: {
       status: event.status,
     }));
 
-  const assertApprovalObservabilityIfEnabled = (state: ProductionState): void => {
+  const assertApprovalObservabilityIfEnabled = (
+    state: ProductionState,
+    artifactRefs: readonly ArtifactRef[],
+  ): void => {
     if (!input.observability || input.observability.enforce === false) return;
     try {
       assertApprovalObservability({
@@ -310,6 +346,7 @@ export const createFoundationGraph = (input: {
         cacheEventLogPath: input.observability.cacheEventLogPath,
         expectedCacheEventLogSha256: input.observability.expectedCacheEventLogSha256,
         repoRoot: input.observability.repoRoot ?? formalRepoRoot ?? input.repoRoot,
+        approvalScope: {approvalEpoch: state.approvalEpoch, artifactRefs},
       });
     } catch (error) {
       if (error instanceof ObservabilityDegradedError) {
@@ -343,11 +380,22 @@ export const createFoundationGraph = (input: {
     decision: HumanDecision,
   ): ObservabilityEvent | undefined => {
     if (!input.observability) return undefined;
+    const executionId = `${inputState.runId}:human-decision:${decision.decisionId}`;
+    const existing = input.observability
+      .events?.()
+      .find(
+        (event) =>
+          event.eventType === "human-decision.recorded" &&
+          event.eventId === stableEventId(executionId, "human-decision.recorded"),
+      );
+    if (existing?.schemaVersion === "observability-event-v1") {
+      return observabilityEventSchema.parse(existing);
+    }
     const event = createObservabilityControlEvent({
       state: inputState,
       eventType: "human-decision.recorded",
       stage: `human-decision:${decision.gate}`,
-      executionId: `${inputState.runId}:human-decision:${decision.decisionId}`,
+      executionId,
       attempt: 1,
       decisionId: decision.decisionId,
       checkpoint: createObservabilityCheckpoint({
@@ -357,7 +405,7 @@ export const createFoundationGraph = (input: {
         committedAt: decision.timestamp,
       }),
       inputArtifacts: decision.artifactRefs,
-      occurredAt: decision.timestamp,
+      occurredAt: now(),
       executionKind: "human-decision",
       decisionCode: `HUMAN_${decision.gate.toUpperCase().replaceAll("-", "_")}_${decision.decision.toUpperCase().replaceAll("-", "_")}`,
       decisionSummary: decision.reason,
@@ -390,6 +438,24 @@ export const createFoundationGraph = (input: {
   };
 
   const executeNext = async (state: ProductionState) => {
+    const contentAgentsComplete = agentNames
+      .slice(0, -1)
+      .every((candidate) => state.completedAgents.includes(candidate));
+    if (
+      input.production &&
+      contentAgentsComplete &&
+      !state.completedAgents.includes("delivery-critic")
+    ) {
+      if (state.phase === "production_ready") {
+        // Production is complete; fall through so the delivery critic can run.
+      } else if (state.productionAuthorization?.approvalEpoch === state.approvalEpoch) {
+        return input.production(state);
+      } else {
+        // Delivery review is downstream of rendering. With no current content
+        // authorization, let the router return to content approval instead.
+        return {};
+      }
+    }
     const routedOwner = state.pendingHumanRoute?.ownerAgent;
     const routedAgent =
       routedOwner && agentNames.includes(routedOwner as AgentName)
@@ -410,7 +476,20 @@ export const createFoundationGraph = (input: {
     if (!agentName) {
       return state.pendingHumanRoute ? {phase: "production_revision" as const} : {};
     }
-    const attempt = (state.attempts[agentName] ?? 0) + 1;
+    let observedEvents: readonly ExecutionEvent[] = [];
+    try {
+      observedEvents = input.observability?.events?.() ?? [];
+    } catch (error) {
+      if (!(error instanceof ExecutionLogIntegrityError && error.code === "EVENT_LOG_MISSING")) {
+        throw error;
+      }
+    }
+    const observedAttempt =
+      observedEvents.reduce((maximum, event) => {
+        if (event.agentName !== agentName || event.runId !== state.runId) return maximum;
+        return Math.max(maximum, event.attempt);
+      }, 0) ?? 0;
+    const attempt = Math.max(state.attempts[agentName] ?? 0, observedAttempt) + 1;
     const promptRef = promptControlArtifact(state.artifacts);
     const executionId = `${state.runId}:${agentName}:${attempt}`;
     const defaultRequest: AgentExecutionRequest = {
@@ -433,6 +512,36 @@ export const createFoundationGraph = (input: {
     const runnerVersion = input.observability?.runnerVersion ?? "foundation-v1";
     const startedAt = now();
     if (input.observability) {
+      const previousStateAttempt = state.attempts[agentName] ?? 0;
+      const retryAlreadyRecorded =
+        observedAttempt > previousStateAttempt &&
+        input.observability
+          .events?.()
+          .some(
+            (event) =>
+              event.eventType === "retry.scheduled" &&
+              event.stage === `agent:${agentName}` &&
+              event.attempt === observedAttempt &&
+              event.nextAttempt === attempt,
+          );
+      if (observedAttempt > previousStateAttempt && !retryAlreadyRecorded) {
+        input.observability.eventSink(
+          createObservabilityControlEvent({
+            state,
+            eventType: "retry.scheduled",
+            stage: `agent:${agentName}`,
+            executionId: `${state.runId}:${agentName}:${observedAttempt}`,
+            attempt: observedAttempt,
+            nextAttempt: attempt,
+            inputArtifacts,
+            occurredAt: startedAt,
+            executionKind: "deterministic-tool",
+            agentName,
+            decisionCode: "RETRY_SCHEDULED",
+            decisionSummary: `agent:${agentName} retry scheduled after unresolved external output`,
+          }),
+        );
+      }
       const inputSetHash = hashArtifactInputs(inputArtifacts);
       const startedEvent = createStageStartedEvent({
         state,
@@ -712,6 +821,13 @@ export const createFoundationGraph = (input: {
 
   const contentApproval = (state: ProductionState) => {
     const artifactRefs = refsForContentGate(state);
+    if (
+      formalHumanDecision &&
+      state.gates["content-approval"] === "pass" &&
+      state.productionAuthorization?.approvalEpoch === state.approvalEpoch
+    ) {
+      return {};
+    }
     const payload = {
       gate: "content-approval",
       episodeId: state.episodeId,
@@ -721,8 +837,37 @@ export const createFoundationGraph = (input: {
       reviewStartedAt: decisionNow,
       decisionOptions: ["approve", "reject", "direct-edit"] as const,
     };
-    const resumeValue = pauseForStubApproval(payload);
+    let resumeValue = pauseForStubApproval(payload);
     if (!formalHumanDecision) return {phase: "frozen" as const};
+    let resumedDecision = humanDecisionSchema.safeParse(resumeValue);
+    if (
+      resumedDecision.success &&
+      resumedDecision.data.gate !== "content-approval" &&
+      humanDecisionIsProcessed(state, resumedDecision.data.decisionId)
+    ) {
+      resumeValue = pauseForStubApproval(payload);
+      resumedDecision = humanDecisionSchema.safeParse(resumeValue);
+    }
+    if (
+      resumedDecision.success &&
+      humanDecisionIsProcessed(state, resumedDecision.data.decisionId)
+    ) {
+      const decisionRef = state.approvals[resumedDecision.data.decisionId]?.decisionRef;
+      if (!decisionRef) throw new Error("HUMAN_DECISION_REPLAY_REFERENCE_MISSING");
+      assertHumanDecisionReplay({
+        repoRoot: formalRepoRoot!,
+        decision: resumedDecision.data,
+        decisionRef,
+      });
+      return {};
+    }
+    if (
+      state.gates["content-approval"] === "pass" &&
+      state.productionAuthorization?.approvalEpoch === state.approvalEpoch &&
+      (!resumedDecision.success || humanDecisionIsProcessed(state, resumedDecision.data.decisionId))
+    ) {
+      return {};
+    }
     const decision = readFormalDecision({
       value: resumeValue,
       gate: "content-approval",
@@ -734,17 +879,20 @@ export const createFoundationGraph = (input: {
       refs: refsForDecisionCurrentBytes(decision),
     });
     if (humanDecisionIsProcessed(state, decision.decisionId)) {
-      const decisionRef = state.approvals[decision.decisionId]?.decisionRef;
+      const approval = state.approvals[decision.decisionId];
+      const decisionRef = approval?.decisionRef;
       if (!decisionRef) throw new Error("HUMAN_DECISION_REPLAY_REFERENCE_MISSING");
       assertHumanDecisionReplay({repoRoot: formalRepoRoot!, decision, decisionRef});
-      return {};
+      return approval.decision === "reject" || approval.decision === "direct-edit"
+        ? {phase: "production_revision" as const}
+        : {};
     }
-    if (decision.decision === "approve") assertApprovalObservabilityIfEnabled(state);
+    if (decision.decision === "approve") assertApprovalObservabilityIfEnabled(state, artifactRefs);
     const decisionEvent = recordHumanDecisionEvent(state, decision);
     const seededIndex = ensureArtifactIndexForRefs({
       repoRoot: formalRepoRoot!,
       episodeId: state.episodeId,
-      refs: [...artifactRefs, ...decisionInputRefs(decision)],
+      refs: refsForDecisionSeed(artifactRefs, decision),
       artifactIndex: input.humanDecision?.artifactIndex,
       executionId: `human-decision:${decision.decisionId}:inputs`,
     });
@@ -799,7 +947,8 @@ export const createFoundationGraph = (input: {
         ...base,
         phase: "content_eval" as const,
         approvalEpoch: state.approvalEpoch + 1,
-        gates: {"content-approval": "fail" as const},
+        // The previous approval remains an immutable historical fact. Advancing the
+        // epoch invalidates its production authorization and forces a fresh gate.
         artifacts: Object.fromEntries(
           [persisted.decisionRef, ...applied.changedArtifactRefs].map((ref) => [
             ref.artifactId,
@@ -865,8 +1014,19 @@ export const createFoundationGraph = (input: {
       reviewStartedAt: decisionNow,
       decisionOptions: ["approve", "reject", "direct-edit"] as const,
     };
-    const resumeValue = pauseForStubApproval(payload);
+    let resumeValue = pauseForStubApproval(payload);
     if (!formalHumanDecision) return {phase: "final_approval" as const};
+    if (
+      resumeValue &&
+      typeof resumeValue === "object" &&
+      !Array.isArray(resumeValue) &&
+      (resumeValue as Record<string, unknown>).kind === "external-capability-resolved"
+    ) {
+      // A nested capability interrupt and this outer human gate can share one
+      // node execution. Consume the internal marker at interrupt index 0, then
+      // create a distinct interrupt index for the actual HumanDecision.
+      resumeValue = pauseForStubApproval(payload);
+    }
     const decision = readFormalDecision({
       value: resumeValue,
       gate: "final-approval",
@@ -883,12 +1043,12 @@ export const createFoundationGraph = (input: {
       assertHumanDecisionReplay({repoRoot: formalRepoRoot!, decision, decisionRef});
       return {};
     }
-    if (decision.decision === "approve") assertApprovalObservabilityIfEnabled(state);
+    if (decision.decision === "approve") assertApprovalObservabilityIfEnabled(state, artifactRefs);
     const decisionEvent = recordHumanDecisionEvent(state, decision);
     const seededIndex = ensureArtifactIndexForRefs({
       repoRoot: formalRepoRoot!,
       episodeId: state.episodeId,
-      refs: [...artifactRefs, ...decisionInputRefs(decision)],
+      refs: refsForDecisionSeed(artifactRefs, decision),
       artifactIndex: input.humanDecision?.artifactIndex,
       executionId: `human-decision:${decision.decisionId}:inputs`,
     });
@@ -939,9 +1099,12 @@ export const createFoundationGraph = (input: {
         existingLockedRanges: state.lockedRanges,
         executionId: `human-decision:${decision.decisionId}`,
       });
+      const changesFrozenContent = decision.edits.some(
+        (edit) => edit.owner !== "production-executor",
+      );
       return {
         ...base,
-        phase: "production_revision" as const,
+        phase: changesFrozenContent ? ("content_eval" as const) : ("production_revision" as const),
         approvalEpoch: state.approvalEpoch + 1,
         gates: {"final-approval": "fail" as const},
         artifacts: Object.fromEntries(
@@ -1034,7 +1197,15 @@ export const createFoundationGraph = (input: {
     return {
       phase: result.state.phase,
       round: result.state.round,
-      artifacts: result.state.artifacts,
+      artifacts: {
+        ...result.state.artifacts,
+        ...Object.fromEntries(
+          result.state.evaluations.map((evaluation) => [
+            evaluation.resultRef.artifactId,
+            evaluation.resultRef,
+          ]),
+        ),
+      },
       evaluations: result.state.evaluations,
       issues: result.state.issues,
       gates: result.state.gates,
@@ -1085,22 +1256,49 @@ export const createFoundationGraph = (input: {
         ? "final_approval"
         : "content_approval";
     },
+    afterInitialize: (state) => {
+      if (
+        state.phase === "content_eval" &&
+        state.productionAuthorization?.approvalEpoch !== state.approvalEpoch
+      ) {
+        return "content_approval";
+      }
+      if (state.completedAgents.includes("delivery-critic")) return "final_approval";
+      if (state.productionAuthorization?.approvalEpoch === state.approvalEpoch) {
+        return "production";
+      }
+      return "execute_agent";
+    },
     afterContentLoop: () => "content_approval",
     afterContentApproval: (state) =>
       formalHumanDecision && state.productionAuthorization?.approvalEpoch === state.approvalEpoch
         ? "production"
         : "execute_agent",
-    afterFinalApproval: (state) =>
-      !formalHumanDecision ||
-      Object.values(state.approvals).some(
-        (approval) =>
-          approval.gate === "final-approval" &&
-          approval.status === "approved" &&
-          approval.decision === "approve" &&
-          approval.approvalEpoch === state.approvalEpoch,
-      )
+    afterFinalApproval: (state) => {
+      if (state.phase === "content_eval") return "content_approval";
+      if (
+        state.phase === "production_revision" ||
+        (state.gates["final-approval"] === "fail" &&
+          Object.values(state.approvals).some(
+            (approval) =>
+              approval.gate === "final-approval" &&
+              approval.decision !== "approve" &&
+              approval.approvalEpoch === state.approvalEpoch,
+          ))
+      ) {
+        return "production";
+      }
+      return !formalHumanDecision ||
+        Object.values(state.approvals).some(
+          (approval) =>
+            approval.gate === "final-approval" &&
+            approval.status === "approved" &&
+            approval.decision === "approve" &&
+            approval.approvalEpoch === state.approvalEpoch,
+        )
         ? "finalize"
-        : "final_approval",
+        : "final_approval";
+    },
     production: input.production,
     afterProduction: input.afterProduction,
     checkpointer: input.checkpointer,

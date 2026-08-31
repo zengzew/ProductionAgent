@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "d7c77e8e9a7cba540e8c46546a16489dec0704c73f10033510be46143fc0566b",
+  "completedAt": "2026-08-30T04:22:00.000Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.9,
+    "claimMatch": 0.65,
+    "visualQuality": 0.9,
+    "misleadingRisk": 0.08,
+    "observedActions": [
+      "Gamma onboarding shows Paste in text, Generate, and Import file or URL choices",
+      "the pointer selects Generate",
+      "the interface opens the Generate prompt"
+    ],
+    "observedEntities": ["Gamma"],
+    "observedText": [
+      "Get started with AI",
+      "Generate",
+      "Start with a prompt and we'll take care of the rest"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 4000,
+    "reasons": [
+      "The bounded official Gamma product clip is sharp, legible, and visually usable as labelled product-demo B-roll.",
+      "It directly shows the Generate entry flow and does not create a contradiction with the narration."
+    ]
+  }
+}

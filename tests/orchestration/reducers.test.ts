@@ -8,7 +8,9 @@ import {
   mergeCompletedAgents,
   mergeEvaluationSummaries,
   mergeEventSummaries,
+  mergeGates,
   mergeMax,
+  mergeMediaStageSummaries,
   mergeNumberMap,
   mergeOptionalArtifactRef,
   mergeOptionalImmutable,
@@ -119,5 +121,30 @@ describe("M1.2 ProductionState reducer properties", () => {
     expect(() => mergeArtifactRefs({script: right}, {script: left})).toThrow(/revision collision/u);
     expect(() => mergeStrictRecord({critic: "pass"}, {critic: "fail"})).toThrow(/collision/u);
     expect(() => firstWriteImmutable("run-a", "run-b")).toThrow(/immutable/u);
+  });
+
+  it("lets the retryable delivery gate reflect the latest validation result", () => {
+    expect(mergeGates({delivery: "fail"}, {delivery: "pass"})).toEqual({delivery: "pass"});
+    expect(mergeGates({delivery: "pass"}, {delivery: "fail"})).toEqual({delivery: "fail"});
+    expect(() => mergeGates({"content-approval": "fail"}, {"content-approval": "pass"})).toThrow(
+      /collision/u,
+    );
+  });
+
+  it("converges same-attempt media checkpoints on the newest output revisions", () => {
+    const checkpoint = {
+      stage: "discovery" as const,
+      status: "SUCCEEDED" as const,
+      attempt: 1,
+      inputSetHash: "e".repeat(64),
+      inputArtifacts: [ref("input")],
+      outputArtifacts: [ref("output", 1)],
+      issues: [],
+      decision: {code: "MEDIA_DISCOVERY_READY", summary: "ready"},
+    };
+    const updated = {...checkpoint, outputArtifacts: [ref("output", 2)]};
+    const merged = mergeMediaStageSummaries({discovery: checkpoint}, {discovery: updated});
+    expect(merged.discovery?.outputArtifacts[0]?.revision).toBe(2);
+    expect(mergeMediaStageSummaries({discovery: updated}, {discovery: checkpoint})).toEqual(merged);
   });
 });

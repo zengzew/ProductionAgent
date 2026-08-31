@@ -146,6 +146,19 @@ Changing mtime, rerunning an agent, or changing chat state does not invalidate a
 any dependency bytes does. If an upstream artifact later returns to the exact recorded SHA-256, the
 dependent artifact MAY become valid again after schema and gate validation; no model rerun is needed.
 
+## Hash verification boundaries
+
+Full SHA-256 of file bytes is required at four trust boundaries:
+
+1. External input (new bytes published as an ArtifactRef, including media ingest)
+2. Checkpoint resume
+3. Pre-render
+4. Final approval
+
+Inside one process, later nodes MAY reuse a digest that was already computed for
+the same path, size, mtime and inode. They MUST NOT treat that reuse as a new
+trust boundary. See [`verification-layers.md`](verification-layers.md).
+
 ## Invalidation algorithm
 
 Invalidation is deterministic and transitive:

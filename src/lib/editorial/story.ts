@@ -169,8 +169,7 @@ export const retentionGateSchema = z.object({
   ]),
 });
 
-export const criticGateSchema = z.object({
-  rubricVersion: z.literal("product-story-v4"),
+const criticGateBaseSchema = z.object({
   reviewedFile: z.literal("story/final-script.md"),
   reviewedSha256: z.string().regex(/^[a-f0-9]{64}$/u),
   round: z.number().int().positive(),
@@ -195,6 +194,50 @@ export const criticGateSchema = z.object({
   rewriteRequired: z.boolean(),
   returnTo: z.enum(["none", "story-director", "script-writer", "oral-rewriter"]),
 });
+
+const criticGateV4Schema = criticGateBaseSchema.extend({
+  rubricVersion: z.literal("product-story-v4"),
+});
+
+const segmentIdSchema = z.string().regex(/^seg-[a-z0-9-]+$/u);
+
+const criticGateV5Schema = criticGateBaseSchema.extend({
+  rubricVersion: z.literal("product-story-v5"),
+  comprehensionEvidence: z.object({
+    openingPayoff: z.object({
+      segmentId: segmentIdSchema,
+      value: z.string().min(4),
+      claimIds: z.array(z.string().regex(/^claim-[a-z0-9-]+$/u)).min(1),
+    }),
+    productMentalModel: z.object({
+      establishedBySegmentId: segmentIdSchema,
+      plainLanguage: z.string().min(8),
+      user: z.string().min(2),
+      situation: z.string().min(2),
+      output: z.string().min(2),
+    }),
+    firstProblemTurnSegmentId: segmentIdSchema,
+    mechanism: z.object({
+      explainedBySegmentId: segmentIdSchema,
+      priorFriction: z.string().min(4),
+      changedFirstAction: z.string().min(4),
+      userBenefit: z.string().min(4),
+    }),
+    informationGains: z
+      .array(
+        z.object({
+          segmentId: segmentIdSchema,
+          gain: z.string().min(4),
+        }),
+      )
+      .min(1),
+  }),
+});
+
+export const criticGateSchema = z.discriminatedUnion("rubricVersion", [
+  criticGateV4Schema,
+  criticGateV5Schema,
+]);
 
 export const oralReviewV1GateSchema = z.object({
   rubricVersion: z.literal("oral-review-v1"),

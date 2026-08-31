@@ -87,6 +87,9 @@ story/oral-review.md
 - `turnDirection`：转折词的预期与褒贬方向是否明确。
 - `sentenceCadence`：句长与结构是否错开，是否出现海报短句或整齐节拍。
 - `spokenBreath`：标点、停顿和换气是否能按目标语速自然读出。
+- `spokenBreath` 还必须检查 TTS 口语化预处理：四位年份应逐字读作“二零二五年”而
+  不是“两千零二十五年”；此检查只改变送入语音模型的文本，不得改写字幕、Claim 或
+  指标数字。
 - `informationFidelity`：初稿、最终稿、Claim、来源等级与事实边界是否一致。
 
 FAIL 表示必须修改才能保证首遍理解或信息保真，不表示“存在任何瑕疵”。任一项 FAIL

@@ -21,6 +21,12 @@ export const mergePhase = (
   current: ProductionState["phase"],
   update: ProductionState["phase"],
 ): ProductionState["phase"] => {
+  if (
+    current === "halted" &&
+    (update === "production_revision" || update === "production_ready")
+  ) {
+    return update;
+  }
   if (current === "unfreeze_review" && update === "frozen") return update;
   if (
     current === "content_approval" &&
@@ -28,7 +34,22 @@ export const mergePhase = (
   ) {
     return update;
   }
-  if (current === "final_approval" && update === "production_revision") return update;
+  if (
+    update === "content_eval" &&
+    [
+      "frozen",
+      "production",
+      "delivery_eval",
+      "production_revision",
+      "production_ready",
+      "final_approval",
+    ].includes(current)
+  ) {
+    return update;
+  }
+  if (current === "final_approval" && update === "production_revision") {
+    return update;
+  }
   const currentRank = productionPhases.indexOf(current);
   const updateRank = productionPhases.indexOf(update);
   return updateRank > currentRank ? update : current;
@@ -45,6 +66,11 @@ const mergeArtifactRecord = (current: ArtifactRef, update: ArtifactRef): Artifac
       throw new Error(`artifact revision collision for ${current.artifactId}`);
     }
     if (!stableJsonEqual(current, update)) {
+      const currentWithoutCreatedAt = {...current, createdAt: ""};
+      const updateWithoutCreatedAt = {...update, createdAt: ""};
+      if (stableJsonEqual(currentWithoutCreatedAt, updateWithoutCreatedAt)) {
+        return current.createdAt.localeCompare(update.createdAt) <= 0 ? current : update;
+      }
       throw new Error(`artifact reference collision for ${current.artifactId}`);
     }
     return current;
@@ -166,6 +192,28 @@ export const mergeStrictRecord = <T>(
   );
 };
 
+/** Delivery is a retryable gate; all other gate decisions remain immutable. */
+export const mergeGates = (
+  current: ProductionState["gates"],
+  update: ProductionState["gates"],
+): ProductionState["gates"] => {
+  const keys = [...new Set([...Object.keys(current), ...Object.keys(update)])].sort();
+  return Object.fromEntries(
+    keys.map((key) => {
+      const left = current[key];
+      const right = update[key];
+      if ((key === "delivery" || key === "final-approval") && right !== undefined) {
+        return [key, right];
+      }
+      if (left !== undefined && right !== undefined && !stableJsonEqual(left, right)) {
+        throw new Error(`state reducer collision for ${key}`);
+      }
+      if (left !== undefined) return [key, left];
+      return [key, right as NonNullable<typeof right>];
+    }),
+  );
+};
+
 /** Media graph decisions are retry checkpoints; other decisions remain strict. */
 export const mergeDecisionSummaries = <T>(
   current: Record<string, T>,
@@ -264,6 +312,23 @@ export const mergeMediaStageSummaries = (
         return [key, left];
       }
       if (!stableJsonEqual(left, validatedRight)) {
+        const leftWithoutOutputs = {...left, outputArtifacts: []};
+        const rightWithoutOutputs = {...validatedRight, outputArtifacts: []};
+        if (stableJsonEqual(leftWithoutOutputs, rightWithoutOutputs)) {
+          const mergedOutputs = mergeArtifactRefs(
+            Object.fromEntries(left.outputArtifacts.map((ref) => [ref.artifactId, ref])),
+            Object.fromEntries(validatedRight.outputArtifacts.map((ref) => [ref.artifactId, ref])),
+          );
+          return [
+            key,
+            mediaGraphStageCheckpointSchema.parse({
+              ...left,
+              outputArtifacts: Object.values(mergedOutputs).sort((a, b) =>
+                a.artifactId.localeCompare(b.artifactId),
+              ),
+            }),
+          ];
+        }
         throw new Error(`media stage checkpoint collision for ${key}`);
       }
       return [key, left];
@@ -329,6 +394,13 @@ export const mergeProductionRepair = (
   }
   if (right.round > left.round) return right;
   if (right.round < left.round) return left;
+  if (
+    left.status === "human-escalation" &&
+    right.status === "production-ready" &&
+    right.decision.code === "PRODUCTION_READY"
+  ) {
+    return right;
+  }
   const leftRank = productionRepairStatusRank[left.status];
   const rightRank = productionRepairStatusRank[right.status];
   if (rightRank > leftRank) return right;

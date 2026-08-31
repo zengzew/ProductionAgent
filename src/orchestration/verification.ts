@@ -2,14 +2,25 @@ import fs from "node:fs";
 import path from "node:path";
 import {spawn} from "node:child_process";
 import crypto from "node:crypto";
+import {
+  affectedTestsFor,
+  inferVerificationLayer,
+  isFullSuitePath,
+  pathNeedsTypecheck,
+  type VerificationLayer,
+} from "./affected-tests";
 
-export type VerificationCheckName =
-  | "typecheck"
-  | "related-vitest"
-  | "orchestration-tests"
-  | "benchmark-tests"
-  | "review-promotion-tests"
-  | "full-test";
+export type {VerificationLayer} from "./affected-tests";
+export {
+  affectedTestsFor,
+  buildChangeScope,
+  episodeIdsFromPaths,
+  inferVerificationLayer,
+  isFullSuitePath,
+  pathNeedsTypecheck,
+} from "./affected-tests";
+
+export type VerificationCheckName = "typecheck" | "related-vitest" | "full-test";
 
 export type VerificationCommand = {
   name: VerificationCheckName;
@@ -20,8 +31,10 @@ export type VerificationCommand = {
 
 export type VerificationPlan = {
   changedPaths: string[];
+  layer: VerificationLayer;
   highRisk: boolean;
   fullSuiteRequired: boolean;
+  affectedTests: string[];
   commands: VerificationCommand[];
 };
 
@@ -60,103 +73,36 @@ const maxOutputBytes = 8_000;
 
 const normalizePath = (value: string): string => value.split(path.sep).join("/");
 
-const isPathIn = (value: string, prefix: string): boolean =>
-  value === prefix || value.startsWith(`${prefix}/`);
-
 const dedupe = (values: readonly string[]): string[] => [...new Set(values)].sort();
-
-const isHighRiskPath = (value: string): boolean =>
-  isPathIn(value, "src/orchestration") ||
-  isPathIn(value, "src/lib/editorial") ||
-  isPathIn(value, "src/editorial-calibration") ||
-  isPathIn(value, "config") ||
-  value === "package.json" ||
-  value === "pnpm-lock.yaml" ||
-  value === "pnpm-workspace.yaml" ||
-  value.startsWith("scripts/benchmark-") ||
-  value.startsWith("tests/orchestration/");
-
-const relatedTestPaths = (changedPaths: readonly string[]): string[] => {
-  const tests = new Set<string>();
-  for (const changed of changedPaths) {
-    if (changed.startsWith("tests/") && changed.endsWith(".test.ts")) tests.add(changed);
-    if (
-      changed.includes("role-model") ||
-      changed.includes("benchmark") ||
-      changed.includes("role-contract") ||
-      changed.includes("verification")
-    ) {
-      for (const test of [
-        "tests/orchestration/role-model-contract.test.ts",
-        "tests/orchestration/role-model-benchmark.test.ts",
-        "tests/orchestration/role-model-auto.test.ts",
-        "tests/orchestration/role-model-review.test.ts",
-        "tests/orchestration/hosted-agent.test.ts",
-      ]) {
-        tests.add(test);
-      }
-    }
-    if (changed.startsWith("src/orchestration/")) tests.add("tests/orchestration");
-  }
-  return dedupe([...tests]);
-};
 
 export const buildVerificationPlan = (input: {
   changedPaths: readonly string[];
   fullSuite?: boolean;
 }): VerificationPlan => {
   const changedPaths = dedupe(input.changedPaths.map(normalizePath));
-  const highRisk = changedPaths.some(isHighRiskPath);
-  const fullSuiteRequired = Boolean(input.fullSuite || highRisk);
-  const related = relatedTestPaths(changedPaths);
-  const commands: VerificationCommand[] = [
-    {name: "typecheck", command: "pnpm", args: ["typecheck"], required: true},
-  ];
-  if (related.length > 0) {
+  const layer = inferVerificationLayer(changedPaths, {fullSuite: input.fullSuite});
+  const fullSuiteRequired = Boolean(
+    input.fullSuite || changedPaths.some((value) => isFullSuitePath(value)),
+  );
+  const highRisk = layer !== "fast";
+  const affectedTests = fullSuiteRequired ? [] : affectedTestsFor(changedPaths);
+  const needsTypecheck =
+    fullSuiteRequired || changedPaths.some((value) => pathNeedsTypecheck(value));
+  const commands: VerificationCommand[] = [];
+  if (needsTypecheck) {
+    commands.push({name: "typecheck", command: "pnpm", args: ["typecheck"], required: true});
+  }
+  if (fullSuiteRequired) {
+    commands.push({name: "full-test", command: "pnpm", args: ["test"], required: true});
+  } else if (affectedTests.length > 0) {
     commands.push({
       name: "related-vitest",
       command: "pnpm",
-      args: ["exec", "vitest", "run", ...related],
+      args: ["exec", "vitest", "run", ...affectedTests],
       required: true,
     });
   }
-  commands.push(
-    {
-      name: "orchestration-tests",
-      command: "pnpm",
-      args: ["exec", "vitest", "run", "tests/orchestration"],
-      required: true,
-    },
-    {
-      name: "benchmark-tests",
-      command: "pnpm",
-      args: [
-        "exec",
-        "vitest",
-        "run",
-        "tests/orchestration/role-model-contract.test.ts",
-        "tests/orchestration/role-model-benchmark.test.ts",
-        "tests/orchestration/role-model-auto.test.ts",
-      ],
-      required: true,
-    },
-    {
-      name: "review-promotion-tests",
-      command: "pnpm",
-      args: [
-        "exec",
-        "vitest",
-        "run",
-        "tests/orchestration/role-model-review.test.ts",
-        "tests/orchestration/role-model-rollout.test.ts",
-      ],
-      required: true,
-    },
-  );
-  if (fullSuiteRequired) {
-    commands.push({name: "full-test", command: "pnpm", args: ["test"], required: true});
-  }
-  return {changedPaths, highRisk, fullSuiteRequired, commands};
+  return {changedPaths, layer, highRisk, fullSuiteRequired, affectedTests, commands};
 };
 
 const sanitizeOutput = (value: string): string =>

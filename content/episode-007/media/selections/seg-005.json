@@ -1,0 +1,102 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-007:media-visual-slot:seg-005",
+    "createdAt": "2026-08-31T08:20:36.747Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/selections/seg-005.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "b1af67286d2d2f7dc6848bee15ae6304d80513c4ac607c62f5ebf673d0837317",
+    "sizeBytes": 3437
+  },
+  "claimIds": [
+    "claim-gamma-001",
+    "claim-gamma-003",
+    "claim-gamma-006"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.85,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": false
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0,
+      "durationSuitability": 0.1,
+      "misleadingRiskSafety": 0.15,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.15,
+      "verificationClaimMatch": 0,
+      "verificationRelevance": 0.05,
+      "visualIntentFit": 0.15,
+      "visualQuality": 0.25
+    }
+  },
+  "createdAt": "2026-08-31T08:20:36.747Z",
+  "episodeId": "episode-007",
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true,
+    "verificationPassed": true
+  },
+  "reasons": [
+    "segment seg-005 claim-bound with 3 claim(s)",
+    "retrieval result episode-007:media-retrieval:seg-005 produced 11 candidate(s)",
+    "1 candidate(s) carry a valid pass verification",
+    "selected episode-007:media-clip:fc2f29a3d47b78829c7e78e1 score 0.663802 (claimFit=0.500, relevance=0.910, claimMatch=0.760, quality=0.880, risk=0.100, tie-breaker=score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-005",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-gamma-001",
+      "claim-gamma-003",
+      "claim-gamma-006"
+    ],
+    "clipId": "episode-007:media-clip:fc2f29a3d47b78829c7e78e1",
+    "createdAt": "2026-08-31T03:36:57.158Z",
+    "endMs": 4000,
+    "episodeId": "episode-007",
+    "mediaId": "episode-007:media:gamma-edit",
+    "sourceMediaRef": {
+      "artifactId": "episode-007:media:gamma-edit",
+      "createdAt": "2026-08-28T14:26:57.195Z",
+      "episodeId": "episode-007",
+      "mediaType": "video/mp4",
+      "path": "content/episode-007/media/assets/gamma-edit.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+      "sizeBytes": 1968627
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "Edit 视频中改文字和换版式 → Share 视频中发布链接;“先跨过空白页”只做两秒文字叠层,真实操作持续作为背景。"
+  },
+  "selectedType": "real-media",
+  "selectionScore": 0.663802,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-007:media-visual-slot:seg-005",
+  "verificationRef": {
+    "artifactId": "episode-007:media-verification:seg-005-episode-007-media-clip-fc2f29a3d47b78829c7e78e1",
+    "createdAt": "2026-08-31T03:36:57.179Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/verifications/seg-005/episode-007-media-clip-fc2f29a3d47b78829c7e78e1.json",
+    "producer": "media-verification-v1:codex:codex-media-verification-v1",
+    "revision": 5,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "fc88577fe4e3a1f4761c170dc58035e2bd82250135914f88b691f06aa12bc9ea",
+    "sizeBytes": 4598
+  },
+  "visualIntent": "Edit 视频中改文字和换版式 → Share 视频中发布链接;“先跨过空白页”只做两秒文字叠层,真实操作持续作为背景。"
+}

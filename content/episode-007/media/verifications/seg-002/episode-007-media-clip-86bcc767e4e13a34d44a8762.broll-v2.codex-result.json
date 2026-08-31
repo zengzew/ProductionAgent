@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "ced51f931402678d50aea52c4d7223b13b39238c104d177e1eed227442b2f478",
+  "completedAt": "2026-08-31T03:24:00.000Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.95,
+    "claimMatch": 0.88,
+    "visualQuality": 0.9,
+    "misleadingRisk": 0.04,
+    "observedActions": [
+      "the Gamma onboarding interface presents three ways to begin a new project",
+      "the cursor highlights Generate as the prompt-based starting action"
+    ],
+    "observedEntities": [
+      "Gamma"
+    ],
+    "observedText": [
+      "Get started with AI",
+      "Paste in text",
+      "Generate",
+      "Import file or URL"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 4000,
+    "reasons": [
+      "The bounded official Gamma clip clearly establishes the Generate entry point and is sharp enough for product-demo B-roll.",
+      "The visible labels support the narrated one-topic starting action without claiming that this short clip alone proves the full edit-and-share workflow."
+    ]
+  }
+}

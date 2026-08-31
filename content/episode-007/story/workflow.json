@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "director-workflow-v1",
+  "episodeId": "episode-007",
+  "coreStoryQuestion": "估值 21 亿美元、ARR 超过一亿美元的 Gamma，具体改掉了用户开始创作前的哪一步？",
+  "currentStatus": "story-approved",
+  "revisionPolicy": {"maximumCreativeRounds": 3, "scriptChangeRestartsAt": "oral-judge", "visualChangeRestartsAt": "retention-critic"},
+  "stages": [
+    {"id":"research-analyst","owner":"research-analyst","status":"complete","artifacts":["content/episode-007/research/facts.json","content/episode-007/research/sources.json","content/episode-007/research/timeline.json"],"decision":"研究覆盖产品动作、创始人需求、首次发布、AI 重构和市场定价。"},
+    {"id":"story-director","owner":"story-director","status":"complete","artifacts":["content/episode-007/story/director-brief.md","content/episode-007/story/story-bible.md","content/episode-007/story/story-angle.md","content/episode-007/story/three-act-structure.md"],"decision":"先建立具体用户、场景和产物，再进入空白页与第一屏机制。"},
+    {"id":"viral-director","owner":"viral-director","status":"complete","artifacts":["content/episode-007/story/hook-candidates.md","content/episode-007/story/viral-strategy.md"],"decision":"首帧用市场结果提问，三秒后立即解释产品。"},
+    {"id":"script-writer","owner":"script-writer","status":"complete","artifacts":["content/episode-007/story/script-draft.md"],"decision":"按市场结果、使用场景、阻力、机制、工作流、反馈和回答推进。"},
+    {"id":"oral-rewriter","owner":"oral-rewriter","status":"complete","artifacts":["content/episode-007/story/final-script.md"],"decision":"完成目标 60 秒自然中文口播。"},
+    {"id":"oral-judge","owner":"oral-judge","status":"complete","artifacts":["content/episode-007/story/oral-review.md"],"decision":"口播检查通过。"},
+    {"id":"audience-critic","owner":"audience-critic","status":"complete","artifacts":["content/episode-007/story/critic-report.md"],"decision":"v5 结构证据确认产品心智模型早于负面转折，且逐段有独立信息增量。"},
+    {"id":"fact-guardian","owner":"fact-guardian","status":"complete","artifacts":["content/episode-007/story/fact-check-report.md"],"decision":"十二个旁白单元事实通过。"},
+    {"id":"visual-director","owner":"visual-director","status":"complete","artifacts":["content/episode-007/story/visual-plan.md"],"decision":"真实产品视频为主轴，访谈与文章只做 hash 绑定的短叠层。"},
+    {"id":"retention-critic","owner":"retention-critic","status":"complete","artifacts":["content/episode-007/story/retention-report.md"],"decision":"以 94 分批准进入 production revision。"},
+    {"id":"delivery-critic","owner":"delivery-critic","status":"pending","artifacts":[],"decision":"等待真实渲染与 Delivery Critic。"}
+  ],
+  "decisions": [
+    {"id":"decision-core-story-question","owner":"story-director","decision":"解释 21 亿美元估值之前，Gamma 改掉了创作的哪一步。","rationale":"先给市场结果，再回到可见产品动作。","artifact":"content/episode-007/story/director-brief.md","claimIds":["claim-gamma-003","claim-gamma-006","claim-gamma-009"]},
+    {"id":"decision-attention-strategy","owner":"viral-director","decision":"首帧给估值，十一秒内建立用户、场景和产物。","rationale":"结果吸引注意，具体场景保证零背景可懂。","artifact":"content/episode-007/story/viral-strategy.md","claimIds":["claim-gamma-001","claim-gamma-009","claim-gamma-012"]},
+    {"id":"decision-information-draft","owner":"script-writer","decision":"按结果、场景、阻力、机制、工作流、反馈和回答推进。","rationale":"每段必须新增一个判断。","artifact":"content/episode-007/story/script-draft.md","claimIds":[]},
+    {"id":"decision-spoken-delivery","owner":"oral-rewriter","decision":"使用自然中文口播。","rationale":"产品动作优先。","artifact":"content/episode-007/story/final-script.md","claimIds":[]},
+    {"id":"decision-audience-clearance","owner":"audience-critic","decision":"脚本通过观众门。","rationale":"单一矛盾和结果明确。","artifact":"content/episode-007/story/critic-report.md","claimIds":[]},
+    {"id":"decision-factual-clearance","owner":"fact-guardian","decision":"事实与口径通过。","rationale":"没有因果和利润换算。","artifact":"content/episode-007/story/fact-check-report.md","claimIds":[]},
+    {"id":"decision-visual-language","owner":"visual-director","decision":"产品视频全程为底，文章与访谈只短叠。","rationale":"既增加人物和来源，又不回到 PPT 背景。","artifact":"content/episode-007/story/visual-plan.md","claimIds":["claim-gamma-002","claim-gamma-003","claim-gamma-006"]},
+    {"id":"decision-production-readiness","owner":"retention-critic","decision":"以 94 分批准进入 production revision。","rationale":"四个窗口均过门槛且旧审阅问题已消失。","artifact":"content/episode-007/story/retention-report.md","claimIds":[]},
+    {"id":"decision-final-delivery","owner":"delivery-critic","decision":"尚未作出；必须等待真实 MP4 与交付评审。","rationale":"Retention 报告只证明生产就绪，不构成交付批准。","artifact":"content/episode-007/story/retention-report.md","claimIds":[]}
+  ],
+  "reviewCycles": [
+    {"id":"review-audience-round-02","critic":"audience-critic","round":2,"reportPath":"content/episode-007/story/critic-report.md","reportSha256":"f2528af11332b4d7a4fd287a58bdb8a0939dd05186eb6e73876e81cadae0cef7","verdict":"PASS","routes":[]},
+    {"id":"review-retention-revision-01","critic":"retention-critic","round":1,"reportPath":"content/episode-007/story/retention-report.md","reportSha256":"40a01ad9b2b5ee5abce68d3ae747ee8aeca503da27d1baf67959c41c00ec06fd","verdict":"PASS","routes":[]}
+  ]
+}

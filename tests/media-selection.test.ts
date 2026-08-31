@@ -538,11 +538,13 @@ const selectFor = (
     visualIntent: string;
     durationTargetMs?: number | null;
   },
+  config = DEFAULT_VISUAL_SELECTION_CONFIG,
 ): Promise<VisualSlotOutcome> =>
   selectVisualSlotForSegment({
     repoRoot,
     episodeId,
     segment,
+    config,
     now: () => FIXED_NOW,
   });
 
@@ -924,12 +926,19 @@ describe("WP-M5.07 visual slot real-media-first selection", () => {
       windowPassProvider(),
     );
 
-    const slotOutcome = await selectFor(repoRoot, {
-      segmentId: "seg-001",
-      claimIds: ["claim-unrelated"],
-      narration: request.narration,
-      visualIntent: request.visualIntent,
-    });
+    const slotOutcome = await selectFor(
+      repoRoot,
+      {
+        segmentId: "seg-001",
+        claimIds: ["claim-unrelated"],
+        narration: request.narration,
+        visualIntent: request.visualIntent,
+      },
+      {
+        ...DEFAULT_VISUAL_SELECTION_CONFIG,
+        gates: {...DEFAULT_VISUAL_SELECTION_CONFIG.gates, requireClaimEvidence: true},
+      },
+    );
     // High retrieval score + pass verification are NOT enough without claim
     // evidence: real-media-first ≠ real-media-at-all-costs.
     expect(slotOutcome.fallbackType).toBe("REAL_MEDIA_LOW_EVIDENCE_FIT");

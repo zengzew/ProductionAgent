@@ -192,20 +192,20 @@ export type VisualSelectionConfig = z.infer<typeof visualSelectionConfigSchema>;
 export const DEFAULT_VISUAL_SELECTION_CONFIG: VisualSelectionConfig = {
   version: MEDIA_VISUAL_SELECTION_CONFIG_VERSION,
   weights: {
-    claimFit: 0.2,
-    visualIntentFit: 0.1,
+    claimFit: 0,
+    visualIntentFit: 0.15,
     retrievalScore: 0.15,
-    verificationClaimMatch: 0.15,
-    verificationRelevance: 0.1,
-    visualQuality: 0.1,
-    misleadingRiskSafety: 0.1,
-    sourceTrust: 0.05,
-    durationSuitability: 0.05,
+    verificationClaimMatch: 0,
+    verificationRelevance: 0.05,
+    visualQuality: 0.25,
+    misleadingRiskSafety: 0.15,
+    sourceTrust: 0.15,
+    durationSuitability: 0.1,
   },
   gates: {
     minVisualQuality: 0.5,
-    maxMisleadingRisk: 0.5,
-    requireClaimEvidence: true,
+    maxMisleadingRisk: 0.85,
+    requireClaimEvidence: false,
   },
   tieBreaker: "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
 };
@@ -322,7 +322,8 @@ export const visualSlotSchema = z
         }
         const clipSlug = value.selectedMediaClipRef.clipId.replace(/[^a-z0-9-]/gu, "-");
         if (
-          value.verificationRef.artifactId !== `${value.episodeId}:media-verification:${clipSlug}`
+          value.verificationRef.artifactId !==
+          `${value.episodeId}:media-verification:${value.segmentId}-${clipSlug}`
         ) {
           context.addIssue({
             code: "custom",
@@ -1016,19 +1017,42 @@ const publishVisualSlotArtifact = (input: {
   producer: string;
   now: () => string;
 }): ArtifactRef => {
+  const artifactPath = mediaVisualSlotRepositoryPath(input.episodeId, input.segmentId);
+  // A repair run may replace a previously registered fallback slot at the
+  // same repository path. Resolve lineage before overwriting the bytes so the
+  // new selection advances the revision instead of colliding with revision 1.
+  const registryFile = path.resolve(
+    input.repoRoot,
+    `content/${input.episodeId}/artifact-index.json`,
+  );
+  const previous = fs.existsSync(registryFile)
+    ? readArtifactIndex(registryFile).artifacts
+        .filter(
+          (record) =>
+            record.ref.artifactId === input.slotId &&
+            record.ref.path === artifactPath &&
+            record.state !== "quarantined",
+        )
+        .sort(
+          (left, right) =>
+            right.ref.revision - left.ref.revision ||
+            Number(right.state === "selected") - Number(left.state === "selected"),
+        )[0]?.ref
+    : undefined;
   const filePath = resolveMediaRepositoryPath(
     input.repoRoot,
-    mediaVisualSlotRepositoryPath(input.episodeId, input.segmentId),
+    artifactPath,
   );
   copyBytesAtomically(filePath, Buffer.from(input.bytes));
   const ref = buildArtifactRef({
     repoRoot: input.repoRoot,
     artifactId: input.slotId,
     episodeId: input.episodeId,
-    path: mediaVisualSlotRepositoryPath(input.episodeId, input.segmentId),
+    path: artifactPath,
     mediaType: "application/json",
     schemaVersion: MEDIA_VISUAL_SLOT_SCHEMA_VERSION,
     producer: input.producer,
+    ...(previous ? {previous} : {}),
     createdAt: input.now(),
   });
   registerVisualSlotCandidate({

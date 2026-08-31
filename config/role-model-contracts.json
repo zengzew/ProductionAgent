@@ -352,7 +352,7 @@
         "hookPayoffContinuity",
         "redundancy"
       ],
-      "cacheIdentityVersion": "audience-critic-v1",
+      "cacheIdentityVersion": "audience-critic-v2",
       "repairFairness": {
         "candidateOutputRepair": true,
         "sharedInputRepair": false,

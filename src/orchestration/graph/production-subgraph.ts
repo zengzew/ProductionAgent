@@ -30,6 +30,7 @@ import {
   type ProductionStageName,
 } from "../schemas/production";
 import type {ArtifactRef} from "../schemas/artifact";
+import {observabilityEventSchema} from "../schemas/execution-event";
 import {
   artifactRefIsIndexed,
   artifactRefSelectionMatches,
@@ -75,6 +76,11 @@ import {
   createObservabilityControlEvent,
   type ObservabilityEvent,
 } from "../observability-gate";
+import {
+  EXECUTION_LOG_PATH,
+  readExecutionEventLogForAttemptAllocation,
+  stableEventId,
+} from "../observability";
 import {createMediaLifecycle, type MediaLifecycleOptions} from "./media-lifecycle";
 
 export type {MediaLifecycleOptions} from "./media-lifecycle";
@@ -585,6 +591,17 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
     decisionSummary?: string;
   }): ObservabilityEvent | undefined => {
     if (!input.observability) return undefined;
+    const eventId = stableEventId(control.executionId, control.eventType);
+    if (control.state.events.some((event) => event.eventId === eventId)) return undefined;
+    const eventLogPath = path.resolve(input.repoRoot, EXECUTION_LOG_PATH(control.state.episodeId));
+    if (fs.existsSync(eventLogPath)) {
+      const persisted = readExecutionEventLogForAttemptAllocation(eventLogPath).find(
+        (event) => event.eventId === eventId,
+      );
+      if (persisted?.schemaVersion === "observability-event-v1") {
+        return observabilityEventSchema.parse(persisted);
+      }
+    }
     const occurredAt = input.observability.now?.() ?? new Date().toISOString();
     const event = createObservabilityControlEvent({
       state: control.state,
@@ -655,6 +672,17 @@ export const createProductionSubgraph = (input: ProductionSubgraphOptions) => {
     ) {
       return state.productionRepair.forceRerunStage;
     }
+    const recoverableToolFailure = productionStageOrder.find((stage) => {
+      const checkpoint = state.productionStages[stage];
+      return (
+        checkpoint?.status === "FAILED" &&
+        checkpoint.failure?.code === "PRODUCTION_TOOL_FAILED" &&
+        /listen EPERM.*tsx|tsx.*\.pipe|browserType\.launch: Target page, context or browser has been closed|Module not found:.*content\/episode-00[1-3]/isu.test(
+          checkpoint.failure.detail,
+        )
+      );
+    });
+    if (recoverableToolFailure) return recoverableToolFailure;
     if (state.productionRepair.status === "human-escalation") return "production_human_escalation";
     if (state.productionRepair.status === "repairing" && state.productionRepair.route) {
       return state.productionRepair.route.restartAt;

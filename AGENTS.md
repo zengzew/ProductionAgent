@@ -48,6 +48,24 @@ Build an autonomous product storytelling studio that optimizes for audience rete
 前二十秒悬念、每 20～40 秒的信息推进、可复述的核心发现和明确的转发理由；发布后
 再用真实留存、完播、评论和转发数据验证。代理指标不能代替真实发布数据。
 
+机械校验（禁用词正则、Hook 是否有问号、评分字段是否达标）只证明结构符合规则，
+不能证明成片好看或有留存价值。测试全绿不是创意质量证明。
+
+## 验证分层
+
+日常不要把一次小改扩成全量回归。分层以
+[`docs/contracts/verification-layers.md`](docs/contracts/verification-layers.md)
+为准：
+
+| 层级       | 何时                                 | 做什么                                                                                       |
+| ---------- | ------------------------------------ | -------------------------------------------------------------------------------------------- |
+| Fast       | 每次本地修改                         | `pnpm test:affected`；Episode 文件用 `pnpm validate:episode -- --profile fast`               |
+| Contract   | PR 或 hash/checkpoint/media 关键模块 | CI 只跑一次 `pnpm test:coverage`，外加 `validate:episode --profile production`               |
+| Production | 新 Episode / release                 | `validate:episode --profile release` + 真实素材/TTS/render/Codex/人工批准。不要跑全量 Vitest |
+
+ArtifactRef 全量 SHA-256 只在外部输入、checkpoint resume、pre-render、final
+approval 四个边界重算；同一次进程内部节点复用已验证结果。
+
 ## 交付边界
 
 - 当前只交付 1080×1920、9:16 竖屏视频，不渲染横版视频。

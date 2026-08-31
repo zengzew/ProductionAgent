@@ -298,7 +298,11 @@ const parseExecutionLog = (filePath: string): ExecutionEvent[] => {
   return events;
 };
 
-const validateExecutionLogOrder = (events: readonly ExecutionEvent[], episodeId?: string): void => {
+const validateExecutionLogOrder = (
+  events: readonly ExecutionEvent[],
+  episodeId?: string,
+  allowIncompleteLifecycles = false,
+): void => {
   const seen = new Set<string>();
   const perExecution = new Map<
     string,
@@ -321,13 +325,16 @@ const validateExecutionLogOrder = (events: readonly ExecutionEvent[], episodeId?
       throw new ExecutionLogIntegrityError("EVENT_LOG_TAMPERED", event.eventId);
     }
     const occurredAt = Date.parse(event.occurredAt);
-    if (!Number.isFinite(occurredAt) || occurredAt < previousOccurredAt) {
+    if (
+      !Number.isFinite(occurredAt) ||
+      (occurredAt < previousOccurredAt && event.eventType !== "human-decision.recorded")
+    ) {
       throw new ExecutionLogIntegrityError(
         "EVENT_LOG_REORDERED",
         `line ${index + 1} is earlier than the preceding event`,
       );
     }
-    previousOccurredAt = occurredAt;
+    previousOccurredAt = Math.max(previousOccurredAt, occurredAt);
 
     const current = perExecution.get(event.executionId) ?? {
       started: false,
@@ -382,6 +389,7 @@ const validateExecutionLogOrder = (events: readonly ExecutionEvent[], episodeId?
 
   for (const [executionId, execution] of perExecution) {
     if (!execution.started || !execution.terminal) {
+      if (allowIncompleteLifecycles && execution.started && !execution.terminal) continue;
       throw new ExecutionLogIntegrityError(
         "EVENT_LOG_INVALID",
         `execution ${executionId} has no complete lifecycle`,
@@ -393,6 +401,19 @@ const validateExecutionLogOrder = (events: readonly ExecutionEvent[], episodeId?
 export const readExecutionEventLog = (filePath: string): ExecutionEvent[] => {
   const events = parseExecutionLog(filePath);
   validateExecutionLogOrder(events);
+  return events;
+};
+
+/**
+ * Reads an append-only log while a stage may be between execution.started and
+ * its terminal event. Hash, schema, ordering, and duplicate checks stay strict;
+ * only an incomplete lifecycle is tolerated for allocating a higher attempt.
+ */
+export const readExecutionEventLogForAttemptAllocation = (
+  filePath: string,
+): ExecutionEvent[] => {
+  const events = parseExecutionLog(filePath);
+  validateExecutionLogOrder(events, undefined, true);
   return events;
 };
 

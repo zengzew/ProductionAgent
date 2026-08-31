@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "pre-render-gate-v1",
+  "episodeId": "episode-007",
+  "inputSetHash": "0badaf6960b28daa6c51890bb1c6c88adf12a73a9fd8947966f45d7990c8b69a",
+  "checks": {
+    "timelineMatchesScript": true,
+    "hookWithinTarget": true,
+    "firstSceneWithinTarget": true,
+    "captionPlanMatches": true,
+    "captionBoundariesValid": true,
+    "captionDurationsValid": true,
+    "captionOverlapsAbsent": true,
+    "unexpectedGapsAbsent": true
+  },
+  "blockers": [],
+  "verdict": "PASS",
+  "returnTo": "none",
+  "checkedAt": "2026-08-31T08:20:44.984Z"
+}

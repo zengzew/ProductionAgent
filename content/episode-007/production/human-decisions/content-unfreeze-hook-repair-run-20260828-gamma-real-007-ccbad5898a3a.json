@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "content-unfreeze-hook-repair-run-20260828-gamma-real-007",
+  "runId": "run-20260828-gamma-real-007",
+  "gate": "content-approval",
+  "decision": "direct-edit",
+  "reviewer": "zengze",
+  "timestamp": "2026-08-29T00:10:00.000Z",
+  "reason": "用户批准最小 unfreeze：仅修正 seg-001 的明确生成动作与 seg-002 的未解决增长问题；其余事实、来源和媒体权利边界不变。",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-007:story:oral-rewriter-final-script",
+      "episodeId": "episode-007",
+      "path": "content/episode-007/story/final-script.md",
+      "mediaType": "text/markdown",
+      "schemaVersion": "final-script-v1",
+      "revision": 2,
+      "sha256": "483734b02c2ef43ed125c0c1951f8cc6e8c32faff29396c42b144c0caf11723a",
+      "sizeBytes": 7461,
+      "producer": "human:zengze",
+      "createdAt": "2026-08-29T00:10:00.000Z"
+    }
+  ],
+  "approvalEpoch": 1,
+  "authorizations": [
+    {
+      "artifactId": "episode-007:story:oral-rewriter-final-script",
+      "owner": "script-writer"
+    }
+  ],
+  "edits": [
+    {
+      "artifactId": "episode-007:story:oral-rewriter-final-script",
+      "owner": "script-writer",
+      "before": {
+        "artifactId": "episode-007:story:oral-rewriter-final-script",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/final-script.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "final-script-v1",
+        "revision": 1,
+        "sha256": "2449ade487c4bfec013eea2ed2bd90c2bfad3c500b5937833738737a1e2b1db1",
+        "sizeBytes": 7292,
+        "producer": "manual-file:oral-rewriter",
+        "createdAt": "2026-08-28T09:19:04.048Z"
+      },
+      "after": {
+        "artifactId": "episode-007:story:oral-rewriter-final-script",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/final-script.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "final-script-v1",
+        "revision": 2,
+        "sha256": "483734b02c2ef43ed125c0c1951f8cc6e8c32faff29396c42b144c0caf11723a",
+        "sizeBytes": 7461,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-29T00:10:00.000Z"
+      },
+      "changedLocators": [
+        {
+          "kind": "segment",
+          "value": "seg-001"
+        },
+        {
+          "kind": "segment",
+          "value": "seg-002"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "content-unfreeze-hook-repair-run-20260828-gamma-real-007",
+        "timestamp": "2026-08-29T00:10:00.000Z",
+        "approvalEpoch": 1
+      }
+    }
+  ]
+}

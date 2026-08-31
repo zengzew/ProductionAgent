@@ -64,9 +64,14 @@ for (const claim of claims) {
   }
 }
 
-const accessedDates = new Set(sources.map((source) => source.accessedAt));
-if (accessedDates.size !== 1 || !accessedDates.has(episodeConfig.asOf)) {
-  errors.push(`所有来源应记录本次统一访问日期 ${episodeConfig.asOf}`);
+for (const source of sources) {
+  if (!/^\d{4}-\d{2}-\d{2}$/u.test(source.accessedAt)) {
+    errors.push(`${source.id} 的 accessedAt 必须使用 YYYY-MM-DD`);
+  } else if (source.accessedAt < episodeConfig.asOf) {
+    errors.push(
+      `${source.id} 的 accessedAt ${source.accessedAt} 早于本期研究基准日 ${episodeConfig.asOf}`,
+    );
+  }
 }
 
 if (researchTimeline.asOf !== episodeConfig.asOf) {

@@ -1,0 +1,1 @@
+{"command":"scripts/render.ts","episodeId":"episode-007","inputSetHash":"2779e054c6a37450c38c80af6c65d27e9acd28e3a30e4bc588ecb0c62e022ce9","outputPaths":["output/episode-007/smoke_9x16.mp4"],"schemaVersion":"production-stage-receipt-v1","stage":"render:smoke","status":"passed"}

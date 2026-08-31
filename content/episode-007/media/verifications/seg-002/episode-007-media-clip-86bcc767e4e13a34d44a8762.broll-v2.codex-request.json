@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "codex-media-verification-request-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "boundedMediaOnly": true,
+  "episodeId": "episode-007",
+  "segmentId": "seg-002",
+  "clipId": "episode-007:media-clip:86bcc767e4e13a34d44a8762",
+  "claimIds": [
+    "claim-gamma-001",
+    "claim-gamma-006",
+    "claim-gamma-012"
+  ],
+  "claims": [
+    {
+      "id": "claim-gamma-001",
+      "claim": "Gamma 让用户用自然语言想法生成演示文稿、网页和社交内容，并继续编辑与分享。"
+    },
+    {
+      "id": "claim-gamma-006",
+      "claim": "AI 版把第一个动作改成输入演示主题，由 Gamma 先生成一套可编辑初稿。"
+    },
+    {
+      "id": "claim-gamma-012",
+      "claim": "Gamma 官方材料把教育者、创始人和销售团队列为使用者；产品可用于演示文稿、网页和社交内容。"
+    }
+  ],
+  "narration": "做销售提案、课堂讲义或融资路演时,只写一个主题,它先给你一份能编辑、能分享的演示初稿。",
+  "visualIntent": "销售提案主题被输入 → Gamma 生成成套卡片 → Edit 中内容被修改 → Share 中链接入口出现;全程常驻功能演示标签。",
+  "clip": {
+    "path": "content/episode-007/media/verifications/seg-002/episode-007-media-clip-86bcc767e4e13a34d44a8762-clip.mp4",
+    "sha256": "03f2989219e59f1d93a4a5cbf42ed1db6b7ab0b53b066c011df5546a70face98",
+    "sizeBytes": 2363012,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 4000,
+    "sourceMediaId": "episode-007:media:gamma-generate",
+    "sourceMediaSha256": "344febea5580b721116f738d5e9d12c346a33c5f18bd8a2546ce33c5557d2fcf"
+  },
+  "keyframes": [
+    {
+      "path": "content/episode-007/media/indexes/gamma-generate/keyframes/keyframe-0-2000.jpg",
+      "timestampMs": 2000,
+      "sha256": "eee0458cf547315e865b0eecf846e46c947add4d4a15585e0409cd258676a7d1",
+      "sizeBytes": 68563,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "Gamma Generate product interface shows an AI prompt being entered and generation being activated.",
+    "observedText": "",
+    "keywords": [
+      "Gamma",
+      "Generate",
+      "prompt",
+      "presentation",
+      "生成",
+      "输入",
+      "演示",
+      "初稿"
+    ],
+    "entities": [
+      "Gamma"
+    ],
+    "semanticTags": [
+      "产品界面",
+      "提示词生成",
+      "成套卡片",
+      "可编辑演示"
+    ],
+    "speaker": null
+  },
+  "resultContract": {
+    "schemaVersion": "codex-media-verification-result-v1",
+    "envelope": [
+      "executor",
+      "model",
+      "requestHash",
+      "completedAt",
+      "output"
+    ],
+    "output": {
+      "verdict": [
+        "pass",
+        "reject",
+        "uncertain"
+      ],
+      "scores": [
+        "relevance",
+        "claimMatch",
+        "visualQuality",
+        "misleadingRisk"
+      ],
+      "observations": [
+        "observedActions",
+        "observedEntities",
+        "observedText"
+      ],
+      "range": [
+        "recommendedStartMs",
+        "recommendedEndMs"
+      ],
+      "explanation": [
+        "reasons"
+      ]
+    },
+    "instruction": "Inspect only the listed clip and keyframes. Treat the clip as an independent illustrative B-roll track: it does not need to prove, match, or relate to the narration or claims. PASS means the clip is visually usable and does not directly contradict the narration when labeled as product demo/B-roll. Low relevance or claimMatch is allowed. Copy this requestHash into the result envelope; do not alter rights or claim facts."
+  },
+  "requestHash": "ced51f931402678d50aea52c4d7223b13b39238c104d177e1eed227442b2f478"
+}

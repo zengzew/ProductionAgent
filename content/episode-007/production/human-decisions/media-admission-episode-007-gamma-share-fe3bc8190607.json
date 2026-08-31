@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "media-admission-episode-007-gamma-share",
+  "runId": "run-20260828-gamma-real-007",
+  "gate": "media-admission",
+  "decision": "approve",
+  "reviewer": "zengze",
+  "timestamp": "2026-08-28T10:20:00.000Z",
+  "reason": "用户批准该 Gamma 官网官方产品视频用于本地 evaluation 的发现、下载、裁剪和渲染；不对外发布。",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-007:media:source-manifest",
+      "episodeId": "episode-007",
+      "path": "content/episode-007/media/source-manifest.json",
+      "mediaType": "application/json",
+      "schemaVersion": "media-source-manifest-v1",
+      "revision": 1,
+      "sha256": "1b34da3a8166675bb3a0571c3ee0cfe9fee7933d50c545516cd756721f6045de",
+      "sizeBytes": 4931,
+      "producer": "orchestrator:media-discovery",
+      "createdAt": "2026-08-28T10:20:00.000Z"
+    }
+  ],
+  "approvalEpoch": 1,
+  "authorizations": [],
+  "edits": []
+}

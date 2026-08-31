@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "codex-media-verification-request-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "boundedMediaOnly": true,
+  "episodeId": "episode-007",
+  "segmentId": "seg-004",
+  "clipId": "episode-007:media-clip:8b8c04e8cf29b0fef1e68927",
+  "claimIds": [
+    "claim-gamma-004"
+  ],
+  "claims": [
+    {
+      "id": "claim-gamma-004",
+      "claim": "Gamma 首次在 Product Hunt 发布时成为当日第一并获得约一万次注册，但随后增长降温并趋于线性。"
+    }
+  ],
+  "narration": "第一次上 Product Hunt,Gamma 拿到当日第一和约一万注册。联合创始人后来复盘:热度之后,增长还是慢了下来。",
+  "visualIntent": "Product Hunt 当日第一标题卡出现 → 约 10,000 注册放大 → “随后增长降温”来源条高亮。",
+  "clip": {
+    "path": "content/episode-007/media/verifications/seg-004/episode-007-media-clip-8b8c04e8cf29b0fef1e68927-clip.mp4",
+    "sha256": "3b38f8fa46339c448a1e35a1a04736f57e8716c3adb8041db6a48adee65e2c1e",
+    "sizeBytes": 6769760,
+    "mediaType": "video/mp4",
+    "startMs": 8000,
+    "endMs": 12600,
+    "sourceMediaId": "episode-007:media:gamma-generate",
+    "sourceMediaSha256": "344febea5580b721116f738d5e9d12c346a33c5f18bd8a2546ce33c5557d2fcf"
+  },
+  "keyframes": [
+    {
+      "path": "content/episode-007/media/indexes/gamma-generate/keyframes/keyframe-2-10300.jpg",
+      "timestampMs": 10300,
+      "sha256": "169865e9af0a4a1724b939748646d5d1402e9deada2e60af46c34880f6b4844a",
+      "sizeBytes": 133890,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "Gamma shows the generated multi-card eyewear presentation inside its editable product interface.",
+    "observedText": "",
+    "keywords": [
+      "Gamma",
+      "Generate",
+      "prompt",
+      "presentation",
+      "生成",
+      "输入",
+      "演示",
+      "初稿"
+    ],
+    "entities": [
+      "Gamma"
+    ],
+    "semanticTags": [
+      "产品界面",
+      "提示词生成",
+      "成套卡片",
+      "可编辑演示"
+    ],
+    "speaker": null
+  },
+  "resultContract": {
+    "schemaVersion": "codex-media-verification-result-v1",
+    "envelope": [
+      "executor",
+      "model",
+      "requestHash",
+      "completedAt",
+      "output"
+    ],
+    "output": {
+      "verdict": [
+        "pass",
+        "reject",
+        "uncertain"
+      ],
+      "scores": [
+        "relevance",
+        "claimMatch",
+        "visualQuality",
+        "misleadingRisk"
+      ],
+      "observations": [
+        "observedActions",
+        "observedEntities",
+        "observedText"
+      ],
+      "range": [
+        "recommendedStartMs",
+        "recommendedEndMs"
+      ],
+      "explanation": [
+        "reasons"
+      ]
+    },
+    "instruction": "Inspect only the listed clip and keyframes. Copy this requestHash into the result envelope; do not alter rights or claim facts."
+  },
+  "requestHash": "3e2cd782d5c68f3be77bb433343cd6457b6612344da627518f3683688c025733"
+}

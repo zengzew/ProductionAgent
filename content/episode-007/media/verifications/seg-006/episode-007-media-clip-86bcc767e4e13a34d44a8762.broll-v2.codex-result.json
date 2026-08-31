@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "9fea92436b1eadd7f7b77c7b86a63cc8b451019581b6ef4cf08d2a11da6bdf00",
+  "completedAt": "2026-08-31T03:32:00.000Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.42,
+    "claimMatch": 0.08,
+    "visualQuality": 0.9,
+    "misleadingRisk": 0.08,
+    "observedActions": [
+      "the Gamma AI onboarding screen presents Generate as the prompt-based creation path",
+      "the cursor points at the Generate option"
+    ],
+    "observedEntities": ["Gamma"],
+    "observedText": ["Get started with AI", "Generate", "Begin with a prompt"],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 4000,
+    "reasons": [
+      "The official Gamma Generate clip is polished and usable beneath short sourced growth overlays.",
+      "It does not prove the registration figures, but the independent B-roll contract permits low claim match and the footage does not contradict the narration."
+    ]
+  }
+}

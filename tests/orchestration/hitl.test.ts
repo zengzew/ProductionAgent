@@ -314,23 +314,93 @@ describe("WP-M3-04 formal human decisions", () => {
       ),
     ).toThrow(/PRODUCTION_APPROVAL_EPOCH_STALE/u);
 
+    write(fixture.repoRoot, fixture.ref.path, "human revised story after final review\n");
+    const revisedStoryRef = buildArtifactRef({
+      repoRoot: fixture.repoRoot,
+      artifactId: fixture.ref.artifactId,
+      episodeId: fixture.episodeId,
+      path: fixture.ref.path,
+      mediaType: fixture.ref.mediaType,
+      schemaVersion: fixture.ref.schemaVersion,
+      producer: "human:human-reviewer-1",
+      previous: fixture.ref,
+      createdAt: "2026-08-14T00:12:00.000Z",
+    });
+    const contentRevisionPause = await createGraph().invoke(
+      resumeCheckpoint({
+        decisionId: "final-content-edit-1",
+        gate: "final-approval",
+        decision: "direct-edit",
+        reviewer: "human-reviewer-1",
+        timestamp: "2026-08-14T00:12:00.000Z",
+        reason: "final review changes frozen story content",
+        artifactRefs: [
+          ...((finalPayload?.artifactRefs as ArtifactRef[] | undefined) ?? []).filter(
+            (ref) => ref.artifactId !== fixture.ref.artifactId,
+          ),
+          revisedStoryRef,
+        ],
+        approvalEpoch: finalPayload?.approvalEpoch,
+        edits: [
+          {
+            artifactId: fixture.ref.artifactId,
+            owner: "script-writer",
+            before: fixture.ref,
+            after: revisedStoryRef,
+            changedLocators: [{kind: "line-range", value: "1-1"}],
+          },
+        ],
+      }),
+      config,
+    );
+    const revisedContentPayload = (
+      contentRevisionPause as {__interrupt__?: {value: Record<string, unknown>}[]}
+    ).__interrupt__?.[0]?.value;
+    expect(revisedContentPayload).toMatchObject({
+      gate: "content-approval",
+      approvalEpoch: 2,
+    });
+
+    const revisedFinalPause = await createGraph().invoke(
+      resumeCheckpoint({
+        decisionId: "content-approve-2",
+        gate: "content-approval",
+        decision: "approve",
+        reviewer: "human-reviewer-1",
+        timestamp: "2026-08-14T00:13:00.000Z",
+        reason: "revised story content approved for regeneration",
+        artifactRefs: revisedContentPayload?.artifactRefs,
+        approvalEpoch: revisedContentPayload?.approvalEpoch,
+      }),
+      config,
+    );
+    const revisedFinalPayload = (
+      revisedFinalPause as {__interrupt__?: {value: Record<string, unknown>}[]}
+    ).__interrupt__?.[0]?.value;
+    expect(revisedFinalPayload).toMatchObject({gate: "final-approval", approvalEpoch: 3});
+
     const final = await createGraph().invoke(
       resumeCheckpoint({
         decisionId: "final-approve-1",
         gate: "final-approval",
         decision: "approve",
         reviewer: "human-reviewer-1",
-        timestamp: "2026-08-14T00:12:00.000Z",
+        timestamp: "2026-08-14T00:14:00.000Z",
         reason: "final internal approval recorded",
-        artifactRefs: finalPayload?.artifactRefs,
-        approvalEpoch: finalPayload?.approvalEpoch,
+        artifactRefs: revisedFinalPayload?.artifactRefs,
+        approvalEpoch: revisedFinalPayload?.approvalEpoch,
       }),
       config,
     );
     expect(final.phase).toBe("published");
     expect(final.gates["final-approval"]).toBe("pass");
     expect(final.haltReason).toContain("no external publication performed");
-    expect(final.processedDecisionIds).toEqual(["content-approve-1", "final-approve-1"]);
+    expect(final.processedDecisionIds).toEqual([
+      "content-approve-1",
+      "content-approve-2",
+      "final-approve-1",
+      "final-content-edit-1",
+    ]);
     expect(assertReferenceOnlyState(final)).toEqual(final);
   });
 

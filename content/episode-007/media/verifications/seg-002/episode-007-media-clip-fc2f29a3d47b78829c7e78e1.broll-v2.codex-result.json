@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "0c550bab1cd5ab73d8045d85b3bdca9cd1802dc7ac4a08ca235c55a85cf99ace",
+  "completedAt": "2026-08-30T04:24:00.000Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.72,
+    "claimMatch": 0.5,
+    "visualQuality": 0.88,
+    "misleadingRisk": 0.08,
+    "observedActions": ["a Gamma card deck opens", "the pointer opens an AI editing action menu"],
+    "observedEntities": ["Gamma"],
+    "observedText": ["Technological Innovations", "Improve writing"],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 4000,
+    "reasons": [
+      "The bounded official Gamma clip clearly shows an editable generated deck and an AI edit control.",
+      "It is sharp and usable as labelled independent product-demo B-roll without implying evidence for unrelated narration."
+    ]
+  }
+}

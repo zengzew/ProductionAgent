@@ -1,0 +1,121 @@
+{
+  "requestedProvider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "provider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "providerId": "minimax",
+  "fallbackUsed": false,
+  "fallbackReason": "",
+  "generatedAt": "2026-08-28T19:36:15.984Z",
+  "voice": "Chinese (Mandarin)_Reliable_Executive",
+  "speed": 1.65,
+  "pitch": 0,
+  "normalization": "loudnorm I=-16 TP=-1.5 LRA=7",
+  "credentialRequired": true,
+  "networkRequired": true,
+  "alignmentStrategy": "provider-timestamps",
+  "files": [
+    {
+      "segmentId": "seg-001",
+      "file": "episodes/episode-007/audio/seg-001.mp3",
+      "timestamps": [
+        {
+          "text": "输入一句话,整套演示就生成。",
+          "startMs": 0,
+          "endMs": 1525.3968253968253
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-002",
+      "file": "episodes/episode-007/audio/seg-002.mp3",
+      "timestamps": [
+        {
+          "text": "这就是 Gamma:它先给一份能编辑、能分享的初稿,不让人从空白页开始排版。",
+          "startMs": 0,
+          "endMs": 4009.931972789115
+        },
+        {
+          "text": "可它的增长为什么还是慢了?",
+          "startMs": 4110,
+          "endMs": 5658.616780045351
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-003",
+      "file": "episodes/episode-007/audio/seg-003.mp3",
+      "timestamps": [
+        {
+          "text": "三位创始人 2020 年开始做它,因为他们认为,PowerPoint 模板让人把时间花在格式,而不是想法上。",
+          "startMs": 0,
+          "endMs": 5345.079365079365
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-004",
+      "file": "episodes/episode-007/audio/seg-004.mp3",
+      "timestamps": [
+        {
+          "text": "第一次上 Product Hunt,Gamma 拿到当日第一和约一万注册。",
+          "startMs": 0,
+          "endMs": 3150.7936507936506
+        },
+        {
+          "text": "联合创始人后来复盘:热度之后,增长还是慢了下来。",
+          "startMs": 3251,
+          "endMs": 5832.9047619047615
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-005",
+      "file": "episodes/episode-007/audio/seg-005.mp3",
+      "timestamps": [
+        {
+          "text": "问题不在观看,而在创建:用户面对空白页,第一步很难。",
+          "startMs": 0,
+          "endMs": 3104.3537414965986
+        },
+        {
+          "text": "团队用约三个月重构,把 AI 放到入口。",
+          "startMs": 3205,
+          "endMs": 5136.746031746032
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-006",
+      "file": "episodes/episode-007/audio/seg-006.mp3",
+      "timestamps": [
+        {
+          "text": "新版先让用户写主题,再自动给出可编辑初稿。",
+          "startMs": 0,
+          "endMs": 2814.104308390023
+        },
+        {
+          "text": "创始人称,最初几天日注册从数百升到约一万,之后主要靠口碑传播。",
+          "startMs": 2914,
+          "endMs": 6993.591836734694
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-007",
+      "file": "episodes/episode-007/audio/seg-007.mp3",
+      "timestamps": [
+        {
+          "text": "公司 2025 年公布:ARR 跨过一亿美元,并完成 6800 万美元 B 轮,估值 21 亿美元。",
+          "startMs": 0,
+          "endMs": 5449.569160997732
+        }
+      ],
+      "timestampSource": "minimax:word"
+    }
+  ]
+}

@@ -31,7 +31,11 @@ import {
   type ArtifactDependency,
   type ArtifactRef,
 } from "../orchestration/schemas/artifact";
-import {type ClipIndex, type ClipIndexItem} from "./clip-index";
+import {
+  MEDIA_DURATION_ROUNDING_TOLERANCE_MS,
+  type ClipIndex,
+  type ClipIndexItem,
+} from "./clip-index";
 import {getMediaSource, isMediaSourceAdmitted, isMediaSourceRightsApproved} from "./discovery";
 import {
   createMediaEvent,
@@ -106,7 +110,7 @@ import {
 
 export const MEDIA_VERIFICATION_REQUEST_SCHEMA_VERSION = "media-verification-request-v1" as const;
 export const MEDIA_VERIFICATION_TOOL_VERSION = "media-verification-v1" as const;
-export const MEDIA_VERIFICATION_PROMPT_VERSION = "media-verification-prompt-v1" as const;
+export const MEDIA_VERIFICATION_PROMPT_VERSION = "media-verification-prompt-v2-broll" as const;
 export {MEDIA_VERIFICATION_SCHEMA_VERSION} from "./schemas";
 export const MEDIA_VERIFICATION_CACHE_SCHEMA_VERSION = "media-verify-cache-v1" as const;
 export const MEDIA_VERIFICATION_CACHE_IMPLEMENTATION_VERSION =
@@ -183,13 +187,6 @@ export const mediaVerificationProviderOutputSchema = z
         code: "custom",
         path: ["recommendedEndMs"],
         message: "recommendedEndMs must be greater than recommendedStartMs",
-      });
-    }
-    if (value.verdict === "pass" && (value.relevance < 0.5 || value.claimMatch < 0.5)) {
-      context.addIssue({
-        code: "custom",
-        path: ["verdict"],
-        message: "pass verdict requires relevance and claimMatch to be at least 0.5",
       });
     }
   });
@@ -343,8 +340,8 @@ export const codexMediaVerificationHandoffPaths = (input: {
   );
   const base = verificationPath.replace(/\.json$/u, "");
   return {
-    requestPath: `${base}.codex-request.json`,
-    resultPath: `${base}.codex-result.json`,
+    requestPath: `${base}.broll-v2.codex-request.json`,
+    resultPath: `${base}.broll-v2.codex-result.json`,
   };
 };
 
@@ -402,7 +399,7 @@ export const createCodexMediaVerificationProvider = (input: {
           explanation: ["reasons"],
         },
         instruction:
-          "Inspect only the listed clip and keyframes. Copy this requestHash into the result envelope; do not alter rights or claim facts.",
+          "Inspect only the listed clip and keyframes. Treat the clip as an independent illustrative B-roll track: it does not need to prove, match, or relate to the narration or claims. PASS means the clip is visually usable and does not directly contradict the narration when labeled as product demo/B-roll. Low relevance or claimMatch is allowed. Copy this requestHash into the result envelope; do not alter rights or claim facts.",
       },
     };
     const requestHash = sha256Json(requestBody);
@@ -929,7 +926,10 @@ const gateVerificationClipIndex = (input: {
   if (item.startMs !== candidate.startMs || item.endMs !== candidate.endMs) {
     throw new Error(`MEDIA_VERIFY_CLIP_WINDOW_MISMATCH:${clipId}`);
   }
-  if (asset.durationMs !== null && item.endMs > asset.durationMs) {
+  if (
+    asset.durationMs !== null &&
+    item.endMs > asset.durationMs + MEDIA_DURATION_ROUNDING_TOLERANCE_MS
+  ) {
     throw new Error(`MEDIA_VERIFY_WINDOW_OUT_OF_BOUNDS:${clipId}`);
   }
   return {indexRef, index, item};
@@ -978,6 +978,22 @@ const registerVerificationCandidate = (input: {
   });
 };
 
+const latestRegisteredArtifactRef = (input: {
+  repoRoot: string;
+  episodeId: string;
+  artifactId: string;
+}): ArtifactRef | undefined => {
+  const filePath = path.resolve(input.repoRoot, `content/${input.episodeId}/artifact-index.json`);
+  if (!fs.existsSync(filePath)) return undefined;
+  return readArtifactIndex(filePath)
+    .artifacts.map((record) => record.ref)
+    .filter((ref) => ref.artifactId === input.artifactId)
+    .sort(
+      (left, right) =>
+        right.revision - left.revision || right.createdAt.localeCompare(left.createdAt),
+    )[0];
+};
+
 const publishVerificationClip = (input: {
   repoRoot: string;
   episodeId: string;
@@ -992,6 +1008,7 @@ const publishVerificationClip = (input: {
   producer: string;
   now: () => string;
 }): ArtifactRef => {
+  const previous = latestRegisteredArtifactRef(input);
   const filePath = resolveMediaRepositoryPath(
     input.repoRoot,
     mediaVerificationClipRepositoryPath(
@@ -1015,6 +1032,7 @@ const publishVerificationClip = (input: {
     mediaType: input.mediaType,
     schemaVersion: MEDIA_VERIFICATION_CLIP_SCHEMA_VERSION,
     producer: input.producer,
+    ...(previous ? {previous} : {}),
     createdAt: input.now(),
   });
   registerVerificationCandidate({
@@ -1077,7 +1095,7 @@ const materializeVerificationClip = (input: {
     segmentId,
     clipId,
     cacheKey: identityKey,
-    artifactId: `${episodeId}:media-verification-clip:${clipId.replace(/[^a-z0-9-]/gu, "-")}`,
+    artifactId: `${episodeId}:media-verification-clip:${segmentId}-${clipId.replace(/[^a-z0-9-]/gu, "-")}`,
     mediaType: analysisSource.mediaType,
     startMs,
     endMs,
@@ -1226,6 +1244,7 @@ const publishVerificationArtifact = (input: {
   producer: string;
   now: () => string;
 }): ArtifactRef => {
+  const previous = latestRegisteredArtifactRef(input);
   const filePath = resolveMediaRepositoryPath(
     input.repoRoot,
     mediaVerificationRepositoryPath(input.episodeId, input.segmentId, input.clipId),
@@ -1239,6 +1258,7 @@ const publishVerificationArtifact = (input: {
     mediaType: "application/json",
     schemaVersion: MEDIA_VERIFICATION_SCHEMA_VERSION,
     producer: input.producer,
+    ...(previous ? {previous} : {}),
     createdAt: input.now(),
   });
   registerVerificationCandidate({
@@ -1434,7 +1454,7 @@ export const verifyMediaClip = async (
       schemaVersion: MEDIA_VERIFICATION_SCHEMA_VERSION,
       dependencyHashes,
     });
-    const artifactId = `${episodeId}:media-verification:${request.clipId.replace(/[^a-z0-9-]/gu, "-")}`;
+    const artifactId = `${episodeId}:media-verification:${request.segmentId}-${request.clipId.replace(/[^a-z0-9-]/gu, "-")}`;
     const cacheMetadata = {
       schemaVersion: "media-verify-cache-metadata-v1",
       episodeId,
@@ -1854,7 +1874,7 @@ export const rebindMediaVerification = (
     previous.segmentId !== request.segmentId ||
     previous.clipId !== request.clipId ||
     previous.verificationId !==
-      `${episodeId}:media-verification:${request.clipId.replace(/[^a-z0-9-]/gu, "-")}`
+      `${episodeId}:media-verification:${request.segmentId}-${request.clipId.replace(/[^a-z0-9-]/gu, "-")}`
   ) {
     throw new Error(`MEDIA_REBIND_VERIFICATION_MISMATCH:${request.clipId}`);
   }
@@ -1901,7 +1921,7 @@ export const rebindMediaVerification = (
     request.clipId,
     clipExtension,
   );
-  const expectedClipId = `${episodeId}:media-verification-clip:${request.clipId.replace(/[^a-z0-9-]/gu, "-")}`;
+  const expectedClipId = `${episodeId}:media-verification-clip:${request.segmentId}-${request.clipId.replace(/[^a-z0-9-]/gu, "-")}`;
   if (
     previous.clipArtifactRef.path !== expectedClipPath ||
     previous.clipArtifactRef.artifactId !== expectedClipId ||

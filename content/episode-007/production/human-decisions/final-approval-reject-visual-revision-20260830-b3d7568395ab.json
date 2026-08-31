@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "final-approval-reject-visual-revision-20260830",
+  "runId": "run-20260828-gamma-real-007",
+  "gate": "final-approval",
+  "decision": "reject",
+  "reviewer": "zengze",
+  "timestamp": "2026-08-30T12:10:00+08:00",
+  "reason": "旧版成片真实媒体覆盖不足。批准 production revision：增加 Gamma Generate、Edit、Share 真实产品画面；数据卡仅作短暂叠层；画面无需独立证明或匹配整句旁白；重新 render、看片并运行 Delivery Critic，保持 final-approval 暂停。",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-007:delivery:vertical-video",
+      "episodeId": "episode-007",
+      "path": "output/episode-007/vertical_9x16.mp4",
+      "mediaType": "video/mp4",
+      "schemaVersion": "video-vertical-v1",
+      "revision": 1,
+      "sha256": "26c51b57f2bef5d87c26fa653f10fddecff31d487936457fc9ac314bd6b9b498",
+      "sizeBytes": 2041519,
+      "producer": "production-adapter:render:vertical",
+      "createdAt": "2026-08-29T05:44:06.283Z"
+    }
+  ],
+  "approvalEpoch": 3,
+  "authorizations": [],
+  "issue": {
+    "category": "visual.evidence",
+    "severity": "high",
+    "locator": {
+      "kind": "whole-artifact",
+      "value": "output/episode-007/vertical_9x16.mp4"
+    },
+    "affectedArtifactRef": {
+      "artifactId": "episode-007:delivery:vertical-video",
+      "episodeId": "episode-007",
+      "path": "output/episode-007/vertical_9x16.mp4",
+      "mediaType": "video/mp4",
+      "schemaVersion": "video-vertical-v1",
+      "revision": 1,
+      "sha256": "26c51b57f2bef5d87c26fa653f10fddecff31d487936457fc9ac314bd6b9b498",
+      "sizeBytes": 2041519,
+      "producer": "production-adapter:render:vertical",
+      "createdAt": "2026-08-29T05:44:06.283Z"
+    }
+  },
+  "edits": []
+}

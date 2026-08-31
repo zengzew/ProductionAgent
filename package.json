@@ -23,6 +23,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
+    "test:affected": "tsx scripts/test-affected.ts",
+    "validate:episode": "tsx scripts/validate-episode.ts",
     "validate:research": "tsx scripts/validate-research.ts",
     "validate:workflow": "tsx scripts/validate-workflow.ts",
     "validate:story": "tsx scripts/validate-story.ts",

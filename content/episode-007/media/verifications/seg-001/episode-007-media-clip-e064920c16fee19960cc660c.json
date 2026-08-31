@@ -1,0 +1,116 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-007:media-verification:seg-001-episode-007-media-clip-e064920c16fee19960cc660c",
+    "createdAt": "2026-08-31T03:36:55.135Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/verifications/seg-001/episode-007-media-clip-e064920c16fee19960cc660c.json",
+    "producer": "media-verification-v1:codex:codex-media-verification-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "d30e71b4fdd39b8068b563279a9d8424059dee697335a01ed6d17e19fa6376ee",
+    "sizeBytes": 4149
+  },
+  "cacheKey": "efefb1aa6af26de8fd86c25680f405822cd27c153af16a7d4bf7d40cf7562ec4",
+  "claimIds": [
+    "claim-gamma-008",
+    "claim-gamma-009"
+  ],
+  "claimMatch": 0.15,
+  "clipArtifactRef": {
+    "artifactId": "episode-007:media-verification-clip:seg-001-episode-007-media-clip-e064920c16fee19960cc660c",
+    "createdAt": "2026-08-31T03:19:17.686Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/verifications/seg-001/episode-007-media-clip-e064920c16fee19960cc660c-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "63f97bf1d0c4e8b5a4595f934af2c4c7789efdf25c90820b50916dfd0f04bee7",
+    "sizeBytes": 2682587
+  },
+  "clipId": "episode-007:media-clip:e064920c16fee19960cc660c",
+  "clipRef": {
+    "claimIds": [
+      "claim-gamma-008",
+      "claim-gamma-009"
+    ],
+    "clipId": "episode-007:media-clip:e064920c16fee19960cc660c",
+    "createdAt": "2026-08-31T03:36:55.135Z",
+    "endMs": 18433,
+    "episodeId": "episode-007",
+    "mediaId": "episode-007:media:gamma-edit",
+    "sourceMediaRef": {
+      "artifactId": "episode-007:media:gamma-edit",
+      "createdAt": "2026-08-28T14:26:57.195Z",
+      "episodeId": "episode-007",
+      "mediaType": "video/mp4",
+      "path": "content/episode-007/media/assets/gamma-edit.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+      "sizeBytes": 1968627
+    },
+    "startMs": 16000,
+    "transcriptRefs": [],
+    "visualIntent": "Gamma 官方产品成片首帧直接出现,ARR 与估值只做短暂叠层;同期显示公司来源,不让数据卡取代真实产品画面。"
+  },
+  "createdAt": "2026-08-31T03:36:55.135Z",
+  "episodeId": "episode-007",
+  "mediaRef": {
+    "artifactId": "episode-007:media:gamma-edit",
+    "createdAt": "2026-08-28T14:26:57.195Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-edit.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+    "sizeBytes": 1968627
+  },
+  "misleadingRisk": 0.08,
+  "model": "gpt-5.6",
+  "observedActions": [
+    "a polished Gamma presentation card is shown at the end of the editor demo",
+    "the finished eyewear competitive report remains legible while the layout settles"
+  ],
+  "observedEntities": [
+    "Gamma"
+  ],
+  "observedText": [
+    "Eyewear Industry",
+    "Competitive Report 2025",
+    "Market Overview"
+  ],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "The bounded official Gamma product clip is sharp and visually usable as labeled product-demo B-roll behind a brief valuation overlay.",
+    "It does not prove the ARR or valuation claims, but the independent B-roll contract does not require claim proof and the image does not contradict the narration."
+  ],
+  "recommendedEndMs": 18433,
+  "recommendedStartMs": 16000,
+  "relevance": 0.45,
+  "retrievalResultRef": {
+    "artifactId": "episode-007:media-retrieval:seg-001",
+    "createdAt": "2026-08-31T03:36:52.586Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/candidates/seg-001.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 16,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "be7d2d20784a5d4b294740810d0bb0359dc46878b6e125e9fb15d9e98cdfeea4",
+    "sizeBytes": 25007
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-001",
+  "sourceSha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-007:media-verification:seg-001-episode-007-media-clip-e064920c16fee19960cc660c",
+  "verificationVersion": "codex-media-verification-v1",
+  "visualQuality": 0.92
+}

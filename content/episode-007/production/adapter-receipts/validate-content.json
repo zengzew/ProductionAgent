@@ -1,0 +1,1 @@
+{"command":"scripts/validate-content.ts","episodeId":"episode-007","inputSetHash":"1f7696348066caaa79e602ae9d9703968f00806425cffa6fcdb3508582db8f0b","outputPaths":[],"schemaVersion":"production-stage-receipt-v1","stage":"validate:content","status":"passed"}

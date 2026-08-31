@@ -24,7 +24,7 @@ export const criticRubrics: Readonly<Record<CriticName, Rubric>> = {
     {id: "spokenDelivery", maxScore: 5, weight: 1 / 3, floor: 4},
     {id: "informationFidelity", maxScore: 5, weight: 1 / 3, floor: 4},
   ]),
-  "audience-critic": rubric("product-story-v4", 85, [
+  "audience-critic": rubric("product-story-v5", 85, [
     {id: "hook", maxScore: 15, weight: 0.15, floor: 9},
     {id: "conflict", maxScore: 15, weight: 0.15, floor: 9},
     {id: "humanElement", maxScore: 10, weight: 0.1, floor: 6},

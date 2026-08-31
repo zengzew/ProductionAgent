@@ -134,6 +134,8 @@ export const mediaRetrievalRequestSchema = z
     segmentId: z.string().regex(/^seg-[a-z0-9-]+$/u),
     /** Claim Ledger ids; empty means weaker evidence mode. */
     claimIds: z.array(z.string().regex(/^claim-[a-z0-9-]+$/u)).default([]),
+    /** Visuals may be selected as an independent B-roll track, not claim evidence. */
+    visualTrackMode: z.enum(["claim-evidence", "independent-b-roll"]).default("claim-evidence"),
     narration: z.string().min(1).max(5000),
     visualIntent: z.string().min(1).max(1000),
     /** Optional media-kind filter: "video" | "audio". */
@@ -398,7 +400,8 @@ const scoreCandidate = (input: {
 }): ScoredCandidate => {
   const {item, asset, source, indexRef, claimEntries, request, config} = input;
   const clipText = clipTextOf(item);
-  const claimMode = request.claimIds.length > 0;
+  const claimMode =
+    request.visualTrackMode === "claim-evidence" && request.claimIds.length > 0;
   const reasons: string[] = [];
 
   // Claim evidence fit: per-claim term overlap against the clip's own text.
@@ -671,9 +674,17 @@ const gateEligibleCorpus = (input: {
     ) {
       throw new Error(`MEDIA_RETRIEVE_INDEX_MISMATCH:${asset.mediaId}`);
     }
-    if (asset.durationMs !== null) {
+    const analysisAsset = manifest.assets.find(
+      (candidate) =>
+        candidate.artifactRef.artifactId === index.analysisSourceRef.artifactId &&
+        candidate.sha256 === index.analysisSourceRef.sha256,
+    );
+    if (!analysisAsset) {
+      throw new Error(`MEDIA_RETRIEVE_ANALYSIS_SOURCE_MISSING:${asset.mediaId}`);
+    }
+    if (analysisAsset.durationMs !== null) {
       for (const item of index.items) {
-        if (item.endMs > asset.durationMs || item.startMs >= item.endMs) {
+        if (item.endMs > analysisAsset.durationMs || item.startMs >= item.endMs) {
           throw new Error(`MEDIA_RETRIEVE_WINDOW_OUT_OF_BOUNDS:${item.clipId}`);
         }
       }
@@ -750,7 +761,11 @@ export const buildMediaRetrievalCacheKey = (input: MediaRetrievalCacheKeyInput):
  * Result schema
  * ------------------------------------------------------------------------- */
 
-export const mediaRetrievalEvidenceModeSchema = z.enum(["claim-bound", "weaker-textual"]);
+export const mediaRetrievalEvidenceModeSchema = z.enum([
+  "claim-bound",
+  "weaker-textual",
+  "independent-b-roll",
+]);
 export type MediaRetrievalEvidenceMode = z.infer<typeof mediaRetrievalEvidenceModeSchema>;
 
 export const mediaRetrievalGateSchema = z
@@ -897,6 +912,22 @@ const publishRetrievalArtifact = (input: {
   producer: string;
   now: () => string;
 }): ArtifactRef => {
+  const registryFile = path.resolve(
+    input.repoRoot,
+    `content/${input.episodeId}/artifact-index.json`,
+  );
+  const previous = fs.existsSync(registryFile)
+    ? readArtifactIndex(registryFile).artifacts
+        .filter(
+          (record) =>
+            record.ref.artifactId === input.artifactId && record.state !== "quarantined",
+        )
+        .sort(
+          (left, right) =>
+            right.ref.revision - left.ref.revision ||
+            Number(right.state === "selected") - Number(left.state === "selected"),
+        )[0]?.ref
+    : undefined;
   const filePath = resolveMediaRepositoryPath(input.repoRoot, input.repositoryPath);
   copyBytesAtomically(filePath, Buffer.from(input.bytes));
   const ref = buildArtifactRef({
@@ -907,6 +938,7 @@ const publishRetrievalArtifact = (input: {
     mediaType: "application/json",
     schemaVersion: MEDIA_RETRIEVAL_SCHEMA_VERSION,
     producer: input.producer,
+    ...(previous ? {previous} : {}),
     createdAt: input.now(),
   });
   registerRetrievalCandidate({
@@ -1047,7 +1079,11 @@ export const retrieveMediaCandidates = async (
 
     const buildResult = (): Buffer => {
       const evidenceMode: MediaRetrievalEvidenceMode =
-        request.claimIds.length > 0 ? "claim-bound" : "weaker-textual";
+        request.visualTrackMode === "independent-b-roll"
+          ? "independent-b-roll"
+          : request.claimIds.length > 0
+            ? "claim-bound"
+            : "weaker-textual";
 
       const scored: ScoredCandidate[] = [];
       for (const {asset, source, indexRef, index} of eligible) {

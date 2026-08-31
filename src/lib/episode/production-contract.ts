@@ -35,7 +35,9 @@ export const productionContractSchema = z.object({
   }),
   hook: z.object({
     targetSeconds: z.number().positive(),
+    timingToleranceSeconds: z.number().nonnegative().default(1),
     firstSegmentMaximumSeconds: z.number().positive(),
+    firstSegmentTimingToleranceSeconds: z.number().nonnegative().default(0.1),
     actionTerms: z.array(z.string().min(1)).min(1),
     attributionVerbs: z.array(z.string().min(1)).min(1),
   }),

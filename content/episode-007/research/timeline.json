@@ -1,0 +1,70 @@
+{
+  "asOf": "2026-08-28",
+  "events": [
+    {
+      "id": "ev-gamma-001",
+      "dateLabel": "2020",
+      "sortDate": "2020-01-01",
+      "datePrecision": "as-of",
+      "event": "三位前 Optimizely 同事创立 Gamma，尝试替代以模板为中心的演示文稿制作。",
+      "eventType": "company",
+      "factIds": ["claim-gamma-002"],
+      "sourceIds": ["src-gamma-build", "src-gamma-techcrunch"],
+      "relationToPrevious": "not-applicable",
+      "storyFunction": "context",
+      "notes": "创始人动机与同期团队信息。"
+    },
+    {
+      "id": "ev-gamma-002",
+      "dateLabel": "2022-08",
+      "sortDate": "2022-08-01",
+      "datePrecision": "month",
+      "event": "首次 Product Hunt 发布成为当日第一并带来约一万注册，随后增长降温。",
+      "eventType": "distribution",
+      "factIds": ["claim-gamma-004"],
+      "sourceIds": ["src-gamma-sacra"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "distribution-event",
+      "notes": "创始人访谈口径，不推导留存。"
+    },
+    {
+      "id": "ev-gamma-003",
+      "dateLabel": "2022 年末",
+      "sortDate": "2022-12-31",
+      "datePrecision": "as-of",
+      "event": "团队约 12 人、累计约 6 万用户，决定把 AI 放到创建流程中心并进行约三个月重构。",
+      "eventType": "product",
+      "factIds": ["claim-gamma-003", "claim-gamma-005"],
+      "sourceIds": ["src-gamma-build", "src-gamma-sacra"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "turning-point",
+      "notes": "空白页问题和重构决策均为团队复盘。"
+    },
+    {
+      "id": "ev-gamma-004",
+      "dateLabel": "2023-03",
+      "sortDate": "2023-03-01",
+      "datePrecision": "month",
+      "event": "AI 版把首个动作改为输入主题并生成可编辑初稿；创始人称最初几天日注册约一万。",
+      "eventType": "growth",
+      "factIds": ["claim-gamma-006", "claim-gamma-007"],
+      "sourceIds": ["src-gamma-home", "src-gamma-sacra", "src-gamma-hubspot"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "validation",
+      "notes": "可见产品动作与增长口径并置，不建立单一因果。"
+    },
+    {
+      "id": "ev-gamma-005",
+      "dateLabel": "2025-11-10",
+      "sortDate": "2025-11-10",
+      "datePrecision": "day",
+      "event": "公司披露跨过 1 亿美元 ARR，并宣布 6800 万美元 B 轮、21 亿美元估值。",
+      "eventType": "acquisition",
+      "factIds": ["claim-gamma-008", "claim-gamma-009"],
+      "sourceIds": ["src-gamma-build", "src-gamma-about"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "durability-test",
+      "notes": "公司口径；不换算利润或成功原因。"
+    }
+  ]
+}

@@ -265,7 +265,9 @@ export const validateDeliveryCriticResult = (input: {
   if (hashArtifactInputs(reviewPackage.inputArtifacts) !== reviewPackage.inputSetHash) {
     throw new Error("DELIVERY_CRITIC_PACKAGE_INPUT_SET_HASH_MISMATCH");
   }
-  for (const ref of reviewPackage.inputArtifacts) assertArtifactRefBytes(input.repoRoot, ref);
+  for (const ref of reviewPackage.inputArtifacts) {
+    assertArtifactRefBytes(input.repoRoot, ref, {boundary: "final-approval"});
+  }
   if (!sameRef(result.packageRef, input.packageRef)) {
     throw new Error("DELIVERY_CRITIC_RESULT_PACKAGE_REF_MISMATCH");
   }
@@ -275,7 +277,7 @@ export const validateDeliveryCriticResult = (input: {
   if (result.packageRef.artifactId !== `${input.episodeId}:delivery:critic-review-package`) {
     throw new Error("DELIVERY_CRITIC_RESULT_PACKAGE_ID_MISMATCH");
   }
-  assertArtifactRefBytes(input.repoRoot, result.packageRef);
+  assertArtifactRefBytes(input.repoRoot, result.packageRef, {boundary: "final-approval"});
   const packageRefs = [
     reviewPackage.reviewedVideo,
     reviewPackage.reviewedSubtitles,
@@ -298,12 +300,12 @@ export const validateDeliveryCriticResult = (input: {
   for (const ref of [result.reviewedVideo, result.reviewedSubtitles, result.reviewedTimeline]) {
     if (!includesRef(packageRefs, ref))
       throw new Error(`DELIVERY_CRITIC_REVIEW_REF_NOT_IN_PACKAGE:${ref.artifactId}`);
-    assertArtifactRefBytes(input.repoRoot, ref);
+    assertArtifactRefBytes(input.repoRoot, ref, {boundary: "final-approval"});
   }
   for (const ref of [...result.reviewedKeyframes, ...result.reviewedClips]) {
     if (!includesRef(packageRefs, ref))
       throw new Error(`DELIVERY_CRITIC_REVIEW_REF_NOT_IN_PACKAGE:${ref.artifactId}`);
-    assertArtifactRefBytes(input.repoRoot, ref);
+    assertArtifactRefBytes(input.repoRoot, ref, {boundary: "final-approval"});
   }
   const gate = result.deliveryGate;
   if (

@@ -122,7 +122,7 @@ export const MEDIA_KEYFRAMES_CACHE_IMPLEMENTATION_VERSION =
   "media-keyframes-cache-impl-v1" as const;
 export const MEDIA_CLIP_INDEX_CACHE_SCHEMA_VERSION = "media-clip-index-cache-v1" as const;
 export const MEDIA_CLIP_INDEX_CACHE_IMPLEMENTATION_VERSION =
-  "media-clip-index-cache-impl-v1" as const;
+  "media-clip-index-cache-impl-v2" as const;
 export const MEDIA_UNDERSTANDING_STATUS_SCHEMA_VERSION = "media-understanding-status-v1" as const;
 
 export const MEDIA_UNDERSTANDING_DEPENDENCY_PATHS = [
@@ -625,6 +625,21 @@ const publishIndexArtifact = (input: {
   executionId: string;
   now: () => string;
 }): ArtifactRef => {
+  const registryFile = path.resolve(
+    input.repoRoot,
+    `content/${input.episodeId}/artifact-index.json`,
+  );
+  const previous = fs.existsSync(registryFile)
+    ? readArtifactIndex(registryFile)
+        .artifacts.filter(
+          (record) => record.ref.artifactId === input.artifactId && record.state !== "quarantined",
+        )
+        .sort(
+          (left, right) =>
+            right.ref.revision - left.ref.revision ||
+            Number(right.state === "selected") - Number(left.state === "selected"),
+        )[0]?.ref
+    : undefined;
   const filePath = resolveMediaRepositoryPath(input.repoRoot, input.repositoryPath);
   copyBytesAtomically(filePath, Buffer.from(input.bytes));
   const ref = buildArtifactRef({
@@ -635,6 +650,7 @@ const publishIndexArtifact = (input: {
     mediaType: input.mediaType,
     schemaVersion: input.schemaVersion,
     producer: input.producer,
+    ...(previous ? {previous} : {}),
     createdAt: input.now(),
   });
   registerIndexCandidate({
@@ -1462,7 +1478,13 @@ export const indexMediaAsset = async (
         scenes: scenesBody?.scenes ?? null,
         transcriptSegments: transcriptBody.segments,
         config: config.clipWindow,
-      });
+      })
+        .map((window) => ({
+          ...window,
+          endMs:
+            asset.durationMs === null ? window.endMs : Math.min(window.endMs, asset.durationMs),
+        }))
+        .filter((window) => window.endMs > window.startMs);
       const index = await buildClipIndexBody({
         episodeId,
         mediaId,

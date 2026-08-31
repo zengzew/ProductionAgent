@@ -324,7 +324,7 @@ const roleOutputRepairRequirements = (role: BenchmarkResult["agentName"]): strin
     "oral-judge":
       "oral-review.md must contain an HTML comment `<!-- oral-review-gate`, one parseable oral-review-v1 or oral-review-v2 JSON object, and a decision consistent with scores, checks, blockers, and returnTo.",
     "audience-critic":
-      "critic-report.md must contain an HTML comment `<!-- critic-gate` with one parseable product-story-v4 JSON object; verdict, thresholds, blockers, and returnTo must agree.",
+      "critic-report.md must contain an HTML comment `<!-- critic-gate` with one parseable product-story-v5 JSON object; verdict, thresholds, blockers, and returnTo must agree.",
     "fact-guardian":
       "fact-check-report.md must contain an HTML comment `<!-- fact-check-gate` with one parseable fact-guardian-v1 JSON object.",
     "visual-director":

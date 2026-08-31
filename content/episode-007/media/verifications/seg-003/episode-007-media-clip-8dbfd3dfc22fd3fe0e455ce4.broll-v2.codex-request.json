@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "codex-media-verification-request-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "boundedMediaOnly": true,
+  "episodeId": "episode-007",
+  "segmentId": "seg-003",
+  "clipId": "episode-007:media-clip:8dbfd3dfc22fd3fe0e455ce4",
+  "claimIds": [
+    "claim-gamma-002",
+    "claim-gamma-003"
+  ],
+  "claims": [
+    {
+      "id": "claim-gamma-002",
+      "claim": "三位创始人认为传统 PowerPoint 模板让人把精力花在格式而非想法上，因此 2020 年开始做 Gamma。"
+    },
+    {
+      "id": "claim-gamma-003",
+      "claim": "联合创始人 Jon Noronha 回顾，团队早期更关注内容消费，但真正的商业问题是创作者面对空白页时很难开始。"
+    }
+  ],
+  "narration": "创始人最初发现,做演示的人常把精力耗在选模板、调格式上。真正卡住创作的,是打开产品后的空白页。",
+  "visualIntent": "创始人访谈页面短暂出现 → PowerPoint 模板与格式工具被高亮 → Gamma 空白创建页停住一拍 → 官方产品视频接回真实输入框。",
+  "clip": {
+    "path": "content/episode-007/media/verifications/seg-003/episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4-clip.mp4",
+    "sha256": "6f8f1a449ebac45f1141d94cab0342dabf4459e9686e1230ba09477a535bb61e",
+    "sizeBytes": 3597634,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 4000,
+    "sourceMediaId": "episode-007:media:gamma-share",
+    "sourceMediaSha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c"
+  },
+  "keyframes": [
+    {
+      "path": "content/episode-007/media/indexes/gamma-share/keyframes/keyframe-0-2000.jpg",
+      "timestampMs": 2000,
+      "sha256": "db9c484d3c6ece03d18763f76a8f041b06354915e09cf430f8e3afe2e82fa2ce",
+      "sizeBytes": 33223,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "Gamma Share product interface shows collaboration permissions, link sharing, invitations, and export to PDF, PowerPoint, or PNG.",
+    "observedText": "",
+    "keywords": [
+      "Gamma",
+      "Share",
+      "Export",
+      "collaboration",
+      "分享",
+      "协作",
+      "导出"
+    ],
+    "entities": [
+      "Gamma"
+    ],
+    "semanticTags": [
+      "产品界面",
+      "分享入口",
+      "协作权限",
+      "导出"
+    ],
+    "speaker": null
+  },
+  "resultContract": {
+    "schemaVersion": "codex-media-verification-result-v1",
+    "envelope": [
+      "executor",
+      "model",
+      "requestHash",
+      "completedAt",
+      "output"
+    ],
+    "output": {
+      "verdict": [
+        "pass",
+        "reject",
+        "uncertain"
+      ],
+      "scores": [
+        "relevance",
+        "claimMatch",
+        "visualQuality",
+        "misleadingRisk"
+      ],
+      "observations": [
+        "observedActions",
+        "observedEntities",
+        "observedText"
+      ],
+      "range": [
+        "recommendedStartMs",
+        "recommendedEndMs"
+      ],
+      "explanation": [
+        "reasons"
+      ]
+    },
+    "instruction": "Inspect only the listed clip and keyframes. Treat the clip as an independent illustrative B-roll track: it does not need to prove, match, or relate to the narration or claims. PASS means the clip is visually usable and does not directly contradict the narration when labeled as product demo/B-roll. Low relevance or claimMatch is allowed. Copy this requestHash into the result envelope; do not alter rights or claim facts."
+  },
+  "requestHash": "2b18e6c4a052bbbd0c7e316b8e05b601a7e96f6f302a415f2fb25c3addd7f43d"
+}

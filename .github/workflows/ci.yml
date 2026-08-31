@@ -21,6 +21,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - name: Install pnpm from packageManager
         uses: pnpm/action-setup@v6
@@ -35,26 +37,40 @@ jobs:
       - name: Install dependencies from lockfile
         run: pnpm install --frozen-lockfile
 
+      - name: Classify change scope
+        id: scope
+        env:
+          CI_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          CI_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: pnpm exec tsx scripts/ci-scope.ts
+
       - name: Check formatting
         run: pnpm format:check
 
       - name: Lint
+        if: steps.scope.outputs.needs_lint == 'true'
         run: pnpm lint
 
       - name: Typecheck
+        if: steps.scope.outputs.needs_typecheck == 'true'
         run: pnpm typecheck
 
-      - name: Run tests
-        run: pnpm test
-
-      - name: Enforce coverage thresholds
+      - name: Run contract tests with coverage thresholds
+        if: steps.scope.outputs.needs_contract_tests == 'true'
         run: pnpm test:coverage
 
-      - name: Validate offline episode contracts
+      - name: Validate offline episode fixtures
+        if: steps.scope.outputs.needs_contract_tests == 'true'
         shell: bash
         run: |
           for episode_id in episode-001 episode-002; do
-            EPISODE_ID="$episode_id" pnpm validate:research
-            EPISODE_ID="$episode_id" pnpm validate:story
-            EPISODE_ID="$episode_id" pnpm validate:content
+            EPISODE_ID="$episode_id" pnpm validate:episode -- --profile production
+          done
+
+      - name: Validate changed episodes
+        if: steps.scope.outputs.episode_ids != ''
+        shell: bash
+        run: |
+          for episode_id in ${{ steps.scope.outputs.episode_ids }}; do
+            EPISODE_ID="$episode_id" pnpm validate:episode -- --profile production
           done

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "2b18e6c4a052bbbd0c7e316b8e05b601a7e96f6f302a415f2fb25c3addd7f43d",
+  "completedAt": "2026-08-31T03:26:00.000Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.15,
+    "claimMatch": 0.05,
+    "visualQuality": 0.9,
+    "misleadingRisk": 0.12,
+    "observedActions": ["a Gamma deck is visible", "the pointer clicks Share", "a collaborator dialog opens"],
+    "observedEntities": ["Gamma"],
+    "observedText": ["Share", "Collaborate", "Invite"],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 4000,
+    "reasons": [
+      "The official clip is a clear, polished demonstration of Gamma's Share workflow.",
+      "It does not prove the founder history narration, but that mismatch is permitted for labelled independent B-roll and creates no direct contradiction."
+    ]
+  }
+}

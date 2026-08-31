@@ -1,0 +1,172 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-007:media:gamma-edit-proxy",
+    "createdAt": "2026-08-28T14:27:12.231Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-edit-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+    "sizeBytes": 2259873
+  },
+  "episodeId": "episode-007",
+  "indexVersion": "media-clip-index-v1",
+  "mediaId": "episode-007:media:gamma-edit",
+  "mediaSha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+  "schemaVersion": "media-understanding-status-v1",
+  "stages": {
+    "clip-index": {
+      "artifactId": "episode-007:media-clip-index:gamma-edit",
+      "availability": "available",
+      "cacheKey": "d747df172a2460a222e0aab454de7793e76a78bdb5bbcf762ffb2835bf28f1da",
+      "ref": {
+        "artifactId": "episode-007:media-clip-index:gamma-edit",
+        "createdAt": "2026-08-29T05:28:52.981Z",
+        "episodeId": "episode-007",
+        "mediaType": "application/json",
+        "path": "content/episode-007/media/indexes/gamma-edit/clip-index.json",
+        "producer": "media-understanding-v1:index:episode-007-gamma-v2",
+        "revision": 2,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "d25a0c99defe0013a72e63297494713c312f5bf7517f4eddd15151ccc8684e49",
+        "sizeBytes": 14595
+      }
+    },
+    "keyframes": {
+      "availability": "available",
+      "cacheKey": "d86ff64cb261fb8224a7e99c43a29765fd5f08aa830d6c4a1e6ff380bf6c9bcd",
+      "entries": [
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-edit-0-2000",
+          "cacheKey": "b963abba99bfecf2ff2f203aa14b35534b79b89d6196137ccf8370d8d971541f",
+          "filename": "keyframe-0-2000.jpg",
+          "keyframeIndex": 0,
+          "ref": {
+            "artifactId": "episode-007:media-keyframe:gamma-edit-0-2000",
+            "createdAt": "2026-08-29T05:28:51.922Z",
+            "episodeId": "episode-007",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-007/media/indexes/gamma-edit/keyframes/keyframe-0-2000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "8b4e0fe7a8b5af4a9d7e17b5c7937cd71c86c69af21f435821c8564e22585cbc",
+            "sizeBytes": 130771
+          }
+        },
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-edit-1-6000",
+          "cacheKey": "56265040cd47452f213a1b88a4c2fedcab8fdeba2b9514bf366a9826a0fa9f77",
+          "filename": "keyframe-1-6000.jpg",
+          "keyframeIndex": 1,
+          "ref": {
+            "artifactId": "episode-007:media-keyframe:gamma-edit-1-6000",
+            "createdAt": "2026-08-29T05:28:52.096Z",
+            "episodeId": "episode-007",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-007/media/indexes/gamma-edit/keyframes/keyframe-1-6000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "fc5019d58d47a7b5a1f1aeef96cbdce9514ea82d72a696bc320c695e91a351b1",
+            "sizeBytes": 41209
+          }
+        },
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-edit-2-10000",
+          "cacheKey": "ec8091e5d168d289fd84210d2b999b76d904e410575269dd206a2867aa677166",
+          "filename": "keyframe-2-10000.jpg",
+          "keyframeIndex": 2,
+          "ref": {
+            "artifactId": "episode-007:media-keyframe:gamma-edit-2-10000",
+            "createdAt": "2026-08-29T05:28:52.248Z",
+            "episodeId": "episode-007",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-007/media/indexes/gamma-edit/keyframes/keyframe-2-10000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "28b483f50d0ddbe0fa6d57258534b4fe3d19ce58011a11797cd94108ddb0a135",
+            "sizeBytes": 152722
+          }
+        },
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-edit-3-14000",
+          "cacheKey": "f8fd03b2a1622815f77e8ec03d74a098f02fad3915339920c0103697cca2f5e1",
+          "filename": "keyframe-3-14000.jpg",
+          "keyframeIndex": 3,
+          "ref": {
+            "artifactId": "episode-007:media-keyframe:gamma-edit-3-14000",
+            "createdAt": "2026-08-29T05:28:52.597Z",
+            "episodeId": "episode-007",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-007/media/indexes/gamma-edit/keyframes/keyframe-3-14000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "2d994905f1d55ef957956029b5a4ecc23d29f73ca237fcf665b2a8449320b8d9",
+            "sizeBytes": 142751
+          }
+        },
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-edit-4-17216",
+          "cacheKey": "4e1a19b0456451f771f677387679a28826677164d63cc1443bcdc0e8899f7b05",
+          "filename": "keyframe-4-17216.jpg",
+          "keyframeIndex": 4,
+          "ref": {
+            "artifactId": "episode-007:media-keyframe:gamma-edit-4-17216",
+            "createdAt": "2026-08-29T05:28:52.908Z",
+            "episodeId": "episode-007",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-007/media/indexes/gamma-edit/keyframes/keyframe-4-17216.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "ab08becb88b74e69accaba1388c48993c0871e245ea53034b200531e72c28b35",
+            "sizeBytes": 126487
+          }
+        }
+      ],
+      "extractorId": "ffmpeg",
+      "extractorVersion": "ffmpeg-keyframe-v1"
+    },
+    "scenes": {
+      "artifactId": "episode-007:media-scenes:gamma-edit",
+      "availability": "available",
+      "cacheKey": "9c4e4b256b541fb8791f6787807be315c7b4be38bfc82425098a7271d0f991a1",
+      "ref": {
+        "artifactId": "episode-007:media-scenes:gamma-edit",
+        "createdAt": "2026-08-29T05:28:51.761Z",
+        "episodeId": "episode-007",
+        "mediaType": "application/json",
+        "path": "content/episode-007/media/indexes/gamma-edit/scenes.json",
+        "producer": "media-understanding-v1:scenes:scene-detector-v1",
+        "revision": 1,
+        "schemaVersion": "media-scenes-v1",
+        "sha256": "4447f9fb5d18a94948e2697b46f6a484f7cfb46517c5293c729da7a2d8a126cd",
+        "sizeBytes": 1735
+      }
+    },
+    "transcript": {
+      "artifactId": "episode-007:media-transcript:gamma-edit",
+      "availability": "unavailable",
+      "cacheKey": "6a83edd74a86bf010424a36e1c68252fe88b5ec8865cff3bcb81805e15151cb9",
+      "ref": {
+        "artifactId": "episode-007:media-transcript:gamma-edit",
+        "createdAt": "2026-08-29T05:28:51.686Z",
+        "episodeId": "episode-007",
+        "mediaType": "application/json",
+        "path": "content/episode-007/media/indexes/gamma-edit/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "090d7f6d1655df313ce4c70e082eb471a44415ec20a8a688c4b4aa633715645b",
+        "sizeBytes": 1262
+      }
+    }
+  },
+  "updatedAt": "2026-08-29T05:28:53.022Z",
+  "usedProxy": true
+}

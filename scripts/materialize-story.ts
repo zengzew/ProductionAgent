@@ -9,7 +9,15 @@ installCliErrorHandlers();
 
 const finalScriptPath = path.join(episodeRoot, "story/final-script.md");
 const markdown = fs.readFileSync(finalScriptPath, "utf8");
-const selectedHook = markdown.match(/选中 Hook：`([^`]+)`/u)?.[1];
+const hookCandidatesPath = path.join(episodeRoot, "story/hook-candidates.md");
+const selectedHook =
+  markdown.match(/选中 Hook：`([^`]+)`/u)?.[1] ??
+  (fs.existsSync(hookCandidatesPath)
+    ? fs
+        .readFileSync(hookCandidatesPath, "utf8")
+        .match(/^## 候选 [^\n]+（选中）—\s*(.+)$/mu)?.[1]
+        ?.trim()
+    : undefined);
 if (!selectedHook) {
   throw new Error("final-script.md 缺少“选中 Hook”");
 }

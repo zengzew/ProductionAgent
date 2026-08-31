@@ -227,16 +227,22 @@ most directly instead of defaulting to a static screenshot.
 Validate research and story only, without creating audio or video:
 
 ```bash
-pnpm validate:research
-pnpm validate:workflow
-pnpm validate:story
+pnpm validate:episode -- --profile fast
 ```
 
-Pass another episode to validators with `--episode`, for example:
+`fast` runs research schema and workflow structure. `production` adds story and
+content gates. `release` also runs delivery. Independent
+`validate:research` / `validate:workflow` / `validate:story` / `validate:content`
+commands remain for a single stage.
+
+Pass another episode with `--episode`, for example:
 
 ```bash
-pnpm validate:research -- --episode episode-002
+pnpm validate:episode -- --episode episode-002 --profile fast
 ```
+
+A passing validator is not proof that the video is interesting or will retain
+viewers. See [`docs/contracts/verification-layers.md`](docs/contracts/verification-layers.md).
 
 ## Episode 001 output
 
@@ -332,28 +338,46 @@ pnpm preview
 
 ## Quality gates
 
-Run the relevant gates against the current checkout. Historical acceptance
-reports do not certify later dependency, code or media changes, and an approved
-older MP4 does not renew approval for current render code.
+Run the layer that matches the change. Historical acceptance reports do not
+certify later dependency, code or media changes, and an approved older MP4 does
+not renew approval for current render code. Mechanical validators are structural
+gates, not creative-quality proof.
+
+Fast, after a local edit:
 
 ```bash
 pnpm format:check
-pnpm lint
 pnpm typecheck
-pnpm test
-pnpm validate:research
-pnpm validate:workflow
-pnpm validate:story
-pnpm materialize:story
-pnpm validate:content
-pnpm tts
-pnpm timeline
-pnpm render:smoke
-pnpm render:vertical
-pnpm inspect:output
-pnpm validate:delivery
-pnpm validate:comparison
+pnpm test:affected
+pnpm validate:episode -- --profile fast
 ```
+
+Contract, on a PR or after hash/checkpoint/media pipeline changes. CI runs this
+layer as one Vitest invocation (`pnpm test:coverage`, not `pnpm test` plus a
+second coverage run):
+
+```bash
+pnpm lint
+pnpm test
+pnpm validate:episode -- --profile production
+```
+
+Production acceptance, for a new Episode or release — not the Vitest suite.
+Those 600+ cases certify studio code, not this episode's cut:
+
+```bash
+pnpm validate:episode -- --episode episode-007 --profile release
+pnpm materialize:story -- --episode episode-007
+pnpm tts -- --episode episode-007
+pnpm timeline -- --episode episode-007
+pnpm render:smoke -- --episode episode-007
+pnpm render:vertical -- --episode episode-007
+pnpm inspect:output -- --episode episode-007
+pnpm validate:comparison -- --episode episode-007
+```
+
+The last layer still requires Codex inspection of the real cut and human
+approval. `pnpm test` is only for studio-code or tooling-root changes.
 
 The workflow check verifies one owner for every major decision and requires a
 later PASS to close any recorded rejection with changed artifacts. The story

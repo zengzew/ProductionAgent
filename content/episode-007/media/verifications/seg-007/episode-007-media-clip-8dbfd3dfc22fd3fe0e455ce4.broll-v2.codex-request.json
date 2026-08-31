@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "codex-media-verification-request-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "boundedMediaOnly": true,
+  "episodeId": "episode-007",
+  "segmentId": "seg-007",
+  "clipId": "episode-007:media-clip:8dbfd3dfc22fd3fe0e455ce4",
+  "claimIds": [
+    "claim-gamma-003",
+    "claim-gamma-006",
+    "claim-gamma-008",
+    "claim-gamma-009"
+  ],
+  "claims": [
+    {
+      "id": "claim-gamma-003",
+      "claim": "联合创始人 Jon Noronha 回顾，团队早期更关注内容消费，但真正的商业问题是创作者面对空白页时很难开始。"
+    },
+    {
+      "id": "claim-gamma-006",
+      "claim": "AI 版把第一个动作改成输入演示主题，由 Gamma 先生成一套可编辑初稿。"
+    },
+    {
+      "id": "claim-gamma-008",
+      "claim": "Gamma 在 2025 年公司文章中披露已盈利地跨过 1 亿美元 ARR。"
+    },
+    {
+      "id": "claim-gamma-009",
+      "claim": "Gamma 同期宣布完成 6800 万美元 B 轮融资，估值 21 亿美元。"
+    }
+  ],
+  "narration": "它改掉的,是用户开始创作前的那一步。到 2025 年,公司公布 ARR 超过一亿美元,完成六千八百万美元 B 轮,估值二十一亿美元。",
+  "visualIntent": "Generate、Edit、Share 三个完成状态快速回看 → 公司文章标题短暂进入 → ARR、融资、估值逐个短叠层,最后停在可分享成品而不是纯数据卡。",
+  "clip": {
+    "path": "content/episode-007/media/verifications/seg-007/episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4-clip.mp4",
+    "sha256": "6f8f1a449ebac45f1141d94cab0342dabf4459e9686e1230ba09477a535bb61e",
+    "sizeBytes": 3597634,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 4000,
+    "sourceMediaId": "episode-007:media:gamma-share",
+    "sourceMediaSha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c"
+  },
+  "keyframes": [
+    {
+      "path": "content/episode-007/media/indexes/gamma-share/keyframes/keyframe-0-2000.jpg",
+      "timestampMs": 2000,
+      "sha256": "db9c484d3c6ece03d18763f76a8f041b06354915e09cf430f8e3afe2e82fa2ce",
+      "sizeBytes": 33223,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "Gamma Share product interface shows collaboration permissions, link sharing, invitations, and export to PDF, PowerPoint, or PNG.",
+    "observedText": "",
+    "keywords": [
+      "Gamma",
+      "Share",
+      "Export",
+      "collaboration",
+      "分享",
+      "协作",
+      "导出"
+    ],
+    "entities": [
+      "Gamma"
+    ],
+    "semanticTags": [
+      "产品界面",
+      "分享入口",
+      "协作权限",
+      "导出"
+    ],
+    "speaker": null
+  },
+  "resultContract": {
+    "schemaVersion": "codex-media-verification-result-v1",
+    "envelope": [
+      "executor",
+      "model",
+      "requestHash",
+      "completedAt",
+      "output"
+    ],
+    "output": {
+      "verdict": [
+        "pass",
+        "reject",
+        "uncertain"
+      ],
+      "scores": [
+        "relevance",
+        "claimMatch",
+        "visualQuality",
+        "misleadingRisk"
+      ],
+      "observations": [
+        "observedActions",
+        "observedEntities",
+        "observedText"
+      ],
+      "range": [
+        "recommendedStartMs",
+        "recommendedEndMs"
+      ],
+      "explanation": [
+        "reasons"
+      ]
+    },
+    "instruction": "Inspect only the listed clip and keyframes. Treat the clip as an independent illustrative B-roll track: it does not need to prove, match, or relate to the narration or claims. PASS means the clip is visually usable and does not directly contradict the narration when labeled as product demo/B-roll. Low relevance or claimMatch is allowed. Copy this requestHash into the result envelope; do not alter rights or claim facts."
+  },
+  "requestHash": "923beaa93586af6f5b10a297b007bbf67dc9d8e56d78212bbc66fa74e0729660"
+}

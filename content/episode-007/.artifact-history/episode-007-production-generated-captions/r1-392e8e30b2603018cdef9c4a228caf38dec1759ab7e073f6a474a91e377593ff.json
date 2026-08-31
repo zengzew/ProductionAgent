@@ -1,0 +1,236 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 1.5253968253968253,
+    "startFrame": 0,
+    "endFrame": 46,
+    "text": "输入一句话整套演示就生成"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-002",
+    "startSeconds": 2.1254169999999997,
+    "endSeconds": 3.097521720676149,
+    "startFrame": 64,
+    "endFrame": 93,
+    "text": "这就是 Gamma"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 3.097521720676149,
+    "endSeconds": 4.79870498185941,
+    "startFrame": 93,
+    "endFrame": 144,
+    "text": "它先给一份能编辑能分享的初稿"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 4.79870498185941,
+    "endSeconds": 6.135348972789115,
+    "startFrame": 144,
+    "endFrame": 184,
+    "text": "不让人从空白页开始排版"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-002",
+    "startSeconds": 6.135348972789115,
+    "endSeconds": 7.784033780045351,
+    "startFrame": 184,
+    "endFrame": 234,
+    "text": "可它的增长为什么还是慢了"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-003",
+    "startSeconds": 8.650042,
+    "endSeconds": 10.242193300236405,
+    "startFrame": 260,
+    "endFrame": 307,
+    "text": "三位创始人 2020 年开始做它"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-003",
+    "startSeconds": 10.242193300236405,
+    "endSeconds": 12.06179478622087,
+    "startFrame": 307,
+    "endFrame": 362,
+    "text": "因为他们认为PowerPoint"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-003",
+    "startSeconds": 12.06179478622087,
+    "endSeconds": 13.31277080783519,
+    "startFrame": 362,
+    "endFrame": 399,
+    "text": "模板让人把时间花在格式"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-003",
+    "startSeconds": 13.31277080783519,
+    "endSeconds": 13.995121365079363,
+    "startFrame": 399,
+    "endFrame": 420,
+    "text": "而不是想法上"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-004",
+    "startSeconds": 14.795145999999999,
+    "endSeconds": 16.27208052380952,
+    "startFrame": 444,
+    "endFrame": 488,
+    "text": "第一次上 Product Hunt"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-004",
+    "startSeconds": 16.27208052380952,
+    "endSeconds": 16.76439203174603,
+    "startFrame": 488,
+    "endFrame": 503,
+    "text": "Gamma"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-004",
+    "startSeconds": 16.76439203174603,
+    "endSeconds": 17.94593965079365,
+    "startFrame": 503,
+    "endFrame": 538,
+    "text": "拿到当日第一和约一万注册"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-004",
+    "startSeconds": 17.94593965079365,
+    "endSeconds": 19.152676612244896,
+    "startFrame": 538,
+    "endFrame": 575,
+    "text": "联合创始人后来复盘"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-004",
+    "startSeconds": 19.152676612244896,
+    "endSeconds": 19.64446799546485,
+    "startFrame": 575,
+    "endFrame": 589,
+    "text": "热度之后"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-004",
+    "startSeconds": 19.64446799546485,
+    "endSeconds": 20.62805076190476,
+    "startFrame": 589,
+    "endFrame": 619,
+    "text": "增长还是慢了下来"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-005",
+    "startSeconds": 21.489062999999998,
+    "endSeconds": 22.90013288249845,
+    "startFrame": 645,
+    "endFrame": 687,
+    "text": "问题不在观看而在创建"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-005",
+    "startSeconds": 22.90013288249845,
+    "endSeconds": 24.593416741496597,
+    "startFrame": 687,
+    "endFrame": 738,
+    "text": "用户面对空白页第一步很难"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-005",
+    "startSeconds": 24.593416741496597,
+    "endSeconds": 26.62580903174603,
+    "startFrame": 738,
+    "endFrame": 799,
+    "text": "团队用约三个月重构把 AI 放到入口"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-006",
+    "startSeconds": 27.496813,
+    "endSeconds": 28.829809777658433,
+    "startFrame": 825,
+    "endFrame": 865,
+    "text": "新版先让用户写主题"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-006",
+    "startSeconds": 28.829809777658433,
+    "endSeconds": 30.99361183381924,
+    "startFrame": 865,
+    "endFrame": 930,
+    "text": "再自动给出可编辑初稿创始人称"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-006",
+    "startSeconds": 30.99361183381924,
+    "endSeconds": 33.1791074606414,
+    "startFrame": 930,
+    "endFrame": 995,
+    "text": "最初几天日注册从数百升到约一万"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-006",
+    "startSeconds": 33.1791074606414,
+    "endSeconds": 34.4904048367347,
+    "startFrame": 995,
+    "endFrame": 1035,
+    "text": "之后主要靠口碑传播"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-007",
+    "startSeconds": 35.328417,
+    "endSeconds": 36.65398787699945,
+    "startFrame": 1060,
+    "endFrame": 1100,
+    "text": "公司 2025 年公布"
+  },
+  {
+    "index": 24,
+    "sceneId": "seg-007",
+    "startSeconds": 36.65398787699945,
+    "endSeconds": 37.9795587539989,
+    "startFrame": 1100,
+    "endFrame": 1139,
+    "text": "ARR 跨过一亿美元"
+  },
+  {
+    "index": 25,
+    "sceneId": "seg-007",
+    "startSeconds": 37.9795587539989,
+    "endSeconds": 39.746986589998166,
+    "startFrame": 1139,
+    "endFrame": 1192,
+    "text": "并完成 6800 万美元 B 轮"
+  },
+  {
+    "index": 26,
+    "sceneId": "seg-007",
+    "startSeconds": 39.746986589998166,
+    "endSeconds": 40.777986160997735,
+    "startFrame": 1192,
+    "endFrame": 1223,
+    "text": "估值 21 亿美元"
+  }
+]

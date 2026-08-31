@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import {z} from "zod";
 import {
+  assertArtifactRefsBytes,
   buildArtifactRef,
   emptyArtifactIndex,
   markStaleTransitively,
@@ -358,8 +359,16 @@ export const assertHumanDecisionArtifactRefsCurrent = (input: {
   repoRoot: string;
   refs: readonly ArtifactRef[];
 }): void => {
-  for (const ref of input.refs.map((value) => artifactRefSchema.parse(value))) {
-    assertCurrentBytes(input.repoRoot, ref, "HUMAN_DECISION_ARTIFACT_HASH_MISMATCH");
+  try {
+    assertArtifactRefsBytes(
+      input.repoRoot,
+      input.refs.map((value) => artifactRefSchema.parse(value)),
+      {boundary: "final-approval"},
+    );
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    const artifactId = message.replace(/^ARTIFACT_HASH_MISMATCH:/u, "");
+    throw new Error(`HUMAN_DECISION_ARTIFACT_HASH_MISMATCH:${artifactId}`, {cause: error});
   }
 };
 

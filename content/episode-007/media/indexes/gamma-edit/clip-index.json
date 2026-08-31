@@ -1,0 +1,404 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-007:media:gamma-edit-proxy",
+    "createdAt": "2026-08-28T14:27:12.231Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-edit-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+    "sizeBytes": 2259873
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-007",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-007:media-clip:fc2f29a3d47b78829c7e78e1",
+      "endMs": 4000,
+      "entities": [
+        "Gamma"
+      ],
+      "episodeId": "episode-007",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-edit-0-2000",
+          "createdAt": "2026-08-29T05:28:51.922Z",
+          "episodeId": "episode-007",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-007/media/indexes/gamma-edit/keyframes/keyframe-0-2000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "8b4e0fe7a8b5af4a9d7e17b5c7937cd71c86c69af21f435821c8564e22585cbc",
+          "sizeBytes": 130771
+        }
+      ],
+      "keywords": [
+        "Gamma",
+        "editor",
+        "presentation",
+        "layout",
+        "编辑",
+        "演示",
+        "卡片",
+        "布局"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-007:media:gamma-edit",
+        "createdAt": "2026-08-28T14:26:57.195Z",
+        "episodeId": "episode-007",
+        "mediaType": "video/mp4",
+        "path": "content/episode-007/media/assets/gamma-edit.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+        "sizeBytes": 1968627
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-007:media-scenes:gamma-edit",
+          "createdAt": "2026-08-29T05:28:51.761Z",
+          "episodeId": "episode-007",
+          "mediaType": "application/json",
+          "path": "content/episode-007/media/indexes/gamma-edit/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "4447f9fb5d18a94948e2697b46f6a484f7cfb46517c5293c729da7a2d8a126cd",
+          "sizeBytes": 1735
+        }
+      ],
+      "semanticTags": [
+        "产品界面",
+        "编辑演示",
+        "布局切换",
+        "内容替换"
+      ],
+      "sourceSha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "Gamma editor shows a generated eyewear presentation, editable cards, layout alternatives, and the finished report.",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-007:media-clip:0c12682487503cdf5e2d29d1",
+      "endMs": 8000,
+      "entities": [
+        "Gamma"
+      ],
+      "episodeId": "episode-007",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-edit-1-6000",
+          "createdAt": "2026-08-29T05:28:52.096Z",
+          "episodeId": "episode-007",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-007/media/indexes/gamma-edit/keyframes/keyframe-1-6000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "fc5019d58d47a7b5a1f1aeef96cbdce9514ea82d72a696bc320c695e91a351b1",
+          "sizeBytes": 41209
+        }
+      ],
+      "keywords": [
+        "Gamma",
+        "editor",
+        "presentation",
+        "layout",
+        "编辑",
+        "演示",
+        "卡片",
+        "布局"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-007:media:gamma-edit",
+        "createdAt": "2026-08-28T14:26:57.195Z",
+        "episodeId": "episode-007",
+        "mediaType": "video/mp4",
+        "path": "content/episode-007/media/assets/gamma-edit.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+        "sizeBytes": 1968627
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-007:media-scenes:gamma-edit",
+          "createdAt": "2026-08-29T05:28:51.761Z",
+          "episodeId": "episode-007",
+          "mediaType": "application/json",
+          "path": "content/episode-007/media/indexes/gamma-edit/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "4447f9fb5d18a94948e2697b46f6a484f7cfb46517c5293c729da7a2d8a126cd",
+          "sizeBytes": 1735
+        }
+      ],
+      "semanticTags": [
+        "产品界面",
+        "编辑演示",
+        "布局切换",
+        "内容替换"
+      ],
+      "sourceSha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+      "speaker": null,
+      "startMs": 4000,
+      "textSummary": "Gamma editor shows a generated eyewear presentation, editable cards, layout alternatives, and the finished report.",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-007:media-clip:d9e7f2577b13fa8e24a50645",
+      "endMs": 12000,
+      "entities": [
+        "Gamma"
+      ],
+      "episodeId": "episode-007",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-edit-2-10000",
+          "createdAt": "2026-08-29T05:28:52.248Z",
+          "episodeId": "episode-007",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-007/media/indexes/gamma-edit/keyframes/keyframe-2-10000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "28b483f50d0ddbe0fa6d57258534b4fe3d19ce58011a11797cd94108ddb0a135",
+          "sizeBytes": 152722
+        }
+      ],
+      "keywords": [
+        "Gamma",
+        "editor",
+        "presentation",
+        "layout",
+        "编辑",
+        "演示",
+        "卡片",
+        "布局"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-007:media:gamma-edit",
+        "createdAt": "2026-08-28T14:26:57.195Z",
+        "episodeId": "episode-007",
+        "mediaType": "video/mp4",
+        "path": "content/episode-007/media/assets/gamma-edit.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+        "sizeBytes": 1968627
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-007:media-scenes:gamma-edit",
+          "createdAt": "2026-08-29T05:28:51.761Z",
+          "episodeId": "episode-007",
+          "mediaType": "application/json",
+          "path": "content/episode-007/media/indexes/gamma-edit/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "4447f9fb5d18a94948e2697b46f6a484f7cfb46517c5293c729da7a2d8a126cd",
+          "sizeBytes": 1735
+        }
+      ],
+      "semanticTags": [
+        "产品界面",
+        "编辑演示",
+        "布局切换",
+        "内容替换"
+      ],
+      "sourceSha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+      "speaker": null,
+      "startMs": 8000,
+      "textSummary": "Gamma editor shows a generated eyewear presentation, editable cards, layout alternatives, and the finished report. The focused card is transformed or rearranged.",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-007:media-clip:e60aec3f545416dd81981c5b",
+      "endMs": 16000,
+      "entities": [
+        "Gamma"
+      ],
+      "episodeId": "episode-007",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-edit-3-14000",
+          "createdAt": "2026-08-29T05:28:52.597Z",
+          "episodeId": "episode-007",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-007/media/indexes/gamma-edit/keyframes/keyframe-3-14000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "2d994905f1d55ef957956029b5a4ecc23d29f73ca237fcf665b2a8449320b8d9",
+          "sizeBytes": 142751
+        }
+      ],
+      "keywords": [
+        "Gamma",
+        "editor",
+        "presentation",
+        "layout",
+        "编辑",
+        "演示",
+        "卡片",
+        "布局"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-007:media:gamma-edit",
+        "createdAt": "2026-08-28T14:26:57.195Z",
+        "episodeId": "episode-007",
+        "mediaType": "video/mp4",
+        "path": "content/episode-007/media/assets/gamma-edit.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+        "sizeBytes": 1968627
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-007:media-scenes:gamma-edit",
+          "createdAt": "2026-08-29T05:28:51.761Z",
+          "episodeId": "episode-007",
+          "mediaType": "application/json",
+          "path": "content/episode-007/media/indexes/gamma-edit/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "4447f9fb5d18a94948e2697b46f6a484f7cfb46517c5293c729da7a2d8a126cd",
+          "sizeBytes": 1735
+        }
+      ],
+      "semanticTags": [
+        "产品界面",
+        "编辑演示",
+        "布局切换",
+        "内容替换"
+      ],
+      "sourceSha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+      "speaker": null,
+      "startMs": 12000,
+      "textSummary": "Gamma editor shows a generated eyewear presentation, editable cards, layout alternatives, and the finished report. The focused card is transformed or rearranged.",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-007:media-clip:e064920c16fee19960cc660c",
+      "endMs": 18433,
+      "entities": [
+        "Gamma"
+      ],
+      "episodeId": "episode-007",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-edit-4-17216",
+          "createdAt": "2026-08-29T05:28:52.908Z",
+          "episodeId": "episode-007",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-007/media/indexes/gamma-edit/keyframes/keyframe-4-17216.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "ab08becb88b74e69accaba1388c48993c0871e245ea53034b200531e72c28b35",
+          "sizeBytes": 126487
+        }
+      ],
+      "keywords": [
+        "Gamma",
+        "editor",
+        "presentation",
+        "layout",
+        "编辑",
+        "演示",
+        "卡片",
+        "布局"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-007:media:gamma-edit",
+        "createdAt": "2026-08-28T14:26:57.195Z",
+        "episodeId": "episode-007",
+        "mediaType": "video/mp4",
+        "path": "content/episode-007/media/assets/gamma-edit.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+        "sizeBytes": 1968627
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-007:media-scenes:gamma-edit",
+          "createdAt": "2026-08-29T05:28:51.761Z",
+          "episodeId": "episode-007",
+          "mediaType": "application/json",
+          "path": "content/episode-007/media/indexes/gamma-edit/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "4447f9fb5d18a94948e2697b46f6a484f7cfb46517c5293c729da7a2d8a126cd",
+          "sizeBytes": 1735
+        }
+      ],
+      "semanticTags": [
+        "产品界面",
+        "编辑演示",
+        "布局切换",
+        "内容替换"
+      ],
+      "sourceSha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+      "speaker": null,
+      "startMs": 16000,
+      "textSummary": "Gamma editor shows a generated eyewear presentation, editable cards, layout alternatives, and the finished report. The focused card is transformed or rearranged.",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-007:media:gamma-edit",
+  "mediaRef": {
+    "artifactId": "episode-007:media:gamma-edit",
+    "createdAt": "2026-08-28T14:26:57.195Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-edit.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+    "sizeBytes": 1968627
+  },
+  "sceneDetector": "deterministic-boundaries",
+  "sceneDetectorVersion": "scene-detector-v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-visual-review",
+  "semanticAdapterVersion": "episode-007-gamma-v2",
+  "semanticAvailability": "available",
+  "sourceSha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+  "transcriptAvailability": "unavailable"
+}

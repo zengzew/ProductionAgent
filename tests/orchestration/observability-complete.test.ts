@@ -398,6 +398,48 @@ describe("WP-M4-04 observability completeness gate", () => {
     );
   });
 
+  it("reports historical epoch replay debt without blocking current approval refs", () => {
+    const fixture = createFixture();
+    const historical = createStageRun(fixture);
+    fs.writeFileSync(path.join(fixture.repoRoot, fixture.inputRef.path), "later revision bytes\n");
+
+    const result = evaluateObservabilityCompleteness({
+      episodeId: fixture.episodeId,
+      runId: fixture.runId,
+      state: {...fixture.state, approvalEpoch: 1},
+      events: [historical.started, historical.committed, historical.terminal],
+      repoRoot: fixture.repoRoot,
+      approvalScope: {approvalEpoch: 1, artifactRefs: [fixture.outputRef]},
+    });
+
+    expect(result.approvalAllowed).toBe(true);
+    expect(result.reasons).toEqual([]);
+    expect(result.warnings.join(" ")).toMatch(
+      /historical observability debt: ARTIFACT_HASH_MISMATCH/u,
+    );
+  });
+
+  it("still blocks a current approval ref whose bytes no longer match", () => {
+    const fixture = createFixture();
+    const historical = createStageRun(fixture);
+    fs.writeFileSync(
+      path.join(fixture.repoRoot, fixture.inputRef.path),
+      "tampered current bytes\n",
+    );
+
+    const result = evaluateObservabilityCompleteness({
+      episodeId: fixture.episodeId,
+      runId: fixture.runId,
+      state: {...fixture.state, approvalEpoch: 1},
+      events: [historical.started, historical.committed, historical.terminal],
+      repoRoot: fixture.repoRoot,
+      approvalScope: {approvalEpoch: 1, artifactRefs: [fixture.inputRef]},
+    });
+
+    expect(result.approvalAllowed).toBe(false);
+    expect(result.reasons.join(" ")).toMatch(/ARTIFACT_HASH_MISMATCH/u);
+  });
+
   it("blocks the formal graph approval boundary until canonical events are complete", async () => {
     const fixture = createFixture();
     const events: ObservabilityEvent[] = [];

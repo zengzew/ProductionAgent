@@ -1,0 +1,133 @@
+{
+  "selectedHook": "估值 21 亿美元，Gamma 做对了什么？",
+  "segments": [
+    {
+      "id": "seg-001",
+      "section": "hook",
+      "narration": "估值二十一亿美元，Gamma 做对了什么？",
+      "onScreenText": [
+        "$100M+ ARR",
+        "$2.1B 估值",
+        "公司口径"
+      ],
+      "claimIds": [
+        "claim-gamma-008",
+        "claim-gamma-009"
+      ],
+      "scene": "市场结果先行",
+      "visualIntent": "Gamma 官方产品成片首帧直接出现，ARR 与估值只做短暂叠层；同期显示公司来源，不让数据卡取代真实产品画面。",
+      "targetSeconds": 3
+    },
+    {
+      "id": "seg-002",
+      "section": "hook",
+      "narration": "做销售提案、课堂讲义或融资路演时，只写一个主题，它先给你一份能编辑、能分享的演示初稿。",
+      "onScreenText": [
+        "销售提案",
+        "课堂讲义",
+        "融资路演",
+        "主题 → 可编辑初稿",
+        "功能演示"
+      ],
+      "claimIds": [
+        "claim-gamma-001",
+        "claim-gamma-006",
+        "claim-gamma-012"
+      ],
+      "scene": "具体使用场景与产品结果",
+      "visualIntent": "销售提案主题被输入 → Gamma 生成成套卡片 → Edit 中内容被修改 → Share 中链接入口出现；全程常驻功能演示标签。",
+      "targetSeconds": 8
+    },
+    {
+      "id": "seg-003",
+      "section": "hook",
+      "narration": "创始人最初发现，做演示的人常把精力耗在选模板、调格式上。真正卡住创作的，是打开产品后的空白页。",
+      "onScreenText": [
+        "先讲想法，不先调格式",
+        "真正的阻力：空白页"
+      ],
+      "claimIds": [
+        "claim-gamma-002",
+        "claim-gamma-003"
+      ],
+      "scene": "创始人发现的具体创作阻力",
+      "visualIntent": "创始人访谈页面短暂出现 → PowerPoint 模板与格式工具被高亮 → Gamma 空白创建页停住一拍 → 官方产品视频接回真实输入框。",
+      "targetSeconds": 9
+    },
+    {
+      "id": "seg-004",
+      "section": "turning-point",
+      "narration": "团队随后花约三个月重构。第一屏不再让用户自己搭结构，而是先问要做什么，再生成卡片、版式和内容初稿。",
+      "onScreenText": [
+        "约 3 个月重构",
+        "第一屏先问主题",
+        "结构 + 卡片 + 内容初稿"
+      ],
+      "claimIds": [
+        "claim-gamma-005",
+        "claim-gamma-006"
+      ],
+      "scene": "解释 AI 入口的具体机制",
+      "visualIntent": "公司文章的三个月重构句短暂叠层 → Generate 视频完整展示第一屏输入主题 → 成套卡片与版式出现；文章只做证据层。",
+      "targetSeconds": 10
+    },
+    {
+      "id": "seg-005",
+      "section": "product-use",
+      "narration": "接着改文字、换版式，再发成链接给同事。变化就在第一步：用户先跨过空白页，再继续修改。",
+      "onScreenText": [
+        "改文字 → 换版式 → 发链接",
+        "先跨过空白页，再继续修改",
+        "功能演示"
+      ],
+      "claimIds": [
+        "claim-gamma-001",
+        "claim-gamma-003",
+        "claim-gamma-006"
+      ],
+      "scene": "初稿如何进入真实工作流",
+      "visualIntent": "Edit 视频中改文字和换版式 → Share 视频中发布链接；“先跨过空白页”只做两秒文字叠层，真实操作持续作为背景。",
+      "targetSeconds": 10
+    },
+    {
+      "id": "seg-006",
+      "section": "growth-response",
+      "narration": "AI 版发布后的最初几天，创始人称，日注册从数百升到约一万，之后主要靠口碑传播。",
+      "onScreenText": [
+        "数百",
+        "日 → 约 10,000",
+        "日",
+        "最初几天",
+        "创始人口径",
+        "之后主要靠口碑"
+      ],
+      "claimIds": [
+        "claim-gamma-007"
+      ],
+      "scene": "AI 版发布后的注册反馈",
+      "visualIntent": "Gamma 真实 Generate 与 Share 画面持续播放；数百与约一万只分别短暂叠层 1.8 秒，访谈来源条同期出现，不画虚构增长曲线。",
+      "targetSeconds": 10
+    },
+    {
+      "id": "seg-007",
+      "section": "market-price",
+      "narration": "它改掉的，是用户开始创作前的那一步。到 2025 年，公司公布 ARR 超过一亿美元，完成六千八百万美元 B 轮，估值二十一亿美元。",
+      "onScreenText": [
+        "改掉开始创作前的一步",
+        "$100M+ ARR",
+        "$68M B 轮",
+        "$2.1B 估值",
+        "公司口径"
+      ],
+      "claimIds": [
+        "claim-gamma-003",
+        "claim-gamma-006",
+        "claim-gamma-008",
+        "claim-gamma-009"
+      ],
+      "scene": "回答开场并兑现市场结果",
+      "visualIntent": "Generate、Edit、Share 三个完成状态快速回看 → 公司文章标题短暂进入 → ARR、融资、估值逐个短叠层，最后停在可分享成品而不是纯数据卡。",
+      "targetSeconds": 10
+    }
+  ]
+}

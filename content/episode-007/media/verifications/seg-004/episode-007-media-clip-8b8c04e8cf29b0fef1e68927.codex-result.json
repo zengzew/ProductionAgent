@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "3e2cd782d5c68f3be77bb433343cd6457b6612344da627518f3683688c025733",
+  "completedAt": "2026-08-29T05:38:30.000Z",
+  "output": {
+    "verdict": "reject",
+    "relevance": 0.3,
+    "claimMatch": 0.1,
+    "visualQuality": 0.88,
+    "misleadingRisk": 0.76,
+    "observedActions": [
+      "The Gamma editor scrolls through a generated multi-card eyewear presentation"
+    ],
+    "observedEntities": [
+      "Gamma",
+      "Eyewear competitive report"
+    ],
+    "observedText": [
+      "Market Segmentation and Trends",
+      "Technological Innovations",
+      "Future Outlook"
+    ],
+    "recommendedStartMs": 8000,
+    "recommendedEndMs": 12600,
+    "reasons": [
+      "The bounded clip is a clear product demonstration of a generated presentation.",
+      "It contains no Product Hunt ranking, registration count, launch heat, or growth slowdown evidence.",
+      "It cannot directly substantiate the segment's launch and growth claim."
+    ]
+  }
+}

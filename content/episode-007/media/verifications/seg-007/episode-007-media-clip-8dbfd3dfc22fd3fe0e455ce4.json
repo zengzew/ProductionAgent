@@ -1,0 +1,118 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-007:media-verification:seg-007-episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4",
+    "createdAt": "2026-08-31T03:36:58.150Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/verifications/seg-007/episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4.json",
+    "producer": "media-verification-v1:codex:codex-media-verification-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "d7f49872844bf8050a6e183c084798fd0f42e910b718febf5cf626bbb417dce3",
+    "sizeBytes": 4132
+  },
+  "cacheKey": "5841f0755d1b17ed60eb8706f2196d1ea5b8e2ef0f3451478dd5bf73467b462b",
+  "claimIds": [
+    "claim-gamma-003",
+    "claim-gamma-006",
+    "claim-gamma-008",
+    "claim-gamma-009"
+  ],
+  "claimMatch": 0.1,
+  "clipArtifactRef": {
+    "artifactId": "episode-007:media-verification-clip:seg-007-episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4",
+    "createdAt": "2026-08-31T03:29:24.560Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/verifications/seg-007/episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "6f8f1a449ebac45f1141d94cab0342dabf4459e9686e1230ba09477a535bb61e",
+    "sizeBytes": 3597634
+  },
+  "clipId": "episode-007:media-clip:8dbfd3dfc22fd3fe0e455ce4",
+  "clipRef": {
+    "claimIds": [
+      "claim-gamma-003",
+      "claim-gamma-006",
+      "claim-gamma-008",
+      "claim-gamma-009"
+    ],
+    "clipId": "episode-007:media-clip:8dbfd3dfc22fd3fe0e455ce4",
+    "createdAt": "2026-08-31T03:36:58.150Z",
+    "endMs": 4000,
+    "episodeId": "episode-007",
+    "mediaId": "episode-007:media:gamma-share",
+    "sourceMediaRef": {
+      "artifactId": "episode-007:media:gamma-share",
+      "createdAt": "2026-08-28T14:27:21.027Z",
+      "episodeId": "episode-007",
+      "mediaType": "video/mp4",
+      "path": "content/episode-007/media/assets/gamma-share.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c",
+      "sizeBytes": 1971326
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "Generate、Edit、Share 三个完成状态快速回看 → 公司文章标题短暂进入 → ARR、融资、估值逐个短叠层,最后停在可分享成品而不是纯数据卡。"
+  },
+  "createdAt": "2026-08-31T03:36:58.150Z",
+  "episodeId": "episode-007",
+  "mediaRef": {
+    "artifactId": "episode-007:media:gamma-share",
+    "createdAt": "2026-08-28T14:27:21.027Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-share.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c",
+    "sizeBytes": 1971326
+  },
+  "misleadingRisk": 0.08,
+  "model": "gpt-5.6",
+  "observedActions": [
+    "the cursor selects Gamma's Share control",
+    "the product presents a clear sharing entry point for the finished work"
+  ],
+  "observedEntities": [
+    "Gamma"
+  ],
+  "observedText": [
+    "Share"
+  ],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "The official Share clip gives the ending a real product completion state rather than a full-screen data card.",
+    "It does not establish ARR, financing, or valuation, but those sourced figures are separate brief overlays and the B-roll does not contradict them."
+  ],
+  "recommendedEndMs": 4000,
+  "recommendedStartMs": 0,
+  "relevance": 0.58,
+  "retrievalResultRef": {
+    "artifactId": "episode-007:media-retrieval:seg-007",
+    "createdAt": "2026-08-31T03:36:54.210Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/candidates/seg-007.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 16,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "7304632859b9248ce4f97b87ce577674c4191692aa1d54faee7d8bbaec169100",
+    "sizeBytes": 25697
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-007",
+  "sourceSha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-007:media-verification:seg-007-episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4",
+  "verificationVersion": "codex-media-verification-v1",
+  "visualQuality": 0.9
+}

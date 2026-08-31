@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "7acf67c63f0b21d6fa50f8c7b90af86e7a6a330b485140c29f22c21c0c180a05",
+  "completedAt": "2026-08-31T03:20:00.000Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.45,
+    "claimMatch": 0.15,
+    "visualQuality": 0.92,
+    "misleadingRisk": 0.08,
+    "observedActions": [
+      "a polished Gamma presentation card is shown at the end of the editor demo",
+      "the finished eyewear competitive report remains legible while the layout settles"
+    ],
+    "observedEntities": ["Gamma"],
+    "observedText": ["Eyewear Industry", "Competitive Report 2025", "Market Overview"],
+    "recommendedStartMs": 16000,
+    "recommendedEndMs": 18433,
+    "reasons": [
+      "The bounded official Gamma product clip is sharp and visually usable as labeled product-demo B-roll behind a brief valuation overlay.",
+      "It does not prove the ARR or valuation claims, but the independent B-roll contract does not require claim proof and the image does not contradict the narration."
+    ]
+  }
+}

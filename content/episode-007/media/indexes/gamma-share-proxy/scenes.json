@@ -1,0 +1,55 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-007:media:gamma-share-proxy",
+    "createdAt": "2026-08-28T14:27:31.362Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-share-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "253448635521322b510db8af0826a859dc1c53fefe66c0ed339dafb238288552",
+    "sizeBytes": 1023906
+  },
+  "config": {
+    "maxSceneMs": 6000,
+    "minSceneMs": 800,
+    "targetSceneMs": 4000
+  },
+  "detector": "deterministic-boundaries",
+  "detectorVersion": "scene-detector-v1",
+  "durationMs": 10000,
+  "episodeId": "episode-007",
+  "mediaId": "episode-007:media:gamma-share-proxy",
+  "scenes": [
+    {
+      "endMs": 4000,
+      "sceneIndex": 0,
+      "startMs": 0
+    },
+    {
+      "endMs": 8000,
+      "sceneIndex": 1,
+      "startMs": 4000
+    },
+    {
+      "endMs": 10000,
+      "sceneIndex": 2,
+      "startMs": 8000
+    }
+  ],
+  "schemaVersion": "media-scenes-v1",
+  "sourceMediaRef": {
+    "artifactId": "episode-007:media:gamma-share-proxy",
+    "createdAt": "2026-08-28T14:27:31.362Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-share-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "253448635521322b510db8af0826a859dc1c53fefe66c0ed339dafb238288552",
+    "sizeBytes": 1023906
+  },
+  "sourceSha256": "253448635521322b510db8af0826a859dc1c53fefe66c0ed339dafb238288552"
+}

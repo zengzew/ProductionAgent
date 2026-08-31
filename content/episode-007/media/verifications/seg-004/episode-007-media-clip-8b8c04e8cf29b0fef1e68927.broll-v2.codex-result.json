@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "58c19ea02d3b767c88702799af5c4cf07fc9ff507dba9ad22ba40c4c4682e4ff",
+  "completedAt": "2026-08-30T04:28:00.000Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.08,
+    "claimMatch": 0.02,
+    "visualQuality": 0.86,
+    "misleadingRisk": 0.12,
+    "observedActions": ["a generated Gamma deck scrolls through multiple completed cards"],
+    "observedEntities": ["Gamma"],
+    "observedText": ["Market Segmentation and Trends", "Technological Innovations", "Future Outlook"],
+    "recommendedStartMs": 8000,
+    "recommendedEndMs": 12600,
+    "reasons": [
+      "The bounded official Gamma clip provides dynamic, legible product-result footage.",
+      "It does not substantiate Product Hunt or registration figures, but is acceptable as explicitly labelled independent B-roll and does not contradict them."
+    ]
+  }
+}

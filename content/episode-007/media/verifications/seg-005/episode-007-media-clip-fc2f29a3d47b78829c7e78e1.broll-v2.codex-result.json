@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "d491056024dbad68ac5838a1ad48b08611e3f4730e63da0e7d2a0f2cedb73985",
+  "completedAt": "2026-08-31T03:30:00.000Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.91,
+    "claimMatch": 0.76,
+    "visualQuality": 0.88,
+    "misleadingRisk": 0.1,
+    "observedActions": ["a Gamma card deck opens", "the pointer opens an AI editing action menu"],
+    "observedEntities": ["Gamma"],
+    "observedText": ["Technological Innovations", "Improve writing"],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 4000,
+    "reasons": [
+      "The same bounded official Edit clip was visually inspected for seg-002 and remains sharp and usable here.",
+      "It illustrates AI-assisted editing without claiming to prove the three-month rebuild narration."
+    ]
+  }
+}

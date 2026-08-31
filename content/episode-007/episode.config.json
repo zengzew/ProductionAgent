@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "episode-config-v2",
+  "kind": "episode",
+  "id": "episode-007",
+  "slug": "gamma-blank-page-ai-relaunch",
+  "product": "Gamma",
+  "title": "Product Hunt 第一之后增长放缓，Gamma 改掉了哪个首个动作",
+  "language": "zh-CN",
+  "targetSeconds": 60,
+  "production": {
+    "timelineTailSeconds": {
+      "seg-001": 0.5,
+      "seg-002": 0.7,
+      "seg-003": 0.7,
+      "seg-004": 0.7,
+      "seg-005": 0.7,
+      "seg-006": 0.7,
+      "seg-007": 0.9
+    },
+    "hookAttributionSubjects": ["Gamma"]
+  },
+  "selection": "selected",
+  "selectionReason": "Gamma 官方页面提供可下载的生成、编辑与分享产品演示视频；创始人访谈和公司文章共同覆盖需求、早期获客、AI 重构、收入与融资口径。",
+  "publishStatus": "evaluation",
+  "publishBlocker": "仅在 Graph 内完成本地制作与内部发布状态；不上传外部平台。",
+  "asOf": "2026-08-28",
+  "captureAssets": [{"file": "gamma-home.png", "url": "https://gamma.app/"}]
+}

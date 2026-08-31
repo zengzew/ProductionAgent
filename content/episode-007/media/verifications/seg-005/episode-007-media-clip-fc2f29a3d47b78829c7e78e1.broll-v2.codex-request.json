@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "codex-media-verification-request-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "boundedMediaOnly": true,
+  "episodeId": "episode-007",
+  "segmentId": "seg-005",
+  "clipId": "episode-007:media-clip:fc2f29a3d47b78829c7e78e1",
+  "claimIds": [
+    "claim-gamma-001",
+    "claim-gamma-003",
+    "claim-gamma-006"
+  ],
+  "claims": [
+    {
+      "id": "claim-gamma-001",
+      "claim": "Gamma 让用户用自然语言想法生成演示文稿、网页和社交内容，并继续编辑与分享。"
+    },
+    {
+      "id": "claim-gamma-003",
+      "claim": "联合创始人 Jon Noronha 回顾，团队早期更关注内容消费，但真正的商业问题是创作者面对空白页时很难开始。"
+    },
+    {
+      "id": "claim-gamma-006",
+      "claim": "AI 版把第一个动作改成输入演示主题，由 Gamma 先生成一套可编辑初稿。"
+    }
+  ],
+  "narration": "接着改文字、换版式,再发成链接给同事。变化就在第一步:用户先跨过空白页,再继续修改。",
+  "visualIntent": "Edit 视频中改文字和换版式 → Share 视频中发布链接;“先跨过空白页”只做两秒文字叠层,真实操作持续作为背景。",
+  "clip": {
+    "path": "content/episode-007/media/verifications/seg-005/episode-007-media-clip-fc2f29a3d47b78829c7e78e1-clip.mp4",
+    "sha256": "4793dfe12322f432974317f16a5b1f8f7067221a66728cadda0e9fb9dcce166c",
+    "sizeBytes": 4487648,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 4000,
+    "sourceMediaId": "episode-007:media:gamma-edit",
+    "sourceMediaSha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e"
+  },
+  "keyframes": [
+    {
+      "path": "content/episode-007/media/indexes/gamma-edit/keyframes/keyframe-0-2000.jpg",
+      "timestampMs": 2000,
+      "sha256": "8b4e0fe7a8b5af4a9d7e17b5c7937cd71c86c69af21f435821c8564e22585cbc",
+      "sizeBytes": 130771,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "Gamma editor shows a generated eyewear presentation, editable cards, layout alternatives, and the finished report.",
+    "observedText": "",
+    "keywords": [
+      "Gamma",
+      "editor",
+      "presentation",
+      "layout",
+      "编辑",
+      "演示",
+      "卡片",
+      "布局"
+    ],
+    "entities": [
+      "Gamma"
+    ],
+    "semanticTags": [
+      "产品界面",
+      "编辑演示",
+      "布局切换",
+      "内容替换"
+    ],
+    "speaker": null
+  },
+  "resultContract": {
+    "schemaVersion": "codex-media-verification-result-v1",
+    "envelope": [
+      "executor",
+      "model",
+      "requestHash",
+      "completedAt",
+      "output"
+    ],
+    "output": {
+      "verdict": [
+        "pass",
+        "reject",
+        "uncertain"
+      ],
+      "scores": [
+        "relevance",
+        "claimMatch",
+        "visualQuality",
+        "misleadingRisk"
+      ],
+      "observations": [
+        "observedActions",
+        "observedEntities",
+        "observedText"
+      ],
+      "range": [
+        "recommendedStartMs",
+        "recommendedEndMs"
+      ],
+      "explanation": [
+        "reasons"
+      ]
+    },
+    "instruction": "Inspect only the listed clip and keyframes. Treat the clip as an independent illustrative B-roll track: it does not need to prove, match, or relate to the narration or claims. PASS means the clip is visually usable and does not directly contradict the narration when labeled as product demo/B-roll. Low relevance or claimMatch is allowed. Copy this requestHash into the result envelope; do not alter rights or claim facts."
+  },
+  "requestHash": "d491056024dbad68ac5838a1ad48b08611e3f4730e63da0e7d2a0f2cedb73985"
+}

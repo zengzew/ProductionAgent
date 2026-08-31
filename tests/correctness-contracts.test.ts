@@ -2,7 +2,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import {describe, expect, it, vi} from "vitest";
-import {parseCliArgs, parseRenderMode} from "../src/lib/episode/cli";
+import {parseCliArgs, parseProfileFlag, parseRenderMode} from "../src/lib/episode/cli";
 import {captureConfiguredAssets, type CapturePage} from "../src/lib/delivery/capture-assets";
 import {buildPokeSoundCues} from "../src/compositions/legacy/poke-sound-design";
 import {assertSpawnSucceeded, parseFiniteNumber} from "../src/lib/platform/process";
@@ -30,6 +30,15 @@ describe("correctness contracts", () => {
     );
     expect(() => parseRenderMode(["node", "render.ts", "--models", "default"])).toThrow(
       /未知参数/u,
+    );
+    expect(parseProfileFlag(["node", "scripts/validate-episode.ts", "--profile", "fast"])).toBe(
+      "fast",
+    );
+    expect(() =>
+      parseProfileFlag(["node", "scripts/validate-episode.ts", "--profile", "nightly"]),
+    ).toThrow(/未知校验 profile/u);
+    expect(() => parseProfileFlag(["node", "scripts/validate-episode.ts", "--profile"])).toThrow(
+      /缺少值/u,
     );
   });
 

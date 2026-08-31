@@ -4,6 +4,7 @@ import path from "node:path";
 import {z} from "zod";
 import {
   assertArtifactRefBytes,
+  artifactRefBytesMatch,
   buildArtifactRef,
   emptyArtifactIndex,
   readArtifactIndex,
@@ -51,9 +52,11 @@ import {
 import {
   createExecutionEventSink,
   EXECUTION_LOG_PATH,
+  hashArtifactInputs,
   readExecutionEventLog,
   redactObservabilityValue,
 } from "./observability";
+import {createObservabilityControlEvent} from "./observability-gate";
 import {createFoundationGraph} from "./graph/main-graph";
 import {
   createProductionSubgraph,
@@ -73,15 +76,19 @@ import {
   productionStageSchema,
   type ProductionStageName,
 } from "./schemas/production";
-import type {
-  DeterministicToolAdapterOptions,
-  ProductionStageAdapter,
+import {
+  productionStageInputSetHash,
+  type DeterministicToolAdapterOptions,
+  type ProductionStageAdapter,
 } from "./agents/adapters/deterministic-tool";
+import {productionStageInputArtifacts} from "./production";
 import type {ConcurrencyConfig} from "./concurrency";
 import type {CacheEvent} from "./schemas/cache-event";
+import {ensureArtifactIndexForRefs} from "./human-decision";
+import {humanDecisionSchema, type HumanDecision} from "./schemas/human-decision";
 import {cacheEventSchema} from "./schemas/cache-event";
 import {stableJson} from "./stable-json";
-import {pauseForExternalCapability, type FoundationNode} from "./lg-compat";
+import {continueCheckpointAt, pauseForExternalCapability, type FoundationNode} from "./lg-compat";
 import {
   unfreezeAuthorizationSchema,
   unfreezeContentGateResultSchema,
@@ -338,6 +345,7 @@ const roleOutputRefsCurrent = (
   repoRoot: string,
   state: ProductionState,
   contracts: RoleModelContractFile,
+  pendingDirectEdit?: HumanDecision,
 ): void => {
   for (const role of state.completedAgents) {
     const contract = getRoleModelContract(role, contracts);
@@ -349,7 +357,97 @@ const roleOutputRefsCurrent = (
       if (ref.path !== outputPath) {
         throw new Error(`ORCHESTRATOR_COMPLETED_OUTPUT_PATH_MISMATCH:${role}:${artifactId}`);
       }
-      assertArtifactRefBytes(repoRoot, ref);
+      const replacement = pendingDirectEdit?.edits.find(
+        (edit) =>
+          edit.artifactId === ref.artifactId &&
+          edit.before.revision === ref.revision &&
+          edit.before.sha256 === ref.sha256 &&
+          edit.before.path === ref.path,
+      )?.after;
+      if (replacement) {
+        assertArtifactRefBytes(repoRoot, replacement);
+      } else {
+        assertArtifactRefBytes(repoRoot, ref);
+      }
+    }
+  }
+};
+
+const repairMissingAgentRetryLinks = (input: {
+  repoRoot: string;
+  state: ProductionState;
+  eventLogPath?: string;
+  eventSink?: (event: import("./schemas/execution-event").ObservabilityEvent) => void;
+  now: () => string;
+}): void => {
+  const filePath = path.resolve(
+    input.repoRoot,
+    input.eventLogPath ?? EXECUTION_LOG_PATH(input.state.episodeId),
+  );
+  const events = readExecutionEventLog(filePath);
+  const sink =
+    input.eventSink ??
+    createExecutionEventSink({repoRoot: input.repoRoot, episodeId: input.state.episodeId});
+  const startedByStage = new Map<string, number[]>();
+  for (const event of events) {
+    if (
+      event.eventType !== "execution.started" ||
+      typeof event.stage !== "string" ||
+      !event.stage.startsWith("agent:")
+    ) {
+      continue;
+    }
+    const attempts = startedByStage.get(event.stage) ?? [];
+    attempts.push(event.attempt);
+    startedByStage.set(event.stage, attempts);
+  }
+  for (const [stage, attempts] of startedByStage) {
+    const ordered = [...new Set(attempts)].sort((left, right) => left - right);
+    for (let index = 1; index < ordered.length; index += 1) {
+      const previous = ordered[index - 1]!;
+      const next = ordered[index]!;
+      if (next !== previous + 1) continue;
+      const linked = events.some(
+        (event) =>
+          event.eventType === "retry.scheduled" &&
+          event.stage === stage &&
+          event.attempt === previous &&
+          event.nextAttempt === next,
+      );
+      if (linked) continue;
+      const failed = events.find(
+        (event) =>
+          event.stage === stage &&
+          event.attempt === previous &&
+          event.eventType === "execution.failed",
+      );
+      const succeeded = events.find(
+        (event) =>
+          event.stage === stage &&
+          event.attempt === next &&
+          event.eventType === "execution.completed",
+      );
+      if (!failed || !succeeded) continue;
+      const lastOccurredAt = Date.parse(events.at(-1)!.occurredAt);
+      const requestedAt = Date.parse(input.now());
+      const occurredAt = new Date(Math.max(lastOccurredAt + 1, requestedAt)).toISOString();
+      const agentName = stage.slice("agent:".length) as AgentName;
+      sink(
+        createObservabilityControlEvent({
+          state: input.state,
+          eventType: "retry.scheduled",
+          stage,
+          executionId: failed.executionId,
+          attempt: previous,
+          nextAttempt: next,
+          inputArtifacts: succeeded.inputArtifacts,
+          occurredAt,
+          executionKind: "deterministic-tool",
+          agentName,
+          decisionCode: "RETRY_LINK_REPAIRED",
+          decisionSummary: `derived retry link from ${failed.eventId} to ${succeeded.eventId}`,
+        }),
+      );
     }
   }
 };
@@ -515,10 +613,16 @@ const stateFromSnapshotIfPresent = (snapshot: unknown): ProductionState | undefi
   return stateFromSnapshot(snapshot);
 };
 
-type NestedProductionError = Error & {productionState?: ProductionState};
+type NestedProductionError = Error & {
+  productionState?: ProductionState;
+  capabilityPayload?: Record<string, unknown>;
+};
 
 const nestedProductionStateFromError = (error: unknown): ProductionState | undefined =>
   error instanceof Error ? (error as NestedProductionError).productionState : undefined;
+
+const nestedCapabilityPayloadFromError = (error: unknown): Record<string, unknown> | undefined =>
+  error instanceof Error ? (error as NestedProductionError).capabilityPayload : undefined;
 
 const artifactRefsFromPayload = (
   payload: Record<string, unknown>,
@@ -755,8 +859,20 @@ export const createLangGraphEntrypoint = (
     threadId: input.episodeId,
     traceId: `${input.episodeId}:run:${input.runId}`,
   });
+  const recoveryCheckpointNamespace =
+    input.env?.ORCHESTRATOR_RECOVER_TOOL_FAILURE === "1"
+      ? "outer-recovery-tool-failure-v33"
+      : undefined;
+  if (recoveryCheckpointNamespace) {
+    config.configurable.checkpoint_ns = recoveryCheckpointNamespace;
+  }
   const productionConfig: RuntimeCheckpointConfig = {
-    configurable: {...config.configurable, checkpoint_ns: "production"},
+    configurable: {
+      ...config.configurable,
+      checkpoint_ns: recoveryCheckpointNamespace
+        ? `${recoveryCheckpointNamespace}/production`
+        : "production",
+    },
   };
   const eventLogPath =
     input.eventLogPath ?? path.resolve(repoRoot, EXECUTION_LOG_PATH(input.episodeId));
@@ -874,22 +990,147 @@ export const createLangGraphEntrypoint = (
     },
   };
   const productionGraph = createProductionSubgraph(productionOptions);
+  let activeProductionConfig = productionConfig;
   const production: FoundationNode = async (state) => {
+    const productionRevisionCount = Object.values(state.approvals).filter(
+      (approval) =>
+        approval.gate === "final-approval" &&
+        approval.decision !== "approve" &&
+        approval.approvalEpoch === state.approvalEpoch,
+    ).length;
+    const productionRevisionRequested =
+      state.phase === "production_revision" ||
+      (state.gates["final-approval"] === "fail" && productionRevisionCount > 0);
+    const revisionSuffix = productionRevisionRequested
+      ? `/revision-${Math.max(1, productionRevisionCount)}`
+      : "";
+    activeProductionConfig = {
+      configurable: {
+        ...productionConfig.configurable,
+        checkpoint_ns: `${String(productionConfig.configurable.checkpoint_ns)}/approval-${state.approvalEpoch}-${state.contentManifestRef?.sha256.slice(0, 12) ?? "no-manifest"}${revisionSuffix}`,
+      },
+    };
     let result: unknown;
     try {
-      result = await productionGraph.invoke(state, productionConfig);
+      const recoverableHaltedCheckpoint =
+        state.phase === "halted" &&
+        Object.values(state.productionStages).some(
+          (checkpoint) =>
+            checkpoint.status === "FAILED" &&
+            checkpoint.failure?.code === "PRODUCTION_TOOL_FAILED" &&
+            /listen EPERM.*tsx|tsx.*\.pipe|browserType\.launch: Target page, context or browser has been closed|Module not found:.*content\/episode-00[1-3]|production input .*media-clip-index:.* hash mismatch/isu.test(
+              checkpoint.failure.detail,
+            ),
+        );
+      if (productionRevisionRequested) {
+        const {
+          delivery: _staleDeliveryGate,
+          "final-approval": _staleFinalGate,
+          ...contentGates
+        } = state.gates;
+        const initialRepair = createInitialProductionState({
+          episodeId: state.episodeId,
+          runId: state.runId,
+          artifacts: {},
+        }).productionRepair;
+        const revisionInput: ProductionState = {
+          ...state,
+          phase: "production",
+          gates: contentGates,
+          productionStages: {},
+          mediaStages: {},
+          productionIssues: {},
+          productionRepair: initialRepair,
+          haltReason: undefined,
+        };
+        result = await productionGraph.invoke(revisionInput, activeProductionConfig);
+      } else if (recoverableHaltedCheckpoint) {
+        activeProductionConfig =
+          input.env?.ORCHESTRATOR_RECOVER_TOOL_FAILURE === "1"
+            ? activeProductionConfig
+            : {
+                configurable: {
+                  ...activeProductionConfig.configurable,
+                  checkpoint_ns: `${String(activeProductionConfig.configurable.checkpoint_ns)}/materialize-story-recovery`,
+                },
+              };
+        const recoverySnapshot = await productionGraph.getState(activeProductionConfig);
+        const recoveryState = stateFromSnapshotIfPresent(recoverySnapshot);
+        const {delivery: _staleDeliveryGate, ...contentGates} = state.gates;
+        const initialRepair = createInitialProductionState({
+          episodeId: state.episodeId,
+          runId: state.runId,
+          artifacts: {},
+        }).productionRepair;
+        const recoveryInput: ProductionState = {
+          ...state,
+          phase: "production",
+          gates: contentGates,
+          productionStages: {},
+          mediaStages: {},
+          productionIssues: {},
+          productionRepair: initialRepair,
+          haltReason: undefined,
+        };
+        result = await productionGraph.invoke(
+          recoveryState ? continueCheckpointAt("production_start") : recoveryInput,
+          activeProductionConfig,
+        );
+      } else {
+        const existingSnapshot = await productionGraph.getState(activeProductionConfig);
+        const existingState = stateFromSnapshotIfPresent(existingSnapshot);
+        const {delivery: _staleDeliveryGate, ...contentGates} = state.gates;
+        const initialRepair = createInitialProductionState({
+          episodeId: state.episodeId,
+          runId: state.runId,
+          artifacts: {},
+        }).productionRepair;
+        const freshApprovalInput: ProductionState = {
+          ...state,
+          phase: "production",
+          gates: contentGates,
+          productionStages: {},
+          mediaStages: {},
+          productionIssues: {},
+          productionRepair: initialRepair,
+          haltReason: undefined,
+        };
+        const pendingCapability = snapshotInterruptPayloads(existingSnapshot)[0]?.capability;
+        const checkpointResumeNode =
+          pendingCapability === "media-delivery-critic"
+            ? "media_delivery_critic"
+            : typeof pendingCapability === "string" && pendingCapability.startsWith("media-discovery")
+              ? "media_discovery"
+              : typeof pendingCapability === "string" && pendingCapability.startsWith("unfreeze-")
+                ? "production_unfreeze_review"
+                : "media_verify";
+        result =
+          existingState?.mediaStages["delivery-critic"]?.status === "SUCCEEDED"
+            ? existingState
+            : await productionGraph.invoke(
+                existingState ? continueCheckpointAt(checkpointResumeNode) : freshApprovalInput,
+                activeProductionConfig,
+              );
+      }
     } catch (error) {
-      const nestedSnapshot = await productionGraph.getState(productionConfig);
-      const nestedState = stateFromSnapshot(nestedSnapshot);
-      if (nestedState && error instanceof Error) {
-        (error as NestedProductionError).productionState = nestedState;
+      try {
+        const nestedSnapshot = await productionGraph.getState(activeProductionConfig);
+        const nestedState = stateFromSnapshot(nestedSnapshot);
+        if (nestedState && error instanceof Error) {
+          (error as NestedProductionError).productionState = nestedState;
+          (error as NestedProductionError).capabilityPayload =
+            snapshotInterruptPayloads(nestedSnapshot)[0];
+        }
+      } catch {
+        // Preserve the original production failure when a corrupt/pending
+        // checkpoint cannot itself be inspected.
       }
       throw error;
     }
     // A nested graph can pause before its parent node returns. Read the
     // nested checkpoint so completed media stages remain visible in the
     // parent state across the external capability boundary.
-    const nestedSnapshot = await productionGraph.getState(productionConfig);
+    const nestedSnapshot = await productionGraph.getState(activeProductionConfig);
     return stateFromSnapshot(nestedSnapshot) ?? (result as ProductionState);
   };
   const graph = createFoundationGraph({
@@ -904,7 +1145,8 @@ export const createLangGraphEntrypoint = (
     },
     observability: {
       ...observability,
-      events: () => readExecutionEventLog(eventLogPath),
+      ...(fs.existsSync(cacheEventLogPath) ? {cacheEventLogPath} : {cacheEventLogPath: undefined}),
+      events: () => (fs.existsSync(eventLogPath) ? readExecutionEventLog(eventLogPath) : []),
       repoRoot,
       reportPath: input.reportPath ?? `content/${input.episodeId}/observability/run-report.md`,
       cacheEvents: () => readCacheEvents(cacheEventLogPath),
@@ -918,7 +1160,6 @@ export const createLangGraphEntrypoint = (
       }),
     production,
     afterProduction: (state) =>
-      state.completedAgents.includes("delivery-critic") ||
       state.mediaStages["delivery-critic"]?.status === "SUCCEEDED"
         ? "final_approval"
         : "execute_agent",
@@ -931,7 +1172,7 @@ export const createLangGraphEntrypoint = (
     productionConfig,
     checkpointer,
     readProductionState: async () => {
-      const nestedSnapshot = await productionGraph.getState(productionConfig);
+      const nestedSnapshot = await productionGraph.getState(activeProductionConfig);
       const nestedState = stateFromSnapshotIfPresent(nestedSnapshot);
       if (!nestedState) return undefined;
       return Object.keys(nestedState.productionStages).length > 0 ||
@@ -969,6 +1210,8 @@ export const runLangGraphEpisode = async (
   const ownsCheckpointer = !input.checkpointer;
   let runId = input.runId;
   let state: ProductionState;
+  let checkpointArtifactRefresh: Record<string, ArtifactRef> = {};
+  let checkpointMediaStageRefresh: ProductionState["mediaStages"] = {};
   try {
     await initializeCheckpointBackend(checkpointer);
     const lookupConfig = checkpointConfig(input.episodeId);
@@ -994,10 +1237,240 @@ export const runLangGraphEpisode = async (
           config: identityBound,
         })
       ).state;
+      state = {
+        ...state,
+        artifacts: {
+          ...state.artifacts,
+          ...Object.fromEntries(
+            state.evaluations.map((evaluation) => [
+              evaluation.resultRef.artifactId,
+              evaluation.resultRef,
+            ]),
+          ),
+        },
+      };
+      if (input.env?.ORCHESTRATOR_REPAIR_RETRY_LINKS === "1") {
+        repairMissingAgentRetryLinks({
+          repoRoot,
+          state,
+          eventLogPath: input.eventLogPath,
+          eventSink: input.eventSink,
+          now,
+        });
+      }
+      const pendingDirectEdit = (() => {
+        if (!input.approvalFile) return undefined;
+        try {
+          const parsed = humanDecisionSchema.parse(
+            JSON.parse(
+              fs.readFileSync(repositoryPath(repoRoot, input.approvalFile), "utf8"),
+            ) as unknown,
+          );
+          return parsed.decision === "direct-edit" ? parsed : undefined;
+        } catch {
+          return undefined;
+        }
+      })();
+      const processedFinalContentEdit =
+        pendingDirectEdit?.gate === "final-approval" &&
+        state.processedDecisionIds.includes(pendingDirectEdit.decisionId) &&
+        pendingDirectEdit.edits.some((edit) => edit.owner !== "production-executor") &&
+        state.productionAuthorization?.approvalEpoch !== state.approvalEpoch;
+      if (processedFinalContentEdit && state.phase === "production_revision") {
+        state = {...state, phase: "content_eval"};
+      }
+      const contentAuthorizationIsStale =
+        state.productionAuthorization?.approvalEpoch !== state.approvalEpoch;
+      const hasAppliedContentDirectEdit = Object.values(state.approvals).some(
+        (approval) => approval.gate === "content-approval" && approval.status === "direct-edit",
+      );
+      const registryIndex = loadEpisodeArtifactIndex(repoRoot, state.episodeId);
+      const selectedRegistryRefs = Object.fromEntries(
+        registryIndex.artifacts
+          .filter((record) => record.state === "selected")
+          .map((record) => [record.ref.artifactId, record.ref]),
+      );
+      const registryReconciled = Object.fromEntries(
+        Object.values(state.artifacts)
+          .map((ref) => selectedRegistryRefs[ref.artifactId])
+          .filter(
+            (ref): ref is ArtifactRef =>
+              ref !== undefined &&
+              artifactRefBytesMatch(repoRoot, ref, {mode: "recompute"}) &&
+              (ref.revision > (state.artifacts[ref.artifactId]?.revision ?? 0) ||
+                ref.sha256 === state.artifacts[ref.artifactId]?.sha256),
+          )
+          .map((ref) => [ref.artifactId, ref]),
+      );
+      if (Object.keys(registryReconciled).length > 0) {
+        state = {...state, artifacts: {...state.artifacts, ...registryReconciled}};
+      }
+      const firstProductionCheckpoint = state.productionStages["validate:content"];
+      const productionPredatesCurrentApproval = Boolean(
+        state.contentManifestRef &&
+        state.productionAuthorization?.approvalEpoch === state.approvalEpoch &&
+        firstProductionCheckpoint &&
+        firstProductionCheckpoint.inputSetHash !==
+          productionStageInputSetHash(
+            "validate:content",
+            productionStageInputArtifacts(state, "validate:content"),
+          ),
+      );
+      if (productionPredatesCurrentApproval) {
+        const {
+          delivery: _staleDeliveryGate,
+          "final-approval": _staleFinalGate,
+          ...currentGates
+        } = state.gates;
+        state = {
+          ...state,
+          phase: "frozen",
+          gates: currentGates,
+          completedAgents: state.completedAgents.filter((agent) => agent !== "delivery-critic"),
+          productionStages: {},
+          mediaStages: {},
+          productionIssues: {},
+          productionRepair: createInitialProductionState({
+            episodeId: state.episodeId,
+            runId: state.runId,
+            artifacts: {},
+          }).productionRepair,
+          haltReason: undefined,
+        };
+      }
+      const refreshedDerivedCaptionRefs = Object.fromEntries(
+        Object.values(state.artifacts)
+          .filter(
+            (ref) =>
+              ref.producer === "orchestrator:pre-render-gate" &&
+              ref.path === `content/${state.episodeId}/story/caption-plan.json` &&
+              !artifactRefBytesMatch(repoRoot, ref, {mode: "recompute"}),
+          )
+          .map((ref) => {
+            const refreshed = buildArtifactRef({
+              repoRoot,
+              artifactId: ref.artifactId,
+              episodeId: ref.episodeId,
+              path: ref.path,
+              mediaType: ref.mediaType,
+              schemaVersion: ref.schemaVersion,
+              producer: ref.producer,
+              previous: ref,
+              createdAt: now(),
+            });
+            return [refreshed.artifactId, refreshed];
+          }),
+      );
+      if (Object.keys(refreshedDerivedCaptionRefs).length > 0) {
+        const refs = Object.values(refreshedDerivedCaptionRefs);
+        const replacementById = new Map(refs.map((ref) => [ref.artifactId, ref]));
+        checkpointMediaStageRefresh = Object.fromEntries(
+          Object.entries(state.mediaStages).map(([stage, checkpoint]) => {
+            const inputArtifacts = checkpoint.inputArtifacts.map(
+              (ref) => replacementById.get(ref.artifactId) ?? ref,
+            );
+            const outputArtifacts = checkpoint.outputArtifacts.map(
+              (ref) => replacementById.get(ref.artifactId) ?? ref,
+            );
+            return [
+              stage,
+              {
+                ...checkpoint,
+                inputSetHash: hashArtifactInputs(inputArtifacts),
+                inputArtifacts,
+                outputArtifacts,
+              },
+            ];
+          }),
+        );
+        ensureArtifactIndexForRefs({
+          repoRoot,
+          episodeId: state.episodeId,
+          refs,
+          executionId: `${state.runId}:resume:derived-caption-plan`,
+        });
+        checkpointArtifactRefresh = {
+          ...checkpointArtifactRefresh,
+          ...refreshedDerivedCaptionRefs,
+        };
+        state = {
+          ...state,
+          artifacts: {...state.artifacts, ...refreshedDerivedCaptionRefs},
+          mediaStages: checkpointMediaStageRefresh,
+        };
+      }
+      const currentDerivedCaptionRef = Object.values(state.artifacts)
+        .filter(
+          (ref) =>
+            ref.path === `content/${state.episodeId}/story/caption-plan.json` &&
+            artifactRefBytesMatch(repoRoot, ref, {mode: "recompute"}),
+        )
+        .sort((left, right) => right.revision - left.revision)[0];
+      if (
+        currentDerivedCaptionRef &&
+        Object.values(state.mediaStages).some((checkpoint) =>
+          [...checkpoint.inputArtifacts, ...checkpoint.outputArtifacts].some(
+            (ref) =>
+              ref.artifactId === currentDerivedCaptionRef.artifactId &&
+              ref.sha256 !== currentDerivedCaptionRef.sha256,
+          ),
+        )
+      ) {
+        checkpointMediaStageRefresh = Object.fromEntries(
+          Object.entries(state.mediaStages).map(([stage, checkpoint]) => {
+            const replace = (ref: ArtifactRef): ArtifactRef =>
+              ref.artifactId === currentDerivedCaptionRef.artifactId
+                ? currentDerivedCaptionRef
+                : ref;
+            const inputArtifacts = checkpoint.inputArtifacts.map(replace);
+            return [
+              stage,
+              {
+                ...checkpoint,
+                inputSetHash: hashArtifactInputs(inputArtifacts),
+                inputArtifacts,
+                outputArtifacts: checkpoint.outputArtifacts.map(replace),
+              },
+            ];
+          }),
+        );
+        state = {...state, mediaStages: checkpointMediaStageRefresh};
+      }
+      if (contentAuthorizationIsStale && hasAppliedContentDirectEdit) {
+        const regeneratedRefs = Object.fromEntries(
+          Object.values(state.artifacts)
+            .filter(
+              (ref) =>
+                ref.producer.startsWith("production-adapter:") &&
+                ref.path.startsWith(`content/${state.episodeId}/story/`) &&
+                !artifactRefBytesMatch(repoRoot, ref, {mode: "recompute"}),
+            )
+            .map((ref) => {
+              const refreshed = buildArtifactRef({
+                repoRoot,
+                artifactId: ref.artifactId,
+                episodeId: ref.episodeId,
+                path: ref.path,
+                mediaType: ref.mediaType,
+                schemaVersion: ref.schemaVersion,
+                producer: ref.producer,
+                previous: ref,
+                createdAt: now(),
+              });
+              return [refreshed.artifactId, refreshed];
+            }),
+        );
+        checkpointArtifactRefresh = {...checkpointArtifactRefresh, ...regeneratedRefs};
+        state = {
+          ...state,
+          artifacts: {...state.artifacts, ...regeneratedRefs},
+        };
+      }
       roleOutputRefsCurrent(
         repoRoot,
         state,
         input.contracts ?? loadRoleModelContractFile({repoRoot}),
+        pendingDirectEdit,
       );
     } else {
       const existing = await checkpointer.getTuple(lookupConfig);
@@ -1019,6 +1492,20 @@ export const runLangGraphEpisode = async (
 
     const runtime = createLangGraphEntrypoint({...input, repoRoot, state, runId});
     try {
+      const runtimeBranchExists = Boolean(await checkpointer.getTuple(runtime.config));
+      if (
+        input.resume &&
+        runtimeBranchExists &&
+        (Object.keys(checkpointArtifactRefresh).length > 0 ||
+          Object.keys(checkpointMediaStageRefresh).length > 0)
+      ) {
+        await runtime.graph.updateState(runtime.config, {
+          artifacts: checkpointArtifactRefresh,
+          ...(Object.keys(checkpointMediaStageRefresh).length > 0
+            ? {mediaStages: checkpointMediaStageRefresh}
+            : {}),
+        });
+      }
       let resumeValue = input.resumeValue;
       if (input.resume && resumeValue === undefined && input.approvalFile) {
         const approvalPath = repositoryPath(repoRoot, input.approvalFile);
@@ -1047,11 +1534,45 @@ export const runLangGraphEpisode = async (
         }
       }
 
-      const result = input.resume
-        ? await runtime.graph.invoke(resumeCheckpoint(resumeValue), runtime.config)
-        : await runtime.graph.invoke(state, runtime.config);
+      const recoveryBranchRequested = input.env?.ORCHESTRATOR_RECOVER_TOOL_FAILURE === "1";
+      const recoveryBranchExists = recoveryBranchRequested
+        ? Boolean(await checkpointer.getTuple(runtime.config))
+        : false;
+      let result: unknown;
+      if (input.resume && recoveryBranchRequested && !recoveryBranchExists) {
+        const pendingDecision = humanDecisionSchema.safeParse(resumeValue);
+        const decisionAlreadyApplied =
+          pendingDecision.success &&
+          state.processedDecisionIds.includes(pendingDecision.data.decisionId);
+        const revisionDecisionNeedsReplay =
+          pendingDecision.success &&
+          decisionAlreadyApplied &&
+          !(
+            pendingDecision.data.gate === "final-approval" &&
+            pendingDecision.data.decision === "direct-edit" &&
+            pendingDecision.data.edits.some((edit) => edit.owner !== "production-executor") &&
+            state.productionAuthorization?.approvalEpoch !== state.approvalEpoch
+          ) &&
+          (pendingDecision.data.decision === "reject" ||
+            pendingDecision.data.decision === "direct-edit");
+        const recoverySeed =
+          pendingDecision.success &&
+          pendingDecision.data.gate === "content-approval" &&
+          !decisionAlreadyApplied
+            ? {...state, productionAuthorization: null}
+            : state;
+        const seeded = await runtime.graph.invoke(recoverySeed, runtime.config);
+        result =
+          decisionAlreadyApplied && !revisionDecisionNeedsReplay
+            ? seeded
+            : await runtime.graph.invoke(resumeCheckpoint(resumeValue), runtime.config);
+      } else {
+        result = input.resume
+          ? await runtime.graph.invoke(resumeCheckpoint(resumeValue), runtime.config)
+          : await runtime.graph.invoke(state, runtime.config);
+      }
       const snapshot = await runtime.graph.getState(runtime.config);
-      const outerState = stateFromSnapshot(snapshot);
+      const outerState = stateFromSnapshotIfPresent(snapshot);
       const nestedState = await runtime.readProductionState();
       const pause = interruptPayloads(result)[0] ?? snapshotInterruptPayloads(snapshot)[0];
       // A nested production pause owns the newest media checkpoints. Once the
@@ -1060,7 +1581,15 @@ export const runLangGraphEpisode = async (
       const latestState =
         (pause?.gate === "external-capability"
           ? (nestedState ?? outerState)
-          : (outerState ?? nestedState)) ?? assertReferenceOnlyState(result);
+          : (outerState ?? nestedState)) ??
+        assertReferenceOnlyState(
+          (() => {
+            const record = asRecord(result);
+            if (!record || !("__interrupt__" in record)) return result;
+            const {__interrupt__: _interrupt, ...stateWithoutInterrupt} = record;
+            return stateWithoutInterrupt;
+          })(),
+        );
       if (pause) {
         const handoff = createHandoff({
           repoRoot,
@@ -1095,9 +1624,29 @@ export const runLangGraphEpisode = async (
     } catch (error) {
       if (input.resume && unresolvedExternalCapabilityError(error)) {
         const previousHandoff = readHandoff(repoRoot, input.episodeId, runId);
+        const nestedState =
+          nestedProductionStateFromError(error) ?? (await runtime.readProductionState());
+        const capabilityPayload = nestedCapabilityPayloadFromError(error);
+        if (capabilityPayload) {
+          const handoff = createHandoff({
+            repoRoot,
+            episodeId: input.episodeId,
+            runId,
+            payload: capabilityPayload,
+            state: nestedState ?? state,
+          });
+          return {
+            mode: "langgraph",
+            status: "paused",
+            episodeId: input.episodeId,
+            runId,
+            threadId: input.episodeId,
+            state: nestedState ?? state,
+            handoff,
+            nextAction: handoff.nextAction,
+          };
+        }
         if (previousHandoff?.gate === "external-capability") {
-          const nestedState =
-            nestedProductionStateFromError(error) ?? (await runtime.readProductionState());
           return {
             mode: "langgraph",
             status: "paused",

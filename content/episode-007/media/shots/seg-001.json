@@ -1,0 +1,237 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-007:media-shot:seg-001",
+    "createdAt": "2026-08-31T08:20:38.597Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/shots/seg-001.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-shot-v1",
+    "sha256": "1b2002f859a74a5b16f835027b89fe9c9a8c9c184043671674c1126770d9945d",
+    "sizeBytes": 7615
+  },
+  "audio": {
+    "ducking": {
+      "attackMs": 80,
+      "enabled": true,
+      "reductionDb": 10,
+      "releaseMs": 240
+    },
+    "fadeInMs": 0,
+    "fadeOutMs": 0,
+    "narrationGain": 0.740741,
+    "originalAudioGain": 0.259259
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "timelineSha256": "52136b20c1ffb4de056b59131d77757d8b8adc9b75c8c844834406a708f02ba2",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-08-31T08:20:38.597Z",
+  "crossfadeMs": 0,
+  "durationFrames": 91,
+  "endSeconds": 3.019375,
+  "episodeId": "episode-007",
+  "evidenceImageAssetId": null,
+  "evidenceImagePath": null,
+  "evidenceImageSha256": null,
+  "fade": {
+    "inMs": 200,
+    "outMs": 200
+  },
+  "fallbackImageAssetId": null,
+  "fallbackImagePath": null,
+  "fallbackImageSha256": null,
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "clipVerified": true,
+    "episodeIsolated": true,
+    "hashesValid": true,
+    "rightsApproved": true,
+    "slotValid": true,
+    "timestampsValid": true
+  },
+  "lineage": {
+    "clipArtifactRef": {
+      "artifactId": "episode-007:media-verification-clip:seg-001-episode-007-media-clip-e064920c16fee19960cc660c",
+      "createdAt": "2026-08-31T03:19:17.686Z",
+      "episodeId": "episode-007",
+      "mediaType": "video/mp4",
+      "path": "content/episode-007/media/verifications/seg-001/episode-007-media-clip-e064920c16fee19960cc660c-clip.mp4",
+      "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+      "revision": 1,
+      "schemaVersion": "media-verification-clip-v1",
+      "sha256": "63f97bf1d0c4e8b5a4595f934af2c4c7789efdf25c90820b50916dfd0f04bee7",
+      "sizeBytes": 2682587
+    },
+    "clipId": "episode-007:media-clip:e064920c16fee19960cc660c",
+    "clipIndexRef": {
+      "artifactId": "episode-007:media-clip-index:gamma-edit",
+      "createdAt": "2026-08-29T05:28:52.981Z",
+      "episodeId": "episode-007",
+      "mediaType": "application/json",
+      "path": "content/episode-007/media/indexes/gamma-edit/clip-index.json",
+      "producer": "media-understanding-v1:index:episode-007-gamma-v2",
+      "revision": 2,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "d25a0c99defe0013a72e63297494713c312f5bf7517f4eddd15151ccc8684e49",
+      "sizeBytes": 14595
+    },
+    "cutSourceRef": {
+      "artifactId": "episode-007:media:gamma-edit-proxy",
+      "createdAt": "2026-08-28T14:27:12.231Z",
+      "episodeId": "episode-007",
+      "mediaType": "video/mp4",
+      "path": "content/episode-007/media/assets/gamma-edit-proxy.mp4",
+      "producer": "media-ingest-v1:normalize",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+      "sizeBytes": 2259873
+    },
+    "sourceEndMs": 18433,
+    "sourceMediaId": "episode-007:media:gamma-edit",
+    "sourceMediaRef": {
+      "artifactId": "episode-007:media:gamma-edit",
+      "createdAt": "2026-08-28T14:26:57.195Z",
+      "episodeId": "episode-007",
+      "mediaType": "video/mp4",
+      "path": "content/episode-007/media/assets/gamma-edit.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+      "sizeBytes": 1968627
+    },
+    "sourceSha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+    "sourceStartMs": 16000,
+    "verificationRef": {
+      "artifactId": "episode-007:media-verification:seg-001-episode-007-media-clip-e064920c16fee19960cc660c",
+      "createdAt": "2026-08-31T03:36:55.154Z",
+      "episodeId": "episode-007",
+      "mediaType": "application/json",
+      "path": "content/episode-007/media/verifications/seg-001/episode-007-media-clip-e064920c16fee19960cc660c.json",
+      "producer": "media-verification-v1:codex:codex-media-verification-v1",
+      "revision": 3,
+      "schemaVersion": "media-verification-v1",
+      "sha256": "9ee57adb54737cd82f26cfbbc5182b18fe311727ec159c29a6747820fc1aae27",
+      "sizeBytes": 4755
+    }
+  },
+  "overlays": {
+    "badge": null,
+    "captionsEnabled": true,
+    "sourceLabel": null
+  },
+  "reasons": [
+    "scene seg-001 at frame 0 (91 frames, 30 fps)",
+    "real media episode-007:media-clip:e064920c16fee19960cc660c trimmed 16000..18433ms (recommended 16000..18433ms)",
+    "render proxy episode-007:media-render-proxy:seg-001 (video/mp4)",
+    "audio mix original 0.259259 / narration 0.740741 duck 10dB"
+  ],
+  "renderProxyMediaType": "video/mp4",
+  "renderProxyRef": {
+    "artifactId": "episode-007:media-render-proxy:seg-001",
+    "createdAt": "2026-08-31T08:20:38.458Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/render/seg-001.mp4",
+    "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-proxy-v1",
+    "sha256": "2643fbbcfcdbc4557ed9d1f2dcdff1ae2e267b59c43b9999ec5ffed8ff4fb551",
+    "sizeBytes": 517515
+  },
+  "sceneIndex": 0,
+  "schemaVersion": "media-shot-v1",
+  "segmentId": "seg-001",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-gamma-008",
+      "claim-gamma-009"
+    ],
+    "clipId": "episode-007:media-clip:e064920c16fee19960cc660c",
+    "createdAt": "2026-08-31T03:36:55.135Z",
+    "endMs": 18433,
+    "episodeId": "episode-007",
+    "mediaId": "episode-007:media:gamma-edit",
+    "sourceMediaRef": {
+      "artifactId": "episode-007:media:gamma-edit",
+      "createdAt": "2026-08-28T14:26:57.195Z",
+      "episodeId": "episode-007",
+      "mediaType": "video/mp4",
+      "path": "content/episode-007/media/assets/gamma-edit.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+      "sizeBytes": 1968627
+    },
+    "startMs": 16000,
+    "transcriptRefs": [],
+    "visualIntent": "Gamma 官方产品成片首帧直接出现,ARR 与估值只做短暂叠层;同期显示公司来源,不让数据卡取代真实产品画面。"
+  },
+  "shotId": "episode-007:media-shot:seg-001",
+  "startFrame": 0,
+  "startSeconds": 0,
+  "staticFilePath": "episodes/episode-007/media/seg-001.mp4",
+  "transform": {
+    "freezeFrameMs": null,
+    "pip": null,
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "reframe": {
+      "crop": {
+        "height": 1,
+        "width": 1,
+        "x": 0,
+        "y": 0
+      },
+      "mode": "cover"
+    },
+    "scale": 1,
+    "zoomPan": {
+      "end": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "start": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "type": "none"
+    }
+  },
+  "trim": {
+    "endMs": 18433,
+    "startMs": 16000
+  },
+  "verificationRef": {
+    "artifactId": "episode-007:media-verification:seg-001-episode-007-media-clip-e064920c16fee19960cc660c",
+    "createdAt": "2026-08-31T03:36:55.154Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/verifications/seg-001/episode-007-media-clip-e064920c16fee19960cc660c.json",
+    "producer": "media-verification-v1:codex:codex-media-verification-v1",
+    "revision": 3,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "9ee57adb54737cd82f26cfbbc5182b18fe311727ec159c29a6747820fc1aae27",
+    "sizeBytes": 4755
+  },
+  "visualType": "real-media"
+}

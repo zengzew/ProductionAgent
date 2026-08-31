@@ -225,12 +225,13 @@ Audience Critic、Fact Guardian、Visual Director 和 Retention Critic 全部重
 最后运行：
 
 ```bash
-pnpm validate:research
-pnpm validate:workflow
-pnpm validate:story
+pnpm validate:episode -- --profile fast
 ```
 
-只有三条命令都通过，状态才是 `story-approved`。
+故事结构门过了再升到 `production`。不要为此跑全量 Vitest。独立的
+`validate:research` / `validate:workflow` / `validate:story` 仍可用于单阶段。
+
+只有 episode validator 通过，状态才是 `story-approved`。
 
 进入生产后运行：
 

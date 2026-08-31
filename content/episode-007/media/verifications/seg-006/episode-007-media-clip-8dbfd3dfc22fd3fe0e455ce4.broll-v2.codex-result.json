@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "bc3ff7130b479a1ae51aece3065e77c7b2d246c425fc15921a3844aeb7bff00e",
+  "completedAt": "2026-08-30T04:32:00.000Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.15,
+    "claimMatch": 0.05,
+    "visualQuality": 0.9,
+    "misleadingRisk": 0.12,
+    "observedActions": [
+      "a Gamma deck is visible",
+      "the pointer clicks Share",
+      "a collaborator dialog opens"
+    ],
+    "observedEntities": [
+      "Gamma"
+    ],
+    "observedText": [
+      "Share",
+      "Collaborate",
+      "Invite"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 4000,
+    "reasons": [
+      "The segment uses the same previously inspected official Gamma Share clip bytes and cleanly shows the collaboration workflow.",
+      "The footage does not prove the registration narration, but independent product B-roll is allowed and does not contradict it."
+    ]
+  }
+}

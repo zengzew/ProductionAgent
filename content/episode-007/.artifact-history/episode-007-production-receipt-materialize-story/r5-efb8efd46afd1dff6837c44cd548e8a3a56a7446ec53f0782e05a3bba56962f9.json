@@ -1,0 +1,1 @@
+{"command":"scripts/materialize-story.ts","episodeId":"episode-007","inputSetHash":"97b05b08f2424656418de423655e9df2dcf254da2ed41f0c452db626b906d1c5","outputPaths":["content/episode-007/story/narration.txt","content/episode-007/story/script.json"],"schemaVersion":"production-stage-receipt-v1","stage":"materialize:story","status":"passed"}

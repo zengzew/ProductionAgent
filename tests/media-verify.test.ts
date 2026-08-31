@@ -657,6 +657,7 @@ describe("WP-M5.06 multimodal clip verification", () => {
       }),
     );
     expect(rejectOutcome.verdict).toBe("reject");
+    expect(rejectOutcome.artifactRef.revision).toBe(1);
     const rejectArtifact = readMediaVerification(repoRoot, episodeId, "seg-001", candidate.clipId);
     expect(rejectArtifact.verdict).toBe("reject");
     expect(
@@ -686,6 +687,8 @@ describe("WP-M5.06 multimodal clip verification", () => {
       }),
     );
     expect(uncertainOutcome.verdict).toBe("uncertain");
+    expect(uncertainOutcome.artifactRef.revision).toBe(2);
+    expect(uncertainOutcome.artifactRef.sha256).not.toBe(rejectOutcome.artifactRef.sha256);
     expect(
       isMediaClipVerified({
         repoRoot,
@@ -731,13 +734,14 @@ describe("WP-M5.06 multimodal clip verification", () => {
       ),
     ).rejects.toThrow(/MEDIA_VERIFY_PROVIDER_OUTPUT_INVALID/u);
 
-    // Pass with below-threshold scores.
+    // Scores outside the schema range remain malformed. Low in-range relevance
+    // and claim-match are valid for explicitly labelled independent B-roll.
     await expect(
       runVerify(
         repoRoot,
         request,
         createDeterministicVerificationProvider({
-          output: {...passOutput, relevance: 0.2},
+          output: {...passOutput, visualQuality: 1.2},
         }),
       ),
     ).rejects.toThrow(/MEDIA_VERIFY_PROVIDER_OUTPUT_INVALID/u);

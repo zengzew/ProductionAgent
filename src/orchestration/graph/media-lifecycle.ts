@@ -181,6 +181,25 @@ const latestIndexedRefFor = (
   }
 };
 
+const latestSelectedIndexedArtifactRef = (
+  repoRoot: string,
+  episodeId: string,
+  artifactId: string,
+): ArtifactRef | undefined => {
+  const indexPath = repositoryFile(repoRoot, `content/${episodeId}/artifact-index.json`);
+  if (!fs.existsSync(indexPath)) return undefined;
+  try {
+    return readArtifactIndex(indexPath).artifacts
+      .filter(
+        (record) => record.state === "selected" && record.ref.artifactId === artifactId,
+      )
+      .map((record) => record.ref)
+      .sort((left, right) => right.revision - left.revision)[0];
+  } catch {
+    return undefined;
+  }
+};
+
 const refForFile = (input: {
   repoRoot: string;
   episodeId: string;
@@ -212,7 +231,12 @@ const refForFile = (input: {
     input.artifactId,
     input.repositoryPath,
   );
-  const previous = [input.previous, fromState, indexedPrevious]
+  const indexedArtifact = latestSelectedIndexedArtifactRef(
+    input.repoRoot,
+    input.episodeId,
+    input.artifactId,
+  );
+  const previous = [input.previous, indexedArtifact, fromState, indexedPrevious]
     .filter((ref): ref is ArtifactRef => Boolean(ref))
     .sort((left, right) => right.revision - left.revision)[0];
   return buildArtifactRef({
@@ -224,6 +248,7 @@ const refForFile = (input: {
     schemaVersion: input.schemaVersion,
     producer: input.producer,
     ...(previous ? {previous} : {}),
+    ...(previous && previous.path !== input.repositoryPath ? {forceRevision: true} : {}),
     createdAt: input.createdAt,
   });
 };
@@ -616,10 +641,11 @@ const retrieveNode =
           episodeId: state.episodeId,
           segmentId: segment.id,
           claimIds: segment.claimIds,
+          visualTrackMode: "independent-b-roll",
           narration: segment.narration,
           visualIntent: segment.visualIntent,
           preferredMediaTypes: ["video", "audio"],
-          topK: 3,
+          topK: 12,
           durationTargetMs: Math.round(segment.targetSeconds * 1000),
         },
         cache: input.cache,
@@ -661,7 +687,7 @@ const verifyNode =
     const script = readScript(input.repoRoot, state.episodeId);
     const retrievalRefs = outputRefsFor(state, "retrieve");
     const outputs: ArtifactRef[] = [];
-    const verifiedClipIds = new Set<string>();
+    const mediaUseCounts = new Map<string, number>();
     const provider =
       input.verificationProvider ??
       createCodexMediaVerificationProvider({repoRoot: input.repoRoot});
@@ -671,14 +697,13 @@ const verifyNode =
       );
       if (!retrievalRef) throw new Error(`MEDIA_GRAPH_RETRIEVAL_REF_MISSING:${segment.id}`);
       const retrieval = readMediaRetrievalResult(input.repoRoot, state.episodeId, segment.id);
-      const candidate = retrieval.candidates[0];
+      const candidate = [...retrieval.candidates].sort((left, right) => {
+        const useDifference =
+          (mediaUseCounts.get(left.mediaId) ?? 0) - (mediaUseCounts.get(right.mediaId) ?? 0);
+        return useDifference !== 0 ? useDifference : left.rank - right.rank;
+      })[0];
       if (!candidate) continue;
-      // A verification artifact is clip-scoped while retrieval candidates are
-      // segment-scoped. If two segments choose the same clip, verify it once;
-      // the later selection remains fail-closed until it has segment-scoped
-      // evidence instead of creating a same-revision identity collision.
-      if (verifiedClipIds.has(candidate.clipId)) continue;
-      verifiedClipIds.add(candidate.clipId);
+      mediaUseCounts.set(candidate.mediaId, (mediaUseCounts.get(candidate.mediaId) ?? 0) + 1);
       const request = {
         schemaVersion: "media-verification-request-v1" as const,
         episodeId: state.episodeId,
@@ -877,7 +902,11 @@ const preRenderNode =
     ];
     const canonicalRefs = preRenderPaths.flatMap((repositoryPath) => {
       const existing = findStateRef(state, (ref) => ref.path === repositoryPath);
-      if (existing) return [existing];
+      if (existing && artifactRefBytesMatch(input.repoRoot, existing)) return [existing];
+      const refreshableDerivedCaption =
+        existing?.producer === "orchestrator:pre-render-gate" &&
+        repositoryPath === `content/${state.episodeId}/story/caption-plan.json`;
+      if (existing && !refreshableDerivedCaption) return [existing];
       if (!fs.existsSync(repositoryFile(input.repoRoot, repositoryPath))) return [];
       const leaf =
         repositoryPath
@@ -895,10 +924,23 @@ const preRenderNode =
           schemaVersion: "pre-render-input-v1",
           producer: "orchestrator:pre-render-gate",
           createdAt: nowString(input),
+          ...(existing ? {previous: existing} : {}),
         }),
       ];
     });
-    const inputs = uniqueRefs([...mediaInputsFor(state, "pre-render"), ...canonicalRefs]);
+    ensureRefs({
+      repoRoot: input.repoRoot,
+      episodeId: state.episodeId,
+      refs: canonicalRefs,
+      executionId: `${state.runId}:media:pre-render:inputs`,
+    });
+    const canonicalArtifactIds = new Set(canonicalRefs.map((ref) => ref.artifactId));
+    const inputs = uniqueRefs([
+      ...mediaInputsFor(state, "pre-render").filter(
+        (ref) => !canonicalArtifactIds.has(ref.artifactId),
+      ),
+      ...canonicalRefs,
+    ]);
     const gate = runPreRenderGate({
       repoRoot: input.repoRoot,
       episodeId: state.episodeId,
@@ -1110,10 +1152,25 @@ const deliveryPackageFor = (
   }
   const inputSetHash = hashArtifactInputs(inputArtifacts);
   let createdAt = now;
-  const previousPackageRef = findStateRef(
+  const statePackageRef = findStateRef(
     state,
     (candidate) => candidate.artifactId === `${episodeId}:delivery:critic-review-package`,
   );
+  const registryPath = path.resolve(input.repoRoot, `content/${episodeId}/artifact-index.json`);
+  const indexedPackageRef = fs.existsSync(registryPath)
+    ? readArtifactIndex(registryPath).artifacts
+        .filter(
+          (record) =>
+            record.ref.artifactId === `${episodeId}:delivery:critic-review-package` &&
+            record.state === "selected",
+        )
+        .sort((left, right) => right.ref.revision - left.ref.revision)[0]?.ref
+    : undefined;
+  // The package is written before the handoff ref is seeded into the registry.
+  // On a repaired render, state can therefore contain an unregistered revision
+  // 1 while the registry still selects the previous revision 1. Use the
+  // registry-selected ref as lineage so the replacement advances to revision 2.
+  const previousPackageRef = indexedPackageRef ?? statePackageRef;
   let previousPackage: DeliveryCriticReviewPackage | undefined;
   try {
     previousPackage = readDeliveryCriticReviewPackage(input.repoRoot, episodeId, state.runId);
@@ -1179,8 +1236,29 @@ const effectiveGate = (
 const deliveryCriticNode =
   (input: MediaLifecycleOptions): FoundationNode =>
   (state) => {
+    const prior = state.mediaStages["delivery-critic"];
+    if (
+      prior?.status === "SUCCEEDED" &&
+      prior.decision.code === "DELIVERY_CRITIC_PASS" &&
+      prior.outputArtifacts.length > 0 &&
+      prior.outputArtifacts.every(
+        (ref) =>
+          artifactRefBytesMatch(input.repoRoot, ref) && artifactRefIsIndexed(input.repoRoot, ref),
+      )
+    ) {
+      return {};
+    }
     const inputs = mediaInputsFor(state, "delivery-critic");
     const prepared = deliveryPackageFor(input, state);
+    // The bounded package is the external reviewer's immutable input and must
+    // already be registry-current while the graph is paused. Register it
+    // before looking for the result rather than waiting until after validation.
+    ensureRefs({
+      repoRoot: input.repoRoot,
+      episodeId: state.episodeId,
+      refs: [prepared.ref],
+      executionId: `${state.runId}:media:delivery-critic-package`,
+    });
     const resultAttempt = (state.mediaStages["delivery-critic"]?.attempt ?? 0) + 1;
     const resultPath = deliveryCriticResultPath(state.episodeId, state.runId, resultAttempt);
     const resultFile = repositoryFile(input.repoRoot, resultPath);

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "a4a0a23a82d7daf8e2a053b99708be38fcc2f3a3dc3e994833ab642190809460",
+  "completedAt": "2026-08-29T05:36:30.000Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.82,
+    "claimMatch": 0.62,
+    "visualQuality": 0.88,
+    "misleadingRisk": 0.28,
+    "observedActions": [
+      "Gamma onboarding presents Paste in text, Generate, and Import file or URL choices",
+      "the pointer selects Generate",
+      "the interface transitions to an empty Generate prompt"
+    ],
+    "observedEntities": [
+      "Gamma"
+    ],
+    "observedText": [
+      "Get started with AI",
+      "Generate",
+      "Start with a prompt and we'll take care of the rest"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 4000,
+    "reasons": [
+      "The bounded clip clearly shows Gamma's prompt-based generation entry and is relevant to the narrated first action.",
+      "It does not yet show typed prompt text or the completed deck, so claim match is partial and the clip must not be treated as standalone proof of the full generated-result claim."
+    ]
+  }
+}

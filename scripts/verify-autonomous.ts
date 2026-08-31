@@ -13,6 +13,7 @@ const parseArgs = (argv: string[]): {full: boolean; changed: string[]} => {
   let full = false;
   for (let index = 2; index < argv.length; index += 1) {
     const argument = argv[index];
+    if (argument === "--") continue;
     if (argument === "--full") {
       full = true;
       continue;
@@ -56,8 +57,10 @@ console.log(
   JSON.stringify({
     status: state.status,
     runId: state.runId,
+    layer: state.plan.layer,
     highRisk: state.plan.highRisk,
     fullSuiteRequired: state.plan.fullSuiteRequired,
+    affectedTests: state.plan.affectedTests,
     checks: state.checks.map((check) => ({
       name: check.name,
       status: check.status,

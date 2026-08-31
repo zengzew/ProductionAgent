@@ -1,0 +1,238 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-007:media-shot:seg-005",
+    "createdAt": "2026-08-31T08:20:41.621Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/shots/seg-005.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-shot-v1",
+    "sha256": "1dde3ad4abac4c65e44004d650473a2d8697f67124ef389f7386677efa40bdf3",
+    "sizeBytes": 7648
+  },
+  "audio": {
+    "ducking": {
+      "attackMs": 80,
+      "enabled": true,
+      "reductionDb": 10,
+      "releaseMs": 240
+    },
+    "fadeInMs": 0,
+    "fadeOutMs": 0,
+    "narrationGain": 0.740741,
+    "originalAudioGain": 0.259259
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "timelineSha256": "52136b20c1ffb4de056b59131d77757d8b8adc9b75c8c844834406a708f02ba2",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-08-31T08:20:41.621Z",
+  "crossfadeMs": 0,
+  "durationFrames": 242,
+  "endSeconds": 37.175876,
+  "episodeId": "episode-007",
+  "evidenceImageAssetId": null,
+  "evidenceImagePath": null,
+  "evidenceImageSha256": null,
+  "fade": {
+    "inMs": 200,
+    "outMs": 200
+  },
+  "fallbackImageAssetId": null,
+  "fallbackImagePath": null,
+  "fallbackImageSha256": null,
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "clipVerified": true,
+    "episodeIsolated": true,
+    "hashesValid": true,
+    "rightsApproved": true,
+    "slotValid": true,
+    "timestampsValid": true
+  },
+  "lineage": {
+    "clipArtifactRef": {
+      "artifactId": "episode-007:media-verification-clip:seg-005-episode-007-media-clip-fc2f29a3d47b78829c7e78e1",
+      "createdAt": "2026-08-30T04:24:52.564Z",
+      "episodeId": "episode-007",
+      "mediaType": "video/mp4",
+      "path": "content/episode-007/media/verifications/seg-005/episode-007-media-clip-fc2f29a3d47b78829c7e78e1-clip.mp4",
+      "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+      "revision": 1,
+      "schemaVersion": "media-verification-clip-v1",
+      "sha256": "4793dfe12322f432974317f16a5b1f8f7067221a66728cadda0e9fb9dcce166c",
+      "sizeBytes": 4487648
+    },
+    "clipId": "episode-007:media-clip:fc2f29a3d47b78829c7e78e1",
+    "clipIndexRef": {
+      "artifactId": "episode-007:media-clip-index:gamma-edit",
+      "createdAt": "2026-08-29T05:28:52.981Z",
+      "episodeId": "episode-007",
+      "mediaType": "application/json",
+      "path": "content/episode-007/media/indexes/gamma-edit/clip-index.json",
+      "producer": "media-understanding-v1:index:episode-007-gamma-v2",
+      "revision": 2,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "d25a0c99defe0013a72e63297494713c312f5bf7517f4eddd15151ccc8684e49",
+      "sizeBytes": 14595
+    },
+    "cutSourceRef": {
+      "artifactId": "episode-007:media:gamma-edit-proxy",
+      "createdAt": "2026-08-28T14:27:12.231Z",
+      "episodeId": "episode-007",
+      "mediaType": "video/mp4",
+      "path": "content/episode-007/media/assets/gamma-edit-proxy.mp4",
+      "producer": "media-ingest-v1:normalize",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+      "sizeBytes": 2259873
+    },
+    "sourceEndMs": 4000,
+    "sourceMediaId": "episode-007:media:gamma-edit",
+    "sourceMediaRef": {
+      "artifactId": "episode-007:media:gamma-edit",
+      "createdAt": "2026-08-28T14:26:57.195Z",
+      "episodeId": "episode-007",
+      "mediaType": "video/mp4",
+      "path": "content/episode-007/media/assets/gamma-edit.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+      "sizeBytes": 1968627
+    },
+    "sourceSha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+    "sourceStartMs": 0,
+    "verificationRef": {
+      "artifactId": "episode-007:media-verification:seg-005-episode-007-media-clip-fc2f29a3d47b78829c7e78e1",
+      "createdAt": "2026-08-31T03:36:57.179Z",
+      "episodeId": "episode-007",
+      "mediaType": "application/json",
+      "path": "content/episode-007/media/verifications/seg-005/episode-007-media-clip-fc2f29a3d47b78829c7e78e1.json",
+      "producer": "media-verification-v1:codex:codex-media-verification-v1",
+      "revision": 5,
+      "schemaVersion": "media-verification-v1",
+      "sha256": "fc88577fe4e3a1f4761c170dc58035e2bd82250135914f88b691f06aa12bc9ea",
+      "sizeBytes": 4598
+    }
+  },
+  "overlays": {
+    "badge": null,
+    "captionsEnabled": true,
+    "sourceLabel": null
+  },
+  "reasons": [
+    "scene seg-005 at frame 874 (242 frames, 30 fps)",
+    "real media episode-007:media-clip:fc2f29a3d47b78829c7e78e1 trimmed 0..4000ms (recommended 0..4000ms)",
+    "render proxy episode-007:media-render-proxy:seg-005 (video/mp4)",
+    "audio mix original 0.259259 / narration 0.740741 duck 10dB"
+  ],
+  "renderProxyMediaType": "video/mp4",
+  "renderProxyRef": {
+    "artifactId": "episode-007:media-render-proxy:seg-005",
+    "createdAt": "2026-08-31T08:20:41.486Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/render/seg-005.mp4",
+    "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-proxy-v1",
+    "sha256": "6bc84ea0eb671200e80b4cdc5684145cb659674755972c2bc7ec39a87cf03a8c",
+    "sizeBytes": 1042376
+  },
+  "sceneIndex": 4,
+  "schemaVersion": "media-shot-v1",
+  "segmentId": "seg-005",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-gamma-001",
+      "claim-gamma-003",
+      "claim-gamma-006"
+    ],
+    "clipId": "episode-007:media-clip:fc2f29a3d47b78829c7e78e1",
+    "createdAt": "2026-08-31T03:36:57.158Z",
+    "endMs": 4000,
+    "episodeId": "episode-007",
+    "mediaId": "episode-007:media:gamma-edit",
+    "sourceMediaRef": {
+      "artifactId": "episode-007:media:gamma-edit",
+      "createdAt": "2026-08-28T14:26:57.195Z",
+      "episodeId": "episode-007",
+      "mediaType": "video/mp4",
+      "path": "content/episode-007/media/assets/gamma-edit.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+      "sizeBytes": 1968627
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "Edit 视频中改文字和换版式 → Share 视频中发布链接;“先跨过空白页”只做两秒文字叠层,真实操作持续作为背景。"
+  },
+  "shotId": "episode-007:media-shot:seg-005",
+  "startFrame": 874,
+  "startSeconds": 29.116646999999997,
+  "staticFilePath": "episodes/episode-007/media/seg-005.mp4",
+  "transform": {
+    "freezeFrameMs": null,
+    "pip": null,
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "reframe": {
+      "crop": {
+        "height": 1,
+        "width": 1,
+        "x": 0,
+        "y": 0
+      },
+      "mode": "cover"
+    },
+    "scale": 1,
+    "zoomPan": {
+      "end": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "start": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "type": "none"
+    }
+  },
+  "trim": {
+    "endMs": 4000,
+    "startMs": 0
+  },
+  "verificationRef": {
+    "artifactId": "episode-007:media-verification:seg-005-episode-007-media-clip-fc2f29a3d47b78829c7e78e1",
+    "createdAt": "2026-08-31T03:36:57.179Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/verifications/seg-005/episode-007-media-clip-fc2f29a3d47b78829c7e78e1.json",
+    "producer": "media-verification-v1:codex:codex-media-verification-v1",
+    "revision": 5,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "fc88577fe4e3a1f4761c170dc58035e2bd82250135914f88b691f06aa12bc9ea",
+    "sizeBytes": 4598
+  },
+  "visualType": "real-media"
+}

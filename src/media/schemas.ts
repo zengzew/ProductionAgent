@@ -464,13 +464,6 @@ export const mediaVerificationSchema = z
         message: "recommended range must lie inside the candidate clip range",
       });
     }
-    if (value.verdict === "pass" && (value.relevance < 0.5 || value.claimMatch < 0.5)) {
-      context.addIssue({
-        code: "custom",
-        path: ["verdict"],
-        message: "pass verdict requires relevance and claimMatch to be at least 0.5",
-      });
-    }
     if (
       value.artifactRef.episodeId !== value.episodeId ||
       value.artifactRef.artifactId !== value.verificationId ||

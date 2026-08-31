@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "codex-media-verification-request-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "boundedMediaOnly": true,
+  "episodeId": "episode-007",
+  "segmentId": "seg-001",
+  "clipId": "episode-007:media-clip:e064920c16fee19960cc660c",
+  "claimIds": [
+    "claim-gamma-008",
+    "claim-gamma-009"
+  ],
+  "claims": [
+    {
+      "id": "claim-gamma-008",
+      "claim": "Gamma 在 2025 年公司文章中披露已盈利地跨过 1 亿美元 ARR。"
+    },
+    {
+      "id": "claim-gamma-009",
+      "claim": "Gamma 同期宣布完成 6800 万美元 B 轮融资，估值 21 亿美元。"
+    }
+  ],
+  "narration": "估值二十一亿美元,Gamma 做对了什么?",
+  "visualIntent": "Gamma 官方产品成片首帧直接出现,ARR 与估值只做短暂叠层;同期显示公司来源,不让数据卡取代真实产品画面。",
+  "clip": {
+    "path": "content/episode-007/media/verifications/seg-001/episode-007-media-clip-e064920c16fee19960cc660c-clip.mp4",
+    "sha256": "63f97bf1d0c4e8b5a4595f934af2c4c7789efdf25c90820b50916dfd0f04bee7",
+    "sizeBytes": 2682587,
+    "mediaType": "video/mp4",
+    "startMs": 16000,
+    "endMs": 18433,
+    "sourceMediaId": "episode-007:media:gamma-edit",
+    "sourceMediaSha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e"
+  },
+  "keyframes": [
+    {
+      "path": "content/episode-007/media/indexes/gamma-edit/keyframes/keyframe-4-17216.jpg",
+      "timestampMs": 17216,
+      "sha256": "ab08becb88b74e69accaba1388c48993c0871e245ea53034b200531e72c28b35",
+      "sizeBytes": 126487,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "Gamma editor shows a generated eyewear presentation, editable cards, layout alternatives, and the finished report. The focused card is transformed or rearranged.",
+    "observedText": "",
+    "keywords": [
+      "Gamma",
+      "editor",
+      "presentation",
+      "layout",
+      "编辑",
+      "演示",
+      "卡片",
+      "布局"
+    ],
+    "entities": [
+      "Gamma"
+    ],
+    "semanticTags": [
+      "产品界面",
+      "编辑演示",
+      "布局切换",
+      "内容替换"
+    ],
+    "speaker": null
+  },
+  "resultContract": {
+    "schemaVersion": "codex-media-verification-result-v1",
+    "envelope": [
+      "executor",
+      "model",
+      "requestHash",
+      "completedAt",
+      "output"
+    ],
+    "output": {
+      "verdict": [
+        "pass",
+        "reject",
+        "uncertain"
+      ],
+      "scores": [
+        "relevance",
+        "claimMatch",
+        "visualQuality",
+        "misleadingRisk"
+      ],
+      "observations": [
+        "observedActions",
+        "observedEntities",
+        "observedText"
+      ],
+      "range": [
+        "recommendedStartMs",
+        "recommendedEndMs"
+      ],
+      "explanation": [
+        "reasons"
+      ]
+    },
+    "instruction": "Inspect only the listed clip and keyframes. Treat the clip as an independent illustrative B-roll track: it does not need to prove, match, or relate to the narration or claims. PASS means the clip is visually usable and does not directly contradict the narration when labeled as product demo/B-roll. Low relevance or claimMatch is allowed. Copy this requestHash into the result envelope; do not alter rights or claim facts."
+  },
+  "requestHash": "7acf67c63f0b21d6fa50f8c7b90af86e7a6a330b485140c29f22c21c0c180a05"
+}

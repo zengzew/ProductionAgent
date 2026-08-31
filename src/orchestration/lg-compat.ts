@@ -18,9 +18,9 @@ import {
   mergeDecisionSummaries,
   mergeEvaluationSummaries,
   mergeEventSummaries,
+  mergeGates,
   mergeNumberMap,
   mergeOptionalArtifactRef,
-  mergeOptionalImmutable,
   mergePhase,
   mergePendingHumanRoute,
   mergeProcessedDecisionIds,
@@ -87,7 +87,7 @@ const ProductionStateAnnotation = Annotation.Root({
     default: () => ({}),
   }),
   gates: Annotation<ProductionState["gates"]>({
-    reducer: mergeStrictRecord,
+    reducer: mergeGates,
     default: () => ({}),
   }),
   revisionLog: Annotation<ProductionState["revisionLog"]>({
@@ -178,7 +178,9 @@ const ProductionStateAnnotation = Annotation.Root({
       decision: {code: "PRODUCTION_REPAIR_IDLE", summary: "production repair loop is idle"},
     }),
   }),
-  haltReason: Annotation<string | undefined>({reducer: mergeOptionalImmutable}),
+  haltReason: Annotation<string | undefined>({
+    reducer: (current, update) => update ?? current,
+  }),
 });
 
 export type LocalCheckpointer = BaseCheckpointSaver;
@@ -447,6 +449,9 @@ export const pauseForExternalCapability = <T>(payload: T): unknown => interrupt(
 
 export const resumeAfterStubApproval = (value: unknown): Command => new Command({resume: value});
 
+export const continueCheckpointAt = <TNode extends string>(node: TNode) =>
+  new Command<unknown, Record<string, unknown>, TNode>({goto: node});
+
 export const compileFoundationGraph = (input: {
   initialize: FoundationNode;
   executeNext: FoundationNode;
@@ -458,10 +463,15 @@ export const compileFoundationGraph = (input: {
   afterAgent: (
     state: ProductionState,
   ) => "continue" | "content_loop" | "content_approval" | "final_approval";
+  afterInitialize?: (
+    state: ProductionState,
+  ) => "execute_agent" | "content_approval" | "production" | "final_approval";
   afterContentLoop?: (state: ProductionState) => "content_loop" | "content_approval";
   afterContentApproval?: (state: ProductionState) => "production" | "execute_agent";
   afterProduction?: (state: ProductionState) => "execute_agent" | "final_approval";
-  afterFinalApproval?: (state: ProductionState) => "final_approval" | "finalize";
+  afterFinalApproval?: (
+    state: ProductionState,
+  ) => "content_approval" | "production" | "final_approval" | "finalize";
   checkpointer: LocalCheckpointer;
   repoRoot?: string;
   concurrency?: ConcurrencyConfig;
@@ -477,7 +487,16 @@ export const compileFoundationGraph = (input: {
     .addNode("final_approval", input.finalApproval)
     .addNode("finalize", input.finalize)
     .addEdge(START, "initialize")
-    .addEdge("initialize", "execute_agent")
+    .addConditionalEdges(
+      "initialize",
+      input.afterInitialize ?? (() => "execute_agent"),
+      {
+        execute_agent: "execute_agent",
+        content_approval: "content_approval",
+        production: "production",
+        final_approval: "final_approval",
+      },
+    )
     .addConditionalEdges("execute_agent", input.afterAgent, {
       continue: "execute_agent",
       content_loop: "content_loop",
@@ -494,6 +513,8 @@ export const compileFoundationGraph = (input: {
       {production: "production", execute_agent: "execute_agent"},
     )
     .addConditionalEdges("final_approval", input.afterFinalApproval ?? (() => "finalize"), {
+      content_approval: "content_approval",
+      production: "production",
       final_approval: "final_approval",
       finalize: "finalize",
     })
@@ -653,7 +674,14 @@ export const compileProductionGraph = (input: {
       production_human_escalation: "production_human_escalation",
     })
     .addEdge("production_unfreeze_apply", "production_start")
-    .addEdge("media_pre_render_repair", productionStageNodeNames.timeline)
+    .addConditionalEdges(
+      "media_pre_render_repair",
+      (state) =>
+        state.productionRepair.status === "repairing"
+          ? "timeline"
+          : "production_human_escalation",
+      destinations,
+    )
     .addEdge("production_ready", END)
     .addEdge("production_human_escalation", END);
   for (const stage of productionStageNames) {

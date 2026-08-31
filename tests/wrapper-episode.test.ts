@@ -11,6 +11,7 @@ describe("LEGACY-005 wrapper episode forwarding", () => {
       fs.readFileSync(path.join(repoRoot, "package.json"), "utf8"),
     ) as {scripts: Record<string, string>};
     expect(packageJson.scripts["validate:story"]).toBe("tsx scripts/validate-story.ts");
+    expect(packageJson.scripts["validate:episode"]).toBe("tsx scripts/validate-episode.ts");
     const source = fs.readFileSync(path.join(repoRoot, "scripts/validate-story.ts"), "utf8");
     expect(source).toContain("validate-workflow.ts");
     expect(source).toContain("process.argv.slice(2)");

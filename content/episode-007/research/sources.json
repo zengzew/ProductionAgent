@@ -1,0 +1,72 @@
+[
+  {
+    "id": "src-gamma-home",
+    "title": "Gamma official homepage",
+    "publisher": "Gamma",
+    "url": "https://gamma.app/",
+    "publishedAt": "",
+    "accessedAt": "2026-08-28",
+    "sourceType": "official",
+    "notes": "官网产品页与三段官方产品演示视频；支持从想法生成演示文稿、继续编辑并分享。产品效果按公司展示口径处理。"
+  },
+  {
+    "id": "src-gamma-build",
+    "title": "How we built a $100M business differently",
+    "publisher": "Gamma",
+    "url": "https://gamma.app/insights/how-we-built-a-usd100m-business-differently",
+    "publishedAt": "2025-11-10",
+    "accessedAt": "2026-08-28",
+    "sourceType": "founder",
+    "notes": "公司创始团队复盘：创立动机、2022 年末的 6 万用户与 AI 重构，以及公司披露的 ARR、融资和估值。"
+  },
+  {
+    "id": "src-gamma-sacra",
+    "title": "Jon Noronha on Gamma's AI relaunch",
+    "publisher": "Sacra",
+    "url": "https://sacra.com/research/jon-noronha-gamma-ai/",
+    "publishedAt": "2023",
+    "accessedAt": "2026-08-28",
+    "sourceType": "founder",
+    "notes": "联合创始人访谈：早期消费导向判断、空白页激活问题、Product Hunt 冷启动、AI 重启和口碑增长。"
+  },
+  {
+    "id": "src-gamma-about",
+    "title": "About Gamma",
+    "publisher": "Gamma",
+    "url": "https://gamma.app/about",
+    "publishedAt": "",
+    "accessedAt": "2026-08-28",
+    "sourceType": "official",
+    "notes": "公司当前 About 页展示 100M ARR、100M 用户、每日 1M 次创作和 21 亿美元估值；全部保留公司口径。"
+  },
+  {
+    "id": "src-gamma-techcrunch",
+    "title": "Gamma brings in $7M to bring the slide deck into the 21st century",
+    "publisher": "TechCrunch",
+    "url": "https://techcrunch.com/2021/10/28/gamma-brings-in-7m-to-bring-the-slide-deck-into-the-21st-century/",
+    "publishedAt": "2021-10-28",
+    "accessedAt": "2026-08-28",
+    "sourceType": "media",
+    "notes": "独立媒体对三位前 Optimizely 创始人、卡片式产品设想、私测与 700 万美元种子轮的同期报道。"
+  },
+  {
+    "id": "src-gamma-hubspot",
+    "title": "Gamma: Building the future of presentations",
+    "publisher": "HubSpot for Startups",
+    "url": "https://startups.hubspot.com/magazine/issue06/gamma",
+    "publishedAt": "",
+    "accessedAt": "2026-08-28",
+    "sourceType": "media",
+    "notes": "创业报道与创始人材料，支持 AI 重构、亲自 onboarding、微型创作者传播与口碑渠道。"
+  },
+  {
+    "id": "src-gamma-generative-now",
+    "title": "Jon Noronha: How Gamma's big bet on AI paid off",
+    "publisher": "Generative Now / Lightspeed",
+    "url": "https://www.iheart.com/podcast/269-generative-now-ai-builders-124864808/",
+    "publishedAt": "2025-05-08",
+    "accessedAt": "2026-08-30",
+    "sourceType": "founder",
+    "notes": "联合创始人 Jon Noronha 的长访谈节目入口；可作为创始人画面与产品定位的候选来源。当前只做发现记录，若要下载或剪辑第三方节目视频，仍需在最终批准前完成权利终审。"
+  }
+]

@@ -37,7 +37,7 @@ export const restoreVerifiedReplayState = async (input: {
     config: input.config,
   });
   const refs = uniqueRefs(checkpoint.state);
-  assertArtifactRefsBytes(input.repoRoot, refs);
+  assertArtifactRefsBytes(input.repoRoot, refs, {boundary: "checkpoint-resume"});
   assertArtifactRefsSelected(input.repoRoot, refs);
   const eventLog = verifyExecutionEventLog({
     filePath: input.eventLogPath,

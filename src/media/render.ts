@@ -32,6 +32,7 @@ import {
   type ArtifactRef,
 } from "../orchestration/schemas/artifact";
 import {getMediaSource} from "./discovery";
+import {MEDIA_DURATION_ROUNDING_TOLERANCE_MS} from "./clip-index";
 import {
   createMediaEvent,
   createMediaEventSink,
@@ -490,6 +491,14 @@ export const mediaShotSchema = z
     fallbackImageSha256: sha256Schema.nullable(),
     /** Asset-manifest id or MediaAsset id that authorized the still image. */
     fallbackImageAssetId: z.string().min(1).nullable(),
+    /** Optional hash-bound editorial evidence still briefly layered over real B-roll. */
+    evidenceImagePath: z
+      .string()
+      .regex(/^episodes\/episode-[a-z0-9-]+\/media\/[a-z0-9][a-z0-9._-]*\.(?:png|jpe?g|webp)$/u)
+      .nullable()
+      .default(null),
+    evidenceImageSha256: sha256Schema.nullable().default(null),
+    evidenceImageAssetId: z.string().min(1).nullable().default(null),
     /** Deterministic hard-gate snapshot taken at build time. */
     gate: mediaShotGateSchema,
     config: mediaRenderConfigSchema,
@@ -553,6 +562,21 @@ export const mediaShotSchema = z
           code: "custom",
           path: ["fallbackImageSha256"],
           message: "real-media shot must not carry fallback image identity",
+        });
+      }
+      const evidenceIdentity = [
+        value.evidenceImagePath,
+        value.evidenceImageSha256,
+        value.evidenceImageAssetId,
+      ];
+      if (
+        evidenceIdentity.some((item) => item !== null) &&
+        evidenceIdentity.some((item) => item === null)
+      ) {
+        context.addIssue({
+          code: "custom",
+          path: ["evidenceImagePath"],
+          message: "real-media evidence still requires path, hash, and asset id together",
         });
       }
       if (!value.trim) {
@@ -640,6 +664,17 @@ export const mediaShotSchema = z
         });
       }
     } else {
+      if (
+        value.evidenceImagePath !== null ||
+        value.evidenceImageSha256 !== null ||
+        value.evidenceImageAssetId !== null
+      ) {
+        context.addIssue({
+          code: "custom",
+          path: ["evidenceImagePath"],
+          message: "only real-media shots may carry a layered evidence still",
+        });
+      }
       if (
         value.selectedMediaClipRef !== null ||
         value.verificationRef !== null ||
@@ -1575,7 +1610,10 @@ export const assertMediaShotRenderable = (input: {
     if (!asset) {
       throw new Error(`MEDIA_RENDER_ASSET_UNKNOWN:${shot.selectedMediaClipRef.mediaId}`);
     }
-    if (asset.durationMs !== null && shot.trim.endMs > asset.durationMs) {
+    if (
+      asset.durationMs !== null &&
+      shot.trim.endMs > asset.durationMs + MEDIA_DURATION_ROUNDING_TOLERANCE_MS
+    ) {
       throw new Error(`MEDIA_RENDER_TRIM_OUT_OF_BOUNDS:${segmentId}`);
     }
 
@@ -1651,6 +1689,22 @@ export const assertMediaShotRenderable = (input: {
     }
     if (sha256File(publicAbsolute) !== shot.renderProxyRef.sha256) {
       throw new Error(`MEDIA_RENDER_STATIC_COPY_TAMPERED:${segmentId}`);
+    }
+    if (shot.evidenceImagePath || shot.evidenceImageSha256 || shot.evidenceImageAssetId) {
+      if (!shot.evidenceImagePath || !shot.evidenceImageSha256 || !shot.evidenceImageAssetId) {
+        throw new Error(`MEDIA_RENDER_EVIDENCE_IMAGE_MISSING:${segmentId}`);
+      }
+      const evidenceAbsolute = path.resolve(repoRoot, "public", shot.evidenceImagePath);
+      const editorial = readApprovedEditorialStill(repoRoot, episodeId, segmentId);
+      if (
+        !editorial ||
+        editorial.id !== shot.evidenceImageAssetId ||
+        !fs.existsSync(evidenceAbsolute) ||
+        sha256File(evidenceAbsolute) !== shot.evidenceImageSha256 ||
+        sha256File(path.resolve(repoRoot, editorial.path)) !== shot.evidenceImageSha256
+      ) {
+        throw new Error(`MEDIA_RENDER_EVIDENCE_IMAGE_TAMPERED:${segmentId}`);
+      }
     }
   } else {
     if (
@@ -2179,6 +2233,10 @@ export const buildMediaShotForSegment = (input: BuildMediaShotInput): BuildMedia
         ...defaultOverlays(),
         ...input.overlays,
       });
+      const editorialStill = readApprovedEditorialStill(repoRoot, episodeId, segmentId);
+      const evidenceStill = editorialStill
+        ? projectOfficialScreenshotPath(repoRoot, episodeId, segmentId)
+        : null;
       const dependencies = dedupeDependencies([
         ...(slot ? readDependencies([slot.artifactRef]) : []),
         ...readDependencies([
@@ -2232,6 +2290,9 @@ export const buildMediaShotForSegment = (input: BuildMediaShotInput): BuildMedia
         fallbackImagePath: null,
         fallbackImageSha256: null,
         fallbackImageAssetId: null,
+        evidenceImagePath: evidenceStill?.publicPath ?? null,
+        evidenceImageSha256: evidenceStill?.sha256 ?? null,
+        evidenceImageAssetId: evidenceStill?.assetId ?? null,
         gate,
         config,
         reasons,
@@ -2364,6 +2425,9 @@ export const buildMediaShotForSegment = (input: BuildMediaShotInput): BuildMedia
       fallbackImagePath,
       fallbackImageSha256: officialStill?.sha256 ?? null,
       fallbackImageAssetId: officialStill?.assetId ?? null,
+      evidenceImagePath: null,
+      evidenceImageSha256: null,
+      evidenceImageAssetId: null,
       gate,
       config,
       reasons,

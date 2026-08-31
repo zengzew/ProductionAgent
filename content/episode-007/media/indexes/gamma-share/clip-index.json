@@ -1,0 +1,259 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-007:media:gamma-share-proxy",
+    "createdAt": "2026-08-28T14:27:31.362Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-share-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "253448635521322b510db8af0826a859dc1c53fefe66c0ed339dafb238288552",
+    "sizeBytes": 1023906
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-007",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-007:media-clip:8dbfd3dfc22fd3fe0e455ce4",
+      "endMs": 4000,
+      "entities": [
+        "Gamma"
+      ],
+      "episodeId": "episode-007",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-share-0-2000",
+          "createdAt": "2026-08-29T05:28:53.311Z",
+          "episodeId": "episode-007",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-007/media/indexes/gamma-share/keyframes/keyframe-0-2000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "db9c484d3c6ece03d18763f76a8f041b06354915e09cf430f8e3afe2e82fa2ce",
+          "sizeBytes": 33223
+        }
+      ],
+      "keywords": [
+        "Gamma",
+        "Share",
+        "Export",
+        "collaboration",
+        "分享",
+        "协作",
+        "导出"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-007:media:gamma-share",
+        "createdAt": "2026-08-28T14:27:21.027Z",
+        "episodeId": "episode-007",
+        "mediaType": "video/mp4",
+        "path": "content/episode-007/media/assets/gamma-share.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c",
+        "sizeBytes": 1971326
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-007:media-scenes:gamma-share",
+          "createdAt": "2026-08-29T05:28:53.132Z",
+          "episodeId": "episode-007",
+          "mediaType": "application/json",
+          "path": "content/episode-007/media/indexes/gamma-share/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "f6e221098976893381428aa54bce47f83c46ef07570317521a22f519c2b60a5d",
+          "sizeBytes": 1578
+        }
+      ],
+      "semanticTags": [
+        "产品界面",
+        "分享入口",
+        "协作权限",
+        "导出"
+      ],
+      "sourceSha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "Gamma Share product interface shows collaboration permissions, link sharing, invitations, and export to PDF, PowerPoint, or PNG.",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-007:media-clip:5f6c23b091585f415f59f77c",
+      "endMs": 8000,
+      "entities": [
+        "Gamma"
+      ],
+      "episodeId": "episode-007",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-share-1-6000",
+          "createdAt": "2026-08-29T05:28:53.650Z",
+          "episodeId": "episode-007",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-007/media/indexes/gamma-share/keyframes/keyframe-1-6000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "b538b00c49e1d54a8c64d0a5580c372b453395a43646d0c23fdf41bebab49b43",
+          "sizeBytes": 63874
+        }
+      ],
+      "keywords": [
+        "Gamma",
+        "Share",
+        "Export",
+        "collaboration",
+        "分享",
+        "协作",
+        "导出"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-007:media:gamma-share",
+        "createdAt": "2026-08-28T14:27:21.027Z",
+        "episodeId": "episode-007",
+        "mediaType": "video/mp4",
+        "path": "content/episode-007/media/assets/gamma-share.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c",
+        "sizeBytes": 1971326
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-007:media-scenes:gamma-share",
+          "createdAt": "2026-08-29T05:28:53.132Z",
+          "episodeId": "episode-007",
+          "mediaType": "application/json",
+          "path": "content/episode-007/media/indexes/gamma-share/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "f6e221098976893381428aa54bce47f83c46ef07570317521a22f519c2b60a5d",
+          "sizeBytes": 1578
+        }
+      ],
+      "semanticTags": [
+        "产品界面",
+        "分享入口",
+        "协作权限",
+        "导出"
+      ],
+      "sourceSha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c",
+      "speaker": null,
+      "startMs": 4000,
+      "textSummary": "Gamma Share product interface shows collaboration permissions, link sharing, invitations, and export to PDF, PowerPoint, or PNG.",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-007:media-clip:b750184c050fd225906b12ae",
+      "endMs": 10000,
+      "entities": [
+        "Gamma"
+      ],
+      "episodeId": "episode-007",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-share-2-9000",
+          "createdAt": "2026-08-29T05:28:53.966Z",
+          "episodeId": "episode-007",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-007/media/indexes/gamma-share/keyframes/keyframe-2-9000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "417448c9c5e87b37d607dcf98fd65d96f2e8ac784e7acd4ec18d8523074e514b",
+          "sizeBytes": 63768
+        }
+      ],
+      "keywords": [
+        "Gamma",
+        "Share",
+        "Export",
+        "collaboration",
+        "分享",
+        "协作",
+        "导出"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-007:media:gamma-share",
+        "createdAt": "2026-08-28T14:27:21.027Z",
+        "episodeId": "episode-007",
+        "mediaType": "video/mp4",
+        "path": "content/episode-007/media/assets/gamma-share.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c",
+        "sizeBytes": 1971326
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-007:media-scenes:gamma-share",
+          "createdAt": "2026-08-29T05:28:53.132Z",
+          "episodeId": "episode-007",
+          "mediaType": "application/json",
+          "path": "content/episode-007/media/indexes/gamma-share/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "f6e221098976893381428aa54bce47f83c46ef07570317521a22f519c2b60a5d",
+          "sizeBytes": 1578
+        }
+      ],
+      "semanticTags": [
+        "产品界面",
+        "分享入口",
+        "协作权限",
+        "导出"
+      ],
+      "sourceSha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c",
+      "speaker": null,
+      "startMs": 8000,
+      "textSummary": "Gamma Share product interface shows collaboration permissions, link sharing, invitations, and export to PDF, PowerPoint, or PNG. The export panel is visible.",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-007:media:gamma-share",
+  "mediaRef": {
+    "artifactId": "episode-007:media:gamma-share",
+    "createdAt": "2026-08-28T14:27:21.027Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-share.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c",
+    "sizeBytes": 1971326
+  },
+  "sceneDetector": "deterministic-boundaries",
+  "sceneDetectorVersion": "scene-detector-v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-visual-review",
+  "semanticAdapterVersion": "episode-007-gamma-v2",
+  "semanticAvailability": "available",
+  "sourceSha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c",
+  "transcriptAvailability": "unavailable"
+}

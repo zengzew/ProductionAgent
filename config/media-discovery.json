@@ -1,6 +1,11 @@
 {
   "schemaVersion": "media-discovery-config-v1",
-  "allowedHosts": ["example.com", "www.example.com", "cdn.example.com"],
+  "allowedHosts": [
+    "example.com",
+    "www.example.com",
+    "cdn.example.com",
+    "static.gamma.app"
+  ],
   "allowedSourceTypes": [
     "official",
     "founder",

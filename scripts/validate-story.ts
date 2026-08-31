@@ -402,6 +402,52 @@ if (critic.rewriteRequired === shouldPass) {
 if ((critic.verdict === "PASS") !== (critic.returnTo === "none")) {
   errors.push("Audience Critic returnTo 与 verdict 不一致");
 }
+if (critic.rubricVersion === "product-story-v5") {
+  const segmentIndex = new Map(segments.map((segment, index) => [segment.id, index]));
+  const evidence = critic.comprehensionEvidence;
+  const openingIndex = segmentIndex.get(evidence.openingPayoff.segmentId);
+  if (openingIndex !== 0) {
+    errors.push("Audience Critic openingPayoff 必须绑定第一段");
+  }
+  for (const claimId of evidence.openingPayoff.claimIds) {
+    if (!segments[0]?.claimIds.includes(claimId)) {
+      errors.push(`Audience Critic openingPayoff 引用的 ${claimId} 未绑定第一段`);
+    }
+  }
+  const mentalModelIndex = segmentIndex.get(evidence.productMentalModel.establishedBySegmentId);
+  const firstProblemIndex = segmentIndex.get(evidence.firstProblemTurnSegmentId);
+  const mechanismIndex = segmentIndex.get(evidence.mechanism.explainedBySegmentId);
+  if (mentalModelIndex === undefined) {
+    errors.push("Audience Critic productMentalModel 引用了不存在的段落");
+  } else {
+    const mentalModelEnd = segments
+      .slice(0, mentalModelIndex + 1)
+      .reduce((total, segment) => total + segment.targetSeconds, 0);
+    if (mentalModelEnd > 20) {
+      errors.push(`产品心智模型必须在 20 秒内建立，当前为 ${mentalModelEnd} 秒`);
+    }
+  }
+  if (firstProblemIndex === undefined) {
+    errors.push("Audience Critic firstProblemTurnSegmentId 引用了不存在的段落");
+  } else if (mentalModelIndex === undefined || firstProblemIndex <= mentalModelIndex) {
+    errors.push("第一次负面问题转折必须晚于产品心智模型建立");
+  }
+  if (mechanismIndex === undefined) {
+    errors.push("Audience Critic mechanism 引用了不存在的段落");
+  }
+  const gains = evidence.informationGains;
+  const gainIds = gains.map((item) => item.segmentId);
+  if (
+    gains.length !== segments.length ||
+    JSON.stringify(gainIds) !== JSON.stringify(segments.map((segment) => segment.id))
+  ) {
+    errors.push("Audience Critic informationGains 必须与脚本段落一一对应且顺序一致");
+  }
+  const normalizedGains = gains.map((item) => item.gain.replace(/\s+/gu, "").toLowerCase());
+  if (new Set(normalizedGains).size !== normalizedGains.length) {
+    errors.push("Audience Critic informationGains 存在重复判断");
+  }
+}
 
 const factCheck = parseFactCheckGate(readStory("fact-check-report.md"));
 if (factCheck.reviewedSha256 !== finalScriptHash) {

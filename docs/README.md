@@ -5,7 +5,8 @@ Read these first:
 1. Editorial roles and handoffs: [`../agents/README.md`](../agents/README.md) and
    [`contracts/editorial-policy.md`](contracts/editorial-policy.md)
 2. Artifact identity: [`contracts/artifact-contract.md`](contracts/artifact-contract.md)
-3. Current renderer: [`milestones/m5-08-media-remotion.md`](milestones/m5-08-media-remotion.md)
+3. Verification layers: [`contracts/verification-layers.md`](contracts/verification-layers.md)
+4. Current renderer: [`milestones/m5-08-media-remotion.md`](milestones/m5-08-media-remotion.md)
 
 ## Layout
 

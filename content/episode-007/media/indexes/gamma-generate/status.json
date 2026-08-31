@@ -1,0 +1,136 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-007:media:gamma-generate-proxy",
+    "createdAt": "2026-08-28T14:26:50.108Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-generate-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "fa28f0a5408cf70d5040c73d32d5ad08bf7c08727041f727d8aec63481fde80f",
+    "sizeBytes": 1574135
+  },
+  "episodeId": "episode-007",
+  "indexVersion": "media-clip-index-v1",
+  "mediaId": "episode-007:media:gamma-generate",
+  "mediaSha256": "344febea5580b721116f738d5e9d12c346a33c5f18bd8a2546ce33c5557d2fcf",
+  "schemaVersion": "media-understanding-status-v1",
+  "stages": {
+    "clip-index": {
+      "artifactId": "episode-007:media-clip-index:gamma-generate",
+      "availability": "available",
+      "cacheKey": "fee7f10bc425837a47d07cb9141dc117c44b222e65320c0c3cb43f32e3ecadfe",
+      "ref": {
+        "artifactId": "episode-007:media-clip-index:gamma-generate",
+        "createdAt": "2026-08-29T05:28:51.601Z",
+        "episodeId": "episode-007",
+        "mediaType": "application/json",
+        "path": "content/episode-007/media/indexes/gamma-generate/clip-index.json",
+        "producer": "media-understanding-v1:index:episode-007-gamma-v2",
+        "revision": 2,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "9a14cf0962a375e6f67547befed7ac86c46a657b8ce556583d71bbe469e69f6a",
+        "sizeBytes": 9419
+      }
+    },
+    "keyframes": {
+      "availability": "available",
+      "cacheKey": "9638ef755f25e9d49d4656563798255d2b1bced149f59f678d9718bacfc3cf0d",
+      "entries": [
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-generate-0-2000",
+          "cacheKey": "e34a3ec83f2a27e48d6d7ad85dfa5b13ce718b1ba40ae6db83b27483082301a0",
+          "filename": "keyframe-0-2000.jpg",
+          "keyframeIndex": 0,
+          "ref": {
+            "artifactId": "episode-007:media-keyframe:gamma-generate-0-2000",
+            "createdAt": "2026-08-29T05:28:51.166Z",
+            "episodeId": "episode-007",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-007/media/indexes/gamma-generate/keyframes/keyframe-0-2000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "eee0458cf547315e865b0eecf846e46c947add4d4a15585e0409cd258676a7d1",
+            "sizeBytes": 68563
+          }
+        },
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-generate-1-6000",
+          "cacheKey": "9a9b376efc865efe10c4f71693d3a2084e7b205e8e25b678a11b8bbe49fdbae8",
+          "filename": "keyframe-1-6000.jpg",
+          "keyframeIndex": 1,
+          "ref": {
+            "artifactId": "episode-007:media-keyframe:gamma-generate-1-6000",
+            "createdAt": "2026-08-29T05:28:51.338Z",
+            "episodeId": "episode-007",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-007/media/indexes/gamma-generate/keyframes/keyframe-1-6000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "fa13528c6e165df6c76e6f117bc133663bbd2c04702b98dc3f92da2297d77ae0",
+            "sizeBytes": 50754
+          }
+        },
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-generate-2-10300",
+          "cacheKey": "006603b9c811a3366771fdb313561ca0b7ab272a6cd6b089ceeca0018d7c47a1",
+          "filename": "keyframe-2-10300.jpg",
+          "keyframeIndex": 2,
+          "ref": {
+            "artifactId": "episode-007:media-keyframe:gamma-generate-2-10300",
+            "createdAt": "2026-08-29T05:28:51.536Z",
+            "episodeId": "episode-007",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-007/media/indexes/gamma-generate/keyframes/keyframe-2-10300.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "169865e9af0a4a1724b939748646d5d1402e9deada2e60af46c34880f6b4844a",
+            "sizeBytes": 133890
+          }
+        }
+      ],
+      "extractorId": "ffmpeg",
+      "extractorVersion": "ffmpeg-keyframe-v1"
+    },
+    "scenes": {
+      "artifactId": "episode-007:media-scenes:gamma-generate",
+      "availability": "available",
+      "cacheKey": "16702ed3494f478dad2efbf6f8db6f379d35d93ced1a869c5e3da94ab06b40ac",
+      "ref": {
+        "artifactId": "episode-007:media-scenes:gamma-generate",
+        "createdAt": "2026-08-29T05:28:50.977Z",
+        "episodeId": "episode-007",
+        "mediaType": "application/json",
+        "path": "content/episode-007/media/indexes/gamma-generate/scenes.json",
+        "producer": "media-understanding-v1:scenes:scene-detector-v1",
+        "revision": 1,
+        "schemaVersion": "media-scenes-v1",
+        "sha256": "f5b6123475b856b7db2a8220c1b158236834895a72a3592653f4e4ba3ab60823",
+        "sizeBytes": 1593
+      }
+    },
+    "transcript": {
+      "artifactId": "episode-007:media-transcript:gamma-generate",
+      "availability": "unavailable",
+      "cacheKey": "ad67901f630740b215aae5eb7d49c4a541766512a0ddaa75919c3d9fa49f609b",
+      "ref": {
+        "artifactId": "episode-007:media-transcript:gamma-generate",
+        "createdAt": "2026-08-29T05:28:50.919Z",
+        "episodeId": "episode-007",
+        "mediaType": "application/json",
+        "path": "content/episode-007/media/indexes/gamma-generate/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "aa47d982144f5464ea89098b146a9fc93926367e023d788f72007b77d5137faf",
+        "sizeBytes": 1282
+      }
+    }
+  },
+  "updatedAt": "2026-08-29T05:28:51.644Z",
+  "usedProxy": true
+}

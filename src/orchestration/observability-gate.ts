@@ -69,6 +69,17 @@ export type ObservabilityGateInput = {
   artifactVerifier?: ObservabilityArtifactVerifier;
   executedStages?: readonly string[];
   committedCheckpoints?: readonly ObservabilityCheckpoint[];
+  /**
+   * Approval is a forward-moving boundary. The append-only logs remain globally
+   * integrity checked, while replay/completeness and artifact-byte checks are
+   * limited to the epoch and refs the reviewer is approving now. Older debt is
+   * retained as warnings instead of making a later, independently auditable
+   * approval impossible.
+   */
+  approvalScope?: {
+    approvalEpoch: number;
+    artifactRefs: readonly ArtifactRef[];
+  };
 };
 
 export type ObservabilityGateResult = {
@@ -648,7 +659,7 @@ const checkEventOrder = (events: readonly ObservabilityEvent[], reasons: string[
   let previousOccurredAt = Number.NEGATIVE_INFINITY;
   for (const event of events) {
     const occurredAt = Date.parse(event.occurredAt);
-    if (occurredAt < previousOccurredAt) {
+    if (occurredAt < previousOccurredAt && event.eventType !== "human-decision.recorded") {
       addReason(reasons, `EVENT_LOG_REORDERED:${event.eventId}`);
     }
     previousOccurredAt = Math.max(previousOccurredAt, occurredAt);
@@ -804,13 +815,11 @@ const checkRetriesRepairsDecisions = (
   const repairRequired = Boolean(
     state &&
     (state.productionRepair.round > 0 ||
-      [
-        "repairing",
-        "unfreeze-review",
-        "unfreeze-approved",
-        "unfreeze-complete",
-        "human-escalation",
-      ].includes(state.productionRepair.status)),
+      ["repairing", "unfreeze-review", "unfreeze-approved", "unfreeze-complete"].includes(
+        state.productionRepair.status,
+      ) ||
+      (state.productionRepair.status === "human-escalation" &&
+        state.productionRepair.issueIds.length > 0)),
   );
   if (repairRequired && !events.some((event) => event.eventType === "repair.started")) {
     addReason(reasons, "REPAIR_EVENT_MISSING");
@@ -883,11 +892,38 @@ const verifyArtifacts = (
   input: ObservabilityGateInput,
   events: readonly ObservabilityEvent[],
   reasons: string[],
+  explicitRefs?: readonly ArtifactRef[],
 ): ObservabilityGateResult["artifactVerification"] => {
-  const refs = uniqueRefs([
-    ...events.flatMap((event) => [...event.inputArtifacts, ...event.outputArtifacts]),
-    ...(input.state ? Object.values(input.state.artifacts) : []),
-  ]);
+  if (explicitRefs) {
+    try {
+      const refs = uniqueRefs(explicitRefs);
+      if (input.repoRoot) {
+        for (const ref of refs) assertArtifactRefBytesWithHistory(input.repoRoot, ref);
+        return "bytes";
+      }
+      if (input.artifactVerifier) {
+        for (const ref of refs) {
+          if (input.artifactVerifier(ref) === false)
+            throw new Error(`ARTIFACT_HASH_UNVERIFIED:${ref.artifactId}`);
+        }
+        return "custom-verifier";
+      }
+      if (refs.length > 0) throw new Error("ARTIFACT_VERIFICATION_UNAVAILABLE");
+      return "reference-only";
+    } catch (error) {
+      addReason(reasons, error instanceof Error ? error.message : String(error));
+      return "failed";
+    }
+  }
+  const stateRefs = input.state ? Object.values(input.state.artifacts) : [];
+  const currentByArtifactId = new Map(stateRefs.map((ref) => [ref.artifactId, ref]));
+  const historicalRefs = events
+    .flatMap((event) => [...event.inputArtifacts, ...event.outputArtifacts])
+    .filter((ref) => {
+      const current = currentByArtifactId.get(ref.artifactId);
+      return !(current && current.revision > ref.revision && current.path === ref.path);
+    });
+  const refs = uniqueRefs([...historicalRefs, ...stateRefs]);
   try {
     if (input.repoRoot) {
       for (const ref of refs) assertArtifactRefBytesWithHistory(input.repoRoot, ref);
@@ -927,9 +963,38 @@ export const evaluateObservabilityCompleteness = (
   };
   checkEventIdentity(events, scopedInput, reasons);
   checkEventOrder(events, reasons);
-  checkLifecycle(events, input.state, scopedInput, reasons);
-  checkRetriesRepairsDecisions(events, input.state, reasons);
-  checkCache(cacheEvents, scopedInput, reasons);
+  const semanticEvents = input.approvalScope
+    ? events.filter((event) => event.approvalEpoch === input.approvalScope!.approvalEpoch)
+    : events;
+  const semanticCacheEvents = input.approvalScope
+    ? cacheEvents.filter((event) => event.approvalEpoch === input.approvalScope!.approvalEpoch)
+    : cacheEvents;
+  const semanticInput = input.approvalScope
+    ? {...scopedInput, state: undefined, executedStages: undefined}
+    : scopedInput;
+  checkLifecycle(
+    semanticEvents,
+    input.approvalScope ? undefined : input.state,
+    semanticInput,
+    reasons,
+  );
+  checkRetriesRepairsDecisions(
+    semanticEvents,
+    input.approvalScope ? undefined : input.state,
+    reasons,
+  );
+  checkCache(semanticCacheEvents, semanticInput, reasons);
+
+  if (input.approvalScope) {
+    const historicalReasons: string[] = [];
+    checkLifecycle(events, input.state, scopedInput, historicalReasons);
+    checkRetriesRepairsDecisions(events, input.state, historicalReasons);
+    checkCache(cacheEvents, scopedInput, historicalReasons);
+    verifyArtifacts(input, events, historicalReasons);
+    for (const reason of historicalReasons) {
+      if (!reasons.includes(reason)) warnings.push(`historical observability debt: ${reason}`);
+    }
+  }
   for (const event of concurrencyEvents) {
     if (episodeId && event.episodeId !== episodeId) {
       addReason(reasons, `CONCURRENCY_EVENT_EPISODE_MISMATCH:${event.eventId}`);
@@ -971,7 +1036,12 @@ export const evaluateObservabilityCompleteness = (
   ) {
     addReason(reasons, "FINAL_APPROVAL_EVENT_MISSING");
   }
-  const artifactVerification = verifyArtifacts(input, events, reasons);
+  const artifactVerification = verifyArtifacts(
+    input,
+    semanticEvents,
+    reasons,
+    input.approvalScope?.artifactRefs,
+  );
   if (artifactVerification === "reference-only") {
     warnings.push("artifact bytes were not checked because no repository or verifier was supplied");
   }

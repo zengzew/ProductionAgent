@@ -96,7 +96,7 @@ describe("M2.1 critic output and evaluation", () => {
   it("rejects model-authored arithmetic and validates issue structure", () => {
     const computed = recomputeCriticEvaluation({
       critic: "audience-critic",
-      rubricVersion: "product-story-v4",
+      rubricVersion: "product-story-v5",
       dimensions: criticScoresFixture("audience-critic"),
       issues: [],
     });
@@ -106,7 +106,7 @@ describe("M2.1 critic output and evaluation", () => {
       executionId: "exec-critic-1",
       critic: "audience-critic" as const,
       round: 1,
-      rubricVersion: "product-story-v4",
+      rubricVersion: "product-story-v5",
       reviewedArtifacts: [artifact],
       ...computed,
       issues: [],
@@ -134,7 +134,7 @@ describe("M2.1 critic output and evaluation", () => {
 
   it("keeps additive envelopes compatible with the current legacy parser", () => {
     const legacy = {
-      rubricVersion: "product-story-v4",
+      rubricVersion: "product-story-v5",
       reviewedFile: "story/final-script.md",
       reviewedSha256: artifact.sha256,
       round: 1,
@@ -151,6 +151,28 @@ describe("M2.1 critic output and evaluation", () => {
       total: 86,
       threshold: 85,
       viewerExitRisks: [],
+      comprehensionEvidence: {
+        openingPayoff: {
+          segmentId: "seg-001",
+          value: "a sourced opening result",
+          claimIds: ["claim-example-001"],
+        },
+        productMentalModel: {
+          establishedBySegmentId: "seg-001",
+          plainLanguage: "a user gets a concrete result",
+          user: "user",
+          situation: "work",
+          output: "draft",
+        },
+        firstProblemTurnSegmentId: "seg-002",
+        mechanism: {
+          explainedBySegmentId: "seg-003",
+          priorFriction: "blank page",
+          changedFirstAction: "enter a topic",
+          userBenefit: "gets a draft",
+        },
+        informationGains: [{segmentId: "seg-001", gain: "sourced result"}],
+      },
       blockers: [],
       verdict: "PASS",
       rewriteRequired: false,

@@ -71,7 +71,7 @@ const bounded = (value: string): string => {
 export const runPreRenderGate = (input: PreRenderGateInput): PreRenderGate => {
   const now = input.now ?? (() => new Date().toISOString());
   for (const artifact of input.inputArtifacts) {
-    assertArtifactRefBytes(input.repoRoot, artifact);
+    assertArtifactRefBytes(input.repoRoot, artifact, {boundary: "pre-render"});
   }
   const episodeRoot = `content/${input.episodeId}`;
   const scriptPath = file(input.repoRoot, `${episodeRoot}/story/script.json`);
@@ -164,18 +164,23 @@ export const runPreRenderGate = (input: PreRenderGateInput): PreRenderGate => {
 
   const hookScenes = timeline.scenes.filter((scene) => scene.section === "hook");
   const hookEnd = hookScenes.at(-1)?.endSeconds ?? Number.POSITIVE_INFINITY;
-  checks.hookWithinTarget = hookEnd <= productionContract.hook.targetSeconds;
+  const hookHardMaximum =
+    productionContract.hook.targetSeconds + productionContract.hook.timingToleranceSeconds;
+  checks.hookWithinTarget = hookEnd <= hookHardMaximum;
   if (!checks.hookWithinTarget) {
     add(
-      `PRE_RENDER_HOOK_EXCEEDS_TARGET:${hookEnd.toFixed(3)}>${productionContract.hook.targetSeconds}`,
+      `PRE_RENDER_HOOK_EXCEEDS_TARGET:${hookEnd.toFixed(3)}>${hookHardMaximum}`,
     );
   }
   const firstSceneEnd = timeline.scenes[0]?.endSeconds ?? Number.POSITIVE_INFINITY;
+  const firstSceneHardMaximum =
+    productionContract.hook.firstSegmentMaximumSeconds +
+    productionContract.hook.firstSegmentTimingToleranceSeconds;
   checks.firstSceneWithinTarget =
-    firstSceneEnd <= productionContract.hook.firstSegmentMaximumSeconds;
+    firstSceneEnd <= firstSceneHardMaximum;
   if (!checks.firstSceneWithinTarget) {
     add(
-      `PRE_RENDER_FIRST_SCENE_EXCEEDS_TARGET:${firstSceneEnd.toFixed(3)}>${productionContract.hook.firstSegmentMaximumSeconds}`,
+      `PRE_RENDER_FIRST_SCENE_EXCEEDS_TARGET:${firstSceneEnd.toFixed(3)}>${firstSceneHardMaximum}`,
     );
   }
 

@@ -1,0 +1,98 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-007:media-visual-slot:seg-006",
+    "createdAt": "2026-08-31T08:20:37.130Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/selections/seg-006.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "0b2604cd7515dc11bacb3310cb5d042eb4edfb9dbb20206387286b0db60aeaa4",
+    "sizeBytes": 3360
+  },
+  "claimIds": [
+    "claim-gamma-007"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.85,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": false
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0,
+      "durationSuitability": 0.1,
+      "misleadingRiskSafety": 0.15,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.15,
+      "verificationClaimMatch": 0,
+      "verificationRelevance": 0.05,
+      "visualIntentFit": 0.15,
+      "visualQuality": 0.25
+    }
+  },
+  "createdAt": "2026-08-31T08:20:37.130Z",
+  "episodeId": "episode-007",
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true,
+    "verificationPassed": true
+  },
+  "reasons": [
+    "segment seg-006 claim-bound with 1 claim(s)",
+    "retrieval result episode-007:media-retrieval:seg-006 produced 2 candidate(s)",
+    "1 candidate(s) carry a valid pass verification",
+    "selected episode-007:media-clip:86bcc767e4e13a34d44a8762 score 0.684063 (claimFit=0.700, relevance=0.420, claimMatch=0.080, quality=0.900, risk=0.080, tie-breaker=score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-006",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-gamma-007"
+    ],
+    "clipId": "episode-007:media-clip:86bcc767e4e13a34d44a8762",
+    "createdAt": "2026-08-31T03:36:57.637Z",
+    "endMs": 4000,
+    "episodeId": "episode-007",
+    "mediaId": "episode-007:media:gamma-generate",
+    "sourceMediaRef": {
+      "artifactId": "episode-007:media:gamma-generate",
+      "createdAt": "2026-08-28T14:26:33.748Z",
+      "episodeId": "episode-007",
+      "mediaType": "video/mp4",
+      "path": "content/episode-007/media/assets/gamma-generate.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "344febea5580b721116f738d5e9d12c346a33c5f18bd8a2546ce33c5557d2fcf",
+      "sizeBytes": 2093405
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "Gamma 真实 Generate 与 Share 画面持续播放;数百与约一万只分别短暂叠层 1.8 秒,访谈来源条同期出现,不画虚构增长曲线。"
+  },
+  "selectedType": "real-media",
+  "selectionScore": 0.684063,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-007:media-visual-slot:seg-006",
+  "verificationRef": {
+    "artifactId": "episode-007:media-verification:seg-006-episode-007-media-clip-86bcc767e4e13a34d44a8762",
+    "createdAt": "2026-08-31T03:36:57.657Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/verifications/seg-006/episode-007-media-clip-86bcc767e4e13a34d44a8762.json",
+    "producer": "media-verification-v1:codex:codex-media-verification-v1",
+    "revision": 3,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "daded132db3875680188505a0d8ba861e35d2178fbf128c9eac4894db94dd541",
+    "sizeBytes": 4643
+  },
+  "visualIntent": "Gamma 真实 Generate 与 Share 画面持续播放;数百与约一万只分别短暂叠层 1.8 秒,访谈来源条同期出现,不画虚构增长曲线。"
+}

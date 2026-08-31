@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "fb44fddf0e1d491af55056610d682743ca67f6b7d352c6a6bbadfc05b372a22e",
+  "completedAt": "2026-08-30T04:35:00.000Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.12,
+    "claimMatch": 0.04,
+    "visualQuality": 0.91,
+    "misleadingRisk": 0.1,
+    "observedActions": [
+      "a Gamma presentation remains open in the editor",
+      "the same content is reformatted across multiple visual layouts",
+      "card, icon, column, and numbered-list treatments appear"
+    ],
+    "observedEntities": [
+      "Gamma"
+    ],
+    "observedText": [
+      "Technological Innovations",
+      "Smart Glasses",
+      "Advanced Lenses",
+      "Virtual Try-On",
+      "3D Printed Eyewear"
+    ],
+    "recommendedStartMs": 8000,
+    "recommendedEndMs": 12000,
+    "reasons": [
+      "The inspected four-second official clip clearly demonstrates Gamma's editing and layout-transformation experience.",
+      "It does not evidence the ARR, financing, or valuation figures, but independent product B-roll is allowed while those figures appear only as brief sourced overlays."
+    ]
+  }
+}

@@ -131,7 +131,7 @@ describe("WP-M2-06 best-version selection", () => {
 
   it("REVISION-005 keeps the current best when rubric versions are incomparable", () => {
     const result = selectBest(
-      selectionInput(audienceResult({scores: {hook: 15}, rubricVersion: "product-story-v5"})),
+      selectionInput(audienceResult({scores: {hook: 15}, rubricVersion: "product-story-v6"})),
     );
 
     expect(result.comparable).toBe(false);

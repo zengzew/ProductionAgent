@@ -1,0 +1,324 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-007:media:gamma-edit-proxy",
+    "createdAt": "2026-08-28T14:27:12.231Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-edit-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+    "sizeBytes": 2259873
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-007",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-007:media-clip:12ab6cb87e87b781b5cb79a5",
+      "endMs": 4000,
+      "entities": [],
+      "episodeId": "episode-007",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-edit-proxy-0-2000",
+          "createdAt": "2026-08-28T19:37:54.769Z",
+          "episodeId": "episode-007",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-007/media/indexes/gamma-edit-proxy/keyframes/keyframe-0-2000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "8b4e0fe7a8b5af4a9d7e17b5c7937cd71c86c69af21f435821c8564e22585cbc",
+          "sizeBytes": 130771
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-007:media:gamma-edit-proxy",
+        "createdAt": "2026-08-28T14:27:12.231Z",
+        "episodeId": "episode-007",
+        "mediaType": "video/mp4",
+        "path": "content/episode-007/media/assets/gamma-edit-proxy.mp4",
+        "producer": "media-ingest-v1:normalize",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+        "sizeBytes": 2259873
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-007:media-scenes:gamma-edit-proxy",
+          "createdAt": "2026-08-28T19:37:54.635Z",
+          "episodeId": "episode-007",
+          "mediaType": "application/json",
+          "path": "content/episode-007/media/indexes/gamma-edit-proxy/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "7666a2488b6cb1529dfab2dce987dce8783985b939874e4a3074d8c2ac40b55e",
+          "sizeBytes": 1763
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-007:media-clip:e587dc9b971b2dd4e4e224e6",
+      "endMs": 8000,
+      "entities": [],
+      "episodeId": "episode-007",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-edit-proxy-1-6000",
+          "createdAt": "2026-08-28T19:37:54.924Z",
+          "episodeId": "episode-007",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-007/media/indexes/gamma-edit-proxy/keyframes/keyframe-1-6000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "fc5019d58d47a7b5a1f1aeef96cbdce9514ea82d72a696bc320c695e91a351b1",
+          "sizeBytes": 41209
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-007:media:gamma-edit-proxy",
+        "createdAt": "2026-08-28T14:27:12.231Z",
+        "episodeId": "episode-007",
+        "mediaType": "video/mp4",
+        "path": "content/episode-007/media/assets/gamma-edit-proxy.mp4",
+        "producer": "media-ingest-v1:normalize",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+        "sizeBytes": 2259873
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-007:media-scenes:gamma-edit-proxy",
+          "createdAt": "2026-08-28T19:37:54.635Z",
+          "episodeId": "episode-007",
+          "mediaType": "application/json",
+          "path": "content/episode-007/media/indexes/gamma-edit-proxy/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "7666a2488b6cb1529dfab2dce987dce8783985b939874e4a3074d8c2ac40b55e",
+          "sizeBytes": 1763
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+      "speaker": null,
+      "startMs": 4000,
+      "textSummary": "",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-007:media-clip:d3089008004468dcd436f289",
+      "endMs": 12000,
+      "entities": [],
+      "episodeId": "episode-007",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-edit-proxy-2-10000",
+          "createdAt": "2026-08-28T19:37:55.075Z",
+          "episodeId": "episode-007",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-007/media/indexes/gamma-edit-proxy/keyframes/keyframe-2-10000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "28b483f50d0ddbe0fa6d57258534b4fe3d19ce58011a11797cd94108ddb0a135",
+          "sizeBytes": 152722
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-007:media:gamma-edit-proxy",
+        "createdAt": "2026-08-28T14:27:12.231Z",
+        "episodeId": "episode-007",
+        "mediaType": "video/mp4",
+        "path": "content/episode-007/media/assets/gamma-edit-proxy.mp4",
+        "producer": "media-ingest-v1:normalize",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+        "sizeBytes": 2259873
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-007:media-scenes:gamma-edit-proxy",
+          "createdAt": "2026-08-28T19:37:54.635Z",
+          "episodeId": "episode-007",
+          "mediaType": "application/json",
+          "path": "content/episode-007/media/indexes/gamma-edit-proxy/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "7666a2488b6cb1529dfab2dce987dce8783985b939874e4a3074d8c2ac40b55e",
+          "sizeBytes": 1763
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+      "speaker": null,
+      "startMs": 8000,
+      "textSummary": "",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-007:media-clip:ff9ac6c031992c314302bdc6",
+      "endMs": 16000,
+      "entities": [],
+      "episodeId": "episode-007",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-edit-proxy-3-14000",
+          "createdAt": "2026-08-28T19:37:55.261Z",
+          "episodeId": "episode-007",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-007/media/indexes/gamma-edit-proxy/keyframes/keyframe-3-14000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "2d994905f1d55ef957956029b5a4ecc23d29f73ca237fcf665b2a8449320b8d9",
+          "sizeBytes": 142751
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-007:media:gamma-edit-proxy",
+        "createdAt": "2026-08-28T14:27:12.231Z",
+        "episodeId": "episode-007",
+        "mediaType": "video/mp4",
+        "path": "content/episode-007/media/assets/gamma-edit-proxy.mp4",
+        "producer": "media-ingest-v1:normalize",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+        "sizeBytes": 2259873
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-007:media-scenes:gamma-edit-proxy",
+          "createdAt": "2026-08-28T19:37:54.635Z",
+          "episodeId": "episode-007",
+          "mediaType": "application/json",
+          "path": "content/episode-007/media/indexes/gamma-edit-proxy/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "7666a2488b6cb1529dfab2dce987dce8783985b939874e4a3074d8c2ac40b55e",
+          "sizeBytes": 1763
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+      "speaker": null,
+      "startMs": 12000,
+      "textSummary": "",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-007:media-clip:bdab0cb83a1c3dfc6d73c82d",
+      "endMs": 18433,
+      "entities": [],
+      "episodeId": "episode-007",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-007:media-keyframe:gamma-edit-proxy-4-17216",
+          "createdAt": "2026-08-28T19:37:55.518Z",
+          "episodeId": "episode-007",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-007/media/indexes/gamma-edit-proxy/keyframes/keyframe-4-17216.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "ab08becb88b74e69accaba1388c48993c0871e245ea53034b200531e72c28b35",
+          "sizeBytes": 126487
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-007:media:gamma-edit-proxy",
+        "createdAt": "2026-08-28T14:27:12.231Z",
+        "episodeId": "episode-007",
+        "mediaType": "video/mp4",
+        "path": "content/episode-007/media/assets/gamma-edit-proxy.mp4",
+        "producer": "media-ingest-v1:normalize",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+        "sizeBytes": 2259873
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-007:media-scenes:gamma-edit-proxy",
+          "createdAt": "2026-08-28T19:37:54.635Z",
+          "episodeId": "episode-007",
+          "mediaType": "application/json",
+          "path": "content/episode-007/media/indexes/gamma-edit-proxy/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "7666a2488b6cb1529dfab2dce987dce8783985b939874e4a3074d8c2ac40b55e",
+          "sizeBytes": 1763
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+      "speaker": null,
+      "startMs": 16000,
+      "textSummary": "",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-007:media:gamma-edit-proxy",
+  "mediaRef": {
+    "artifactId": "episode-007:media:gamma-edit-proxy",
+    "createdAt": "2026-08-28T14:27:12.231Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-edit-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+    "sizeBytes": 2259873
+  },
+  "sceneDetector": "deterministic-boundaries",
+  "sceneDetectorVersion": "scene-detector-v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "deterministic-content",
+  "semanticAdapterVersion": "semantic-adapter-v1",
+  "semanticAvailability": "available",
+  "sourceSha256": "478d63baa05ed3a5e3d80433edc2cddc08f2cecf9a4aa908c62b1fd6f4533c45",
+  "transcriptAvailability": "unavailable"
+}

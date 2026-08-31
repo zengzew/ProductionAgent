@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "media-rights-episode-007-gamma-edit",
+  "runId": "run-20260828-gamma-real-007",
+  "gate": "media-rights",
+  "decision": "approve",
+  "reviewer": "zengze",
+  "timestamp": "2026-08-28T10:20:00.000Z",
+  "reason": "仅批准本地 evaluation 使用；最终批准前必须再次进行权利终审，且本决定不授权外部发布。",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-007:media:source-manifest",
+      "episodeId": "episode-007",
+      "path": "content/episode-007/media/source-manifest.json",
+      "mediaType": "application/json",
+      "schemaVersion": "media-source-manifest-v1",
+      "revision": 1,
+      "sha256": "12d2e123c0773e8e3189804f4c2cb83521227eddd1d0f1daff0d9aa83c046ec6",
+      "sizeBytes": 4326,
+      "producer": "orchestrator:media-discovery",
+      "createdAt": "2026-08-28T10:20:00.000Z"
+    }
+  ],
+  "approvalEpoch": 1,
+  "authorizations": [],
+  "edits": []
+}

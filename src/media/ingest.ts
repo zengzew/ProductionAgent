@@ -12,6 +12,7 @@ import {
 } from "../lib/platform/cache";
 import {assertSpawnSucceeded} from "../lib/platform/process";
 import {
+  assertArtifactRefBytes,
   emptyArtifactIndex,
   readArtifactIndex,
   readArtifactIndexVersion,
@@ -1251,18 +1252,10 @@ export const normalizeMediaAsset = async (
  * ------------------------------------------------------------------------- */
 
 const assertMediaAssetBytesOrThrow = (repoRoot: string, asset: MediaAsset): void => {
-  const filePath = resolveMediaRepositoryPath(repoRoot, asset.artifactRef.path);
-  let actual: Buffer;
   try {
-    actual = fs.readFileSync(filePath);
+    assertArtifactRefBytes(repoRoot, asset.artifactRef, {boundary: "external-input"});
   } catch (error) {
     throw new Error(`MEDIA_INGEST_ASSET_TAMPERED:${asset.mediaId}`, {cause: error});
-  }
-  if (
-    actual.byteLength !== asset.artifactRef.sizeBytes ||
-    sha256File(filePath) !== asset.artifactRef.sha256
-  ) {
-    throw new Error(`MEDIA_INGEST_ASSET_TAMPERED:${asset.mediaId}`);
   }
 };
 

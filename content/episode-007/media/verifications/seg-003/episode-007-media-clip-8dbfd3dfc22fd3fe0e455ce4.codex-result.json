@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "65c06d8b140382b1343bada2d89b89c699a1e9609a75a243389a06331e4f9a4d",
+  "completedAt": "2026-08-29T05:37:20.000Z",
+  "output": {
+    "verdict": "reject",
+    "relevance": 0.28,
+    "claimMatch": 0.12,
+    "visualQuality": 0.9,
+    "misleadingRisk": 0.72,
+    "observedActions": [
+      "A cursor selects the Share control",
+      "A collaboration dialog opens with permissions and an invite field"
+    ],
+    "observedEntities": [
+      "Gamma",
+      "Eyewear competitive report"
+    ],
+    "observedText": [
+      "Share",
+      "Collaborate",
+      "Owner",
+      "can edit",
+      "can comment",
+      "Add emails or people",
+      "Invite"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 4000,
+    "reasons": [
+      "The bounded clip clearly demonstrates Gamma sharing and collaboration controls.",
+      "It does not show the founders, a 2020 origin story, PowerPoint templates, or evidence that formatting displaced attention from ideas.",
+      "Using it as direct support for the segment claim would create a misleading evidentiary match."
+    ]
+  }
+}

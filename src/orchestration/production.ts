@@ -25,7 +25,10 @@ import {
 } from "./agents/adapters/deterministic-tool";
 import {assertArtifactRefsBytes} from "./artifact-registry";
 import {ensureArtifactIndexForRefs} from "./human-decision";
-import {readExecutionEventLog, stableEventId} from "./observability";
+import {
+  readExecutionEventLogForAttemptAllocation,
+  stableEventId,
+} from "./observability";
 import {
   defaultBoundedRetryPolicy,
   resolveBoundedRetryPolicy,
@@ -273,7 +276,7 @@ const persistedStageAttempt = (input: {
   const executionPrefix = `${input.state.runId}:production:${input.stage}:`;
   return Math.max(
     0,
-    ...readExecutionEventLog(eventLogPath)
+    ...readExecutionEventLogForAttemptAllocation(eventLogPath)
       .filter(
         (event) =>
           event.episodeId === input.state.episodeId &&

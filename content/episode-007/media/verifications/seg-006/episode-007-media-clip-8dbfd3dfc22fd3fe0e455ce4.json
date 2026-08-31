@@ -1,0 +1,117 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-007:media-verification:seg-006-episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4",
+    "createdAt": "2026-08-30T15:27:20.322Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/verifications/seg-006/episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4.json",
+    "producer": "media-verification-v1:codex:codex-media-verification-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "007d109902f1fe0f07ef371bf2ec653250e6097f444989b35337f7b43d438cbb",
+    "sizeBytes": 3974
+  },
+  "cacheKey": "b1d5094014843b543bef234163cca07a931398f689756ac4c29da9ab7f04fb91",
+  "claimIds": [
+    "claim-gamma-006",
+    "claim-gamma-007"
+  ],
+  "claimMatch": 0.05,
+  "clipArtifactRef": {
+    "artifactId": "episode-007:media-verification-clip:seg-006-episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4",
+    "createdAt": "2026-08-30T04:25:34.630Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/verifications/seg-006/episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "6f8f1a449ebac45f1141d94cab0342dabf4459e9686e1230ba09477a535bb61e",
+    "sizeBytes": 3597634
+  },
+  "clipId": "episode-007:media-clip:8dbfd3dfc22fd3fe0e455ce4",
+  "clipRef": {
+    "claimIds": [
+      "claim-gamma-006",
+      "claim-gamma-007"
+    ],
+    "clipId": "episode-007:media-clip:8dbfd3dfc22fd3fe0e455ce4",
+    "createdAt": "2026-08-30T15:27:20.321Z",
+    "endMs": 4000,
+    "episodeId": "episode-007",
+    "mediaId": "episode-007:media:gamma-share",
+    "sourceMediaRef": {
+      "artifactId": "episode-007:media:gamma-share",
+      "createdAt": "2026-08-28T14:27:21.027Z",
+      "episodeId": "episode-007",
+      "mediaType": "video/mp4",
+      "path": "content/episode-007/media/assets/gamma-share.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c",
+      "sizeBytes": 1971326
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "官方 Generate 视频再现主题输入 → 可编辑初稿出现 → 数百/日与约一万/日两张来源卡切换。"
+  },
+  "createdAt": "2026-08-30T15:27:20.321Z",
+  "episodeId": "episode-007",
+  "mediaRef": {
+    "artifactId": "episode-007:media:gamma-share",
+    "createdAt": "2026-08-28T14:27:21.027Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-share.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c",
+    "sizeBytes": 1971326
+  },
+  "misleadingRisk": 0.12,
+  "model": "gpt-5.6",
+  "observedActions": [
+    "a Gamma deck is visible",
+    "the pointer clicks Share",
+    "a collaborator dialog opens"
+  ],
+  "observedEntities": [
+    "Gamma"
+  ],
+  "observedText": [
+    "Share",
+    "Collaborate",
+    "Invite"
+  ],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "The segment uses the same previously inspected official Gamma Share clip bytes and cleanly shows the collaboration workflow.",
+    "The footage does not prove the registration narration, but independent product B-roll is allowed and does not contradict it."
+  ],
+  "recommendedEndMs": 4000,
+  "recommendedStartMs": 0,
+  "relevance": 0.15,
+  "retrievalResultRef": {
+    "artifactId": "episode-007:media-retrieval:seg-006",
+    "createdAt": "2026-08-30T15:27:16.457Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/candidates/seg-006.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 10,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "de500d20c1d8a8ec2e6359b6f789d049442709fe3424d7f41e5a3977e2d4d78c",
+    "sizeBytes": 23724
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-006",
+  "sourceSha256": "9b5ad53c2d5ad8add95383db51e20d12c0233093a5a75e9087235faee3060a5c",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-007:media-verification:seg-006-episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4",
+  "verificationVersion": "codex-media-verification-v1",
+  "visualQuality": 0.9
+}

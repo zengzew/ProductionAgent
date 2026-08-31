@@ -22,6 +22,9 @@ const ttsConfig = z.object({
     retryBaseDelayMs: z.number().int().nonnegative(),
   }),
   normalization,
+  pronunciation: z.object({
+    fourDigitYears: z.literal("digit-by-digit"),
+  }),
   providers: z.object({
     minimax: z.object({
       label: z.string(),

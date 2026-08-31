@@ -1,0 +1,119 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-007:media-verification:seg-007-episode-007-media-clip-d9e7f2577b13fa8e24a50645",
+    "createdAt": "2026-08-30T15:27:20.947Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/verifications/seg-007/episode-007-media-clip-d9e7f2577b13fa8e24a50645.json",
+    "producer": "media-verification-v1:codex:codex-media-verification-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "5c778c93117d63956151f7eabf9cf3d1f6993592b5b9ee97121e51017bcdeceb",
+    "sizeBytes": 4175
+  },
+  "cacheKey": "1b7659e7e5d931d8b81b5054810be921f54a418103b8cea84ee60704993c58ec",
+  "claimIds": [
+    "claim-gamma-008",
+    "claim-gamma-009"
+  ],
+  "claimMatch": 0.04,
+  "clipArtifactRef": {
+    "artifactId": "episode-007:media-verification-clip:seg-007-episode-007-media-clip-d9e7f2577b13fa8e24a50645",
+    "createdAt": "2026-08-30T04:27:03.276Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/verifications/seg-007/episode-007-media-clip-d9e7f2577b13fa8e24a50645-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "fd4eeceec28dfcc613a5688cf27fafec851ea035b43b6f56547802f41f2db19c",
+    "sizeBytes": 3234889
+  },
+  "clipId": "episode-007:media-clip:d9e7f2577b13fa8e24a50645",
+  "clipRef": {
+    "claimIds": [
+      "claim-gamma-008",
+      "claim-gamma-009"
+    ],
+    "clipId": "episode-007:media-clip:d9e7f2577b13fa8e24a50645",
+    "createdAt": "2026-08-30T15:27:20.946Z",
+    "endMs": 12000,
+    "episodeId": "episode-007",
+    "mediaId": "episode-007:media:gamma-edit",
+    "sourceMediaRef": {
+      "artifactId": "episode-007:media:gamma-edit",
+      "createdAt": "2026-08-28T14:26:57.195Z",
+      "episodeId": "episode-007",
+      "mediaType": "video/mp4",
+      "path": "content/episode-007/media/assets/gamma-edit.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+      "sizeBytes": 1968627
+    },
+    "startMs": 8000,
+    "transcriptRefs": [],
+    "visualIntent": "Gamma 公司文章标题进入 → 一亿美元 ARR 高亮 → 6800 万美元 B 轮切换 → 21 亿美元估值停帧。"
+  },
+  "createdAt": "2026-08-30T15:27:20.946Z",
+  "episodeId": "episode-007",
+  "mediaRef": {
+    "artifactId": "episode-007:media:gamma-edit",
+    "createdAt": "2026-08-28T14:26:57.195Z",
+    "episodeId": "episode-007",
+    "mediaType": "video/mp4",
+    "path": "content/episode-007/media/assets/gamma-edit.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+    "sizeBytes": 1968627
+  },
+  "misleadingRisk": 0.1,
+  "model": "gpt-5.6",
+  "observedActions": [
+    "a Gamma presentation remains open in the editor",
+    "the same content is reformatted across multiple visual layouts",
+    "card, icon, column, and numbered-list treatments appear"
+  ],
+  "observedEntities": [
+    "Gamma"
+  ],
+  "observedText": [
+    "Technological Innovations",
+    "Smart Glasses",
+    "Advanced Lenses",
+    "Virtual Try-On",
+    "3D Printed Eyewear"
+  ],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "The inspected four-second official clip clearly demonstrates Gamma's editing and layout-transformation experience.",
+    "It does not evidence the ARR, financing, or valuation figures, but independent product B-roll is allowed while those figures appear only as brief sourced overlays."
+  ],
+  "recommendedEndMs": 12000,
+  "recommendedStartMs": 8000,
+  "relevance": 0.12,
+  "retrievalResultRef": {
+    "artifactId": "episode-007:media-retrieval:seg-007",
+    "createdAt": "2026-08-30T15:27:16.692Z",
+    "episodeId": "episode-007",
+    "mediaType": "application/json",
+    "path": "content/episode-007/media/candidates/seg-007.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 10,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "015bdf2f0f4bef316a76dcb766d02dac24c92cbfaa7a0ed7a54e80a2950ae71d",
+    "sizeBytes": 24547
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-007",
+  "sourceSha256": "06043ae13a04857550319053800511ce2a09d69688e33f9a164ca88606a8373e",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-007:media-verification:seg-007-episode-007-media-clip-d9e7f2577b13fa8e24a50645",
+  "verificationVersion": "codex-media-verification-v1",
+  "visualQuality": 0.91
+}

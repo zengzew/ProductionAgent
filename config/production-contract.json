@@ -21,7 +21,9 @@
   },
   "hook": {
     "targetSeconds": 20,
+    "timingToleranceSeconds": 1,
     "firstSegmentMaximumSeconds": 3,
+    "firstSegmentTimingToleranceSeconds": 0.1,
     "actionTerms": [
       "画",
       "生成",

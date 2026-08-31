@@ -50,7 +50,7 @@ Hook 的 15 分必须拆成：
 ## Goal 3.2 校准说明
 
 执行 `editorial-policy-v1` 中有清晰多模态证据的 Audience 子集。它只澄清现有
-`product-story-v4` 的观察方式，不改变分值、门槛、blocker 或路由：
+`product-story-v5` 的观察方式，不改变分值、门槛、blocker 或路由：
 
 - 开场结果只有在零背景可懂、并有功能不同的同期证明时才构成强 Hook。金额、年龄、
   下载量或截图数量堆叠本身不加分。
@@ -137,7 +137,8 @@ blocker，结论必须是 `REJECT`。
 报告开头必须包含 `critic-gate` JSON，并绑定当前
 `story/final-script.md` 的 SHA-256。只评审该哈希对应的版本。
 
-`critic-gate.rubricVersion` 必须是 `product-story-v4`，并包含：
+`critic-gate.rubricVersion` 必须是 `product-story-v5`。除原有评分字段外，必须写入
+`comprehensionEvidence`，把语义判断变成可复核的结构证据：
 
 ```json
 {
@@ -146,9 +147,36 @@ blocker，结论必须是 `REJECT`。
     "continuationQuestion": 0
   },
   "viewerExitRisks": [],
+  "comprehensionEvidence": {
+    "openingPayoff": {
+      "segmentId": "seg-001",
+      "value": "开场给出的可验证结果",
+      "claimIds": ["claim-example-001"]
+    },
+    "productMentalModel": {
+      "establishedBySegmentId": "seg-001",
+      "plainLanguage": "谁在什么场景下，用产品得到什么结果",
+      "user": "具体用户",
+      "situation": "具体场景",
+      "output": "具体产物"
+    },
+    "firstProblemTurnSegmentId": "seg-003",
+    "mechanism": {
+      "explainedBySegmentId": "seg-004",
+      "priorFriction": "改变前的具体阻力",
+      "changedFirstAction": "产品改变后的第一步",
+      "userBenefit": "用户因此少做或更快完成的动作"
+    },
+    "informationGains": [{"segmentId": "seg-001", "gain": "这一段新增的唯一判断"}]
+  },
   "returnTo": "none"
 }
 ```
+
+`openingPayoff` 必须落在第一段；`productMentalModel` 必须在 20 秒内、且早于第一次负面
+问题转折建立；`informationGains` 必须逐段且一一对应，不能用不同措辞重复同一判断。
+“把 AI 放到入口”这类抽象总结不算机制解释，必须同时写清原先的阻力、改变后的第一
+个用户动作和用户得到的直接好处。
 
 PASS 时 `returnTo` 必须是 `none`；REJECT 时必须指向至少一条风险的责任角色并列出
 最小修改清单。故事结构或信息缺口退回 Script Writer 或 Story Director；翻译腔、

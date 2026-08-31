@@ -15,6 +15,8 @@ import type {TranscriptSegment} from "./transcript";
  */
 
 export const MEDIA_CLIP_INDEX_SCHEMA_VERSION = "media-clip-index-v1" as const;
+/** Container duration probes may differ by up to two video frames after proxy normalization. */
+export const MEDIA_DURATION_ROUNDING_TOLERANCE_MS = 50;
 
 const sha256Schema = z.string().regex(/^[a-f0-9]{64}$/u);
 

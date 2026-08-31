@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "codex-media-verification-request-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "boundedMediaOnly": true,
+  "episodeId": "episode-007",
+  "segmentId": "seg-001",
+  "clipId": "episode-007:media-clip:86bcc767e4e13a34d44a8762",
+  "claimIds": [
+    "claim-gamma-006"
+  ],
+  "claims": [
+    {
+      "id": "claim-gamma-006",
+      "claim": "AI 版把第一个动作改成输入演示主题，由 Gamma 先生成一套可编辑初稿。"
+    }
+  ],
+  "narration": "输入一句话,整套演示就生成。",
+  "visualIntent": "官方 Generate 视频中主题文字被输入 → 生成按钮被点击 → 成套卡片结果出现;首帧常驻 Gamma 与来源标签。",
+  "clip": {
+    "path": "content/episode-007/media/verifications/seg-001/episode-007-media-clip-86bcc767e4e13a34d44a8762-clip.mp4",
+    "sha256": "03f2989219e59f1d93a4a5cbf42ed1db6b7ab0b53b066c011df5546a70face98",
+    "sizeBytes": 2363012,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 4000,
+    "sourceMediaId": "episode-007:media:gamma-generate",
+    "sourceMediaSha256": "344febea5580b721116f738d5e9d12c346a33c5f18bd8a2546ce33c5557d2fcf"
+  },
+  "keyframes": [
+    {
+      "path": "content/episode-007/media/indexes/gamma-generate/keyframes/keyframe-0-2000.jpg",
+      "timestampMs": 2000,
+      "sha256": "eee0458cf547315e865b0eecf846e46c947add4d4a15585e0409cd258676a7d1",
+      "sizeBytes": 68563,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "Gamma Generate product interface shows an AI prompt being entered and generation being activated.",
+    "observedText": "",
+    "keywords": [
+      "Gamma",
+      "Generate",
+      "prompt",
+      "presentation",
+      "生成",
+      "输入",
+      "演示",
+      "初稿"
+    ],
+    "entities": [
+      "Gamma"
+    ],
+    "semanticTags": [
+      "产品界面",
+      "提示词生成",
+      "成套卡片",
+      "可编辑演示"
+    ],
+    "speaker": null
+  },
+  "resultContract": {
+    "schemaVersion": "codex-media-verification-result-v1",
+    "envelope": [
+      "executor",
+      "model",
+      "requestHash",
+      "completedAt",
+      "output"
+    ],
+    "output": {
+      "verdict": [
+        "pass",
+        "reject",
+        "uncertain"
+      ],
+      "scores": [
+        "relevance",
+        "claimMatch",
+        "visualQuality",
+        "misleadingRisk"
+      ],
+      "observations": [
+        "observedActions",
+        "observedEntities",
+        "observedText"
+      ],
+      "range": [
+        "recommendedStartMs",
+        "recommendedEndMs"
+      ],
+      "explanation": [
+        "reasons"
+      ]
+    },
+    "instruction": "Inspect only the listed clip and keyframes. Copy this requestHash into the result envelope; do not alter rights or claim facts."
+  },
+  "requestHash": "a4a0a23a82d7daf8e2a053b99708be38fcc2f3a3dc3e994833ab642190809460"
+}

@@ -119,7 +119,7 @@ const stageDefinitions: Readonly<Record<ProductionStageName, StageDefinition>> =
   },
   "validate:content": {
     script: "scripts/validate-content.ts",
-    args: () => [],
+    args: () => ["--pre-production"],
     outputs: () => [],
   },
   capture: {
@@ -546,6 +546,18 @@ const createDefaultWorkspace = (input: {
   ]) {
     copy(repositoryPath);
   }
+  if (input.stage === "render:smoke" || input.stage === "render:vertical") {
+    for (const legacyEpisodeId of ["episode-001", "episode-002", "episode-003"]) {
+      for (const repositoryPath of [
+        `content/${legacyEpisodeId}/production/timeline.json`,
+        `content/${legacyEpisodeId}/production/captions.generated.json`,
+        `content/${legacyEpisodeId}/research/facts.json`,
+        `content/${legacyEpisodeId}/research/sources.json`,
+      ]) {
+        copy(repositoryPath);
+      }
+    }
+  }
   for (const directory of ["node_modules", ".venv"]) {
     const source = path.join(input.repoRoot, directory);
     if (fs.existsSync(source)) fs.symlinkSync(source, path.join(root, directory), "dir");
@@ -558,9 +570,11 @@ const createDefaultWorkspace = (input: {
 };
 
 const defaultRunTool: DeterministicToolRunner = (input) => {
-  const executable = path.join(input.cwd, "node_modules/.bin/tsx");
-  const args = [input.scriptPath, ...input.args, "--episode", input.episodeId];
-  const result = spawnSync(executable, args, {
+  // The tsx CLI creates an IPC pipe before executing the script. That pipe is
+  // unavailable in restricted production workspaces, while Node's loader path
+  // executes the same TypeScript entrypoint without an IPC side channel.
+  const args = ["--import", "tsx", input.scriptPath, ...input.args, "--episode", input.episodeId];
+  const result = spawnSync(process.execPath, args, {
     cwd: input.cwd,
     env: {
       ...process.env,

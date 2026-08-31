@@ -100,6 +100,31 @@ export const splitSpeechSentences = (text: string): string[] =>
     .map((part) => part.trim())
     .filter(Boolean);
 
+const spokenDigit: Readonly<Record<string, string>> = {
+  "0": "零",
+  "1": "一",
+  "2": "二",
+  "3": "三",
+  "4": "四",
+  "5": "五",
+  "6": "六",
+  "7": "七",
+  "8": "八",
+  "9": "九",
+};
+
+/**
+ * Converts written Chinese narration into provider-facing speech text without
+ * changing captions or the source script. Four-digit calendar years are read
+ * digit by digit (2020 年 -> 二零二零年); other numbers keep the provider's
+ * normal reading so metrics such as 6800 万 are unaffected.
+ */
+export const normalizeChineseSpeechText = (text: string): string =>
+  normalizeNarration(text).replace(/(?<!\d)([12]\d{3})\s*年/gu, (_match, year: string) => {
+    const spokenYear = [...year].map((digit) => spokenDigit[digit] ?? digit).join("");
+    return `${spokenYear}年`;
+  });
+
 const numberValue = (record: Record<string, unknown>, keys: string[]) => {
   for (const key of keys) {
     const value = record[key];
@@ -453,6 +478,7 @@ const publicTtsConfigurationHash = (input: {
     fallbackOnMissingCredential: input.config.fallbackOnMissingCredential,
     fallbackOnError: input.config.fallbackOnError,
     normalization: input.config.normalization,
+    pronunciation: input.config.pronunciation,
     providers: {
       minimax: {
         label: input.config.providers.minimax.label,
@@ -501,7 +527,7 @@ const generateFiles = async (
   });
   const providerModel = provider.model ?? provider.id;
   for (const segment of script.segments) {
-    const narration = normalizeNarration(segment.narration);
+    const narration = normalizeChineseSpeechText(segment.narration);
     const logicalItem = `segment:${segment.id}`;
     const cacheKey = cache
       ? buildSegmentTtsCacheKey({
