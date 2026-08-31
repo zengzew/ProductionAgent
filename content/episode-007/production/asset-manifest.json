@@ -1,19 +1,5 @@
 [
   {
-    "id": "episode-007-editorial-techcrunch-2021",
-    "type": "screenshot",
-    "path": "public/episodes/episode-007/captured/gamma-techcrunch.png",
-    "sourceUrl": "https://techcrunch.com/2021/10/28/gamma-brings-in-7m-to-bring-the-slide-deck-into-the-21st-century/",
-    "owner": "TechCrunch · 2021 同期报道",
-    "licenseOrBasis": "User-requested local evaluation production revision only; no external publication; mandatory final rights review before final approval.",
-    "capturedAt": "2026-08-30T23:07:00+08:00",
-    "usage": "Brief 1.8-second evidence overlay over real Gamma product B-roll.",
-    "approved": true,
-    "usedInRender": true,
-    "claimIds": ["claim-gamma-002"],
-    "segmentIds": ["seg-003"]
-  },
-  {
     "id": "episode-007-editorial-sacra-jon-noronha",
     "type": "screenshot",
     "path": "public/episodes/episode-007/captured/gamma-founder-interview.png",

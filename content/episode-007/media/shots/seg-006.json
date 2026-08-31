@@ -1,14 +1,14 @@
 {
   "artifactRef": {
     "artifactId": "episode-007:media-shot:seg-006",
-    "createdAt": "2026-08-31T08:20:42.273Z",
+    "createdAt": "2026-08-31T13:53:35.561Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/shots/seg-006.json",
     "producer": "media-render-v1",
     "revision": 1,
     "schemaVersion": "media-shot-v1",
-    "sha256": "5a382859400be4a5d1be5ba71aca881a9310e537022a6b42f0e9d269cf12b6b9",
+    "sha256": "3b9d1d3bb9290b5061d6251d67928f7bd5637019dff28894d7cab9b57e6a67b8",
     "sizeBytes": 7633
   },
   "audio": {
@@ -37,7 +37,7 @@
     "timelineSha256": "52136b20c1ffb4de056b59131d77757d8b8adc9b75c8c844834406a708f02ba2",
     "version": "media-render-config-v1"
   },
-  "createdAt": "2026-08-31T08:20:42.273Z",
+  "createdAt": "2026-08-31T13:53:35.561Z",
   "crossfadeMs": 0,
   "durationFrames": 226,
   "endSeconds": 44.702564,
@@ -118,14 +118,14 @@
     "sourceStartMs": 0,
     "verificationRef": {
       "artifactId": "episode-007:media-verification:seg-006-episode-007-media-clip-86bcc767e4e13a34d44a8762",
-      "createdAt": "2026-08-31T03:36:57.657Z",
+      "createdAt": "2026-08-31T13:53:26.167Z",
       "episodeId": "episode-007",
       "mediaType": "application/json",
       "path": "content/episode-007/media/verifications/seg-006/episode-007-media-clip-86bcc767e4e13a34d44a8762.json",
       "producer": "media-verification-v1:codex:codex-media-verification-v1",
-      "revision": 3,
+      "revision": 4,
       "schemaVersion": "media-verification-v1",
-      "sha256": "daded132db3875680188505a0d8ba861e35d2178fbf128c9eac4894db94dd541",
+      "sha256": "399ad530966ff87f2b93381007ef105b78b75af6499e15164841e3b148bfd3a6",
       "sizeBytes": 4643
     }
   },
@@ -143,7 +143,7 @@
   "renderProxyMediaType": "video/mp4",
   "renderProxyRef": {
     "artifactId": "episode-007:media-render-proxy:seg-006",
-    "createdAt": "2026-08-31T08:20:42.139Z",
+    "createdAt": "2026-08-31T13:53:35.413Z",
     "episodeId": "episode-007",
     "mediaType": "video/mp4",
     "path": "content/episode-007/media/render/seg-006.mp4",
@@ -161,7 +161,7 @@
       "claim-gamma-007"
     ],
     "clipId": "episode-007:media-clip:86bcc767e4e13a34d44a8762",
-    "createdAt": "2026-08-31T03:36:57.637Z",
+    "createdAt": "2026-08-31T13:53:26.147Z",
     "endMs": 4000,
     "episodeId": "episode-007",
     "mediaId": "episode-007:media:gamma-generate",
@@ -222,14 +222,14 @@
   },
   "verificationRef": {
     "artifactId": "episode-007:media-verification:seg-006-episode-007-media-clip-86bcc767e4e13a34d44a8762",
-    "createdAt": "2026-08-31T03:36:57.657Z",
+    "createdAt": "2026-08-31T13:53:26.167Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/verifications/seg-006/episode-007-media-clip-86bcc767e4e13a34d44a8762.json",
     "producer": "media-verification-v1:codex:codex-media-verification-v1",
-    "revision": 3,
+    "revision": 4,
     "schemaVersion": "media-verification-v1",
-    "sha256": "daded132db3875680188505a0d8ba861e35d2178fbf128c9eac4894db94dd541",
+    "sha256": "399ad530966ff87f2b93381007ef105b78b75af6499e15164841e3b148bfd3a6",
     "sizeBytes": 4643
   },
   "visualType": "real-media"

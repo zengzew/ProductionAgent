@@ -1,14 +1,14 @@
 {
   "artifactRef": {
     "artifactId": "episode-007:media-visual-slot:seg-001",
-    "createdAt": "2026-08-31T08:20:35.596Z",
+    "createdAt": "2026-08-31T13:53:27.169Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/selections/seg-001.json",
     "producer": "media-selection-v1:visual-selection-config-v1",
     "revision": 1,
     "schemaVersion": "visual-slot-v1",
-    "sha256": "fb4ed1fb901eb833fbf72dd64b369742fef9eb9614770bc28deb068f462213ec",
+    "sha256": "0b44f460c907a608f05f04ad1127784bbcc6025d8c04440aa52da17d46d5b4fa",
     "sizeBytes": 3378
   },
   "claimIds": [
@@ -35,7 +35,7 @@
       "visualQuality": 0.25
     }
   },
-  "createdAt": "2026-08-31T08:20:35.596Z",
+  "createdAt": "2026-08-31T13:53:27.169Z",
   "episodeId": "episode-007",
   "fallbackReason": null,
   "fallbackType": null,
@@ -60,7 +60,7 @@
       "claim-gamma-009"
     ],
     "clipId": "episode-007:media-clip:e064920c16fee19960cc660c",
-    "createdAt": "2026-08-31T03:36:55.135Z",
+    "createdAt": "2026-08-31T13:53:23.409Z",
     "endMs": 18433,
     "episodeId": "episode-007",
     "mediaId": "episode-007:media:gamma-edit",
@@ -86,14 +86,14 @@
   "slotId": "episode-007:media-visual-slot:seg-001",
   "verificationRef": {
     "artifactId": "episode-007:media-verification:seg-001-episode-007-media-clip-e064920c16fee19960cc660c",
-    "createdAt": "2026-08-31T03:36:55.154Z",
+    "createdAt": "2026-08-31T13:53:23.429Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/verifications/seg-001/episode-007-media-clip-e064920c16fee19960cc660c.json",
     "producer": "media-verification-v1:codex:codex-media-verification-v1",
-    "revision": 3,
+    "revision": 4,
     "schemaVersion": "media-verification-v1",
-    "sha256": "9ee57adb54737cd82f26cfbbc5182b18fe311727ec159c29a6747820fc1aae27",
+    "sha256": "c267f7ed00983f2ed3d645c7639f814a43cb896268c3699400541eeb76cc1d03",
     "sizeBytes": 4755
   },
   "visualIntent": "Gamma 官方产品成片首帧直接出现,ARR 与估值只做短暂叠层;同期显示公司来源,不让数据卡取代真实产品画面。"

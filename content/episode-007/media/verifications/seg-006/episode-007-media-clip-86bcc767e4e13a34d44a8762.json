@@ -1,17 +1,17 @@
 {
   "artifactRef": {
     "artifactId": "episode-007:media-verification:seg-006-episode-007-media-clip-86bcc767e4e13a34d44a8762",
-    "createdAt": "2026-08-31T03:36:57.637Z",
+    "createdAt": "2026-08-31T13:53:26.148Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/verifications/seg-006/episode-007-media-clip-86bcc767e4e13a34d44a8762.json",
     "producer": "media-verification-v1:codex:codex-media-verification-v1",
     "revision": 1,
     "schemaVersion": "media-verification-v1",
-    "sha256": "6ab6036445cdd46a57b4dc1dcc659dfcbba02f71887e55a8d9462856e4170b99",
+    "sha256": "b58e901fee5a0967b639ed33478baedf87a13854720460b3ca96e68bc96da7af",
     "sizeBytes": 4037
   },
-  "cacheKey": "4e63979d11b65c39052d16452ae2e6654d8c7e11a219c51b1c364bcb1ede52b4",
+  "cacheKey": "0cff71e6d474e9dc815837836fc66f68ea33ff7ab33303e9e766152da9c9b0d1",
   "claimIds": [
     "claim-gamma-007"
   ],
@@ -34,7 +34,7 @@
       "claim-gamma-007"
     ],
     "clipId": "episode-007:media-clip:86bcc767e4e13a34d44a8762",
-    "createdAt": "2026-08-31T03:36:57.637Z",
+    "createdAt": "2026-08-31T13:53:26.147Z",
     "endMs": 4000,
     "episodeId": "episode-007",
     "mediaId": "episode-007:media:gamma-generate",
@@ -54,7 +54,7 @@
     "transcriptRefs": [],
     "visualIntent": "Gamma 真实 Generate 与 Share 画面持续播放;数百与约一万只分别短暂叠层 1.8 秒,访谈来源条同期出现,不画虚构增长曲线。"
   },
-  "createdAt": "2026-08-31T03:36:57.637Z",
+  "createdAt": "2026-08-31T13:53:26.147Z",
   "episodeId": "episode-007",
   "mediaRef": {
     "artifactId": "episode-007:media:gamma-generate",
@@ -93,14 +93,14 @@
   "relevance": 0.42,
   "retrievalResultRef": {
     "artifactId": "episode-007:media-retrieval:seg-006",
-    "createdAt": "2026-08-31T03:36:53.950Z",
+    "createdAt": "2026-08-31T13:53:22.279Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/candidates/seg-006.json",
     "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
-    "revision": 16,
+    "revision": 17,
     "schemaVersion": "media-retrieval-result-v1",
-    "sha256": "f265f0b7bd22399689a9653a93ab5be8942823d6406850cb925e308ca32bc302",
+    "sha256": "1ef6e0e5d7841de546266758e7f3429f09a03754bbb7c42c97e2d83641749dbb",
     "sizeBytes": 6974
   },
   "schemaVersion": "media-verification-v1",

@@ -1,17 +1,17 @@
 {
   "artifactRef": {
     "artifactId": "episode-007:media-verification:seg-003-episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4",
-    "createdAt": "2026-08-31T03:36:56.131Z",
+    "createdAt": "2026-08-31T13:53:24.502Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/verifications/seg-003/episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4.json",
     "producer": "media-verification-v1:codex:codex-media-verification-v1",
     "revision": 1,
     "schemaVersion": "media-verification-v1",
-    "sha256": "ee60ebcd84b36f296c7030d0600b9690cd753ef6a2f82207ce73b2fa85a02d73",
+    "sha256": "a01da5ccde36775fd7db3c69ed80d3a828362bbb4e0f1b4dbfef97eeab5f4e4a",
     "sizeBytes": 3996
   },
-  "cacheKey": "7e9ff95262a0e9987169dbf26b967478f8f7432dc5741502654d34a55382a3bf",
+  "cacheKey": "17bf340ec319d53d98994ff19603e2ece57a1c5667f651f2f75624fea78cc9a8",
   "claimIds": [
     "claim-gamma-002",
     "claim-gamma-003"
@@ -36,7 +36,7 @@
       "claim-gamma-003"
     ],
     "clipId": "episode-007:media-clip:8dbfd3dfc22fd3fe0e455ce4",
-    "createdAt": "2026-08-31T03:36:56.131Z",
+    "createdAt": "2026-08-31T13:53:24.501Z",
     "endMs": 4000,
     "episodeId": "episode-007",
     "mediaId": "episode-007:media:gamma-share",
@@ -56,7 +56,7 @@
     "transcriptRefs": [],
     "visualIntent": "创始人访谈页面短暂出现 → PowerPoint 模板与格式工具被高亮 → Gamma 空白创建页停住一拍 → 官方产品视频接回真实输入框。"
   },
-  "createdAt": "2026-08-31T03:36:56.131Z",
+  "createdAt": "2026-08-31T13:53:24.501Z",
   "episodeId": "episode-007",
   "mediaRef": {
     "artifactId": "episode-007:media:gamma-share",
@@ -96,14 +96,14 @@
   "relevance": 0.15,
   "retrievalResultRef": {
     "artifactId": "episode-007:media-retrieval:seg-003",
-    "createdAt": "2026-08-31T03:36:53.151Z",
+    "createdAt": "2026-08-31T13:53:21.419Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/candidates/seg-003.json",
     "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
-    "revision": 16,
+    "revision": 17,
     "schemaVersion": "media-retrieval-result-v1",
-    "sha256": "a426c60ddafbb958d181c7793e5bc269f0d2179980cfd70987cd4b739a496045",
+    "sha256": "9b034815fb18a023c4dfc00a47258406a4cae7029c433033bfec2e6bfa223639",
     "sizeBytes": 23843
   },
   "schemaVersion": "media-verification-v1",

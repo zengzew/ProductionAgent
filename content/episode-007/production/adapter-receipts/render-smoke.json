@@ -1,1 +1,1 @@
-{"command":"scripts/render.ts","episodeId":"episode-007","inputSetHash":"2779e054c6a37450c38c80af6c65d27e9acd28e3a30e4bc588ecb0c62e022ce9","outputPaths":["output/episode-007/smoke_9x16.mp4"],"schemaVersion":"production-stage-receipt-v1","stage":"render:smoke","status":"passed"}
+{"command":"scripts/render.ts","episodeId":"episode-007","inputSetHash":"070d5fa27b076858238177edf9da2f99cee40cdbf1783a03bff2259b4ca536f2","outputPaths":["output/episode-007/smoke_9x16.mp4"],"schemaVersion":"production-stage-receipt-v1","stage":"render:smoke","status":"passed"}

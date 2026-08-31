@@ -1,14 +1,14 @@
 {
   "artifactRef": {
     "artifactId": "episode-007:media-visual-slot:seg-007",
-    "createdAt": "2026-08-31T08:20:37.422Z",
+    "createdAt": "2026-08-31T13:53:28.991Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/selections/seg-007.json",
     "producer": "media-selection-v1:visual-selection-config-v1",
     "revision": 1,
     "schemaVersion": "visual-slot-v1",
-    "sha256": "70c66dc9993225ef8f6abfde9b4037dd587efb76a11935817369122f99aea3bf",
+    "sha256": "a35cf54951760e77df50e2b3058ca9dd35b2812fbf5b4aba0269d64e0027db04",
     "sizeBytes": 3552
   },
   "claimIds": [
@@ -37,7 +37,7 @@
       "visualQuality": 0.25
     }
   },
-  "createdAt": "2026-08-31T08:20:37.422Z",
+  "createdAt": "2026-08-31T13:53:28.991Z",
   "episodeId": "episode-007",
   "fallbackReason": null,
   "fallbackType": null,
@@ -64,7 +64,7 @@
       "claim-gamma-009"
     ],
     "clipId": "episode-007:media-clip:8dbfd3dfc22fd3fe0e455ce4",
-    "createdAt": "2026-08-31T03:36:58.150Z",
+    "createdAt": "2026-08-31T13:53:26.704Z",
     "endMs": 4000,
     "episodeId": "episode-007",
     "mediaId": "episode-007:media:gamma-share",
@@ -90,14 +90,14 @@
   "slotId": "episode-007:media-visual-slot:seg-007",
   "verificationRef": {
     "artifactId": "episode-007:media-verification:seg-007-episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4",
-    "createdAt": "2026-08-31T03:36:58.169Z",
+    "createdAt": "2026-08-31T13:53:26.725Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/verifications/seg-007/episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4.json",
     "producer": "media-verification-v1:codex:codex-media-verification-v1",
-    "revision": 3,
+    "revision": 4,
     "schemaVersion": "media-verification-v1",
-    "sha256": "7cfb80c8fb03946cbde38fe0f90dcbb2853e7f4cb1637d2e800adfe9384ee541",
+    "sha256": "30cf936a5ff0d4a66e2f46f1047523df58750a19239336584fa8154c84cb57cd",
     "sizeBytes": 4738
   },
   "visualIntent": "Generate、Edit、Share 三个完成状态快速回看 → 公司文章标题短暂进入 → ARR、融资、估值逐个短叠层,最后停在可分享成品而不是纯数据卡。"

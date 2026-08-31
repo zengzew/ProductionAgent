@@ -1,1 +1,1 @@
-{"command":"scripts/inspect-output.ts","episodeId":"episode-007","inputSetHash":"bd5796dd9b2d767092fcb07439b0cc8fb299a67c17147e25c4a1c970d463a251","outputPaths":["output/episode-007/inspection.json"],"schemaVersion":"production-stage-receipt-v1","stage":"inspect:output","status":"passed"}
+{"command":"scripts/inspect-output.ts","episodeId":"episode-007","inputSetHash":"823eb21b452e0d5f48ebde41e833142c558bd2930217d2d354beb6766d4c2377","outputPaths":["output/episode-007/inspection.json"],"schemaVersion":"production-stage-receipt-v1","stage":"inspect:output","status":"passed"}

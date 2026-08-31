@@ -1,1 +1,1 @@
-{"command":"scripts/render.ts","episodeId":"episode-007","inputSetHash":"5a986fa3fcaf417385d7c03f6b7cef7503fb5ed5f122fffb52855127274487d5","outputPaths":["output/episode-007/vertical_9x16.mp4"],"schemaVersion":"production-stage-receipt-v1","stage":"render:vertical","status":"passed"}
+{"command":"scripts/render.ts","episodeId":"episode-007","inputSetHash":"57237f7e06eedcc395a1114c60d4712729fcd79118045d0f8c9be603b3368dc7","outputPaths":["output/episode-007/vertical_9x16.mp4"],"schemaVersion":"production-stage-receipt-v1","stage":"render:vertical","status":"passed"}

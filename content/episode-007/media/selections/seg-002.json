@@ -1,14 +1,14 @@
 {
   "artifactRef": {
     "artifactId": "episode-007:media-visual-slot:seg-002",
-    "createdAt": "2026-08-31T08:20:35.880Z",
+    "createdAt": "2026-08-31T13:53:27.442Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/selections/seg-002.json",
     "producer": "media-selection-v1:visual-selection-config-v1",
     "revision": 1,
     "schemaVersion": "visual-slot-v1",
-    "sha256": "386cfc65e95a7407175d5295e601d4cca78a6a4e85f659aa4eb48c3c6476b678",
+    "sha256": "4c6c374ef5696807ec23430ac3a00abe25ba31a11b799bb55c2695493d475ce7",
     "sizeBytes": 3449
   },
   "claimIds": [
@@ -36,7 +36,7 @@
       "visualQuality": 0.25
     }
   },
-  "createdAt": "2026-08-31T08:20:35.880Z",
+  "createdAt": "2026-08-31T13:53:27.442Z",
   "episodeId": "episode-007",
   "fallbackReason": null,
   "fallbackType": null,
@@ -62,7 +62,7 @@
       "claim-gamma-012"
     ],
     "clipId": "episode-007:media-clip:86bcc767e4e13a34d44a8762",
-    "createdAt": "2026-08-31T03:36:55.613Z",
+    "createdAt": "2026-08-31T13:53:23.941Z",
     "endMs": 4000,
     "episodeId": "episode-007",
     "mediaId": "episode-007:media:gamma-generate",
@@ -88,14 +88,14 @@
   "slotId": "episode-007:media-visual-slot:seg-002",
   "verificationRef": {
     "artifactId": "episode-007:media-verification:seg-002-episode-007-media-clip-86bcc767e4e13a34d44a8762",
-    "createdAt": "2026-08-31T03:36:55.632Z",
+    "createdAt": "2026-08-31T13:53:23.961Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/verifications/seg-002/episode-007-media-clip-86bcc767e4e13a34d44a8762.json",
     "producer": "media-verification-v1:codex:codex-media-verification-v1",
-    "revision": 3,
+    "revision": 4,
     "schemaVersion": "media-verification-v1",
-    "sha256": "ccdc98e38e0409158ddaf2196e172775793f33ac5b0adfda6519ff87c8c7287e",
+    "sha256": "16f254de29726468a3032a76ef51d0a0fcbd909274925ccae3ad4e18226b2cba",
     "sizeBytes": 4796
   },
   "visualIntent": "销售提案主题被输入 → Gamma 生成成套卡片 → Edit 中内容被修改 → Share 中链接入口出现;全程常驻功能演示标签。"

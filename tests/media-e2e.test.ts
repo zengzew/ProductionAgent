@@ -98,6 +98,49 @@ describe("WP-M5.09 delivery gate + real-media E2E", () => {
     ).toThrow(/MEDIA_DELIVERY_DECLARED_STILL_NOT_RENDERED:asset-official-still:seg-001/u);
   });
 
+  it("accepts an approved editorial still rendered as a hash-bound evidence overlay", () => {
+    const repoRoot = temporaryRepo();
+    const episodeId = "episode-evidence-overlay";
+    const manifestDirectory = path.join(repoRoot, "content", episodeId, "production");
+    fs.mkdirSync(manifestDirectory, {recursive: true});
+    fs.writeFileSync(
+      path.join(manifestDirectory, "asset-manifest.json"),
+      `${JSON.stringify([
+        {
+          id: "asset-founder-interview",
+          type: "screenshot",
+          path: "content/episode-evidence-overlay/media/founder.png",
+          sourceUrl: "https://example.com/founder",
+          owner: "example.com",
+          licenseOrBasis: "editorial test fixture",
+          capturedAt: "2026-08-31T00:00:00.000Z",
+          usage: "brief founder interview overlay",
+          approved: true,
+          claimIds: [],
+          usedInRender: true,
+          segmentIds: ["seg-001"],
+        },
+      ])}\n`,
+    );
+
+    expect(() =>
+      assertDeclaredEditorialStillsRendered({
+        repoRoot,
+        episodeId,
+        plan: {
+          shots: [
+            {
+              segmentId: "seg-001",
+              visualType: "real-media",
+              evidenceImageAssetId: "asset-founder-interview",
+              evidenceImageSha256: "a".repeat(64),
+            },
+          ],
+        } as never,
+      }),
+    ).not.toThrow();
+  });
+
   itSlow("real-media E2E produces a 9:16 40–80s readout and Delivery PASS", async () => {
     const repoRoot = temporaryRepo();
     const ready = await setupReadyMediaEpisode(repoRoot);

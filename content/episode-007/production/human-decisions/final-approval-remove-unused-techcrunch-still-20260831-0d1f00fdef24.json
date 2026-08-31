@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "final-approval-remove-unused-techcrunch-still-20260831",
+  "runId": "run-20260828-gamma-real-007",
+  "gate": "final-approval",
+  "decision": "direct-edit",
+  "reviewer": "zengze",
+  "timestamp": "2026-08-31T21:45:38+08:00",
+  "reason": "用户批准执行最小 unfreeze：删除未实际使用的 TechCrunch 静态素材声明，并将 seg-003 保持为 Gamma Edit 真实产品画面；保持 final-approval 暂停，不授权发布。",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-007:story:visual-director-visual-plan",
+      "episodeId": "episode-007",
+      "path": "content/episode-007/story/visual-plan.md",
+      "mediaType": "text/markdown",
+      "schemaVersion": "visual-plan-v3",
+      "revision": 3,
+      "sha256": "bca448f3c81f8e7c500980af60d12ca83a54e0986e60934117c8e4e17b5c23a8",
+      "sizeBytes": 8588,
+      "producer": "human:zengze",
+      "createdAt": "2026-08-31T21:45:38+08:00"
+    }
+  ],
+  "approvalEpoch": 5,
+  "authorizations": [],
+  "edits": [
+    {
+      "artifactId": "episode-007:story:visual-director-visual-plan",
+      "owner": "visual-director",
+      "before": {
+        "artifactId": "episode-007:story:visual-director-visual-plan",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/visual-plan.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "visual-plan-v3",
+        "revision": 2,
+        "sha256": "cf9ff6c2ffd5373fd8213d34a0b4974947c5d7370f48606069feae9424f34d6f",
+        "sizeBytes": 8633,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-30T23:10:00+08:00"
+      },
+      "after": {
+        "artifactId": "episode-007:story:visual-director-visual-plan",
+        "episodeId": "episode-007",
+        "path": "content/episode-007/story/visual-plan.md",
+        "mediaType": "text/markdown",
+        "schemaVersion": "visual-plan-v3",
+        "revision": 3,
+        "sha256": "bca448f3c81f8e7c500980af60d12ca83a54e0986e60934117c8e4e17b5c23a8",
+        "sizeBytes": 8588,
+        "producer": "human:zengze",
+        "createdAt": "2026-08-31T21:45:38+08:00"
+      },
+      "changedLocators": [
+        {
+          "kind": "whole-artifact",
+          "value": "visual-plan"
+        }
+      ],
+      "provenance": {
+        "source": "human",
+        "reviewer": "zengze",
+        "decisionId": "final-approval-remove-unused-techcrunch-still-20260831",
+        "timestamp": "2026-08-31T21:45:38+08:00",
+        "approvalEpoch": 5
+      }
+    }
+  ]
+}

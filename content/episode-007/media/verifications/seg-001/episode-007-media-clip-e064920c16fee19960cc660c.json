@@ -1,17 +1,17 @@
 {
   "artifactRef": {
     "artifactId": "episode-007:media-verification:seg-001-episode-007-media-clip-e064920c16fee19960cc660c",
-    "createdAt": "2026-08-31T03:36:55.135Z",
+    "createdAt": "2026-08-31T13:53:23.409Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/verifications/seg-001/episode-007-media-clip-e064920c16fee19960cc660c.json",
     "producer": "media-verification-v1:codex:codex-media-verification-v1",
     "revision": 1,
     "schemaVersion": "media-verification-v1",
-    "sha256": "d30e71b4fdd39b8068b563279a9d8424059dee697335a01ed6d17e19fa6376ee",
+    "sha256": "f6ffe511397df893af7f385517a0bef078f0955b49ccba93f99ebadabb568638",
     "sizeBytes": 4149
   },
-  "cacheKey": "efefb1aa6af26de8fd86c25680f405822cd27c153af16a7d4bf7d40cf7562ec4",
+  "cacheKey": "27f9d34dca52c318e875cbe33be5ca7bdc57f5c9a7d41d5328904c84f0472351",
   "claimIds": [
     "claim-gamma-008",
     "claim-gamma-009"
@@ -36,7 +36,7 @@
       "claim-gamma-009"
     ],
     "clipId": "episode-007:media-clip:e064920c16fee19960cc660c",
-    "createdAt": "2026-08-31T03:36:55.135Z",
+    "createdAt": "2026-08-31T13:53:23.409Z",
     "endMs": 18433,
     "episodeId": "episode-007",
     "mediaId": "episode-007:media:gamma-edit",
@@ -56,7 +56,7 @@
     "transcriptRefs": [],
     "visualIntent": "Gamma 官方产品成片首帧直接出现,ARR 与估值只做短暂叠层;同期显示公司来源,不让数据卡取代真实产品画面。"
   },
-  "createdAt": "2026-08-31T03:36:55.135Z",
+  "createdAt": "2026-08-31T13:53:23.409Z",
   "episodeId": "episode-007",
   "mediaRef": {
     "artifactId": "episode-007:media:gamma-edit",
@@ -95,14 +95,14 @@
   "relevance": 0.45,
   "retrievalResultRef": {
     "artifactId": "episode-007:media-retrieval:seg-001",
-    "createdAt": "2026-08-31T03:36:52.586Z",
+    "createdAt": "2026-08-31T13:53:20.859Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/candidates/seg-001.json",
     "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
-    "revision": 16,
+    "revision": 17,
     "schemaVersion": "media-retrieval-result-v1",
-    "sha256": "be7d2d20784a5d4b294740810d0bb0359dc46878b6e125e9fb15d9e98cdfeea4",
+    "sha256": "1fe42ac15ea51b39d2d4d784e59ac3e68afa7aab28f0d2ff798a681270e4a125",
     "sizeBytes": 25007
   },
   "schemaVersion": "media-verification-v1",

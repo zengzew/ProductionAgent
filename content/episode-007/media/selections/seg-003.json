@@ -1,14 +1,14 @@
 {
   "artifactRef": {
     "artifactId": "episode-007:media-visual-slot:seg-003",
-    "createdAt": "2026-08-31T08:20:36.176Z",
+    "createdAt": "2026-08-31T13:53:27.705Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/selections/seg-003.json",
     "producer": "media-selection-v1:visual-selection-config-v1",
     "revision": 1,
     "schemaVersion": "visual-slot-v1",
-    "sha256": "f9a9b0e95046611e4d3a18be6b6b8aa5110bd3ebc3c00452595fe4746481d593",
+    "sha256": "b3a490d04f817350f9fa84b0c83dd399ce3a29d7b84b3178132ee7454d270852",
     "sizeBytes": 3420
   },
   "claimIds": [
@@ -35,7 +35,7 @@
       "visualQuality": 0.25
     }
   },
-  "createdAt": "2026-08-31T08:20:36.175Z",
+  "createdAt": "2026-08-31T13:53:27.705Z",
   "episodeId": "episode-007",
   "fallbackReason": null,
   "fallbackType": null,
@@ -60,7 +60,7 @@
       "claim-gamma-003"
     ],
     "clipId": "episode-007:media-clip:8dbfd3dfc22fd3fe0e455ce4",
-    "createdAt": "2026-08-31T03:36:56.131Z",
+    "createdAt": "2026-08-31T13:53:24.501Z",
     "endMs": 4000,
     "episodeId": "episode-007",
     "mediaId": "episode-007:media:gamma-share",
@@ -86,14 +86,14 @@
   "slotId": "episode-007:media-visual-slot:seg-003",
   "verificationRef": {
     "artifactId": "episode-007:media-verification:seg-003-episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4",
-    "createdAt": "2026-08-31T03:36:56.151Z",
+    "createdAt": "2026-08-31T13:53:24.525Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/verifications/seg-003/episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4.json",
     "producer": "media-verification-v1:codex:codex-media-verification-v1",
-    "revision": 5,
+    "revision": 6,
     "schemaVersion": "media-verification-v1",
-    "sha256": "915f4cc36b5f6b45b20af90cea6bc85f12a0eb3b9a1bb3c17517b5daf1512aff",
+    "sha256": "bea038d6195e4bfe4bd4ccbcc9de3316094af5222497d8137c6b236d36b1efd5",
     "sizeBytes": 4602
   },
   "visualIntent": "创始人访谈页面短暂出现 → PowerPoint 模板与格式工具被高亮 → Gamma 空白创建页停住一拍 → 官方产品视频接回真实输入框。"

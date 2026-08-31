@@ -1,14 +1,14 @@
 {
   "artifactRef": {
     "artifactId": "episode-007:media-visual-slot:seg-004",
-    "createdAt": "2026-08-31T08:20:36.460Z",
+    "createdAt": "2026-08-31T13:53:27.975Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/selections/seg-004.json",
     "producer": "media-selection-v1:visual-selection-config-v1",
     "revision": 1,
     "schemaVersion": "visual-slot-v1",
-    "sha256": "de390557cf4042b64b728fd9ac39f6eb1ab46b0144e743f296114b5ed0224033",
+    "sha256": "d086c156e1acd3e5d81520c9aec49bf2b9268414baa4ca1c4bc2676d547fe1b4",
     "sizeBytes": 3411
   },
   "claimIds": [
@@ -35,7 +35,7 @@
       "visualQuality": 0.25
     }
   },
-  "createdAt": "2026-08-31T08:20:36.460Z",
+  "createdAt": "2026-08-31T13:53:27.975Z",
   "episodeId": "episode-007",
   "fallbackReason": null,
   "fallbackType": null,
@@ -60,7 +60,7 @@
       "claim-gamma-006"
     ],
     "clipId": "episode-007:media-clip:86bcc767e4e13a34d44a8762",
-    "createdAt": "2026-08-31T03:36:56.642Z",
+    "createdAt": "2026-08-31T13:53:25.046Z",
     "endMs": 4000,
     "episodeId": "episode-007",
     "mediaId": "episode-007:media:gamma-generate",
@@ -86,14 +86,14 @@
   "slotId": "episode-007:media-visual-slot:seg-004",
   "verificationRef": {
     "artifactId": "episode-007:media-verification:seg-004-episode-007-media-clip-86bcc767e4e13a34d44a8762",
-    "createdAt": "2026-08-31T03:36:56.663Z",
+    "createdAt": "2026-08-31T13:53:25.066Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/verifications/seg-004/episode-007-media-clip-86bcc767e4e13a34d44a8762.json",
     "producer": "media-verification-v1:codex:codex-media-verification-v1",
-    "revision": 3,
+    "revision": 4,
     "schemaVersion": "media-verification-v1",
-    "sha256": "562709969f893a65492d822c3162e8deab2eb5e3492479933dbd02eda0f9b39e",
+    "sha256": "75cc4c18b396da228951bf6dcfee4ba1a451e08778569dbfd8fb1af84afd8382",
     "sizeBytes": 4667
   },
   "visualIntent": "公司文章的三个月重构句短暂叠层 → Generate 视频完整展示第一屏输入主题 → 成套卡片与版式出现;文章只做证据层。"

@@ -1,17 +1,17 @@
 {
   "artifactRef": {
     "artifactId": "episode-007:media-verification:seg-005-episode-007-media-clip-fc2f29a3d47b78829c7e78e1",
-    "createdAt": "2026-08-31T03:36:57.158Z",
+    "createdAt": "2026-08-31T13:53:25.606Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/verifications/seg-005/episode-007-media-clip-fc2f29a3d47b78829c7e78e1.json",
     "producer": "media-verification-v1:codex:codex-media-verification-v1",
     "revision": 1,
     "schemaVersion": "media-verification-v1",
-    "sha256": "9a7c42c999ed5f4946903b67da094188cf1832c02ceb6356270f73723d3e5758",
+    "sha256": "8a299d8419c9e62f6d4ec4681b5d57764170bda7772525a5a810ef8b4132f8c6",
     "sizeBytes": 3992
   },
-  "cacheKey": "182155de9aaac27de7a3ee7d4ddbc5c79c001db3908707395cf2b67110dff96d",
+  "cacheKey": "34b0712fe4e209b479eeccf01368b62531e397c50c590c552c11aa42a8d7df3d",
   "claimIds": [
     "claim-gamma-001",
     "claim-gamma-003",
@@ -38,7 +38,7 @@
       "claim-gamma-006"
     ],
     "clipId": "episode-007:media-clip:fc2f29a3d47b78829c7e78e1",
-    "createdAt": "2026-08-31T03:36:57.158Z",
+    "createdAt": "2026-08-31T13:53:25.606Z",
     "endMs": 4000,
     "episodeId": "episode-007",
     "mediaId": "episode-007:media:gamma-edit",
@@ -58,7 +58,7 @@
     "transcriptRefs": [],
     "visualIntent": "Edit 视频中改文字和换版式 → Share 视频中发布链接;“先跨过空白页”只做两秒文字叠层,真实操作持续作为背景。"
   },
-  "createdAt": "2026-08-31T03:36:57.158Z",
+  "createdAt": "2026-08-31T13:53:25.606Z",
   "episodeId": "episode-007",
   "mediaRef": {
     "artifactId": "episode-007:media:gamma-edit",
@@ -96,14 +96,14 @@
   "relevance": 0.91,
   "retrievalResultRef": {
     "artifactId": "episode-007:media-retrieval:seg-005",
-    "createdAt": "2026-08-31T03:36:53.656Z",
+    "createdAt": "2026-08-31T13:53:22.013Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/candidates/seg-005.json",
     "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
-    "revision": 16,
+    "revision": 17,
     "schemaVersion": "media-retrieval-result-v1",
-    "sha256": "1fa8eca2f113cb915824a594cdb26ce43d8bd0a9b7912e38d41f360e82ac3fc4",
+    "sha256": "a8f67c77276be08fa29b236ed77ce859b8e0eb0359eca9a5652b772e3bb0169e",
     "sizeBytes": 24509
   },
   "schemaVersion": "media-verification-v1",

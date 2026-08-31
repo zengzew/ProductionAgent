@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "human-issue-v1",
+  "issueId": "issue-human-82f75918fccd091871efdcf9-r1-01",
+  "episodeId": "episode-007",
+  "sourceDecisionId": "final-approval-rerender-without-unused-techcrunch-20260831",
+  "gate": "final-approval",
+  "approvalEpoch": 5,
+  "status": "open",
+  "category": "delivery.asset-manifest",
+  "severity": "blocker",
+  "ownerAgent": "production-executor",
+  "routeTarget": "render",
+  "restartAt": "render",
+  "affectedArtifactRef": {
+    "artifactId": "episode-007:media:render-plan",
+    "episodeId": "episode-007",
+    "path": "content/episode-007/media/render-plan.json",
+    "mediaType": "application/json",
+    "schemaVersion": "media-render-plan-v1",
+    "revision": 10,
+    "sha256": "631cfb0ac856457b3c6d976baef2c4d89b2a7e0fd7c5791cbb45042b377a6928",
+    "sizeBytes": 64841,
+    "producer": "media-render-v1",
+    "createdAt": "2026-08-31T08:20:43.240Z"
+  },
+  "locator": {
+    "kind": "segment",
+    "value": "seg-003"
+  },
+  "summary": "用户要求执行最小生产修订：删除未实际渲染的 TechCrunch still 声明，重新生成 render plan、实际渲染并复核 Delivery Critic；保持 final-approval 暂停，不授权发布。"
+}

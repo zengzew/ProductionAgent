@@ -1,14 +1,14 @@
 {
   "artifactRef": {
     "artifactId": "episode-007:media-visual-slot:seg-005",
-    "createdAt": "2026-08-31T08:20:36.747Z",
+    "createdAt": "2026-08-31T13:53:28.327Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/selections/seg-005.json",
     "producer": "media-selection-v1:visual-selection-config-v1",
     "revision": 1,
     "schemaVersion": "visual-slot-v1",
-    "sha256": "b1af67286d2d2f7dc6848bee15ae6304d80513c4ac607c62f5ebf673d0837317",
+    "sha256": "d22c6f2c0da4c1f3e6f23a6006625a13a9c72bee16fe473eaff3556f0c449d74",
     "sizeBytes": 3437
   },
   "claimIds": [
@@ -36,7 +36,7 @@
       "visualQuality": 0.25
     }
   },
-  "createdAt": "2026-08-31T08:20:36.747Z",
+  "createdAt": "2026-08-31T13:53:28.327Z",
   "episodeId": "episode-007",
   "fallbackReason": null,
   "fallbackType": null,
@@ -62,7 +62,7 @@
       "claim-gamma-006"
     ],
     "clipId": "episode-007:media-clip:fc2f29a3d47b78829c7e78e1",
-    "createdAt": "2026-08-31T03:36:57.158Z",
+    "createdAt": "2026-08-31T13:53:25.606Z",
     "endMs": 4000,
     "episodeId": "episode-007",
     "mediaId": "episode-007:media:gamma-edit",
@@ -88,14 +88,14 @@
   "slotId": "episode-007:media-visual-slot:seg-005",
   "verificationRef": {
     "artifactId": "episode-007:media-verification:seg-005-episode-007-media-clip-fc2f29a3d47b78829c7e78e1",
-    "createdAt": "2026-08-31T03:36:57.179Z",
+    "createdAt": "2026-08-31T13:53:25.627Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/verifications/seg-005/episode-007-media-clip-fc2f29a3d47b78829c7e78e1.json",
     "producer": "media-verification-v1:codex:codex-media-verification-v1",
-    "revision": 5,
+    "revision": 6,
     "schemaVersion": "media-verification-v1",
-    "sha256": "fc88577fe4e3a1f4761c170dc58035e2bd82250135914f88b691f06aa12bc9ea",
+    "sha256": "a1886ba9d3173f5faac6c2b441ab117b59bd25e4fc3337e24f4754ee2868622c",
     "sizeBytes": 4598
   },
   "visualIntent": "Edit 视频中改文字和换版式 → Share 视频中发布链接;“先跨过空白页”只做两秒文字叠层,真实操作持续作为背景。"

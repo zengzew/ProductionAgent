@@ -1,17 +1,17 @@
 {
   "artifactRef": {
     "artifactId": "episode-007:media-verification:seg-002-episode-007-media-clip-86bcc767e4e13a34d44a8762",
-    "createdAt": "2026-08-31T03:36:55.613Z",
+    "createdAt": "2026-08-31T13:53:23.941Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/verifications/seg-002/episode-007-media-clip-86bcc767e4e13a34d44a8762.json",
     "producer": "media-verification-v1:codex:codex-media-verification-v1",
     "revision": 1,
     "schemaVersion": "media-verification-v1",
-    "sha256": "69359d12018267ed9760a981b6c82e7a5b6504449e3f2b24d31f3ea713271ce2",
+    "sha256": "f5fac2e60f7319a13465f0f83d6c9de18fab47500810a218c0b41c92d7b427fe",
     "sizeBytes": 4190
   },
-  "cacheKey": "28aaca5d844ca04aeb1f8854fb875cfed8d457b14b2910bd5b9a9867ca9373f4",
+  "cacheKey": "00d9f2a5fd7471811388a7423aae0180c510f9c7c4a03d36b1b92880e958e78a",
   "claimIds": [
     "claim-gamma-001",
     "claim-gamma-006",
@@ -38,7 +38,7 @@
       "claim-gamma-012"
     ],
     "clipId": "episode-007:media-clip:86bcc767e4e13a34d44a8762",
-    "createdAt": "2026-08-31T03:36:55.613Z",
+    "createdAt": "2026-08-31T13:53:23.941Z",
     "endMs": 4000,
     "episodeId": "episode-007",
     "mediaId": "episode-007:media:gamma-generate",
@@ -58,7 +58,7 @@
     "transcriptRefs": [],
     "visualIntent": "销售提案主题被输入 → Gamma 生成成套卡片 → Edit 中内容被修改 → Share 中链接入口出现;全程常驻功能演示标签。"
   },
-  "createdAt": "2026-08-31T03:36:55.613Z",
+  "createdAt": "2026-08-31T13:53:23.941Z",
   "episodeId": "episode-007",
   "mediaRef": {
     "artifactId": "episode-007:media:gamma-generate",
@@ -98,14 +98,14 @@
   "relevance": 0.95,
   "retrievalResultRef": {
     "artifactId": "episode-007:media-retrieval:seg-002",
-    "createdAt": "2026-08-31T03:36:52.903Z",
+    "createdAt": "2026-08-31T13:53:21.139Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/candidates/seg-002.json",
     "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
-    "revision": 16,
+    "revision": 17,
     "schemaVersion": "media-retrieval-result-v1",
-    "sha256": "a6d5a5c4c108af57a4dd5a7c1f398ef0dbace14203c1caf9c1a9ff99204a2534",
+    "sha256": "da56bfddd88d610bbf31b5f68c355a561270caca9bca6bb37d7789a5e0e0ddf9",
     "sizeBytes": 25436
   },
   "schemaVersion": "media-verification-v1",

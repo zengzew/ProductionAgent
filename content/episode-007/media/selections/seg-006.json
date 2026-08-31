@@ -1,14 +1,14 @@
 {
   "artifactRef": {
     "artifactId": "episode-007:media-visual-slot:seg-006",
-    "createdAt": "2026-08-31T08:20:37.130Z",
+    "createdAt": "2026-08-31T13:53:28.669Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/selections/seg-006.json",
     "producer": "media-selection-v1:visual-selection-config-v1",
     "revision": 1,
     "schemaVersion": "visual-slot-v1",
-    "sha256": "0b2604cd7515dc11bacb3310cb5d042eb4edfb9dbb20206387286b0db60aeaa4",
+    "sha256": "940a54ed0e275042616aab6aa23ed2f1d3d288035f824ff9da3d64fc252bca1a",
     "sizeBytes": 3360
   },
   "claimIds": [
@@ -34,7 +34,7 @@
       "visualQuality": 0.25
     }
   },
-  "createdAt": "2026-08-31T08:20:37.130Z",
+  "createdAt": "2026-08-31T13:53:28.669Z",
   "episodeId": "episode-007",
   "fallbackReason": null,
   "fallbackType": null,
@@ -58,7 +58,7 @@
       "claim-gamma-007"
     ],
     "clipId": "episode-007:media-clip:86bcc767e4e13a34d44a8762",
-    "createdAt": "2026-08-31T03:36:57.637Z",
+    "createdAt": "2026-08-31T13:53:26.147Z",
     "endMs": 4000,
     "episodeId": "episode-007",
     "mediaId": "episode-007:media:gamma-generate",
@@ -84,14 +84,14 @@
   "slotId": "episode-007:media-visual-slot:seg-006",
   "verificationRef": {
     "artifactId": "episode-007:media-verification:seg-006-episode-007-media-clip-86bcc767e4e13a34d44a8762",
-    "createdAt": "2026-08-31T03:36:57.657Z",
+    "createdAt": "2026-08-31T13:53:26.167Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/verifications/seg-006/episode-007-media-clip-86bcc767e4e13a34d44a8762.json",
     "producer": "media-verification-v1:codex:codex-media-verification-v1",
-    "revision": 3,
+    "revision": 4,
     "schemaVersion": "media-verification-v1",
-    "sha256": "daded132db3875680188505a0d8ba861e35d2178fbf128c9eac4894db94dd541",
+    "sha256": "399ad530966ff87f2b93381007ef105b78b75af6499e15164841e3b148bfd3a6",
     "sizeBytes": 4643
   },
   "visualIntent": "Gamma 真实 Generate 与 Share 画面持续播放;数百与约一万只分别短暂叠层 1.8 秒,访谈来源条同期出现,不画虚构增长曲线。"

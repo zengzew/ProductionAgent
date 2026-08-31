@@ -231,12 +231,13 @@ export const assertDeclaredEditorialStillsRendered = (input: {
   for (const asset of declared) {
     for (const segmentId of asset.segmentIds ?? []) {
       const shot = input.plan.shots.find((candidate) => candidate.segmentId === segmentId);
-      if (
-        !shot ||
-        shot.visualType !== "official-screenshot" ||
-        shot.fallbackImageAssetId !== asset.id ||
-        !shot.fallbackImageSha256
-      ) {
+      const renderedAsPrimaryStill =
+        shot?.visualType === "official-screenshot" &&
+        shot.fallbackImageAssetId === asset.id &&
+        Boolean(shot.fallbackImageSha256);
+      const renderedAsEvidenceOverlay =
+        shot?.evidenceImageAssetId === asset.id && Boolean(shot.evidenceImageSha256);
+      if (!renderedAsPrimaryStill && !renderedAsEvidenceOverlay) {
         throw new Error(`MEDIA_DELIVERY_DECLARED_STILL_NOT_RENDERED:${asset.id}:${segmentId}`);
       }
     }

@@ -1,15 +1,15 @@
 {
   "artifactRef": {
     "artifactId": "episode-007:media-shot:seg-003",
-    "createdAt": "2026-08-31T08:20:40.183Z",
+    "createdAt": "2026-08-31T13:53:32.456Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/shots/seg-003.json",
     "producer": "media-render-v1",
     "revision": 1,
     "schemaVersion": "media-shot-v1",
-    "sha256": "1d102e1daba78f711428dc2538c03a6e0cbb4792941d83728d25804c44e2c416",
-    "sizeBytes": 7778
+    "sha256": "cbf20ae280d10dcc54d0e5a1366604918ce2d49fcc7a69189b9ecc8bb6de9466",
+    "sizeBytes": 7636
   },
   "audio": {
     "ducking": {
@@ -37,14 +37,14 @@
     "timelineSha256": "52136b20c1ffb4de056b59131d77757d8b8adc9b75c8c844834406a708f02ba2",
     "version": "media-render-config-v1"
   },
-  "createdAt": "2026-08-31T08:20:40.183Z",
+  "createdAt": "2026-08-31T13:53:32.456Z",
   "crossfadeMs": 0,
   "durationFrames": 248,
   "endSeconds": 19.47523,
   "episodeId": "episode-007",
-  "evidenceImageAssetId": "episode-007-editorial-techcrunch-2021",
-  "evidenceImagePath": "episodes/episode-007/media/gamma-techcrunch.png",
-  "evidenceImageSha256": "a15778c2125a3cd3d9fbc06a29eda7c205576b48fdc7705bfac2e8bac6cabd4b",
+  "evidenceImageAssetId": null,
+  "evidenceImagePath": null,
+  "evidenceImageSha256": null,
   "fade": {
     "inMs": 200,
     "outMs": 200
@@ -118,14 +118,14 @@
     "sourceStartMs": 0,
     "verificationRef": {
       "artifactId": "episode-007:media-verification:seg-003-episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4",
-      "createdAt": "2026-08-31T03:36:56.151Z",
+      "createdAt": "2026-08-31T13:53:24.525Z",
       "episodeId": "episode-007",
       "mediaType": "application/json",
       "path": "content/episode-007/media/verifications/seg-003/episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4.json",
       "producer": "media-verification-v1:codex:codex-media-verification-v1",
-      "revision": 5,
+      "revision": 6,
       "schemaVersion": "media-verification-v1",
-      "sha256": "915f4cc36b5f6b45b20af90cea6bc85f12a0eb3b9a1bb3c17517b5daf1512aff",
+      "sha256": "bea038d6195e4bfe4bd4ccbcc9de3316094af5222497d8137c6b236d36b1efd5",
       "sizeBytes": 4602
     }
   },
@@ -143,7 +143,7 @@
   "renderProxyMediaType": "video/mp4",
   "renderProxyRef": {
     "artifactId": "episode-007:media-render-proxy:seg-003",
-    "createdAt": "2026-08-31T08:20:39.997Z",
+    "createdAt": "2026-08-31T13:53:32.281Z",
     "episodeId": "episode-007",
     "mediaType": "video/mp4",
     "path": "content/episode-007/media/render/seg-003.mp4",
@@ -162,7 +162,7 @@
       "claim-gamma-003"
     ],
     "clipId": "episode-007:media-clip:8dbfd3dfc22fd3fe0e455ce4",
-    "createdAt": "2026-08-31T03:36:56.131Z",
+    "createdAt": "2026-08-31T13:53:24.501Z",
     "endMs": 4000,
     "episodeId": "episode-007",
     "mediaId": "episode-007:media:gamma-share",
@@ -223,14 +223,14 @@
   },
   "verificationRef": {
     "artifactId": "episode-007:media-verification:seg-003-episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4",
-    "createdAt": "2026-08-31T03:36:56.151Z",
+    "createdAt": "2026-08-31T13:53:24.525Z",
     "episodeId": "episode-007",
     "mediaType": "application/json",
     "path": "content/episode-007/media/verifications/seg-003/episode-007-media-clip-8dbfd3dfc22fd3fe0e455ce4.json",
     "producer": "media-verification-v1:codex:codex-media-verification-v1",
-    "revision": 5,
+    "revision": 6,
     "schemaVersion": "media-verification-v1",
-    "sha256": "915f4cc36b5f6b45b20af90cea6bc85f12a0eb3b9a1bb3c17517b5daf1512aff",
+    "sha256": "bea038d6195e4bfe4bd4ccbcc9de3316094af5222497d8137c6b236d36b1efd5",
     "sizeBytes": 4602
   },
   "visualType": "real-media"
