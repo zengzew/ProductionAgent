@@ -1,5 +1,10 @@
 # Episode packages
 
+Candidate discovery lives outside episode packages at
+`candidates/<candidate>/story-source-preflight.json`. A new product must pass
+`pnpm validate:story-source -- --candidate <path>` before an `episode-<number>` directory is
+created. This automatic filter does not add a human approval gate.
+
 This directory holds product-story episodes. Each folder is one package:
 
 ```text

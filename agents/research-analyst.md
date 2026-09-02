@@ -8,6 +8,8 @@
 
 ## 输入
 
+- 已通过自动 `story-source preflight` 的候选包；来源策略和 story profile 只决定研究入口，
+  不自动形成独立核验、因果结论或旁白顺序
 - 用户指定的 `episode root`
 - 官方页面、创始人原话、平台资料、独立媒体和必要的技术资料
 - 该 episode 已存在的研究文件

@@ -397,6 +397,11 @@ export const AFFECTED_TEST_RULES: readonly AffectedTestRule[] = [
     layer: "fast",
   },
   {
+    match: "scripts/validate-story-source.ts",
+    tests: ["tests/story-source-preflight.test.ts", "tests/validation-entrypoints.test.ts"],
+    layer: "fast",
+  },
+  {
     match: "scripts/validate-story.ts",
     tests: [
       "tests/story-pipeline.test.ts",

@@ -79,6 +79,10 @@ describe("repo-wide autonomous verification workflow", () => {
     expect(tests).not.toContain("tests/orchestration/concurrency.test.ts");
     expect(tests).not.toContain("tests/orchestration/replay.test.ts");
     expect(inferVerificationLayer(["scripts/validate-research.ts"])).toBe("fast");
+    expect(affectedTestsFor(["scripts/validate-story-source.ts"])).toEqual([
+      "tests/story-source-preflight.test.ts",
+      "tests/validation-entrypoints.test.ts",
+    ]);
   });
 
   it("requires the full suite only for tooling roots or --full", () => {

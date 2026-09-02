@@ -110,7 +110,8 @@ budget.
 
 ## Stable role registry
 
-Role order is fixed:
+The automatic story-source preflight must be `ready` before an episode is created. It is not a
+role or human approval. Once the episode exists, role order is fixed:
 
 ```text
 research-analyst -> story-director -> viral-director -> script-writer -> oral-rewriter
@@ -126,7 +127,7 @@ already-valid stages but MUST NOT reorder dependencies.
 | Field         | Contract                                                                                   |
 | ------------- | ------------------------------------------------------------------------------------------ |
 | Agent name    | `research-analyst`                                                                         |
-| Preconditions | Episode config exists; source collection scope is declared.                                |
+| Preconditions | Source preflight is `ready`; episode config exists; source collection scope is declared.   |
 | Inputs        | `episode.config.json`, source URLs/material, current `research/` artifacts if revising.    |
 | Outputs       | `research/facts.json`, `sources.json`, `timeline.json`, `technology.md`, `growth-data.md`. |
 | Success gate  | `pnpm validate:research -- --episode <episode-id>` passes.                                 |

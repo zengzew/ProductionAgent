@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "story-source-preflight-v2",
+  "candidateId": "brainrot-yoni-smolyar",
+  "product": "Brainrot",
+  "asOf": "2026-09-01",
+  "sourceStrategy": "single-spine",
+  "storyProfiles": ["founder-journey", "cold-start-distribution"],
+  "universalCriteria": {
+    "productOrEventClarity": {
+      "status": "supported",
+      "sourceIds": ["brainrot-official", "indie-hackers"],
+      "notes": "Screen Time App 会根据使用时长让脑图标逐渐腐烂，并提供限制与阻断功能。"
+    },
+    "audienceQuestion": {
+      "status": "supported",
+      "sourceIds": ["indie-hackers", "creator-science"],
+      "notes": "产品、个人矛盾和分发结果可由同一问题连接。",
+      "text": "一个靠每天拍自己积累受众的软件工程师，为什么会用这批受众卖出一款帮助人少刷手机的 App？"
+    },
+    "storyMotion": {
+      "status": "supported",
+      "sourceIds": ["indie-hackers", "creator-science"],
+      "notes": "连续拍摄带来受众，也带来手机依赖；他把自己的问题做成产品，再向这批受众发布。"
+    },
+    "factTraceability": {
+      "status": "supported",
+      "sourceIds": ["indie-hackers", "creator-science", "product-hunt"],
+      "notes": "关键过程可回到两次创始人访谈，榜单结果可回到平台页面。"
+    },
+    "realVisualFeasibility": {
+      "status": "supported",
+      "sourceIds": ["yoni-socials", "creator-science", "brainrot-official", "product-hunt"],
+      "notes": "可发现创始人自拍视频、长访谈、产品页面与榜单画面。"
+    },
+    "rightsBoundaryRecorded": true
+  },
+  "sources": [
+    {
+      "id": "indie-hackers",
+      "title": "This chronic side hustler just hit $26k in 30 days",
+      "publisher": "Indie Hackers",
+      "url": "https://www.indiehackers.com/post/tech/this-chronic-side-hustler-just-hit-26k-in-30-days-fYbp8x4WWqltdifUwCZJ",
+      "sourceType": "founder-interview",
+      "roles": ["spine", "verification"],
+      "firstPerson": true,
+      "transcriptAvailable": true,
+      "supports": [
+        "protagonist",
+        "userNeed",
+        "productMechanism",
+        "founderDecision",
+        "buildFriction",
+        "distribution",
+        "userBehavior",
+        "measurableOutcome"
+      ],
+      "mediaTypes": [],
+      "discoverable": true,
+      "rightsStatus": "not-applicable",
+      "rightsBoundary": "用于研究、引用和事实追溯，不把页面发现视为视频素材授权。"
+    },
+    {
+      "id": "creator-science",
+      "title": "He gained 190K Instagram followers in 508 days—but wouldn’t do it again",
+      "publisher": "Creator Science",
+      "url": "https://podcast.creatorscience.com/yoni-smolyar/",
+      "sourceType": "founder-interview",
+      "roles": ["verification", "visual"],
+      "firstPerson": true,
+      "transcriptAvailable": true,
+      "supports": [
+        "protagonist",
+        "userNeed",
+        "founderDecision",
+        "buildFriction",
+        "distribution",
+        "userBehavior",
+        "measurableOutcome"
+      ],
+      "mediaTypes": ["interview-video"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "可用于镜头发现；下载、裁剪、evaluation 和发布分别审查。"
+    },
+    {
+      "id": "brainrot-official",
+      "title": "Brainrot Help Center",
+      "publisher": "Brainrot",
+      "url": "https://thebrainrotapp.com/help.html",
+      "sourceType": "official",
+      "roles": ["verification", "visual"],
+      "firstPerson": false,
+      "transcriptAvailable": false,
+      "supports": ["userNeed", "productMechanism"],
+      "mediaTypes": ["product-demo"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "可研究产品动作；录制、截图及成片发布前复审。"
+    },
+    {
+      "id": "product-hunt",
+      "title": "brainrot: the more you brainrot, the more your brain rots",
+      "publisher": "Product Hunt",
+      "url": "https://www.producthunt.com/products/brainrot-2",
+      "sourceType": "platform",
+      "roles": ["verification", "visual"],
+      "firstPerson": false,
+      "transcriptAvailable": false,
+      "supports": ["marketEvent", "measurableOutcome"],
+      "mediaTypes": ["result-evidence"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "只作为榜单与发布结果候选画面，进入成片前复审。"
+    },
+    {
+      "id": "yoni-socials",
+      "title": "Yoni Smolyar official social links",
+      "publisher": "Yoni Smolyar",
+      "url": "https://yonismolyar.com/links.html",
+      "sourceType": "social",
+      "roles": ["visual"],
+      "firstPerson": true,
+      "transcriptAvailable": false,
+      "supports": ["protagonist", "distribution", "userBehavior"],
+      "mediaTypes": ["founder-footage"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "只做账号与片段发现；下载、裁剪、evaluation 和发布分别审查。"
+    }
+  ],
+  "storyEvidence": {
+    "protagonist": {
+      "status": "supported",
+      "sourceIds": ["indie-hackers", "creator-science"],
+      "notes": "Yoni 是软件工程师和长期 side-project 创作者。"
+    },
+    "userNeed": {
+      "status": "supported",
+      "sourceIds": ["indie-hackers", "creator-science", "brainrot-official"],
+      "notes": "减少刷手机和恢复专注是明确需求。"
+    },
+    "productMechanism": {
+      "status": "supported",
+      "sourceIds": ["indie-hackers", "brainrot-official"],
+      "notes": "产品将 Screen Time 变成会腐烂的脑图标，并提供目标和阻断。"
+    },
+    "founderDecision": {
+      "status": "supported",
+      "sourceIds": ["indie-hackers", "creator-science"],
+      "notes": "Yoni 明确称它是为解决自己的手机依赖而做。"
+    },
+    "buildFriction": {
+      "status": "supported",
+      "sourceIds": ["indie-hackers", "creator-science"],
+      "notes": "首次移动开发、反复重做和多次 App Store 拒绝均有访谈口径。"
+    },
+    "distribution": {
+      "status": "supported",
+      "sourceIds": ["indie-hackers", "creator-science", "product-hunt"],
+      "notes": "个人社媒发布和 Product Hunt 是明确渠道。"
+    },
+    "marketEvent": {
+      "status": "supported",
+      "sourceIds": ["product-hunt"],
+      "notes": "Product Hunt 页面显示 #1 Product of the Day。"
+    },
+    "userBehavior": {
+      "status": "supported",
+      "sourceIds": ["indie-hackers", "creator-science"],
+      "notes": "持续查看点赞、评论和粉丝造成手机依赖。"
+    },
+    "measurableOutcome": {
+      "status": "supported",
+      "sourceIds": ["indie-hackers", "creator-science", "product-hunt"],
+      "notes": "收入和下载为创始人口径，榜单结果可由平台核验。"
+    },
+    "turningPoint": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "当前不选择 business-turning-point profile。"
+    }
+  },
+  "keyClaims": [
+    {
+      "claim": "Yoni 表示 Brainrot 上线后 30 天产生 26,000 美元收入。",
+      "sourceIds": ["indie-hackers"],
+      "reportingType": "founder-reported",
+      "attributionRequired": true
+    },
+    {
+      "claim": "Product Hunt 页面显示 Brainrot 获得 #1 Product of the Day。",
+      "sourceIds": ["product-hunt"],
+      "reportingType": "independently-verified",
+      "attributionRequired": false
+    }
+  ],
+  "blockers": [],
+  "notes": "Brainrot 是 single-spine / founder-journey 实例；该 profile 不再定义通用 preflight。预检不批准下载媒体或外部发布。"
+}

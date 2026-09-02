@@ -97,7 +97,12 @@ versions fail closed and in-flight episodes cannot be auto-migrated. See
 
 ## Product-story short-video pipeline
 
-The workflow uses eleven gated roles with file handoffs. The manual artifact
+Before creating an episode, run the automatic candidate preflight in
+[`docs/contracts/story-source-selection.md`](docs/contracts/story-source-selection.md). It supports
+single-spine, multi-source, primary-led, event-led and user-led research strategies while keeping
+verification and visual rights separate. This is a machine gate, not a new human approval pause.
+
+The episode workflow then uses eleven gated roles with file handoffs. The manual artifact
 path remains their current production interface; the M1/M2 LangGraph foundation
 orchestrates only its accepted subset without changing these responsibilities.
 Each role reads the previous role's artifacts instead of turning research

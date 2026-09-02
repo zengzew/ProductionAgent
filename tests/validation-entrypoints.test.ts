@@ -28,6 +28,29 @@ describe("validation CLI entrypoints", () => {
     expect(result.status, `${name} stderr:\n${result.stderr}`).toBe(0);
   });
 
+  it("runs the general candidate preflight before episode creation", () => {
+    const result = spawnSync(
+      process.execPath,
+      [
+        "--import",
+        "tsx",
+        "scripts/validate-story-source.ts",
+        "--candidate",
+        "candidates/brainrot/story-source-preflight.json",
+      ],
+      {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: process.env,
+        timeout: 30_000,
+      },
+    );
+
+    expect(result.error).toBeUndefined();
+    expect(result.status, `stderr:\n${result.stderr}`).toBe(0);
+    expect(result.stdout).toMatch(/Brainrot, decision=ready/u);
+  });
+
   it.each(legacyDurationWindowValidators)(
     "%s rejects legacy Episode 002 content until it is regenerated under the 60-second rule",
     (name) => {
