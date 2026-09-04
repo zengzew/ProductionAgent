@@ -1,0 +1,120 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-008:media-verification:seg-001-episode-008-media-clip-ed12a51af5a56e620f4980af",
+    "createdAt": "2026-09-03T02:37:59.102Z",
+    "episodeId": "episode-008",
+    "mediaType": "application/json",
+    "path": "content/episode-008/media/verifications/seg-001/episode-008-media-clip-ed12a51af5a56e620f4980af.json",
+    "producer": "media-verification-v1:codex:codex-media-verification-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "b7296318af4e7823ee9d1793e6435d37acb7217d116743753c31210bf2ad1f47",
+    "sizeBytes": 4437
+  },
+  "cacheKey": "67332f48dc6f40faa86843133435391e08fb38d6ce679e611008a80f801ee00d",
+  "claimIds": [
+    "claim-lovable-001",
+    "claim-lovable-004"
+  ],
+  "claimMatch": 0.31,
+  "clipArtifactRef": {
+    "artifactId": "episode-008:media-verification-clip:seg-001-episode-008-media-clip-ed12a51af5a56e620f4980af",
+    "createdAt": "2026-09-03T02:35:22.108Z",
+    "episodeId": "episode-008",
+    "mediaType": "video/mp4",
+    "path": "content/episode-008/media/verifications/seg-001/episode-008-media-clip-ed12a51af5a56e620f4980af-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "7fff8feadb2b3c4423fb0e55a3dcf211c7326a2a3341a1568952b482ddf16e00",
+    "sizeBytes": 428897
+  },
+  "clipId": "episode-008:media-clip:ed12a51af5a56e620f4980af",
+  "clipRef": {
+    "claimIds": [
+      "claim-lovable-001",
+      "claim-lovable-004"
+    ],
+    "clipId": "episode-008:media-clip:ed12a51af5a56e620f4980af",
+    "createdAt": "2026-09-03T02:37:59.101Z",
+    "endMs": 3600,
+    "episodeId": "episode-008",
+    "mediaId": "episode-008:media:prepared-hook-stable",
+    "sourceMediaRef": {
+      "artifactId": "episode-008:media:prepared-hook-stable",
+      "createdAt": "2026-09-03T02:32:10.783Z",
+      "episodeId": "episode-008",
+      "mediaType": "video/mp4",
+      "path": "content/episode-008/media/assets/prepared-hook-stable.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "b3756d14eb7b4f69b726974434441453582ab810faece0a7cdb71a246ce0c920",
+      "sizeBytes": 170292
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "条目被提交 → 列表出现结果 → 刷新后条目仍在。"
+  },
+  "createdAt": "2026-09-03T02:37:59.101Z",
+  "episodeId": "episode-008",
+  "mediaRef": {
+    "artifactId": "episode-008:media:prepared-hook-stable",
+    "createdAt": "2026-09-03T02:32:10.783Z",
+    "episodeId": "episode-008",
+    "mediaType": "video/mp4",
+    "path": "content/episode-008/media/assets/prepared-hook-stable.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "b3756d14eb7b4f69b726974434441453582ab810faece0a7cdb71a246ce0c920",
+    "sizeBytes": 170292
+  },
+  "misleadingRisk": 0.14,
+  "model": "gpt-5.6",
+  "observedActions": [
+    "0–3.6秒全程维持同一情绪记录应用界面与已有历史记录",
+    "未见白屏、加载占位页或导致画面不可读的转场"
+  ],
+  "observedEntities": [
+    "Mood Matrix",
+    "Lovable"
+  ],
+  "observedText": [
+    "记下心情，刷新还在",
+    "保存结果 → 刷新 → 记录保留",
+    "MOOD MATRIX v1.0",
+    "Historical Data Logs",
+    "Lovable · 2024 官方演示节选"
+  ],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "实际检查请求列出的3.6秒MP4及1800ms keyframe：全段为连续稳定的深色竖屏界面，标题、归因与历史记录区域可辨识；没有白屏。",
+    "画面与“记录仍在”的旁白和视觉意图相关，适合完整保留为产品演示/B-roll。中央界面的细小英文不应承担单独的事实说明。",
+    "该节选未直接展示注册登录、对话建站、提交或刷新动作，也没有可见的Supabase标识；因此不以本画面证明请求列出的具体claims。"
+  ],
+  "recommendedEndMs": 3600,
+  "recommendedStartMs": 0,
+  "relevance": 0.94,
+  "retrievalResultRef": {
+    "artifactId": "episode-008:media-retrieval:seg-001",
+    "createdAt": "2026-09-03T02:32:31.838Z",
+    "episodeId": "episode-008",
+    "mediaType": "application/json",
+    "path": "content/episode-008/media/candidates/seg-001.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 4,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "013f2446f8a979a968ec99c8118d3870ac74730462c557f7777143fec7cacfcf",
+    "sizeBytes": 61395
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-001",
+  "sourceSha256": "b3756d14eb7b4f69b726974434441453582ab810faece0a7cdb71a246ce0c920",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-008:media-verification:seg-001-episode-008-media-clip-ed12a51af5a56e620f4980af",
+  "verificationVersion": "codex-media-verification-v1",
+  "visualQuality": 0.83
+}

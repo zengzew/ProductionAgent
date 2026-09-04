@@ -1,0 +1,52 @@
+[
+  {
+    "id": "src-lovable-founder",
+    "title": "Hitting $100M ARR in eight months with an AI software builder",
+    "publisher": "Indie Hackers",
+    "url": "https://www.indiehackers.com/post/tech/hitting-100m-arr-in-eight-months-with-an-ai-software-builder-ONMaxjB3rix2PnBCnrDr",
+    "publishedAt": "2025-08-06",
+    "accessedAt": "2026-09-02",
+    "sourceType": "founder",
+    "notes": "Anton Osika 第一人称访谈；可核对 idea、周末 CLI 原型及社区传播。创始人叙述，不独立审计。正文 Drivers of explosive growth 提及社交和口碑。"
+  },
+  {
+    "id": "src-lovable-demo",
+    "title": "Rebranding: GPT Engineer to Lovable",
+    "publisher": "Lovable",
+    "url": "https://lovable.dev/blog/2025-01-13-rebranding-gpt-engineer-to-lovable",
+    "publishedAt": "2024-12-03",
+    "accessedAt": "2026-09-02",
+    "sourceType": "official",
+    "notes": "官方 Office Hours 文章与嵌入视频；描述情绪记录应用登录、保存数据和改界面。仅按公司演示口径；本文未亲自新建或测试应用。文章 URL 日期与页面发布日期不一致，采用页面显示的 2024-12-03。视频下载与裁剪权利待核。"
+  },
+  {
+    "id": "src-lovable-gtm",
+    "title": "Lovable’s two Failed Launches and What we got wrong about PLG",
+    "publisher": "Lovable",
+    "url": "https://lovable.dev/blog/2025-01-28-lovables-two-failed-launches-and-what-we-got-wrong-about-plg",
+    "publishedAt": "2025-01-22",
+    "accessedAt": "2026-09-02",
+    "sourceType": "official",
+    "notes": "团队回顾发布准备、X 社区、Supabase 合作及后端需求。发布效果和用户反馈为公司口径；不能将 Sebastian 误标为联合创始人，也不能断言某渠道独自造成 ARR。"
+  },
+  {
+    "id": "src-lovable-arr",
+    "title": "$100M ARR & Lovable Agent",
+    "publisher": "Lovable",
+    "url": "https://lovable.dev/blog/agent",
+    "publishedAt": "2025-07-23",
+    "accessedAt": "2026-09-02",
+    "sourceType": "official",
+    "notes": "2025-07-23 历史公告；公司报告一亿美元 ARR，非利润或已收取年收入。新的产品版本不用于倒推早期功能。"
+  },
+  {
+    "id": "src-lovable-funding",
+    "title": "Lovable Raises $200M, Valued at $1.8B, Just Eight Months After Launch",
+    "publisher": "Lovable",
+    "url": "https://lovable.dev/blog/200m-series-a-fundraise",
+    "publishedAt": "2025-07-17",
+    "accessedAt": "2026-09-02",
+    "sourceType": "official",
+    "notes": "2025-07-17 官方融资公告：两亿美元 A 轮、十八亿美元估值。为历史资本市场证据，不是 2026 年现值。"
+  }
+]

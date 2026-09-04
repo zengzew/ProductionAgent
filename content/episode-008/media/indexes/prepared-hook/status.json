@@ -1,0 +1,100 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-008:media:prepared-hook-proxy",
+    "createdAt": "2026-09-02T14:31:15.900Z",
+    "episodeId": "episode-008",
+    "mediaType": "video/mp4",
+    "path": "content/episode-008/media/assets/prepared-hook-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "42a2de3e76958fc46023153b6dfe9d8716cdf10569915069ba6fc833a0499007",
+    "sizeBytes": 71498
+  },
+  "episodeId": "episode-008",
+  "indexVersion": "media-clip-index-v1",
+  "mediaId": "episode-008:media:prepared-hook",
+  "mediaSha256": "59c6a5ec931277f1ef53cfc90162ff787f5cca9b510db521cd76998dc2b5167c",
+  "schemaVersion": "media-understanding-status-v1",
+  "stages": {
+    "clip-index": {
+      "artifactId": "episode-008:media-clip-index:prepared-hook",
+      "availability": "available",
+      "cacheKey": "9b78836265bee5d51d92b29579079d56938e1d8ecb92239e115f0a9b3d3cf199",
+      "ref": {
+        "artifactId": "episode-008:media-clip-index:prepared-hook",
+        "createdAt": "2026-09-02T14:32:37.259Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/prepared-hook/clip-index.json",
+        "producer": "media-understanding-v1:index:v1-8717346634adc070",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "4a8c1559ff7729edceb86f65ab95f7693633e1e417decaef92f3720a9f2b3be5",
+        "sizeBytes": 4308
+      }
+    },
+    "keyframes": {
+      "availability": "available",
+      "cacheKey": "aa5aa45e725c4e4daa46dcee578c1beac14fa8f9ef34c642870b0191ca89e644",
+      "entries": [
+        {
+          "artifactId": "episode-008:media-keyframe:prepared-hook-0-1800",
+          "cacheKey": "6c1a31e4aa99307669fdc3d09f42b0ac73f41836ea8384998c17e6623f0198f7",
+          "filename": "keyframe-0-1800.jpg",
+          "keyframeIndex": 0,
+          "ref": {
+            "artifactId": "episode-008:media-keyframe:prepared-hook-0-1800",
+            "createdAt": "2026-09-02T14:32:37.240Z",
+            "episodeId": "episode-008",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-008/media/indexes/prepared-hook/keyframes/keyframe-0-1800.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "523d804e062a7f82566725694531482aaa4f064dcfba6567c30175ae4f46a4d1",
+            "sizeBytes": 48223
+          }
+        }
+      ],
+      "extractorId": "ffmpeg",
+      "extractorVersion": "ffmpeg-keyframe-v1"
+    },
+    "scenes": {
+      "artifactId": "episode-008:media-scenes:prepared-hook",
+      "availability": "available",
+      "cacheKey": "c89113a2510de6fc7b26bfc1a42bbbed099265b9634fb23ac6abd3e4291af089",
+      "ref": {
+        "artifactId": "episode-008:media-scenes:prepared-hook",
+        "createdAt": "2026-09-02T14:32:37.019Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/prepared-hook/scenes.json",
+        "producer": "media-understanding-v1:scenes:v1",
+        "revision": 1,
+        "schemaVersion": "media-scenes-v1",
+        "sha256": "75a9a92bb11091b1abcf074a496bfaa88eea94797cd37fc1a52dc51eea164d4e",
+        "sizeBytes": 1418
+      }
+    },
+    "transcript": {
+      "artifactId": "episode-008:media-transcript:prepared-hook",
+      "availability": "unavailable",
+      "cacheKey": "54e44d703b7749040aed143f5b5e02c360b589cb54c8467aff65cefa8b71b3db",
+      "ref": {
+        "artifactId": "episode-008:media-transcript:prepared-hook",
+        "createdAt": "2026-09-02T14:32:36.996Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/prepared-hook/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "31440f9ef7e8484a723f67ee803e0c71c52c0ff7dae4411b04485ff450ed7ef9",
+        "sizeBytes": 1273
+      }
+    }
+  },
+  "updatedAt": "2026-09-03T02:32:23.944Z",
+  "usedProxy": true
+}

@@ -1,0 +1,124 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-008:media-verification:seg-002-episode-008-media-clip-0ec1172bff72c132b302fdc6",
+    "createdAt": "2026-09-02T14:36:43.772Z",
+    "episodeId": "episode-008",
+    "mediaType": "application/json",
+    "path": "content/episode-008/media/verifications/seg-002/episode-008-media-clip-0ec1172bff72c132b302fdc6.json",
+    "producer": "media-verification-v1:codex:codex-media-verification-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "b0d57850ef41bda7b42c6e194f2cb701658378e0de2727f52478710110d04d0f",
+    "sizeBytes": 4514
+  },
+  "cacheKey": "78d9fc3d36043c8ea6987d93e14c5f7bf45a3573bbbbdb01f64d8acc4e8f9740",
+  "claimIds": [
+    "claim-lovable-001",
+    "claim-lovable-002",
+    "claim-lovable-004"
+  ],
+  "claimMatch": 0.79,
+  "clipArtifactRef": {
+    "artifactId": "episode-008:media-verification-clip:seg-002-episode-008-media-clip-0ec1172bff72c132b302fdc6",
+    "createdAt": "2026-09-02T14:35:37.834Z",
+    "episodeId": "episode-008",
+    "mediaType": "video/mp4",
+    "path": "content/episode-008/media/verifications/seg-002/episode-008-media-clip-0ec1172bff72c132b302fdc6-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "1920d1909ede22f40551c2ffa879fa938a3e80a90d822960a68c1426fd107d37",
+    "sizeBytes": 1245857
+  },
+  "clipId": "episode-008:media-clip:0ec1172bff72c132b302fdc6",
+  "clipRef": {
+    "claimIds": [
+      "claim-lovable-001",
+      "claim-lovable-002",
+      "claim-lovable-004"
+    ],
+    "clipId": "episode-008:media-clip:0ec1172bff72c132b302fdc6",
+    "createdAt": "2026-09-02T14:36:43.772Z",
+    "endMs": 12000,
+    "episodeId": "episode-008",
+    "mediaId": "episode-008:media:prepared-chat",
+    "sourceMediaRef": {
+      "artifactId": "episode-008:media:prepared-chat",
+      "createdAt": "2026-09-02T14:31:15.953Z",
+      "episodeId": "episode-008",
+      "mediaType": "video/mp4",
+      "path": "content/episode-008/media/assets/prepared-chat.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "116175db4edee80bf39f26cc2fefa04406983cbb7f4b608ffe11b400df8e342a",
+      "sizeBytes": 527899
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "缩放回官方编辑器 → 展示同一个情绪网页的页面和条目。"
+  },
+  "createdAt": "2026-09-02T14:36:43.772Z",
+  "episodeId": "episode-008",
+  "mediaRef": {
+    "artifactId": "episode-008:media:prepared-chat",
+    "createdAt": "2026-09-02T14:31:15.953Z",
+    "episodeId": "episode-008",
+    "mediaType": "video/mp4",
+    "path": "content/episode-008/media/assets/prepared-chat.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "116175db4edee80bf39f26cc2fefa04406983cbb7f4b608ffe11b400df8e342a",
+    "sizeBytes": 527899
+  },
+  "misleadingRisk": 0.12,
+  "model": "gpt-5.6",
+  "observedActions": [
+    "聊天框逐步输入Just add login",
+    "同一请求进入已发送气泡，底部出现等待反馈的点",
+    "镜头切回Mood Matrix心情记录表单"
+  ],
+  "observedEntities": [
+    "Lovable",
+    "Mood Matrix"
+  ],
+  "observedText": [
+    "用聊天，添加功能",
+    "输入请求",
+    "发送 → 出现反馈",
+    "Just add login",
+    "同一个心情记录应用",
+    "Lovable · 2024 官方演示节选"
+  ],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "实际查看请求keyframe-0-6000.jpg及从同一request clip抽取request-seg-002.jpg时间序列；可见真实输入、发送和应用页面，不只依据准备脚本的标签。",
+    "该窗口证明通过聊天提出修改请求，不展示此次登录功能生成完成；最后应用页面是同一演示的节选，不宣称输入一句话立即得到完整产品。",
+    "文字和输入框竖屏可读；无需观众理解背景英文整段。0–12000ms可用，宜保留至少输入和发送两部分；只是本地评估许可。"
+  ],
+  "recommendedEndMs": 12000,
+  "recommendedStartMs": 0,
+  "relevance": 0.91,
+  "retrievalResultRef": {
+    "artifactId": "episode-008:media-retrieval:seg-002",
+    "createdAt": "2026-09-02T14:35:29.007Z",
+    "episodeId": "episode-008",
+    "mediaType": "application/json",
+    "path": "content/episode-008/media/candidates/seg-002.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 2,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "ac7cc217c5aa1850c0d0fb462b456ae4a2e28f41e03cf829d09fa503334f8a06",
+    "sizeBytes": 56641
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-002",
+  "sourceSha256": "116175db4edee80bf39f26cc2fefa04406983cbb7f4b608ffe11b400df8e342a",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-008:media-verification:seg-002-episode-008-media-clip-0ec1172bff72c132b302fdc6",
+  "verificationVersion": "codex-media-verification-v1",
+  "visualQuality": 0.84
+}

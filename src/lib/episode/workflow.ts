@@ -74,9 +74,24 @@ export const directorWorkflowSchema = z
     }),
     stages: z.array(workflowStageSchema).length(orderedStoryRoles.length),
     decisions: z.array(workflowDecisionSchema).min(8),
-    reviewCycles: z.array(reviewCycleSchema).min(1),
+    reviewCycles: z.array(reviewCycleSchema),
   })
   .superRefine((workflow, context) => {
+    const completedReview = workflow.stages.some(
+      (stage) =>
+        ["audience-critic", "retention-critic", "delivery-critic"].includes(stage.id) &&
+        stage.status === "complete",
+    );
+    if (
+      workflow.reviewCycles.length === 0 &&
+      (workflow.currentStatus !== "in-progress" || completedReview)
+    ) {
+      context.addIssue({
+        code: "custom",
+        path: ["reviewCycles"],
+        message: "已批准的工作流或已完成的评审必须有 review cycle；仅未评审的 in-progress 可为空",
+      });
+    }
     const stageIds = workflow.stages.map((stage) => stage.id);
     if (new Set(stageIds).size !== orderedStoryRoles.length) {
       context.addIssue({

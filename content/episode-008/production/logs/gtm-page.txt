@@ -1,0 +1,341 @@
+- link "Skip to main content":
+  - /url: "#main-content"
+- region "Cookie banner":
+  - text: We use cookies to enhance your development experience and keep your data secure.
+  - link "Privacy Policy":
+    - /url: /privacy
+  - text: ·
+  - link "Cookie Policy":
+    - /url: /cookie-policy
+  - button "Manage preferences":
+    - generic: Manage preferences
+  - button "OK":
+    - generic: OK
+- link "Go to homepage":
+  - /url: /home
+- navigation:
+  - list:
+    - button "Solutions":
+      - text: Solutions
+    - button "Resources":
+      - text: Resources
+    - link "Community":
+      - /url: /community
+    - link "Enterprise":
+      - /url: /enterprise-landing
+    - link "Pricing":
+      - /url: /pricing
+    - link "Security":
+      - /url: /security
+- link "Log in":
+  - /url: /login?redirect=%2Fblog%2F2025-01-28-lovables-two-failed-launches-and-what-we-got-wrong-about-plg
+  - generic: Log in
+- link "Get started":
+  - /url: /signup?redirect=%2Fblog%2F2025-01-28-lovables-two-failed-launches-and-what-we-got-wrong-about-plg
+  - generic: Get started
+- main:
+  - link "All posts":
+    - /url: /blog
+    - text: All posts
+  - complementary:
+    - navigation "Table of contents":
+      - generic: 7 min read
+      - separator
+      - link "Lovable's two Failed Launches and What we got wrong about PLG":
+        - /url: "#top"
+      - link "Introduction":
+        - /url: "#introduction"
+      - link "Sebastian’s Journey to Lovable":
+        - /url: "#sebastians-journey-to-lovable"
+      - link "The Journey to Lovable":
+        - /url: "#the-journey-to-lovable"
+      - 'link "The Turning Point: Launch #3"':
+        - /url: "#the-turning-point-launch-3"
+      - link "Advice for Builders on Their PMF Journey":
+        - /url: "#advice-for-builders-on-their-pmf-journey"
+      - link "Conclusion":
+        - /url: "#conclusion"
+      - separator
+      - heading "Share this" [level=3]
+      - link "Share on Discord":
+        - /url: https://discord.com/invite/lovable-dev
+      - link "Share on X":
+        - /url: https://x.com
+  - generic: Published January 22, 2025 in Inside Lovable
+  - heading "Lovable's two Failed Launches and What we got wrong about PLG" [level=1]
+  - img "Lovable's two Failed Launches and What we got wrong about PLG"
+  - article:
+    - heading "Introduction" [level=2]
+    - paragraph: Launching a product is rarely a straightforward journey. For Lovable, the path to product-market fit (PMF) was full of iterations, scrappy experimentation, and strategic pivots. What began as an open-source tool has evolved into a comprehensive platform empowering creators to build products with ease.
+    - heading "TL;DR" [level=3]
+    - list:
+      - listitem: Early launches failed due to assumptions, lack of validation, and ineffective branding.
+      - listitem: Success came from focusing on user needs, integrating with Superbase, and optimizing messaging and branding.
+      - listitem: Distribution strategy involved targeted outreach on platforms like Product Hunt and X (formerly Twitter).
+      - listitem: Retention, user feedback, and a cohesive brand strategy were key metrics signaling product-market fit.
+    - heading "Sebastian’s Journey to Lovable" [level=2]
+    - paragraph:
+      - link "Sebastian":
+        - /url: https://www.linkedin.com/in/sebastian-schaaf/
+      - text: "describes himself as a “passionately curious person” with a lifelong desire to have a positive impact on the world. After founding two startups and working in management consulting, he kept coming back to a fundamental problem: as a non-technical founder, he couldn't build products without relying on developers. This bottleneck was more than just frustrating - it was limiting innovation."
+    - paragraph: "His lived experience sparked a new plan: what if we could empower anyone to build sophisticated products, regardless of their technical background? This vision aligned perfectly with what Anton and Fabian were building at Lovable. When mutual friends connected them, Sebastian joined as the first business hire to help shape Lovable's growth and bring this vision to market."
+    - heading "The Journey to Lovable" [level=2]
+    - paragraph:
+      - text: When the team first launched Lovable, it was initially named
+      - link "GPT Engineer":
+        - /url: https://github.com/AntonOsika/gpt-engineer
+      - text: . These early launches generated some noise but failed to gain significant traction.
+    - paragraph: Users perceived GPT Engineer as a “fun tool” rather than a serious, cutting-edge platform. This led the team to reconsider their approach, eventually rebranding as Lovable to better align with their mission and user expectations.
+    - heading "What Went Wrong in the First Two Launches?" [level=3]
+    - list:
+      - strong: "Assumptions Over Validation:"
+      - text: Initial launches focused on building features rather than validating user needs.
+      - strong: Brand Disconnect
+      - text: ": The GPT Engineer name felt gimmicky and failed to convey the platform's innovative potential."
+      - strong: "Timing Challenges:"
+      - text: The AI landscape wasn’t fully ready for a product like Lovable to make an impact.
+    - 'heading "The Turning Point: Launch #3" [level=2]'
+    - iframe:
+      - generic "YouTube 视频播放器"
+      - button "播放视频":
+      - button "隐藏播放器控件"
+      - link "Lovable – An AI Full-Stack Engineer":
+        - /url: https://www.youtube.com/watch?v=xhW9up0Gi2E
+      - link "Lovable":
+        - /url: /channel/UCds72zs2EzQRmhqbLLCmD4A
+        - generic: Lovable
+      - button "thumbnail-image":
+        - img "thumbnail-image"
+      - generic: Lovable
+      - generic: 7.02万位订阅者
+      - button "分享":
+      - link "在 YouTube 上观看":
+        - /url: https://www.youtube.com/watch?v=xhW9up0Gi2E
+        - text: 前往平台观看：
+    - paragraph: By their third attempt, the team had learned from their mistakes and approached the launch differently.
+    - heading "1. A User-Centric Product" [level=3]
+    - paragraph:
+      - text: Lovable’s core users—
+      - emphasis: indie hackers, founders, and agencies
+      - text: —didn’t just want tools for prototyping; they needed a platform to build full products. To meet this need, Lovable integrated with Superbase, enabling backend capabilities like authentication and secure storage for API tokens.
+    - heading "2. A Focus on Distribution" [level=3]
+    - paragraph: "The team adopted a multi-channel approach to get the word out:"
+    - list:
+      - strong: Product Hunt Launch
+      - text: ": Lovable carefully prepared for their Product Hunt launch with polished materials, including a compelling promo video."
+      - strong: "Social Media Engagement:"
+      - text: They experimented with content on X, creating posts that resonated with builders. They identified influencers and communities discussing similar tools, engaging in the discussion and reaching out directly to spark interest & identify champions.
+      - strong: Content
+      - text: ": Creating quality content that (1) communicates their capabilities and (2) helps educate users on how to harness their technology to build."
+      - strong: Marketing
+      - text: ": Co-marketing with partners like Supabase that they integrated with, and that directly benefit from their success."
+    - heading "3. Concrete user feedback" [level=3]
+    - paragraph: "Realizing that branding played a crucial role in user perception, the team rebranded to Lovable, a name that reflected their mission: helping users create lovable products."
+    - heading "4. Key Metrics and Signals" [level=3]
+    - paragraph: "Lovable tracked several metrics to gauge progress:"
+    - list:
+      - strong: "User Excitement:"
+      - text: Positive reviews and ratings (e.g., 5/5 on G2) indicated strong user enthusiasm.
+      - strong: Social Media Buzz
+      - text: ": Post-launch, Lovable saw organic mentions across platforms, signaling growing awareness."
+      - strong: "Retention Rates:"
+      - text: Smiling retention curves and high week-over-week retention growth for newer cohorts showed the product was delivering long-term value.
+    - heading "Advice for Builders on Their PMF Journey" [level=2]
+    - list:
+      - listitem: Understand the problems Lovable solves and ensure the product consistently delivers on this promise.
+      - listitem: Quickly release the product to test users and identify where it falls short; iterate until PMF is achieved, meaning Lovable repeatedly solves the problem well.
+      - listitem: Activate channels where users with these problems are most active once PMF is found.
+      - listitem: Expand reach by collaborating with partners to tap into their audiences.
+      - listitem: Maintain consistent messaging and produce quality content to communicate a clear, simple identity.
+    - heading "Conclusion" [level=2]
+    - paragraph: Lovable’s journey to product-market fit is a testament to the power of iteration, user focus, and strategic branding. By staying scrappy, listening to their audience, and refining their approach, they turned initial challenges into a success story.
+    - paragraph: Whether you’re a solo founder or part of a growing team, Lovable’s story offers actionable lessons on finding your own product-market fit.
+    - paragraph:
+      - text: Want to build lovable products too? Explore the tools at
+      - link "Lovable":
+        - /url: https://lovable.dev
+      - text: and start turning your ideas into reality.
+  - heading "Related articles" [level=2]
+  - link "How we made Lovable apps work with the rest of your stack Inside Lovable How we made Lovable apps work with the rest of your stack August 25, 2026":
+    - /url: /blog/how-we-made-lovable-apps-work-with-the-rest-of-your-stack
+    - img "How we made Lovable apps work with the rest of your stack"
+    - generic: Inside Lovable
+    - heading "How we made Lovable apps work with the rest of your stack" [level=3]
+    - time: August 25, 2026
+  - link "How we migrated lovable.dev away from Next.js and turned it into another Lovable app Inside Lovable How we migrated lovable.dev away from Next.js and turned it into another Lovable app August 18, 2026":
+    - /url: /blog/how-we-migrated-lovable-dev-away-from-nextjs
+    - img "How we migrated lovable.dev away from Next.js and turned it into another Lovable app"
+    - generic: Inside Lovable
+    - heading "How we migrated lovable.dev away from Next.js and turned it into another Lovable app" [level=3]
+    - time: August 18, 2026
+  - heading "Idea to app in seconds" [level=2]
+  - paragraph: Build apps by chatting with an AI.
+  - link "Start for free":
+    - /url: /home
+- contentinfo:
+  - navigation:
+    - link "Go to homepage":
+      - /url: /home
+    - heading "Company" [level=2]
+    - list:
+      - link "Careers":
+        - /url: /careers
+      - link "Press & media":
+        - /url: /brand
+      - link "Enterprise":
+        - /url: /enterprise-landing
+      - link "Security":
+        - /url: /security
+      - link "Trust center (opens in new window)":
+        - /url: https://trust.lovable.dev
+        - text: Trust center
+        - generic: (opens in new window)
+      - link "Partnerships":
+        - /url: /partners
+    - heading "Product" [level=2]
+    - list:
+      - link "Pricing":
+        - /url: /pricing
+      - link "Student discount":
+        - /url: /students
+      - link "For Work":
+        - /url: /for-work
+      - link "Founders":
+        - /url: /founders
+      - link "Product Managers":
+        - /url: /product-managers
+      - link "Designers":
+        - /url: /designers
+      - link "Marketers":
+        - /url: /marketers
+      - link "Sales":
+        - /url: /sales
+      - link "Ops":
+        - /url: /ops
+      - link "People":
+        - /url: /people
+      - link "Prototyping":
+        - /url: /prototypes
+      - link "Internal Tools":
+        - /url: /tools
+      - link "Download apps":
+        - /url: /download
+      - link "Connections (opens in new window)":
+        - /url: https://docs.lovable.dev/integrations/introduction
+        - text: Connections
+        - generic: (opens in new window)
+      - link "Changelog (opens in new window)":
+        - /url: https://docs.lovable.dev/changelog
+        - text: Changelog
+        - generic: (opens in new window)
+      - link "Status (opens in new window)":
+        - /url: https://status.lovable.dev/
+        - text: Status
+        - generic: (opens in new window)
+    - heading "Resources" [level=2]
+    - list:
+      - link "Learn (opens in new window)":
+        - /url: https://docs.lovable.dev/introduction/welcome
+        - text: Learn
+        - generic: (opens in new window)
+      - link "Templates":
+        - /url: /templates
+      - link "Guides":
+        - /url: /guides
+      - link "Connectors":
+        - /url: /connect
+      - link "MCP server":
+        - /url: /mcp
+      - link "Videos":
+        - /url: /videos
+      - link "Blog":
+        - /url: /blog
+      - link "Support":
+        - /url: /support
+      - link "Reviews":
+        - /url: /reviews
+      - link "Sitemap":
+        - /url: /sitemap
+    - heading "Legal" [level=2]
+    - list:
+      - link "Privacy policy (opens in new window)":
+        - /url: /privacy
+        - text: Privacy policy
+        - generic: (opens in new window)
+      - link "Do not sell or share my personal information":
+        - /url: /do-not-sell-or-share-my-personal-information
+      - link "Cookie settings":
+        - /url: /cookie-policy
+      - link "Enterprise terms (opens in new window)":
+        - /url: https://lovable.dev/legal
+        - text: Enterprise terms
+        - generic: (opens in new window)
+      - link "General terms (opens in new window)":
+        - /url: /terms
+        - text: General terms
+        - generic: (opens in new window)
+      - link "Desktop app terms (opens in new window)":
+        - /url: /desktop-app-terms
+        - text: Desktop app terms
+        - generic: (opens in new window)
+      - link "Domain registration terms (opens in new window)":
+        - /url: /domain-registration-terms
+        - text: Domain registration terms
+        - generic: (opens in new window)
+      - link "DMCA copyright policy (opens in new window)":
+        - /url: /dmca
+        - text: DMCA copyright policy
+        - generic: (opens in new window)
+      - link "Accessibility (opens in new window)":
+        - /url: /accessibility
+        - text: Accessibility
+        - generic: (opens in new window)
+      - link "Platform rules (opens in new window)":
+        - /url: /platform-rules
+        - text: Platform rules
+        - generic: (opens in new window)
+      - link "Report abuse (opens in new window)":
+        - /url: /abuse
+        - text: Report abuse
+        - generic: (opens in new window)
+      - link "Report security concerns (opens in new window)":
+        - /url: /security-issues
+        - text: Report security concerns
+        - generic: (opens in new window)
+      - link "DPA (opens in new window)":
+        - /url: /data-processing-agreement
+        - text: DPA
+        - generic: (opens in new window)
+    - heading "Community" [level=2]
+    - list:
+      - link "Become a partner":
+        - /url: /partners
+      - link "Hire a Lovable expert":
+        - /url: /experts
+      - link "Affiliates":
+        - /url: /partners/affiliates
+      - link "Code of conduct":
+        - /url: /community-code-of-conduct
+      - link "Discord (opens in new window)":
+        - /url: https://discord.com/invite/lovable-dev
+        - text: Discord
+        - generic: (opens in new window)
+      - link "Reddit (opens in new window)":
+        - /url: https://reddit.com/r/lovable
+        - text: Reddit
+        - generic: (opens in new window)
+      - link "X / Twitter (opens in new window)":
+        - /url: https://twitter.com/Lovable
+        - text: X / Twitter
+        - generic: (opens in new window)
+      - link "YouTube (opens in new window)":
+        - /url: https://www.youtube.com/@lovable
+        - text: YouTube
+        - generic: (opens in new window)
+      - link "LinkedIn (opens in new window)":
+        - /url: https://www.linkedin.com/company/lovable-dev/
+        - text: LinkedIn
+        - generic: (opens in new window)
+    - button "EN — open language selector":
+      - generic: EN
+- region

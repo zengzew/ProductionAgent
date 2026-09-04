@@ -1,0 +1,218 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 1.8156462585034012,
+    "startFrame": 0,
+    "endFrame": 54,
+    "text": "记下心情，刷新还在"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-002",
+    "startSeconds": 3,
+    "endSeconds": 4.279342403628117,
+    "startFrame": 90,
+    "endFrame": 128,
+    "text": "这个情绪记录网页"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 4.279342403628117,
+    "endSeconds": 5.558684807256236,
+    "startFrame": 128,
+    "endFrame": 167,
+    "text": "是用聊天做出来的"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 5.558684807256236,
+    "endSeconds": 7.498548546691405,
+    "startFrame": 167,
+    "endFrame": 225,
+    "text": "Lovable 让不会写代码的人"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-002",
+    "startSeconds": 7.498548546691405,
+    "endSeconds": 8.357004535147393,
+    "startFrame": 225,
+    "endFrame": 251,
+    "text": "也能开始做应用"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-002",
+    "startSeconds": 8.357004535147393,
+    "endSeconds": 10.702215419501133,
+    "startFrame": 251,
+    "endFrame": 321,
+    "text": "可要让它真的用起来还得补上什么"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-003",
+    "startSeconds": 11.389229,
+    "endSeconds": 12.650045326530613,
+    "startFrame": 342,
+    "endFrame": 380,
+    "text": "创始人安东说"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-003",
+    "startSeconds": 12.650045326530613,
+    "endSeconds": 14.331133761904763,
+    "startFrame": 380,
+    "endFrame": 430,
+    "text": "他想让有点子的人"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-003",
+    "startSeconds": 14.331133761904763,
+    "endSeconds": 15.802086142857142,
+    "startFrame": 430,
+    "endFrame": 474,
+    "text": "不再卡在编程上"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-003",
+    "startSeconds": 15.802086142857142,
+    "endSeconds": 17.062902469387755,
+    "startFrame": 474,
+    "endFrame": 512,
+    "text": "先花一个周末"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-003",
+    "startSeconds": 17.062902469387755,
+    "endSeconds": 18.533854850340134,
+    "startFrame": 512,
+    "endFrame": 556,
+    "text": "做出了早期原型"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-004",
+    "startSeconds": 19.133896,
+    "endSeconds": 22.122149968253968,
+    "startFrame": 574,
+    "endFrame": 664,
+    "text": "看这段演示登录后记下心情，点保存"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-004",
+    "startSeconds": 22.122149968253968,
+    "endSeconds": 23.422590444444445,
+    "startFrame": 664,
+    "endFrame": 703,
+    "text": "页面出现新记录"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-004",
+    "startSeconds": 23.422590444444445,
+    "endSeconds": 24.966340444444445,
+    "startFrame": 703,
+    "endFrame": 749,
+    "text": "数据库里也有同一条"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-004",
+    "startSeconds": 24.966340444444445,
+    "endSeconds": 26.38331323356009,
+    "startFrame": 749,
+    "endFrame": 791,
+    "text": "能看，也能存"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-005",
+    "startSeconds": 27.098875,
+    "endSeconds": 28.558172052154195,
+    "startFrame": 813,
+    "endFrame": 857,
+    "text": "他们准备好演示视频"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-005",
+    "startSeconds": 28.558172052154195,
+    "endSeconds": 30.01746910430839,
+    "startFrame": 857,
+    "endFrame": 901,
+    "text": "在产品发布平台亮相"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-005",
+    "startSeconds": 30.01746910430839,
+    "endSeconds": 31.88459502134187,
+    "startFrame": 901,
+    "endFrame": 957,
+    "text": "也去相关社区参与讨论"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-005",
+    "startSeconds": 31.88459502134187,
+    "endSeconds": 33.47464304054955,
+    "startFrame": 957,
+    "endFrame": 1004,
+    "text": "和合作伙伴一起推广"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-005",
+    "startSeconds": 33.47464304054955,
+    "endSeconds": 34.88801905762305,
+    "startFrame": 1004,
+    "endFrame": 1047,
+    "text": "让正在找工具的人"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-005",
+    "startSeconds": 34.88801905762305,
+    "endSeconds": 36.12472307256236,
+    "startFrame": 1047,
+    "endFrame": 1084,
+    "text": "看到它能做什么"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-006",
+    "startSeconds": 36.76575,
+    "endSeconds": 38.30156133786848,
+    "startFrame": 1103,
+    "endFrame": 1149,
+    "text": "到二零二五年七月"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-006",
+    "startSeconds": 38.30156133786848,
+    "endSeconds": 40.41330192743764,
+    "startFrame": 1149,
+    "endFrame": 1212,
+    "text": "公司宣布年化经常性收入"
+  },
+  {
+    "index": 24,
+    "sceneId": "seg-006",
+    "startSeconds": 40.41330192743764,
+    "endSeconds": 41.565160430839,
+    "startFrame": 1212,
+    "endFrame": 1247,
+    "text": "达到一亿美元"
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "asset-lovable-founders",
+    "type": "image",
+    "path": "public/episodes/episode-008/assets/lovable-founders.jpg",
+    "sourceUrl": "https://lovablebrand.lovable.app/__l5e/assets-v1/96eb544c-df27-4c29-bb0c-c0aefb486268/Anton_Fabian_studio.jpg",
+    "owner": "Lovable",
+    "licenseOrBasis": "官方品牌照片编辑报道许可；本地评估用途承接用户继续制作指令，正式admission/rights见source-manifest。",
+    "capturedAt": "2026-09-02",
+    "usage": "人物段展示联合创始人照片；不把照片当作早期原型开发现场，不根据外貌猜认身份位置。",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-lovable-002",
+      "claim-lovable-003"
+    ],
+    "segmentIds": [
+      "seg-003"
+    ]
+  },
+  {
+    "id": "asset-lovable-gtm",
+    "type": "screenshot",
+    "path": "public/episodes/episode-008/assets/lovable-gtm-source.png",
+    "sourceUrl": "https://lovable.dev/blog/2025-01-28-lovables-two-failed-launches-and-what-we-got-wrong-about-plg",
+    "owner": "Lovable 团队复盘 · lovable.dev · 2025-01-22",
+    "licenseOrBasis": "本次实际截图；署名的本地评估引用，外部发布权利未终审。",
+    "capturedAt": "2026-09-03",
+    "usage": "同期原文证据",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-lovable-005"
+    ],
+    "segmentIds": [
+      "seg-005"
+    ]
+  },
+  {
+    "id": "asset-lovable-arr",
+    "type": "screenshot",
+    "path": "public/episodes/episode-008/assets/lovable-arr-source.png",
+    "sourceUrl": "https://lovable.dev/blog/agent",
+    "owner": "Lovable 公司公告 · 2025-07-23",
+    "licenseOrBasis": "本次实际截图；署名的本地评估引用，外部发布权利未终审。",
+    "capturedAt": "2026-09-03",
+    "usage": "同期原文证据",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-lovable-007"
+    ],
+    "segmentIds": [
+      "seg-006"
+    ]
+  }
+]

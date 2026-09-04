@@ -285,30 +285,13 @@ export const RealMediaEvidenceOverlay: React.FC<{
     : 0;
   return (
     <>
-      <div
-        style={{
-          position: "absolute",
-          top: 72,
-          left: 48,
-          padding: "9px 15px",
-          borderRadius: 999,
-          background: "rgba(8,9,13,.82)",
-          color: "rgba(255,255,255,.86)",
-          fontFamily: SANS,
-          fontSize: 22,
-          fontWeight: 650,
-          zIndex: 8,
-        }}
-      >
-        GAMMA 产品演示 · B-roll
-      </div>
       {snippets.length > 0 ? (
         <div
           style={{
             position: "absolute",
             left: 54,
             right: 54,
-            top: 210,
+            top: 60,
             padding: "22px 26px",
             borderRadius: 24,
             background: "rgba(8,9,13,.88)",
@@ -539,7 +522,30 @@ export const OfficialScreenshotLayer: React.FC<{
         </div>
       );
     }
-    return null;
+    const titles = visibleOnScreenText(scene.onScreenText);
+    return titles.length ? (
+      <div style={{...base, top: 128, opacity: enter}}>
+        <div style={{fontSize: 60, lineHeight: 1.2, fontWeight: 820}}>{titles[0]}</div>
+        {titles.slice(1).map((title, index) => {
+          const metric = /^[$\d]/u.test(title.trim()) || /ARR|收入/u.test(title);
+          return (
+            <div
+              key={title}
+              style={{
+                marginTop: 14,
+                fontSize: metric ? 68 : 34,
+                lineHeight: 1.12,
+                fontWeight: metric ? 850 : 620,
+                color: metric ? "#d9ff51" : "#b4efac",
+                opacity: frame >= Math.round((index + 1) * 2.4 * fps) ? 1 : 0,
+              }}
+            >
+              {title}
+            </div>
+          );
+        })}
+      </div>
+    ) : null;
   })();
   return (
     <AbsoluteFill style={{overflow: "hidden", background: "#090b10"}}>
@@ -566,7 +572,7 @@ export const OfficialScreenshotLayer: React.FC<{
           borderRadius: 30,
           border: "1px solid rgba(255,255,255,.16)",
           boxShadow: "0 38px 100px rgba(0,0,0,.48)",
-          background: "#fff",
+          background: "rgba(10,13,19,.88)",
         }}
       >
         <Img
@@ -1000,7 +1006,9 @@ export const MediaShotOverlays: React.FC<{shot: MediaShot; hideSource?: boolean}
 }) => {
   const badgeText = shot.overlays.badge?.text ?? "";
   const sourceLabel = shot.overlays.sourceLabel ?? "";
-  const showBadge = Boolean(badgeText) && !isProductionMetaTag(badgeText);
+  const showBadge =
+    Boolean(badgeText) &&
+    (badgeText === "真实页面截图" || !isProductionMetaTag(badgeText));
   const showSource = !hideSource && Boolean(sourceLabel) && !isProductionMetaTag(sourceLabel);
   if (!showBadge && !showSource) return null;
   return (

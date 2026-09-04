@@ -1,0 +1,64 @@
+- region "Notifications (F8)":
+  - list
+- region "Notifications alt+T"
+- complementary:
+  - button "Logo Brand Hub Beta":
+    - img "Logo"
+    - generic: Brand Hub
+    - generic: Beta
+  - navigation:
+    - button "Home":
+      - generic: Home
+    - button "Assets":
+      - generic: Assets
+    - link "Logo":
+      - /url: /brand/logo
+      - generic: Logo
+    - link "Colors & Gradients":
+      - /url: /brand/colors
+      - generic: Colors & Gradients
+    - link "Typography":
+      - /url: /brand/typography
+      - generic: Typography
+    - link "Photos" [active]:
+      - /url: /brand/photos
+      - generic: Photos
+    - button "Resources":
+      - generic: Resources
+    - link "Inspiration":
+      - /url: /inspiration
+      - generic: Inspiration
+  - button "Share Feedback":
+    - generic: Share Feedback
+  - button "Sign in":
+    - generic: Sign in
+  - button "Light mode":
+    - generic: Light mode
+  - button "Collapse":
+    - generic: Collapse
+- main:
+  - heading "Photos" [level=1]
+  - paragraph: Founder portraits and company photography. Free to use in press and editorial coverage.
+  - heading "Founders" [level=2]
+  - img "Anton Osika & Fabian Hedin"
+  - heading "Anton Osika & Fabian Hedin" [level=3]
+  - button:
+  - paragraph: Co-founders, studio — JPG, 1920 × 1166 px
+  - img "Anton Osika"
+  - heading "Anton Osika" [level=3]
+  - button:
+  - paragraph: Co-founder & CEO, portrait — JPG, 5350 × 8021 px
+  - img "Fabian Hedin"
+  - heading "Fabian Hedin" [level=3]
+  - button:
+  - paragraph: Co-founder & CTO, portrait — JPG, 5368 × 8048 px
+  - heading "Company" [level=2]
+  - img "Lovable team"
+  - heading "Lovable team" [level=3]
+  - button:
+  - paragraph: Company photo, Stockholm office — JPG, 4112 × 2741 px
+- complementary "Edit with Lovable":
+  - link "Edit with Lovable":
+    - /url: https://lovable.dev/projects/lovp_12xr3b0k0j9sja4msp2pms6y8c?utm_source=lovable-badge
+    - generic: Edit with
+  - button "Dismiss":

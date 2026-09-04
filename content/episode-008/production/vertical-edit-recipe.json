@@ -1,0 +1,182 @@
+{
+  "purpose": "source excerpt preparation, not final delivery",
+  "renderer": "ffmpeg libx264 crf18 1080x1920 30fps",
+  "parts": [
+    {
+      "output": "prepared-hook",
+      "part": 0,
+      "parentMediaId": "episode-008:media:lovable-save-2535",
+      "parentSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "localStartSeconds": 15.8,
+      "durationSeconds": 3.6,
+      "cropPixels": [
+        730,
+        60,
+        980,
+        680
+      ],
+      "sourceOffsetSeconds": 2535,
+      "overlay": "保存结果 → 刷新 → 记录保留"
+    },
+    {
+      "output": "prepared-chat",
+      "part": 0,
+      "parentMediaId": "episode-008:media:lovable-chat-1670",
+      "parentSha256": "b036028179022a359c9538bb05e3bb96d3dcbc6de4af08084510048c1d7ad8ae",
+      "localStartSeconds": 12,
+      "durationSeconds": 4,
+      "cropPixels": [
+        265,
+        565,
+        505,
+        460
+      ],
+      "sourceOffsetSeconds": 1670,
+      "overlay": "输入请求"
+    },
+    {
+      "output": "prepared-chat",
+      "part": 1,
+      "parentMediaId": "episode-008:media:lovable-chat-1670",
+      "parentSha256": "b036028179022a359c9538bb05e3bb96d3dcbc6de4af08084510048c1d7ad8ae",
+      "localStartSeconds": 16,
+      "durationSeconds": 4,
+      "cropPixels": [
+        265,
+        565,
+        505,
+        460
+      ],
+      "sourceOffsetSeconds": 1670,
+      "overlay": "发送 → 出现反馈"
+    },
+    {
+      "output": "prepared-chat",
+      "part": 2,
+      "parentMediaId": "episode-008:media:lovable-chat-1670",
+      "parentSha256": "b036028179022a359c9538bb05e3bb96d3dcbc6de4af08084510048c1d7ad8ae",
+      "localStartSeconds": 23,
+      "durationSeconds": 4,
+      "cropPixels": [
+        760,
+        90,
+        950,
+        650
+      ],
+      "sourceOffsetSeconds": 1670,
+      "overlay": "同一个心情记录应用"
+    },
+    {
+      "output": "prepared-mechanism",
+      "part": 0,
+      "parentMediaId": "episode-008:media:lovable-login-1794",
+      "parentSha256": "007ddd63a341d1693c5bf6148f3ba3a4970c385ee20af75cca4b55f9a67efe81",
+      "localStartSeconds": 0,
+      "durationSeconds": 2.8,
+      "cropPixels": [
+        965,
+        140,
+        625,
+        530
+      ],
+      "sourceOffsetSeconds": 1794,
+      "overlay": "01  登录进入应用"
+    },
+    {
+      "output": "prepared-mechanism",
+      "part": 1,
+      "parentMediaId": "episode-008:media:lovable-save-2535",
+      "parentSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "localStartSeconds": 8,
+      "durationSeconds": 6,
+      "cropPixels": [
+        740,
+        70,
+        1000,
+        650
+      ],
+      "sourceOffsetSeconds": 2535,
+      "overlay": "02  填写并保存"
+    },
+    {
+      "output": "prepared-mechanism",
+      "part": 2,
+      "parentMediaId": "episode-008:media:lovable-save-2535",
+      "parentSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "localStartSeconds": 37,
+      "durationSeconds": 3.8,
+      "cropPixels": [
+        835,
+        65,
+        555,
+        150
+      ],
+      "sourceOffsetSeconds": 2535,
+      "overlay": "03  对照数据库记录"
+    },
+    {
+      "output": "prepared-mechanism-timed",
+      "part": 0,
+      "parentMediaId": "episode-008:media:lovable-login-1794",
+      "parentSha256": "007ddd63a341d1693c5bf6148f3ba3a4970c385ee20af75cca4b55f9a67efe81",
+      "localStartSeconds": 0,
+      "durationSeconds": 2.4,
+      "cropPixels": [
+        965,
+        140,
+        625,
+        530
+      ],
+      "sourceOffsetSeconds": 1794,
+      "overlay": "01  登录进入应用"
+    },
+    {
+      "output": "prepared-mechanism-timed",
+      "part": 1,
+      "parentMediaId": "episode-008:media:lovable-save-2535",
+      "parentSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "localStartSeconds": 9.5,
+      "durationSeconds": 3,
+      "cropPixels": [
+        740,
+        70,
+        1000,
+        650
+      ],
+      "sourceOffsetSeconds": 2535,
+      "overlay": "02  填写并保存"
+    },
+    {
+      "output": "prepared-mechanism-timed",
+      "part": 2,
+      "parentMediaId": "episode-008:media:lovable-save-2535",
+      "parentSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "localStartSeconds": 37,
+      "durationSeconds": 2.6,
+      "cropPixels": [
+        835,
+        65,
+        555,
+        150
+      ],
+      "sourceOffsetSeconds": 2535,
+      "overlay": "03  对照数据库记录"
+    },
+    {
+      "output": "prepared-hook-stable",
+      "part": 0,
+      "parentMediaId": "episode-008:media:lovable-save-2535",
+      "parentSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "localStartSeconds": 12,
+      "durationSeconds": 3.6,
+      "cropPixels": [
+        730,
+        60,
+        980,
+        680
+      ],
+      "sourceOffsetSeconds": 2535,
+      "overlay": "保存结果 → 刷新 → 记录保留"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+[
+  {
+    "entities": [
+      "Lovable",
+      "Mood Matrix"
+    ],
+    "sourceRecipe": "content/episode-008/production/vertical-edit-recipe.json",
+    "mediaId": "episode-008:media:prepared-hook-stable",
+    "segmentId": "seg-001",
+    "textSummary": "实际目检：情绪记录界面已有一条历史记录，连续节选保持同一布局与记录显示，没有白屏过渡。官方演示节选，原片2535秒起的local12至15.6秒；不证明本次自行开发。",
+    "keywords": [
+      "心情",
+      "保存",
+      "刷新",
+      "记录",
+      "Mood Matrix"
+    ],
+    "semanticTags": [
+      "保存结果",
+      "刷新后保留",
+      "稳定节选"
+    ],
+    "evidenceFiles": [
+      "content/episode-008/media/review-keyframes/prepared-hook.jpg"
+    ]
+  },
+  {
+    "entities": [
+      "Lovable",
+      "Mood Matrix"
+    ],
+    "sourceRecipe": "content/episode-008/production/vertical-edit-recipe.json",
+    "mediaId": "episode-008:media:prepared-hook",
+    "segmentId": "seg-001",
+    "textSummary": "实际目检：情绪记录界面已有一条历史记录，画面短暂变白及加载后，同一布局与记录重新显示。官方演示节选，原片2535秒起的local15.8至19.4秒；不证明本次自行开发。",
+    "keywords": [
+      "心情",
+      "保存",
+      "刷新",
+      "记录",
+      "Mood Matrix"
+    ],
+    "semanticTags": [
+      "保存结果",
+      "刷新后保留"
+    ],
+    "evidenceFiles": [
+      "content/episode-008/media/review-keyframes/prepared-hook.jpg"
+    ]
+  },
+  {
+    "entities": [
+      "Lovable",
+      "Mood Matrix"
+    ],
+    "sourceRecipe": "content/episode-008/production/vertical-edit-recipe.json",
+    "mediaId": "episode-008:media:prepared-chat",
+    "segmentId": "seg-002",
+    "textSummary": "实际目检：聊天输入框输入Just add login，随后成为发送后的消息气泡并出现等待点；最后切到同一个Mood Matrix心情应用。镜头为官方演示时间节选，来自1670秒起local12至20及23至27；没有展示这次请求已经完成登录功能生成。",
+    "keywords": [
+      "聊天",
+      "输入",
+      "Just add login",
+      "发送",
+      "应用",
+      "Lovable"
+    ],
+    "semanticTags": [
+      "实际聊天输入",
+      "修改请求",
+      "产品页面"
+    ],
+    "evidenceFiles": [
+      "content/episode-008/media/review-keyframes/prepared-chat.jpg"
+    ]
+  },
+  {
+    "entities": [
+      "Lovable",
+      "Mood Matrix"
+    ],
+    "sourceRecipe": "content/episode-008/production/vertical-edit-recipe.json",
+    "mediaId": "episode-008:media:prepared-mechanism-timed",
+    "segmentId": "seg-004",
+    "textSummary": "实际目检8秒新片13ccfc4f：01登录页Sign in按钮操作，02填写并保存后页面Historical Data Logs由空到有Score10/10与I’m happy记录，03数据库score10与note I’m happy对应。三个编号官方节选，不是同一连续操作。源登录1794秒local0–2.4；保存2535秒local9.5–12.5；库2535秒local37–39.6。",
+    "keywords": [
+      "登录",
+      "心情",
+      "填写",
+      "保存",
+      "数据库",
+      "记录",
+      "score",
+      "note"
+    ],
+    "semanticTags": [
+      "登录界面",
+      "保存后新增行",
+      "数据库对照",
+      "编号节选"
+    ],
+    "evidenceFiles": [
+      "content/episode-008/media/review-keyframes/prepared-mechanism-timed.jpg"
+    ]
+  }
+]

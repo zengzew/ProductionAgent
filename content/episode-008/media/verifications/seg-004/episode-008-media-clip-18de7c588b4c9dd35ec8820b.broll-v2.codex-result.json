@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "713d5e09f7ee53915a2aa11ecdc8f3a41b89a6ad7c8a87d147652562eee89bee",
+  "completedAt": "2026-09-02T14:34:58.074Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.95,
+    "claimMatch": 0.91,
+    "visualQuality": 0.83,
+    "misleadingRisk": 0.12,
+    "observedActions": [
+      "登录界面显示Sign in按钮并发生点击/跳转；账号区域被遮蔽",
+      "填写心情后，页面由无记录变为历史记录Score 10/10、I’m happy",
+      "切到数据库行，score为10，note为I’m happy；三段以01/02/03和官方演示节选标注"
+    ],
+    "observedEntities": [
+      "Mood Matrix",
+      "Lovable",
+      "数据库记录"
+    ],
+    "observedText": [
+      "让网页真正用起来",
+      "01 登录进入应用",
+      "02 填写并保存",
+      "03 对照数据库记录",
+      "Historical Data Logs",
+      "Score: 10/10",
+      "I'm happy",
+      "score",
+      "note",
+      "Lovable · 2024 官方演示节选"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 12600,
+    "reasons": [
+      "实际查看本请求keyframe-0-6300.jpg及从本请求clip.mp4抽取的request-seg-004.jpg时间序列；页面记录与数据库行的分值和note对应，不凭元数据判定。",
+      "prepared媒体为带编号的官方演示节选组合，不声称一次连续操作或本次独立实测；原片窗口及SHA保存在production/vertical-edit-recipe.json。",
+      "可用于本地评估。UI小字非全屏但具体记录在原尺寸可读；后续成片字幕不得挡住中央页面及记录。此结论不新增发布权利。"
+    ]
+  }
+}

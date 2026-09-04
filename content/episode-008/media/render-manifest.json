@@ -1,0 +1,390 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-008:media:render-manifest",
+    "createdAt": "2026-09-04T02:07:54.737Z",
+    "episodeId": "episode-008",
+    "mediaType": "application/json",
+    "path": "content/episode-008/media/render-manifest.json",
+    "producer": "media-render-manifest-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-manifest-v1",
+    "sha256": "45029d51ba53a1fc1ce1a0f9105c6eb7ad19e398f10b03b35cb30599b7aa31f0",
+    "sizeBytes": 14097
+  },
+  "assetManifestSha256": "0df114c96ce9a5c18fe26dbb62c107aafa7d14aa8c36a135a1b573896283f29f",
+  "assets": [
+    {
+      "kind": "original",
+      "mediaId": "episode-008:media:lovable-save-2535",
+      "mediaType": "video/mp4",
+      "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "sizeBytes": 1886835,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-008:media:lovable-save-2535-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "4f066a10c6082d883726429c5232aedcdd0368d347230f6f48d2d565543784e9",
+      "sizeBytes": 1404300,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-008:media:lovable-login-1794",
+      "mediaType": "video/mp4",
+      "sha256": "007ddd63a341d1693c5bf6148f3ba3a4970c385ee20af75cca4b55f9a67efe81",
+      "sizeBytes": 1246857,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-008:media:lovable-login-1794-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "5045d8cec86f72713beb1f4318d098992b642d7c32dfeb0f9679b754155d2fdd",
+      "sizeBytes": 859010,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-008:media:lovable-chat-1670",
+      "mediaType": "video/mp4",
+      "sha256": "b036028179022a359c9538bb05e3bb96d3dcbc6de4af08084510048c1d7ad8ae",
+      "sizeBytes": 2171995,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-008:media:lovable-chat-1670-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "59530eb9fb3c7ae9b31a18f7e4897ae99fe7ed18e10b0385970b624c4e2d4a6f",
+      "sizeBytes": 1404004,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-008:media:lovable-founders",
+      "mediaType": "image/jpeg",
+      "sha256": "7fb10f08cd1aca550103ca8d777af287e78c82077c7b87546cbe7cafb6723198",
+      "sizeBytes": 245718,
+      "sourceId": "episode-008:media-source:lovable-founders"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-008:media:prepared-hook",
+      "mediaType": "video/mp4",
+      "sha256": "59c6a5ec931277f1ef53cfc90162ff787f5cca9b510db521cd76998dc2b5167c",
+      "sizeBytes": 122926,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-008:media:prepared-hook-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "42a2de3e76958fc46023153b6dfe9d8716cdf10569915069ba6fc833a0499007",
+      "sizeBytes": 71498,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-008:media:prepared-chat",
+      "mediaType": "video/mp4",
+      "sha256": "116175db4edee80bf39f26cc2fefa04406983cbb7f4b608ffe11b400df8e342a",
+      "sizeBytes": 527899,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-008:media:prepared-chat-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "ce02df15ec07133db0aaab4307abe817c741367d42866e32054c4bc23c6c3f48",
+      "sizeBytes": 252944,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-008:media:prepared-mechanism",
+      "mediaType": "video/mp4",
+      "sha256": "44223c9c0189f228ecf7310adf9b6e76c8bda6a07eaff06e584623a8fe211ab8",
+      "sizeBytes": 319240,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-008:media:prepared-mechanism-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "bee353ba15a26ada6e1efd221269d2a11a091d5494f02d329a40e60fb20fa2fe",
+      "sizeBytes": 185384,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-008:media:prepared-mechanism-timed",
+      "mediaType": "video/mp4",
+      "sha256": "13ccfc4fd3884408e5d59ab7444b1af6a1b48af82ad7bb514c17bb2eb3963ecf",
+      "sizeBytes": 248259,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-008:media:prepared-mechanism-timed-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "bda18183944058f34656599811d6c124db6e7d7c22eb447e34d8ec1e1c0531db",
+      "sizeBytes": 126166,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-008:media:prepared-hook-stable",
+      "mediaType": "video/mp4",
+      "sha256": "b3756d14eb7b4f69b726974434441453582ab810faece0a7cdb71a246ce0c920",
+      "sizeBytes": 170292,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-008:media:prepared-hook-stable-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "84886594299300025ce93c331505e1155a5e3dc42bf4b252f9dc5660bcc3ba27",
+      "sizeBytes": 93879,
+      "sourceId": "episode-008:media-source:lovable-office-hours"
+    }
+  ],
+  "clips": [
+    {
+      "clipId": "episode-008:media-clip:ed12a51af5a56e620f4980af",
+      "endMs": 3600,
+      "mediaId": "episode-008:media:prepared-hook-stable",
+      "startMs": 0,
+      "verificationSha256": "6f449ff8d04f8a20909a44af155a5d1799bd29422da7dc0ed3fc80cd0b3fb094"
+    },
+    {
+      "clipId": "episode-008:media-clip:0ec1172bff72c132b302fdc6",
+      "endMs": 12000,
+      "mediaId": "episode-008:media:prepared-chat",
+      "startMs": 0,
+      "verificationSha256": "4dacd535e8532aec1f1ca8821cad7f8e6ad624014729c8f184f85e52243349c9"
+    },
+    {
+      "clipId": "episode-008:media-clip:7dcef8a0853d55c3bd2701c8",
+      "endMs": 8000,
+      "mediaId": "episode-008:media:prepared-mechanism-timed",
+      "startMs": 0,
+      "verificationSha256": "7c58398b748cdc02995c34afbf9c77e4743e543c6870746a1be3e813c5a0dbc2"
+    }
+  ],
+  "createdAt": "2026-09-04T02:07:54.737Z",
+  "episodeId": "episode-008",
+  "officialAssets": [
+    {
+      "approved": true,
+      "capturedAt": "2026-09-02",
+      "claimIds": [
+        "claim-lovable-002",
+        "claim-lovable-003"
+      ],
+      "id": "asset-lovable-founders",
+      "licenseOrBasis": "官方品牌照片编辑报道许可；本地评估用途承接用户继续制作指令，正式admission/rights见source-manifest。",
+      "owner": "Lovable",
+      "path": "public/episodes/episode-008/assets/lovable-founders.jpg",
+      "segmentIds": [
+        "seg-003"
+      ],
+      "sourceUrl": "https://lovablebrand.lovable.app/__l5e/assets-v1/96eb544c-df27-4c29-bb0c-c0aefb486268/Anton_Fabian_studio.jpg",
+      "type": "image",
+      "usage": "人物段展示联合创始人照片；不把照片当作早期原型开发现场，不根据外貌猜认身份位置。",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-09-03",
+      "claimIds": [
+        "claim-lovable-005"
+      ],
+      "id": "asset-lovable-gtm",
+      "licenseOrBasis": "本次实际截图；署名的本地评估引用，外部发布权利未终审。",
+      "owner": "Lovable 团队复盘 · lovable.dev · 2025-01-22",
+      "path": "public/episodes/episode-008/assets/lovable-gtm-source.png",
+      "segmentIds": [
+        "seg-005"
+      ],
+      "sourceUrl": "https://lovable.dev/blog/2025-01-28-lovables-two-failed-launches-and-what-we-got-wrong-about-plg",
+      "type": "screenshot",
+      "usage": "同期原文证据",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-09-03",
+      "claimIds": [
+        "claim-lovable-007"
+      ],
+      "id": "asset-lovable-arr",
+      "licenseOrBasis": "本次实际截图；署名的本地评估引用，外部发布权利未终审。",
+      "owner": "Lovable 公司公告 · 2025-07-23",
+      "path": "public/episodes/episode-008/assets/lovable-arr-source.png",
+      "segmentIds": [
+        "seg-006"
+      ],
+      "sourceUrl": "https://lovable.dev/blog/agent",
+      "type": "screenshot",
+      "usage": "同期原文证据",
+      "usedInRender": true
+    }
+  ],
+  "renderPlanSha256": "5af30484a8ff758fcd3eea0806ee6a6b27a50db747724ee4174ff8ec0ad68c36",
+  "schemaVersion": "media-render-manifest-v1",
+  "sourceManifestSha256": "388823deae360d47024212e387a0c11b6827ed7b606416ccc690376757733501",
+  "sources": [
+    {
+      "admissionStatus": "admitted",
+      "admitted": true,
+      "publisher": "Lovable",
+      "rightsApproved": true,
+      "rightsStatus": "approved",
+      "sourceId": "episode-008:media-source:lovable-office-hours",
+      "sourceType": "official"
+    },
+    {
+      "admissionStatus": "admitted",
+      "admitted": true,
+      "publisher": "Lovable",
+      "rightsApproved": true,
+      "rightsStatus": "approved",
+      "sourceId": "episode-008:media-source:lovable-founders",
+      "sourceType": "official"
+    }
+  ],
+  "timelineSha256": "8ee55b8289fd0884c83afd8b6f97b1018b25ad7698561a6ee0763bc036437c77",
+  "usage": [
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-lovable-001",
+          "claim-lovable-004"
+        ],
+        "clipId": "episode-008:media-clip:ed12a51af5a56e620f4980af",
+        "createdAt": "2026-09-03T02:37:59.101Z",
+        "endMs": 3600,
+        "episodeId": "episode-008",
+        "mediaId": "episode-008:media:prepared-hook-stable",
+        "sourceMediaRef": {
+          "artifactId": "episode-008:media:prepared-hook-stable",
+          "createdAt": "2026-09-03T02:32:10.783Z",
+          "episodeId": "episode-008",
+          "mediaType": "video/mp4",
+          "path": "content/episode-008/media/assets/prepared-hook-stable.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "b3756d14eb7b4f69b726974434441453582ab810faece0a7cdb71a246ce0c920",
+          "sizeBytes": 170292
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "条目被提交 → 列表出现结果 → 刷新后条目仍在。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-001",
+      "selectedType": "real-media",
+      "verificationSha256": "6f449ff8d04f8a20909a44af155a5d1799bd29422da7dc0ed3fc80cd0b3fb094"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-lovable-001",
+          "claim-lovable-002",
+          "claim-lovable-004"
+        ],
+        "clipId": "episode-008:media-clip:0ec1172bff72c132b302fdc6",
+        "createdAt": "2026-09-02T14:36:43.772Z",
+        "endMs": 12000,
+        "episodeId": "episode-008",
+        "mediaId": "episode-008:media:prepared-chat",
+        "sourceMediaRef": {
+          "artifactId": "episode-008:media:prepared-chat",
+          "createdAt": "2026-09-02T14:31:15.953Z",
+          "episodeId": "episode-008",
+          "mediaType": "video/mp4",
+          "path": "content/episode-008/media/assets/prepared-chat.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "116175db4edee80bf39f26cc2fefa04406983cbb7f4b608ffe11b400df8e342a",
+          "sizeBytes": 527899
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "缩放回官方编辑器 → 展示同一个情绪网页的页面和条目。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-002",
+      "selectedType": "real-media",
+      "verificationSha256": "4dacd535e8532aec1f1ca8821cad7f8e6ad624014729c8f184f85e52243349c9"
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-003",
+      "fallbackType": null,
+      "officialAssetId": "asset-lovable-founders",
+      "segmentId": "seg-003",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-lovable-004"
+        ],
+        "clipId": "episode-008:media-clip:7dcef8a0853d55c3bd2701c8",
+        "createdAt": "2026-09-02T14:39:15.541Z",
+        "endMs": 8000,
+        "episodeId": "episode-008",
+        "mediaId": "episode-008:media:prepared-mechanism-timed",
+        "sourceMediaRef": {
+          "artifactId": "episode-008:media:prepared-mechanism-timed",
+          "createdAt": "2026-09-02T14:37:32.317Z",
+          "episodeId": "episode-008",
+          "mediaType": "video/mp4",
+          "path": "content/episode-008/media/assets/prepared-mechanism-timed.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "13ccfc4fd3884408e5d59ab7444b1af6a1b48af82ad7bb514c17bb2eb3963ecf",
+          "sizeBytes": 248259
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "登录界面进入应用 → 提交心情记录 → 切到数据库中对应的新行;不重复开场刷新,不展示测试账号信息。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-004",
+      "selectedType": "real-media",
+      "verificationSha256": "7c58398b748cdc02995c34afbf9c77e4743e543c6870746a1be3e813c5a0dbc2"
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-005",
+      "fallbackType": null,
+      "officialAssetId": "asset-lovable-gtm",
+      "segmentId": "seg-005",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-006",
+      "fallbackType": null,
+      "officialAssetId": "asset-lovable-arr",
+      "segmentId": "seg-006",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    }
+  ]
+}

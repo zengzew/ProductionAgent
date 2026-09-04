@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "codex-media-verification-request-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "boundedMediaOnly": true,
+  "episodeId": "episode-008",
+  "segmentId": "seg-004",
+  "clipId": "episode-008:media-clip:7dcef8a0853d55c3bd2701c8",
+  "claimIds": [
+    "claim-lovable-004"
+  ],
+  "claims": [
+    {
+      "id": "claim-lovable-004",
+      "claim": "团队官方演示的情绪记录应用支持注册登录并把记录保存到 Supabase 数据库。"
+    }
+  ],
+  "narration": "看这段演示:登录后记下心情,点保存。页面出现新记录,数据库里也有同一条。能看,也能存。",
+  "visualIntent": "登录界面进入应用 → 提交心情记录 → 切到数据库中对应的新行;不重复开场刷新,不展示测试账号信息。",
+  "clip": {
+    "path": "content/episode-008/media/verifications/seg-004/episode-008-media-clip-7dcef8a0853d55c3bd2701c8-clip.mp4",
+    "sha256": "38aeb4e37a704fcc12d3616892594144dd2d705f3c486b549c9c3337e330060a",
+    "sizeBytes": 621415,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 8000,
+    "sourceMediaId": "episode-008:media:prepared-mechanism-timed",
+    "sourceMediaSha256": "13ccfc4fd3884408e5d59ab7444b1af6a1b48af82ad7bb514c17bb2eb3963ecf"
+  },
+  "keyframes": [
+    {
+      "path": "content/episode-008/media/indexes/prepared-mechanism-timed/keyframes/keyframe-0-4000.jpg",
+      "timestampMs": 4000,
+      "sha256": "458b16f0cbe69148600e9391698ed5017502986571441e0e8f9095c4751657a2",
+      "sizeBytes": 72999,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "实际目检8秒新片13ccfc4f：01登录页Sign in按钮操作，02填写并保存后页面Historical Data Logs由空到有Score10/10与I’m happy记录，03数据库score10与note I’m happy对应。三个编号官方节选，不是同一连续操作。源登录1794秒local0–2.4；保存2535秒local9.5–12.5；库2535秒local37–39.6。",
+    "observedText": "",
+    "keywords": [
+      "登录",
+      "心情",
+      "填写",
+      "保存",
+      "数据库",
+      "记录",
+      "score",
+      "note"
+    ],
+    "entities": [
+      "Lovable",
+      "Mood Matrix"
+    ],
+    "semanticTags": [
+      "登录界面",
+      "保存后新增行",
+      "数据库对照",
+      "编号节选"
+    ],
+    "speaker": null
+  },
+  "resultContract": {
+    "schemaVersion": "codex-media-verification-result-v1",
+    "envelope": [
+      "executor",
+      "model",
+      "requestHash",
+      "completedAt",
+      "output"
+    ],
+    "output": {
+      "verdict": [
+        "pass",
+        "reject",
+        "uncertain"
+      ],
+      "scores": [
+        "relevance",
+        "claimMatch",
+        "visualQuality",
+        "misleadingRisk"
+      ],
+      "observations": [
+        "observedActions",
+        "observedEntities",
+        "observedText"
+      ],
+      "range": [
+        "recommendedStartMs",
+        "recommendedEndMs"
+      ],
+      "explanation": [
+        "reasons"
+      ]
+    },
+    "instruction": "Inspect only the listed clip and keyframes. Treat the clip as an independent illustrative B-roll track: it does not need to prove, match, or relate to the narration or claims. PASS means the clip is visually usable and does not directly contradict the narration when labeled as product demo/B-roll. Low relevance or claimMatch is allowed. Copy this requestHash into the result envelope; do not alter rights or claim facts."
+  },
+  "requestHash": "a130ab01ef79774c733ffda0d27b1bba3c56d00c812c1ed3128f9b58d75518de"
+}

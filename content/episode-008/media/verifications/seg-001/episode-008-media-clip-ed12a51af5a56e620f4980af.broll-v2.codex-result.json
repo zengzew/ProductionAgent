@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "1bba1dae7a02b338568eeb128b8260122b427a90dde47feca680e848a0ae7533",
+  "completedAt": "2026-09-03T02:38:00.000Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.94,
+    "claimMatch": 0.31,
+    "visualQuality": 0.83,
+    "misleadingRisk": 0.14,
+    "observedActions": [
+      "0–3.6秒全程维持同一情绪记录应用界面与已有历史记录",
+      "未见白屏、加载占位页或导致画面不可读的转场"
+    ],
+    "observedEntities": [
+      "Mood Matrix",
+      "Lovable"
+    ],
+    "observedText": [
+      "记下心情，刷新还在",
+      "保存结果 → 刷新 → 记录保留",
+      "MOOD MATRIX v1.0",
+      "Historical Data Logs",
+      "Lovable · 2024 官方演示节选"
+    ],
+    "reasons": [
+      "实际检查请求列出的3.6秒MP4及1800ms keyframe：全段为连续稳定的深色竖屏界面，标题、归因与历史记录区域可辨识；没有白屏。",
+      "画面与“记录仍在”的旁白和视觉意图相关，适合完整保留为产品演示/B-roll。中央界面的细小英文不应承担单独的事实说明。",
+      "该节选未直接展示注册登录、对话建站、提交或刷新动作，也没有可见的Supabase标识；因此不以本画面证明请求列出的具体claims。"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 3600
+  }
+}

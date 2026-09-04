@@ -1,0 +1,247 @@
+{
+  "episodeId": "episode-008",
+  "updatedAt": "2026-09-04",
+  "status": "local-review-mp4-delivered-pending-human-acceptance",
+  "issues": [
+    {
+      "id": "E008-001",
+      "stage": "environment",
+      "status": "resolved",
+      "problem": "默认 Node v22.23.2，仓库要求24.x。",
+      "resolution": "所有生产命令使用已安装 Node v24.13.0 PATH；预检与研究执行成功。",
+      "evidence": "logs/research.log"
+    },
+    {
+      "id": "E008-002",
+      "stage": "research",
+      "status": "resolved",
+      "problem": "来源时点混用风险：当前官网有2026公告，选题采用2024–2025故事。",
+      "resolution": "研究包明确历史窗口，每个数字保留事件日期与公司/创始人口径。",
+      "evidence": "../research/growth-data.md"
+    },
+    {
+      "id": "E008-003",
+      "stage": "workflow",
+      "status": "resolved",
+      "problem": "新一期没有评审，Fast schema却强制reviewCycles至少1条。",
+      "resolution": "修复为仅尚未评审的in-progress可为空；批准状态和已完成评审仍必须有记录。32个受影响测试通过。",
+      "evidence": "logs/fast-initial.log"
+    },
+    {
+      "id": "E008-004",
+      "stage": "media-discovery",
+      "status": "resolved",
+      "problem": "正式来源入口返回MEDIA_DISCOVERY_HOST_NOT_ALLOWED：www.youtube.com和lovablebrand.lovable.app。",
+      "resolution": "精确加入两个已定位官方域名后成功propose，两来源经正式API完成本地评估准入。",
+      "evidence": "../media/source-manifest.json"
+    },
+    {
+      "id": "E008-005",
+      "stage": "media-rights",
+      "status": "resolved-for-local-evaluation",
+      "problem": "官方视频公开播放不等于生产素材使用批准；照片已找到编辑报道许可。",
+      "resolution": "用户在已说明来源待准入后明确要求继续；按该指令记录本地评估admission/rights，外部发布权利未终审。",
+      "evidence": "local-evaluation-authorization.json"
+    },
+    {
+      "id": "E008-006",
+      "stage": "media-verification",
+      "status": "resolved",
+      "problem": "视频长约67分钟，最初时间指示对应缓存缩略图；实际播放后帧只有640×360。",
+      "resolution": "1080p原片实际查看；生成哈希绑定竖屏裁切并由独立媒体评审真实核验，3条PASS。",
+      "evidence": "../media/verification-readiness.json"
+    },
+    {
+      "id": "E008-007",
+      "stage": "tooling",
+      "status": "resolved",
+      "problem": "临时Python内容生成脚本报Non-UTF-8 code，但字节UTF-8解码成功。",
+      "resolution": "加显式UTF-8声明后脚本成功，根因未进一步定位；未改仓库运行环境。",
+      "evidence": "run-report.md"
+    },
+    {
+      "id": "E008-008",
+      "stage": "editorial-review",
+      "status": "resolved",
+      "problem": "当前写稿会话不能同时冒充未参与上游的独立评审。",
+      "resolution": "用户已批准评审子代理。独立口播第2轮PASS，观众评审执行中。",
+      "evidence": "../story/workflow.json"
+    },
+    {
+      "id": "E008-009",
+      "stage": "release",
+      "status": "resolved",
+      "problem": "release在故事门停止：缺口播、观众、事实、视觉与留存正式报告。",
+      "resolution": "口播、观众、事实、视觉、留存正式门均通过；真实TTS与timeline已完成，MP4正在渲染。",
+      "evidence": "../story/workflow.json"
+    },
+    {
+      "id": "E008-010",
+      "stage": "oral-review",
+      "status": "resolved",
+      "problem": "接着、再把并列推广活动写成无来源先后。",
+      "resolution": "保留第一轮拒绝记录，删除顺序连接词，第2轮PASS。",
+      "evidence": "../story/reviews/round-01/oral-review.md"
+    },
+    {
+      "id": "E008-011",
+      "stage": "timing",
+      "status": "resolved",
+      "problem": "初稿Hook计划15秒，契约要求20秒。",
+      "resolution": "前三段目标3+10+7秒，真实时长待读回。",
+      "evidence": "../story/final-script.md"
+    },
+    {
+      "id": "E008-012",
+      "stage": "environment",
+      "status": "resolved",
+      "problem": "tsx IPC被sandbox阻止；uv缓存不可写且PyPI DNS受限。",
+      "resolution": "Node24 --import tsx；临时uv缓存移至/tmp，获准联网安装yt-dlp，确认1080p可用。",
+      "evidence": "run-report.md"
+    },
+    {
+      "id": "E008-013",
+      "stage": "audience-review",
+      "status": "resolved",
+      "problem": "第1轮82分REJECT：继续观看问题偏离用户实际使用，保存动作重复。",
+      "resolution": "两稿改为可用性问题，seg004加入登录与数据库新行；口播第3轮PASS，观众第2轮88分PASS。",
+      "evidence": "../story/reviews/audience-round-01/critic-report.md"
+    },
+    {
+      "id": "E008-014",
+      "stage": "media-preparation",
+      "status": "resolved",
+      "problem": "本机FFmpeg未编译drawtext，文字绘制报No such filter。",
+      "resolution": "用Sharp将原创文字排版生成透明PNG，再由FFmpeg叠加到真实片段，配方可重跑。",
+      "evidence": "prepare-vertical-media.py"
+    },
+    {
+      "id": "E008-015",
+      "stage": "content-validation",
+      "status": "resolved",
+      "problem": "具体动作门仅认识旧词表，未识别本期保存、刷新、登录。",
+      "resolution": "补入3个客观产品动作；保持人工口播、观众、事实和留存评审及原阈值不变。",
+      "evidence": "../../../config/production-contract.json"
+    },
+    {
+      "id": "E008-016",
+      "stage": "media-retrieval",
+      "status": "resolved",
+      "problem": "normalizeRetrievalRequest丢失visualTrackMode，将独立画面请求重置claim-evidence并错误降分。",
+      "resolution": "保留该字段，增加回归断言；未降低ranking阈值或调整惩罚，46项相关测试通过。",
+      "evidence": "../../../src/media/retrieve.ts"
+    },
+    {
+      "id": "E008-017",
+      "stage": "renderer",
+      "status": "resolved",
+      "problem": "通用真实媒体层硬编码GAMMA产品标注；新产品截图缺少通用标题呈现。",
+      "resolution": "移除错误品牌硬编码，使用来源/片内标注；截图层支持当前script已有标题逐项显示，无新Composition。",
+      "evidence": "../../../src/media/remotion.tsx"
+    },
+    {
+      "id": "E008-018",
+      "stage": "tts-timing",
+      "status": "resolved",
+      "problem": "初次真实TTS时间轴41.567秒；Hook实际18.533秒，首镜2.4秒不足看清刷新结果。",
+      "resolution": "首镜尾帧调到3秒，Hook实际19.133秒在20±1区间，整片42.167秒。",
+      "evidence": "timeline.json"
+    },
+    {
+      "id": "E008-019",
+      "stage": "media-timing",
+      "status": "resolved",
+      "problem": "机制段原先12.6秒而实际语音+尾帧约8秒，直接用会裁掉数据库证据。",
+      "resolution": "按真实语音生成8秒timed新版：登录、保存后新行、数据库对应行；保留旧版与新版哈希，独立重新核验PASS。",
+      "evidence": "vertical-edit-recipe.json"
+    },
+    {
+      "id": "E008-020",
+      "stage": "media-index",
+      "status": "resolved",
+      "problem": "检索要求本期全部已准入video originals已有index，原始研究片段尚未索引阻挡检索。",
+      "resolution": "按正式接口补齐3条原片索引，ASR unavailable如实记录，不捏造转录；prepared执行实际语义审阅。",
+      "evidence": "review-media.ts"
+    },
+    {
+      "id": "E008-021",
+      "stage": "visual-QA",
+      "status": "resolved",
+      "problem": "round-01中seg-005使用了Lovable文章的Introduction截图，未呈现Distribution段落。",
+      "resolution": "重新打开官方复盘文章并以2. A Focus on Distribution为锚点抓取上下两块可读裁切；保留旧截图作为round-01对照，更新当前资产哈希。",
+      "evidence": "../../public/episodes/episode-008/assets/lovable-gtm-source.png"
+    },
+    {
+      "id": "E008-022",
+      "stage": "visual-QA",
+      "status": "resolved",
+      "problem": "round-01的ARR来源只有窄标题条，正文在成片中不可读。",
+      "resolution": "重新打开Lovable官方Agent公告，抓取发布日期、$100M ARR标题和主图的完整横向裁切；旧资产保留为round-01对照。",
+      "evidence": "../../public/episodes/episode-008/assets/lovable-arr-source.png"
+    },
+    {
+      "id": "E008-023",
+      "stage": "renderer",
+      "status": "resolved",
+      "problem": "round-01的通用静态图层用白色contain画布，官方截图被压成白卡；旧的GAMMA硬编码也不适用于Lovable。",
+      "resolution": "改为深色画布并保留截图比例，补充当前script标题与指标层，移除错误品牌标注；沿用MediaMixVertical，不新增Composition。",
+      "evidence": "../../../src/media/remotion.tsx"
+    },
+    {
+      "id": "E008-024",
+      "stage": "media-QA",
+      "status": "resolved",
+      "problem": "round-01的seg-001钩子取到原片白屏加载过渡（约local 17.2–17.8秒），成片开头出现白闪。",
+      "resolution": "从同一已准入官方原片重新制作12.0–15.6秒稳定节选，建立新mediaId、原片/代理/clip-index哈希，并由独立媒体评审确认全段无白屏；当前render manifest已选用该节选。",
+      "evidence": "../media/verifications/seg-001/episode-008-media-clip-ed12a51af5a56e620f4980af.broll-v2.codex-result.json"
+    },
+    {
+      "id": "E008-025",
+      "stage": "render",
+      "status": "resolved",
+      "problem": "新版最终渲染在无头Chromium启动阶段被macOS沙箱拦截：MachPortRendezvous权限错误。受控升级执行又被自动审查以当前Codex使用上限拒绝。",
+      "resolution": "用户明确回复允许受控渲染后，Remotion成功渲染1265帧，round-02 MP4通过全片解码及技术读回；旧轮次保留。",
+      "evidence": "logs/render-round-02-blocked.log"
+    },
+    {
+      "id": "E008-026",
+      "stage": "validation",
+      "status": "resolved",
+      "problem": "pnpm入口在本机再次触发tsx IPC listen EPERM，无法启动affected test和episode validator。",
+      "resolution": "改用同一Node24运行时的node --import tsx直接入口；81项affected tests、TypeScript和Episode-008 fast validation均通过。",
+      "evidence": "run-report.md"
+    },
+    {
+      "id": "E008-027",
+      "stage": "delivery-review",
+      "status": "resolved",
+      "problem": "round-02出现重复标题遮叠、截图徽章不精确、推广来源未明确标Lovable、重截图日期仍旧。",
+      "resolution": "将临时证据标题移至顶部空区；截图使用真实页面截图徽章，推广来源补Lovable及域名，capturedAt改为实际重截图日期。重新生成hash-bound计划并渲染round-03。",
+      "evidence": "delivery-review-round-02.md"
+    },
+    {
+      "id": "E008-028",
+      "stage": "delivery-review",
+      "status": "open-nonblocking-local-preview",
+      "problem": "机制段字幕先提到数据库，约0.8秒后画面切到数据库；当前属于独立B-roll，存在视听衔接优化空间。",
+      "resolution": "保留真实片段及独立评审观察；本地审阅版交付时明确记录，未声明逐句动作同步或完整发布验收。",
+      "evidence": "delivery-review-round-02.md"
+    },
+    {
+      "id": "E008-029",
+      "stage": "delivery-acceptance",
+      "status": "pending-human-listening-and-publication-rights",
+      "problem": "已检查音轨存在、峰值与全片可解码，但代理不能据此声称完成真实全片试听；外部发布权利未终审。",
+      "resolution": "本地MP4可供用户播放审阅。保留workflow为story-approved，不制造Delivery PASS或人工最终批准。",
+      "evidence": "delivery-review-round-02.md"
+    },
+    {
+      "id": "E008-030",
+      "stage": "renderer",
+      "status": "resolved",
+      "problem": "round-03的真实页面截图徽章被PRODUCTION_META_TAG中的真实页面规则当作生产元信息过滤，最终画面未显示。",
+      "resolution": "在徽章显示条件中保留真实页面截图这一面向观众的来源类型标识；重新渲染round-04并做独立抽帧复核。",
+      "evidence": "delivery-review-round-04.md"
+    }
+  ]
+}

@@ -4,7 +4,9 @@
     "example.com",
     "www.example.com",
     "cdn.example.com",
-    "static.gamma.app"
+    "static.gamma.app",
+    "www.youtube.com",
+    "lovablebrand.lovable.app"
   ],
   "allowedSourceTypes": [
     "official",

@@ -2375,7 +2375,10 @@ export const buildMediaShotForSegment = (input: BuildMediaShotInput): BuildMedia
       ...(editorialStill
         ? {
             sourceLabel: editorialStill.owner,
-            badge: {text: "官方素材", tone: "official" as const},
+            badge: {
+              text: editorialStill.type === "screenshot" ? "真实页面截图" : "官方素材",
+              tone: "official" as const,
+            },
           }
         : {}),
       ...input.overlays,

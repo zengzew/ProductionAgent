@@ -1,0 +1,37 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-008:media:lovable-save-2535-proxy",
+    "createdAt": "2026-09-02T14:23:51.502Z",
+    "episodeId": "episode-008",
+    "mediaType": "video/mp4",
+    "path": "content/episode-008/media/assets/lovable-save-2535-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "4f066a10c6082d883726429c5232aedcdd0368d347230f6f48d2d565543784e9",
+    "sizeBytes": 1404300
+  },
+  "asrVersion": "none",
+  "availability": "unavailable",
+  "durationMs": 42000,
+  "episodeId": "episode-008",
+  "mediaId": "episode-008:media:lovable-save-2535",
+  "model": null,
+  "provider": "none",
+  "schemaVersion": "media-transcript-v1",
+  "segments": [],
+  "sourceMediaRef": {
+    "artifactId": "episode-008:media:lovable-save-2535",
+    "createdAt": "2026-09-02T14:23:43.057Z",
+    "episodeId": "episode-008",
+    "mediaType": "video/mp4",
+    "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+    "sizeBytes": 1886835
+  },
+  "toolVersion": "media-asr-v1",
+  "unavailableReason": "no-asr-provider-configured"
+}

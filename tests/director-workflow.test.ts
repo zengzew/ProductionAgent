@@ -38,6 +38,28 @@ describe("director-driven artifact workflow", () => {
     expect(directorWorkflowSchema.safeParse(duplicate).success).toBe(false);
   });
 
+  it("accepts a new episode before its first review without inventing a review cycle", () => {
+    const pending = {
+      ...workflow,
+      currentStatus: "in-progress",
+      stages: workflow.stages.map((stage) => ({...stage, status: "pending"})),
+      reviewCycles: [],
+    };
+    expect(directorWorkflowSchema.safeParse(pending).success).toBe(true);
+    for (const currentStatus of ["story-approved", "delivery-approved"]) {
+      expect(directorWorkflowSchema.safeParse({...pending, currentStatus}).success).toBe(false);
+    }
+    for (const role of ["audience-critic", "retention-critic", "delivery-critic"]) {
+      const completedWithoutRecord = {
+        ...pending,
+        stages: pending.stages.map((stage) =>
+          stage.id === role ? {...stage, status: "complete"} : stage,
+        ),
+      };
+      expect(directorWorkflowSchema.safeParse(completedWithoutRecord).success).toBe(false);
+    }
+  });
+
   it("closes rejected retention feedback through routed artifact revisions", () => {
     const rejected = workflow.reviewCycles.find((cycle) => cycle.verdict === "REJECT");
     expect(rejected).toBeDefined();

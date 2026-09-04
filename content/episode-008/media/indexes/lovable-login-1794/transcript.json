@@ -1,0 +1,37 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-008:media:lovable-login-1794-proxy",
+    "createdAt": "2026-09-02T14:23:58.091Z",
+    "episodeId": "episode-008",
+    "mediaType": "video/mp4",
+    "path": "content/episode-008/media/assets/lovable-login-1794-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "5045d8cec86f72713beb1f4318d098992b642d7c32dfeb0f9679b754155d2fdd",
+    "sizeBytes": 859010
+  },
+  "asrVersion": "none",
+  "availability": "unavailable",
+  "durationMs": 24000,
+  "episodeId": "episode-008",
+  "mediaId": "episode-008:media:lovable-login-1794",
+  "model": null,
+  "provider": "none",
+  "schemaVersion": "media-transcript-v1",
+  "segments": [],
+  "sourceMediaRef": {
+    "artifactId": "episode-008:media:lovable-login-1794",
+    "createdAt": "2026-09-02T14:23:51.554Z",
+    "episodeId": "episode-008",
+    "mediaType": "video/mp4",
+    "path": "content/episode-008/media/assets/lovable-login-1794.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "007ddd63a341d1693c5bf6148f3ba3a4970c385ee20af75cca4b55f9a67efe81",
+    "sizeBytes": 1246857
+  },
+  "toolVersion": "media-asr-v1",
+  "unavailableReason": "no-asr-provider-configured"
+}

@@ -1,0 +1,101 @@
+{
+  "selectedHook": "记下心情，刷新还在。",
+  "segments": [
+    {
+      "id": "seg-001",
+      "section": "hook",
+      "narration": "记下心情，刷新还在。",
+      "onScreenText": [
+        "记下心情",
+        "刷新还在"
+      ],
+      "claimIds": [
+        "claim-lovable-001",
+        "claim-lovable-004"
+      ],
+      "scene": "保存后刷新",
+      "visualIntent": "条目被提交 → 列表出现结果 → 刷新后条目仍在。",
+      "targetSeconds": 3
+    },
+    {
+      "id": "seg-002",
+      "section": "hook",
+      "narration": "这个情绪记录网页，是用聊天做出来的。Lovable 让不会写代码的人也能开始做应用。可要让它真的用起来，还得补上什么？",
+      "onScreenText": [
+        "Lovable",
+        "用聊天做应用"
+      ],
+      "claimIds": [
+        "claim-lovable-001",
+        "claim-lovable-002",
+        "claim-lovable-004"
+      ],
+      "scene": "工具与用户需求",
+      "visualIntent": "缩放回官方编辑器 → 展示同一个情绪网页的页面和条目。",
+      "targetSeconds": 10
+    },
+    {
+      "id": "seg-003",
+      "section": "hook",
+      "narration": "创始人安东说，他想让有点子的人不再卡在编程上，先花一个周末，做出了早期原型。",
+      "onScreenText": [
+        "Anton Osika",
+        "周末原型"
+      ],
+      "claimIds": [
+        "claim-lovable-002",
+        "claim-lovable-003"
+      ],
+      "scene": "创始人原型",
+      "visualIntent": "创始人照片出现 → 周末原型名称与来源短注出现，不伪造早期界面。",
+      "targetSeconds": 7
+    },
+    {
+      "id": "seg-004",
+      "section": "mechanism",
+      "narration": "看这段演示：登录后记下心情，点保存。页面出现新记录，数据库里也有同一条。能看，也能存。",
+      "onScreenText": [
+        "登录",
+        "保存记录"
+      ],
+      "claimIds": [
+        "claim-lovable-004"
+      ],
+      "scene": "从页面到可用数据",
+      "visualIntent": "登录界面进入应用 → 提交心情记录 → 切到数据库中对应的新行；不重复开场刷新，不展示测试账号信息。",
+      "targetSeconds": 10
+    },
+    {
+      "id": "seg-005",
+      "section": "distribution",
+      "narration": "他们准备好演示视频，在产品发布平台亮相；也去相关社区参与讨论，和合作伙伴一起推广，让正在找工具的人看到它能做什么。",
+      "onScreenText": [
+        "发布演示",
+        "参与社区",
+        "合作推广"
+      ],
+      "claimIds": [
+        "claim-lovable-005"
+      ],
+      "scene": "让潜在用户看见",
+      "visualIntent": "发布材料短注进入 → 切回可用产品操作，渠道名称以简短叠层出现。",
+      "targetSeconds": 14
+    },
+    {
+      "id": "seg-006",
+      "section": "payoff",
+      "narration": "到二零二五年七月，公司宣布，年化经常性收入达到一亿美元。",
+      "onScreenText": [
+        "2025 年 7 月",
+        "$100M ARR",
+        "公司口径"
+      ],
+      "claimIds": [
+        "claim-lovable-007"
+      ],
+      "scene": "历史商业结果",
+      "visualIntent": "当前产品画面淡出 → 有日期的官方 ARR 公告出现，中文指标定义高亮。",
+      "targetSeconds": 11
+    }
+  ]
+}

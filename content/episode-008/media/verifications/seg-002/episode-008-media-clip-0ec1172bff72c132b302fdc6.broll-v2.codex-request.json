@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "codex-media-verification-request-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "boundedMediaOnly": true,
+  "episodeId": "episode-008",
+  "segmentId": "seg-002",
+  "clipId": "episode-008:media-clip:0ec1172bff72c132b302fdc6",
+  "claimIds": [
+    "claim-lovable-001",
+    "claim-lovable-002",
+    "claim-lovable-004"
+  ],
+  "claims": [
+    {
+      "id": "claim-lovable-001",
+      "claim": "Lovable 官方演示展示通过对话制作网页应用，随后修改界面。"
+    },
+    {
+      "id": "claim-lovable-002",
+      "claim": "Anton Osika 回顾，很多人有想法但不会写代码，他想用 AI 降低制作软件的门槛。"
+    },
+    {
+      "id": "claim-lovable-004",
+      "claim": "团队官方演示的情绪记录应用支持注册登录并把记录保存到 Supabase 数据库。"
+    }
+  ],
+  "narration": "这个情绪记录网页,是用聊天做出来的。Lovable 让不会写代码的人也能开始做应用。可要让它真的用起来,还得补上什么?",
+  "visualIntent": "缩放回官方编辑器 → 展示同一个情绪网页的页面和条目。",
+  "clip": {
+    "path": "content/episode-008/media/verifications/seg-002/episode-008-media-clip-0ec1172bff72c132b302fdc6-clip.mp4",
+    "sha256": "1920d1909ede22f40551c2ffa879fa938a3e80a90d822960a68c1426fd107d37",
+    "sizeBytes": 1245857,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 12000,
+    "sourceMediaId": "episode-008:media:prepared-chat",
+    "sourceMediaSha256": "116175db4edee80bf39f26cc2fefa04406983cbb7f4b608ffe11b400df8e342a"
+  },
+  "keyframes": [
+    {
+      "path": "content/episode-008/media/indexes/prepared-chat/keyframes/keyframe-0-6000.jpg",
+      "timestampMs": 6000,
+      "sha256": "bee4315ce75b3d87bb502ca0294322fc761a283bd29994b125b54653296bb572",
+      "sizeBytes": 110543,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "实际目检：聊天输入框输入Just add login，随后成为发送后的消息气泡并出现等待点；最后切到同一个Mood Matrix心情应用。镜头为官方演示时间节选，来自1670秒起local12至20及23至27；没有展示这次请求已经完成登录功能生成。",
+    "observedText": "",
+    "keywords": [
+      "聊天",
+      "输入",
+      "Just add login",
+      "发送",
+      "应用",
+      "Lovable"
+    ],
+    "entities": [
+      "Lovable",
+      "Mood Matrix"
+    ],
+    "semanticTags": [
+      "实际聊天输入",
+      "修改请求",
+      "产品页面"
+    ],
+    "speaker": null
+  },
+  "resultContract": {
+    "schemaVersion": "codex-media-verification-result-v1",
+    "envelope": [
+      "executor",
+      "model",
+      "requestHash",
+      "completedAt",
+      "output"
+    ],
+    "output": {
+      "verdict": [
+        "pass",
+        "reject",
+        "uncertain"
+      ],
+      "scores": [
+        "relevance",
+        "claimMatch",
+        "visualQuality",
+        "misleadingRisk"
+      ],
+      "observations": [
+        "observedActions",
+        "observedEntities",
+        "observedText"
+      ],
+      "range": [
+        "recommendedStartMs",
+        "recommendedEndMs"
+      ],
+      "explanation": [
+        "reasons"
+      ]
+    },
+    "instruction": "Inspect only the listed clip and keyframes. Treat the clip as an independent illustrative B-roll track: it does not need to prove, match, or relate to the narration or claims. PASS means the clip is visually usable and does not directly contradict the narration when labeled as product demo/B-roll. Low relevance or claimMatch is allowed. Copy this requestHash into the result envelope; do not alter rights or claim facts."
+  },
+  "requestHash": "33b6f6f964456a2ef52009f58ec87c43ddc13cb3690d3908b69eb138f2a9c4cd"
+}

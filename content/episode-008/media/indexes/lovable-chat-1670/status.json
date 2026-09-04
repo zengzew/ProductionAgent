@@ -1,0 +1,262 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-008:media:lovable-chat-1670-proxy",
+    "createdAt": "2026-09-02T14:24:06.550Z",
+    "episodeId": "episode-008",
+    "mediaType": "video/mp4",
+    "path": "content/episode-008/media/assets/lovable-chat-1670-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "59530eb9fb3c7ae9b31a18f7e4897ae99fe7ed18e10b0385970b624c4e2d4a6f",
+    "sizeBytes": 1404004
+  },
+  "episodeId": "episode-008",
+  "indexVersion": "media-clip-index-v1",
+  "mediaId": "episode-008:media:lovable-chat-1670",
+  "mediaSha256": "b036028179022a359c9538bb05e3bb96d3dcbc6de4af08084510048c1d7ad8ae",
+  "schemaVersion": "media-understanding-status-v1",
+  "stages": {
+    "clip-index": {
+      "artifactId": "episode-008:media-clip-index:lovable-chat-1670",
+      "availability": "available",
+      "cacheKey": "123abde9dc67ac8672a0e8a44a06224cf59cf2749f568236dfca6efb6b1b1e73",
+      "ref": {
+        "artifactId": "episode-008:media-clip-index:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:33:21.101Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-chat-1670/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "5f495adc25e2ac197d2cae1f05bbc6a21c57841ce3c9faae50e735eebe2c33c2",
+        "sizeBytes": 23716
+      }
+    },
+    "keyframes": {
+      "availability": "available",
+      "cacheKey": "ef4c8b10c992ce63f898fe52e09d68d956abc8c54856daef15b6c8cd3714d557",
+      "entries": [
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-chat-1670-0-2000",
+          "cacheKey": "67ec98c8f65b24c86fa14864246ea093fbf7aadc38d741e8c9e71738d68ce535",
+          "filename": "keyframe-0-2000.jpg",
+          "keyframeIndex": 0,
+          "ref": {
+            "artifactId": "episode-008:media-keyframe:lovable-chat-1670-0-2000",
+            "createdAt": "2026-09-02T14:33:19.993Z",
+            "episodeId": "episode-008",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-008/media/indexes/lovable-chat-1670/keyframes/keyframe-0-2000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "95600534236eaeca1295764e7c2890d7722144965da1cbaba8e7f3d4d20a2b35",
+            "sizeBytes": 200589
+          }
+        },
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-chat-1670-1-6000",
+          "cacheKey": "1c5b06a4bc11bf9e28513add7920d95d8940dcdbe10b726704ae85c4a48dcf84",
+          "filename": "keyframe-1-6000.jpg",
+          "keyframeIndex": 1,
+          "ref": {
+            "artifactId": "episode-008:media-keyframe:lovable-chat-1670-1-6000",
+            "createdAt": "2026-09-02T14:33:20.129Z",
+            "episodeId": "episode-008",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-008/media/indexes/lovable-chat-1670/keyframes/keyframe-1-6000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "837044e10d5e6b499c381c5b26b3e5ca6c40953fef16c05616cb635b884482ed",
+            "sizeBytes": 195852
+          }
+        },
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-chat-1670-2-10000",
+          "cacheKey": "414da549a3b34a9e8cf9fd87b7623ef44e70d51240388100030c712cda48514d",
+          "filename": "keyframe-2-10000.jpg",
+          "keyframeIndex": 2,
+          "ref": {
+            "artifactId": "episode-008:media-keyframe:lovable-chat-1670-2-10000",
+            "createdAt": "2026-09-02T14:33:20.239Z",
+            "episodeId": "episode-008",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-008/media/indexes/lovable-chat-1670/keyframes/keyframe-2-10000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "7119481759e256c90b574f7a3e4c6c2630a4b900555a3ded19523a4e581c63d3",
+            "sizeBytes": 190721
+          }
+        },
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-chat-1670-3-14000",
+          "cacheKey": "91c8a2050d7def5151a45c9f6d92a4c7e365e8125cc4779924e35840250d5b28",
+          "filename": "keyframe-3-14000.jpg",
+          "keyframeIndex": 3,
+          "ref": {
+            "artifactId": "episode-008:media-keyframe:lovable-chat-1670-3-14000",
+            "createdAt": "2026-09-02T14:33:20.381Z",
+            "episodeId": "episode-008",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-008/media/indexes/lovable-chat-1670/keyframes/keyframe-3-14000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "d6374e54a8286472ab7a3025d1e402b0b0225a7935c04f1e3bcd8de39acbc13d",
+            "sizeBytes": 187438
+          }
+        },
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-chat-1670-4-18000",
+          "cacheKey": "25ad39f1f5796d36094f57f2d113dc8c7dcf0bccd4c15599cbc552202fbff0fa",
+          "filename": "keyframe-4-18000.jpg",
+          "keyframeIndex": 4,
+          "ref": {
+            "artifactId": "episode-008:media-keyframe:lovable-chat-1670-4-18000",
+            "createdAt": "2026-09-02T14:33:20.481Z",
+            "episodeId": "episode-008",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-008/media/indexes/lovable-chat-1670/keyframes/keyframe-4-18000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "b03173771d547a34337ba6cafd585a913c0fd766a7de37a65dc1f2323f01794a",
+            "sizeBytes": 188773
+          }
+        },
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-chat-1670-5-22000",
+          "cacheKey": "a37cfaa83949decb5593aed16e43aa5638762c05c56dc0c4be9e4349bb6cb3f3",
+          "filename": "keyframe-5-22000.jpg",
+          "keyframeIndex": 5,
+          "ref": {
+            "artifactId": "episode-008:media-keyframe:lovable-chat-1670-5-22000",
+            "createdAt": "2026-09-02T14:33:20.612Z",
+            "episodeId": "episode-008",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-008/media/indexes/lovable-chat-1670/keyframes/keyframe-5-22000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "b37f8d8373c56b253547a5036662ca603883813421ef0997a86fa6c2bdf3acda",
+            "sizeBytes": 185952
+          }
+        },
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-chat-1670-6-26000",
+          "cacheKey": "62e9c10e520d50e1e8daf06484a29a00e95e3525ced3f082db00e07e315b199e",
+          "filename": "keyframe-6-26000.jpg",
+          "keyframeIndex": 6,
+          "ref": {
+            "artifactId": "episode-008:media-keyframe:lovable-chat-1670-6-26000",
+            "createdAt": "2026-09-02T14:33:20.713Z",
+            "episodeId": "episode-008",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-008/media/indexes/lovable-chat-1670/keyframes/keyframe-6-26000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "46930304f3f79a384b51e5aa1de25f595f5e12b6b4eecf6020d0f9533dd422db",
+            "sizeBytes": 194905
+          }
+        },
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-chat-1670-7-30000",
+          "cacheKey": "c9e9ac6e55b9d5ae59b4931cf53d45b7e621b93c5bf8ac78c26d33338ac9ac94",
+          "filename": "keyframe-7-30000.jpg",
+          "keyframeIndex": 7,
+          "ref": {
+            "artifactId": "episode-008:media-keyframe:lovable-chat-1670-7-30000",
+            "createdAt": "2026-09-02T14:33:20.843Z",
+            "episodeId": "episode-008",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-008/media/indexes/lovable-chat-1670/keyframes/keyframe-7-30000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "f0cf8765fe0e8d4bdcbed4b034283ba6d950c90b2a8cd977ddaa87574b3db1e6",
+            "sizeBytes": 187349
+          }
+        },
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-chat-1670-8-34000",
+          "cacheKey": "3a05464fcdd4d80853d009ce776c6bf0a16b4316a75df78e4c0ce1db2574fef9",
+          "filename": "keyframe-8-34000.jpg",
+          "keyframeIndex": 8,
+          "ref": {
+            "artifactId": "episode-008:media-keyframe:lovable-chat-1670-8-34000",
+            "createdAt": "2026-09-02T14:33:20.946Z",
+            "episodeId": "episode-008",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-008/media/indexes/lovable-chat-1670/keyframes/keyframe-8-34000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "d2fadcb8b5f6b51b4c61ecc1a55657c43166a17225de3e6b52a66f3cea5fac22",
+            "sizeBytes": 191966
+          }
+        },
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-chat-1670-9-38000",
+          "cacheKey": "56085eeb46ee40f8bc95e6507ba04f84b564f6b412a6bb85202138b119c8faf5",
+          "filename": "keyframe-9-38000.jpg",
+          "keyframeIndex": 9,
+          "ref": {
+            "artifactId": "episode-008:media-keyframe:lovable-chat-1670-9-38000",
+            "createdAt": "2026-09-02T14:33:21.079Z",
+            "episodeId": "episode-008",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-008/media/indexes/lovable-chat-1670/keyframes/keyframe-9-38000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "569356fff9c95579f3364cd7860a4a0cbdc882deba2247334a5c4ecb4b02350a",
+            "sizeBytes": 192478
+          }
+        }
+      ],
+      "extractorId": "ffmpeg",
+      "extractorVersion": "ffmpeg-keyframe-v1"
+    },
+    "scenes": {
+      "artifactId": "episode-008:media-scenes:lovable-chat-1670",
+      "availability": "available",
+      "cacheKey": "83c81b50caaceb0a97ad60de276972450f501639913789a84ccdbf62eb46ba62",
+      "ref": {
+        "artifactId": "episode-008:media-scenes:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:33:19.865Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-chat-1670/scenes.json",
+        "producer": "media-understanding-v1:scenes:scene-detector-v1",
+        "revision": 1,
+        "schemaVersion": "media-scenes-v1",
+        "sha256": "2523f99f679eb4c41f98db5c9a2edaf5d8e1add7f778a6a4663e9accf7aaf70b",
+        "sizeBytes": 2175
+      }
+    },
+    "transcript": {
+      "artifactId": "episode-008:media-transcript:lovable-chat-1670",
+      "availability": "unavailable",
+      "cacheKey": "95c15e30a0bdd1b38c96af067924012d6db129a0761e66205b742ba797b7b26b",
+      "ref": {
+        "artifactId": "episode-008:media-transcript:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:33:19.846Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-chat-1670/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "dc853d2513aa3caa19f633bfbfc236034c89132ea5488bce37fc36eb205d756a",
+        "sizeBytes": 1297
+      }
+    }
+  },
+  "updatedAt": "2026-09-02T14:33:21.108Z",
+  "usedProxy": true
+}

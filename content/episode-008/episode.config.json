@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "episode-config-v2",
+  "kind": "episode",
+  "id": "episode-008",
+  "slug": "lovable-idea-to-working-app",
+  "product": "Lovable",
+  "title": "不会写代码的人，怎样开始做自己的应用？",
+  "language": "zh-CN",
+  "targetSeconds": 60,
+  "production": {
+    "timelineTailSeconds": {
+      "seg-001": 1.084333,
+      "seg-002": 0.5,
+      "seg-003": 0.5,
+      "seg-004": 0.5,
+      "seg-005": 0.5,
+      "seg-006": 0.5
+    },
+    "hookAttributionSubjects": [
+      "Lovable",
+      "创始人"
+    ]
+  },
+  "selection": "selected",
+  "selectionReason": "候选预检 ready；创始人需求、早期原型、官方应用演示、获客与历史 ARR 有来源。",
+  "publishStatus": "evaluation",
+  "publishBlocker": "本地评估制作中；外部发布权利与最终人工批准未完成。",
+  "asOf": "2026-09-02",
+  "captureAssets": [
+    {
+      "file": "lovable-demo-page.png",
+      "url": "https://lovable.dev/blog/2025-01-13-rebranding-gpt-engineer-to-lovable"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "stage": "formal-media-ingest",
+  "status": "blocked",
+  "error": "MEDIA_INGEST_SOURCE_NOT_ADMITTED:episode-008:media-source:lovable-office-hours",
+  "previewIsNotFormalAsset": true
+}

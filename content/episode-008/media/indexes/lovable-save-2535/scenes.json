@@ -1,0 +1,95 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-008:media:lovable-save-2535-proxy",
+    "createdAt": "2026-09-02T14:23:51.502Z",
+    "episodeId": "episode-008",
+    "mediaType": "video/mp4",
+    "path": "content/episode-008/media/assets/lovable-save-2535-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "4f066a10c6082d883726429c5232aedcdd0368d347230f6f48d2d565543784e9",
+    "sizeBytes": 1404300
+  },
+  "config": {
+    "maxSceneMs": 6000,
+    "minSceneMs": 800,
+    "targetSceneMs": 4000
+  },
+  "detector": "deterministic-boundaries",
+  "detectorVersion": "scene-detector-v1",
+  "durationMs": 42000,
+  "episodeId": "episode-008",
+  "mediaId": "episode-008:media:lovable-save-2535",
+  "scenes": [
+    {
+      "endMs": 4000,
+      "sceneIndex": 0,
+      "startMs": 0
+    },
+    {
+      "endMs": 8000,
+      "sceneIndex": 1,
+      "startMs": 4000
+    },
+    {
+      "endMs": 12000,
+      "sceneIndex": 2,
+      "startMs": 8000
+    },
+    {
+      "endMs": 16000,
+      "sceneIndex": 3,
+      "startMs": 12000
+    },
+    {
+      "endMs": 20000,
+      "sceneIndex": 4,
+      "startMs": 16000
+    },
+    {
+      "endMs": 24000,
+      "sceneIndex": 5,
+      "startMs": 20000
+    },
+    {
+      "endMs": 28000,
+      "sceneIndex": 6,
+      "startMs": 24000
+    },
+    {
+      "endMs": 32000,
+      "sceneIndex": 7,
+      "startMs": 28000
+    },
+    {
+      "endMs": 36000,
+      "sceneIndex": 8,
+      "startMs": 32000
+    },
+    {
+      "endMs": 40000,
+      "sceneIndex": 9,
+      "startMs": 36000
+    },
+    {
+      "endMs": 42000,
+      "sceneIndex": 10,
+      "startMs": 40000
+    }
+  ],
+  "schemaVersion": "media-scenes-v1",
+  "sourceMediaRef": {
+    "artifactId": "episode-008:media:lovable-save-2535",
+    "createdAt": "2026-09-02T14:23:43.057Z",
+    "episodeId": "episode-008",
+    "mediaType": "video/mp4",
+    "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+    "sizeBytes": 1886835
+  },
+  "sourceSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627"
+}

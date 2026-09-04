@@ -1,0 +1,137 @@
+[
+  {
+    "id": "claim-lovable-001",
+    "claim": "Lovable 官方演示展示通过对话制作网页应用，随后修改界面。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2024-12-03",
+    "sourceIds": [
+      "src-lovable-demo"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "product-mechanism；这是官方展示，不能说本人已实测。"
+  },
+  {
+    "id": "claim-lovable-002",
+    "claim": "Anton Osika 回顾，很多人有想法但不会写代码，他想用 AI 降低制作软件的门槛。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2025-08-06",
+    "sourceIds": [
+      "src-lovable-founder"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "idea-origin / user-need；访谈回顾日期不是 idea 发生的精确日期，不复述没有统计口径的 99%。"
+  },
+  {
+    "id": "claim-lovable-003",
+    "claim": "Anton Osika 称自己用一个周末制作了 GPT-Engineer 命令行原型，受到开发者社区关注。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2025-08-06",
+    "sourceIds": [
+      "src-lovable-founder"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "idea-origin；一个周末只指早期原型，不能说完整 Lovable 一个周末造完。"
+  },
+  {
+    "id": "claim-lovable-004",
+    "claim": "团队官方演示的情绪记录应用支持注册登录并把记录保存到 Supabase 数据库。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2024-12-03",
+    "sourceIds": [
+      "src-lovable-demo"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "product-mechanism / user-need；示例应用，不承诺任意需求一次成功；演示也记录了调试。"
+  },
+  {
+    "id": "claim-lovable-005",
+    "claim": "团队复盘称，他们准备 Product Hunt 发布视频，在 X 上参与相关讨论，接触社区和影响者，并与 Supabase 联合推广。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2025-01-22",
+    "sourceIds": [
+      "src-lovable-gtm"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "cold-start-or-gtm；有具体分发动作，未公开单渠道转化率。"
+  },
+  {
+    "id": "claim-lovable-006",
+    "claim": "创始人回顾，GPT-Engineer 后来更名为 Lovable，于 2024 年 11 月在 Slush 发布。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2024-11",
+    "sourceIds": [
+      "src-lovable-founder"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "公开商业产品发布；与早期原型首次出现分开。"
+  },
+  {
+    "id": "claim-lovable-007",
+    "claim": "Lovable 于 2025 年 7 月 23 日宣布 ARR 达到一亿美元。",
+    "metricName": "ARR",
+    "value": "USD 100000000",
+    "period": "截至 2025-07-23",
+    "eventDate": "2025-07-23",
+    "sourceIds": [
+      "src-lovable-arr"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "capital-market；年化经常性收入，公司自报、未独立审计；不等于利润、留存或过去一年现金收入。"
+  },
+  {
+    "id": "claim-lovable-008",
+    "claim": "Lovable 于 2025 年 7 月 17 日宣布融资两亿美元、估值十八亿美元。",
+    "metricName": "Series A / valuation",
+    "value": "USD 200000000 / USD 1800000000",
+    "period": "2025-07-17 公告",
+    "eventDate": "2025-07-17",
+    "sourceIds": [
+      "src-lovable-funding"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "capital-market；融资与估值不等于用户成功或产品效果，非当前估值。"
+  },
+  {
+    "id": "claim-lovable-009",
+    "claim": "创始人将口碑和社交活动列为重要传播渠道。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2025-08-06",
+    "sourceIds": [
+      "src-lovable-founder"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "cold-start-or-gtm；是当时的创始人归因，不推导可量化渠道贡献。"
+  }
+]

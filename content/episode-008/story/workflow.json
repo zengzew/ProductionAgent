@@ -1,0 +1,247 @@
+{
+  "schemaVersion": "director-workflow-v1",
+  "episodeId": "episode-008",
+  "coreStoryQuestion": "Lovable 怎样让有想法但不会写代码的人，开始做自己的应用？",
+  "currentStatus": "story-approved",
+  "revisionPolicy": {
+    "maximumCreativeRounds": 3,
+    "scriptChangeRestartsAt": "oral-judge",
+    "visualChangeRestartsAt": "retention-critic"
+  },
+  "stages": [
+    {
+      "id": "research-analyst",
+      "owner": "research-analyst",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-008/research/facts.json",
+        "content/episode-008/research/sources.json",
+        "content/episode-008/research/timeline.json"
+      ],
+      "decision": "完成本角色文件交接；没有代签下游审核。"
+    },
+    {
+      "id": "story-director",
+      "owner": "story-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-008/story/director-brief.md",
+        "content/episode-008/story/story-bible.md",
+        "content/episode-008/story/story-angle.md",
+        "content/episode-008/story/three-act-structure.md"
+      ],
+      "decision": "完成本角色文件交接；没有代签下游审核。"
+    },
+    {
+      "id": "viral-director",
+      "owner": "viral-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-008/story/hook-candidates.md",
+        "content/episode-008/story/viral-strategy.md"
+      ],
+      "decision": "完成本角色文件交接；没有代签下游审核。"
+    },
+    {
+      "id": "script-writer",
+      "owner": "script-writer",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-008/story/script-draft.md"
+      ],
+      "decision": "完成本角色文件交接；没有代签下游审核。"
+    },
+    {
+      "id": "oral-rewriter",
+      "owner": "oral-rewriter",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-008/story/final-script.md"
+      ],
+      "decision": "完成本角色文件交接；没有代签下游审核。"
+    },
+    {
+      "id": "oral-judge",
+      "owner": "oral-judge",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-008/story/oral-review.md"
+      ],
+      "decision": "独立评审PASS；当前稿件SHA-256见报告。"
+    },
+    {
+      "id": "audience-critic",
+      "owner": "audience-critic",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-008/story/critic-report.md"
+      ],
+      "decision": "独立评审PASS；当前稿件SHA-256见报告。"
+    },
+    {
+      "id": "fact-guardian",
+      "owner": "fact-guardian",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-008/story/fact-check-report.md"
+      ],
+      "decision": "完成本角色正式报告，绑定当前脚本。"
+    },
+    {
+      "id": "visual-director",
+      "owner": "visual-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-008/story/visual-plan.md"
+      ],
+      "decision": "完成本角色正式报告，绑定当前脚本。"
+    },
+    {
+      "id": "retention-critic",
+      "owner": "retention-critic",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-008/story/retention-report.md"
+      ],
+      "decision": "完成本角色正式报告，绑定当前脚本。"
+    },
+    {
+      "id": "delivery-critic",
+      "owner": "delivery-critic",
+      "status": "pending",
+      "artifacts": [],
+      "decision": "待正式执行与证据绑定。"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "decision-core-story-question",
+      "owner": "story-director",
+      "decision": "见对应文件。",
+      "rationale": "按照文件交接保留责任与真实状态。",
+      "artifact": "content/episode-008/story/director-brief.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-attention-strategy",
+      "owner": "viral-director",
+      "decision": "见对应文件。",
+      "rationale": "按照文件交接保留责任与真实状态。",
+      "artifact": "content/episode-008/story/viral-strategy.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-information-draft",
+      "owner": "script-writer",
+      "decision": "见对应文件。",
+      "rationale": "按照文件交接保留责任与真实状态。",
+      "artifact": "content/episode-008/story/script-draft.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-spoken-delivery",
+      "owner": "oral-rewriter",
+      "decision": "见对应文件。",
+      "rationale": "按照文件交接保留责任与真实状态。",
+      "artifact": "content/episode-008/story/final-script.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-audience-clearance",
+      "owner": "audience-critic",
+      "decision": "第2轮PASS 88/100；保留具体渠道视觉反馈。",
+      "rationale": "修改前20秒观看问题和seg004的新动作后复审通过。",
+      "artifact": "content/episode-008/story/critic-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-factual-clearance",
+      "owner": "fact-guardian",
+      "decision": "当前产物已通过相应门，后续实际成片仍待验证。",
+      "rationale": "按照文件交接保留责任与真实状态。",
+      "artifact": "content/episode-008/story/fact-check-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-visual-language",
+      "owner": "visual-director",
+      "decision": "当前产物已通过相应门，后续实际成片仍待验证。",
+      "rationale": "按照文件交接保留责任与真实状态。",
+      "artifact": "content/episode-008/story/visual-plan.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-production-readiness",
+      "owner": "retention-critic",
+      "decision": "当前产物已通过相应门，后续实际成片仍待验证。",
+      "rationale": "按照文件交接保留责任与真实状态。",
+      "artifact": "content/episode-008/story/retention-report.md",
+      "claimIds": []
+    },
+    {
+      "id": "decision-final-delivery",
+      "owner": "delivery-critic",
+      "decision": "尚未作出批准。",
+      "rationale": "按照文件交接保留责任与真实状态。",
+      "artifact": "content/episode-008/production/blockers.md",
+      "claimIds": []
+    }
+  ],
+  "reviewCycles": [
+    {
+      "id": "review-audience-1",
+      "critic": "audience-critic",
+      "round": 1,
+      "reportPath": "content/episode-008/story/reviews/audience-round-01/critic-report.md",
+      "reportSha256": "9ae71fd774297e2f673ff71e40edf5bbcacf85cb3bb04ac32467d8c917c71e8c",
+      "verdict": "REJECT",
+      "routes": [
+        {
+          "feedbackId": "feedback-lovable-audience-001",
+          "owner": "script-writer",
+          "resolutionArtifacts": [
+            "content/episode-008/story/script-draft.md",
+            "content/episode-008/story/final-script.md"
+          ],
+          "status": "resolved"
+        },
+        {
+          "feedbackId": "feedback-lovable-audience-002",
+          "owner": "script-writer",
+          "resolutionArtifacts": [
+            "content/episode-008/story/script-draft.md",
+            "content/episode-008/story/final-script.md"
+          ],
+          "status": "resolved"
+        }
+      ]
+    },
+    {
+      "id": "review-audience-2",
+      "critic": "audience-critic",
+      "round": 2,
+      "reportPath": "content/episode-008/story/critic-report.md",
+      "reportSha256": "fdf8b474f1096c5fdd6855e59859d910359e4ae121da2e60e91eb704b04d9862",
+      "verdict": "PASS",
+      "routes": [
+        {
+          "feedbackId": "feedback-lovable-audience-003",
+          "owner": "visual-director",
+          "resolutionArtifacts": [
+            "content/episode-008/story/visual-plan.md"
+          ],
+          "status": "resolved"
+        }
+      ]
+    },
+    {
+      "id": "review-retention-1",
+      "critic": "retention-critic",
+      "round": 1,
+      "reportPath": "content/episode-008/story/retention-report.md",
+      "reportSha256": "5760b81b89d70cf5a8c59f22a420c42420cbd26d1e781765e76dd3aa092294ae",
+      "verdict": "PASS",
+      "routes": []
+    }
+  ]
+}

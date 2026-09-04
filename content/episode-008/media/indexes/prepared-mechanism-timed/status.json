@@ -1,0 +1,100 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-008:media:prepared-mechanism-timed-proxy",
+    "createdAt": "2026-09-02T14:37:34.396Z",
+    "episodeId": "episode-008",
+    "mediaType": "video/mp4",
+    "path": "content/episode-008/media/assets/prepared-mechanism-timed-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "bda18183944058f34656599811d6c124db6e7d7c22eb447e34d8ec1e1c0531db",
+    "sizeBytes": 126166
+  },
+  "episodeId": "episode-008",
+  "indexVersion": "media-clip-index-v1",
+  "mediaId": "episode-008:media:prepared-mechanism-timed",
+  "mediaSha256": "13ccfc4fd3884408e5d59ab7444b1af6a1b48af82ad7bb514c17bb2eb3963ecf",
+  "schemaVersion": "media-understanding-status-v1",
+  "stages": {
+    "clip-index": {
+      "artifactId": "episode-008:media-clip-index:prepared-mechanism-timed",
+      "availability": "available",
+      "cacheKey": "6f2a8973f841e3a8e1313545a7de7127ad3b6ef04c2235029b7776400d7f67de",
+      "ref": {
+        "artifactId": "episode-008:media-clip-index:prepared-mechanism-timed",
+        "createdAt": "2026-09-02T14:38:27.338Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/prepared-mechanism-timed/clip-index.json",
+        "producer": "media-understanding-v1:index:v1-eb7000dc66e34834",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "08bd764590a51174095a9225ccdb8f789fb6bf9203f9721e9b491acebcdb14db",
+        "sizeBytes": 4658
+      }
+    },
+    "keyframes": {
+      "availability": "available",
+      "cacheKey": "00aa57c011489499e2bb8829e160d9cb6e78bb0bdea0babb79f273fdc2ec78a8",
+      "entries": [
+        {
+          "artifactId": "episode-008:media-keyframe:prepared-mechanism-timed-0-4000",
+          "cacheKey": "6b9acc315c4c8f572b5d61357d12c067a1003a64143e28be8e4cb9e7121cfa22",
+          "filename": "keyframe-0-4000.jpg",
+          "keyframeIndex": 0,
+          "ref": {
+            "artifactId": "episode-008:media-keyframe:prepared-mechanism-timed-0-4000",
+            "createdAt": "2026-09-02T14:38:27.306Z",
+            "episodeId": "episode-008",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-008/media/indexes/prepared-mechanism-timed/keyframes/keyframe-0-4000.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "458b16f0cbe69148600e9391698ed5017502986571441e0e8f9095c4751657a2",
+            "sizeBytes": 72999
+          }
+        }
+      ],
+      "extractorId": "ffmpeg",
+      "extractorVersion": "ffmpeg-keyframe-v1"
+    },
+    "scenes": {
+      "artifactId": "episode-008:media-scenes:prepared-mechanism-timed",
+      "availability": "available",
+      "cacheKey": "22279728af681417c0be3bfe2c55b336441d881554ad6a6110d38390c94f31f2",
+      "ref": {
+        "artifactId": "episode-008:media-scenes:prepared-mechanism-timed",
+        "createdAt": "2026-09-02T14:38:27.143Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/prepared-mechanism-timed/scenes.json",
+        "producer": "media-understanding-v1:scenes:v1",
+        "revision": 1,
+        "schemaVersion": "media-scenes-v1",
+        "sha256": "f120402c004cfe2e767a5367553cef16c756f4f5f738c9e0ea3057a26b96604a",
+        "sizeBytes": 1474
+      }
+    },
+    "transcript": {
+      "artifactId": "episode-008:media-transcript:prepared-mechanism-timed",
+      "availability": "unavailable",
+      "cacheKey": "10eabd24d8bb92aa4e7c0e1309c1152bf77fef0269431f28c5e6dd4c2a771b9b",
+      "ref": {
+        "artifactId": "episode-008:media-transcript:prepared-mechanism-timed",
+        "createdAt": "2026-09-02T14:38:27.109Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/prepared-mechanism-timed/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "b378d8a391ff2310fa952dc7ce60cead20dddfb2288db2d8a6ce8a721c219de8",
+        "sizeBytes": 1329
+      }
+    }
+  },
+  "updatedAt": "2026-09-02T14:38:27.349Z",
+  "usedProxy": true
+}

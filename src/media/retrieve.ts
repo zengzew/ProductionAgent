@@ -182,6 +182,7 @@ export const normalizeRetrievalRequest = (input: MediaRetrievalRequest): MediaRe
     claimIds: [...new Set(input.claimIds)].sort(),
     narration: normalizeNarration(input.narration),
     visualIntent: normalizeNarration(input.visualIntent),
+    visualTrackMode: input.visualTrackMode,
     preferredMediaTypes: [...new Set(input.preferredMediaTypes)].sort(),
     topK: input.topK,
     ...(input.durationTargetMs !== null && input.durationTargetMs !== undefined
@@ -400,8 +401,7 @@ const scoreCandidate = (input: {
 }): ScoredCandidate => {
   const {item, asset, source, indexRef, claimEntries, request, config} = input;
   const clipText = clipTextOf(item);
-  const claimMode =
-    request.visualTrackMode === "claim-evidence" && request.claimIds.length > 0;
+  const claimMode = request.visualTrackMode === "claim-evidence" && request.claimIds.length > 0;
   const reasons: string[] = [];
 
   // Claim evidence fit: per-claim term overlap against the clip's own text.
@@ -917,10 +917,9 @@ const publishRetrievalArtifact = (input: {
     `content/${input.episodeId}/artifact-index.json`,
   );
   const previous = fs.existsSync(registryFile)
-    ? readArtifactIndex(registryFile).artifacts
-        .filter(
-          (record) =>
-            record.ref.artifactId === input.artifactId && record.state !== "quarantined",
+    ? readArtifactIndex(registryFile)
+        .artifacts.filter(
+          (record) => record.ref.artifactId === input.artifactId && record.state !== "quarantined",
         )
         .sort(
           (left, right) =>

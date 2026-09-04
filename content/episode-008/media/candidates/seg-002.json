@@ -1,0 +1,1540 @@
+{
+  "cacheKey": "497c4334d7940cda8ef35e202343d3243da3f3dac0d866357c41b014668b0080",
+  "candidates": [
+    {
+      "clipId": "episode-008:media-clip:18de7c588b4c9dd35ec8820b",
+      "endMs": 12600,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:prepared-mechanism",
+        "createdAt": "2026-09-02T14:32:37.766Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/prepared-mechanism/clip-index.json",
+        "producer": "media-understanding-v1:index:v1-793c072d9f59f5a2",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "ca54caef0c2611d0f8f8e692f212ecc80799ec32e67c1c79fa8bab733a4c2ea0",
+        "sizeBytes": 4555
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:prepared-mechanism",
+      "mediaRef": {
+        "artifactId": "episode-008:media:prepared-mechanism",
+        "createdAt": "2026-09-02T14:31:18.809Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/prepared-mechanism.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "44223c9c0189f228ecf7310adf9b6e76c8bda6a07eaff06e584623a8fe211ab8",
+        "sizeBytes": 319240
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 1,
+      "reasons": [
+        "metadata overlap 0.100",
+        "source preference official (5/5)",
+        "duration proximity 0.740 (12600ms)"
+      ],
+      "score": 0.152,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.74,
+        "lexical": 0,
+        "metadata": 0.1,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-008:media-clip:0ec1172bff72c132b302fdc6",
+      "endMs": 12000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:prepared-chat",
+        "createdAt": "2026-09-02T14:32:37.493Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/prepared-chat/clip-index.json",
+        "producer": "media-understanding-v1:index:v1-6436bac7cbd3b4ed",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "45daa697a8cd34ea2df0297e5de99243c80afe9ec7b546ef2e73852870c90e38",
+        "sizeBytes": 4430
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:prepared-chat",
+      "mediaRef": {
+        "artifactId": "episode-008:media:prepared-chat",
+        "createdAt": "2026-09-02T14:31:15.953Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/prepared-chat.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "116175db4edee80bf39f26cc2fefa04406983cbb7f4b608ffe11b400df8e342a",
+        "sizeBytes": 527899
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 2,
+      "reasons": [
+        "metadata overlap 0.050",
+        "source preference official (5/5)",
+        "duration proximity 0.800 (12000ms)"
+      ],
+      "score": 0.1475,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.8,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-008:media-clip:ad875713c3793d0939a9d8d3",
+      "endMs": 3600,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:prepared-hook",
+        "createdAt": "2026-09-02T14:32:37.259Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/prepared-hook/clip-index.json",
+        "producer": "media-understanding-v1:index:v1-8717346634adc070",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "4a8c1559ff7729edceb86f65ab95f7693633e1e417decaef92f3720a9f2b3be5",
+        "sizeBytes": 4308
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:prepared-hook",
+      "mediaRef": {
+        "artifactId": "episode-008:media:prepared-hook",
+        "createdAt": "2026-09-02T14:31:14.866Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/prepared-hook.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "59c6a5ec931277f1ef53cfc90162ff787f5cca9b510db521cd76998dc2b5167c",
+        "sizeBytes": 122926
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 3,
+      "reasons": [
+        "metadata overlap 0.050",
+        "source preference official (5/5)",
+        "duration proximity 0.360 (3600ms)"
+      ],
+      "score": 0.1255,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.36,
+        "lexical": 0,
+        "metadata": 0.05,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-008:media-clip:201d1da32fe8661c8fc6ee44",
+      "endMs": 4000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:33:21.101Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-chat-1670/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "5f495adc25e2ac197d2cae1f05bbc6a21c57841ce3c9faae50e735eebe2c33c2",
+        "sizeBytes": 23716
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-chat-1670",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:23:58.188Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-chat-1670.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "b036028179022a359c9538bb05e3bb96d3dcbc6de4af08084510048c1d7ad8ae",
+        "sizeBytes": 2171995
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 4,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-008:media-clip:8760d0bdb63645fa9551b3cd",
+      "endMs": 8000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:33:21.101Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-chat-1670/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "5f495adc25e2ac197d2cae1f05bbc6a21c57841ce3c9faae50e735eebe2c33c2",
+        "sizeBytes": 23716
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-chat-1670",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:23:58.188Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-chat-1670.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "b036028179022a359c9538bb05e3bb96d3dcbc6de4af08084510048c1d7ad8ae",
+        "sizeBytes": 2171995
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 5,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 4000
+    },
+    {
+      "clipId": "episode-008:media-clip:5fcd1f6a7ab365473dd5d505",
+      "endMs": 12000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:33:21.101Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-chat-1670/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "5f495adc25e2ac197d2cae1f05bbc6a21c57841ce3c9faae50e735eebe2c33c2",
+        "sizeBytes": 23716
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-chat-1670",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:23:58.188Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-chat-1670.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "b036028179022a359c9538bb05e3bb96d3dcbc6de4af08084510048c1d7ad8ae",
+        "sizeBytes": 2171995
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 6,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 8000
+    },
+    {
+      "clipId": "episode-008:media-clip:c98d7bdea3770347aaa9cca6",
+      "endMs": 16000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:33:21.101Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-chat-1670/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "5f495adc25e2ac197d2cae1f05bbc6a21c57841ce3c9faae50e735eebe2c33c2",
+        "sizeBytes": 23716
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-chat-1670",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:23:58.188Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-chat-1670.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "b036028179022a359c9538bb05e3bb96d3dcbc6de4af08084510048c1d7ad8ae",
+        "sizeBytes": 2171995
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 7,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 12000
+    },
+    {
+      "clipId": "episode-008:media-clip:69ed6c76c00c7e3924a87cc4",
+      "endMs": 20000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:33:21.101Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-chat-1670/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "5f495adc25e2ac197d2cae1f05bbc6a21c57841ce3c9faae50e735eebe2c33c2",
+        "sizeBytes": 23716
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-chat-1670",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:23:58.188Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-chat-1670.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "b036028179022a359c9538bb05e3bb96d3dcbc6de4af08084510048c1d7ad8ae",
+        "sizeBytes": 2171995
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 8,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 16000
+    },
+    {
+      "clipId": "episode-008:media-clip:7c59a60c1dfb56497a47436f",
+      "endMs": 24000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:33:21.101Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-chat-1670/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "5f495adc25e2ac197d2cae1f05bbc6a21c57841ce3c9faae50e735eebe2c33c2",
+        "sizeBytes": 23716
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-chat-1670",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:23:58.188Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-chat-1670.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "b036028179022a359c9538bb05e3bb96d3dcbc6de4af08084510048c1d7ad8ae",
+        "sizeBytes": 2171995
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 9,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 20000
+    },
+    {
+      "clipId": "episode-008:media-clip:90f2f0856a9730a55e87e43a",
+      "endMs": 28000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:33:21.101Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-chat-1670/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "5f495adc25e2ac197d2cae1f05bbc6a21c57841ce3c9faae50e735eebe2c33c2",
+        "sizeBytes": 23716
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-chat-1670",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:23:58.188Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-chat-1670.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "b036028179022a359c9538bb05e3bb96d3dcbc6de4af08084510048c1d7ad8ae",
+        "sizeBytes": 2171995
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 10,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 24000
+    },
+    {
+      "clipId": "episode-008:media-clip:bf231a08bfa0de5ead76b92a",
+      "endMs": 32000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:33:21.101Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-chat-1670/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "5f495adc25e2ac197d2cae1f05bbc6a21c57841ce3c9faae50e735eebe2c33c2",
+        "sizeBytes": 23716
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-chat-1670",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:23:58.188Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-chat-1670.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "b036028179022a359c9538bb05e3bb96d3dcbc6de4af08084510048c1d7ad8ae",
+        "sizeBytes": 2171995
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 11,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 28000
+    },
+    {
+      "clipId": "episode-008:media-clip:952ee8e71912fd1b4d76b8a6",
+      "endMs": 36000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:33:21.101Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-chat-1670/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "5f495adc25e2ac197d2cae1f05bbc6a21c57841ce3c9faae50e735eebe2c33c2",
+        "sizeBytes": 23716
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-chat-1670",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:23:58.188Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-chat-1670.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "b036028179022a359c9538bb05e3bb96d3dcbc6de4af08084510048c1d7ad8ae",
+        "sizeBytes": 2171995
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 12,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 32000
+    },
+    {
+      "clipId": "episode-008:media-clip:56508e37b76b95fe8610c91a",
+      "endMs": 40000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:33:21.101Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-chat-1670/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "5f495adc25e2ac197d2cae1f05bbc6a21c57841ce3c9faae50e735eebe2c33c2",
+        "sizeBytes": 23716
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-chat-1670",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-chat-1670",
+        "createdAt": "2026-09-02T14:23:58.188Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-chat-1670.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "b036028179022a359c9538bb05e3bb96d3dcbc6de4af08084510048c1d7ad8ae",
+        "sizeBytes": 2171995
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 13,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 36000
+    },
+    {
+      "clipId": "episode-008:media-clip:0e3de4f485134eb59f5aaa3f",
+      "endMs": 4000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-login-1794",
+        "createdAt": "2026-09-02T14:33:19.819Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-login-1794/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "267669a0a068563f2e59824cbd9008abfff2f59230d0da50c0b8865efa5bdab8",
+        "sizeBytes": 14968
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-login-1794",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-login-1794",
+        "createdAt": "2026-09-02T14:23:51.554Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-login-1794.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "007ddd63a341d1693c5bf6148f3ba3a4970c385ee20af75cca4b55f9a67efe81",
+        "sizeBytes": 1246857
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 14,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-008:media-clip:a3a81f6b55cfdf396a10360c",
+      "endMs": 8000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-login-1794",
+        "createdAt": "2026-09-02T14:33:19.819Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-login-1794/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "267669a0a068563f2e59824cbd9008abfff2f59230d0da50c0b8865efa5bdab8",
+        "sizeBytes": 14968
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-login-1794",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-login-1794",
+        "createdAt": "2026-09-02T14:23:51.554Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-login-1794.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "007ddd63a341d1693c5bf6148f3ba3a4970c385ee20af75cca4b55f9a67efe81",
+        "sizeBytes": 1246857
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 15,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 4000
+    },
+    {
+      "clipId": "episode-008:media-clip:bc6f4eec753b543d0481c1da",
+      "endMs": 12000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-login-1794",
+        "createdAt": "2026-09-02T14:33:19.819Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-login-1794/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "267669a0a068563f2e59824cbd9008abfff2f59230d0da50c0b8865efa5bdab8",
+        "sizeBytes": 14968
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-login-1794",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-login-1794",
+        "createdAt": "2026-09-02T14:23:51.554Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-login-1794.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "007ddd63a341d1693c5bf6148f3ba3a4970c385ee20af75cca4b55f9a67efe81",
+        "sizeBytes": 1246857
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 16,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 8000
+    },
+    {
+      "clipId": "episode-008:media-clip:cf78504215a6fd453227919c",
+      "endMs": 16000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-login-1794",
+        "createdAt": "2026-09-02T14:33:19.819Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-login-1794/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "267669a0a068563f2e59824cbd9008abfff2f59230d0da50c0b8865efa5bdab8",
+        "sizeBytes": 14968
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-login-1794",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-login-1794",
+        "createdAt": "2026-09-02T14:23:51.554Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-login-1794.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "007ddd63a341d1693c5bf6148f3ba3a4970c385ee20af75cca4b55f9a67efe81",
+        "sizeBytes": 1246857
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 17,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 12000
+    },
+    {
+      "clipId": "episode-008:media-clip:a04bd30dcb0a25720be40dd1",
+      "endMs": 20000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-login-1794",
+        "createdAt": "2026-09-02T14:33:19.819Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-login-1794/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "267669a0a068563f2e59824cbd9008abfff2f59230d0da50c0b8865efa5bdab8",
+        "sizeBytes": 14968
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-login-1794",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-login-1794",
+        "createdAt": "2026-09-02T14:23:51.554Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-login-1794.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "007ddd63a341d1693c5bf6148f3ba3a4970c385ee20af75cca4b55f9a67efe81",
+        "sizeBytes": 1246857
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 18,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 16000
+    },
+    {
+      "clipId": "episode-008:media-clip:c4f00c686eac44b0a3e9578c",
+      "endMs": 24000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-login-1794",
+        "createdAt": "2026-09-02T14:33:19.819Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-login-1794/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "267669a0a068563f2e59824cbd9008abfff2f59230d0da50c0b8865efa5bdab8",
+        "sizeBytes": 14968
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-login-1794",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-login-1794",
+        "createdAt": "2026-09-02T14:23:51.554Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-login-1794.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "007ddd63a341d1693c5bf6148f3ba3a4970c385ee20af75cca4b55f9a67efe81",
+        "sizeBytes": 1246857
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 19,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 20000
+    },
+    {
+      "clipId": "episode-008:media-clip:b0dfaf366ccf53173a560fab",
+      "endMs": 4000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-save-2535",
+        "createdAt": "2026-09-02T14:33:19.015Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-save-2535/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3b16b3becb0c66aef59227d0f10e1189b4aa6ac4dda3ed407ca7beb2c17eba44",
+        "sizeBytes": 25912
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-save-2535",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 20,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-008:media-clip:10fb5aabe817f9f8805bdaf3",
+      "endMs": 8000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-save-2535",
+        "createdAt": "2026-09-02T14:33:19.015Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-save-2535/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3b16b3becb0c66aef59227d0f10e1189b4aa6ac4dda3ed407ca7beb2c17eba44",
+        "sizeBytes": 25912
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-save-2535",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 21,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 4000
+    },
+    {
+      "clipId": "episode-008:media-clip:6fa81bcfbaf445161e10d4bd",
+      "endMs": 12000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-save-2535",
+        "createdAt": "2026-09-02T14:33:19.015Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-save-2535/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3b16b3becb0c66aef59227d0f10e1189b4aa6ac4dda3ed407ca7beb2c17eba44",
+        "sizeBytes": 25912
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-save-2535",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 22,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 8000
+    },
+    {
+      "clipId": "episode-008:media-clip:356d4fa7f50e06582c021eb2",
+      "endMs": 16000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-save-2535",
+        "createdAt": "2026-09-02T14:33:19.015Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-save-2535/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3b16b3becb0c66aef59227d0f10e1189b4aa6ac4dda3ed407ca7beb2c17eba44",
+        "sizeBytes": 25912
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-save-2535",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 23,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 12000
+    },
+    {
+      "clipId": "episode-008:media-clip:29044546e8bfdd0cecce874a",
+      "endMs": 20000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-save-2535",
+        "createdAt": "2026-09-02T14:33:19.015Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-save-2535/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3b16b3becb0c66aef59227d0f10e1189b4aa6ac4dda3ed407ca7beb2c17eba44",
+        "sizeBytes": 25912
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-save-2535",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 24,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 16000
+    },
+    {
+      "clipId": "episode-008:media-clip:5e8d141f5b0ac116f078c286",
+      "endMs": 24000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-save-2535",
+        "createdAt": "2026-09-02T14:33:19.015Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-save-2535/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3b16b3becb0c66aef59227d0f10e1189b4aa6ac4dda3ed407ca7beb2c17eba44",
+        "sizeBytes": 25912
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-save-2535",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 25,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 20000
+    },
+    {
+      "clipId": "episode-008:media-clip:01e38b05c3aa9858d1c86230",
+      "endMs": 28000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-save-2535",
+        "createdAt": "2026-09-02T14:33:19.015Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-save-2535/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3b16b3becb0c66aef59227d0f10e1189b4aa6ac4dda3ed407ca7beb2c17eba44",
+        "sizeBytes": 25912
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-save-2535",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 26,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 24000
+    },
+    {
+      "clipId": "episode-008:media-clip:2e5325bd4acad5395abe1251",
+      "endMs": 32000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-save-2535",
+        "createdAt": "2026-09-02T14:33:19.015Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-save-2535/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3b16b3becb0c66aef59227d0f10e1189b4aa6ac4dda3ed407ca7beb2c17eba44",
+        "sizeBytes": 25912
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-save-2535",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 27,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 28000
+    },
+    {
+      "clipId": "episode-008:media-clip:17db7fdd2370824bb81142cf",
+      "endMs": 36000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-save-2535",
+        "createdAt": "2026-09-02T14:33:19.015Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-save-2535/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3b16b3becb0c66aef59227d0f10e1189b4aa6ac4dda3ed407ca7beb2c17eba44",
+        "sizeBytes": 25912
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-save-2535",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 28,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 32000
+    },
+    {
+      "clipId": "episode-008:media-clip:fb6dfed47f6b650c37e00b48",
+      "endMs": 40000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-save-2535",
+        "createdAt": "2026-09-02T14:33:19.015Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-save-2535/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3b16b3becb0c66aef59227d0f10e1189b4aa6ac4dda3ed407ca7beb2c17eba44",
+        "sizeBytes": 25912
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-save-2535",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 29,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.400 (4000ms)"
+      ],
+      "score": 0.12,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.4,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 36000
+    },
+    {
+      "clipId": "episode-008:media-clip:513eaf5970eace74954a7300",
+      "endMs": 42000,
+      "episodeId": "episode-008",
+      "indexRef": {
+        "artifactId": "episode-008:media-clip-index:lovable-save-2535",
+        "createdAt": "2026-09-02T14:33:19.015Z",
+        "episodeId": "episode-008",
+        "mediaType": "application/json",
+        "path": "content/episode-008/media/indexes/lovable-save-2535/clip-index.json",
+        "producer": "media-understanding-v1:index:semantic-adapter-v1",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "3b16b3becb0c66aef59227d0f10e1189b4aa6ac4dda3ed407ca7beb2c17eba44",
+        "sizeBytes": 25912
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-008:media:lovable-save-2535",
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "mediaSourceId": "episode-008:media-source:lovable-office-hours",
+      "rank": 30,
+      "reasons": [
+        "source preference official (5/5)",
+        "duration proximity 0.200 (2000ms)"
+      ],
+      "score": 0.11,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.2,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 40000
+    }
+  ],
+  "claimLedger": {
+    "path": "content/episode-008/research/facts.json",
+    "sha256": "97fff84be3e2037571f8e81f4611ee773e64f09b625e9b33eb65263626c325fb",
+    "sizeBytes": 4577
+  },
+  "clipIndexRefs": [
+    {
+      "artifactId": "episode-008:media-clip-index:lovable-chat-1670",
+      "createdAt": "2026-09-02T14:33:21.101Z",
+      "episodeId": "episode-008",
+      "mediaType": "application/json",
+      "path": "content/episode-008/media/indexes/lovable-chat-1670/clip-index.json",
+      "producer": "media-understanding-v1:index:semantic-adapter-v1",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "5f495adc25e2ac197d2cae1f05bbc6a21c57841ce3c9faae50e735eebe2c33c2",
+      "sizeBytes": 23716
+    },
+    {
+      "artifactId": "episode-008:media-clip-index:lovable-login-1794",
+      "createdAt": "2026-09-02T14:33:19.819Z",
+      "episodeId": "episode-008",
+      "mediaType": "application/json",
+      "path": "content/episode-008/media/indexes/lovable-login-1794/clip-index.json",
+      "producer": "media-understanding-v1:index:semantic-adapter-v1",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "267669a0a068563f2e59824cbd9008abfff2f59230d0da50c0b8865efa5bdab8",
+      "sizeBytes": 14968
+    },
+    {
+      "artifactId": "episode-008:media-clip-index:lovable-save-2535",
+      "createdAt": "2026-09-02T14:33:19.015Z",
+      "episodeId": "episode-008",
+      "mediaType": "application/json",
+      "path": "content/episode-008/media/indexes/lovable-save-2535/clip-index.json",
+      "producer": "media-understanding-v1:index:semantic-adapter-v1",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "3b16b3becb0c66aef59227d0f10e1189b4aa6ac4dda3ed407ca7beb2c17eba44",
+      "sizeBytes": 25912
+    },
+    {
+      "artifactId": "episode-008:media-clip-index:prepared-chat",
+      "createdAt": "2026-09-02T14:32:37.493Z",
+      "episodeId": "episode-008",
+      "mediaType": "application/json",
+      "path": "content/episode-008/media/indexes/prepared-chat/clip-index.json",
+      "producer": "media-understanding-v1:index:v1-6436bac7cbd3b4ed",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "45daa697a8cd34ea2df0297e5de99243c80afe9ec7b546ef2e73852870c90e38",
+      "sizeBytes": 4430
+    },
+    {
+      "artifactId": "episode-008:media-clip-index:prepared-hook",
+      "createdAt": "2026-09-02T14:32:37.259Z",
+      "episodeId": "episode-008",
+      "mediaType": "application/json",
+      "path": "content/episode-008/media/indexes/prepared-hook/clip-index.json",
+      "producer": "media-understanding-v1:index:v1-8717346634adc070",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "4a8c1559ff7729edceb86f65ab95f7693633e1e417decaef92f3720a9f2b3be5",
+      "sizeBytes": 4308
+    },
+    {
+      "artifactId": "episode-008:media-clip-index:prepared-mechanism",
+      "createdAt": "2026-09-02T14:32:37.766Z",
+      "episodeId": "episode-008",
+      "mediaType": "application/json",
+      "path": "content/episode-008/media/indexes/prepared-mechanism/clip-index.json",
+      "producer": "media-understanding-v1:index:v1-793c072d9f59f5a2",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "ca54caef0c2611d0f8f8e692f212ecc80799ec32e67c1c79fa8bab733a4c2ea0",
+      "sizeBytes": 4555
+    }
+  ],
+  "createdAt": "2026-09-02T14:35:28.997Z",
+  "episodeId": "episode-008",
+  "evidenceMode": "independent-b-roll",
+  "gate": {
+    "claimLedgerValid": true,
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true
+  },
+  "rankingConfig": {
+    "claimlessPenalty": 0.5,
+    "minRelevanceScore": 0.1,
+    "version": "media-retrieval-ranking-v1",
+    "weights": {
+      "claim": 0.4,
+      "duration": 0.05,
+      "lexical": 0.2,
+      "metadata": 0.15,
+      "sourcePreference": 0.1,
+      "visualIntent": 0.1
+    }
+  },
+  "request": {
+    "claimIds": [
+      "claim-lovable-001",
+      "claim-lovable-002",
+      "claim-lovable-004"
+    ],
+    "durationTargetMs": 10000,
+    "episodeId": "episode-008",
+    "narration": "这个情绪记录网页,是用聊天做出来的。Lovable 让不会写代码的人也能开始做应用。可要让它真的用起来,还得补上什么?",
+    "preferredMediaTypes": [
+      "video"
+    ],
+    "schemaVersion": "media-retrieval-request-v1",
+    "segmentId": "seg-002",
+    "topK": 50,
+    "visualIntent": "缩放回官方编辑器 → 展示同一个情绪网页的页面和条目。",
+    "visualTrackMode": "independent-b-roll"
+  },
+  "schemaVersion": "media-retrieval-result-v1",
+  "segmentId": "seg-002"
+}

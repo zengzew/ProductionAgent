@@ -1,0 +1,189 @@
+{
+  "schemaVersion": "story-source-preflight-v2",
+  "candidateId": "lovable-idea-to-working-app",
+  "product": "Lovable",
+  "asOf": "2026-09-02",
+  "sourceStrategy": "single-spine",
+  "storyProfiles": ["founder-journey", "product-mechanism", "cold-start-distribution"],
+  "universalCriteria": {
+    "productOrEventClarity": {
+      "status": "supported",
+      "sourceIds": ["src-lovable-demo"],
+      "notes": "通过自然语言制作可编辑的网页应用。"
+    },
+    "audienceQuestion": {
+      "status": "supported",
+      "sourceIds": ["src-lovable-founder", "src-lovable-gtm"],
+      "notes": "从不会写代码的需求到产品和分发动作。",
+      "text": "Lovable 怎样让有想法但不会写代码的人，开始做自己的应用？"
+    },
+    "storyMotion": {
+      "status": "supported",
+      "sourceIds": ["src-lovable-founder", "src-lovable-gtm"],
+      "notes": "周末原型、可用应用、社区与发布传播。"
+    },
+    "factTraceability": {
+      "status": "supported",
+      "sourceIds": ["src-lovable-founder", "src-lovable-demo", "src-lovable-arr"],
+      "notes": "人物、机制、渠道和数字各有来源。"
+    },
+    "realVisualFeasibility": {
+      "status": "supported",
+      "sourceIds": ["src-lovable-demo", "src-lovable-arr"],
+      "notes": "官方演示含 UI 操作与应用结果；后续必须检查素材字节和竖屏可读性。"
+    },
+    "rightsBoundaryRecorded": true
+  },
+  "sources": [
+    {
+      "id": "src-lovable-founder",
+      "title": "Hitting $100M ARR in eight months with an AI software builder",
+      "publisher": "Indie Hackers",
+      "url": "https://www.indiehackers.com/post/tech/hitting-100m-arr-in-eight-months-with-an-ai-software-builder-ONMaxjB3rix2PnBCnrDr",
+      "sourceType": "founder-interview",
+      "roles": ["spine"],
+      "firstPerson": true,
+      "transcriptAvailable": true,
+      "supports": [
+        "protagonist",
+        "userNeed",
+        "founderDecision",
+        "distribution",
+        "measurableOutcome",
+        "productMechanism"
+      ],
+      "mediaTypes": [],
+      "discoverable": true,
+      "rightsStatus": "not-applicable",
+      "rightsBoundary": "用于研究与简短归纳，来源身份保持为公司或创始人口径。"
+    },
+    {
+      "id": "src-lovable-demo",
+      "title": "Rebranding: GPT Engineer to Lovable",
+      "publisher": "Lovable",
+      "url": "https://lovable.dev/blog/2025-01-13-rebranding-gpt-engineer-to-lovable",
+      "sourceType": "official",
+      "roles": ["verification", "visual"],
+      "firstPerson": false,
+      "transcriptAvailable": false,
+      "supports": ["productMechanism", "userNeed"],
+      "mediaTypes": ["product-demo"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "只确认公开可发现；下载、片段裁剪、本地评估与外部发布的权利须分开确认。"
+    },
+    {
+      "id": "src-lovable-gtm",
+      "title": "Lovable’s two Failed Launches and What we got wrong about PLG",
+      "publisher": "Lovable",
+      "url": "https://lovable.dev/blog/2025-01-28-lovables-two-failed-launches-and-what-we-got-wrong-about-plg",
+      "sourceType": "official",
+      "roles": ["verification"],
+      "firstPerson": false,
+      "transcriptAvailable": false,
+      "supports": ["distribution", "founderDecision", "productMechanism", "turningPoint"],
+      "mediaTypes": [],
+      "discoverable": true,
+      "rightsStatus": "not-applicable",
+      "rightsBoundary": "用于研究与简短归纳，来源身份保持为公司或创始人口径。"
+    },
+    {
+      "id": "src-lovable-arr",
+      "title": "$100M ARR & Lovable Agent",
+      "publisher": "Lovable",
+      "url": "https://lovable.dev/blog/agent",
+      "sourceType": "official",
+      "roles": ["verification", "visual"],
+      "firstPerson": false,
+      "transcriptAvailable": false,
+      "supports": ["measurableOutcome", "marketEvent", "productMechanism"],
+      "mediaTypes": ["product-demo"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "只确认公开可发现；下载、片段裁剪、本地评估与外部发布的权利须分开确认。"
+    },
+    {
+      "id": "src-lovable-funding",
+      "title": "Lovable Raises $200M, Valued at $1.8B, Just Eight Months After Launch",
+      "publisher": "Lovable",
+      "url": "https://lovable.dev/blog/200m-series-a-fundraise",
+      "sourceType": "official",
+      "roles": ["verification"],
+      "firstPerson": false,
+      "transcriptAvailable": false,
+      "supports": ["marketEvent", "measurableOutcome"],
+      "mediaTypes": [],
+      "discoverable": true,
+      "rightsStatus": "not-applicable",
+      "rightsBoundary": "用于研究与简短归纳，来源身份保持为公司或创始人口径。"
+    }
+  ],
+  "storyEvidence": {
+    "protagonist": {
+      "status": "supported",
+      "sourceIds": ["src-lovable-founder"],
+      "notes": "Anton Osika 本人访谈。"
+    },
+    "userNeed": {
+      "status": "supported",
+      "sourceIds": ["src-lovable-founder"],
+      "notes": "有产品想法但不会写代码。"
+    },
+    "productMechanism": {
+      "status": "supported",
+      "sourceIds": ["src-lovable-demo"],
+      "notes": "官方演示通过对话建立应用，并接入登录和数据存储。"
+    },
+    "founderDecision": {
+      "status": "supported",
+      "sourceIds": ["src-lovable-founder"],
+      "notes": "创始人回顾用一个周末做 GPT-Engineer 原型。"
+    },
+    "buildFriction": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "未选择该维度，不补写事实。"
+    },
+    "distribution": {
+      "status": "supported",
+      "sourceIds": ["src-lovable-gtm"],
+      "notes": "Product Hunt 发布材料、X 社区和合作伙伴联动。"
+    },
+    "marketEvent": {
+      "status": "supported",
+      "sourceIds": ["src-lovable-funding"],
+      "notes": "2025 年 7 月宣布两亿美元 A 轮及十八亿美元估值。"
+    },
+    "userBehavior": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "未选择该维度，不补写事实。"
+    },
+    "measurableOutcome": {
+      "status": "supported",
+      "sourceIds": ["src-lovable-arr"],
+      "notes": "2025 年 7 月 23 日公司宣布达到一亿美元 ARR。"
+    },
+    "turningPoint": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "未选择该维度，不补写事实。"
+    }
+  },
+  "keyClaims": [
+    {
+      "claim": "创始人称先用周末制作 GPT-Engineer 原型，获得开发者社区回应。",
+      "sourceIds": ["src-lovable-founder"],
+      "reportingType": "founder-reported",
+      "attributionRequired": true
+    },
+    {
+      "claim": "2025 年 7 月 23 日公司宣布 ARR 达到一亿美元。",
+      "sourceIds": ["src-lovable-arr"],
+      "reportingType": "company-reported",
+      "attributionRequired": true
+    }
+  ],
+  "blockers": [],
+  "notes": "选题为 2024–2025 年的早期产品与获客故事，非 2026 年最新经营数据报道。ready 仅允许建立研究包，不代表素材、内容或交付批准。"
+}

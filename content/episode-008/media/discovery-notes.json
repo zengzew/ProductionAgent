@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "episode-discovery-notes-v1",
+  "episodeId": "episode-008",
+  "status": "blocked-before-formal-discovery",
+  "video": {
+    "url": "https://www.youtube.com/watch?v=47sKfUOqARY",
+    "officialEmbed": "https://lovable.dev/blog/2025-01-13-rebranding-gpt-engineer-to-lovable",
+    "title": "Lovable Livestreams: Full-Stack Engineering & Product Hunt Launch!",
+    "durationSeconds": 4014.021,
+    "proposedWindows": [
+      {
+        "startSeconds": 2539,
+        "endSeconds": 2576,
+        "purpose": "提交记录、刷新、查看数据；时间来自自动字幕，逐帧核验未完成"
+      },
+      {
+        "startSeconds": 1798,
+        "endSeconds": 1812,
+        "purpose": "注册登录；尚未检查画面"
+      }
+    ],
+    "observed": {
+      "currentTime": 2564.835503,
+      "width": 640,
+      "height": 360,
+      "readyState": 4,
+      "screenshot": "content/episode-008/production/logs/demo-observed-42m44s.png",
+      "notes": "已播放后暂停，看到应用记录界面；未完成对提交—刷新动作连续性和竖屏可读性的检查。播放器菜单提供1080p，但本次缓存帧为360p。"
+    },
+    "rightsStatus": "review-required",
+    "admissionStatus": "pending",
+    "downloaded": false
+  },
+  "photo": {
+    "path": "public/episodes/episode-008/assets/lovable-founders.jpg",
+    "sha256": "7fb10f08cd1aca550103ca8d777af287e78c82077c7b87546cbe7cafb6723198",
+    "editorialPermissionEvidence": "content/episode-008/production/logs/brand-photos-rights.png",
+    "formallyAdmitted": false
+  },
+  "notes": "这是发现记录，不是 MediaAsset、片段验证、素材批准或渲染计划。"
+}

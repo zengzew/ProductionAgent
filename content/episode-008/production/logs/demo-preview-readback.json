@@ -1,0 +1,21 @@
+{
+  "sourceUrl": "https://www.youtube.com/watch?v=47sKfUOqARY",
+  "purpose": "temporary research preview; not admitted media, not approved for render",
+  "localFile": "/private/tmp/episode008-source-review.mp4",
+  "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+  "width": 1920,
+  "height": 1080,
+  "durationSeconds": 42,
+  "sourceRangeSeconds": [
+    2535,
+    2577
+  ],
+  "observations": [
+    "Local 11s: record appears with score10 and note I am happy",
+    "Local 17s: refresh white frame, next frame restores same record",
+    "Local 37s: Supabase table has score10 and note matching saved record"
+  ],
+  "cropRequirement": "Crop the application panels and database score/note fields; full desktop illegible in 9:16",
+  "admissionApproved": false,
+  "rightsApproved": false
+}

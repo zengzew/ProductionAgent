@@ -1624,6 +1624,12 @@ describe("WP-M5.05 claim-to-clip retrieval", () => {
       visualIntent: "庆典",
     });
     expect(normalizeRetrievalRequest(other)).toEqual(normalized);
+    const independentRequest = normalizeRetrievalRequest({
+      ...base,
+      visualTrackMode: "independent-b-roll",
+    });
+    expect(independentRequest.visualTrackMode).toBe("independent-b-roll");
+    expect(independentRequest).not.toEqual(normalized);
 
     // Deterministic comparator: score desc → source preference desc → mediaId
     // asc → startMs asc → clipId asc.

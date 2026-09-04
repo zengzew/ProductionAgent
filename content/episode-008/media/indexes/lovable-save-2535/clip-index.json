@@ -1,0 +1,654 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-008:media:lovable-save-2535-proxy",
+    "createdAt": "2026-09-02T14:23:51.502Z",
+    "episodeId": "episode-008",
+    "mediaType": "video/mp4",
+    "path": "content/episode-008/media/assets/lovable-save-2535-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "4f066a10c6082d883726429c5232aedcdd0368d347230f6f48d2d565543784e9",
+    "sizeBytes": 1404300
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-008",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-008:media-clip:b0dfaf366ccf53173a560fab",
+      "endMs": 4000,
+      "entities": [],
+      "episodeId": "episode-008",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-save-2535-0-2000",
+          "createdAt": "2026-09-02T14:33:17.877Z",
+          "episodeId": "episode-008",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/keyframes/keyframe-0-2000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "adbcb409f076d6908f5a894a93057f8051b518c3f53fcbd9774f021da7cb5b1a",
+          "sizeBytes": 152714
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-008:media-scenes:lovable-save-2535",
+          "createdAt": "2026-09-02T14:33:17.707Z",
+          "episodeId": "episode-008",
+          "mediaType": "application/json",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "d77572b2c2e8f7f428a93a5c150efe4a537632204bd4b00403b3b9953796e6ed",
+          "sizeBytes": 2257
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-008:media-clip:10fb5aabe817f9f8805bdaf3",
+      "endMs": 8000,
+      "entities": [],
+      "episodeId": "episode-008",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-save-2535-1-6000",
+          "createdAt": "2026-09-02T14:33:18.000Z",
+          "episodeId": "episode-008",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/keyframes/keyframe-1-6000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "0e399954ca611a5198a3d8556344cf90792bf0c8e0f71ae6c7b0ffa982d93b4e",
+          "sizeBytes": 155967
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-008:media-scenes:lovable-save-2535",
+          "createdAt": "2026-09-02T14:33:17.707Z",
+          "episodeId": "episode-008",
+          "mediaType": "application/json",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "d77572b2c2e8f7f428a93a5c150efe4a537632204bd4b00403b3b9953796e6ed",
+          "sizeBytes": 2257
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "speaker": null,
+      "startMs": 4000,
+      "textSummary": "",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-008:media-clip:6fa81bcfbaf445161e10d4bd",
+      "endMs": 12000,
+      "entities": [],
+      "episodeId": "episode-008",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-save-2535-2-10000",
+          "createdAt": "2026-09-02T14:33:18.104Z",
+          "episodeId": "episode-008",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/keyframes/keyframe-2-10000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "abab05ca4e0e8caa3cc47758d6883d638b838af47f19d03090501d666696dea6",
+          "sizeBytes": 156793
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-008:media-scenes:lovable-save-2535",
+          "createdAt": "2026-09-02T14:33:17.707Z",
+          "episodeId": "episode-008",
+          "mediaType": "application/json",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "d77572b2c2e8f7f428a93a5c150efe4a537632204bd4b00403b3b9953796e6ed",
+          "sizeBytes": 2257
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "speaker": null,
+      "startMs": 8000,
+      "textSummary": "",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-008:media-clip:356d4fa7f50e06582c021eb2",
+      "endMs": 16000,
+      "entities": [],
+      "episodeId": "episode-008",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-save-2535-3-14000",
+          "createdAt": "2026-09-02T14:33:18.241Z",
+          "episodeId": "episode-008",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/keyframes/keyframe-3-14000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "aec1c6a28caf0263add8656ab503d98a8f5f3364b4523bc5e363487cb3c3461e",
+          "sizeBytes": 138646
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-008:media-scenes:lovable-save-2535",
+          "createdAt": "2026-09-02T14:33:17.707Z",
+          "episodeId": "episode-008",
+          "mediaType": "application/json",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "d77572b2c2e8f7f428a93a5c150efe4a537632204bd4b00403b3b9953796e6ed",
+          "sizeBytes": 2257
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "speaker": null,
+      "startMs": 12000,
+      "textSummary": "",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-008:media-clip:29044546e8bfdd0cecce874a",
+      "endMs": 20000,
+      "entities": [],
+      "episodeId": "episode-008",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-save-2535-4-18000",
+          "createdAt": "2026-09-02T14:33:18.352Z",
+          "episodeId": "episode-008",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/keyframes/keyframe-4-18000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "cb4653b162ebb1fd41ed0004efac4a614489ea38d92964c8903a6e181159f44d",
+          "sizeBytes": 154041
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-008:media-scenes:lovable-save-2535",
+          "createdAt": "2026-09-02T14:33:17.707Z",
+          "episodeId": "episode-008",
+          "mediaType": "application/json",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "d77572b2c2e8f7f428a93a5c150efe4a537632204bd4b00403b3b9953796e6ed",
+          "sizeBytes": 2257
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "speaker": null,
+      "startMs": 16000,
+      "textSummary": "",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-008:media-clip:5e8d141f5b0ac116f078c286",
+      "endMs": 24000,
+      "entities": [],
+      "episodeId": "episode-008",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-save-2535-5-22000",
+          "createdAt": "2026-09-02T14:33:18.442Z",
+          "episodeId": "episode-008",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/keyframes/keyframe-5-22000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "aa98f6e990262c7ede30d70791b105e93a9b463d8e8c509cd2dd592b0684a990",
+          "sizeBytes": 159002
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-008:media-scenes:lovable-save-2535",
+          "createdAt": "2026-09-02T14:33:17.707Z",
+          "episodeId": "episode-008",
+          "mediaType": "application/json",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "d77572b2c2e8f7f428a93a5c150efe4a537632204bd4b00403b3b9953796e6ed",
+          "sizeBytes": 2257
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "speaker": null,
+      "startMs": 20000,
+      "textSummary": "",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-008:media-clip:01e38b05c3aa9858d1c86230",
+      "endMs": 28000,
+      "entities": [],
+      "episodeId": "episode-008",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-save-2535-6-26000",
+          "createdAt": "2026-09-02T14:33:18.576Z",
+          "episodeId": "episode-008",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/keyframes/keyframe-6-26000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "03c4ed55e32c146e0f422611b08efa81d9dde575f90dd7b1ef041f1a5f5c0ecb",
+          "sizeBytes": 156575
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-008:media-scenes:lovable-save-2535",
+          "createdAt": "2026-09-02T14:33:17.707Z",
+          "episodeId": "episode-008",
+          "mediaType": "application/json",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "d77572b2c2e8f7f428a93a5c150efe4a537632204bd4b00403b3b9953796e6ed",
+          "sizeBytes": 2257
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "speaker": null,
+      "startMs": 24000,
+      "textSummary": "",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-008:media-clip:2e5325bd4acad5395abe1251",
+      "endMs": 32000,
+      "entities": [],
+      "episodeId": "episode-008",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-save-2535-7-30000",
+          "createdAt": "2026-09-02T14:33:18.669Z",
+          "episodeId": "episode-008",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/keyframes/keyframe-7-30000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "bfb0a672b2af3ebb969ff32d1b5bdc27c1adc1f9d92d9d1ffbb293349a253c3f",
+          "sizeBytes": 156751
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-008:media-scenes:lovable-save-2535",
+          "createdAt": "2026-09-02T14:33:17.707Z",
+          "episodeId": "episode-008",
+          "mediaType": "application/json",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "d77572b2c2e8f7f428a93a5c150efe4a537632204bd4b00403b3b9953796e6ed",
+          "sizeBytes": 2257
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "speaker": null,
+      "startMs": 28000,
+      "textSummary": "",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-008:media-clip:17db7fdd2370824bb81142cf",
+      "endMs": 36000,
+      "entities": [],
+      "episodeId": "episode-008",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-save-2535-8-34000",
+          "createdAt": "2026-09-02T14:33:18.784Z",
+          "episodeId": "episode-008",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/keyframes/keyframe-8-34000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "2b19748e1acd1b28cfc51e036e3cd1b04fba086459929cc52756ea06dcb909ac",
+          "sizeBytes": 42726
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-008:media-scenes:lovable-save-2535",
+          "createdAt": "2026-09-02T14:33:17.707Z",
+          "episodeId": "episode-008",
+          "mediaType": "application/json",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "d77572b2c2e8f7f428a93a5c150efe4a537632204bd4b00403b3b9953796e6ed",
+          "sizeBytes": 2257
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "speaker": null,
+      "startMs": 32000,
+      "textSummary": "",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-008:media-clip:fb6dfed47f6b650c37e00b48",
+      "endMs": 40000,
+      "entities": [],
+      "episodeId": "episode-008",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-save-2535-9-38000",
+          "createdAt": "2026-09-02T14:33:18.877Z",
+          "episodeId": "episode-008",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/keyframes/keyframe-9-38000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "665d781ca41e9f0da6a80f0bb5ec26e0998d23833a74f9dd0e1b014dfb63e04a",
+          "sizeBytes": 72292
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-008:media-scenes:lovable-save-2535",
+          "createdAt": "2026-09-02T14:33:17.707Z",
+          "episodeId": "episode-008",
+          "mediaType": "application/json",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "d77572b2c2e8f7f428a93a5c150efe4a537632204bd4b00403b3b9953796e6ed",
+          "sizeBytes": 2257
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "speaker": null,
+      "startMs": 36000,
+      "textSummary": "",
+      "transcriptRefs": []
+    },
+    {
+      "clipId": "episode-008:media-clip:513eaf5970eace74954a7300",
+      "endMs": 42000,
+      "entities": [],
+      "episodeId": "episode-008",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-008:media-keyframe:lovable-save-2535-10-41000",
+          "createdAt": "2026-09-02T14:33:18.993Z",
+          "episodeId": "episode-008",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/keyframes/keyframe-10-41000.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "8aa10d1a8e38e38a0a9428195002cf31e329a7c5263f317d8ce9ca0ecdbbe972",
+          "sizeBytes": 76332
+        }
+      ],
+      "keywords": [],
+      "mediaRef": {
+        "artifactId": "episode-008:media:lovable-save-2535",
+        "createdAt": "2026-09-02T14:23:43.057Z",
+        "episodeId": "episode-008",
+        "mediaType": "video/mp4",
+        "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+        "sizeBytes": 1886835
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-008:media-scenes:lovable-save-2535",
+          "createdAt": "2026-09-02T14:33:17.707Z",
+          "episodeId": "episode-008",
+          "mediaType": "application/json",
+          "path": "content/episode-008/media/indexes/lovable-save-2535/scenes.json",
+          "producer": "media-understanding-v1:scenes:scene-detector-v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "d77572b2c2e8f7f428a93a5c150efe4a537632204bd4b00403b3b9953796e6ed",
+          "sizeBytes": 2257
+        }
+      ],
+      "semanticTags": [],
+      "sourceSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+      "speaker": null,
+      "startMs": 40000,
+      "textSummary": "",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-008:media:lovable-save-2535",
+  "mediaRef": {
+    "artifactId": "episode-008:media:lovable-save-2535",
+    "createdAt": "2026-09-02T14:23:43.057Z",
+    "episodeId": "episode-008",
+    "mediaType": "video/mp4",
+    "path": "content/episode-008/media/assets/lovable-save-2535.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+    "sizeBytes": 1886835
+  },
+  "sceneDetector": "deterministic-boundaries",
+  "sceneDetectorVersion": "scene-detector-v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "deterministic-content",
+  "semanticAdapterVersion": "semantic-adapter-v1",
+  "semanticAvailability": "available",
+  "sourceSha256": "6af45ce35b69b225a742a197a0b7981118f6aa06f542888a8a10f9e51fbb9627",
+  "transcriptAvailability": "unavailable"
+}

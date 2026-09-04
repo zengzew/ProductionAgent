@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "a130ab01ef79774c733ffda0d27b1bba3c56d00c812c1ed3128f9b58d75518de",
+  "completedAt": "2026-09-02T14:39:14.071Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.95,
+    "claimMatch": 0.91,
+    "visualQuality": 0.83,
+    "misleadingRisk": 0.12,
+    "observedActions": [
+      "01节选显示登录表单与Sign in按钮操作；随后剪切到不同来源时点的已登录应用",
+      "02节选中填写心情并提交，页面Historical Data Logs由无记录变为Score 10/10及I’m happy记录",
+      "03节选呈现数据库score=10及note=I’m happy，和页面对应"
+    ],
+    "observedEntities": [
+      "Mood Matrix",
+      "Lovable",
+      "数据库记录"
+    ],
+    "observedText": [
+      "让网页真正用起来",
+      "01 登录进入应用",
+      "02 填写并保存",
+      "03 对照数据库记录",
+      "Historical Data Logs",
+      "Score: 10/10",
+      "I'm happy",
+      "score",
+      "note",
+      "Lovable · 2024 官方演示节选"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 8000,
+    "reasons": [
+      "实际查看本次request的keyframe-0-4000.jpg与从本次8秒clip抽取的request-seg-004-timed.jpg时间序列；新版确实在8秒内包含页面新增行和数据库对应行。不是沿用12.6秒旧clip结果。",
+      "保留三个编号节选和官方来源，不表示三个来源时点是一次连续操作。登录窗口来自1794秒起local0–2.4，保存来自2535秒起local9.5–12.5，数据库来自同源local37–39.6，详见vertical-edit-recipe.json。",
+      "0–8000ms可用；最终镜头至少须播放到数据库段（约5.4秒起），字幕不得遮挡页面历史行。语音与动作精确同步仍由最终成片检查，当前核验仅限本地评估素材。"
+    ]
+  }
+}

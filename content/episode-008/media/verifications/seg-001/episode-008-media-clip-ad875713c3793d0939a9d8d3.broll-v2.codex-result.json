@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "3f59796b379059edbe7070d26b9c26d760e3b5b97071b90166219d2d252b4356",
+  "completedAt": "2026-09-02T14:36:34.674Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.96,
+    "claimMatch": 0.89,
+    "visualQuality": 0.79,
+    "misleadingRisk": 0.09,
+    "observedActions": [
+      "初始帧已存在Historical Data Logs记录",
+      "中段短暂白屏加载后相同记录重新出现，证明此次演示中的保存持续存在"
+    ],
+    "observedEntities": [
+      "Mood Matrix",
+      "Lovable"
+    ],
+    "observedText": [
+      "记下心情，刷新还在",
+      "保存结果 → 刷新 → 记录保留",
+      "Historical Data Logs",
+      "Lovable · 2024 官方演示节选"
+    ],
+    "reasons": [
+      "实际查看请求中keyframe-0-1800.jpg，该帧是刷新白屏，单帧不能证明保存；另从同一request clip抽取request-seg-001.jpg时间序列，确认前后记录与布局一致。",
+      "推荐保留完整0–3600ms含刷新前后；白屏是实际加载不是丢失画面。首帧已有结果，不可从1800ms白屏起播。",
+      "竖屏中央UI可辨识，具体小字比标题小；最终不要裁掉下部历史记录。仅官方演示本地评估，不证明本次自建或任意应用可靠性。"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 3600
+  }
+}

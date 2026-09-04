@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "e008-local-evaluation-lovable-founders-media-admission",
+  "gate": "media-admission",
+  "decision": "approve",
+  "reviewer": "zengze",
+  "timestamp": "2026-09-02T14:23:42.937Z",
+  "reason": "用户在已说明官方来源与待准入状态后要求继续未完成工作，承接最终MP4目标。范围仅本地评估、署名和必要短片节选；不表示外部发布权利终审。",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-008:media:source-manifest",
+      "episodeId": "episode-008",
+      "path": "content/episode-008/media/source-manifest.json",
+      "mediaType": "application/json",
+      "schemaVersion": "media-source-manifest-v1",
+      "revision": 1,
+      "sha256": "fcda4c007b51c101f355c90069ae8f42c71bf2874d86034cf4692da0838d5522",
+      "sizeBytes": 2964,
+      "producer": "manual-source-review",
+      "createdAt": "2026-09-02T14:23:42.937Z"
+    }
+  ],
+  "approvalEpoch": 0,
+  "authorizations": [],
+  "edits": []
+}

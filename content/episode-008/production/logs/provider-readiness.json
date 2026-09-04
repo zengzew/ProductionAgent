@@ -1,0 +1,6 @@
+{
+  "minimaxCredentialPresent": true,
+  "edgeTtsExecutablePresent": true,
+  "synthesisAttempted": false,
+  "reason": "Story review gates pending; presence checks do not prove provider connectivity."
+}

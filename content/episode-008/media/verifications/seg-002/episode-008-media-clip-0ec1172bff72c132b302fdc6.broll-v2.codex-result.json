@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "codex-media-verification-result-v1",
+  "executor": "codex",
+  "model": "gpt-5.6",
+  "requestHash": "33b6f6f964456a2ef52009f58ec87c43ddc13cb3690d3908b69eb138f2a9c4cd",
+  "completedAt": "2026-09-02T14:36:34.683Z",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.91,
+    "claimMatch": 0.79,
+    "visualQuality": 0.84,
+    "misleadingRisk": 0.12,
+    "observedActions": [
+      "聊天框逐步输入Just add login",
+      "同一请求进入已发送气泡，底部出现等待反馈的点",
+      "镜头切回Mood Matrix心情记录表单"
+    ],
+    "observedEntities": [
+      "Lovable",
+      "Mood Matrix"
+    ],
+    "observedText": [
+      "用聊天，添加功能",
+      "输入请求",
+      "发送 → 出现反馈",
+      "Just add login",
+      "同一个心情记录应用",
+      "Lovable · 2024 官方演示节选"
+    ],
+    "reasons": [
+      "实际查看请求keyframe-0-6000.jpg及从同一request clip抽取request-seg-002.jpg时间序列；可见真实输入、发送和应用页面，不只依据准备脚本的标签。",
+      "该窗口证明通过聊天提出修改请求，不展示此次登录功能生成完成；最后应用页面是同一演示的节选，不宣称输入一句话立即得到完整产品。",
+      "文字和输入框竖屏可读；无需观众理解背景英文整段。0–12000ms可用，宜保留至少输入和发送两部分；只是本地评估许可。"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 12000
+  }
+}
