@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-012",
+  "segmentId": "seg-003",
+  "clipId": "episode-012:media-clip:939f3c4a1913afd052b9f250",
+  "claimIds": [
+    "claim-pr-003"
+  ],
+  "claims": [
+    {
+      "id": "claim-pr-003",
+      "claim": "Rouif说学完课程后遇到Eliot Andres，两人用两周做出第一版Photoroom。"
+    }
+  ],
+  "narration": "他和工程师埃利奥特搭档,两周就做出了第一版Photoroom。",
+  "visualIntent": "同一合照配Eliot Andres原名和“两周·创始人回忆”,不是当年开发现场。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/verifications/seg-003/episode-012-media-clip-939f3c4a1913afd052b9f250-clip.mp4",
+    "sha256": "3f4332cb0a1c0fcf62e9eed001bee89bfb403d825f8d299367eb018e182b412b",
+    "sizeBytes": 324999,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 5033,
+    "sourceMediaId": "episode-012:media:seg-003-3f05572b6606",
+    "sourceMediaSha256": "3f05572b660677ccf4a379f456365d1a9b29044c75a95a1484a9f5e24e50c41a"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/indexes/seg-003-3f05572b6606/keyframes/keyframe-0-2516.jpg",
+      "timestampMs": 2516,
+      "sha256": "1a1c14931249d453e0339fe54bffa415400f344d6ac5845da242106e38e19e10",
+      "sizeBytes": 108532,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "人物合照配两周首版历史回忆，明确初版去背景而非现行全部功能。",
+    "observedText": "",
+    "keywords": [
+      "seg-003",
+      "Photoroom",
+      "founder",
+      "attributed-local-evaluation"
+    ],
+    "entities": [
+      "Photoroom"
+    ],
+    "semanticTags": [
+      "attributed-source-excerpt",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "04ef5a47b59f6f24a4c85c1caea1a9fb320c7e65c69d179b42b0b1eeaea1b3a2"
+}

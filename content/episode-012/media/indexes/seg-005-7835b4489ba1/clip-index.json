@@ -1,0 +1,115 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-012:media:seg-005-7835b4489ba1-proxy",
+    "createdAt": "2026-10-25T14:55:49.840Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/assets/seg-005-7835b4489ba1-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "a6218a6ebf544c494398597d10424a2ad3e0ac374c8a0608cbeec2f3be29530a",
+    "sizeBytes": 281699
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-012",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-012:media-clip:1b0d4fc8e6129699e5d8bd3f",
+      "endMs": 6900,
+      "entities": [
+        "Photoroom"
+      ],
+      "episodeId": "episode-012",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-012:media-keyframe:seg-005-7835b4489ba1-0-3450",
+          "createdAt": "2026-10-25T14:55:53.226Z",
+          "episodeId": "episode-012",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-012/media/indexes/seg-005-7835b4489ba1/keyframes/keyframe-0-3450.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "e3d820847cc09acd7fbdd7f6920c78626eb3f39e02e70b338168cd90df09e111",
+          "sizeBytes": 52247
+        }
+      ],
+      "keywords": [
+        "seg-005",
+        "Photoroom",
+        "trust",
+        "attributed-local-evaluation"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-012:media:seg-005-7835b4489ba1",
+        "createdAt": "2026-10-25T14:55:49.077Z",
+        "episodeId": "episode-012",
+        "mediaType": "video/mp4",
+        "path": "content/episode-012/media/assets/seg-005-7835b4489ba1.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "7835b4489ba1a78953e30753e7a6f64dda45a739d2edaacf8142c645a06c5fe0",
+        "sizeBytes": 590530
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-012:media-scenes:seg-005-7835b4489ba1",
+          "createdAt": "2026-10-25T14:55:53.158Z",
+          "episodeId": "episode-012",
+          "mediaType": "application/json",
+          "path": "content/episode-012/media/indexes/seg-005-7835b4489ba1/scenes.json",
+          "producer": "media-understanding-v1:scenes:v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "35f54b338589024108eeb5395b799e5d20eae650b435e1c04b09fe8c52419b76",
+          "sizeBytes": 1447
+        }
+      ],
+      "semanticTags": [
+        "attributed-source-excerpt",
+        "local-evaluation",
+        "measured"
+      ],
+      "sourceSha256": "7835b4489ba1a78953e30753e7a6f64dda45a739d2edaacf8142c645a06c5fe0",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "Stripe创始人商品保真取向的编辑转述，随后官网商品白底示例；不是每次生成准确率保证。",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-012:media:seg-005-7835b4489ba1",
+  "mediaRef": {
+    "artifactId": "episode-012:media:seg-005-7835b4489ba1",
+    "createdAt": "2026-10-25T14:55:49.077Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/assets/seg-005-7835b4489ba1.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "7835b4489ba1a78953e30753e7a6f64dda45a739d2edaacf8142c645a06c5fe0",
+    "sizeBytes": 590530
+  },
+  "sceneDetector": "bounded-reference-excerpt",
+  "sceneDetectorVersion": "v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-observed-reference",
+  "semanticAdapterVersion": "7835b4489ba1a789",
+  "semanticAvailability": "available",
+  "sourceSha256": "7835b4489ba1a78953e30753e7a6f64dda45a739d2edaacf8142c645a06c5fe0",
+  "transcriptAvailability": "unavailable"
+}

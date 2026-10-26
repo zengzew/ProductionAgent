@@ -1,4 +1,5 @@
 import {z} from "zod";
+import {referenceStorySchema} from "./reference-story";
 
 export const episodeConfigSchema = z.object({
   schemaVersion: z.literal("episode-config-v2"),
@@ -11,6 +12,7 @@ export const episodeConfigSchema = z.object({
   production: z.object({
     timelineTailSeconds: z.record(z.string().regex(/^seg-[a-z0-9-]+$/u), z.number().nonnegative()),
     hookAttributionSubjects: z.array(z.string().min(1)).min(1),
+    referenceStory: referenceStorySchema.optional(),
   }),
   selection: z.string().min(1),
   selectionReason: z.string().min(1),

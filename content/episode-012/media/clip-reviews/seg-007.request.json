@@ -1,0 +1,60 @@
+{
+  "episodeId": "episode-012",
+  "segmentId": "seg-007",
+  "clipId": "episode-012:media-clip:a52f6c1bbc3c4fb80313648d",
+  "claimIds": [
+    "claim-pr-006",
+    "claim-pr-007"
+  ],
+  "claims": [
+    {
+      "id": "claim-pr-006",
+      "claim": "同一访谈13:24至14:21，Lemarie说团队在TikTok展示去背景效果，发现自发使用并发布内容的人后联系合作。"
+    },
+    {
+      "id": "claim-pr-007",
+      "claim": "访谈16:21至17:36说明，合作更重视创作者的内容，优质素材会用于Facebook、Instagram、YouTube和TikTok付费广告。"
+    }
+  ],
+  "narration": "他们联系主动发布演示的用户合作,再把好内容拿去投广告。",
+  "visualIntent": "访谈14:21、16:21、17:36中文转述,清楚写“创作者合作→广告素材”;编辑排版,不装作真实投放画面。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/verifications/seg-007/episode-012-media-clip-a52f6c1bbc3c4fb80313648d-clip.mp4",
+    "sha256": "bc7c96e3c2105f1dd04b8504106ba965e2e0b29ef19e57ba660e1b3278473305",
+    "sizeBytes": 120907,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 4267,
+    "sourceMediaId": "episode-012:media:seg-007-59d25de792b0",
+    "sourceMediaSha256": "59d25de792b0fea069202535ae5af37551e5359c58a35051b8763168199b6dc5"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/indexes/seg-007-59d25de792b0/keyframes/keyframe-0-2133.jpg",
+      "timestampMs": 2133,
+      "sha256": "23007cee1aee5f9e0043726297fcfa9157aa275a4263c24e4c7ca4c0d9292a39",
+      "sizeBytes": 62983,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "原访谈合作创作者、选择内容及社交广告素材的编辑转述，未造投放后台。",
+    "observedText": "",
+    "keywords": [
+      "seg-007",
+      "Photoroom",
+      "growth",
+      "attributed-local-evaluation"
+    ],
+    "entities": [
+      "Photoroom"
+    ],
+    "semanticTags": [
+      "attributed-source-excerpt",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "83e4603ac2215b14035ea3d913fcc614c9f2041e8b59d311b25967add272af9e"
+}

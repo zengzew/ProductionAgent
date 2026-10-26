@@ -30,7 +30,6 @@ export * from "./graph/content-subgraph";
 export * from "./graph/main-graph";
 export * from "./graph/production-subgraph";
 export * from "./graph/media-lifecycle";
-export * from "./legacy-import";
 export * from "./observability";
 export * from "./observability-gate";
 export * from "./production";

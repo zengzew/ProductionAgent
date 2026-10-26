@@ -1,0 +1,25 @@
+{
+  "requestHash": "1eb2371d86460bb81780db7f7fa053a6388456ed1ec5b4be4f30420aec1aa72b",
+  "completedAt": "2026-10-16T01:35:38.236669+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.94,
+    "claimMatch": 0.92,
+    "visualQuality": 0.88,
+    "misleadingRisk": 0.07,
+    "observedActions": [
+      "Cal AI产品的宣传候选，原片历史演示；不等于现场输入与生成。"
+    ],
+    "observedEntities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "observedText": [],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 2667,
+    "reasons": [
+      "当前制作会话检查原片与派生片段首中尾抽帧；网址采用全幅以避免截字，结尾更换黑屏过渡窗口。不是独立Delivery或用户批准。",
+      "URL为原片官网宣传动效；Reddit标题局部静帧裁除用户数字；人物配图不冒充客户通话；排期停帧与步骤省略须显式标注。"
+    ]
+  }
+}

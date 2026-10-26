@@ -1,0 +1,100 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-010:media-visual-slot:seg-005",
+    "createdAt": "2026-10-20T11:35:26.289Z",
+    "episodeId": "episode-010",
+    "mediaType": "application/json",
+    "path": "content/episode-010/media/selections/seg-005.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "3121723223006f6166bdcc31f5eeaa90dfd7cb11198f4e9dde4c60fd53ad6d89",
+    "sizeBytes": 3308
+  },
+  "claimIds": [
+    "claim-granola-001",
+    "claim-granola-002"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.85,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": false
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0,
+      "durationSuitability": 0.1,
+      "misleadingRiskSafety": 0.15,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.15,
+      "verificationClaimMatch": 0,
+      "verificationRelevance": 0.05,
+      "visualIntentFit": 0.15,
+      "visualQuality": 0.25
+    }
+  },
+  "createdAt": "2026-10-20T11:35:26.289Z",
+  "episodeId": "episode-010",
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true,
+    "verificationPassed": true
+  },
+  "reasons": [
+    "segment seg-005 claim-bound with 2 claim(s)",
+    "retrieval result episode-010:media-retrieval:seg-005 produced 6 candidate(s)",
+    "1 candidate(s) carry a valid pass verification",
+    "selected episode-010:media-clip:b335167b5b2fb51bc8accb85 score 0.719250 (claimFit=0.000, relevance=0.950, claimMatch=0.940, quality=0.880, risk=0.080, tie-breaker=score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-005",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-granola-001",
+      "claim-granola-002"
+    ],
+    "clipId": "episode-010:media-clip:b335167b5b2fb51bc8accb85",
+    "createdAt": "2026-10-20T11:35:25.907Z",
+    "endMs": 8400,
+    "episodeId": "episode-010",
+    "mediaId": "episode-010:media:seg-005-8483c5e80015",
+    "sourceMediaRef": {
+      "artifactId": "episode-010:media:seg-005-8483c5e80015",
+      "createdAt": "2026-10-20T11:01:29.172Z",
+      "episodeId": "episode-010",
+      "mediaType": "video/mp4",
+      "path": "content/episode-010/media/assets/seg-005-8483c5e80015.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "8483c5e800150b82e61a79feb827932ad86d30382352fc742a0af2a8b97258fc",
+      "sizeBytes": 111381
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "同段官方演示展示分层笔记与Next steps,缩小到笔记区域,保留标题与原词。"
+  },
+  "selectedType": "real-media",
+  "selectionScore": 0.71925,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-010:media-visual-slot:seg-005",
+  "verificationRef": {
+    "artifactId": "episode-010:media-verification:seg-005-episode-010-media-clip-b335167b5b2fb51bc8accb85",
+    "createdAt": "2026-10-20T11:35:25.916Z",
+    "episodeId": "episode-010",
+    "mediaType": "application/json",
+    "path": "content/episode-010/media/verifications/seg-005/episode-010-media-clip-b335167b5b2fb51bc8accb85.json",
+    "producer": "media-verification-v1:codex:granola-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "dc4671396e30da83252466aaec96ba05c8db21e2e518a14e2c7b5635fc419ed8",
+    "sizeBytes": 4615
+  },
+  "visualIntent": "同段官方演示展示分层笔记与Next steps,缩小到笔记区域,保留标题与原词。"
+}

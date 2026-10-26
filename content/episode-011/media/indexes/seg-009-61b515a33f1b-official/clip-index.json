@@ -1,0 +1,118 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-011:media:seg-009-61b515a33f1b-official-proxy",
+    "createdAt": "2026-10-20T09:26:18.979Z",
+    "episodeId": "episode-011",
+    "mediaType": "video/mp4",
+    "path": "content/episode-011/media/assets/seg-009-61b515a33f1b-official-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "cef101903e4c39c8c4fdeda6c14e63caf4ffea941143a060f8d4af12949182f1",
+    "sizeBytes": 886467
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-011",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-011:media-clip:3e68cd5e9350196072c19276",
+      "endMs": 7200,
+      "entities": [
+        "Gamma",
+        "Holographic Technology"
+      ],
+      "episodeId": "episode-011",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-011:media-keyframe:seg-009-61b515a33f1b-official-0-3600",
+          "createdAt": "2026-10-20T09:26:20.197Z",
+          "episodeId": "episode-011",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-011/media/indexes/seg-009-61b515a33f1b-official/keyframes/keyframe-0-3600.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "3bdb17d30664eecc1b7f389ba64f4a457bd256a3e954c958808088b49c07a3ba",
+          "sizeBytes": 57018
+        }
+      ],
+      "keywords": [
+        "seg-009",
+        "Gamma",
+        "Agent",
+        "Holographic Technology",
+        "layout",
+        "diagram"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-011:media:seg-009-61b515a33f1b-official",
+        "createdAt": "2026-10-20T09:26:18.038Z",
+        "episodeId": "episode-011",
+        "mediaType": "video/mp4",
+        "path": "content/episode-011/media/assets/seg-009-61b515a33f1b-official.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "61b515a33f1b61705f912eebc90417702e4fbcd3671d7c08c60d1f9a0fdaea63",
+        "sizeBytes": 2205394
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-011:media-scenes:seg-009-61b515a33f1b-official",
+          "createdAt": "2026-10-20T09:26:20.106Z",
+          "episodeId": "episode-011",
+          "mediaType": "application/json",
+          "path": "content/episode-011/media/indexes/seg-009-61b515a33f1b-official/scenes.json",
+          "producer": "media-understanding-v1:scenes:v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "e1be36a2edbbc2c280b7c0b9b05e63c20cb7b5c117f3878b8f7afe02fccdd855",
+          "sizeBytes": 1493
+        }
+      ],
+      "semanticTags": [
+        "official-product-demo",
+        "local-evaluation",
+        "measured"
+      ],
+      "sourceSha256": "61b515a33f1b61705f912eebc90417702e4fbcd3671d7c08c60d1f9a0fdaea63",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "回看2025官方文字变图演示，结果停帧供理解“已有稿可修改”，不宣称持续生成或实测省时。",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-011:media:seg-009-61b515a33f1b-official",
+  "mediaRef": {
+    "artifactId": "episode-011:media:seg-009-61b515a33f1b-official",
+    "createdAt": "2026-10-20T09:26:18.038Z",
+    "episodeId": "episode-011",
+    "mediaType": "video/mp4",
+    "path": "content/episode-011/media/assets/seg-009-61b515a33f1b-official.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "61b515a33f1b61705f912eebc90417702e4fbcd3671d7c08c60d1f9a0fdaea63",
+    "sizeBytes": 2205394
+  },
+  "sceneDetector": "bounded-reference-excerpt",
+  "sceneDetectorVersion": "v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-observed-reference",
+  "semanticAdapterVersion": "61b515a33f1b6170",
+  "semanticAvailability": "available",
+  "sourceSha256": "61b515a33f1b61705f912eebc90417702e4fbcd3671d7c08c60d1f9a0fdaea63",
+  "transcriptAvailability": "unavailable"
+}

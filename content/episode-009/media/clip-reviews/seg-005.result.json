@@ -1,0 +1,24 @@
+{
+  "requestHash": "c0e84e51a0d448d461bac22e7788b9598c5734ccf79e8a9eda66f40941154b14",
+  "completedAt": "2026-10-15T03:26:39.563671+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.8,
+    "claimMatch": 0.65,
+    "visualQuality": 0.88,
+    "misleadingRisk": 0.06,
+    "observedActions": [
+      "创始人Gaurav本人采访画面，为本人营销困难自述配图；不是用户实测。"
+    ],
+    "observedEntities": [
+      "Gaurav Thapa"
+    ],
+    "observedText": [],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 4733,
+    "reasons": [
+      "当前Codex制作会话实际检查原片与派生窗口抽帧；见media/prepared-check及排期814秒原帧。不是独立Delivery批准。",
+      "来源标示历史采访；输入/生成未实演，访谈配图不是客户现场；排期选项停帧供阅读，不证明上线。"
+    ]
+  }
+}

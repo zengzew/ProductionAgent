@@ -1,0 +1,27 @@
+{
+  "requestHash": "d6cfe9a2fd44fafb036f464d0d6170c6c350f78a40d1553dd5693b7ec9231e86",
+  "completedAt": "2026-10-25T14:58:03.430152+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.9,
+    "claimMatch": 0.9,
+    "visualQuality": 0.85,
+    "misleadingRisk": 0.15,
+    "observedActions": [
+      "Stripe创始人商品保真取向的编辑转述，随后官网商品白底示例；不是每次生成准确率保证。"
+    ],
+    "observedEntities": [
+      "Photoroom"
+    ],
+    "observedText": [
+      "背景可以变",
+      "商品细节与瑕疵，要留下"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 6900,
+    "reasons": [
+      "本制作会话已查看当前prepared片段的多点抽帧及当前核验请求所指向的关键帧联系表；这是同会话视觉核对，非独立Delivery或有声观看。",
+      "界面入口裁切可读，人物与日期可见；中文转述卡标编辑排版，官网演示不当本次实测，历史访谈不当当前政策。"
+    ]
+  }
+}

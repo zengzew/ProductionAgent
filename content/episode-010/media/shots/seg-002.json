@@ -1,0 +1,129 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-010:media-shot:seg-002",
+    "createdAt": "2026-10-20T11:35:26.524Z",
+    "episodeId": "episode-010",
+    "mediaType": "application/json",
+    "path": "content/episode-010/media/shots/seg-002.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-shot-v1",
+    "sha256": "c19b3cb07ed56c9bf822933690b8e69a5e4c644abb94c48acae6cc12f7c9f093",
+    "sizeBytes": 2893
+  },
+  "audio": {
+    "ducking": {
+      "attackMs": 0,
+      "enabled": false,
+      "reductionDb": 0,
+      "releaseMs": 0
+    },
+    "fadeInMs": 0,
+    "fadeOutMs": 0,
+    "narrationGain": 1,
+    "originalAudioGain": 0
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "referenceStory": {
+      "claimIds": [
+        "claim-granola-001",
+        "claim-granola-002"
+      ],
+      "headline": "Granola 随手记，AI补全",
+      "profile": "golden-reference-v1",
+      "resultLine": "重点由你来定，细节交给AI"
+    },
+    "timelineSha256": "bfeb13e228c6e5408b2d8f1a689358523cd87c755969eb2e9375bdd35956c3f9",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-10-20T11:35:26.523Z",
+  "crossfadeMs": 0,
+  "durationFrames": 231,
+  "endSeconds": 11.162042000000001,
+  "episodeId": "episode-010",
+  "evidenceImageAssetId": null,
+  "evidenceImagePath": null,
+  "evidenceImageSha256": null,
+  "fade": {
+    "inMs": 0,
+    "outMs": 0
+  },
+  "fallbackImageAssetId": "granola-still-0",
+  "fallbackImagePath": "episodes/episode-010/media/founder.png",
+  "fallbackImageSha256": "5f9f8ad9c17d6feacc233b1318524104c44266f4b4252a77dd3ab6dbd30d93f4",
+  "fallbackReason": "approved editorial still selected for seg-002",
+  "fallbackType": null,
+  "gate": {
+    "clipVerified": false,
+    "episodeIsolated": true,
+    "hashesValid": true,
+    "rightsApproved": false,
+    "slotValid": false,
+    "timestampsValid": false
+  },
+  "lineage": null,
+  "overlays": {
+    "badge": null,
+    "captionsEnabled": true,
+    "sourceLabel": "官网创始人照片＋真实页面局部 · 2024-05-22"
+  },
+  "reasons": [
+    "scene seg-002 at frame 104 (231 frames, 30 fps)",
+    "fallback none: approved editorial still selected for seg-002",
+    "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+  ],
+  "renderProxyMediaType": null,
+  "renderProxyRef": null,
+  "sceneIndex": 1,
+  "schemaVersion": "media-shot-v1",
+  "segmentId": "seg-002",
+  "selectedMediaClipRef": null,
+  "shotId": "episode-010:media-shot:seg-002",
+  "startFrame": 104,
+  "startSeconds": 3.4650420000000004,
+  "staticFilePath": null,
+  "transform": {
+    "freezeFrameMs": null,
+    "pip": null,
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "reframe": {
+      "crop": {
+        "height": 1,
+        "width": 1,
+        "x": 0,
+        "y": 0
+      },
+      "mode": "cover"
+    },
+    "scale": 1,
+    "zoomPan": {
+      "end": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "start": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "type": "none"
+    }
+  },
+  "trim": null,
+  "verificationRef": null,
+  "visualType": "official-screenshot"
+}

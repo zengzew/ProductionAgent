@@ -1,0 +1,227 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 1.8504761904761904,
+    "startFrame": 0,
+    "endFrame": 56,
+    "text": "产品有了，宣传视频怎么拍"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-002",
+    "startSeconds": 2.0705,
+    "endSeconds": 4.071301209372638,
+    "startFrame": 62,
+    "endFrame": 122,
+    "text": "Fastlane把产品链接"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 4.071301209372638,
+    "endSeconds": 5.302563492063491,
+    "startFrame": 122,
+    "endFrame": 159,
+    "text": "变成一组营销内容"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-003",
+    "startSeconds": 5.522604,
+    "endSeconds": 6.663332291316527,
+    "startFrame": 166,
+    "endFrame": 200,
+    "text": "一张张滑着挑"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-003",
+    "startSeconds": 6.663332291316527,
+    "endSeconds": 8.754667492063492,
+    "startFrame": 200,
+    "endFrame": 263,
+    "text": "不喜欢就跳过喜欢就留下"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-004",
+    "startSeconds": 8.974708,
+    "endSeconds": 10.720694394557823,
+    "startFrame": 269,
+    "endFrame": 322,
+    "text": "挑好内容再选账号"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-004",
+    "startSeconds": 10.720694394557823,
+    "endSeconds": 12.397714802721088,
+    "startFrame": 322,
+    "endFrame": 372,
+    "text": "现在发还是排到以后"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-004",
+    "startSeconds": 12.397714802721088,
+    "endSeconds": 13.449052671201812,
+    "startFrame": 372,
+    "endFrame": 403,
+    "text": "也能在这里选"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-005",
+    "startSeconds": 13.731083,
+    "endSeconds": 15.643716874062445,
+    "startFrame": 412,
+    "endFrame": 469,
+    "text": "这也是创始人自己的难题"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-005",
+    "startSeconds": 15.643716874062445,
+    "endSeconds": 16.686971714460142,
+    "startFrame": 469,
+    "endFrame": 501,
+    "text": "应用做出来了"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-005",
+    "startSeconds": 16.686971714460142,
+    "endSeconds": 18.25185397505669,
+    "startFrame": 501,
+    "endFrame": 548,
+    "text": "却卡在怎么让人看见"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-006",
+    "startSeconds": 18.471875,
+    "endSeconds": 20.639965986394557,
+    "startFrame": 554,
+    "endFrame": 619,
+    "text": "找第一批用户他们去Reddit"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-006",
+    "startSeconds": 20.639965986394557,
+    "endSeconds": 21.651741780045352,
+    "startFrame": 619,
+    "endFrame": 650,
+    "text": "和社交平台找人"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-006",
+    "startSeconds": 21.651741780045352,
+    "endSeconds": 23.097135770975058,
+    "startFrame": 650,
+    "endFrame": 693,
+    "text": "再发邮件约报名者通话"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-007",
+    "startSeconds": 23.317167,
+    "endSeconds": 25.03506702957705,
+    "startFrame": 700,
+    "endFrame": 751,
+    "text": "应用里还放了个预约按钮"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-007",
+    "startSeconds": 25.03506702957705,
+    "endSeconds": 26.90913978911565,
+    "startFrame": 751,
+    "endFrame": 807,
+    "text": "聊一次，就多送七天使用时间"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-008",
+    "startSeconds": 27.129167000000002,
+    "endSeconds": 29.185580289953666,
+    "startFrame": 814,
+    "endFrame": 876,
+    "text": "通话时让对方共享屏幕"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-008",
+    "startSeconds": 29.185580289953666,
+    "endSeconds": 31.858917566893428,
+    "startFrame": 876,
+    "endFrame": 956,
+    "text": "少说话先看人卡在哪再改界面"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-009",
+    "startSeconds": 32.078959000000005,
+    "endSeconds": 34.15848525152626,
+    "startFrame": 962,
+    "endFrame": 1025,
+    "text": "收入呢？二零二六年四月"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-009",
+    "startSeconds": 34.15848525152626,
+    "endSeconds": 36.389673111285546,
+    "startFrame": 1025,
+    "endFrame": 1092,
+    "text": "创始人自报年化经常性收入"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-009",
+    "startSeconds": 36.389673111285546,
+    "endSeconds": 37.691199362811794,
+    "startFrame": 1092,
+    "endFrame": 1131,
+    "text": "超过十二万澳元"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-010",
+    "startSeconds": 37.961209000000004,
+    "endSeconds": 39.076941269919466,
+    "startFrame": 1139,
+    "endFrame": 1172,
+    "text": "做产品的人"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-010",
+    "startSeconds": 39.076941269919466,
+    "endSeconds": 41.75469871772617,
+    "startFrame": 1172,
+    "endFrame": 1253,
+    "text": "不必每条宣传都从空白开始"
+  },
+  {
+    "index": 24,
+    "sceneId": "seg-010",
+    "startSeconds": 41.75469871772617,
+    "endSeconds": 43.09357744162953,
+    "startFrame": 1253,
+    "endFrame": 1293,
+    "text": "有了内容，挑好"
+  },
+  {
+    "index": 25,
+    "sceneId": "seg-010",
+    "startSeconds": 43.09357744162953,
+    "endSeconds": 44.432456165532884,
+    "startFrame": 1293,
+    "endFrame": 1333,
+    "text": "再排期发出去"
+  }
+]

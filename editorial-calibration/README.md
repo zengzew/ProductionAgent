@@ -79,3 +79,10 @@ calibration、golden 或新生成稿写回该目录。
 transcript。每个分析证据必须声明使用过的模态；schema 会拒绝引用状态不是 `checked`
 的模态。`checked` 也必须写明方法、证据和限制，例如只做响度/波形检查而没有人工听辨
 时，不能据此判断音乐类型或具体音效。
+
+## 2026-10-13 用户指定参考
+
+用户随后提供的三条 golden examples 已完成全量媒体访问，并用于重构新 Episode 流程。
+证据与观察见 [`docs/golden-workflow/`](../docs/golden-workflow/README.md)。这些是已经暴露给
+设计过程的参考，不宣称为隐藏测试集；本批未修改三个数据集 manifest 或伪造盲测评分。
+用户的直接重构授权允许迁移已观察的编辑原则，不需要重复申请旧政策中的 Prompt 授权。

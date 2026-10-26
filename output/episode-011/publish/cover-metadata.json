@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-10-23",
+  "tool": "built-in image_gen",
+  "cover": "xiaohongshu-cover-v1.png",
+  "width": 1086,
+  "height": 1448,
+  "sha256": "6eaa5ae13022b201e0296e314fd0cc579911db0b63722b29411729dddee41499",
+  "promptFile": "cover-prompt.md",
+  "referenceCover": "output/episode-010/publish/xiaohongshu-cover-v2-a.png",
+  "visualReview": "Main Chinese text, Gamma name, 3:4 ratio, functional-illustration label checked",
+  "published": false
+}

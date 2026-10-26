@@ -1,0 +1,45 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-009:media:seg-001-17127ec8f8d7-proxy",
+    "createdAt": "2026-10-15T03:22:50.148Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-001-17127ec8f8d7-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "e36b186ca3a9864672e0def07edb26aa71c39ec0870dfef5dfa52db6846ce228",
+    "sizeBytes": 153450
+  },
+  "config": {
+    "maxSceneMs": 6000,
+    "minSceneMs": 800,
+    "targetSceneMs": 4000
+  },
+  "detector": "bounded-reference-excerpt",
+  "detectorVersion": "v1",
+  "durationMs": 2067,
+  "episodeId": "episode-009",
+  "mediaId": "episode-009:media:seg-001-17127ec8f8d7",
+  "scenes": [
+    {
+      "endMs": 2067,
+      "sceneIndex": 0,
+      "startMs": 0
+    }
+  ],
+  "schemaVersion": "media-scenes-v1",
+  "sourceMediaRef": {
+    "artifactId": "episode-009:media:seg-001-17127ec8f8d7",
+    "createdAt": "2026-10-15T03:22:49.836Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-001-17127ec8f8d7.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "17127ec8f8d7a06bdb9188ac85a0b8082a5e57baf1e8bb1cfeb305f83f3fc193",
+    "sizeBytes": 278495
+  },
+  "sourceSha256": "17127ec8f8d7a06bdb9188ac85a0b8082a5e57baf1e8bb1cfeb305f83f3fc193"
+}

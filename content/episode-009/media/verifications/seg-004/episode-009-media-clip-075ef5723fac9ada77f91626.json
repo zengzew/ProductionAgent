@@ -1,0 +1,113 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-009:media-verification:seg-004-episode-009-media-clip-075ef5723fac9ada77f91626",
+    "createdAt": "2026-10-15T03:26:40.201Z",
+    "episodeId": "episode-009",
+    "mediaType": "application/json",
+    "path": "content/episode-009/media/verifications/seg-004/episode-009-media-clip-075ef5723fac9ada77f91626.json",
+    "producer": "media-verification-v1:codex:fastlane-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "a9c2218d2bfd1ad34011614395101ab2ac16c01b7ec0c573361a0d1a5589c936",
+    "sizeBytes": 4179
+  },
+  "cacheKey": "6b460bf069efaed640a3a2b4954185128a9f6f13e25b0119f5f768c4eea12285",
+  "claimIds": [
+    "claim-fastlane-001"
+  ],
+  "claimMatch": 0.92,
+  "clipArtifactRef": {
+    "artifactId": "episode-009:media-verification-clip:seg-004-episode-009-media-clip-075ef5723fac9ada77f91626",
+    "createdAt": "2026-10-15T03:26:16.286Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/verifications/seg-004/episode-009-media-clip-075ef5723fac9ada77f91626-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "2f8c45a0b1105597987a4908670cfbb46a8e19425518cb0ae8a98670a5932d89",
+    "sizeBytes": 177477
+  },
+  "clipId": "episode-009:media-clip:075ef5723fac9ada77f91626",
+  "clipRef": {
+    "claimIds": [
+      "claim-fastlane-001"
+    ],
+    "clipId": "episode-009:media-clip:075ef5723fac9ada77f91626",
+    "createdAt": "2026-10-15T03:26:40.201Z",
+    "endMs": 4767,
+    "episodeId": "episode-009",
+    "mediaId": "episode-009:media:seg-004-4ba465f5171d",
+    "sourceMediaRef": {
+      "artifactId": "episode-009:media:seg-004-4ba465f5171d",
+      "createdAt": "2026-10-15T03:26:12.774Z",
+      "episodeId": "episode-009",
+      "mediaType": "video/mp4",
+      "path": "content/episode-009/media/assets/seg-004-4ba465f5171d.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "4ba465f5171d0a933e0d2e4887909f0c101bb9e2ddbdeec753296ff158d8acb6",
+      "sizeBytes": 75907
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "接着同一段13:22–13:37实演,呈现选账号后进入Schedule页的连续动作;局部放大Post ASAP与Schedule for later两项,让「现在/以后」可读。关键动作之间不用不相关素材遮挡,未拍到的上线结果不补造。"
+  },
+  "createdAt": "2026-10-15T03:26:40.201Z",
+  "episodeId": "episode-009",
+  "mediaRef": {
+    "artifactId": "episode-009:media:seg-004-4ba465f5171d",
+    "createdAt": "2026-10-15T03:26:12.774Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-004-4ba465f5171d.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "4ba465f5171d0a933e0d2e4887909f0c101bb9e2ddbdeec753296ff158d8acb6",
+    "sizeBytes": 75907
+  },
+  "misleadingRisk": 0.06,
+  "model": "current-session",
+  "observedActions": [
+    "真实Select Platforms账号选择后，剪到Schedule中Post ASAP与Schedule for Later；中间步骤省略，不证明上线。"
+  ],
+  "observedEntities": [
+    "Fastlane",
+    "Cal AI"
+  ],
+  "observedText": [
+    "Post ASAP",
+    "Schedule for Later"
+  ],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "当前Codex制作会话实际检查原片与派生窗口抽帧；见media/prepared-check及排期814秒原帧。不是独立Delivery批准。",
+    "来源标示历史采访；输入/生成未实演，访谈配图不是客户现场；排期选项停帧供阅读，不证明上线。"
+  ],
+  "recommendedEndMs": 4767,
+  "recommendedStartMs": 0,
+  "relevance": 0.94,
+  "retrievalResultRef": {
+    "artifactId": "episode-009:media-retrieval:seg-004",
+    "createdAt": "2026-10-15T03:26:15.399Z",
+    "episodeId": "episode-009",
+    "mediaType": "application/json",
+    "path": "content/episode-009/media/candidates/seg-004.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 3,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "a9ffa8c5637f51e4aad4f50abb4ea507a27baf63590946b2cd24d1230ce4cce5",
+    "sizeBytes": 33717
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-004",
+  "sourceSha256": "4ba465f5171d0a933e0d2e4887909f0c101bb9e2ddbdeec753296ff158d8acb6",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-009:media-verification:seg-004-episode-009-media-clip-075ef5723fac9ada77f91626",
+  "verificationVersion": "fastlane-observed-v1",
+  "visualQuality": 0.88
+}

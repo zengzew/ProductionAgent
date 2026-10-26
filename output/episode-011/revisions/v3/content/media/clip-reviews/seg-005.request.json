@@ -1,0 +1,63 @@
+{
+  "episodeId": "episode-011",
+  "segmentId": "seg-005",
+  "clipId": "episode-011:media-clip:3d119f05d0e59fa46548d0e5",
+  "claimIds": [
+    "claim-gamma-001",
+    "claim-gamma-004"
+  ],
+  "claims": [
+    {
+      "id": "claim-gamma-001",
+      "claim": "Gamma可按主题、提纲或已有文档生成带图文版式的演示稿初稿，再由用户编辑。"
+    },
+    {
+      "id": "claim-gamma-004",
+      "claim": "按2025年Gamma 3.0发布文章及官方GIF，用户可请求Agent修改布局或重构表达，也可使用Smart Diagrams将文字变成图示。"
+    }
+  ],
+  "narration": "想换一种表达,还能让AI改布局,或把文字变成图示。你要做的,是核对内容、调整重点。",
+  "visualIntent": "2025官方Agent与Smart Diagrams动画,按动作分别展示;核对内容为编辑用途建议,不宣称省时测量。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-011/media/verifications/seg-005/episode-011-media-clip-3d119f05d0e59fa46548d0e5-clip.mp4",
+    "sha256": "e8d6093cae4d9d392fce359ce24b1be0d98434110ca7f2d7b25bda2f91280a72",
+    "sizeBytes": 3123509,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 7233,
+    "sourceMediaId": "episode-011:media:seg-005-298b91d35073-official",
+    "sourceMediaSha256": "298b91d35073c4bdf2e039bd80166fae5ea56b27bb9e2ef6783d64b4e54820c0"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-011/media/indexes/seg-005-298b91d35073-official/keyframes/keyframe-0-3616.jpg",
+      "timestampMs": 3616,
+      "sha256": "6568836510c63030db67533e2239742463c382d49a695338532ae1fbea0c1cd9",
+      "sizeBytes": 58077,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "2025官方Agent演示：文字转图示，再上传截图重排为同样主题的表格；不是本次实测。",
+    "observedText": "",
+    "keywords": [
+      "seg-005",
+      "Gamma",
+      "Agent",
+      "Holographic Technology",
+      "layout",
+      "diagram"
+    ],
+    "entities": [
+      "Gamma",
+      "Holographic Technology"
+    ],
+    "semanticTags": [
+      "official-product-demo",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "529d247db867fdf46c12d9c5870b069b75a78554339bdb6ef6e9a5304b29037f"
+}

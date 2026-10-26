@@ -1,0 +1,167 @@
+{
+  "requestedProvider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "provider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "providerId": "minimax",
+  "fallbackUsed": false,
+  "fallbackReason": "",
+  "generatedAt": "2026-10-20T12:06:00.625Z",
+  "voice": "Chinese (Mandarin)_Reliable_Executive",
+  "speed": 1.2,
+  "pitch": 0,
+  "normalization": "loudnorm I=-16 TP=-1.5 LRA=7",
+  "credentialRequired": true,
+  "networkRequired": true,
+  "alignmentStrategy": "provider-timestamps",
+  "files": [
+    {
+      "segmentId": "seg-001",
+      "file": "episodes/episode-011/audio/seg-001.mp3",
+      "timestamps": [
+        {
+          "text": "输入文字,AI帮你生成PPT。",
+          "startMs": 0,
+          "endMs": 2454.1950113378684
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-002",
+      "file": "episodes/episode-011/audio/seg-002.mp3",
+      "timestamps": [
+        {
+          "text": "Gamma的创始人格兰特做咨询时,曾为第二天的会议熬夜准备。",
+          "startMs": 0,
+          "endMs": 5054.829931972789
+        },
+        {
+          "text": "他说,大量工夫花在排版,内容反而顾不上。",
+          "startMs": 5155,
+          "endMs": 8178.083900226758
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-003",
+      "file": "episodes/episode-011/audio/seg-003.mp3",
+      "timestamps": [
+        {
+          "text": "他找来两位老同事,想把顺序倒过来:先把话写清楚,再让工具处理版式。",
+          "startMs": 0,
+          "endMs": 5159.319727891157
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-004",
+      "file": "episodes/episode-011/audio/seg-004.mp3",
+      "timestamps": [
+        {
+          "text": "Gamma后来接入AI,让文字先变成配好图文的初稿。",
+          "startMs": 0,
+          "endMs": 3487.4829931972786
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-005",
+      "file": "episodes/episode-011/audio/seg-005.mp3",
+      "timestamps": [
+        {
+          "text": "有了初稿,还能让AI改布局,把文字变成图示。",
+          "startMs": 0,
+          "endMs": 3452.6530612244896
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-006",
+      "file": "episodes/episode-011/audio/seg-006.mp3",
+      "timestamps": [
+        {
+          "text": "他们拿下了Product Hunt月榜第一,增长却还是卡住了。",
+          "startMs": 0,
+          "endMs": 4195.691609977324
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-007",
+      "file": "episodes/episode-011/audio/seg-007.mp3",
+      "timestamps": [
+        {
+          "text": "于是,十二个人花了三个月,重做用户进来的前三十秒。",
+          "startMs": 0,
+          "endMs": 3661.632653061224
+        },
+        {
+          "text": "他们把AI生成直接放进新手流程:输入一句想法,先得到一份有内容、有版式的PPT。",
+          "startMs": 3762,
+          "endMs": 10372.566893424035
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-010",
+      "file": "episodes/episode-011/audio/seg-010.mp3",
+      "timestamps": [
+        {
+          "text": "用户面对的不再是空白页,而是一份能接着修改的初稿,第一次用就看得见它的价值。",
+          "startMs": 0,
+          "endMs": 5797.868480725624
+        },
+        {
+          "text": "按创始人的回顾,日注册量随后从几百,涨到了几万。",
+          "startMs": 5898,
+          "endMs": 9989.201814058957
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-008",
+      "file": "episodes/episode-011/audio/seg-008.mp3",
+      "timestamps": [
+        {
+          "text": "二零二五年十一月,Gamma自报年化经常性收入突破一亿美元。",
+          "startMs": 0,
+          "endMs": 4160.861678004536
+        },
+        {
+          "text": "到二零二六年八月,公司披露累计用户已超一亿。",
+          "startMs": 4261,
+          "endMs": 7852.972789115646
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-009",
+      "file": "episodes/episode-011/audio/seg-009.mp3",
+      "timestamps": [
+        {
+          "text": "做PPT,不必再从空白页一页页排起。",
+          "startMs": 0,
+          "endMs": 2698.0045351473923
+        },
+        {
+          "text": "输入文字,先有初稿,再动手改。",
+          "startMs": 2798,
+          "endMs": 5217.3650793650795
+        },
+        {
+          "text": "就这样,Gamma干掉了PPT。",
+          "startMs": 5317,
+          "endMs": 7376.455782312925
+        }
+      ],
+      "timestampSource": "minimax:word"
+    }
+  ]
+}

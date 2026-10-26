@@ -1,0 +1,115 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-009-v2:media:seg-003-e2507afef153-proxy",
+    "createdAt": "2026-10-16T01:33:04.275Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009-v2/media/assets/seg-003-e2507afef153-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "845acf82eb74c2a6bfd41b58a43407b4dc4eb30fc9350e26848cb1b3585a0aca",
+    "sizeBytes": 393238
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-009-v2",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-009-v2:media-clip:48165c2b5957ea429a213dfe",
+      "endMs": 7233,
+      "entities": [
+        "Fastlane",
+        "Cal AI"
+      ],
+      "episodeId": "episode-009-v2",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-009-v2:media-keyframe:seg-003-e2507afef153-0-3616",
+          "createdAt": "2026-10-16T01:33:56.907Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-009-v2/media/indexes/seg-003-e2507afef153/keyframes/keyframe-0-3616.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "4ea5be42a0b6c4d3a345844d53a73db32c7ab314c77452b9bd6cde130aff20b1",
+          "sizeBytes": 61590
+        }
+      ],
+      "keywords": [
+        "seg-003",
+        "Fastlane",
+        "产品"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-009-v2:media:seg-003-e2507afef153",
+        "createdAt": "2026-10-16T01:33:03.488Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009-v2/media/assets/seg-003-e2507afef153.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "e2507afef153cb1a2b787ed98fc49310c2d9964557d6effbfa9809e9a55f348a",
+        "sizeBytes": 705011
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-009-v2:media-scenes:seg-003-e2507afef153",
+          "createdAt": "2026-10-16T01:33:56.840Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/indexes/seg-003-e2507afef153/scenes.json",
+          "producer": "media-understanding-v1:scenes:v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "69523ab508ef046b2157adbae7b0c0e46898df9076661aea4a39eec5e353314f",
+          "sizeBytes": 1471
+        }
+      ],
+      "semanticTags": [
+        "founder-interview",
+        "local-evaluation",
+        "measured"
+      ],
+      "sourceSha256": "e2507afef153cb1a2b787ed98fc49310c2d9964557d6effbfa9809e9a55f348a",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "原片官网网址输入宣传动效，接已生成候选；非本次输入生成实测。",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-009-v2:media:seg-003-e2507afef153",
+  "mediaRef": {
+    "artifactId": "episode-009-v2:media:seg-003-e2507afef153",
+    "createdAt": "2026-10-16T01:33:03.488Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009-v2/media/assets/seg-003-e2507afef153.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "e2507afef153cb1a2b787ed98fc49310c2d9964557d6effbfa9809e9a55f348a",
+    "sizeBytes": 705011
+  },
+  "sceneDetector": "bounded-reference-excerpt",
+  "sceneDetectorVersion": "v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-observed-reference",
+  "semanticAdapterVersion": "e2507afef153cb1a",
+  "semanticAvailability": "available",
+  "sourceSha256": "e2507afef153cb1a2b787ed98fc49310c2d9964557d6effbfa9809e9a55f348a",
+  "transcriptAvailability": "unavailable"
+}

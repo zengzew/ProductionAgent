@@ -1,0 +1,131 @@
+[
+  {
+    "id": "gamma-still-0",
+    "type": "image",
+    "path": "public/episodes/episode-011/assets/ppt-hook.png",
+    "sourceUrl": "https://gamma.app/insights/how-to-create-pitch-decks-with-gamma-or-from-prompt-to-investor-ready-export",
+    "owner": "Gamma",
+    "licenseOrBasis": "用户请求的本地制作评估；必要署名节选，外部发布权利未确认。",
+    "capturedAt": "2026-10-20",
+    "usage": "官方演示结果原图＋文字生成PPT用途的编辑说明，非生成全过程实录",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-gamma-001"
+    ],
+    "segmentIds": [
+      "seg-001"
+    ]
+  },
+  {
+    "id": "gamma-still-1",
+    "type": "image",
+    "path": "public/episodes/episode-011/assets/founder.png",
+    "sourceUrl": "https://stvp.stanford.edu/videos/grant-lee-gamma-finding-early-stage-energy/",
+    "owner": "Stanford STVP / Grant Lee",
+    "licenseOrBasis": "用户请求的本地制作评估；必要署名节选，外部发布权利未确认。",
+    "capturedAt": "2026-10-20",
+    "usage": "访谈页真实人物图＋必要短摘录；明确编辑排版",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-gamma-002"
+    ],
+    "segmentIds": [
+      "seg-002"
+    ]
+  },
+  {
+    "id": "gamma-still-2",
+    "type": "image",
+    "path": "public/episodes/episode-011/assets/writing-first.png",
+    "sourceUrl": "https://gamma.app/insights/introducing-gamma-3-0",
+    "owner": "Gamma / Stanford STVP",
+    "licenseOrBasis": "用户请求的本地制作评估；必要署名节选，外部发布权利未确认。",
+    "capturedAt": "2026-10-20",
+    "usage": "真实官方图示示例＋创始人理念的编辑释义；非2020原型",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-gamma-002",
+      "claim-gamma-003"
+    ],
+    "segmentIds": [
+      "seg-003"
+    ]
+  },
+  {
+    "id": "gamma-still-3",
+    "type": "image",
+    "path": "public/episodes/episode-011/assets/draft.png",
+    "sourceUrl": "https://gamma.app/insights/how-to-create-pitch-decks-with-gamma-or-from-prompt-to-investor-ready-export",
+    "owner": "Gamma",
+    "licenseOrBasis": "用户请求的本地制作评估；必要署名节选，外部发布权利未确认。",
+    "capturedAt": "2026-10-20",
+    "usage": "官方教程的编辑说明＋真实官方演示结果；不是生成实录",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-gamma-001",
+      "claim-gamma-003"
+    ],
+    "segmentIds": [
+      "seg-004"
+    ]
+  },
+  {
+    "id": "gamma-still-4",
+    "type": "image",
+    "path": "public/episodes/episode-011/assets/early-users.png",
+    "sourceUrl": "https://stvp.stanford.edu/videos/grant-lee-gamma-finding-early-stage-energy/",
+    "owner": "Stanford STVP / Grant Lee",
+    "licenseOrBasis": "用户请求的本地制作评估；必要署名节选，外部发布权利未确认。",
+    "capturedAt": "2026-10-20",
+    "usage": "原文关键词及中文释义；不是Product Hunt历史截图",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-gamma-005"
+    ],
+    "segmentIds": [
+      "seg-006"
+    ]
+  },
+  {
+    "id": "gamma-still-5",
+    "type": "image",
+    "path": "public/episodes/episode-011/assets/feedback.png",
+    "sourceUrl": "https://stvp.stanford.edu/videos/grant-lee-gamma-finding-early-stage-energy/",
+    "owner": "Stanford STVP / Grant Lee",
+    "licenseOrBasis": "用户请求的本地制作评估；必要署名节选，外部发布权利未确认。",
+    "capturedAt": "2026-10-20",
+    "usage": "必要短摘录＋中文释义；非用户通话录像",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-gamma-005"
+    ],
+    "segmentIds": [
+      "seg-007"
+    ]
+  },
+  {
+    "id": "gamma-still-6",
+    "type": "image",
+    "path": "public/episodes/episode-011/assets/market.png",
+    "sourceUrl": "https://gamma.app/insights/how-we-built-a-usd100m-business-differently",
+    "owner": "Gamma / Grant Lee",
+    "licenseOrBasis": "用户请求的本地制作评估；必要署名节选，外部发布权利未确认。",
+    "capturedAt": "2026-10-20",
+    "usage": "两项公司披露指标与各自日期，ARR不当销售额、累计人数不当付费或活跃人数；Creation Index见research/sources.json",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-gamma-007",
+      "claim-gamma-008"
+    ],
+    "segmentIds": [
+      "seg-008"
+    ]
+  }
+]

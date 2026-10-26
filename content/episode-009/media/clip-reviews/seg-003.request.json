@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-009",
+  "segmentId": "seg-003",
+  "clipId": "episode-009:media-clip:9fc342edbc851e8e67ade2cb",
+  "claimIds": [
+    "claim-fastlane-001"
+  ],
+  "claims": [
+    {
+      "id": "claim-fastlane-001",
+      "claim": "Gaurav在采访中介绍，Fastlane读取产品网站并生成相关营销短内容；演示从已生成内容开始，用户滑卡挑选后排期发布。"
+    }
+  ],
+  "narration": "一张张滑着挑,不喜欢就跳过,喜欢就留下。",
+  "visualIntent": "使用13:00–13:26内已核验的候选、拒绝与接受动作,保留同一组卡片的操作反馈;方向与裁切由visual-preflight落实,不用文字替代不可见的操作。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009/media/verifications/seg-003/episode-009-media-clip-9fc342edbc851e8e67ade2cb-clip.mp4",
+    "sha256": "74d01732bb9eefc39fe11a62b0235935d4472b9ff377bcb9e0e58e7b553f126d",
+    "sizeBytes": 1528355,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 3466,
+    "sourceMediaId": "episode-009:media:seg-003-82fe60f79651",
+    "sourceMediaSha256": "82fe60f79651bb11c9e7bced9a8f97751963a8bf548509b5addc81c8d6c3ff38"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009/media/indexes/seg-003-82fe60f79651/keyframes/keyframe-0-1733.jpg",
+      "timestampMs": 1733,
+      "sha256": "55deab7177274c9af857681db508c63665cbb35bad7da0704502ad9eda16ccb2",
+      "sizeBytes": 56717,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "同一历史界面的卡片选择和切换，X、Edit、勾选控件可见；未演示网站输入。",
+    "observedText": "",
+    "keywords": [
+      "卡片",
+      "跳过",
+      "留下"
+    ],
+    "entities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "2e37b9113acf8ad2ebec6cc4631a36805dc62f7d71171777498e338ef2bd63dc"
+}

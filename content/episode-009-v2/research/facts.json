@@ -1,0 +1,274 @@
+[
+  {
+    "id": "claim-fastlane-001",
+    "claim": "Gaurav在采访中介绍，Fastlane读取产品网站并生成相关营销短内容；演示从已生成内容开始，用户滑卡挑选后排期发布。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "",
+    "sourceIds": [
+      "src-fastlane-interview",
+      "src-fastlane-video",
+      "src-fastlane-producthunt"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "product-mechanism / user-need；综合两处描述：01:46–02:06讲URL学习与生成；13:00.34–13:49.98展示已生成结果、滑卡、排期。未拍到URL输入或生成过程，不剪成现场完整实测。历史版非本人实测；今天URL截图须绑定015并注明当前官网功能示例。"
+  },
+  {
+    "id": "claim-fastlane-002",
+    "claim": "Gaurav回顾，做出应用后自己卡在营销，不愿先花大笔广告预算；Jock也遇到让别人看见产品的难题。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "",
+    "sourceIds": [
+      "src-fastlane-interview"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "idea-origin / user-need；02:50.88–03:08.12，发生日未知；不能改成完全不会营销或没有任何用户。"
+  },
+  {
+    "id": "claim-fastlane-003",
+    "claim": "Gaurav称团队起初试做多种营销功能，后来根据客户反馈收窄到短内容。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "",
+    "sourceIds": [
+      "src-fastlane-interview"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "idea-origin / team-choice；03:35–04:28。包括SEO、Reddit互动、短内容；创始人归因，不描述现行v2放弃所有其他功能。"
+  },
+  {
+    "id": "claim-fastlane-004",
+    "claim": "Gaurav称团队在界面放预约访谈按钮，用户可用一次访谈换额外七天访问权限。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "",
+    "sourceIds": [
+      "src-fastlane-interview"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "cold-start-or-gtm；07:06.78–07:29.36按钮到Calendly；七天是额外访问，不是现金报酬或现行全站试用。"
+  },
+  {
+    "id": "claim-fastlane-005",
+    "claim": "Gaurav回顾，早期在Reddit线程和社媒找用户；加入等候名单后团队发邮件约谈，让用户共享屏幕试用并观察卡点。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "",
+    "sourceIds": [
+      "src-fastlane-interview"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "cold-start-or-gtm / user-need；11:28.54–12:00；没有渠道转化率，不虚构每条帖子带来客户。"
+  },
+  {
+    "id": "claim-fastlane-006",
+    "claim": "Gaurav称第一位付费客户来自beta用户，对方付费是为了保留访问权限。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2026-04-03",
+    "sourceIds": [
+      "src-fastlane-launch-account"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "cold-start-or-gtm；How did you launch最后一段；首单日期/金额未披露。"
+  },
+  {
+    "id": "claim-fastlane-007",
+    "claim": "Gaurav称正式发布利用了已积累的X个人账号，并配合LinkedIn和Product Hunt发布。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2026-04-03",
+    "sourceIds": [
+      "src-fastlane-launch-account"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "cold-start-or-gtm；Launch section；有分发动作，不推断各渠道贡献。"
+  },
+  {
+    "id": "claim-fastlane-008",
+    "claim": "Product Hunt平台记录Fastlane在2026年3月23日获得当日第三名。",
+    "metricName": "Product Hunt day rank",
+    "value": "#3",
+    "period": "2026-03-23",
+    "eventDate": "2026-03-23",
+    "sourceIds": [
+      "src-fastlane-producthunt"
+    ],
+    "confidence": "high",
+    "reportingType": "independently-verified",
+    "allowedInNarration": true,
+    "notes": "cold-start-or-gtm；Awards奖牌有日期名次，榜单不能解释收入原因。"
+  },
+  {
+    "id": "claim-fastlane-009",
+    "claim": "2026年4月3日的创始人自述称Fastlane上线后ARR已超过12万澳元。",
+    "metricName": "ARR",
+    "value": "AUD >120000",
+    "period": "2026-04-03文章自述：上线后一周",
+    "eventDate": "2026-04-03",
+    "sourceIds": [
+      "src-fastlane-launch-account"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "capital-market；Who are you段末明确AUD $120000 ARR。文章日期非精确数据截止日，自述上线后一周；年化经常性收入，不是利润、首日收入、实际收完一年现金或融资。"
+  },
+  {
+    "id": "claim-fastlane-010",
+    "claim": "Gaurav在采访中称软件产品每月经常性收入约为6.9万，原文未说明货币。",
+    "metricName": "software MRR",
+    "value": "69000; currency unspecified",
+    "period": "采访时，截止日未知",
+    "eventDate": "",
+    "sourceIds": [
+      "src-fastlane-interview"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": false,
+    "notes": "capital-market；01:09.28–01:13.28；币种/截止日未知，Stripe画面未读出币种。禁入旁白，不默认美元或澳元。"
+  },
+  {
+    "id": "claim-fastlane-011",
+    "claim": "Gaurav在采访中称整个业务ARR超过一百万，与软件产品MRR口径不同。",
+    "metricName": "whole-business ARR",
+    "value": ">1000000; currency unspecified",
+    "period": "采访时，截止日未知",
+    "eventDate": "",
+    "sourceIds": [
+      "src-fastlane-interview"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": false,
+    "notes": "capital-market；01:17.98–01:23.94；币种/构成/截止日未知，禁止机械年化合并。"
+  },
+  {
+    "id": "claim-fastlane-012",
+    "claim": "Gaurav在采访中称已超过一千名付费用户。",
+    "metricName": "paid users",
+    "value": ">1000",
+    "period": "采访时，截止日未知",
+    "eventDate": "",
+    "sourceIds": [
+      "src-fastlane-interview"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": false,
+    "notes": "growth；02:20.80–02:23.94；自报非当前规模、活跃或留存。"
+  },
+  {
+    "id": "claim-fastlane-013",
+    "claim": "Gaurav称团队用Fastlane为自己生成内容、右滑并排期，每周发布一百多条短视频。",
+    "metricName": "self-reported weekly posting",
+    "value": ">100 videos/week",
+    "period": "2026-04-03自述",
+    "eventDate": "2026-04-03",
+    "sourceIds": [
+      "src-fastlane-launch-account"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "cold-start-or-gtm；Growth section内部循环，团队自报各渠道合计，不是每平台一百条或他人效果保证。"
+  },
+  {
+    "id": "claim-fastlane-014",
+    "claim": "Gaurav称他们研究已有热门视频格式，再为自己的产品改编，通过等候名单与两轮beta验证需求。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2026-04-03",
+    "sourceIds": [
+      "src-fastlane-launch-account"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "idea-origin；Idea section；热门格式不能保证改编后一定爆款。"
+  },
+  {
+    "id": "claim-fastlane-015",
+    "claim": "2026年10月14日官网将Fastlane v2描述为Senna学习品牌、研究市场、生成广告和内容、投放并读取结果的循环。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2026-10-14",
+    "sourceIds": [
+      "src-fastlane-home"
+    ],
+    "confidence": "high",
+    "reportingType": "company-reported",
+    "allowedInNarration": true,
+    "notes": "product-mechanism；FAQ What is Fastlane v2；现行公司宣传非实测，不作为3月发布能力。"
+  },
+  {
+    "id": "claim-fastlane-016",
+    "claim": "官网AG1营销循环示例明确标为示例输出，并说明Fastlane与AG1无关联。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2026-10-14",
+    "sourceIds": [
+      "src-fastlane-home"
+    ],
+    "confidence": "high",
+    "reportingType": "independently-verified",
+    "allowedInNarration": false,
+    "notes": "verified page-label；AG1的ROAS/CPA/广告支出不能当实际客户效果。"
+  },
+  {
+    "id": "claim-fastlane-017",
+    "claim": "Gaurav称累计做了两千次客户访谈，并提到与Jock每周约二十次。",
+    "metricName": "customer calls",
+    "value": "~2000 cumulative; ~20/week",
+    "period": "从customer discovery起，截止日未知",
+    "eventDate": "",
+    "sourceIds": [
+      "src-fastlane-interview"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": false,
+    "notes": "team-execution；06:59–07:33；自报累计与时间跨度未对齐，不写两个月两千次，旁白用具体访谈机制。"
+  },
+  {
+    "id": "claim-fastlane-018",
+    "claim": "Gaurav称X发布帖获得超过21万次浏览。",
+    "metricName": "X launch-post views",
+    "value": ">210000",
+    "period": "2026-04-03自述",
+    "eventDate": "2026-04-03",
+    "sourceIds": [
+      "src-fastlane-launch-account"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": false,
+    "notes": "cold-start-or-gtm；Launch section；曝光不是注册或付费用户。"
+  }
+]

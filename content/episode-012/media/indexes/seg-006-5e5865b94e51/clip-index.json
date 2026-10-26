@@ -1,0 +1,115 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-012:media:seg-006-5e5865b94e51-proxy",
+    "createdAt": "2026-10-25T14:55:50.671Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/assets/seg-006-5e5865b94e51-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "675f564a37b5776f21ccffa697aea932c86563938bdcfee510cc98d8d61b7f5f",
+    "sizeBytes": 293881
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-012",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-012:media-clip:f02325aba6aecfc4a85c1de8",
+      "endMs": 7267,
+      "entities": [
+        "Photoroom"
+      ],
+      "episodeId": "episode-012",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-012:media-keyframe:seg-006-5e5865b94e51-0-3633",
+          "createdAt": "2026-10-25T14:55:53.357Z",
+          "episodeId": "episode-012",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-012/media/indexes/seg-006-5e5865b94e51/keyframes/keyframe-0-3633.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "b7ce24ae0800a152c8f99b767e25fc528e3b287557a4f76158848b1e84d5edec",
+          "sizeBytes": 71816
+        }
+      ],
+      "keywords": [
+        "seg-006",
+        "Photoroom",
+        "growth",
+        "attributed-local-evaluation"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-012:media:seg-006-5e5865b94e51",
+        "createdAt": "2026-10-25T14:55:49.884Z",
+        "episodeId": "episode-012",
+        "mediaType": "video/mp4",
+        "path": "content/episode-012/media/assets/seg-006-5e5865b94e51.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "5e5865b94e5143de617e1cbd03862a8c10caf157de70b12306a652330d4eca15",
+        "sizeBytes": 606484
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-012:media-scenes:seg-006-5e5865b94e51",
+          "createdAt": "2026-10-25T14:55:53.282Z",
+          "episodeId": "episode-012",
+          "mediaType": "application/json",
+          "path": "content/episode-012/media/indexes/seg-006-5e5865b94e51/scenes.json",
+          "producer": "media-understanding-v1:scenes:v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "d8a7be8d382058be5a83622dbc9a00706f3b5bbcbe1841788a10315b309e3362",
+          "sizeBytes": 1447
+        }
+      ],
+      "semanticTags": [
+        "attributed-source-excerpt",
+        "local-evaluation",
+        "measured"
+      ],
+      "sourceSha256": "5e5865b94e5143de617e1cbd03862a8c10caf157de70b12306a652330d4eca15",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "2023增长负责人访谈转述免费去背景入口与TikTok演示；配官网效果，非真实TikTok帖子。",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-012:media:seg-006-5e5865b94e51",
+  "mediaRef": {
+    "artifactId": "episode-012:media:seg-006-5e5865b94e51",
+    "createdAt": "2026-10-25T14:55:49.884Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/assets/seg-006-5e5865b94e51.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "5e5865b94e5143de617e1cbd03862a8c10caf157de70b12306a652330d4eca15",
+    "sizeBytes": 606484
+  },
+  "sceneDetector": "bounded-reference-excerpt",
+  "sceneDetectorVersion": "v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-observed-reference",
+  "semanticAdapterVersion": "5e5865b94e5143de",
+  "semanticAvailability": "available",
+  "sourceSha256": "5e5865b94e5143de617e1cbd03862a8c10caf157de70b12306a652330d4eca15",
+  "transcriptAvailability": "unavailable"
+}

@@ -1,0 +1,60 @@
+{
+  "episodeId": "episode-012",
+  "segmentId": "seg-005",
+  "clipId": "episode-012:media-clip:1b0d4fc8e6129699e5d8bd3f",
+  "claimIds": [
+    "claim-pr-004",
+    "claim-pr-009"
+  ],
+  "claims": [
+    {
+      "id": "claim-pr-004",
+      "claim": "Rouif在2023年Stripe访谈里强调，生成的是商品周围的背景，商品本身的质量与瑕疵需要保留。"
+    },
+    {
+      "id": "claim-pr-009",
+      "claim": "把重复的背景编辑工作交给工具，可以让卖家围绕真实商品准备展示图。"
+    }
+  ],
+  "narration": "马修在访谈里强调,背景可以变,商品的细节和瑕疵要留下。毕竟,卖家卖的是手里的真东西。",
+  "visualIntent": "Stripe真实性问答转述与商品原始对照;小字“创始人设计取向”,不打100%保真承诺。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/verifications/seg-005/episode-012-media-clip-1b0d4fc8e6129699e5d8bd3f-clip.mp4",
+    "sha256": "c96568f341d2e6840e323573895c4af3aca8b35123868647119f447d6366263c",
+    "sizeBytes": 1992213,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 6900,
+    "sourceMediaId": "episode-012:media:seg-005-7835b4489ba1",
+    "sourceMediaSha256": "7835b4489ba1a78953e30753e7a6f64dda45a739d2edaacf8142c645a06c5fe0"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/indexes/seg-005-7835b4489ba1/keyframes/keyframe-0-3450.jpg",
+      "timestampMs": 3450,
+      "sha256": "e3d820847cc09acd7fbdd7f6920c78626eb3f39e02e70b338168cd90df09e111",
+      "sizeBytes": 52247,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "Stripe创始人商品保真取向的编辑转述，随后官网商品白底示例；不是每次生成准确率保证。",
+    "observedText": "",
+    "keywords": [
+      "seg-005",
+      "Photoroom",
+      "trust",
+      "attributed-local-evaluation"
+    ],
+    "entities": [
+      "Photoroom"
+    ],
+    "semanticTags": [
+      "attributed-source-excerpt",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "d6cfe9a2fd44fafb036f464d0d6170c6c350f78a40d1553dd5693b7ec9231e86"
+}

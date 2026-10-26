@@ -1,0 +1,113 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-012:media-verification:seg-002-episode-012-media-clip-d2a79ad290a0c6b5183a72a8",
+    "createdAt": "2026-10-25T15:02:10.376Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/verifications/seg-002/episode-012-media-clip-d2a79ad290a0c6b5183a72a8.json",
+    "producer": "media-verification-v1:codex:photoroom-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "dbc887c257402806ac8f62e927ffa97905d8e471784a1ffce1871818cce038bb",
+    "sizeBytes": 4073
+  },
+  "cacheKey": "717d6bc9a01d234dff7613c8006b48c870744341cd8695f14926c65ba8657cc4",
+  "claimIds": [
+    "claim-pr-002"
+  ],
+  "claimMatch": 0.9,
+  "clipArtifactRef": {
+    "artifactId": "episode-012:media-verification-clip:seg-002-episode-012-media-clip-d2a79ad290a0c6b5183a72a8",
+    "createdAt": "2026-10-25T14:55:54.833Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/verifications/seg-002/episode-012-media-clip-d2a79ad290a0c6b5183a72a8-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "8faaa58b24baf04570d1164c6b560b7295455f06d60ef32d1925395f7bcf56e9",
+    "sizeBytes": 437815
+  },
+  "clipId": "episode-012:media-clip:d2a79ad290a0c6b5183a72a8",
+  "clipRef": {
+    "claimIds": [
+      "claim-pr-002"
+    ],
+    "clipId": "episode-012:media-clip:d2a79ad290a0c6b5183a72a8",
+    "createdAt": "2026-10-25T15:02:10.376Z",
+    "endMs": 5933,
+    "episodeId": "episode-012",
+    "mediaId": "episode-012:media:seg-002-a93299117c36",
+    "sourceMediaRef": {
+      "artifactId": "episode-012:media:seg-002-a93299117c36",
+      "createdAt": "2026-10-25T14:55:47.297Z",
+      "episodeId": "episode-012",
+      "mediaType": "video/mp4",
+      "path": "content/episode-012/media/assets/seg-002-a93299117c36.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "a93299117c36a890996a3b8ba9a150d3022eea8135a3335f509f2ca7f83ed2eb",
+      "sizeBytes": 132488
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "Stripe合照保持两人身份;标Matthieu Rouif、2024访谈回忆,不伪造GoPro操作。"
+  },
+  "createdAt": "2026-10-25T15:02:10.376Z",
+  "episodeId": "episode-012",
+  "mediaRef": {
+    "artifactId": "episode-012:media:seg-002-a93299117c36",
+    "createdAt": "2026-10-25T14:55:47.297Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/assets/seg-002-a93299117c36.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "a93299117c36a890996a3b8ba9a150d3022eea8135a3335f509f2ca7f83ed2eb",
+    "sizeBytes": 132488
+  },
+  "misleadingRisk": 0.15,
+  "model": "current-session",
+  "observedActions": [
+    "Stripe原始人物合照及有日期的创始人困扰回忆转述，不是GoPro历史操作。"
+  ],
+  "observedEntities": [
+    "Photoroom"
+  ],
+  "observedText": [
+    "Matthieu Rouif",
+    "在GoPro时，觉得抠图太麻烦",
+    "2024年本人访谈回忆"
+  ],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "本制作会话已查看当前prepared片段的多点抽帧及当前核验请求所指向的关键帧联系表；这是同会话视觉核对，非独立Delivery或有声观看。",
+    "界面入口裁切可读，人物与日期可见；中文转述卡标编辑排版，官网演示不当本次实测，历史访谈不当当前政策。"
+  ],
+  "recommendedEndMs": 5933,
+  "recommendedStartMs": 0,
+  "relevance": 0.9,
+  "retrievalResultRef": {
+    "artifactId": "episode-012:media-retrieval:seg-002",
+    "createdAt": "2026-10-25T15:01:29.964Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/candidates/seg-002.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 4,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "b53f7a038c49bcb2d66bdcf9ca2188fe8c51111032cafa8b5da2d4a1d4e04d2b",
+    "sizeBytes": 26383
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-002",
+  "sourceSha256": "a93299117c36a890996a3b8ba9a150d3022eea8135a3335f509f2ca7f83ed2eb",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-012:media-verification:seg-002-episode-012-media-clip-d2a79ad290a0c6b5183a72a8",
+  "verificationVersion": "photoroom-observed-v1",
+  "visualQuality": 0.85
+}

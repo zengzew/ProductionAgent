@@ -1,0 +1,163 @@
+{
+  "selectedHook": "给一个网址，AI帮你做宣传短视频。",
+  "segments": [
+    {
+      "id": "seg-001",
+      "section": "hook",
+      "narration": "给一个网址，AI帮你做宣传短视频。",
+      "onScreenText": [
+        "网址变成宣传内容"
+      ],
+      "claimIds": [
+        "claim-fastlane-001"
+      ],
+      "scene": "网址变成宣传内容",
+      "visualIntent": "Cal AI宣传候选原片797.5秒；网址生成来自创始人描述，原片从已有候选开始。",
+      "targetSeconds": 3
+    },
+    {
+      "id": "seg-002",
+      "section": "need",
+      "narration": "Fastlane的创始人高拉夫做出几个应用后，才发现还有个难题：怎么让人看见？他又不想一开始就砸钱投广告。",
+      "onScreenText": [
+        "做出来，还得让人看见"
+      ],
+      "claimIds": [
+        "claim-fastlane-002"
+      ],
+      "scene": "做出来，还得让人看见",
+      "visualIntent": "Gaurav采访170.5秒；姓名中文音译高拉夫，画面标原名。",
+      "targetSeconds": 8
+    },
+    {
+      "id": "seg-003",
+      "section": "mechanism",
+      "narration": "他和伙伴做的这个工具，会读取网站、参考相关的热门内容，再生成介绍你产品的图文和短视频。",
+      "onScreenText": [
+        "先有一批可选的内容"
+      ],
+      "claimIds": [
+        "claim-fastlane-001",
+        "claim-fastlane-002",
+        "claim-fastlane-014"
+      ],
+      "scene": "先有一批可选的内容",
+      "visualIntent": "原采访115.8秒的官网URL宣传动效，接已生成产品候选卡片；明确为原片所示宣传动效，非本次网址输入或生成实录。",
+      "targetSeconds": 7
+    },
+    {
+      "id": "seg-004",
+      "section": "mechanism",
+      "narration": "不喜欢的划走，想用的留下，选好账号，就能安排发布。",
+      "onScreenText": [
+        "挑好内容，安排发布"
+      ],
+      "claimIds": [
+        "claim-fastlane-001"
+      ],
+      "scene": "挑好内容，安排发布",
+      "visualIntent": "820秒滑卡，再接805.5账号和814排期选项；步骤省略，真实排期帧可短暂停留便于阅读。",
+      "targetSeconds": 4
+    },
+    {
+      "id": "seg-005",
+      "section": "value",
+      "narration": "原来要一边开发，一边想选题、写文案、剪视频。现在先有一批候选，用户把时间花在挑选和调整上。",
+      "onScreenText": [
+        "宣传内容不用从零准备"
+      ],
+      "claimIds": [
+        "claim-fastlane-001"
+      ],
+      "scene": "宣传内容不用从零准备",
+      "visualIntent": "为产品生成的候选画面，解释用途，不承诺无需修改或效果；以真实已生成候选承接“挑选”，不声称全自动完成或无需修改。",
+      "targetSeconds": 8
+    },
+    {
+      "id": "seg-006",
+      "section": "distribution",
+      "narration": "那第一批人从哪来？他们去Reddit和社交平台招募，再约报名者通话。",
+      "onScreenText": [
+        "找到人，再看他怎么用"
+      ],
+      "claimIds": [
+        "claim-fastlane-005"
+      ],
+      "scene": "找到人，再看他怎么用",
+      "visualIntent": "原采访689.3–691.7秒展示的真实Reddit帖局部，裁掉3000+数字，接694秒创始人镜头；标注“原采访所示历史帖子”，不将帖内数字作为获客效果。",
+      "targetSeconds": 6
+    },
+    {
+      "id": "seg-007",
+      "section": "iteration",
+      "narration": "通话时让对方共享屏幕，自己少说话，看他在哪一步卡住，再照着这些问题改界面。",
+      "onScreenText": [
+        "先看人卡在哪"
+      ],
+      "claimIds": [
+        "claim-fastlane-005"
+      ],
+      "scene": "先看人卡在哪",
+      "visualIntent": "699秒创始人谈共享屏幕观察，无客户录像，注明自述。",
+      "targetSeconds": 6
+    },
+    {
+      "id": "seg-008",
+      "section": "iteration",
+      "narration": "为了让人愿意聊，应用里还有个邀请：参加访谈，多送七天使用时间。",
+      "onScreenText": [
+        "一次访谈，多用七天"
+      ],
+      "claimIds": [
+        "claim-fastlane-004"
+      ],
+      "scene": "一次访谈，多用七天",
+      "visualIntent": "426秒本人谈预约与七天；配有来源文字，非现行试用政策。",
+      "targetSeconds": 5
+    },
+    {
+      "id": "seg-009",
+      "section": "result",
+      "narration": "第一位付费客户，就是一名测试用户。他付钱的理由很直接：还想接着用。",
+      "onScreenText": [
+        "第一位付费者来自测试用户"
+      ],
+      "claimIds": [
+        "claim-fastlane-006"
+      ],
+      "scene": "第一位付费者来自测试用户",
+      "visualIntent": "据2026-04-03文章How did you launch末段排印原文短摘录及中文解释，明确标注“原文摘录·编辑排版”；原网页该段有模糊遮罩，不作为可读网页截图呈现。",
+      "targetSeconds": 6
+    },
+    {
+      "id": "seg-010",
+      "section": "result",
+      "narration": "高拉夫早期披露的年化经常性收入，已超过十二万澳元。",
+      "onScreenText": [
+        "历史 ARR 超12万澳元"
+      ],
+      "claimIds": [
+        "claim-fastlane-009"
+      ],
+      "scene": "历史 ARR 超12万澳元",
+      "visualIntent": "旧版已核验ARR原文截图重制；2026-04-03与自报常驻，不说现在年收入。",
+      "targetSeconds": 4
+    },
+    {
+      "id": "seg-011",
+      "section": "payoff",
+      "narration": "当初，他为自己的应用找推广办法。这份麻烦做成工具，成了别人愿意付钱买的服务。",
+      "onScreenText": [
+        "自己的难题，做成付费工具"
+      ],
+      "claimIds": [
+        "claim-fastlane-001",
+        "claim-fastlane-002",
+        "claim-fastlane-006"
+      ],
+      "scene": "自己的难题，做成付费工具",
+      "visualIntent": "回到已见候选与创始人，连接人物需求及已发生付款；现在为故事总结不暗示最新营收。",
+      "targetSeconds": 6
+    }
+  ]
+}

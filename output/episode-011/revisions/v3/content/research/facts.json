@@ -1,0 +1,169 @@
+[
+  {
+    "id": "claim-gamma-001",
+    "claim": "Gamma可按主题、提纲或已有文档生成带图文版式的演示稿初稿，再由用户编辑。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2026-10-20",
+    "sourceIds": [
+      "src-gamma-product",
+      "src-gamma-tutorial"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "用途概括，不承诺正确无误、固定用时或无需修改。 PPT为演示稿的日常称呼；官网支持PowerPoint导出，本片未实测导出，不限定生成物原生格式。"
+  },
+  {
+    "id": "claim-gamma-002",
+    "claim": "Grant Lee在Stanford访谈回忆，做咨询时曾为次日会议熬夜准备Google Slides，大部分精力用在排版；于是联系两位前同事原型探索。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2025-10-21",
+    "sourceIds": [
+      "src-gamma-stanford"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "历史个人回忆，不把主观90%当普遍效率测量，不虚构具体客户。"
+  },
+  {
+    "id": "claim-gamma-003",
+    "claim": "Grant说早期希望让写作成为起点，以灵活版式取代逐像素设计；生成式AI是后续加入。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2025-10-21",
+    "sourceIds": [
+      "src-gamma-stanford"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "保留先有非AI原型、后来加入AI的时间关系。"
+  },
+  {
+    "id": "claim-gamma-004",
+    "claim": "按2025年Gamma 3.0发布文章及官方GIF，用户可请求Agent修改布局或重构表达，也可使用Smart Diagrams将文字变成图示。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2025-09-15",
+    "sourceIds": [
+      "src-gamma-3"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "演示为2025官方录制，非本次实测，中文解释不是界面本地化。"
+  },
+  {
+    "id": "claim-gamma-005",
+    "claim": "Grant在Stanford问答中说，早期找朋友试用；随后在Product Hunt公开测试，无等待名单，可直接注册；团队主动邀请用户通话收集反馈。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2025-10-21",
+    "sourceIds": [
+      "src-gamma-stanford"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "采访回顾，不捏造首单，不把朋友夸赞视为留存，不把反馈直接归因为融资或增长。"
+  },
+  {
+    "id": "claim-gamma-006",
+    "claim": "2025-11-10，Gamma创始人署名文章披露完成6800万美元B轮融资，估值21亿美元。",
+    "metricName": "B轮融资 / 估值",
+    "value": "USD 68M / USD 2.1B",
+    "period": "2025-11-10 announced round",
+    "eventDate": "2025-11-10",
+    "sourceIds": [
+      "src-gamma-growth"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "历史公司披露，不是当前估值、收入或利润；不由融资推出产品有效。"
+  },
+  {
+    "id": "claim-gamma-007",
+    "claim": "2025-11-10，Gamma创始人署名文章披露年化经常性收入ARR已超过1亿美元。",
+    "metricName": "ARR",
+    "value": "USD >100M",
+    "period": "2025-11-10 company-reported historical ARR",
+    "eventDate": "2025-11-10",
+    "sourceIds": [
+      "src-gamma-growth"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "公司自报历史ARR，非实际一年收款、销售额、利润或当前营收。"
+  },
+  {
+    "id": "claim-gamma-008",
+    "claim": "Gamma于2026-08-11发布Creation Index，称其生命周期数据中，累计使用人数超过1亿。报告分析数据截至2026年5月，不能把文章发布日期当数据采集日。",
+    "metricName": "lifetime people who created with Gamma",
+    "value": ">100 million",
+    "period": "2026-08-11 report; lifetime aggregate, report analysis through 2026-05",
+    "eventDate": "2026-08-11",
+    "sourceIds": [
+      "src-gamma-creation-index"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "公司报告口径；累计使用人数，不是月活、付费用户或增长率；旁白日期明确是公司披露时间。"
+  },
+  {
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "id": "claim-gamma-009",
+    "claim": "Grant Lee回顾2022年在Product Hunt发布后获得日榜、周榜、月榜产品第一，随后增长趋平。",
+    "metricName": "Product Hunt historical monthly placement",
+    "value": "product of the month",
+    "period": "2022 founder retrospective",
+    "eventDate": "2022",
+    "sourceIds": [
+      "src-gamma-founder-growth-post"
+    ],
+    "notes": "创始人自述。增长卡住为趋平的口语转述，不是新增归零；只说月榜，不堆日/周/月榜。"
+  },
+  {
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "id": "claim-gamma-010",
+    "claim": "Grant Lee说当时12人的团队花三个月重做新手体验，把AI直接接入onboarding，重点是首次30秒让用户从一句话得到演示稿。",
+    "metricName": "historical team effort / first-use experience focus",
+    "value": "12 people / 3 months / first 30 seconds",
+    "period": "before 2023 AI launch; founder retrospective",
+    "eventDate": "2023",
+    "sourceIds": [
+      "src-gamma-founder-growth-post"
+    ],
+    "notes": "三十秒指设计关注的首次体验，不是生成整稿的服务时限；历史团队人数，不是当前人数。不说这单一动作独立导致后续ARR。"
+  },
+  {
+    "id": "claim-gamma-011",
+    "claim": "结尾“Gamma干掉了PPT”为编辑修辞，指输入文字先有初稿再修改对从空白页逐页排版方式的改变；画面以“告别从零排版”限定。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2026-10-20",
+    "sourceIds": [
+      "src-gamma-tutorial",
+      "src-gamma-stanford"
+    ],
+    "confidence": "high",
+    "reportingType": "inference",
+    "allowedInNarration": true,
+    "notes": "明确的编辑判断和修辞限定，不是创始人引语或PowerPoint已被取代/淘汰的事实，不推断市场份额。"
+  }
+]

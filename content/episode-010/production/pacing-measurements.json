@@ -1,0 +1,290 @@
+{
+  "videoSha256": "ac322ef7d753931bfafab2c90186d64772ee871e794eba597deaa72fab796c39",
+  "method": "ffmpeg -35dB / 0.1s; diagnostic only, not perceived breathing proof",
+  "segments": [
+    {
+      "segmentId": "seg-001",
+      "originalDurationSeconds": 3.192979,
+      "revisedDurationSeconds": 3.185042,
+      "revisedVideoStartSeconds": 0.0,
+      "detectedSilenceIntervals": [
+        [
+          0.0,
+          0.167229
+        ],
+        [
+          1.033813,
+          1.487313
+        ],
+        [
+          1.781583,
+          2.131
+        ],
+        [
+          2.935042,
+          3.185042
+        ]
+      ]
+    },
+    {
+      "segmentId": "seg-002",
+      "originalDurationSeconds": 6.966,
+      "revisedDurationSeconds": 7.397,
+      "revisedVideoStartSeconds": 3.466666666666667,
+      "detectedSilenceIntervals": [
+        [
+          0.0,
+          0.177667
+        ],
+        [
+          1.639354,
+          2.147562
+        ],
+        [
+          2.575708,
+          2.841771
+        ],
+        [
+          4.3175,
+          5.153062
+        ],
+        [
+          5.664729,
+          6.077708
+        ],
+        [
+          7.142333,
+          7.397
+        ]
+      ]
+    },
+    {
+      "segmentId": "seg-003",
+      "originalDurationSeconds": 4.330542,
+      "revisedDurationSeconds": 5.397167,
+      "revisedVideoStartSeconds": 11.166666666666666,
+      "detectedSilenceIntervals": [
+        [
+          0.0,
+          0.19475
+        ],
+        [
+          1.311333,
+          1.90925
+        ],
+        [
+          3.134417,
+          3.626271
+        ],
+        [
+          4.162375,
+          4.481208
+        ],
+        [
+          5.062625,
+          5.397167
+        ]
+      ]
+    },
+    {
+      "segmentId": "seg-004",
+      "originalDurationSeconds": 7.192292,
+      "revisedDurationSeconds": 7.816083,
+      "revisedVideoStartSeconds": 16.933333333333334,
+      "detectedSilenceIntervals": [
+        [
+          0.0,
+          0.181542
+        ],
+        [
+          0.538521,
+          0.889542
+        ],
+        [
+          2.125146,
+          2.653188
+        ],
+        [
+          3.083,
+          3.357125
+        ],
+        [
+          4.070396,
+          4.720292
+        ],
+        [
+          5.163937,
+          5.588458
+        ],
+        [
+          6.265375,
+          6.505979
+        ],
+        [
+          7.562083,
+          7.816083
+        ]
+      ]
+    },
+    {
+      "segmentId": "seg-005",
+      "originalDurationSeconds": 7.768188,
+      "revisedDurationSeconds": 7.934708,
+      "revisedVideoStartSeconds": 25.033333333333335,
+      "detectedSilenceIntervals": [
+        [
+          0.0,
+          0.129812
+        ],
+        [
+          0.945458,
+          1.311875
+        ],
+        [
+          2.143937,
+          2.485583
+        ],
+        [
+          4.020458,
+          4.638208
+        ],
+        [
+          5.177292,
+          5.612875
+        ],
+        [
+          6.622937,
+          7.086396
+        ],
+        [
+          7.758146,
+          7.934708
+        ]
+      ]
+    },
+    {
+      "segmentId": "seg-006",
+      "originalDurationSeconds": 6.890125,
+      "revisedDurationSeconds": 7.819146,
+      "revisedVideoStartSeconds": 33.43333333333333,
+      "detectedSilenceIntervals": [
+        [
+          0.0,
+          0.199021
+        ],
+        [
+          2.003354,
+          2.302646
+        ],
+        [
+          3.022771,
+          3.686146
+        ],
+        [
+          4.509854,
+          4.837187
+        ],
+        [
+          6.083062,
+          6.560458
+        ],
+        [
+          7.568667,
+          7.819146
+        ]
+      ]
+    },
+    {
+      "segmentId": "seg-007",
+      "originalDurationSeconds": 4.969479,
+      "revisedDurationSeconds": 5.447146,
+      "revisedVideoStartSeconds": 41.56666666666667,
+      "detectedSilenceIntervals": [
+        [
+          0.0,
+          0.167937
+        ],
+        [
+          1.262354,
+          1.635979
+        ],
+        [
+          2.994312,
+          3.806896
+        ],
+        [
+          5.185125,
+          5.447146
+        ]
+      ]
+    },
+    {
+      "segmentId": "seg-008",
+      "originalDurationSeconds": 5.793417,
+      "revisedDurationSeconds": 6.024979,
+      "revisedVideoStartSeconds": 47.5,
+      "detectedSilenceIntervals": [
+        [
+          0.0,
+          0.154625
+        ],
+        [
+          1.206396,
+          1.697604
+        ],
+        [
+          2.665583,
+          2.932958
+        ],
+        [
+          4.004958,
+          4.579729
+        ],
+        [
+          4.871667,
+          5.1715
+        ],
+        [
+          5.773375,
+          6.024979
+        ]
+      ]
+    },
+    {
+      "segmentId": "seg-009",
+      "originalDurationSeconds": 7.292,
+      "revisedDurationSeconds": 7.92275,
+      "revisedVideoStartSeconds": 54.03333333333333,
+      "detectedSilenceIntervals": [
+        [
+          0.0,
+          0.157958
+        ],
+        [
+          1.263062,
+          1.928312
+        ],
+        [
+          2.478771,
+          2.936625
+        ],
+        [
+          3.539333,
+          4.175458
+        ],
+        [
+          4.90675,
+          5.423729
+        ],
+        [
+          6.272354,
+          6.584917
+        ],
+        [
+          7.686875,
+          7.92275
+        ]
+      ]
+    }
+  ]
+}

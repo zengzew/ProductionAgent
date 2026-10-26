@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-009-v2",
+  "segmentId": "seg-008",
+  "clipId": "episode-009-v2:media-clip:d5c2514c11fc0ca7cbbd022f",
+  "claimIds": [
+    "claim-fastlane-004"
+  ],
+  "claims": [
+    {
+      "id": "claim-fastlane-004",
+      "claim": "Gaurav称团队在界面放预约访谈按钮，用户可用一次访谈换额外七天访问权限。"
+    }
+  ],
+  "narration": "为了让人愿意聊,应用里还有个邀请:参加访谈,多送七天使用时间。",
+  "visualIntent": "426秒本人谈预约与七天;配有来源文字,非现行试用政策。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/verifications/seg-008/episode-009-v2-media-clip-d5c2514c11fc0ca7cbbd022f-clip.mp4",
+    "sha256": "7d3e553e91522c1b6679965a7ffead6a27e1d70cab7cd4168776c782d3fe27be",
+    "sizeBytes": 3398348,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 5166,
+    "sourceMediaId": "episode-009-v2:media:seg-008-7b2970eee963",
+    "sourceMediaSha256": "7b2970eee963e33474d303a7a199defbf05f3af3d2c21e917ee005774bd20194"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/indexes/seg-008-7b2970eee963/keyframes/keyframe-0-2583.jpg",
+      "timestampMs": 2583,
+      "sha256": "15a739248de0cc48d2445ef35b66e3d187bf1eb523aaba8fd3c5d39fb5dfdba4",
+      "sizeBytes": 52030,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "Gaurav本人谈访谈激励；额外七天为历史做法，不冒充当前试用规则。",
+    "observedText": "",
+    "keywords": [
+      "seg-008",
+      "Fastlane",
+      "人物"
+    ],
+    "entities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "0672fedc63fabac5e16db57862cbe63269816c5acfd4c0b336228e9c638caa92"
+}

@@ -1,0 +1,28 @@
+{
+  "requestHash": "4a8660f177d027746bc08956c683f6f9847e486fc46ee6a243b812c063ca8066",
+  "completedAt": "2026-10-15T03:26:39.564433+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.94,
+    "claimMatch": 0.92,
+    "visualQuality": 0.88,
+    "misleadingRisk": 0.06,
+    "observedActions": [
+      "真实Select Platforms账号选择后，剪到Schedule中Post ASAP与Schedule for Later；中间步骤省略，不证明上线。"
+    ],
+    "observedEntities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "observedText": [
+      "Post ASAP",
+      "Schedule for Later"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 4767,
+    "reasons": [
+      "当前Codex制作会话实际检查原片与派生窗口抽帧；见media/prepared-check及排期814秒原帧。不是独立Delivery批准。",
+      "来源标示历史采访；输入/生成未实演，访谈配图不是客户现场；排期选项停帧供阅读，不证明上线。"
+    ]
+  }
+}

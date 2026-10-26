@@ -1,0 +1,119 @@
+[
+  {
+    "segmentId": "seg-001",
+    "sourceId": "episode-012:media-source:official",
+    "mediaId": "episode-012:media:seg-001-f4f8df40e597",
+    "sha256": "f4f8df40e597a85eb860fe2af35d543e942151326a3b73f2eeb690233bef9e28",
+    "textSummary": "官网宣传动效展示同一商品在原场景与白底之间变化；不是本次上传或生成实测。",
+    "keywords": [
+      "seg-001",
+      "Photoroom",
+      "official",
+      "attributed-local-evaluation"
+    ]
+  },
+  {
+    "segmentId": "seg-002",
+    "sourceId": "episode-012:media-source:founder",
+    "mediaId": "episode-012:media:seg-002-a93299117c36",
+    "sha256": "a93299117c36a890996a3b8ba9a150d3022eea8135a3335f509f2ca7f83ed2eb",
+    "textSummary": "Stripe原始人物合照及有日期的创始人困扰回忆转述，不是GoPro历史操作。",
+    "keywords": [
+      "seg-002",
+      "Photoroom",
+      "founder",
+      "attributed-local-evaluation"
+    ]
+  },
+  {
+    "segmentId": "seg-003",
+    "sourceId": "episode-012:media-source:founder",
+    "mediaId": "episode-012:media:seg-003-3f05572b6606",
+    "sha256": "3f05572b660677ccf4a379f456365d1a9b29044c75a95a1484a9f5e24e50c41a",
+    "textSummary": "人物合照配两周首版历史回忆，明确初版去背景而非现行全部功能。",
+    "keywords": [
+      "seg-003",
+      "Photoroom",
+      "founder",
+      "attributed-local-evaluation"
+    ]
+  },
+  {
+    "segmentId": "seg-004",
+    "sourceId": "episode-012:media-source:official",
+    "mediaId": "episode-012:media:seg-004-be6b3df8fde1",
+    "sha256": "be6b3df8fde1aa88b509ab340fea6e1eceeee7acfd4c86e6bfbbf6fa32daa5bc",
+    "textSummary": "先显示真实官网上传入口，再接官方去背景宣传动效及椅子布景示例；不同示例，非同次生成过程。",
+    "keywords": [
+      "seg-004",
+      "Photoroom",
+      "official",
+      "attributed-local-evaluation"
+    ]
+  },
+  {
+    "segmentId": "seg-005",
+    "sourceId": "episode-012:media-source:trust",
+    "mediaId": "episode-012:media:seg-005-7835b4489ba1",
+    "sha256": "7835b4489ba1a78953e30753e7a6f64dda45a739d2edaacf8142c645a06c5fe0",
+    "textSummary": "Stripe创始人商品保真取向的编辑转述，随后官网商品白底示例；不是每次生成准确率保证。",
+    "keywords": [
+      "seg-005",
+      "Photoroom",
+      "trust",
+      "attributed-local-evaluation"
+    ]
+  },
+  {
+    "segmentId": "seg-006",
+    "sourceId": "episode-012:media-source:growth",
+    "mediaId": "episode-012:media:seg-006-5e5865b94e51",
+    "sha256": "5e5865b94e5143de617e1cbd03862a8c10caf157de70b12306a652330d4eca15",
+    "textSummary": "2023增长负责人访谈转述免费去背景入口与TikTok演示；配官网效果，非真实TikTok帖子。",
+    "keywords": [
+      "seg-006",
+      "Photoroom",
+      "growth",
+      "attributed-local-evaluation"
+    ]
+  },
+  {
+    "segmentId": "seg-007",
+    "sourceId": "episode-012:media-source:growth",
+    "mediaId": "episode-012:media:seg-007-59d25de792b0",
+    "sha256": "59d25de792b0fea069202535ae5af37551e5359c58a35051b8763168199b6dc5",
+    "textSummary": "原访谈合作创作者、选择内容及社交广告素材的编辑转述，未造投放后台。",
+    "keywords": [
+      "seg-007",
+      "Photoroom",
+      "growth",
+      "attributed-local-evaluation"
+    ]
+  },
+  {
+    "segmentId": "seg-008",
+    "sourceId": "episode-012:media-source:finance",
+    "mediaId": "episode-012:media:seg-008-b26c3dfa43b9",
+    "sha256": "b26c3dfa43b9752ec1a2ba4050cdb8250e24448beecaae2eb4b81e7a98616567",
+    "textSummary": "公司公告数据编辑卡，2024-02-27、B轮、4300万美元同屏，不是营收或现行估值。",
+    "keywords": [
+      "seg-008",
+      "Photoroom",
+      "finance",
+      "attributed-local-evaluation"
+    ]
+  },
+  {
+    "segmentId": "seg-009",
+    "sourceId": "episode-012:media-source:official",
+    "mediaId": "episode-012:media:seg-009-1fd53f6672de",
+    "sha256": "1fd53f6672de73cbfc7c5d4c562384e65d682fefa4ff397486c65fb2db9187ec",
+    "textSummary": "结尾回看官方去背景演示，最后一秒落回开头黄色杯子的干净白底结果，停帧供阅读，不延长片长，无销售效果承诺。",
+    "keywords": [
+      "seg-009",
+      "Photoroom",
+      "official",
+      "attributed-local-evaluation"
+    ]
+  }
+]

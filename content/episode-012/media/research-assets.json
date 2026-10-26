@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-012",
+  "assets": [
+    {
+      "path": "content/episode-012/media/raw/official-background-demo.mp4",
+      "sourceUrl": "https://storyblok-cdn.photoroom.com/f/191576/x/fcabee7e74/remove_background_feature_01.mp4",
+      "sha256": "d14a78a57d5fbf3676b51293d91aa0c181e9242d447bf8d6f432b49d83979ada",
+      "sizeBytes": 2262071,
+      "accessedAt": "2026-10-25",
+      "rightsStatus": "review-required",
+      "usedInRender": false,
+      "notes": "本地评估原始素材/证据；不是正式媒体准入manifest或权利批准。"
+    },
+    {
+      "path": "content/episode-012/media/raw/official-background-example.webp",
+      "sourceUrl": "https://storyblok-cdn.photoroom.com/f/191576/1764x1323/2389c0f19e/ai_photo_2.webp",
+      "sha256": "a545821f66d453eb6ac509c9cd153337fb5f13718de9b77affc3a1325f765586",
+      "sizeBytes": 146180,
+      "accessedAt": "2026-10-25",
+      "rightsStatus": "review-required",
+      "usedInRender": false,
+      "notes": "本地评估原始素材/证据；不是正式媒体准入manifest或权利批准。"
+    },
+    {
+      "path": "content/episode-012/media/raw/founders.png",
+      "sourceUrl": "https://images.stripeassets.com/fzn2n1nzq965/eT3GjNfSZncGQNiKMLO1z/15e74628727866313aff8796faadb9f0/cofounders.png?w=2000&q=80",
+      "sha256": "6de9ad90880b65cdfa5ae7f2860788b151f56aedc3d9aebbb526af9a1d93b667",
+      "sizeBytes": 3047528,
+      "accessedAt": "2026-10-25",
+      "rightsStatus": "review-required",
+      "usedInRender": false,
+      "notes": "本地评估原始素材/证据；不是正式媒体准入manifest或权利批准。"
+    },
+    {
+      "path": "content/episode-012/media/raw/official-remover-page.png",
+      "sourceUrl": "https://www.photoroom.com/tools/background-remover",
+      "sha256": "d7a4113f38fcdb4aa1559f9781fc2f8ceee5c7a0b5347d9bdada5e5cd23bd920",
+      "sizeBytes": 206043,
+      "accessedAt": "2026-10-25",
+      "rightsStatus": "review-required",
+      "usedInRender": false,
+      "notes": "本地评估原始素材/证据；不是正式媒体准入manifest或权利批准。"
+    },
+    {
+      "path": "content/episode-012/media/raw/official-demo-contact-sheet.png",
+      "sourceUrl": "local derivative of official-background-demo.mp4",
+      "sha256": "7283bb5aaba4efc700aaa5be8b0324c90ad0d5d8a5abb654ba03f09f9877172a",
+      "sizeBytes": 341714,
+      "accessedAt": "2026-10-25",
+      "rightsStatus": "review-required",
+      "usedInRender": false,
+      "notes": "本地评估原始素材/证据；不是正式媒体准入manifest或权利批准。"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "requestHash": "635debc7e615ea42bf59724d1c3861b97c7d8a44c8e780e5cf6233432a61b67d",
+  "completedAt": "2026-10-20T09:31:11.871466+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.93,
+    "claimMatch": 0.8,
+    "visualQuality": 0.82,
+    "misleadingRisk": 0.15,
+    "observedActions": [
+      "回看2025官方文字变图演示，结果停帧供理解“已有稿可修改”，不宣称持续生成或实测省时。"
+    ],
+    "observedEntities": [
+      "Gamma",
+      "Holographic Technology"
+    ],
+    "observedText": [
+      "Make this more visual",
+      "Holographic Technology"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 7200,
+    "reasons": [
+      "本制作会话检查V2派生片段联系表并回看原始GIF；按V2声音重新派生，未继承V1核验签名。",
+      "2025官方编辑演示，非本次产品实测或从零生成实录；结尾仅承接生成再修改，不证明已取代PowerPoint。"
+    ]
+  }
+}

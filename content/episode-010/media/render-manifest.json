@@ -1,0 +1,422 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-010:media:render-manifest",
+    "createdAt": "2026-10-20T11:35:27.270Z",
+    "episodeId": "episode-010",
+    "mediaType": "application/json",
+    "path": "content/episode-010/media/render-manifest.json",
+    "producer": "media-render-manifest-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-manifest-v1",
+    "sha256": "761d547c1bd750345da8306a06b34c89c9f760a4d290ac1b0207b240e27f00d5",
+    "sizeBytes": 15154
+  },
+  "assetManifestSha256": "5b985769afc2f0d16527d140d9db5cfbd22e8838ba9d77e6c8edccefc31b1ab2",
+  "assets": [
+    {
+      "kind": "original",
+      "mediaId": "episode-010:media:seg-001-1483695738d6",
+      "mediaType": "video/mp4",
+      "sha256": "1483695738d6a8c5ddeedb318ec0281f06b6f8b7f6da56d9f958504cb6d594ce",
+      "sizeBytes": 193638,
+      "sourceId": "episode-010:media-source:granola-official"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-010:media:seg-001-1483695738d6-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "967e5373af084cfc0ae69a976307fe23b2f9f1b491091ba37746edd7b1caed60",
+      "sizeBytes": 107428,
+      "sourceId": "episode-010:media-source:granola-official"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-010:media:seg-004-bc127a9b8732",
+      "mediaType": "video/mp4",
+      "sha256": "bc127a9b87324851ee1f0512077c7a8d212e56aee0f5d6425982e215a344b879",
+      "sizeBytes": 206880,
+      "sourceId": "episode-010:media-source:granola-official"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-010:media:seg-004-bc127a9b8732-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "19ad38cc676ddb7c6aa5495f9e1f26e98e07e726ffaba436948e4dc9abe01df2",
+      "sizeBytes": 115356,
+      "sourceId": "episode-010:media-source:granola-official"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-010:media:seg-005-2921cde4f4e4",
+      "mediaType": "video/mp4",
+      "sha256": "2921cde4f4e46ef69e8a4310ae7ec91aea30f7c19afffabb96103d44d716c4a4",
+      "sizeBytes": 70885,
+      "sourceId": "episode-010:media-source:granola-official"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-010:media:seg-005-2921cde4f4e4-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "20a365749e38e734281129dbbf7c301ecf740375260a8b1bd92a67308b21c669",
+      "sizeBytes": 45210,
+      "sourceId": "episode-010:media-source:granola-official"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-010:media:seg-001-e963365959ed",
+      "mediaType": "video/mp4",
+      "sha256": "e963365959ed81043f7d999d2e37e551d5210b2f9f3f6bac2986d1dc4fe64d86",
+      "sizeBytes": 199097,
+      "sourceId": "episode-010:media-source:granola-official"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-010:media:seg-001-e963365959ed-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "e5da2a9bf28e87876212be7cdcc87d5457646d885466875b27e60ce0fbbd4ed3",
+      "sizeBytes": 108707,
+      "sourceId": "episode-010:media-source:granola-official"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-010:media:seg-004-98f649cafa95",
+      "mediaType": "video/mp4",
+      "sha256": "98f649cafa955ce20643d12371cd67fcda9ef74013c173b120c5f5e11b0e9d5a",
+      "sizeBytes": 208699,
+      "sourceId": "episode-010:media-source:granola-official"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-010:media:seg-004-98f649cafa95-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "c783dd496667295dade0bd4c062634dd0c99517b1113176a3e6008dec92a5b6e",
+      "sizeBytes": 116678,
+      "sourceId": "episode-010:media-source:granola-official"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-010:media:seg-005-8483c5e80015",
+      "mediaType": "video/mp4",
+      "sha256": "8483c5e800150b82e61a79feb827932ad86d30382352fc742a0af2a8b97258fc",
+      "sizeBytes": 111381,
+      "sourceId": "episode-010:media-source:granola-official"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-010:media:seg-005-8483c5e80015-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "772b6a145d2e5eb7e8a12e85f980c768086db87d8cd5f1c69958c8cab936f923",
+      "sizeBytes": 72402,
+      "sourceId": "episode-010:media-source:granola-official"
+    }
+  ],
+  "clips": [
+    {
+      "clipId": "episode-010:media-clip:36eb78188ebf5a428755a258",
+      "endMs": 3467,
+      "mediaId": "episode-010:media:seg-001-e963365959ed",
+      "startMs": 0,
+      "verificationSha256": "329d292892e1868b68f6f525822fce2eac3810aee2ea17c1f46d05771f2d5d11"
+    },
+    {
+      "clipId": "episode-010:media-clip:73478ba37acafe8633d9e323",
+      "endMs": 8100,
+      "mediaId": "episode-010:media:seg-004-98f649cafa95",
+      "startMs": 0,
+      "verificationSha256": "7d9a96e90d49f4a772867769849b87e88cf5e0e096c5f46e4c6a4c21fad7b3d8"
+    },
+    {
+      "clipId": "episode-010:media-clip:b335167b5b2fb51bc8accb85",
+      "endMs": 8400,
+      "mediaId": "episode-010:media:seg-005-8483c5e80015",
+      "startMs": 0,
+      "verificationSha256": "dc4671396e30da83252466aaec96ba05c8db21e2e518a14e2c7b5635fc419ed8"
+    }
+  ],
+  "createdAt": "2026-10-20T11:35:27.270Z",
+  "episodeId": "episode-010",
+  "officialAssets": [
+    {
+      "approved": true,
+      "capturedAt": "2026-10-16",
+      "claimIds": [
+        "claim-granola-002"
+      ],
+      "id": "granola-still-0",
+      "licenseOrBasis": "用户授权本地制作观看版；公开第一方材料必要引用，外部发布权利尚待终审。",
+      "owner": "Granola / Chris Pedregal；本期中文释义与编辑排版",
+      "path": "public/episodes/episode-010/assets/founder.png",
+      "segmentIds": [
+        "seg-002"
+      ],
+      "sourceUrl": "https://www.granola.ai/blog/announcement",
+      "type": "screenshot",
+      "usage": "创始人照片＋真实原文局部；编辑合版",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-10-16",
+      "claimIds": [
+        "claim-granola-002"
+      ],
+      "id": "granola-still-1",
+      "licenseOrBasis": "用户授权本地制作观看版；公开第一方材料必要引用，外部发布权利尚待终审。",
+      "owner": "Granola / Chris Pedregal；本期中文释义与编辑排版",
+      "path": "public/episodes/episode-010/assets/human-ai.png",
+      "segmentIds": [
+        "seg-003"
+      ],
+      "sourceUrl": "https://www.granola.ai/blog/announcement",
+      "type": "image",
+      "usage": "官网原图裁切＋中文释义；非应用内中文UI",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-10-16",
+      "claimIds": [
+        "claim-granola-001",
+        "claim-granola-002",
+        "claim-granola-004"
+      ],
+      "id": "granola-still-2",
+      "licenseOrBasis": "用户授权本地制作观看版；公开第一方材料必要引用，外部发布权利尚待终审。",
+      "owner": "Granola / Chris Pedregal；本期中文释义与编辑排版",
+      "path": "public/episodes/episode-010/assets/human-ai.png",
+      "segmentIds": [
+        "seg-009"
+      ],
+      "sourceUrl": "https://www.granola.ai/blog/announcement",
+      "type": "image",
+      "usage": "官网原图回看黑色用户要点与灰色AI补全；中文释义",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-10-16",
+      "claimIds": [
+        "claim-granola-003"
+      ],
+      "id": "granola-still-3",
+      "licenseOrBasis": "用户授权本地制作观看版；公开第一方材料必要引用，外部发布权利尚待终审。",
+      "owner": "Granola / Chris Pedregal；本期中文释义与编辑排版",
+      "path": "public/episodes/episode-010/assets/early-users.png",
+      "segmentIds": [
+        "seg-006"
+      ],
+      "sourceUrl": "https://www.granola.ai/blog/series-a",
+      "type": "screenshot",
+      "usage": "真实原文局部截图＋编辑中文释义",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-10-16",
+      "claimIds": [
+        "claim-granola-003",
+        "claim-granola-004"
+      ],
+      "id": "granola-still-4",
+      "licenseOrBasis": "用户授权本地制作观看版；公开第一方材料必要引用，外部发布权利尚待终审。",
+      "owner": "Granola / Chris Pedregal；本期中文释义与编辑排版",
+      "path": "public/episodes/episode-010/assets/team-spread.png",
+      "segmentIds": [
+        "seg-007"
+      ],
+      "sourceUrl": "https://www.granola.ai/blog/series-a",
+      "type": "screenshot",
+      "usage": "真实原文局部截图＋编辑中文释义",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-10-16",
+      "claimIds": [
+        "claim-granola-005"
+      ],
+      "id": "granola-still-5",
+      "licenseOrBasis": "用户授权本地制作观看版；公开第一方材料必要引用，外部发布权利尚待终审。",
+      "owner": "Granola / Chris Pedregal；本期中文释义与编辑排版",
+      "path": "public/episodes/episode-010/assets/funding.png",
+      "segmentIds": [
+        "seg-008"
+      ],
+      "sourceUrl": "https://www.granola.ai/blog/series-c",
+      "type": "screenshot",
+      "usage": "融资原文真实截图＋中文释义，保留日期与公司身份",
+      "usedInRender": true
+    }
+  ],
+  "renderPlanSha256": "3ca5e053168769a4f7c6ba8cae5173b592611ba28cbf212bf310ab012f86abfd",
+  "schemaVersion": "media-render-manifest-v1",
+  "sourceManifestSha256": "eb16d2e1234f4768b28f08f80e85841df1821c21758085d650c486a382a8f1e4",
+  "sources": [
+    {
+      "admissionStatus": "admitted",
+      "admitted": true,
+      "publisher": "Granola / Chris Pedregal",
+      "rightsApproved": true,
+      "rightsStatus": "approved",
+      "sourceId": "episode-010:media-source:granola-official",
+      "sourceType": "founder"
+    }
+  ],
+  "timelineSha256": "bfeb13e228c6e5408b2d8f1a689358523cd87c755969eb2e9375bdd35956c3f9",
+  "usage": [
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-granola-001"
+        ],
+        "clipId": "episode-010:media-clip:36eb78188ebf5a428755a258",
+        "createdAt": "2026-10-20T11:35:25.535Z",
+        "endMs": 3467,
+        "episodeId": "episode-010",
+        "mediaId": "episode-010:media:seg-001-e963365959ed",
+        "sourceMediaRef": {
+          "artifactId": "episode-010:media:seg-001-e963365959ed",
+          "createdAt": "2026-10-20T11:01:27.926Z",
+          "episodeId": "episode-010",
+          "mediaType": "video/mp4",
+          "path": "content/episode-010/media/assets/seg-001-e963365959ed.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "e963365959ed81043f7d999d2e37e551d5210b2f9f3f6bac2986d1dc4fe64d86",
+          "sizeBytes": 199097
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "官方2024年笔记补全演示,0秒原始要点→3秒后展开;首屏配中文用途标题。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-001",
+      "selectedType": "real-media",
+      "verificationSha256": "329d292892e1868b68f6f525822fce2eac3810aee2ea17c1f46d05771f2d5d11"
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-002",
+      "fallbackType": null,
+      "officialAssetId": "granola-still-0",
+      "segmentId": "seg-002",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-003",
+      "fallbackType": null,
+      "officialAssetId": "granola-still-1",
+      "segmentId": "seg-003",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-granola-001"
+        ],
+        "clipId": "episode-010:media-clip:73478ba37acafe8633d9e323",
+        "createdAt": "2026-10-20T11:35:25.712Z",
+        "endMs": 8100,
+        "episodeId": "episode-010",
+        "mediaId": "episode-010:media:seg-004-98f649cafa95",
+        "sourceMediaRef": {
+          "artifactId": "episode-010:media:seg-004-98f649cafa95",
+          "createdAt": "2026-10-20T11:01:28.414Z",
+          "episodeId": "episode-010",
+          "mediaType": "video/mp4",
+          "path": "content/episode-010/media/assets/seg-004-98f649cafa95.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "98f649cafa955ce20643d12371cd67fcda9ef74013c173b120c5f5e11b0e9d5a",
+          "sizeBytes": 208699
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "官方历史补全演示连续展示原始记录到展开;明确官网演示、非本次实测。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-004",
+      "selectedType": "real-media",
+      "verificationSha256": "7d9a96e90d49f4a772867769849b87e88cf5e0e096c5f46e4c6a4c21fad7b3d8"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-granola-001",
+          "claim-granola-002"
+        ],
+        "clipId": "episode-010:media-clip:b335167b5b2fb51bc8accb85",
+        "createdAt": "2026-10-20T11:35:25.907Z",
+        "endMs": 8400,
+        "episodeId": "episode-010",
+        "mediaId": "episode-010:media:seg-005-8483c5e80015",
+        "sourceMediaRef": {
+          "artifactId": "episode-010:media:seg-005-8483c5e80015",
+          "createdAt": "2026-10-20T11:01:29.172Z",
+          "episodeId": "episode-010",
+          "mediaType": "video/mp4",
+          "path": "content/episode-010/media/assets/seg-005-8483c5e80015.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "8483c5e800150b82e61a79feb827932ad86d30382352fc742a0af2a8b97258fc",
+          "sizeBytes": 111381
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "同段官方演示展示分层笔记与Next steps,缩小到笔记区域,保留标题与原词。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-005",
+      "selectedType": "real-media",
+      "verificationSha256": "dc4671396e30da83252466aaec96ba05c8db21e2e518a14e2c7b5635fc419ed8"
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-006",
+      "fallbackType": null,
+      "officialAssetId": "granola-still-3",
+      "segmentId": "seg-006",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-007",
+      "fallbackType": null,
+      "officialAssetId": "granola-still-4",
+      "segmentId": "seg-007",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-008",
+      "fallbackType": null,
+      "officialAssetId": "granola-still-5",
+      "segmentId": "seg-008",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-009",
+      "fallbackType": null,
+      "officialAssetId": "granola-still-2",
+      "segmentId": "seg-009",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    }
+  ]
+}

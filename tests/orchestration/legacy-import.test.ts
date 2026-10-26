@@ -2,7 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import {afterEach, describe, expect, it} from "vitest";
-import {importLegacyEpisode001} from "../../src/orchestration";
+import {importLegacyEpisode001} from "../helpers/legacy-import";
 import {legacyEpisodeRepoFixture} from "../helpers/artifacts";
 
 const temporaryDirectories: string[] = [];

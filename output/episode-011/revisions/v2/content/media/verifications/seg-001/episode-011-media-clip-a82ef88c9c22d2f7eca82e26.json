@@ -1,0 +1,113 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-011:media-verification:seg-001-episode-011-media-clip-a82ef88c9c22d2f7eca82e26",
+    "createdAt": "2026-10-20T07:56:44.759Z",
+    "episodeId": "episode-011",
+    "mediaType": "application/json",
+    "path": "content/episode-011/media/verifications/seg-001/episode-011-media-clip-a82ef88c9c22d2f7eca82e26.json",
+    "producer": "media-verification-v1:codex:gamma-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "d3abd77d1c3bc3bdc2bd9aae3beabefe79f93db47b616e3c4ad1385c48b19a92",
+    "sizeBytes": 4117
+  },
+  "cacheKey": "77e7699db3a0793f3814e2c09d7ea3d29fed82eb5216d4361397a3572c3fc9b4",
+  "claimIds": [
+    "claim-gamma-004"
+  ],
+  "claimMatch": 0.9,
+  "clipArtifactRef": {
+    "artifactId": "episode-011:media-verification-clip:seg-001-episode-011-media-clip-a82ef88c9c22d2f7eca82e26",
+    "createdAt": "2026-10-20T07:56:25.638Z",
+    "episodeId": "episode-011",
+    "mediaType": "video/mp4",
+    "path": "content/episode-011/media/verifications/seg-001/episode-011-media-clip-a82ef88c9c22d2f7eca82e26-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "85fa0c4b46206edc15241ac2e956fff93f4255728fd12cacf9fc7f8b4b250473",
+    "sizeBytes": 1687907
+  },
+  "clipId": "episode-011:media-clip:a82ef88c9c22d2f7eca82e26",
+  "clipRef": {
+    "claimIds": [
+      "claim-gamma-004"
+    ],
+    "clipId": "episode-011:media-clip:a82ef88c9c22d2f7eca82e26",
+    "createdAt": "2026-10-20T07:56:44.759Z",
+    "endMs": 2633,
+    "episodeId": "episode-011",
+    "mediaId": "episode-011:media:seg-001-7c8811ed49e0-official",
+    "sourceMediaRef": {
+      "artifactId": "episode-011:media:seg-001-7c8811ed49e0-official",
+      "createdAt": "2026-10-20T07:56:19.657Z",
+      "episodeId": "episode-011",
+      "mediaType": "video/mp4",
+      "path": "content/episode-011/media/assets/seg-001-7c8811ed49e0-official.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "7c8811ed49e057ffcbaca7eceed174392945cffc806e45bace4cd687f16ddd35",
+      "sizeBytes": 1191132
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "2025官方Agent动画可见文字块变成图示;标明官方演示及示例数字,非本次实测。"
+  },
+  "createdAt": "2026-10-20T07:56:44.759Z",
+  "episodeId": "episode-011",
+  "mediaRef": {
+    "artifactId": "episode-011:media:seg-001-7c8811ed49e0-official",
+    "createdAt": "2026-10-20T07:56:19.657Z",
+    "episodeId": "episode-011",
+    "mediaType": "video/mp4",
+    "path": "content/episode-011/media/assets/seg-001-7c8811ed49e0-official.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "7c8811ed49e057ffcbaca7eceed174392945cffc806e45bace4cd687f16ddd35",
+    "sizeBytes": 1191132
+  },
+  "misleadingRisk": 0.15,
+  "model": "current-session",
+  "observedActions": [
+    "2025官方演示：大段文字在Make this more visual后转为蓝色图示；图内数字仅为演示内容，非Gamma数据。"
+  ],
+  "observedEntities": [
+    "Gamma",
+    "Holographic Technology"
+  ],
+  "observedText": [
+    "Make this more visual",
+    "Holographic Technology"
+  ],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "本制作会话查看完整来源逐半秒帧及当前派生片段联系表；不是独立Delivery或人工批准。",
+    "官方2025演示，不是本次实测。示例数字非Gamma数据，不能作为本期商业事实；结尾为产品用途承接，不证明创始人经历或省时测量。"
+  ],
+  "recommendedEndMs": 2633,
+  "recommendedStartMs": 0,
+  "relevance": 0.94,
+  "retrievalResultRef": {
+    "artifactId": "episode-011:media-retrieval:seg-001",
+    "createdAt": "2026-10-20T07:56:24.580Z",
+    "episodeId": "episode-011",
+    "mediaType": "application/json",
+    "path": "content/episode-011/media/candidates/seg-001.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 3,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "514dd7e7f40bbbf16b76bbc5e35f7f6e87f7c501ef1499ebad2d71dc718490c3",
+    "sizeBytes": 17550
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-001",
+  "sourceSha256": "7c8811ed49e057ffcbaca7eceed174392945cffc806e45bace4cd687f16ddd35",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-011:media-verification:seg-001-episode-011-media-clip-a82ef88c9c22d2f7eca82e26",
+  "verificationVersion": "gamma-observed-v1",
+  "visualQuality": 0.82
+}

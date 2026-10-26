@@ -1,0 +1,73 @@
+{
+  "episodeId": "episode-011",
+  "segmentId": "seg-009",
+  "clipId": "episode-011:media-clip:c3c7b9eb2152ab4c6736ddf3",
+  "claimIds": [
+    "claim-gamma-001",
+    "claim-gamma-002",
+    "claim-gamma-003",
+    "claim-gamma-011"
+  ],
+  "claims": [
+    {
+      "id": "claim-gamma-001",
+      "claim": "Gamma可按主题、提纲或已有文档生成带图文版式的演示稿初稿，再由用户编辑。"
+    },
+    {
+      "id": "claim-gamma-002",
+      "claim": "Grant Lee在Stanford访谈回忆，做咨询时曾为次日会议熬夜准备Google Slides，大部分精力用在排版；于是联系两位前同事原型探索。"
+    },
+    {
+      "id": "claim-gamma-003",
+      "claim": "Grant说早期希望让写作成为起点，以灵活版式取代逐像素设计；生成式AI是后续加入。"
+    },
+    {
+      "id": "claim-gamma-011",
+      "claim": "结尾“Gamma干掉了PPT”为编辑修辞，指输入文字先有初稿再修改对从空白页逐页排版方式的改变；画面以“告别从零排版”限定。"
+    }
+  ],
+  "narration": "做PPT,不必再从空白页一页页排起。输入文字,先有初稿,再动手改。就这样,Gamma干掉了PPT。",
+  "visualIntent": "回到真实官方演示稿编辑结果,最后一帧持续显示“告别从零排版”。“Gamma干掉了PPT”为用户选定的编辑修辞,指传统从空白页排版的工作方式,不是PowerPoint被市场淘汰或市占率结论。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-011/media/verifications/seg-009/episode-011-media-clip-c3c7b9eb2152ab4c6736ddf3-clip.mp4",
+    "sha256": "2b3273ecdf2d64ca228477b6ca10b2924c7ac5d777315369b09101cfc5da0835",
+    "sizeBytes": 3102427,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 8167,
+    "sourceMediaId": "episode-011:media:seg-009-44e3ae83872c-official",
+    "sourceMediaSha256": "44e3ae83872ca4adb6fabbf13c1424dd350267467f53b19fdab4c933433c8dd7"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-011/media/indexes/seg-009-44e3ae83872c-official/keyframes/keyframe-0-4083.jpg",
+      "timestampMs": 4083,
+      "sha256": "7b63d50e02d72fa8858b6c61e2d1905a9e276acaaf4dd060c66812e10b4cf8e2",
+      "sizeBytes": 66944,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "回看2025官方文字变图演示，结果停帧供理解“已有稿可修改”，不宣称持续生成或实测省时。",
+    "observedText": "",
+    "keywords": [
+      "seg-009",
+      "Gamma",
+      "Agent",
+      "Holographic Technology",
+      "layout",
+      "diagram"
+    ],
+    "entities": [
+      "Gamma",
+      "Holographic Technology"
+    ],
+    "semanticTags": [
+      "official-product-demo",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "c8a19ed58b4f40598a135fe9b95ec99b967af7d5ee420f19925b540e4c14c0a8"
+}

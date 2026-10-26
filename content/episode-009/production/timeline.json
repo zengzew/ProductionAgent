@@ -1,0 +1,222 @@
+{
+  "episodeId": "episode-009",
+  "layoutVariant": "poke-standard",
+  "fps": 30,
+  "totalFrames": 1339,
+  "totalSeconds": 44.63333333333333,
+  "ttsProvider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "captionAlignment": "provider-timestamps",
+  "scenes": [
+    {
+      "id": "seg-001",
+      "section": "hook",
+      "narration": "产品有了，宣传视频怎么拍？",
+      "onScreenText": [
+        "想推广自己的产品"
+      ],
+      "claimIds": [
+        "claim-fastlane-001",
+        "claim-fastlane-002"
+      ],
+      "scene": "想推广自己的产品",
+      "visualIntent": "第一帧给出历史演示中为Cal AI制作的候选内容，让产品名称、营销用途和具体例子同时可见；裁掉参考视频浏览量，不从采访人脸起步。",
+      "targetSeconds": 3,
+      "index": 0,
+      "startFrame": 0,
+      "durationFrames": 62,
+      "startSeconds": 0,
+      "endSeconds": 2.0705,
+      "audioDurationSeconds": 1.9505,
+      "audio": "episodes/episode-009/audio/seg-001.mp3"
+    },
+    {
+      "id": "seg-002",
+      "section": "hook",
+      "narration": "Fastlane把产品链接，变成一组营销内容。",
+      "onScreenText": [
+        "从网站到候选内容"
+      ],
+      "claimIds": [
+        "claim-fastlane-001"
+      ],
+      "scene": "从网站到候选内容",
+      "visualIntent": "网站链接→候选内容的来源流程示意，标「流程示意｜据创始人介绍」；右侧连接上一段的历史候选，不伪造输入或生成录屏，不混入当前v2界面。",
+      "targetSeconds": 5,
+      "index": 1,
+      "startFrame": 62,
+      "durationFrames": 104,
+      "startSeconds": 2.0705,
+      "endSeconds": 5.522604,
+      "audioDurationSeconds": 3.332104,
+      "audio": "episodes/episode-009/audio/seg-002.mp3"
+    },
+    {
+      "id": "seg-003",
+      "section": "mechanism",
+      "narration": "一张张滑着挑，不喜欢就跳过，喜欢就留下。",
+      "onScreenText": [
+        "滑卡挑内容"
+      ],
+      "claimIds": [
+        "claim-fastlane-001"
+      ],
+      "scene": "滑卡挑内容",
+      "visualIntent": "使用13:00–13:26内已核验的候选、拒绝与接受动作，保留同一组卡片的操作反馈；方向与裁切由visual-preflight落实，不用文字替代不可见的操作。",
+      "targetSeconds": 6,
+      "index": 2,
+      "startFrame": 166,
+      "durationFrames": 104,
+      "startSeconds": 5.522604,
+      "endSeconds": 8.974708,
+      "audioDurationSeconds": 3.332104,
+      "audio": "episodes/episode-009/audio/seg-003.mp3"
+    },
+    {
+      "id": "seg-004",
+      "section": "mechanism",
+      "narration": "挑好内容，再选账号；现在发，还是排到以后，也能在这里选。",
+      "onScreenText": [
+        "挑好再排期"
+      ],
+      "claimIds": [
+        "claim-fastlane-001"
+      ],
+      "scene": "挑好再排期",
+      "visualIntent": "接着同一段13:22–13:37实演，呈现选账号后进入Schedule页的连续动作；局部放大Post ASAP与Schedule for later两项，让「现在／以后」可读。关键动作之间不用不相关素材遮挡，未拍到的上线结果不补造。",
+      "targetSeconds": 6,
+      "index": 3,
+      "startFrame": 270,
+      "durationFrames": 143,
+      "startSeconds": 8.974708,
+      "endSeconds": 13.731083,
+      "audioDurationSeconds": 4.636375,
+      "audio": "episodes/episode-009/audio/seg-004.mp3"
+    },
+    {
+      "id": "seg-005",
+      "section": "need",
+      "narration": "这也是创始人自己的难题：应用做出来了，却卡在怎么让人看见。",
+      "onScreenText": [
+        "创始人也卡在营销"
+      ],
+      "claimIds": [
+        "claim-fastlane-002"
+      ],
+      "scene": "创始人也卡在营销",
+      "visualIntent": "从完成选择的产品画面切到02:50–03:08的Gaurav本人；标姓名及创始人身份，让「自己的难题」有明确人物。",
+      "targetSeconds": 6,
+      "index": 4,
+      "startFrame": 413,
+      "durationFrames": 142,
+      "startSeconds": 13.731083,
+      "endSeconds": 18.471875,
+      "audioDurationSeconds": 4.620792,
+      "audio": "episodes/episode-009/audio/seg-005.mp3"
+    },
+    {
+      "id": "seg-006",
+      "section": "distribution",
+      "narration": "找第一批用户，他们去Reddit和社交平台找人，再发邮件约报名者通话。",
+      "onScreenText": [
+        "从社群到电话"
+      ],
+      "claimIds": [
+        "claim-fastlane-005"
+      ],
+      "scene": "从社群到电话",
+      "visualIntent": "11:28–11:46原片与带来源的编辑图示，交代Reddit／社媒→等候名单→邮件约谈；图示标明「据创始人介绍」，不伪造帖子、私信或报名数据。",
+      "targetSeconds": 7,
+      "index": 5,
+      "startFrame": 555,
+      "durationFrames": 145,
+      "startSeconds": 18.471875,
+      "endSeconds": 23.317167,
+      "audioDurationSeconds": 4.725292,
+      "audio": "episodes/episode-009/audio/seg-006.mp3"
+    },
+    {
+      "id": "seg-007",
+      "section": "distribution",
+      "narration": "应用里还放了个预约按钮：聊一次，就多送七天使用时间。",
+      "onScreenText": [
+        "七天使用换一次访谈"
+      ],
+      "claimIds": [
+        "claim-fastlane-004"
+      ],
+      "scene": "七天使用换一次访谈",
+      "visualIntent": "07:06–07:29本人叙述配「预约通话→额外七天使用」编辑图示，标「据创始人介绍」；07:05–07:20已抽帧未见可读预约按钮，不能把图示冒充原界面。",
+      "targetSeconds": 6,
+      "index": 6,
+      "startFrame": 700,
+      "durationFrames": 114,
+      "startSeconds": 23.317167,
+      "endSeconds": 27.129167000000002,
+      "audioDurationSeconds": 3.692,
+      "audio": "episodes/episode-009/audio/seg-007.mp3"
+    },
+    {
+      "id": "seg-008",
+      "section": "iteration",
+      "narration": "通话时让对方共享屏幕，少说话，先看人卡在哪，再改界面。",
+      "onScreenText": [
+        "看用户卡在哪"
+      ],
+      "claimIds": [
+        "claim-fastlane-005"
+      ],
+      "scene": "看用户卡在哪",
+      "visualIntent": "11:38–12:06原片或中文短引说明共享屏幕、观察摩擦与改界面；如用历史卡片辅助，必须与访谈证据区分，不伪造客户通话录像。",
+      "targetSeconds": 7,
+      "index": 7,
+      "startFrame": 814,
+      "durationFrames": 148,
+      "startSeconds": 27.129167000000002,
+      "endSeconds": 32.078959000000005,
+      "audioDurationSeconds": 4.829792,
+      "audio": "episodes/episode-009/audio/seg-008.mp3"
+    },
+    {
+      "id": "seg-009",
+      "section": "result",
+      "narration": "收入呢？二零二六年四月，创始人自报：年化经常性收入超过十二万澳元。",
+      "onScreenText": [
+        "历史年化收入超过12万澳元"
+      ],
+      "claimIds": [
+        "claim-fastlane-009"
+      ],
+      "scene": "历史收入有了结果",
+      "visualIntent": "展示2026-04-03创始人自述的真实局部截图，同时保留AUD、120000、ARR和文章日期；小字标「创始人自报｜历史口径｜ARR非利润」，不接增长曲线。",
+      "targetSeconds": 8,
+      "index": 8,
+      "startFrame": 962,
+      "durationFrames": 176,
+      "startSeconds": 32.078959000000005,
+      "endSeconds": 37.961209000000004,
+      "audioDurationSeconds": 5.76225,
+      "audio": "episodes/episode-009/audio/seg-009.mp3"
+    },
+    {
+      "id": "seg-010",
+      "section": "payoff",
+      "narration": "做产品的人，不必每条宣传都从空白开始：有了内容，挑好，再排期发出去。",
+      "onScreenText": [
+        "把内容发出去"
+      ],
+      "claimIds": [
+        "claim-fastlane-001"
+      ],
+      "scene": "把内容发出去",
+      "visualIntent": "回同一Cal AI候选与Schedule控件，保留观众认得出的内容与下一步动作；结束在可见产品用途，不补播放量或转化结果。",
+      "targetSeconds": 6,
+      "index": 9,
+      "startFrame": 1138,
+      "durationFrames": 201,
+      "startSeconds": 37.961209000000004,
+      "endSeconds": 44.652459,
+      "audioDurationSeconds": 6.57125,
+      "audio": "episodes/episode-009/audio/seg-010.mp3"
+    }
+  ]
+}

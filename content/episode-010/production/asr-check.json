@@ -1,0 +1,5 @@
+{
+  "videoSha256": "ac322ef7d753931bfafab2c90186d64772ee871e794eba597deaa72fab796c39",
+  "status": "environment-error",
+  "reason": "Existing temporary mlx_whisper package has no transcribe attribute; original ASR retained in pacing-source only. No current ASR or hearing approval claimed."
+}

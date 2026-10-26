@@ -1,0 +1,244 @@
+{
+  "durationBasis": "measured-TTS-timeline",
+  "sourceSha256": "0d7da1fe5cde7e5fbcef77e6a0febc194a85c8b7b0f5037021ecac19676c42ab",
+  "parts": [
+    {
+      "segmentId": "seg-001",
+      "part": 0,
+      "sourcePath": "content/episode-009-v2/media/assets/fastlane-interview.mp4",
+      "sourceSha256": "0d7da1fe5cde7e5fbcef77e6a0febc194a85c8b7b0f5037021ecac19676c42ab",
+      "sourceStartSeconds": 797.5,
+      "seconds": 2.6666666666666665,
+      "playbackRate": 1,
+      "freezeForReadability": false,
+      "cropPixels": [
+        630,
+        150,
+        520,
+        690
+      ],
+      "outputPath": "content/episode-009-v2/media/prepared/seg-001-0.mp4"
+    },
+    {
+      "segmentId": "seg-002",
+      "part": 0,
+      "sourcePath": "content/episode-009-v2/media/assets/fastlane-interview.mp4",
+      "sourceSha256": "0d7da1fe5cde7e5fbcef77e6a0febc194a85c8b7b0f5037021ecac19676c42ab",
+      "sourceStartSeconds": 170.5,
+      "seconds": 7.433333333333334,
+      "playbackRate": 1,
+      "freezeForReadability": false,
+      "cropPixels": [
+        500,
+        60,
+        1000,
+        1000
+      ],
+      "outputPath": "content/episode-009-v2/media/prepared/seg-002-0.mp4"
+    },
+    {
+      "segmentId": "seg-003",
+      "part": 0,
+      "sourcePath": "content/episode-009-v2/media/assets/fastlane-interview.mp4",
+      "sourceSha256": "0d7da1fe5cde7e5fbcef77e6a0febc194a85c8b7b0f5037021ecac19676c42ab",
+      "sourceStartSeconds": 115.8,
+      "seconds": 2.7,
+      "playbackRate": 1,
+      "freezeForReadability": false,
+      "cropPixels": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "outputPath": "content/episode-009-v2/media/prepared/seg-003-0.mp4"
+    },
+    {
+      "segmentId": "seg-003",
+      "part": 1,
+      "sourcePath": "content/episode-009-v2/media/assets/fastlane-interview.mp4",
+      "sourceSha256": "0d7da1fe5cde7e5fbcef77e6a0febc194a85c8b7b0f5037021ecac19676c42ab",
+      "sourceStartSeconds": 797.5,
+      "seconds": 4.533333333333333,
+      "playbackRate": 1,
+      "freezeForReadability": false,
+      "cropPixels": [
+        630,
+        130,
+        520,
+        875
+      ],
+      "outputPath": "content/episode-009-v2/media/prepared/seg-003-1.mp4"
+    },
+    {
+      "segmentId": "seg-004",
+      "part": 0,
+      "sourcePath": "content/episode-009-v2/media/assets/fastlane-interview.mp4",
+      "sourceSha256": "0d7da1fe5cde7e5fbcef77e6a0febc194a85c8b7b0f5037021ecac19676c42ab",
+      "sourceStartSeconds": 820,
+      "seconds": 1.6,
+      "playbackRate": 1,
+      "freezeForReadability": false,
+      "cropPixels": [
+        630,
+        130,
+        520,
+        875
+      ],
+      "outputPath": "content/episode-009-v2/media/prepared/seg-004-0.mp4"
+    },
+    {
+      "segmentId": "seg-004",
+      "part": 1,
+      "sourcePath": "content/episode-009-v2/media/assets/fastlane-interview.mp4",
+      "sourceSha256": "0d7da1fe5cde7e5fbcef77e6a0febc194a85c8b7b0f5037021ecac19676c42ab",
+      "sourceStartSeconds": 805.5,
+      "seconds": 1.0,
+      "playbackRate": 1,
+      "freezeForReadability": false,
+      "cropPixels": [
+        330,
+        135,
+        1050,
+        765
+      ],
+      "outputPath": "content/episode-009-v2/media/prepared/seg-004-1.mp4"
+    },
+    {
+      "segmentId": "seg-004",
+      "part": 2,
+      "sourcePath": "content/episode-009-v2/media/assets/fastlane-interview.mp4",
+      "sourceSha256": "0d7da1fe5cde7e5fbcef77e6a0febc194a85c8b7b0f5037021ecac19676c42ab",
+      "sourceStartSeconds": 814,
+      "seconds": 1.6333333333333333,
+      "playbackRate": 1,
+      "freezeForReadability": true,
+      "cropPixels": [
+        340,
+        250,
+        1035,
+        350
+      ],
+      "outputPath": "content/episode-009-v2/media/prepared/seg-004-2.mp4"
+    },
+    {
+      "segmentId": "seg-005",
+      "part": 0,
+      "sourcePath": "content/episode-009-v2/media/assets/fastlane-interview.mp4",
+      "sourceSha256": "0d7da1fe5cde7e5fbcef77e6a0febc194a85c8b7b0f5037021ecac19676c42ab",
+      "sourceStartSeconds": 815,
+      "seconds": 7.633333333333334,
+      "playbackRate": 1,
+      "freezeForReadability": false,
+      "cropPixels": [
+        630,
+        130,
+        520,
+        875
+      ],
+      "outputPath": "content/episode-009-v2/media/prepared/seg-005-0.mp4"
+    },
+    {
+      "segmentId": "seg-006",
+      "part": 0,
+      "sourcePath": "content/episode-009-v2/media/assets/fastlane-interview.mp4",
+      "sourceSha256": "0d7da1fe5cde7e5fbcef77e6a0febc194a85c8b7b0f5037021ecac19676c42ab",
+      "sourceStartSeconds": 690,
+      "seconds": 1.6,
+      "playbackRate": 1,
+      "freezeForReadability": true,
+      "cropPixels": [
+        440,
+        295,
+        1040,
+        155
+      ],
+      "outputPath": "content/episode-009-v2/media/prepared/seg-006-0.mp4"
+    },
+    {
+      "segmentId": "seg-006",
+      "part": 1,
+      "sourcePath": "content/episode-009-v2/media/assets/fastlane-interview.mp4",
+      "sourceSha256": "0d7da1fe5cde7e5fbcef77e6a0febc194a85c8b7b0f5037021ecac19676c42ab",
+      "sourceStartSeconds": 694,
+      "seconds": 3.1333333333333333,
+      "playbackRate": 1,
+      "freezeForReadability": false,
+      "cropPixels": [
+        500,
+        60,
+        1000,
+        1000
+      ],
+      "outputPath": "content/episode-009-v2/media/prepared/seg-006-1.mp4"
+    },
+    {
+      "segmentId": "seg-007",
+      "part": 0,
+      "sourcePath": "content/episode-009-v2/media/assets/fastlane-interview.mp4",
+      "sourceSha256": "0d7da1fe5cde7e5fbcef77e6a0febc194a85c8b7b0f5037021ecac19676c42ab",
+      "sourceStartSeconds": 699,
+      "seconds": 6.033333333333333,
+      "playbackRate": 1,
+      "freezeForReadability": false,
+      "cropPixels": [
+        500,
+        60,
+        1000,
+        1000
+      ],
+      "outputPath": "content/episode-009-v2/media/prepared/seg-007-0.mp4"
+    },
+    {
+      "segmentId": "seg-008",
+      "part": 0,
+      "sourcePath": "content/episode-009-v2/media/assets/fastlane-interview.mp4",
+      "sourceSha256": "0d7da1fe5cde7e5fbcef77e6a0febc194a85c8b7b0f5037021ecac19676c42ab",
+      "sourceStartSeconds": 426,
+      "seconds": 5.166666666666667,
+      "playbackRate": 1,
+      "freezeForReadability": false,
+      "cropPixels": [
+        500,
+        60,
+        1000,
+        1000
+      ],
+      "outputPath": "content/episode-009-v2/media/prepared/seg-008-0.mp4"
+    },
+    {
+      "segmentId": "seg-011",
+      "part": 0,
+      "sourcePath": "content/episode-009-v2/media/assets/fastlane-interview.mp4",
+      "sourceSha256": "0d7da1fe5cde7e5fbcef77e6a0febc194a85c8b7b0f5037021ecac19676c42ab",
+      "sourceStartSeconds": 173,
+      "seconds": 3.0,
+      "playbackRate": 1,
+      "freezeForReadability": false,
+      "cropPixels": [
+        500,
+        60,
+        1000,
+        1000
+      ],
+      "outputPath": "content/episode-009-v2/media/prepared/seg-011-0.mp4"
+    },
+    {
+      "segmentId": "seg-011",
+      "part": 1,
+      "sourcePath": "content/episode-009-v2/media/assets/fastlane-interview.mp4",
+      "sourceSha256": "0d7da1fe5cde7e5fbcef77e6a0febc194a85c8b7b0f5037021ecac19676c42ab",
+      "sourceStartSeconds": 825.1,
+      "seconds": 2.8666666666666663,
+      "playbackRate": 1,
+      "freezeForReadability": false,
+      "cropPixels": [
+        630,
+        130,
+        520,
+        875
+      ],
+      "outputPath": "content/episode-009-v2/media/prepared/seg-011-1.mp4"
+    }
+  ]
+}

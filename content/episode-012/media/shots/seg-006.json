@@ -1,0 +1,245 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-012:media-shot:seg-006",
+    "createdAt": "2026-10-25T15:02:14.331Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/shots/seg-006.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-shot-v1",
+    "sha256": "75dba80537f0f9eda07e2aefb8c54343be542c9b423f6f2ecbbcd9938a0d133c",
+    "sizeBytes": 7928
+  },
+  "audio": {
+    "ducking": {
+      "attackMs": 80,
+      "enabled": true,
+      "reductionDb": 10,
+      "releaseMs": 240
+    },
+    "fadeInMs": 0,
+    "fadeOutMs": 0,
+    "narrationGain": 1,
+    "originalAudioGain": 0
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "referenceStory": {
+      "claimIds": [
+        "claim-pr-001"
+      ],
+      "headline": "Photoroom 商品照换背景",
+      "profile": "golden-reference-v1",
+      "resultLine": "从随手拍到商品展示图"
+    },
+    "timelineSha256": "35c0ea41d261148730d981b3a7e8f9246a2de1b3bb037b7cc1ebd5a900d72805",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-10-25T15:02:14.331Z",
+  "crossfadeMs": 0,
+  "durationFrames": 218,
+  "endSeconds": 34.427437999999995,
+  "episodeId": "episode-012",
+  "evidenceImageAssetId": null,
+  "evidenceImagePath": null,
+  "evidenceImageSha256": null,
+  "fade": {
+    "inMs": 0,
+    "outMs": 0
+  },
+  "fallbackImageAssetId": null,
+  "fallbackImagePath": null,
+  "fallbackImageSha256": null,
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "clipVerified": true,
+    "episodeIsolated": true,
+    "hashesValid": true,
+    "rightsApproved": true,
+    "slotValid": true,
+    "timestampsValid": true
+  },
+  "lineage": {
+    "clipArtifactRef": {
+      "artifactId": "episode-012:media-verification-clip:seg-006-episode-012-media-clip-f02325aba6aecfc4a85c1de8",
+      "createdAt": "2026-10-25T14:55:55.399Z",
+      "episodeId": "episode-012",
+      "mediaType": "video/mp4",
+      "path": "content/episode-012/media/verifications/seg-006/episode-012-media-clip-f02325aba6aecfc4a85c1de8-clip.mp4",
+      "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+      "revision": 1,
+      "schemaVersion": "media-verification-clip-v1",
+      "sha256": "9e0cdc0514d9fb8c04103fa5d439bcc9ce39d1ca1cf982114269b134ced9b37d",
+      "sizeBytes": 1917602
+    },
+    "clipId": "episode-012:media-clip:f02325aba6aecfc4a85c1de8",
+    "clipIndexRef": {
+      "artifactId": "episode-012:media-clip-index:seg-006-5e5865b94e51",
+      "createdAt": "2026-10-25T14:55:53.376Z",
+      "episodeId": "episode-012",
+      "mediaType": "application/json",
+      "path": "content/episode-012/media/indexes/seg-006-5e5865b94e51/clip-index.json",
+      "producer": "media-understanding-v1:index:5e5865b94e5143de",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "df7e2236b2477402a17536c8cc445dce6cc9d3c007a8f757524754147963cbce",
+      "sizeBytes": 4281
+    },
+    "cutSourceRef": {
+      "artifactId": "episode-012:media:seg-006-5e5865b94e51-proxy",
+      "createdAt": "2026-10-25T14:55:50.671Z",
+      "episodeId": "episode-012",
+      "mediaType": "video/mp4",
+      "path": "content/episode-012/media/assets/seg-006-5e5865b94e51-proxy.mp4",
+      "producer": "media-ingest-v1:normalize",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "675f564a37b5776f21ccffa697aea932c86563938bdcfee510cc98d8d61b7f5f",
+      "sizeBytes": 293881
+    },
+    "sourceEndMs": 7267,
+    "sourceMediaId": "episode-012:media:seg-006-5e5865b94e51",
+    "sourceMediaRef": {
+      "artifactId": "episode-012:media:seg-006-5e5865b94e51",
+      "createdAt": "2026-10-25T14:55:49.884Z",
+      "episodeId": "episode-012",
+      "mediaType": "video/mp4",
+      "path": "content/episode-012/media/assets/seg-006-5e5865b94e51.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "5e5865b94e5143de617e1cbd03862a8c10caf157de70b12306a652330d4eca15",
+      "sizeBytes": 606484
+    },
+    "sourceSha256": "5e5865b94e5143de617e1cbd03862a8c10caf157de70b12306a652330d4eca15",
+    "sourceStartMs": 0,
+    "verificationRef": {
+      "artifactId": "episode-012:media-verification:seg-006-episode-012-media-clip-f02325aba6aecfc4a85c1de8",
+      "createdAt": "2026-10-25T15:02:11.240Z",
+      "episodeId": "episode-012",
+      "mediaType": "application/json",
+      "path": "content/episode-012/media/verifications/seg-006/episode-012-media-clip-f02325aba6aecfc4a85c1de8.json",
+      "producer": "media-verification-v1:codex:photoroom-observed-v1",
+      "revision": 3,
+      "schemaVersion": "media-verification-v1",
+      "sha256": "75c9eb4243ad40d23af7865628698dad6ff3170e3c19cdca378ae7326bbcbd4c",
+      "sizeBytes": 4740
+    }
+  },
+  "overlays": {
+    "badge": null,
+    "captionsEnabled": true,
+    "sourceLabel": "增长负责人2023访谈｜配官网演示 · 非TikTok实录"
+  },
+  "reasons": [
+    "scene seg-006 at frame 815 (218 frames, 30 fps)",
+    "real media episode-012:media-clip:f02325aba6aecfc4a85c1de8 trimmed 0..7267ms (recommended 0..7267ms)",
+    "render proxy episode-012:media-render-proxy:seg-006 (video/mp4)",
+    "audio mix original 0 / narration 1 duck 10dB"
+  ],
+  "renderProxyMediaType": "video/mp4",
+  "renderProxyRef": {
+    "artifactId": "episode-012:media-render-proxy:seg-006",
+    "createdAt": "2026-10-25T15:02:14.294Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/render/seg-006.mp4",
+    "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-proxy-v1",
+    "sha256": "06a621fbda2efd3fc7f6748ebc74b34a4d9c9fd026ddc8cae9ee4bcd774f3be2",
+    "sizeBytes": 418496
+  },
+  "sceneIndex": 5,
+  "schemaVersion": "media-shot-v1",
+  "segmentId": "seg-006",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-pr-005",
+      "claim-pr-006"
+    ],
+    "clipId": "episode-012:media-clip:f02325aba6aecfc4a85c1de8",
+    "createdAt": "2026-10-25T15:02:11.229Z",
+    "endMs": 7267,
+    "episodeId": "episode-012",
+    "mediaId": "episode-012:media:seg-006-5e5865b94e51",
+    "sourceMediaRef": {
+      "artifactId": "episode-012:media:seg-006-5e5865b94e51",
+      "createdAt": "2026-10-25T14:55:49.884Z",
+      "episodeId": "episode-012",
+      "mediaType": "video/mp4",
+      "path": "content/episode-012/media/assets/seg-006-5e5865b94e51.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "5e5865b94e5143de617e1cbd03862a8c10caf157de70b12306a652330d4eca15",
+      "sizeBytes": 606484
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "12:42、13:24原访谈定位与中文转述,配官网演示;标“2023访谈回顾”,不制作假TikTok页面或假创作者。"
+  },
+  "shotId": "episode-012:media-shot:seg-006",
+  "startFrame": 815,
+  "startSeconds": 27.152959,
+  "staticFilePath": "episodes/episode-012/media/seg-006.mp4",
+  "transform": {
+    "freezeFrameMs": null,
+    "pip": null,
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "reframe": {
+      "crop": {
+        "height": 1,
+        "width": 1,
+        "x": 0,
+        "y": 0
+      },
+      "mode": "cover"
+    },
+    "scale": 1,
+    "zoomPan": {
+      "end": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "start": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "type": "none"
+    }
+  },
+  "trim": {
+    "endMs": 7267,
+    "startMs": 0
+  },
+  "verificationRef": {
+    "artifactId": "episode-012:media-verification:seg-006-episode-012-media-clip-f02325aba6aecfc4a85c1de8",
+    "createdAt": "2026-10-25T15:02:11.240Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/verifications/seg-006/episode-012-media-clip-f02325aba6aecfc4a85c1de8.json",
+    "producer": "media-verification-v1:codex:photoroom-observed-v1",
+    "revision": 3,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "75c9eb4243ad40d23af7865628698dad6ff3170e3c19cdca378ae7326bbcbd4c",
+    "sizeBytes": 4740
+  },
+  "visualType": "real-media"
+}

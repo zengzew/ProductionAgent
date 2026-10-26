@@ -1,7 +1,7 @@
 # WP-M5-04 — Media Understanding + Clip Index
 
 - Status: implemented
-- Parent: `docs/milestones/m5-real-media-plan.md`
+- Historical scope: [archived M5 plan](../../../ProductionAgent-legacy-archive/2026-10-26-cleanup/retired/docs/milestones/m5-real-media-plan.md)
 - Code: `src/media/{transcript,scenes,keyframes,semantic,clip-index,understanding}.ts`,
   `src/media/events.ts`, `src/media/paths.ts`, `src/lib/fine-grained-cache.ts`
   (four new cache kinds)

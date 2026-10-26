@@ -1,0 +1,115 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-009:media:seg-001-08cced478071-proxy",
+    "createdAt": "2026-10-15T03:24:38.409Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-001-08cced478071-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "cb754f2cfde55b32027a1a96419d7f880fdce90379a193877d71f3cf89bc1d1e",
+    "sizeBytes": 175767
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-009",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-009:media-clip:bf1804fd1b57a1366dc39f44",
+      "endMs": 2067,
+      "entities": [
+        "Fastlane",
+        "Cal AI"
+      ],
+      "episodeId": "episode-009",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-009:media-keyframe:seg-001-08cced478071-0-1033",
+          "createdAt": "2026-10-15T03:24:41.644Z",
+          "episodeId": "episode-009",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-009/media/indexes/seg-001-08cced478071/keyframes/keyframe-0-1033.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "df369bd58816628f7b5f29e3cbe025ce8a191922c8ea902524c75509be2c26bc",
+          "sizeBytes": 65033
+        }
+      ],
+      "keywords": [
+        "候选",
+        "Cal AI",
+        "宣传"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-001-08cced478071",
+        "createdAt": "2026-10-15T03:24:38.076Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-001-08cced478071.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "08cced478071c65eb50aaafc692004f3d84f99e5b8646543d5eed439d464862d",
+        "sizeBytes": 312708
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-009:media-scenes:seg-001-08cced478071",
+          "createdAt": "2026-10-15T03:24:41.564Z",
+          "episodeId": "episode-009",
+          "mediaType": "application/json",
+          "path": "content/episode-009/media/indexes/seg-001-08cced478071/scenes.json",
+          "producer": "media-understanding-v1:scenes:v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "4abb68f90d3a86edda0e1e2d5071e5d16277cbce2ba8d4d83c338f8c733741fe",
+          "sizeBytes": 1447
+        }
+      ],
+      "semanticTags": [
+        "founder-interview",
+        "local-evaluation",
+        "measured"
+      ],
+      "sourceSha256": "08cced478071c65eb50aaafc692004f3d84f99e5b8646543d5eed439d464862d",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "Cal AI的候选宣传内容，手机应用与食物图集可见；裁掉热门参考视频浏览量。",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-009:media:seg-001-08cced478071",
+  "mediaRef": {
+    "artifactId": "episode-009:media:seg-001-08cced478071",
+    "createdAt": "2026-10-15T03:24:38.076Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-001-08cced478071.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "08cced478071c65eb50aaafc692004f3d84f99e5b8646543d5eed439d464862d",
+    "sizeBytes": 312708
+  },
+  "sceneDetector": "bounded-reference-excerpt",
+  "sceneDetectorVersion": "v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-observed-reference",
+  "semanticAdapterVersion": "08cced478071c65e",
+  "semanticAvailability": "available",
+  "sourceSha256": "08cced478071c65eb50aaafc692004f3d84f99e5b8646543d5eed439d464862d",
+  "transcriptAvailability": "unavailable"
+}

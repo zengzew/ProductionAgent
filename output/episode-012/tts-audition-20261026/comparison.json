@@ -1,0 +1,32 @@
+{
+  "samples": [
+    {
+      "label": "A-plus-xunanchuan",
+      "model": "qwen-audio-3.1-tts-plus",
+      "voice": "xunanchuan_v3.1",
+      "seconds": 22.4,
+      "textSha256": "12af3453e4aebb5a2c37dff69811a458a5d32c4756ae8207c97ce038304712f4",
+      "file": "output/episode-012/tts-audition-20261026/A-plus-xunanchuan.mp3",
+      "sha256": "9cb39ad8893493bc636b1f18b3b7717923b2d58f4bdb064eecf6ffb4f83aa20c",
+      "loudness": {
+        "integratedLufs": -23.26,
+        "truePeakDb": -2.78
+      }
+    },
+    {
+      "label": "B-flash-anmingyuan",
+      "model": "qwen-audio-3.1-tts-flash",
+      "voice": "anmingyuan_v3.1",
+      "seconds": 20.96,
+      "textSha256": "12af3453e4aebb5a2c37dff69811a458a5d32c4756ae8207c97ce038304712f4",
+      "file": "output/episode-012/tts-audition-20261026/B-flash-anmingyuan.mp3",
+      "sha256": "377e7eed1943ce988e92b2054ee1363f88d4c2086af27e62eae956b6c6559b8e",
+      "loudness": {
+        "integratedLufs": -23.26,
+        "truePeakDb": -4.34
+      }
+    }
+  ],
+  "scope": "Same existing Photoroom text, one continuous request per sample, same instruction and rate=1.0; separate from episode delivery",
+  "apiDocumentation": "https://help.aliyun.com/zh/model-studio/qwen-audio-tts-http-api"
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "episode-config-v2",
+  "kind": "episode",
+  "id": "episode-011",
+  "slug": "gamma-ideas-before-formatting",
+  "product": "Gamma",
+  "title": "输入文字，AI帮你生成PPT",
+  "language": "zh-CN",
+  "targetSeconds": 60,
+  "production": {
+    "timelineTailSeconds": {
+      "seg-001": 0.24,
+      "seg-002": 0.28,
+      "seg-003": 0.36,
+      "seg-004": 0.25,
+      "seg-005": 0.48,
+      "seg-006": 0.48,
+      "seg-007": 0.3,
+      "seg-010": 0.48,
+      "seg-008": 0.55,
+      "seg-009": 0.42
+    },
+    "hookAttributionSubjects": [
+      "Gamma",
+      "创始人"
+    ],
+    "referenceStory": {
+      "profile": "golden-reference-v1",
+      "headline": "Gamma 输入文字生成PPT",
+      "resultLine": "先生成，再修改",
+      "claimIds": [
+        "claim-gamma-001"
+      ]
+    }
+  },
+  "selection": "selected",
+  "selectionReason": "已通过新选题预检；Stanford创始人访谈提供需求、设计及早期招募，官方素材提供真实界面，融资有日期及公司口径。按Fastlane V2制作。",
+  "publishStatus": "evaluation",
+  "publishBlocker": "V4 68.8秒本地有声观看版已生成，视觉/字幕/文件与段间停顿测量通过；完整听感与独立Delivery待完成。",
+  "asOf": "2026-10-20",
+  "captureAssets": []
+}

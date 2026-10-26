@@ -1,0 +1,129 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-010:media-shot:seg-009",
+    "createdAt": "2026-10-20T11:35:27.155Z",
+    "episodeId": "episode-010",
+    "mediaType": "application/json",
+    "path": "content/episode-010/media/shots/seg-009.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-shot-v1",
+    "sha256": "16bb644125f063e82210868ba28a0249b738a9dc152fb7fc70c3028066eb8fa6",
+    "sizeBytes": 2890
+  },
+  "audio": {
+    "ducking": {
+      "attackMs": 0,
+      "enabled": false,
+      "reductionDb": 0,
+      "releaseMs": 0
+    },
+    "fadeInMs": 0,
+    "fadeOutMs": 0,
+    "narrationGain": 1,
+    "originalAudioGain": 0
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "referenceStory": {
+      "claimIds": [
+        "claim-granola-001",
+        "claim-granola-002"
+      ],
+      "headline": "Granola 随手记，AI补全",
+      "profile": "golden-reference-v1",
+      "resultLine": "重点由你来定，细节交给AI"
+    },
+    "timelineSha256": "bfeb13e228c6e5408b2d8f1a689358523cd87c755969eb2e9375bdd35956c3f9",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-10-20T11:35:27.155Z",
+  "crossfadeMs": 0,
+  "durationFrames": 248,
+  "endSeconds": 62.334021,
+  "episodeId": "episode-010",
+  "evidenceImageAssetId": null,
+  "evidenceImagePath": null,
+  "evidenceImageSha256": null,
+  "fade": {
+    "inMs": 0,
+    "outMs": 0
+  },
+  "fallbackImageAssetId": "granola-still-2",
+  "fallbackImagePath": "episodes/episode-010/media/human-ai.png",
+  "fallbackImageSha256": "c8c6d83462e4d91794e8220257d371b0e8e89a444dc10926af95ea1e6b294e68",
+  "fallbackReason": "approved editorial still selected for seg-009",
+  "fallbackType": null,
+  "gate": {
+    "clipVerified": false,
+    "episodeIsolated": true,
+    "hashesValid": true,
+    "rightsApproved": false,
+    "slotValid": false,
+    "timestampsValid": false
+  },
+  "lineage": null,
+  "overlays": {
+    "badge": null,
+    "captionsEnabled": true,
+    "sourceLabel": "Granola官网原图 · 黑色手记／灰色AI补全 · 编辑释义"
+  },
+  "reasons": [
+    "scene seg-009 at frame 1621 (248 frames, 30 fps)",
+    "fallback none: approved editorial still selected for seg-009",
+    "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+  ],
+  "renderProxyMediaType": null,
+  "renderProxyRef": null,
+  "sceneIndex": 8,
+  "schemaVersion": "media-shot-v1",
+  "segmentId": "seg-009",
+  "selectedMediaClipRef": null,
+  "shotId": "episode-010:media-shot:seg-009",
+  "startFrame": 1621,
+  "startSeconds": 54.061271,
+  "staticFilePath": null,
+  "transform": {
+    "freezeFrameMs": null,
+    "pip": null,
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "reframe": {
+      "crop": {
+        "height": 1,
+        "width": 1,
+        "x": 0,
+        "y": 0
+      },
+      "mode": "cover"
+    },
+    "scale": 1,
+    "zoomPan": {
+      "end": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "start": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "type": "none"
+    }
+  },
+  "trim": null,
+  "verificationRef": null,
+  "visualType": "official-screenshot"
+}

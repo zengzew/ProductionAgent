@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "episode-config-v2",
+  "kind": "episode",
+  "id": "episode-012",
+  "slug": "photoroom-product-photo",
+  "product": "Photoroom",
+  "title": "随手拍商品，AI帮你抠图换背景",
+  "language": "zh-CN",
+  "targetSeconds": 60,
+  "production": {
+    "timelineTailSeconds": {},
+    "hookAttributionSubjects": ["Photoroom", "创始人", "增长负责人"],
+    "referenceStory": {
+      "profile": "golden-reference-v1",
+      "headline": "Photoroom 商品照换背景",
+      "resultLine": "从随手拍到商品展示图",
+      "claimIds": ["claim-pr-001"]
+    }
+  },
+  "selection": "selected",
+  "selectionReason": "已通过2026-10-25选题预检。多来源支撑创始人需求、产品动作、历史获客；官网原始视频、人物照和产品图已取得并抽查。",
+  "publishStatus": "evaluation",
+  "publishBlocker": "48.4秒本地有声观看版已生成并通过生产/文件/画面抽查；完整听感、独立Delivery与最终批准未完成。",
+  "asOf": "2026-10-25",
+  "captureAssets": []
+}

@@ -11,7 +11,3 @@
 
 # Generated projections are regenerated from their source of truth.
 /**/*.generated.*
-src/GensparkStory.tsx
-scripts/generate_music.sh
-scripts/generate_voiceover.py
-scripts/verify.sh

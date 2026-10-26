@@ -1,0 +1,115 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-009:media:seg-010-ce4376085341-proxy",
+    "createdAt": "2026-10-15T03:26:14.015Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-010-ce4376085341-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "a6427d5d83364de770eadb45065f0126b53b400e27038ee9f8e6a79ca52c1129",
+    "sizeBytes": 220478
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-009",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-009:media-clip:283df1fc7ff9e9071cadeb55",
+      "endMs": 6700,
+      "entities": [
+        "Fastlane",
+        "Cal AI"
+      ],
+      "episodeId": "episode-009",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-009:media-keyframe:seg-010-ce4376085341-0-3350",
+          "createdAt": "2026-10-15T03:26:14.840Z",
+          "episodeId": "episode-009",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-009/media/indexes/seg-010-ce4376085341/keyframes/keyframe-0-3350.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "2adaff859281d2072c25b429a6cd5f07f27364b03537c143f8dc5cffab6818e7",
+          "sizeBytes": 49739
+        }
+      ],
+      "keywords": [
+        "候选",
+        "排期",
+        "内容"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-010-ce4376085341",
+        "createdAt": "2026-10-15T03:26:13.403Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-010-ce4376085341.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "ce4376085341b5a3016daf53af810234a2ef789e101cc8922b9c8dc0994354d9",
+        "sizeBytes": 358347
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-009:media-scenes:seg-010-ce4376085341",
+          "createdAt": "2026-10-15T03:26:14.756Z",
+          "episodeId": "episode-009",
+          "mediaType": "application/json",
+          "path": "content/episode-009/media/indexes/seg-010-ce4376085341/scenes.json",
+          "producer": "media-understanding-v1:scenes:v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "771ae2038182d789e644f7d500d114bf9e720545370adc0df02c9549f21a0dd5",
+          "sizeBytes": 1447
+        }
+      ],
+      "semanticTags": [
+        "founder-interview",
+        "local-evaluation",
+        "measured"
+      ],
+      "sourceSha256": "ce4376085341b5a3016daf53af810234a2ef789e101cc8922b9c8dc0994354d9",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "回到观众已见的Cal AI候选，再到现在/稍后排期选项，回收已展示的产品用途。",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-009:media:seg-010-ce4376085341",
+  "mediaRef": {
+    "artifactId": "episode-009:media:seg-010-ce4376085341",
+    "createdAt": "2026-10-15T03:26:13.403Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-010-ce4376085341.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "ce4376085341b5a3016daf53af810234a2ef789e101cc8922b9c8dc0994354d9",
+    "sizeBytes": 358347
+  },
+  "sceneDetector": "bounded-reference-excerpt",
+  "sceneDetectorVersion": "v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-observed-reference",
+  "semanticAdapterVersion": "ce4376085341b5a3",
+  "semanticAvailability": "available",
+  "sourceSha256": "ce4376085341b5a3016daf53af810234a2ef789e101cc8922b9c8dc0994354d9",
+  "transcriptAvailability": "unavailable"
+}

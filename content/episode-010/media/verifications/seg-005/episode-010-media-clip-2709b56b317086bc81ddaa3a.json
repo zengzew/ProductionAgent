@@ -1,0 +1,116 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-010:media-verification:seg-005-episode-010-media-clip-2709b56b317086bc81ddaa3a",
+    "createdAt": "2026-10-16T12:45:38.396Z",
+    "episodeId": "episode-010",
+    "mediaType": "application/json",
+    "path": "content/episode-010/media/verifications/seg-005/episode-010-media-clip-2709b56b317086bc81ddaa3a.json",
+    "producer": "media-verification-v1:codex:granola-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "8af8d61418c95642981587e4c0d9fae69e4c78aa39ea87027d07d2d3ac374d0f",
+    "sizeBytes": 4030
+  },
+  "cacheKey": "911b63ef474f5019182ae0a92ef9a7a3ce3cf1fee2d85235fb43406d5e68fa47",
+  "claimIds": [
+    "claim-granola-001",
+    "claim-granola-002"
+  ],
+  "claimMatch": 0.94,
+  "clipArtifactRef": {
+    "artifactId": "episode-010:media-verification-clip:seg-005-episode-010-media-clip-2709b56b317086bc81ddaa3a",
+    "createdAt": "2026-10-16T12:44:13.219Z",
+    "episodeId": "episode-010",
+    "mediaType": "video/mp4",
+    "path": "content/episode-010/media/verifications/seg-005/episode-010-media-clip-2709b56b317086bc81ddaa3a-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "b062a5cb0eff8b2586db4fa292dc6ca4bfe1aa24e5d29fc2a21445206ea8d369",
+    "sizeBytes": 208606
+  },
+  "clipId": "episode-010:media-clip:2709b56b317086bc81ddaa3a",
+  "clipRef": {
+    "claimIds": [
+      "claim-granola-001",
+      "claim-granola-002"
+    ],
+    "clipId": "episode-010:media-clip:2709b56b317086bc81ddaa3a",
+    "createdAt": "2026-10-16T12:45:38.396Z",
+    "endMs": 7900,
+    "episodeId": "episode-010",
+    "mediaId": "episode-010:media:seg-005-2921cde4f4e4",
+    "sourceMediaRef": {
+      "artifactId": "episode-010:media:seg-005-2921cde4f4e4",
+      "createdAt": "2026-10-16T12:44:11.324Z",
+      "episodeId": "episode-010",
+      "mediaType": "video/mp4",
+      "path": "content/episode-010/media/assets/seg-005-2921cde4f4e4.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "2921cde4f4e46ef69e8a4310ae7ec91aea30f7c19afffabb96103d44d716c4a4",
+      "sizeBytes": 70885
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "同段官方演示展示分层笔记与Next steps,缩小到笔记区域,保留标题与原词。"
+  },
+  "createdAt": "2026-10-16T12:45:38.396Z",
+  "episodeId": "episode-010",
+  "mediaRef": {
+    "artifactId": "episode-010:media:seg-005-2921cde4f4e4",
+    "createdAt": "2026-10-16T12:44:11.324Z",
+    "episodeId": "episode-010",
+    "mediaType": "video/mp4",
+    "path": "content/episode-010/media/assets/seg-005-2921cde4f4e4.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "2921cde4f4e46ef69e8a4310ae7ec91aea30f7c19afffabb96103d44d716c4a4",
+    "sizeBytes": 70885
+  },
+  "misleadingRisk": 0.08,
+  "model": "current-session",
+  "observedActions": [
+    "官方演示结果局部停帧供阅读：Current Provider、Their Requirements和Next steps；非继续生成实录。"
+  ],
+  "observedEntities": [
+    "Granola",
+    "AllFound"
+  ],
+  "observedText": [
+    "AllFound Overview",
+    "Current Provider",
+    "Next steps"
+  ],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "本制作会话检查来源逐秒帧及当前派生片段首、中、尾帧；不是独立Delivery或人工批准。",
+    "必须保留2024官方历史演示、非本次实测身份；seg-005明确结果停帧供阅读。"
+  ],
+  "recommendedEndMs": 7900,
+  "recommendedStartMs": 0,
+  "relevance": 0.95,
+  "retrievalResultRef": {
+    "artifactId": "episode-010:media-retrieval:seg-005",
+    "createdAt": "2026-10-16T12:44:12.704Z",
+    "episodeId": "episode-010",
+    "mediaType": "application/json",
+    "path": "content/episode-010/media/candidates/seg-005.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 1,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "ae0c014c37ee64abc01e0b715971db4f2ec3e568caac81bdc1adf5ae979bcf4a",
+    "sizeBytes": 8420
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-005",
+  "sourceSha256": "2921cde4f4e46ef69e8a4310ae7ec91aea30f7c19afffabb96103d44d716c4a4",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-010:media-verification:seg-005-episode-010-media-clip-2709b56b317086bc81ddaa3a",
+  "verificationVersion": "granola-observed-v1",
+  "visualQuality": 0.88
+}

@@ -1,0 +1,241 @@
+{
+  "schemaVersion": "story-source-preflight-v2",
+  "candidateId": "fastlane-content-distribution",
+  "product": "Fastlane",
+  "asOf": "2026-10-14",
+  "sourceStrategy": "single-spine",
+  "storyProfiles": [
+    "founder-journey",
+    "product-mechanism",
+    "cold-start-distribution"
+  ],
+  "universalCriteria": {
+    "productOrEventClarity": {
+      "status": "supported",
+      "sourceIds": [
+        "src-fastlane-interview",
+        "src-fastlane-signup"
+      ],
+      "notes": "网站链接生成短视频，并筛选排期发布。"
+    },
+    "audienceQuestion": {
+      "status": "supported",
+      "sourceIds": [
+        "src-fastlane-interview",
+        "src-fastlane-founder"
+      ],
+      "notes": "围绕独立开发者的营销内容制作和分发。",
+      "text": "Fastlane 怎样把做产品的人接到短视频营销上？"
+    },
+    "storyMotion": {
+      "status": "supported",
+      "sourceIds": [
+        "src-fastlane-interview",
+        "src-fastlane-founder"
+      ],
+      "notes": "先找到开发者，再根据访谈打磨滑卡筛选与发布。"
+    },
+    "factTraceability": {
+      "status": "supported",
+      "sourceIds": [
+        "src-fastlane-interview",
+        "src-fastlane-founder"
+      ],
+      "notes": "创始人访谈和自述提供动作与历史收入，最新官网单独标记版本。"
+    },
+    "realVisualFeasibility": {
+      "status": "supported",
+      "sourceIds": [
+        "src-fastlane-interview",
+        "src-fastlane-home"
+      ],
+      "notes": "公开采访12:54含应用演示，官网有结果示例。"
+    },
+    "rightsBoundaryRecorded": true
+  },
+  "sources": [
+    {
+      "id": "src-fastlane-interview",
+      "title": "Fastlane founder interview with app demo",
+      "publisher": "Starter Story",
+      "url": "https://www.starterstory.com/stories/the-insanely-obvious-secret-behind-this-69k-month-saas",
+      "sourceType": "founder-interview",
+      "roles": [
+        "spine",
+        "visual"
+      ],
+      "firstPerson": true,
+      "transcriptAvailable": true,
+      "supports": [
+        "protagonist",
+        "userNeed",
+        "productMechanism",
+        "founderDecision",
+        "distribution",
+        "measurableOutcome"
+      ],
+      "mediaTypes": [
+        "interview-video",
+        "product-demo"
+      ],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "公开研究和必要片段仅供本地制作评估，保留署名与来源；未获得外部发布许可。"
+    },
+    {
+      "id": "src-fastlane-founder",
+      "title": "Fastlane launch founder account",
+      "publisher": "Starter Story",
+      "url": "https://www.starterstory.com/stories/fastlane-create-winning-short-form-content-in-seconds",
+      "sourceType": "founder-interview",
+      "roles": [
+        "verification",
+        "visual"
+      ],
+      "firstPerson": true,
+      "transcriptAvailable": false,
+      "supports": [
+        "protagonist",
+        "userNeed",
+        "productMechanism",
+        "founderDecision",
+        "distribution",
+        "measurableOutcome"
+      ],
+      "mediaTypes": [
+        "result-evidence"
+      ],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "公开研究和必要片段仅供本地制作评估，保留署名与来源；未获得外部发布许可。"
+    },
+    {
+      "id": "src-fastlane-home",
+      "title": "Fastlane v2 official site",
+      "publisher": "Fastlane",
+      "url": "https://www.usefastlane.ai/",
+      "sourceType": "official",
+      "roles": [
+        "verification",
+        "visual"
+      ],
+      "firstPerson": false,
+      "transcriptAvailable": false,
+      "supports": [
+        "userNeed",
+        "productMechanism"
+      ],
+      "mediaTypes": [
+        "product-demo"
+      ],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "公开研究和必要片段仅供本地制作评估，保留署名与来源；未获得外部发布许可。"
+    },
+    {
+      "id": "src-fastlane-signup",
+      "title": "Fastlane signup",
+      "publisher": "Fastlane",
+      "url": "https://app.usefastlane.ai/signup",
+      "sourceType": "official",
+      "roles": [
+        "verification",
+        "visual"
+      ],
+      "firstPerson": false,
+      "transcriptAvailable": false,
+      "supports": [
+        "userNeed",
+        "productMechanism"
+      ],
+      "mediaTypes": [
+        "product-demo"
+      ],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "公开研究和必要片段仅供本地制作评估，保留署名与来源；未获得外部发布许可。"
+    }
+  ],
+  "storyEvidence": {
+    "protagonist": {
+      "status": "supported",
+      "sourceIds": [
+        "src-fastlane-interview",
+        "src-fastlane-founder"
+      ],
+      "notes": "采访与创始人自述可定位。"
+    },
+    "userNeed": {
+      "status": "supported",
+      "sourceIds": [
+        "src-fastlane-interview",
+        "src-fastlane-founder"
+      ],
+      "notes": "采访与创始人自述可定位。"
+    },
+    "productMechanism": {
+      "status": "supported",
+      "sourceIds": [
+        "src-fastlane-interview",
+        "src-fastlane-founder"
+      ],
+      "notes": "采访与创始人自述可定位。"
+    },
+    "founderDecision": {
+      "status": "supported",
+      "sourceIds": [
+        "src-fastlane-interview",
+        "src-fastlane-founder"
+      ],
+      "notes": "采访与创始人自述可定位。"
+    },
+    "buildFriction": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "未选择此维度，不补写。"
+    },
+    "distribution": {
+      "status": "supported",
+      "sourceIds": [
+        "src-fastlane-interview",
+        "src-fastlane-founder"
+      ],
+      "notes": "采访与创始人自述可定位。"
+    },
+    "marketEvent": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "未选择此维度，不补写。"
+    },
+    "userBehavior": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "未选择此维度，不补写。"
+    },
+    "measurableOutcome": {
+      "status": "supported",
+      "sourceIds": [
+        "src-fastlane-interview",
+        "src-fastlane-founder"
+      ],
+      "notes": "采访与创始人自述可定位。"
+    },
+    "turningPoint": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "未选择此维度，不补写。"
+    }
+  },
+  "keyClaims": [
+    {
+      "claim": "2026-04-03创始人自述ARR超过AUD 120000，为历史年化经常性收入，非利润。",
+      "sourceIds": [
+        "src-fastlane-founder"
+      ],
+      "reportingType": "founder-reported",
+      "attributionRequired": true
+    }
+  ],
+  "blockers": [],
+  "notes": "采访日期与回顾时间有不一致，不复述两个月增长；$69K的币种未注明，不擅自称美元。新版Senna与早期滑卡产品分开。"
+}

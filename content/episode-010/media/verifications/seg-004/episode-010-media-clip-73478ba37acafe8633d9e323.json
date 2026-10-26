@@ -1,0 +1,114 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-010:media-verification:seg-004-episode-010-media-clip-73478ba37acafe8633d9e323",
+    "createdAt": "2026-10-20T11:35:25.712Z",
+    "episodeId": "episode-010",
+    "mediaType": "application/json",
+    "path": "content/episode-010/media/verifications/seg-004/episode-010-media-clip-73478ba37acafe8633d9e323.json",
+    "producer": "media-verification-v1:codex:granola-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "9ac439a12839ca3f584fe9f51b92305092037b81da0c0e66d52b692914aded04",
+    "sizeBytes": 3954
+  },
+  "cacheKey": "44f7ea4471a33110aca65ebc675bf3af3922d9ad7d9e7fa9971b3f6ab12eae05",
+  "claimIds": [
+    "claim-granola-001"
+  ],
+  "claimMatch": 0.94,
+  "clipArtifactRef": {
+    "artifactId": "episode-010:media-verification-clip:seg-004-episode-010-media-clip-73478ba37acafe8633d9e323",
+    "createdAt": "2026-10-20T11:01:56.929Z",
+    "episodeId": "episode-010",
+    "mediaType": "video/mp4",
+    "path": "content/episode-010/media/verifications/seg-004/episode-010-media-clip-73478ba37acafe8633d9e323-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "7c6ff7faa132db67a1da8ffb11ea1894dcd49f7522f5062d52fcdf2a8bb4cfad",
+    "sizeBytes": 763240
+  },
+  "clipId": "episode-010:media-clip:73478ba37acafe8633d9e323",
+  "clipRef": {
+    "claimIds": [
+      "claim-granola-001"
+    ],
+    "clipId": "episode-010:media-clip:73478ba37acafe8633d9e323",
+    "createdAt": "2026-10-20T11:35:25.712Z",
+    "endMs": 8100,
+    "episodeId": "episode-010",
+    "mediaId": "episode-010:media:seg-004-98f649cafa95",
+    "sourceMediaRef": {
+      "artifactId": "episode-010:media:seg-004-98f649cafa95",
+      "createdAt": "2026-10-20T11:01:28.414Z",
+      "episodeId": "episode-010",
+      "mediaType": "video/mp4",
+      "path": "content/episode-010/media/assets/seg-004-98f649cafa95.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "98f649cafa955ce20643d12371cd67fcda9ef74013c173b120c5f5e11b0e9d5a",
+      "sizeBytes": 208699
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "官方历史补全演示连续展示原始记录到展开;明确官网演示、非本次实测。"
+  },
+  "createdAt": "2026-10-20T11:35:25.712Z",
+  "episodeId": "episode-010",
+  "mediaRef": {
+    "artifactId": "episode-010:media:seg-004-98f649cafa95",
+    "createdAt": "2026-10-20T11:01:28.414Z",
+    "episodeId": "episode-010",
+    "mediaType": "video/mp4",
+    "path": "content/episode-010/media/assets/seg-004-98f649cafa95.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "98f649cafa955ce20643d12371cd67fcda9ef74013c173b120c5f5e11b0e9d5a",
+    "sizeBytes": 208699
+  },
+  "misleadingRisk": 0.08,
+  "model": "current-session",
+  "observedActions": [
+    "官方历史演示原始要点和Analyzing transcript状态，接补全结果；不是本次会议实录。"
+  ],
+  "observedEntities": [
+    "Granola",
+    "AllFound"
+  ],
+  "observedText": [
+    "AllFound Overview",
+    "Current Provider",
+    "Next steps"
+  ],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "本轮实际查看重新生成片段首、中、尾九张帧，内容完整；同一制作会话检查，不代表独立Delivery或听感批准。",
+    "保留2024官方历史演示及结果停帧标识。"
+  ],
+  "recommendedEndMs": 8100,
+  "recommendedStartMs": 0,
+  "relevance": 0.95,
+  "retrievalResultRef": {
+    "artifactId": "episode-010:media-retrieval:seg-004",
+    "createdAt": "2026-10-20T11:01:30.794Z",
+    "episodeId": "episode-010",
+    "mediaType": "application/json",
+    "path": "content/episode-010/media/candidates/seg-004.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 2,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "406ff97ce39fc4da97bdbc96d14b123605a879bf8721cbef3cfbf283ef7ea000",
+    "sizeBytes": 15145
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-004",
+  "sourceSha256": "98f649cafa955ce20643d12371cd67fcda9ef74013c173b120c5f5e11b0e9d5a",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-010:media-verification:seg-004-episode-010-media-clip-73478ba37acafe8633d9e323",
+  "verificationVersion": "granola-observed-v1",
+  "visualQuality": 0.88
+}

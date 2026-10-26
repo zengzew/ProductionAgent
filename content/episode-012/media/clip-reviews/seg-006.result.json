@@ -1,0 +1,28 @@
+{
+  "requestHash": "f28cc07ad81e600908fb232e204a032fcfa82615a314a1c9b8d22803e8c1ac2c",
+  "completedAt": "2026-10-25T14:58:03.430311+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.9,
+    "claimMatch": 0.9,
+    "visualQuality": 0.85,
+    "misleadingRisk": 0.15,
+    "observedActions": [
+      "2023增长负责人访谈转述免费去背景入口与TikTok演示；配官网效果，非真实TikTok帖子。"
+    ],
+    "observedEntities": [
+      "Photoroom"
+    ],
+    "observedText": [
+      "免费去背景",
+      "TikTok 效果演示",
+      "2023-03-01"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 7267,
+    "reasons": [
+      "本制作会话已查看当前prepared片段的多点抽帧及当前核验请求所指向的关键帧联系表；这是同会话视觉核对，非独立Delivery或有声观看。",
+      "界面入口裁切可读，人物与日期可见；中文转述卡标编辑排版，官网演示不当本次实测，历史访谈不当当前政策。"
+    ]
+  }
+}

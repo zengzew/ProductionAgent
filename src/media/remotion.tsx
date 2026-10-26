@@ -16,6 +16,7 @@ import {
   mediaShotVideoOpacityAtFrame,
 } from "./render-math";
 import type {MediaShot} from "./render";
+import {ReferenceStoryFrame} from "../compositions/components/ReferenceStoryFrame";
 
 /**
  * WP-M5.08 generic real-media renderer.
@@ -1007,8 +1008,7 @@ export const MediaShotOverlays: React.FC<{shot: MediaShot; hideSource?: boolean}
   const badgeText = shot.overlays.badge?.text ?? "";
   const sourceLabel = shot.overlays.sourceLabel ?? "";
   const showBadge =
-    Boolean(badgeText) &&
-    (badgeText === "真实页面截图" || !isProductionMetaTag(badgeText));
+    Boolean(badgeText) && (badgeText === "真实页面截图" || !isProductionMetaTag(badgeText));
   const showSource = !hideSource && Boolean(sourceLabel) && !isProductionMetaTag(sourceLabel);
   if (!showBadge && !showSource) return null;
   return (
@@ -1078,6 +1078,67 @@ export const MediaShotScene: React.FC<{
     isFirst,
   });
   const opacity = isFirst ? 1 : calculatedOpacity;
+  if (shot.config.referenceStory) {
+    const src = shot.staticFilePath ?? shot.fallbackImagePath;
+    const isAudio = shot.renderProxyMediaType?.startsWith("audio/");
+    const state = mediaShotTransformAtFrame({
+      frame,
+      fps,
+      durationFrames: shot.durationFrames,
+      canvas: {width: 984, height: 760},
+      transform: shot.transform,
+    });
+    const mediaStyle: React.CSSProperties = {
+      width: "100%",
+      height: "100%",
+      objectFit: "contain",
+      transform: `scale(${state.scale}) translate(${state.translateX}px, ${state.translateY}px)`,
+      transformOrigin: `${state.transformOriginX}% ${state.transformOriginY}%`,
+    };
+    const imagePath = shot.evidenceImagePath ?? shot.fallbackImagePath;
+    const media =
+      shot.visualType === "real-media" && src && !isAudio ? (
+        <Video
+          src={staticFile(src)}
+          muted
+          objectFit="contain"
+          style={{...mediaStyle, objectFit: undefined}}
+        />
+      ) : imagePath ? (
+        <Img src={staticFile(imagePath)} style={mediaStyle} />
+      ) : (
+        <div
+          style={{
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            fontSize: 48,
+            padding: 48,
+          }}
+        >
+          {visibleOnScreenText(scene.onScreenText).join("\n")}
+        </div>
+      );
+    const freezeFrame = freezeFrameOf(shot, fps);
+    return (
+      <AbsoluteFill style={{opacity}}>
+        <ReferenceStoryFrame
+          presentation={shot.config.referenceStory}
+          evidenceLabel={evidenceSnippets(scene.onScreenText).join(" · ")}
+          sourceLabel={[shot.overlays.badge?.text, shot.overlays.sourceLabel]
+            .filter(Boolean)
+            .join(" · ")}
+        >
+          {freezeFrame === null ? media : <Freeze frame={freezeFrame}>{media}</Freeze>}
+        </ReferenceStoryFrame>
+        {shot.visualType === "real-media" && shot.staticFilePath ? (
+          <MediaShotOriginalAudio shot={shot} src={staticFile(shot.staticFilePath)} />
+        ) : null}
+      </AbsoluteFill>
+    );
+  }
   return (
     <AbsoluteFill style={{opacity, background: COLORS.void}}>
       {shot.visualType === "real-media" && shot.staticFilePath ? (

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "fastlane-v2-first-customer",
+    "type": "image",
+    "path": "public/episodes/episode-009-v2/assets/first-customer.png",
+    "sourceUrl": "https://www.starterstory.com/stories/fastlane-create-winning-short-form-content-in-seconds",
+    "owner": "Starter Story / Gaurav Thapa; 本期中文解释与编辑排版",
+    "licenseOrBasis": "用户请求本地制作评估；必要署名短摘录与中文解释，非外部发布授权。",
+    "capturedAt": "2026-10-15",
+    "usage": "seg-009：原文摘录 · 编辑排版",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-fastlane-006"
+    ],
+    "segmentIds": [
+      "seg-009"
+    ]
+  },
+  {
+    "id": "fastlane-v2-historical-arr",
+    "type": "screenshot",
+    "path": "public/episodes/episode-009-v2/assets/historical-arr.png",
+    "sourceUrl": "https://www.starterstory.com/stories/fastlane-create-winning-short-form-content-in-seconds",
+    "owner": "Starter Story / Gaurav Thapa; 本期中文解释与编辑排版",
+    "licenseOrBasis": "用户请求本地制作评估；必要署名短摘录与中文解释，非外部发布授权。",
+    "capturedAt": "2026-10-15",
+    "usage": "seg-010：真实页面局部截图",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-fastlane-009"
+    ],
+    "segmentIds": [
+      "seg-010"
+    ]
+  }
+]

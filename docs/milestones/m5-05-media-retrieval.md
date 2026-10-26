@@ -1,7 +1,7 @@
 # WP-M5-05 — Claim-to-Clip Retrieval
 
 - Status: implemented
-- Parent: `docs/milestones/m5-real-media-plan.md`
+- Historical scope: [archived M5 plan](../../../ProductionAgent-legacy-archive/2026-10-26-cleanup/retired/docs/milestones/m5-real-media-plan.md)
 - Code: `src/media/retrieve.ts`, `src/media/events.ts` (retrieval events +
   segment fields), `src/media/paths.ts` (`mediaRetrievalCandidateRepositoryPath`),
   `src/lib/fine-grained-cache.ts` (`media-retrieve` cache kind)

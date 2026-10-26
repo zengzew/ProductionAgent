@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-009-v2",
+  "segmentId": "seg-006",
+  "clipId": "episode-009-v2:media-clip:b43d7026d4559a5cd6e08ee4",
+  "claimIds": [
+    "claim-fastlane-005"
+  ],
+  "claims": [
+    {
+      "id": "claim-fastlane-005",
+      "claim": "Gaurav回顾，早期在Reddit线程和社媒找用户；加入等候名单后团队发邮件约谈，让用户共享屏幕试用并观察卡点。"
+    }
+  ],
+  "narration": "那第一批人从哪来?他们去Reddit和社交平台招募,再约报名者通话。",
+  "visualIntent": "原采访689.3–691.7秒展示的真实Reddit帖局部,裁掉3000+数字,接694秒创始人镜头;标注“原采访所示历史帖子”,不将帖内数字作为获客效果。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/verifications/seg-006/episode-009-v2-media-clip-b43d7026d4559a5cd6e08ee4-clip.mp4",
+    "sha256": "2fa370ba396aa3cc069eb77b742188679e14e69ca39ad957451674d8027fbb61",
+    "sizeBytes": 2256011,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 4733,
+    "sourceMediaId": "episode-009-v2:media:seg-006-fc2dca294e58",
+    "sourceMediaSha256": "fc2dca294e58b0126ab33ce93f1bff869c85a575c5fc84a4962af7ac4802014c"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/indexes/seg-006-fc2dca294e58/keyframes/keyframe-0-2366.jpg",
+      "timestampMs": 2366,
+      "sha256": "3df6fed990ab49c4250c52ded7ce0d3f03403c7fc56a159d77a55a925fed9174",
+      "sizeBytes": 56707,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "原采访中Reddit r/SideProject帖子标题局部静帧，裁去3000+用户数字，接创始人本人；非本次发帖。",
+    "observedText": "",
+    "keywords": [
+      "seg-006",
+      "Fastlane",
+      "人物"
+    ],
+    "entities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "6c31ba8d1dd11b2af95f840a9e8ea3e07e500067e96c8f7bb3027f40ad2b4190"
+}

@@ -1,0 +1,112 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-012:media-verification:seg-004-episode-012-media-clip-d3c259964012fb65bf2b6484",
+    "createdAt": "2026-10-25T15:02:10.795Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/verifications/seg-004/episode-012-media-clip-d3c259964012fb65bf2b6484.json",
+    "producer": "media-verification-v1:codex:photoroom-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "3349a1ef536e8e648cc737b1d9d4f951335e55a37b48580fe8a1ee8c80a03743",
+    "sizeBytes": 4133
+  },
+  "cacheKey": "0c33f770843dede4f7c23555c4bf04e0cb63d86f957c68d779cca9c1d9513732",
+  "claimIds": [
+    "claim-pr-001"
+  ],
+  "claimMatch": 0.9,
+  "clipArtifactRef": {
+    "artifactId": "episode-012:media-verification-clip:seg-004-episode-012-media-clip-d3c259964012fb65bf2b6484",
+    "createdAt": "2026-10-25T14:57:17.976Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/verifications/seg-004/episode-012-media-clip-d3c259964012fb65bf2b6484-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "4a4bad6cb1d2b5cf8e672bc889eee27a3dce18a5591548d41e57f5885f36796a",
+    "sizeBytes": 1686093
+  },
+  "clipId": "episode-012:media-clip:d3c259964012fb65bf2b6484",
+  "clipRef": {
+    "claimIds": [
+      "claim-pr-001"
+    ],
+    "clipId": "episode-012:media-clip:d3c259964012fb65bf2b6484",
+    "createdAt": "2026-10-25T15:02:10.795Z",
+    "endMs": 6300,
+    "episodeId": "episode-012",
+    "mediaId": "episode-012:media:seg-004-be6b3df8fde1",
+    "sourceMediaRef": {
+      "artifactId": "episode-012:media:seg-004-be6b3df8fde1",
+      "createdAt": "2026-10-25T14:57:14.793Z",
+      "episodeId": "episode-012",
+      "mediaType": "video/mp4",
+      "path": "content/episode-012/media/assets/seg-004-be6b3df8fde1.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "be6b3df8fde1aa88b509ab340fea6e1eceeee7acfd4c86e6bfbbf6fa32daa5bc",
+      "sizeBytes": 586277
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "先展示官网Start from a photo入口,再接官方MP4白底状态及椅子场景示例;不同示例显式分镜,不冒充一次生成过程。"
+  },
+  "createdAt": "2026-10-25T15:02:10.795Z",
+  "episodeId": "episode-012",
+  "mediaRef": {
+    "artifactId": "episode-012:media:seg-004-be6b3df8fde1",
+    "createdAt": "2026-10-25T14:57:14.793Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/assets/seg-004-be6b3df8fde1.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "be6b3df8fde1aa88b509ab340fea6e1eceeee7acfd4c86e6bfbbf6fa32daa5bc",
+    "sizeBytes": 586277
+  },
+  "misleadingRisk": 0.15,
+  "model": "current-session",
+  "observedActions": [
+    "先显示真实官网上传入口，再接官方去背景宣传动效及椅子布景示例；不同示例，非同次生成过程。"
+  ],
+  "observedEntities": [
+    "Photoroom"
+  ],
+  "observedText": [
+    "Start from a photo",
+    "同一件商品，换一个场景"
+  ],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "本制作会话已查看当前prepared片段的多点抽帧及当前核验请求所指向的关键帧联系表；这是同会话视觉核对，非独立Delivery或有声观看。",
+    "界面入口裁切可读，人物与日期可见；中文转述卡标编辑排版，官网演示不当本次实测，历史访谈不当当前政策。"
+  ],
+  "recommendedEndMs": 6300,
+  "recommendedStartMs": 0,
+  "relevance": 0.9,
+  "retrievalResultRef": {
+    "artifactId": "episode-012:media-retrieval:seg-004",
+    "createdAt": "2026-10-25T15:01:30.187Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/candidates/seg-004.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 4,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "e4b9843c92cad586da009a66efdfd54806996cb4e218704ec960674f9fcb68b4",
+    "sizeBytes": 26444
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-004",
+  "sourceSha256": "be6b3df8fde1aa88b509ab340fea6e1eceeee7acfd4c86e6bfbbf6fa32daa5bc",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-012:media-verification:seg-004-episode-012-media-clip-d3c259964012fb65bf2b6484",
+  "verificationVersion": "photoroom-observed-v1",
+  "visualQuality": 0.85
+}

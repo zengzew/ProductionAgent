@@ -1,0 +1,68 @@
+{
+  "episodeId": "episode-011",
+  "segmentId": "seg-009",
+  "clipId": "episode-011:media-clip:e4eeeb7970a08f86f0282dc8",
+  "claimIds": [
+    "claim-gamma-001",
+    "claim-gamma-002",
+    "claim-gamma-003"
+  ],
+  "claims": [
+    {
+      "id": "claim-gamma-001",
+      "claim": "Gamma可按主题、提纲或已有文档生成带图文版式的演示稿初稿，再由用户编辑。"
+    },
+    {
+      "id": "claim-gamma-002",
+      "claim": "Grant Lee在Stanford访谈回忆，做顾问时曾为次日会议熬夜准备Google Slides，大部分精力用在排版；于是联系两位前同事原型探索。"
+    },
+    {
+      "id": "claim-gamma-003",
+      "claim": "Grant说早期希望让写作成为起点，以灵活版式取代逐像素设计；生成式AI是后续加入。"
+    }
+  ],
+  "narration": "回头看,当初他熬夜,是在让一页页幻灯片好看。现在,先拿到一份能改的稿子,再把时间花在要讲的事上。",
+  "visualIntent": "回看官方演示的真实演示稿;让观众看到从空白开始与修改既有内容的工作变化,不声称实测节省小时数。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-011/media/verifications/seg-009/episode-011-media-clip-e4eeeb7970a08f86f0282dc8-clip.mp4",
+    "sha256": "b4259192899e4358406176397e7e750b2679f85e86f322b8368f1368bdc2408b",
+    "sizeBytes": 3105774,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 8233,
+    "sourceMediaId": "episode-011:media:seg-009-73990a4920f6-official",
+    "sourceMediaSha256": "73990a4920f642ce2502a03f5b80e6b7340e63dd7ce7b99d275aa972b75aab20"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-011/media/indexes/seg-009-73990a4920f6-official/keyframes/keyframe-0-4116.jpg",
+      "timestampMs": 4116,
+      "sha256": "ed459da00a910ad779903a2a51bf9f8427430c82486bcca7d891e75a044cdb1e",
+      "sizeBytes": 65204,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "回看2025官方文字变图演示，结果停帧供理解“已有稿可修改”，不宣称持续生成或实测省时。",
+    "observedText": "",
+    "keywords": [
+      "seg-009",
+      "Gamma",
+      "Agent",
+      "Holographic Technology",
+      "layout",
+      "diagram"
+    ],
+    "entities": [
+      "Gamma",
+      "Holographic Technology"
+    ],
+    "semanticTags": [
+      "official-product-demo",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "794601d94f2bcf6d27ff009b7b81b18fbebdaed7a9e7998dba90a1fcac89807d"
+}

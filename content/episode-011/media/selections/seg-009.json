@@ -1,0 +1,104 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-011:media-visual-slot:seg-009",
+    "createdAt": "2026-10-20T12:24:20.399Z",
+    "episodeId": "episode-011",
+    "mediaType": "application/json",
+    "path": "content/episode-011/media/selections/seg-009.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "0ff7fa602dd4412669e224b7470ed78af1a558c9a30a03cb4579bf6d46f8f661",
+    "sizeBytes": 3709
+  },
+  "claimIds": [
+    "claim-gamma-001",
+    "claim-gamma-002",
+    "claim-gamma-003",
+    "claim-gamma-011"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.85,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": false
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0,
+      "durationSuitability": 0.1,
+      "misleadingRiskSafety": 0.15,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.15,
+      "verificationClaimMatch": 0,
+      "verificationRelevance": 0.05,
+      "visualIntentFit": 0.15,
+      "visualQuality": 0.25
+    }
+  },
+  "createdAt": "2026-10-20T12:24:20.399Z",
+  "episodeId": "episode-011",
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true,
+    "verificationPassed": true
+  },
+  "reasons": [
+    "segment seg-009 claim-bound with 4 claim(s)",
+    "retrieval result episode-011:media-retrieval:seg-009 produced 13 candidate(s)",
+    "1 candidate(s) carry a valid pass verification",
+    "selected episode-011:media-clip:d392c1864530603e31e73942 score 0.656000 (claimFit=0.000, relevance=0.930, claimMatch=0.800, quality=0.820, risk=0.120, tie-breaker=score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-009",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-gamma-001",
+      "claim-gamma-002",
+      "claim-gamma-003",
+      "claim-gamma-011"
+    ],
+    "clipId": "episode-011:media-clip:d392c1864530603e31e73942",
+    "createdAt": "2026-10-20T12:24:18.289Z",
+    "endMs": 8133,
+    "episodeId": "episode-011",
+    "mediaId": "episode-011:media:seg-009-7847321cc971-official",
+    "sourceMediaRef": {
+      "artifactId": "episode-011:media:seg-009-7847321cc971-official",
+      "createdAt": "2026-10-20T12:18:52.680Z",
+      "episodeId": "episode-011",
+      "mediaType": "video/mp4",
+      "path": "content/episode-011/media/assets/seg-009-7847321cc971-official.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "7847321cc971ad27b75b44ba62a2c8e58509243e0ac0e1876793e78daf2a5299",
+      "sizeBytes": 2207117
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "回到真实官方演示稿编辑结果,最后一帧持续显示“告别从零排版”。“Gamma干掉了PPT”为用户选定的编辑修辞,指传统从空白页排版的工作方式,不是PowerPoint被市场淘汰或市占率结论。"
+  },
+  "selectedType": "real-media",
+  "selectionScore": 0.656,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-011:media-visual-slot:seg-009",
+  "verificationRef": {
+    "artifactId": "episode-011:media-verification:seg-009-episode-011-media-clip-d392c1864530603e31e73942",
+    "createdAt": "2026-10-20T12:24:18.301Z",
+    "episodeId": "episode-011",
+    "mediaType": "application/json",
+    "path": "content/episode-011/media/verifications/seg-009/episode-011-media-clip-d392c1864530603e31e73942.json",
+    "producer": "media-verification-v1:codex:gamma-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "507220b0857cb1effc924492fd4517f906fc6f71ea348eb2b91cb534ed984d76",
+    "sizeBytes": 4956
+  },
+  "visualIntent": "回到真实官方演示稿编辑结果,最后一帧持续显示“告别从零排版”。“Gamma干掉了PPT”为用户选定的编辑修辞,指传统从空白页排版的工作方式,不是PowerPoint被市场淘汰或市占率结论。"
+}

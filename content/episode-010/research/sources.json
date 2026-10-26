@@ -1,0 +1,32 @@
+[
+  {
+    "id": "src-granola-launch",
+    "title": "Introducing Granola: the AI-powered notepad for meetings",
+    "publisher": "Granola / Chris Pedregal",
+    "url": "https://www.granola.ai/blog/announcement",
+    "publishedAt": "2024-05-22",
+    "accessedAt": "2026-10-16",
+    "sourceType": "founder",
+    "notes": "公开创始人署名文章。历史能力按当时版本理解；公司披露不升级为独立审计。日期同时核对页面与JSON-LD。"
+  },
+  {
+    "id": "src-granola-series-a",
+    "title": "Granola raises $20M to build the AI notepad that makes you smarter",
+    "publisher": "Granola / Chris Pedregal",
+    "url": "https://www.granola.ai/blog/series-a",
+    "publishedAt": "2024-10-23",
+    "accessedAt": "2026-10-16",
+    "sourceType": "founder",
+    "notes": "公开创始人署名文章。历史能力按当时版本理解；公司披露不升级为独立审计。日期同时核对页面与JSON-LD。"
+  },
+  {
+    "id": "src-granola-series-c",
+    "title": "Granola raises $125M to put your company’s context to work",
+    "publisher": "Granola / Chris Pedregal",
+    "url": "https://www.granola.ai/blog/series-c",
+    "publishedAt": "2026-03-25",
+    "accessedAt": "2026-10-16",
+    "sourceType": "founder",
+    "notes": "公开创始人署名文章。历史能力按当时版本理解；公司披露不升级为独立审计。日期同时核对页面与JSON-LD。"
+  }
+]

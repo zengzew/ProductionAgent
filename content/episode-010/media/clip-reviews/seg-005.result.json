@@ -1,0 +1,29 @@
+{
+  "requestHash": "94a89c2158f3f6acb7465872f68a749f835882d0c45b367c8d8da5176a1ecc39",
+  "completedAt": "2026-10-20T11:02:19.124842+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.95,
+    "claimMatch": 0.94,
+    "visualQuality": 0.88,
+    "misleadingRisk": 0.08,
+    "observedActions": [
+      "官方演示结果局部停帧供阅读：Current Provider、Their Requirements和Next steps；非继续生成实录。"
+    ],
+    "observedEntities": [
+      "Granola",
+      "AllFound"
+    ],
+    "observedText": [
+      "AllFound Overview",
+      "Current Provider",
+      "Next steps"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 8400,
+    "reasons": [
+      "本轮实际查看重新生成片段首、中、尾九张帧，内容完整；同一制作会话检查，不代表独立Delivery或听感批准。",
+      "保留2024官方历史演示及结果停帧标识。"
+    ]
+  }
+}

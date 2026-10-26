@@ -1,0 +1,25 @@
+{
+  "requestHash": "c2a8fe5b18a818ce0078e698183ac9356abbeb415e7ac15201fc023797accb31",
+  "completedAt": "2026-10-25T15:02:09.791893+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.9,
+    "claimMatch": 0.9,
+    "visualQuality": 0.85,
+    "misleadingRisk": 0.15,
+    "observedActions": [
+      "已查看新版seg-009后5.7秒实际抽帧；最后一秒回到开头黄色杯子的干净白底结果。原官方素材1.6秒静帧替换原片尾动效，不延长段落或旁白。"
+    ],
+    "observedEntities": [
+      "Photoroom"
+    ],
+    "observedText": [],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 6133,
+    "reasons": [
+      "本制作会话已查看当前prepared片段的多点抽帧及当前核验请求所指向的关键帧联系表；这是同会话视觉核对，非独立Delivery或有声观看。",
+      "界面入口裁切可读，人物与日期可见；中文转述卡标编辑排版，官网演示不当本次实测，历史访谈不当当前政策。",
+      "新版最后一秒结果已查看，旧seg-009素材和核验保留为历史，当前请求绑定新版字节。"
+    ]
+  }
+}

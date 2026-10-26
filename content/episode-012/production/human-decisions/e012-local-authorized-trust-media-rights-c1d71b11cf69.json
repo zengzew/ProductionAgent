@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "e012-local-authorized-trust-media-rights",
+  "gate": "media-rights",
+  "decision": "approve",
+  "reviewer": "zengze-user-authorization",
+  "timestamp": "2026-10-25T14:54:10.404Z",
+  "reason": "承接本聊天用户“授权”：公开来源必要署名节选、编辑转述及配音用于本地评估视频。不代表第三方外部发布许可或成片最终批准；参见production/local-production-scope.json。",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-012:media:source-manifest",
+      "episodeId": "episode-012",
+      "path": "content/episode-012/media/source-manifest.json",
+      "mediaType": "application/json",
+      "schemaVersion": "media-source-manifest-v1",
+      "revision": 1,
+      "sha256": "e0866ab1ea30e04814fff3bc117c00ad8729c15cea059d401ebace0212f26a9b",
+      "sizeBytes": 6414,
+      "producer": "local-authorized-scope",
+      "createdAt": "2026-10-25T14:54:10.404Z"
+    }
+  ],
+  "approvalEpoch": 1,
+  "authorizations": [],
+  "edits": []
+}

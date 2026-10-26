@@ -1,0 +1,245 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 2.245215419501134,
+    "startFrame": 0,
+    "endFrame": 67,
+    "text": "输入文字AI帮你生成PPT"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-002",
+    "startSeconds": 2.465229,
+    "endSeconds": 4.683641698412698,
+    "startFrame": 74,
+    "endFrame": 141,
+    "text": "Gamma的创始人格兰特做咨询时"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 4.683641698412698,
+    "endSeconds": 6.347451222222222,
+    "startFrame": 141,
+    "endFrame": 190,
+    "text": "曾为第二天的会议熬夜准备"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 6.347451222222222,
+    "endSeconds": 8.741346647058823,
+    "startFrame": 190,
+    "endFrame": 262,
+    "text": "他说，大量工夫花在排版"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-002",
+    "startSeconds": 8.741346647058823,
+    "endSeconds": 10.347228999999999,
+    "startFrame": 262,
+    "endFrame": 310,
+    "text": "内容反而顾不上"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-003",
+    "startSeconds": 10.617229,
+    "endSeconds": 12.059706128782548,
+    "startFrame": 319,
+    "endFrame": 362,
+    "text": "他找来两位老同事"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-003",
+    "startSeconds": 12.059706128782548,
+    "endSeconds": 13.321873616467276,
+    "startFrame": 362,
+    "endFrame": 400,
+    "text": "想把顺序倒过来"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-003",
+    "startSeconds": 13.321873616467276,
+    "endSeconds": 14.403731463054188,
+    "startFrame": 400,
+    "endFrame": 432,
+    "text": "先把话写清楚"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-003",
+    "startSeconds": 14.403731463054188,
+    "endSeconds": 15.846208591836735,
+    "startFrame": 432,
+    "endFrame": 475,
+    "text": "再让工具处理版式"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-004",
+    "startSeconds": 16.066708000000002,
+    "endSeconds": 17.313465369614516,
+    "startFrame": 482,
+    "endFrame": 519,
+    "text": "Gamma后来接入AI"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-004",
+    "startSeconds": 17.313465369614516,
+    "endSeconds": 20.20833951927438,
+    "startFrame": 519,
+    "endFrame": 606,
+    "text": "输入主题或已有文字选个样式"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-004",
+    "startSeconds": 20.20833951927438,
+    "endSeconds": 22.57302772789116,
+    "startFrame": 606,
+    "endFrame": 677,
+    "text": "就能得到配好图文的初稿"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-005",
+    "startSeconds": 22.850062000000005,
+    "endSeconds": 24.0640013939394,
+    "startFrame": 686,
+    "endFrame": 722,
+    "text": "想换一种表达"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-005",
+    "startSeconds": 24.0640013939394,
+    "endSeconds": 25.68258725252526,
+    "startFrame": 722,
+    "endFrame": 770,
+    "text": "还能让AI改布局"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-005",
+    "startSeconds": 25.68258725252526,
+    "endSeconds": 27.301173111111115,
+    "startFrame": 770,
+    "endFrame": 819,
+    "text": "或把文字变成图示"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-005",
+    "startSeconds": 27.301173111111115,
+    "endSeconds": 29.820427079365082,
+    "startFrame": 819,
+    "endFrame": 895,
+    "text": "你要做的，是核对内容、调整重点"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-006",
+    "startSeconds": 30.097437000000006,
+    "endSeconds": 32.30782248752835,
+    "startFrame": 903,
+    "endFrame": 969,
+    "text": "第一批用户，是他们找来的朋友"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-006",
+    "startSeconds": 32.30782248752835,
+    "endSeconds": 35.30484548720441,
+    "startFrame": 969,
+    "endFrame": 1059,
+    "text": "公开测试时\n又去Product Hunt发布"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-006",
+    "startSeconds": 35.30484548720441,
+    "endSeconds": 36.46380888208618,
+    "startFrame": 1059,
+    "endFrame": 1094,
+    "text": "让陌生人直接注册"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-007",
+    "startSeconds": 36.749812000000006,
+    "endSeconds": 39.35810124162258,
+    "startFrame": 1102,
+    "endFrame": 1181,
+    "text": "格兰特说，他们还主动邀请用户通话"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-007",
+    "startSeconds": 39.35810124162258,
+    "endSeconds": 41.44473263492064,
+    "startFrame": 1181,
+    "endFrame": 1243,
+    "text": "问清楚哪里不好用再继续改"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-008",
+    "startSeconds": 41.664750000000005,
+    "endSeconds": 42.81376198574669,
+    "startFrame": 1250,
+    "endFrame": 1284,
+    "text": "二零二五年十一月"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-008",
+    "startSeconds": 42.81376198574669,
+    "endSeconds": 45.686291950113386,
+    "startFrame": 1284,
+    "endFrame": 1371,
+    "text": "Gamma自报年化经常性收入\n突破一亿美元"
+  },
+  {
+    "index": 24,
+    "sceneId": "seg-008",
+    "startSeconds": 45.686291950113386,
+    "endSeconds": 47.251403061224494,
+    "startFrame": 1371,
+    "endFrame": 1418,
+    "text": "到二零二六年八月"
+  },
+  {
+    "index": 25,
+    "sceneId": "seg-008",
+    "startSeconds": 47.251403061224494,
+    "endSeconds": 49.44838265306123,
+    "startFrame": 1418,
+    "endFrame": 1483,
+    "text": "公司披露累计用户已超一亿"
+  },
+  {
+    "index": 26,
+    "sceneId": "seg-009",
+    "startSeconds": 49.722417,
+    "endSeconds": 52.46686144444445,
+    "startFrame": 1492,
+    "endFrame": 1574,
+    "text": "从熬夜排版到输入文字就有初稿"
+  },
+  {
+    "index": 27,
+    "sceneId": "seg-009",
+    "startSeconds": 52.46686144444445,
+    "endSeconds": 56.62378888208617,
+    "startFrame": 1574,
+    "endFrame": 1699,
+    "text": "就这样，Gamma把做PPT\n变成了先生成、再修改"
+  }
+]

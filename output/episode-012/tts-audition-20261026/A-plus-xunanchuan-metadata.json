@@ -1,0 +1,69 @@
+{
+  "label": "A-plus-xunanchuan",
+  "model": "qwen-audio-3.1-tts-plus",
+  "voice": "xunanchuan_v3.1",
+  "endpoint": "https://dashscope.aliyuncs.com/api/v1/services/audio/tts/SpeechSynthesizer",
+  "createdAt": "2026-10-26T07:20:43.668285+00:00",
+  "textSha256": "12af3453e4aebb5a2c37dff69811a458a5d32c4756ae8207c97ce038304712f4",
+  "instruction": "像向朋友讲一个有意思的创业故事，清楚自然，有轻微起伏，按意思安排呼吸，避免播报腔。",
+  "inputParameters": {
+    "text": "一张商品照，AI帮你抠图、换背景。Photoroom的创始人马修，在GoPro做产品时就嫌抠图麻烦，后来干脆回去学了机器学习。他和工程师埃利奥特搭档，两周就做出了第一版Photoroom。现在，卖家放进商品照片，就能去掉杂乱背景。",
+    "voice": "xunanchuan_v3.1",
+    "format": "wav",
+    "sample_rate": 48000,
+    "rate": 1.0,
+    "pitch": 1.0,
+    "volume": 50,
+    "language_hints": [
+      "zh"
+    ],
+    "instruction": "像向朋友讲一个有意思的创业故事，清楚自然，有轻微起伏，按意思安排呼吸，避免播报腔。",
+    "seed": 42
+  },
+  "status": "generated",
+  "requestId": "dae1b74b-1185-95ee-9df8-99c29f8eceb3",
+  "usage": {
+    "characters": 194,
+    "input_tokens": 100,
+    "output_tokens": 280,
+    "total_tokens": 380
+  },
+  "finishReason": "stop",
+  "rawFile": "output/episode-012/tts-audition-20261026/A-plus-xunanchuan-raw.wav",
+  "rawSha256": "a6cfd0905760b95ee067e933083b892e5cdaecc40340515ec556af07629a526b",
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "48000",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "22.400000"
+    }
+  },
+  "normalizedFile": "output/episode-012/tts-audition-20261026/A-plus-xunanchuan.mp3",
+  "normalizedSha256": "9cb39ad8893493bc636b1f18b3b7717923b2d58f4bdb064eecf6ffb4f83aa20c",
+  "normalizedProbe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "sample_rate": "48000",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "22.400000"
+    }
+  },
+  "loudness": {
+    "integratedLufs": -23.26,
+    "truePeakDb": -2.78
+  },
+  "processing": "Constant gain -23 LUFS match, preserving dynamics; no tempo, pitch, trimming, padding, or music changes"
+}

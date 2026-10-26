@@ -1,0 +1,25 @@
+{
+  "requestHash": "2fabc92591595ad924f375db9535fa5170868bb899c9f95fa0df0a5b615f719d",
+  "completedAt": "2026-10-16T01:35:38.237902+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.94,
+    "claimMatch": 0.92,
+    "visualQuality": 0.88,
+    "misleadingRisk": 0.07,
+    "observedActions": [
+      "Gaurav本人谈用户试用观察，不是客户共享屏幕实录。"
+    ],
+    "observedEntities": [
+      "Fastlane",
+      "Gaurav Thapa"
+    ],
+    "observedText": [],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 6033,
+    "reasons": [
+      "当前制作会话检查原片与派生片段首中尾抽帧；网址采用全幅以避免截字，结尾更换黑屏过渡窗口。不是独立Delivery或用户批准。",
+      "URL为原片官网宣传动效；Reddit标题局部静帧裁除用户数字；人物配图不冒充客户通话；排期停帧与步骤省略须显式标注。"
+    ]
+  }
+}

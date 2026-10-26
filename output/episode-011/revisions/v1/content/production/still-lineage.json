@@ -1,0 +1,29 @@
+{
+  "scope": "本地观看制作；真实来源图与有标注的短摘录/编辑说明，未伪造界面或历史平台截图。",
+  "images": [
+    {
+      "path": "public/episodes/episode-011/assets/draft.png",
+      "sha256": "107c4c965d2393ab7713028fd796f1015178814fe75b13b0491cd4c5c118c3e1"
+    },
+    {
+      "path": "public/episodes/episode-011/assets/early-users.png",
+      "sha256": "67a4e1dbd118886fa8eaf212f2f5b1345d6c187d4fe8178eb6d6647f4f956a4e"
+    },
+    {
+      "path": "public/episodes/episode-011/assets/feedback.png",
+      "sha256": "688861d9aa54d9db1fbd0ec9744325d6a84b3acec85a2990f8ce82b1e3255e3a"
+    },
+    {
+      "path": "public/episodes/episode-011/assets/founder.png",
+      "sha256": "e8126adce94052ec2c7fbde56444cd557d12ca0403bc73c07fb3c1bc378febec"
+    },
+    {
+      "path": "public/episodes/episode-011/assets/funding.png",
+      "sha256": "458406ef73a9172776c7e33db6ff49368975088bd030d1847d31c34ac1fef4ed"
+    },
+    {
+      "path": "public/episodes/episode-011/assets/writing-first.png",
+      "sha256": "f60d970df497d786b1b4d421bfb8925eac0ce288b6b7f66f189182a79437b6c7"
+    }
+  ]
+}

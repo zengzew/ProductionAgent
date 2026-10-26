@@ -1,0 +1,28 @@
+{
+  "requestHash": "401fa32f532d2791934dc75c83c9a35054093c00da97e97ee482647341689dd3",
+  "completedAt": "2026-10-20T12:24:16.643456+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.93,
+    "claimMatch": 0.8,
+    "visualQuality": 0.82,
+    "misleadingRisk": 0.12,
+    "observedActions": [
+      "回看2025官方文字变图演示，结果停帧供理解“已有稿可修改”，不宣称持续生成或实测省时。"
+    ],
+    "observedEntities": [
+      "Gamma",
+      "Holographic Technology"
+    ],
+    "observedText": [
+      "Make this more visual",
+      "Holographic Technology"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 8133,
+    "reasons": [
+      "本制作会话实际检查V4新派生片段联系表；正文片段保留文字转图示及完成结果，不接未完成的第二次编辑动作。",
+      "2025官网历史演示，不冒充本次实测；结尾指告别从零排版，不是商业淘汰事实。"
+    ]
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-009-v2:media:seg-005-0c10c518aa99-proxy",
+    "createdAt": "2026-10-16T01:33:05.718Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009-v2/media/assets/seg-005-0c10c518aa99-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "2284e1668e20a3e761ecf96bb5425e22035762db1a32614ca329c037b167d22e",
+    "sizeBytes": 381402
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-009-v2",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-009-v2:media-clip:531a0771711f324102898528",
+      "endMs": 7633,
+      "entities": [
+        "Fastlane",
+        "Cal AI"
+      ],
+      "episodeId": "episode-009-v2",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-009-v2:media-keyframe:seg-005-0c10c518aa99-0-3816",
+          "createdAt": "2026-10-16T01:33:57.145Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-009-v2/media/indexes/seg-005-0c10c518aa99/keyframes/keyframe-0-3816.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "14e5bd608e7b5507bf53f91814d650dc918c89ba9d75780a2567122a456a15b0",
+          "sizeBytes": 54273
+        }
+      ],
+      "keywords": [
+        "seg-005",
+        "Fastlane",
+        "产品"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-009-v2:media:seg-005-0c10c518aa99",
+        "createdAt": "2026-10-16T01:33:04.842Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009-v2/media/assets/seg-005-0c10c518aa99.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "0c10c518aa9908221daa6d1b6e35979ae5c1e0da8c9f894d5c76e19751bf3f24",
+        "sizeBytes": 792990
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-009-v2:media-scenes:seg-005-0c10c518aa99",
+          "createdAt": "2026-10-16T01:33:57.077Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/indexes/seg-005-0c10c518aa99/scenes.json",
+          "producer": "media-understanding-v1:scenes:v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "7a92bcbbe51dd9ea9b0e20e7edaf2b98e513dbdbea2d0ccbd5cb57cb31b39745",
+          "sizeBytes": 1471
+        }
+      ],
+      "semanticTags": [
+        "founder-interview",
+        "local-evaluation",
+        "measured"
+      ],
+      "sourceSha256": "0c10c518aa9908221daa6d1b6e35979ae5c1e0da8c9f894d5c76e19751bf3f24",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "同一产品候选从图文到短视频切换，X、Edit和接受控件可见；不是营销效果证据。",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-009-v2:media:seg-005-0c10c518aa99",
+  "mediaRef": {
+    "artifactId": "episode-009-v2:media:seg-005-0c10c518aa99",
+    "createdAt": "2026-10-16T01:33:04.842Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009-v2/media/assets/seg-005-0c10c518aa99.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "0c10c518aa9908221daa6d1b6e35979ae5c1e0da8c9f894d5c76e19751bf3f24",
+    "sizeBytes": 792990
+  },
+  "sceneDetector": "bounded-reference-excerpt",
+  "sceneDetectorVersion": "v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-observed-reference",
+  "semanticAdapterVersion": "0c10c518aa990822",
+  "semanticAvailability": "available",
+  "sourceSha256": "0c10c518aa9908221daa6d1b6e35979ae5c1e0da8c9f894d5c76e19751bf3f24",
+  "transcriptAvailability": "unavailable"
+}

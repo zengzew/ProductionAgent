@@ -1,0 +1,24 @@
+{
+  "requestHash": "3dff97e091d50d06c6417edcee3ac1e839e4ecd5500270e94265074aa3b6f9dd",
+  "completedAt": "2026-10-25T14:58:03.429117+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.9,
+    "claimMatch": 0.9,
+    "visualQuality": 0.85,
+    "misleadingRisk": 0.15,
+    "observedActions": [
+      "官网宣传动效展示同一商品在原场景与白底之间变化；不是本次上传或生成实测。"
+    ],
+    "observedEntities": [
+      "Photoroom"
+    ],
+    "observedText": [],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 3033,
+    "reasons": [
+      "本制作会话已查看当前prepared片段的多点抽帧及当前核验请求所指向的关键帧联系表；这是同会话视觉核对，非独立Delivery或有声观看。",
+      "界面入口裁切可读，人物与日期可见；中文转述卡标编辑排版，官网演示不当本次实测，历史访谈不当当前政策。"
+    ]
+  }
+}

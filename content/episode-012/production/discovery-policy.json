@@ -1,0 +1,31 @@
+{
+  "scope": "本期已人工回读的公开来源，精确hostname；不修改全局策略",
+  "schemaVersion": "media-discovery-config-v1",
+  "allowedHosts": [
+    "example.com",
+    "www.example.com",
+    "cdn.example.com",
+    "static.gamma.app",
+    "gamma.app",
+    "www.youtube.com",
+    "www.granola.ai",
+    "lovablebrand.lovable.app",
+    "www.photoroom.com",
+    "pulse2.com",
+    "stripe.com",
+    "subscriptionleague.com",
+    "www.prnewswire.com"
+  ],
+  "allowedSourceTypes": [
+    "official",
+    "founder",
+    "product-demo",
+    "media",
+    "platform",
+    "analysis",
+    "social",
+    "local-approved"
+  ],
+  "maxCandidatesPerEpisode": 50,
+  "requireHttps": true
+}

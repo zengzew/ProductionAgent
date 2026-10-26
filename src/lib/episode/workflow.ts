@@ -1,5 +1,32 @@
 import {z} from "zod";
 
+// Reference-driven episodes reuse the Source-First workflow version. Re-export
+// its control contract here so workflow consumers have one entry point while the parser
+// and content checks remain in the editorial module.
+export {
+  SOURCE_FIRST_STORY_FILES,
+  SOURCE_FIRST_WORKFLOW_SCHEMA_VERSION,
+  isSourceFirstWorkflowData,
+  parseStorySpine,
+  sourceFirstCreativeRoleSchema,
+  sourceFirstCreativeRoles,
+  sourceFirstRoleSchema,
+  sourceFirstSupportingRoles,
+  sourceBeatSchema,
+  sourceFirstWorkflowRoles,
+  sourceFirstWorkflowSchema,
+  storySpineArtifactId,
+  storySpineArtifactPath,
+  validateSourceFirstWorkflow,
+} from "../editorial/source-first";
+export type {
+  SourceBeat,
+  SourceFirstValidationInput,
+  SourceFirstWorkflow,
+  SourceFirstWorkflowValidationInput,
+  StorySpine,
+} from "../editorial/source-first";
+
 const sha256Schema = z.string().regex(/^[a-f0-9]{64}$/u);
 
 export const storyRoleSchema = z.enum([

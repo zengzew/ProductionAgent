@@ -1,0 +1,88 @@
+{
+  "method": "semantic transition tails, selective sentence breathing, optional pitch-preserving atempo; original pauses counted",
+  "sourceMetadata": "production/pacing-source-v4/tts-metadata.json",
+  "providerSpeedIsOriginal": true,
+  "segments": [
+    {
+      "segmentId": "seg-001",
+      "tempoFactor": 1,
+      "additionalSentencePauseMs": [],
+      "sourceSha256": "7b81b93c5b55682a2de4376d0547bb992d7c46a06319b150e73135b1d6640498",
+      "outputSha256": "7b81b93c5b55682a2de4376d0547bb992d7c46a06319b150e73135b1d6640498"
+    },
+    {
+      "segmentId": "seg-002",
+      "tempoFactor": 1,
+      "additionalSentencePauseMs": [
+        0
+      ],
+      "sourceSha256": "db5b0ec1ce9edcd27c1020f3391a4e7bfc8db06dc9f9d8cee41c0a3425172d96",
+      "outputSha256": "db5b0ec1ce9edcd27c1020f3391a4e7bfc8db06dc9f9d8cee41c0a3425172d96"
+    },
+    {
+      "segmentId": "seg-003",
+      "tempoFactor": 1,
+      "additionalSentencePauseMs": [],
+      "sourceSha256": "92979494ecb4341dd2460b284755660dc8164652f20acfe273909b087ff75300",
+      "outputSha256": "92979494ecb4341dd2460b284755660dc8164652f20acfe273909b087ff75300"
+    },
+    {
+      "segmentId": "seg-004",
+      "tempoFactor": 1,
+      "additionalSentencePauseMs": [],
+      "sourceSha256": "f1c05193a706615b723cc8a21662f848240b63a57a7662fb339c79cfadb54e33",
+      "outputSha256": "f1c05193a706615b723cc8a21662f848240b63a57a7662fb339c79cfadb54e33"
+    },
+    {
+      "segmentId": "seg-005",
+      "tempoFactor": 1,
+      "additionalSentencePauseMs": [],
+      "sourceSha256": "439f04efbc70b3601a10495917197d600a1fa9cc660e2c1ff83eeb15f9849932",
+      "outputSha256": "439f04efbc70b3601a10495917197d600a1fa9cc660e2c1ff83eeb15f9849932"
+    },
+    {
+      "segmentId": "seg-006",
+      "tempoFactor": 1,
+      "additionalSentencePauseMs": [],
+      "sourceSha256": "942b4975bc8caf667da8f6d62f6946a3c68eff278edf3a5e09eae500b510ebcb",
+      "outputSha256": "942b4975bc8caf667da8f6d62f6946a3c68eff278edf3a5e09eae500b510ebcb"
+    },
+    {
+      "segmentId": "seg-007",
+      "tempoFactor": 0.96,
+      "additionalSentencePauseMs": [
+        0
+      ],
+      "sourceSha256": "9393f7094df15da9dcf47044dca8d87b92b6f601cbd78216af92ce7e2e1f0e0e",
+      "outputSha256": "ea73dcd4204ea288fdc56ac39854dc65d29c076f952a035d4e5bc4a5f55727d5"
+    },
+    {
+      "segmentId": "seg-010",
+      "tempoFactor": 0.96,
+      "additionalSentencePauseMs": [
+        100
+      ],
+      "sourceSha256": "c4afc2c0d7fdbcea43c988deac9730a4c380b81ca4637965700c6714841de564",
+      "outputSha256": "a035b972970060e1b60663763485d04a79286da3ffdd207acf6a9c389b0aa3b0"
+    },
+    {
+      "segmentId": "seg-008",
+      "tempoFactor": 1,
+      "additionalSentencePauseMs": [
+        0
+      ],
+      "sourceSha256": "b8fba73601fe08320bbd3022c91dc636e3697aab26cc1e1243f09e644f645a41",
+      "outputSha256": "b8fba73601fe08320bbd3022c91dc636e3697aab26cc1e1243f09e644f645a41"
+    },
+    {
+      "segmentId": "seg-009",
+      "tempoFactor": 1,
+      "additionalSentencePauseMs": [
+        0,
+        150
+      ],
+      "sourceSha256": "b40d87536e8c8987b2d45db1c5826be4675850f5abcc93e435e750580128172a",
+      "outputSha256": "f083b4245736e26f2c1832de9575e7c264ddf2e1aa0e4d9f243c602e44bfc219"
+    }
+  ]
+}

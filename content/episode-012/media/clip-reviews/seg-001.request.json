@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-012",
+  "segmentId": "seg-001",
+  "clipId": "episode-012:media-clip:e9dcd618623bdacff4422365",
+  "claimIds": [
+    "claim-pr-001"
+  ],
+  "claims": [
+    {
+      "id": "claim-pr-001",
+      "claim": "Photoroom支持从商品照片去除背景，再改用白底、模板或AI生成的商品场景。"
+    }
+  ],
+  "narration": "一张商品照,AI帮你抠图、换背景。",
+  "visualIntent": "官方MP4约1–4秒:杯子原场景与白底对照,按单个商品裁切;画面标“官方宣传演示·非本次实测”。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/verifications/seg-001/episode-012-media-clip-e9dcd618623bdacff4422365-clip.mp4",
+    "sha256": "693b7fe88c930c5da9c41fdd59362146bc6a5686a48f642bc6fa171c00fc5063",
+    "sizeBytes": 1286317,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 3033,
+    "sourceMediaId": "episode-012:media:seg-001-f4f8df40e597",
+    "sourceMediaSha256": "f4f8df40e597a85eb860fe2af35d543e942151326a3b73f2eeb690233bef9e28"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/indexes/seg-001-f4f8df40e597/keyframes/keyframe-0-1516.jpg",
+      "timestampMs": 1516,
+      "sha256": "df75419b23decc0c03ae631d2890434f1da102564de127509b24bfb4816b60d5",
+      "sizeBytes": 38192,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "官网宣传动效展示同一商品在原场景与白底之间变化；不是本次上传或生成实测。",
+    "observedText": "",
+    "keywords": [
+      "seg-001",
+      "Photoroom",
+      "official",
+      "attributed-local-evaluation"
+    ],
+    "entities": [
+      "Photoroom"
+    ],
+    "semanticTags": [
+      "attributed-source-excerpt",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "3dff97e091d50d06c6417edcee3ac1e839e4ecd5500270e94265074aa3b6f9dd"
+}

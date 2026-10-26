@@ -489,7 +489,7 @@ describe("editorial calibration datasets", () => {
       .readdirSync(path.join(calibrationRoot, registry.intakeDirectory))
       .filter((file) => file.endsWith(".json"))
       .sort();
-    expect(intakeFiles).toHaveLength(7);
+    expect(intakeFiles).toHaveLength(9);
     const intakeSamples = intakeFiles.map((file) =>
       editorialSampleSchema.parse(
         JSON.parse(
@@ -501,6 +501,21 @@ describe("editorial calibration datasets", () => {
       expect(sample.review.status).toBe("pending");
       expect(sample.datasetMembership).toEqual([]);
       expect(sample.transcriptPolicy.fullTranscriptStored).toBe(false);
+    }
+
+    const pairedRevisions = intakeSamples.filter((sample) => sample.recordVersion === "1.1.0");
+    expect(pairedRevisions.map((sample) => sample.sampleId).sort()).toEqual([
+      "xhs-6a75e71a00000000210235f0",
+      "xhs-6a7b007600000000240264dc",
+    ]);
+    for (const sample of pairedRevisions) {
+      expect(
+        sample.source.provenance.notes.some((note) => note.includes("source-pair candidate")),
+      ).toBe(true);
+      expect(sample.modalityChecks.video).toMatchObject({
+        status: "checked",
+        checkedAt: expect.stringContaining("2026-08-13"),
+      });
     }
 
     const heldOutGoldenIds = [

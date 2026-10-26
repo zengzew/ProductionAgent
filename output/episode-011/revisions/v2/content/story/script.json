@@ -1,0 +1,137 @@
+{
+  "selectedHook": "输入文字，AI帮你生成PPT。",
+  "segments": [
+    {
+      "id": "seg-001",
+      "section": "hook",
+      "narration": "输入文字，AI帮你生成PPT。",
+      "onScreenText": [
+        "输入文字，生成PPT"
+      ],
+      "claimIds": [
+        "claim-gamma-001"
+      ],
+      "scene": "输入文字，生成PPT",
+      "visualIntent": "显示2025官方演示中的真实演示稿结果与左侧多页缩略图；输入文字到生成初稿的关系来自官方教程，中文为编辑说明，不冒充生成过程实录。",
+      "targetSeconds": 3
+    },
+    {
+      "id": "seg-002",
+      "section": "need",
+      "narration": "Gamma的创始人格兰特做咨询时，曾为第二天的会议熬夜准备。他说，大量工夫花在排版，内容反而顾不上。",
+      "onScreenText": [
+        "熬夜，忙的却是排版"
+      ],
+      "claimIds": [
+        "claim-gamma-002"
+      ],
+      "scene": "熬夜，忙的却是排版",
+      "visualIntent": "Stanford访谈原文中的late night及formatting短摘录；标明创始人回忆，非重演。",
+      "targetSeconds": 8
+    },
+    {
+      "id": "seg-003",
+      "section": "decision",
+      "narration": "他找来两位老同事，想把顺序倒过来：先把话写清楚，再让工具处理版式。",
+      "onScreenText": [
+        "先写内容，再处理版式"
+      ],
+      "claimIds": [
+        "claim-gamma-002",
+        "claim-gamma-003"
+      ],
+      "scene": "先写内容，再处理版式",
+      "visualIntent": "Stanford原文write as the starting point短摘录及官方原图；不将2025界面当2020原型。",
+      "targetSeconds": 6
+    },
+    {
+      "id": "seg-004",
+      "section": "mechanism",
+      "narration": "Gamma后来接入AI。输入主题或已有文字，选个样式，就能得到配好图文的初稿。",
+      "onScreenText": [
+        "先得到一份可以改的稿"
+      ],
+      "claimIds": [
+        "claim-gamma-001",
+        "claim-gamma-003"
+      ],
+      "scene": "先得到一份可以改的稿",
+      "visualIntent": "官方演示稿及2025官方教程的必要短摘录；本段不声称画面录到生成过程，中文为编辑说明。",
+      "targetSeconds": 7
+    },
+    {
+      "id": "seg-005",
+      "section": "value",
+      "narration": "想换一种表达，还能让AI改布局，或把文字变成图示。你要做的，是核对内容、调整重点。",
+      "onScreenText": [
+        "把精力留给内容"
+      ],
+      "claimIds": [
+        "claim-gamma-001",
+        "claim-gamma-004"
+      ],
+      "scene": "把精力留给内容",
+      "visualIntent": "2025官方Agent与Smart Diagrams动画，按动作分别展示；核对内容为编辑用途建议，不宣称省时测量。",
+      "targetSeconds": 7
+    },
+    {
+      "id": "seg-006",
+      "section": "distribution",
+      "narration": "第一批用户，是他们找来的朋友。公开测试时，又去Product Hunt发布，让陌生人直接注册。",
+      "onScreenText": [
+        "从朋友，到陌生用户"
+      ],
+      "claimIds": [
+        "claim-gamma-005"
+      ],
+      "scene": "从朋友，到陌生用户",
+      "visualIntent": "Stanford访谈公开问答文字局部或原文短摘录；保留friends和Product Hunt；不是本次注册。",
+      "targetSeconds": 7
+    },
+    {
+      "id": "seg-007",
+      "section": "iteration",
+      "narration": "格兰特说，他们还主动邀请用户通话，问清楚哪里不好用，再继续改。",
+      "onScreenText": [
+        "主动打电话，听哪里不好用"
+      ],
+      "claimIds": [
+        "claim-gamma-005"
+      ],
+      "scene": "主动打电话，听哪里不好用",
+      "visualIntent": "Stanford访谈proactively reach out短摘录与中文释义；没有用户通话录像，不伪造。",
+      "targetSeconds": 5
+    },
+    {
+      "id": "seg-008",
+      "section": "result",
+      "narration": "二零二五年十一月，Gamma自报年化经常性收入突破一亿美元。到二零二六年八月，公司披露累计用户已超一亿。",
+      "onScreenText": [
+        "收入与用户，都有市场回应"
+      ],
+      "claimIds": [
+        "claim-gamma-007",
+        "claim-gamma-008"
+      ],
+      "scene": "收入与用户，都有市场回应",
+      "visualIntent": "双指标编辑数据卡：2025-11-10公司自报ARR超1亿美元；2026-08-11公司报告披露累计使用人数超1亿。日期与口径各自同现，不把累计人数当活跃/付费用户，不把ARR当实际年度收款。",
+      "targetSeconds": 11
+    },
+    {
+      "id": "seg-009",
+      "section": "payoff",
+      "narration": "从熬夜排版，到输入文字就有初稿。就这样，Gamma把做PPT，变成了先生成、再修改。",
+      "onScreenText": [
+        "做PPT，先生成，再修改"
+      ],
+      "claimIds": [
+        "claim-gamma-001",
+        "claim-gamma-002",
+        "claim-gamma-003"
+      ],
+      "scene": "做PPT，先生成，再修改",
+      "visualIntent": "回到真实官方演示稿编辑结果；结尾落在输入文字后生成初稿再修改的工作方式，不声称Gamma已取代PowerPoint或消灭人工编辑。",
+      "targetSeconds": 7
+    }
+  ]
+}

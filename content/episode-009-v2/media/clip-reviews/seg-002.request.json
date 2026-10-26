@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-009-v2",
+  "segmentId": "seg-002",
+  "clipId": "episode-009-v2:media-clip:c95af9af6c436321fc63ca8e",
+  "claimIds": [
+    "claim-fastlane-002"
+  ],
+  "claims": [
+    {
+      "id": "claim-fastlane-002",
+      "claim": "Gaurav回顾，做出应用后自己卡在营销，不愿先花大笔广告预算；Jock也遇到让别人看见产品的难题。"
+    }
+  ],
+  "narration": "Fastlane的创始人高拉夫做出几个应用后,才发现还有个难题:怎么让人看见?他又不想一开始就砸钱投广告。",
+  "visualIntent": "Gaurav采访170.5秒;姓名中文音译高拉夫,画面标原名。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/verifications/seg-002/episode-009-v2-media-clip-c95af9af6c436321fc63ca8e-clip.mp4",
+    "sha256": "f7c377747fdc936d7ccae478fdc69058124eaf2a3d92e6c0be719e31ce161217",
+    "sizeBytes": 4732335,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 7433,
+    "sourceMediaId": "episode-009-v2:media:seg-002-a180a26282c8",
+    "sourceMediaSha256": "a180a26282c8cf756bceb5707dbc9e3ff2453b73be23bc076011ff52511efc5c"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/indexes/seg-002-a180a26282c8/keyframes/keyframe-0-3716.jpg",
+      "timestampMs": 3716,
+      "sha256": "54cd507ce43728db31e1458dbe41497db88ceeed89f9a4919e9cc7ace3f6942a",
+      "sizeBytes": 53066,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "Gaurav本人访谈，讲自身做应用后遇到推广困难；保留真实机位切换。",
+    "observedText": "",
+    "keywords": [
+      "seg-002",
+      "Fastlane",
+      "人物"
+    ],
+    "entities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "cda460e76e30c9ba050c43e95d156984ee7f99a7bf905672a3e0304c8717d50f"
+}

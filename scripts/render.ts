@@ -1,7 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import {parseRenderMode} from "../src/lib/episode/cli";
-import {assertTimelineMatchesEpisode, getRenderContract} from "../src/lib/episode/render-contract";
+import {
+  assertTimelineMatchesEpisode,
+  getRenderContract,
+  renderEntrypoint,
+} from "../src/lib/episode/render-contract";
 import {assertMediaMixReadyToRender} from "../src/media/render";
 import {episodeId, episodeRoot, outputEpisodeRoot, repoRoot} from "../src/lib/episode/paths";
 import {runCommand} from "./lib/process";
@@ -43,7 +47,7 @@ const renderVideo = (composition: string, output: string): void => {
   }
   run([
     "render",
-    "src/index.ts",
+    renderEntrypoint(episodeId),
     composition,
     output,
     "--codec=h264",

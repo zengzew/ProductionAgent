@@ -1,7 +1,7 @@
 # WP-M5-01 — Media Artifact + Provenance Contract
 
 - Status: implemented, pending M5.01 review
-- Parent: `docs/milestones/m5-real-media-plan.md`
+- Historical scope: [archived M5 plan](../../../ProductionAgent-legacy-archive/2026-10-26-cleanup/retired/docs/milestones/m5-real-media-plan.md)
 - Code: `src/media/`
 - Tests: `tests/media-contract.test.ts`
 

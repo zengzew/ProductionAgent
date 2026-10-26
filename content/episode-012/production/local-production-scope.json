@@ -1,0 +1,20 @@
+{
+  "userRequest": "开始做新一集视频",
+  "explicitApproval": "授权",
+  "approvalContext": "当前Photoroom第012集文案进入配音、字幕及竖屏渲染",
+  "recordedAt": "2026-10-25T14:50:55.828Z",
+  "contentDecisionRef": {
+    "artifactId": "episode-012:production:human-decision-e012-user-content-approval-20261025-961213d7655f",
+    "episodeId": "episode-012",
+    "path": "content/episode-012/production/human-decisions/e012-user-content-approval-20261025-961213d7655f.json",
+    "mediaType": "application/json",
+    "schemaVersion": "human-decision-v1",
+    "revision": 1,
+    "sha256": "86195d9ad8ef36ea942beda064f8f16330185da7a9f5f284b4eef347e684babd",
+    "sizeBytes": 2962,
+    "producer": "human:zengze",
+    "createdAt": "2026-10-25T14:50:55.828Z"
+  },
+  "scope": "本地评估制作及公开来源的必要署名节选；不包含外部发布、商业投放或第三方媒体再授权",
+  "independentReview": "本会话承担编辑/事实/视觉职责，不冒充独立会话审核"
+}

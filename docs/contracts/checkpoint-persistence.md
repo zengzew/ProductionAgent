@@ -77,6 +77,6 @@ without requiring a live database; live database provisioning and deployment are
 outside WP-M4-01.
 
 WP-M4-02 is documented and tested separately in
-[`m4-02-failure-replay.md`](m4-02-failure-replay.md). M4-03 cache, M4-04
+[`m4-02-failure-replay.md`](../milestones/m4-02-failure-replay.md). M4-03 cache, M4-04
 observability completeness, M4-05 legacy backfill, and M4-06 concurrency remain
 outside this checkpoint-persistence work package.

@@ -1,0 +1,113 @@
+[
+  {
+    "id": "granola-still-0",
+    "type": "screenshot",
+    "path": "public/episodes/episode-010/assets/founder.png",
+    "sourceUrl": "https://www.granola.ai/blog/announcement",
+    "owner": "Granola / Chris Pedregal；本期中文释义与编辑排版",
+    "licenseOrBasis": "用户授权本地制作观看版；公开第一方材料必要引用，外部发布权利尚待终审。",
+    "capturedAt": "2026-10-16",
+    "usage": "创始人照片＋真实原文局部；编辑合版",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-granola-002"
+    ],
+    "segmentIds": [
+      "seg-002"
+    ]
+  },
+  {
+    "id": "granola-still-1",
+    "type": "image",
+    "path": "public/episodes/episode-010/assets/human-ai.png",
+    "sourceUrl": "https://www.granola.ai/blog/announcement",
+    "owner": "Granola / Chris Pedregal；本期中文释义与编辑排版",
+    "licenseOrBasis": "用户授权本地制作观看版；公开第一方材料必要引用，外部发布权利尚待终审。",
+    "capturedAt": "2026-10-16",
+    "usage": "官网原图裁切＋中文释义；非应用内中文UI",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-granola-002"
+    ],
+    "segmentIds": [
+      "seg-003"
+    ]
+  },
+  {
+    "id": "granola-still-2",
+    "type": "image",
+    "path": "public/episodes/episode-010/assets/human-ai.png",
+    "sourceUrl": "https://www.granola.ai/blog/announcement",
+    "owner": "Granola / Chris Pedregal；本期中文释义与编辑排版",
+    "licenseOrBasis": "用户授权本地制作观看版；公开第一方材料必要引用，外部发布权利尚待终审。",
+    "capturedAt": "2026-10-16",
+    "usage": "官网原图回看黑色用户要点与灰色AI补全；中文释义",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-granola-001",
+      "claim-granola-002",
+      "claim-granola-004"
+    ],
+    "segmentIds": [
+      "seg-009"
+    ]
+  },
+  {
+    "id": "granola-still-3",
+    "type": "screenshot",
+    "path": "public/episodes/episode-010/assets/early-users.png",
+    "sourceUrl": "https://www.granola.ai/blog/series-a",
+    "owner": "Granola / Chris Pedregal；本期中文释义与编辑排版",
+    "licenseOrBasis": "用户授权本地制作观看版；公开第一方材料必要引用，外部发布权利尚待终审。",
+    "capturedAt": "2026-10-16",
+    "usage": "真实原文局部截图＋编辑中文释义",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-granola-003"
+    ],
+    "segmentIds": [
+      "seg-006"
+    ]
+  },
+  {
+    "id": "granola-still-4",
+    "type": "screenshot",
+    "path": "public/episodes/episode-010/assets/team-spread.png",
+    "sourceUrl": "https://www.granola.ai/blog/series-a",
+    "owner": "Granola / Chris Pedregal；本期中文释义与编辑排版",
+    "licenseOrBasis": "用户授权本地制作观看版；公开第一方材料必要引用，外部发布权利尚待终审。",
+    "capturedAt": "2026-10-16",
+    "usage": "真实原文局部截图＋编辑中文释义",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-granola-003",
+      "claim-granola-004"
+    ],
+    "segmentIds": [
+      "seg-007"
+    ]
+  },
+  {
+    "id": "granola-still-5",
+    "type": "screenshot",
+    "path": "public/episodes/episode-010/assets/funding.png",
+    "sourceUrl": "https://www.granola.ai/blog/series-c",
+    "owner": "Granola / Chris Pedregal；本期中文释义与编辑排版",
+    "licenseOrBasis": "用户授权本地制作观看版；公开第一方材料必要引用，外部发布权利尚待终审。",
+    "capturedAt": "2026-10-16",
+    "usage": "融资原文真实截图＋中文释义，保留日期与公司身份",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-granola-005"
+    ],
+    "segmentIds": [
+      "seg-008"
+    ]
+  }
+]

@@ -1,0 +1,429 @@
+{
+  "thresholdDb": -36,
+  "minimumDetectedSilenceSeconds": 0.08,
+  "meaning": "Energy-threshold measurements, not a human listening verdict",
+  "timelineTotalSeconds": 68.8,
+  "segments": [
+    {
+      "segmentId": "seg-001",
+      "audioDurationSeconds": 2.554229,
+      "leadingSilenceSeconds": 0.151875,
+      "trailingSilenceSeconds": 0.2582,
+      "extraSceneTailSeconds": 0.24,
+      "detectedIntervals": [
+        [
+          0.0,
+          0.151875
+        ],
+        [
+          0.677937,
+          1.218521
+        ],
+        [
+          2.296,
+          2.554229
+        ]
+      ],
+      "estimatedTransitionSilenceSeconds": 0.682
+    },
+    {
+      "segmentId": "seg-002",
+      "audioDurationSeconds": 8.343104,
+      "leadingSilenceSeconds": 0.183688,
+      "trailingSilenceSeconds": 0.2574,
+      "extraSceneTailSeconds": 0.28,
+      "detectedIntervals": [
+        [
+          0.0,
+          0.183688
+        ],
+        [
+          1.046979,
+          1.251458
+        ],
+        [
+          1.687604,
+          1.992062
+        ],
+        [
+          2.550438,
+          3.214021
+        ],
+        [
+          4.156083,
+          4.464625
+        ],
+        [
+          4.924354,
+          5.38
+        ],
+        [
+          5.6995,
+          6.096042
+        ],
+        [
+          6.976646,
+          7.394917
+        ],
+        [
+          8.08575,
+          8.343104
+        ]
+      ],
+      "estimatedTransitionSilenceSeconds": 0.7
+    },
+    {
+      "segmentId": "seg-003",
+      "audioDurationSeconds": 5.259354,
+      "leadingSilenceSeconds": 0.162917,
+      "trailingSilenceSeconds": 0.2136,
+      "extraSceneTailSeconds": 0.36,
+      "detectedIntervals": [
+        [
+          0.0,
+          0.162917
+        ],
+        [
+          1.052729,
+          1.412396
+        ],
+        [
+          2.1405,
+          3.006479
+        ],
+        [
+          3.730062,
+          4.161521
+        ],
+        [
+          5.04575,
+          5.259354
+        ]
+      ],
+      "estimatedTransitionSilenceSeconds": 0.75
+    },
+    {
+      "segmentId": "seg-004",
+      "audioDurationSeconds": 3.5875,
+      "leadingSilenceSeconds": 0.175979,
+      "trailingSilenceSeconds": 0.2465,
+      "extraSceneTailSeconds": 0.25,
+      "detectedIntervals": [
+        [
+          0.0,
+          0.175979
+        ],
+        [
+          1.156458,
+          1.532729
+        ],
+        [
+          2.368812,
+          2.563063
+        ],
+        [
+          3.341,
+          3.5875
+        ]
+      ],
+      "estimatedTransitionSilenceSeconds": 0.623
+    },
+    {
+      "segmentId": "seg-005",
+      "audioDurationSeconds": 3.552979,
+      "leadingSilenceSeconds": 0.126271,
+      "trailingSilenceSeconds": 0.218,
+      "extraSceneTailSeconds": 0.48,
+      "detectedIntervals": [
+        [
+          0.0,
+          0.126271
+        ],
+        [
+          0.631208,
+          1.120604
+        ],
+        [
+          2.095396,
+          2.528437
+        ],
+        [
+          3.334938,
+          3.552979
+        ]
+      ],
+      "estimatedTransitionSilenceSeconds": 0.856
+    },
+    {
+      "segmentId": "seg-006",
+      "audioDurationSeconds": 4.295729,
+      "leadingSilenceSeconds": 0.158312,
+      "trailingSilenceSeconds": 0.2883,
+      "extraSceneTailSeconds": 0.48,
+      "detectedIntervals": [
+        [
+          0.0,
+          0.158312
+        ],
+        [
+          1.668833,
+          2.486458
+        ],
+        [
+          2.838167,
+          3.381083
+        ],
+        [
+          4.007437,
+          4.295729
+        ]
+      ],
+      "estimatedTransitionSilenceSeconds": 0.972
+    },
+    {
+      "segmentId": "seg-007",
+      "audioDurationSeconds": 10.951313,
+      "leadingSilenceSeconds": 0.203792,
+      "trailingSilenceSeconds": 0.3022,
+      "extraSceneTailSeconds": 0.3,
+      "detectedIntervals": [
+        [
+          0.0,
+          0.203792
+        ],
+        [
+          0.480292,
+          0.849375
+        ],
+        [
+          1.925521,
+          2.272229
+        ],
+        [
+          3.641188,
+          4.1105
+        ],
+        [
+          5.152354,
+          5.304354
+        ],
+        [
+          6.391146,
+          6.947146
+        ],
+        [
+          7.797583,
+          8.450396
+        ],
+        [
+          9.573521,
+          9.741875
+        ],
+        [
+          10.649125,
+          10.951313
+        ]
+      ],
+      "estimatedTransitionSilenceSeconds": 0.764
+    },
+    {
+      "segmentId": "seg-010",
+      "audioDurationSeconds": 10.642021,
+      "leadingSilenceSeconds": 0.161833,
+      "trailingSilenceSeconds": 0.272,
+      "extraSceneTailSeconds": 0.48,
+      "detectedIntervals": [
+        [
+          0.0,
+          0.161833
+        ],
+        [
+          1.392562,
+          1.887896
+        ],
+        [
+          3.194729,
+          4.105479
+        ],
+        [
+          4.556021,
+          5.008604
+        ],
+        [
+          5.895,
+          6.418625
+        ],
+        [
+          7.348667,
+          7.825437
+        ],
+        [
+          8.412646,
+          8.809917
+        ],
+        [
+          9.495979,
+          9.828146
+        ],
+        [
+          10.370062,
+          10.642021
+        ]
+      ],
+      "estimatedTransitionSilenceSeconds": 0.91
+    },
+    {
+      "segmentId": "seg-008",
+      "audioDurationSeconds": 8.012,
+      "leadingSilenceSeconds": 0.158458,
+      "trailingSilenceSeconds": 0.2913,
+      "extraSceneTailSeconds": 0.55,
+      "detectedIntervals": [
+        [
+          0.0,
+          0.158458
+        ],
+        [
+          1.075479,
+          1.620771
+        ],
+        [
+          3.046667,
+          3.339792
+        ],
+        [
+          4.003833,
+          4.489271
+        ],
+        [
+          5.399938,
+          5.888042
+        ],
+        [
+          6.44725,
+          6.761021
+        ],
+        [
+          7.720667,
+          8.012
+        ]
+      ],
+      "estimatedTransitionSilenceSeconds": 1.008
+    },
+    {
+      "segmentId": "seg-009",
+      "audioDurationSeconds": 7.698688,
+      "leadingSilenceSeconds": 0.167125,
+      "trailingSilenceSeconds": 0.2249,
+      "extraSceneTailSeconds": 0.42,
+      "detectedIntervals": [
+        [
+          0.0,
+          0.167125
+        ],
+        [
+          0.722792,
+          1.143
+        ],
+        [
+          2.577187,
+          2.994438
+        ],
+        [
+          3.494208,
+          3.832542
+        ],
+        [
+          4.301396,
+          4.679396
+        ],
+        [
+          5.111646,
+          5.682292
+        ],
+        [
+          5.982229,
+          6.525646
+        ],
+        [
+          7.473792,
+          7.698688
+        ]
+      ]
+    }
+  ],
+  "finalMp4TransitionMeasurements": [
+    {
+      "afterSegmentId": "seg-001",
+      "beforeSegmentId": "seg-002",
+      "sceneBoundarySeconds": 2.8,
+      "detectedSilenceStartSeconds": 2.361687,
+      "detectedSilenceEndSeconds": 3.049375,
+      "detectedSilenceSeconds": 0.688
+    },
+    {
+      "afterSegmentId": "seg-002",
+      "beforeSegmentId": "seg-003",
+      "sceneBoundarySeconds": 11.433333333333334,
+      "detectedSilenceStartSeconds": 10.951437,
+      "detectedSilenceEndSeconds": 11.661937,
+      "detectedSilenceSeconds": 0.71
+    },
+    {
+      "afterSegmentId": "seg-003",
+      "beforeSegmentId": "seg-004",
+      "sceneBoundarySeconds": 17.066666666666666,
+      "detectedSilenceStartSeconds": 16.544729,
+      "detectedSilenceEndSeconds": 17.308333,
+      "detectedSilenceSeconds": 0.764
+    },
+    {
+      "afterSegmentId": "seg-004",
+      "beforeSegmentId": "seg-005",
+      "sceneBoundarySeconds": 20.9,
+      "detectedSilenceStartSeconds": 20.473333,
+      "detectedSilenceEndSeconds": 21.091958,
+      "detectedSilenceSeconds": 0.619
+    },
+    {
+      "afterSegmentId": "seg-005",
+      "beforeSegmentId": "seg-006",
+      "sceneBoundarySeconds": 24.933333333333334,
+      "detectedSilenceStartSeconds": 24.300625,
+      "detectedSilenceEndSeconds": 25.157333,
+      "detectedSilenceSeconds": 0.857
+    },
+    {
+      "afterSegmentId": "seg-006",
+      "beforeSegmentId": "seg-007",
+      "sceneBoundarySeconds": 29.7,
+      "detectedSilenceStartSeconds": 29.006458,
+      "detectedSilenceEndSeconds": 29.969479,
+      "detectedSilenceSeconds": 0.963
+    },
+    {
+      "afterSegmentId": "seg-007",
+      "beforeSegmentId": "seg-010",
+      "sceneBoundarySeconds": 40.96666666666667,
+      "detectedSilenceStartSeconds": 40.414812,
+      "detectedSilenceEndSeconds": 41.194187,
+      "detectedSilenceSeconds": 0.779
+    },
+    {
+      "afterSegmentId": "seg-010",
+      "beforeSegmentId": "seg-008",
+      "sceneBoundarySeconds": 52.1,
+      "detectedSilenceStartSeconds": 51.401896,
+      "detectedSilenceEndSeconds": 52.324167,
+      "detectedSilenceSeconds": 0.922
+    },
+    {
+      "afterSegmentId": "seg-008",
+      "beforeSegmentId": "seg-009",
+      "sceneBoundarySeconds": 60.666666666666664,
+      "detectedSilenceStartSeconds": 59.886375,
+      "detectedSilenceEndSeconds": 60.899479,
+      "detectedSilenceSeconds": 1.013
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 2.4541950113378683,
+    "startFrame": 0,
+    "endFrame": 74,
+    "text": "输入文字AI帮你生成PPT"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-002",
+    "startSeconds": 2.7942289999999996,
+    "endSeconds": 5.6827032468415934,
+    "startFrame": 84,
+    "endFrame": 170,
+    "text": "Gamma的创始人格兰特做咨询时"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 5.6827032468415934,
+    "endSeconds": 7.849058931972789,
+    "startFrame": 170,
+    "endFrame": 235,
+    "text": "曾为第二天的会议熬夜准备"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 7.849058931972789,
+    "endSeconds": 9.727513647192211,
+    "startFrame": 235,
+    "endFrame": 292,
+    "text": "他说，大量工夫花在排版"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-002",
+    "startSeconds": 9.727513647192211,
+    "endSeconds": 10.972312900226758,
+    "startFrame": 292,
+    "endFrame": 329,
+    "text": "内容反而顾不上"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-003",
+    "startSeconds": 11.417333,
+    "endSeconds": 12.840593614590663,
+    "startFrame": 343,
+    "endFrame": 385,
+    "text": "他找来两位老同事"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-003",
+    "startSeconds": 12.840593614590663,
+    "endSeconds": 14.085946652357494,
+    "startFrame": 385,
+    "endFrame": 423,
+    "text": "想把顺序倒过来"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-003",
+    "startSeconds": 14.085946652357494,
+    "endSeconds": 15.153392113300491,
+    "startFrame": 423,
+    "endFrame": 455,
+    "text": "先把话写清楚"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-003",
+    "startSeconds": 15.153392113300491,
+    "endSeconds": 16.576652727891155,
+    "startFrame": 455,
+    "endFrame": 497,
+    "text": "再让工具处理版式"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-004",
+    "startSeconds": 17.036687,
+    "endSeconds": 18.63511670521542,
+    "startFrame": 511,
+    "endFrame": 559,
+    "text": "Gamma后来接入AI"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-004",
+    "startSeconds": 18.63511670521542,
+    "endSeconds": 20.52416999319728,
+    "startFrame": 559,
+    "endFrame": 616,
+    "text": "让文字先变成配好图文的初稿"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-005",
+    "startSeconds": 20.874187,
+    "endSeconds": 23.054809986036517,
+    "startFrame": 626,
+    "endFrame": 692,
+    "text": "有了初稿，还能让AI改布局"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-005",
+    "startSeconds": 23.054809986036517,
+    "endSeconds": 24.326840061224487,
+    "startFrame": 692,
+    "endFrame": 730,
+    "text": "把文字变成图示"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-006",
+    "startSeconds": 24.907166,
+    "endSeconds": 27.904088578555232,
+    "startFrame": 747,
+    "endFrame": 837,
+    "text": "他们拿下了Product Hunt\n月榜第一"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-006",
+    "startSeconds": 27.904088578555232,
+    "endSeconds": 29.102857609977324,
+    "startFrame": 837,
+    "endFrame": 873,
+    "text": "增长却还是卡住了"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-007",
+    "startSeconds": 29.682895,
+    "endSeconds": 31.589995340136053,
+    "startFrame": 890,
+    "endFrame": 948,
+    "text": "于是，十二个人花了三个月"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-007",
+    "startSeconds": 31.589995340136053,
+    "endSeconds": 33.49709568027211,
+    "startFrame": 948,
+    "endFrame": 1005,
+    "text": "重做用户进来的前三十秒"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-007",
+    "startSeconds": 33.49709568027211,
+    "endSeconds": 36.47081465860418,
+    "startFrame": 1005,
+    "endFrame": 1094,
+    "text": "他们把AI生成直接放进新手流程"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-007",
+    "startSeconds": 36.47081465860418,
+    "endSeconds": 37.61848252204585,
+    "startFrame": 1094,
+    "endFrame": 1129,
+    "text": "输入一句想法"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-007",
+    "startSeconds": 37.61848252204585,
+    "endSeconds": 40.48765218065003,
+    "startFrame": 1129,
+    "endFrame": 1215,
+    "text": "先得到一份有内容、有版式的PPT"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-010",
+    "startSeconds": 40.934208,
+    "endSeconds": 42.832319704999456,
+    "startFrame": 1228,
+    "endFrame": 1285,
+    "text": "用户面对的不再是空白页"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-010",
+    "startSeconds": 42.832319704999456,
+    "endSeconds": 44.90298701954433,
+    "startFrame": 1285,
+    "endFrame": 1347,
+    "text": "而是一份能接着修改的初稿"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-010",
+    "startSeconds": 44.90298701954433,
+    "endSeconds": 46.97365433408919,
+    "startFrame": 1347,
+    "endFrame": 1409,
+    "text": "第一次用就看得见它的价值"
+  },
+  {
+    "index": 24,
+    "sceneId": "seg-010",
+    "startSeconds": 46.97365433408919,
+    "endSeconds": 48.59851418543714,
+    "startFrame": 1409,
+    "endFrame": 1458,
+    "text": "按创始人的回顾"
+  },
+  {
+    "index": 25,
+    "sceneId": "seg-010",
+    "startSeconds": 48.59851418543714,
+    "endSeconds": 51.43962655631141,
+    "startFrame": 1458,
+    "endFrame": 1543,
+    "text": "日注册量随后从几百，涨到了几万"
+  },
+  {
+    "index": 26,
+    "sceneId": "seg-008",
+    "startSeconds": 52.056228999999995,
+    "endSeconds": 53.245046622287006,
+    "startFrame": 1562,
+    "endFrame": 1597,
+    "text": "二零二五年十一月"
+  },
+  {
+    "index": 27,
+    "sceneId": "seg-008",
+    "startSeconds": 53.245046622287006,
+    "endSeconds": 56.21709067800453,
+    "startFrame": 1597,
+    "endFrame": 1687,
+    "text": "Gamma自报年化经常性收入\n突破一亿美元"
+  },
+  {
+    "index": 28,
+    "sceneId": "seg-008",
+    "startSeconds": 56.21709067800453,
+    "endSeconds": 57.754018115646254,
+    "startFrame": 1687,
+    "endFrame": 1733,
+    "text": "到二零二六年八月"
+  },
+  {
+    "index": 29,
+    "sceneId": "seg-008",
+    "startSeconds": 57.754018115646254,
+    "endSeconds": 59.90920178911564,
+    "startFrame": 1733,
+    "endFrame": 1797,
+    "text": "公司披露累计用户已超一亿"
+  },
+  {
+    "index": 30,
+    "sceneId": "seg-009",
+    "startSeconds": 60.61822899999999,
+    "endSeconds": 63.31623353514738,
+    "startFrame": 1819,
+    "endFrame": 1899,
+    "text": "做PPT不必再从空白页一页页排起"
+  },
+  {
+    "index": 31,
+    "sceneId": "seg-009",
+    "startSeconds": 63.31623353514738,
+    "endSeconds": 65.83559407936507,
+    "startFrame": 1899,
+    "endFrame": 1975,
+    "text": "输入文字，先有初稿，再动手改"
+  },
+  {
+    "index": 32,
+    "sceneId": "seg-009",
+    "startSeconds": 65.83559407936507,
+    "endSeconds": 68.14468478231292,
+    "startFrame": 1975,
+    "endFrame": 2044,
+    "text": "就这样，Gamma干掉了PPT"
+  }
+]

@@ -36,8 +36,10 @@ const MEDIA_UNIT_TESTS = [
 ] as const;
 
 const EDITORIAL_TESTS = [
+  "tests/reference-story.test.ts",
   "tests/story-quality.test.ts",
   "tests/story-pipeline.test.ts",
+  "tests/source-first-story.test.ts",
   "tests/editorial-text-rules.test.ts",
   "tests/creative-roles.test.ts",
   "tests/oral-review-rubric.test.ts",
@@ -88,6 +90,30 @@ const CONTENT_LOOP_TESTS = [
  * Directory rules ending with `/` apply only when no exact rule matched.
  */
 export const AFFECTED_TEST_RULES: readonly AffectedTestRule[] = [
+  {
+    match: "src/Root.tsx",
+    tests: ["tests/render-contract.test.ts"],
+    layer: "contract",
+  },
+  {
+    match: "src/compositions/legacy/index.tsx",
+    tests: ["tests/render-contract.test.ts"],
+    layer: "contract",
+  },
+  {
+    match: "scripts/render.ts",
+    tests: ["tests/render-contract.test.ts", "tests/media-remotion.test.ts"],
+    layer: "contract",
+  },
+  {
+    match: "src/orchestration/graph/reference-content.ts",
+    tests: [
+      "tests/reference-story.test.ts",
+      "tests/orchestration/production-entrypoint.test.ts",
+      "tests/orchestration/foundation-content-loop.test.ts",
+    ],
+    layer: "contract",
+  },
   {match: "src/media/verify.ts", tests: ["tests/media-verify.test.ts"], layer: "contract"},
   {match: "src/media/select.ts", tests: ["tests/media-selection.test.ts"], layer: "contract"},
   {
@@ -243,10 +269,12 @@ export const AFFECTED_TEST_RULES: readonly AffectedTestRule[] = [
     layer: "contract",
   },
   {
-    match: "src/orchestration/legacy-import.ts",
+    match: "tests/helpers/legacy-import.ts",
     tests: [
       "tests/orchestration/legacy-import.test.ts",
       "tests/orchestration/legacy-backfill.test.ts",
+      "tests/orchestration/event-sink.test.ts",
+      "tests/orchestration/golden-skeleton.test.ts",
     ],
     layer: "contract",
   },

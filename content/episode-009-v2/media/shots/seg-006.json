@@ -1,0 +1,245 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-009-v2:media-shot:seg-006",
+    "createdAt": "2026-10-16T01:35:42.157Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "application/json",
+    "path": "content/episode-009-v2/media/shots/seg-006.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-shot-v1",
+    "sha256": "78b9a2dab9cc4d9a43d2618485c889dd35486ff5710bf5dc29a34cfffe948efb",
+    "sizeBytes": 8157
+  },
+  "audio": {
+    "ducking": {
+      "attackMs": 80,
+      "enabled": true,
+      "reductionDb": 10,
+      "releaseMs": 240
+    },
+    "fadeInMs": 0,
+    "fadeOutMs": 0,
+    "narrationGain": 1,
+    "originalAudioGain": 0
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "referenceStory": {
+      "claimIds": [
+        "claim-fastlane-001",
+        "claim-fastlane-009"
+      ],
+      "headline": "Fastlane 用网址生成短视频",
+      "profile": "golden-reference-v1",
+      "resultLine": "自报历史ARR超12万澳元"
+    },
+    "timelineSha256": "33c7eb3a75892a9351836f279d363bac2ff123ea6383c34dfcc153cb9fcc47cb",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-10-16T01:35:42.157Z",
+  "crossfadeMs": 0,
+  "durationFrames": 142,
+  "endSeconds": 33.945125999999995,
+  "episodeId": "episode-009-v2",
+  "evidenceImageAssetId": null,
+  "evidenceImagePath": null,
+  "evidenceImageSha256": null,
+  "fade": {
+    "inMs": 0,
+    "outMs": 0
+  },
+  "fallbackImageAssetId": null,
+  "fallbackImagePath": null,
+  "fallbackImageSha256": null,
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "clipVerified": true,
+    "episodeIsolated": true,
+    "hashesValid": true,
+    "rightsApproved": true,
+    "slotValid": true,
+    "timestampsValid": true
+  },
+  "lineage": {
+    "clipArtifactRef": {
+      "artifactId": "episode-009-v2:media-verification-clip:seg-006-episode-009-v2-media-clip-b43d7026d4559a5cd6e08ee4",
+      "createdAt": "2026-10-16T01:35:02.926Z",
+      "episodeId": "episode-009-v2",
+      "mediaType": "video/mp4",
+      "path": "content/episode-009-v2/media/verifications/seg-006/episode-009-v2-media-clip-b43d7026d4559a5cd6e08ee4-clip.mp4",
+      "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+      "revision": 1,
+      "schemaVersion": "media-verification-clip-v1",
+      "sha256": "2fa370ba396aa3cc069eb77b742188679e14e69ca39ad957451674d8027fbb61",
+      "sizeBytes": 2256011
+    },
+    "clipId": "episode-009-v2:media-clip:b43d7026d4559a5cd6e08ee4",
+    "clipIndexRef": {
+      "artifactId": "episode-009-v2:media-clip-index:seg-006-fc2dca294e58",
+      "createdAt": "2026-10-16T01:33:57.292Z",
+      "episodeId": "episode-009-v2",
+      "mediaType": "application/json",
+      "path": "content/episode-009-v2/media/indexes/seg-006-fc2dca294e58/clip-index.json",
+      "producer": "media-understanding-v1:index:fc2dca294e58b012",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "2ad6a5aee48508690327d4de12f0b94d89eee4a174dc30dccfdd7688103e4464",
+      "sizeBytes": 4319
+    },
+    "cutSourceRef": {
+      "artifactId": "episode-009-v2:media:seg-006-fc2dca294e58-proxy",
+      "createdAt": "2026-10-16T01:33:06.541Z",
+      "episodeId": "episode-009-v2",
+      "mediaType": "video/mp4",
+      "path": "content/episode-009-v2/media/assets/seg-006-fc2dca294e58-proxy.mp4",
+      "producer": "media-ingest-v1:normalize",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "72e971b11db21b791bfef057e498398c76e0f7fa0adf606501cb32031f103540",
+      "sizeBytes": 451195
+    },
+    "sourceEndMs": 4733,
+    "sourceMediaId": "episode-009-v2:media:seg-006-fc2dca294e58",
+    "sourceMediaRef": {
+      "artifactId": "episode-009-v2:media:seg-006-fc2dca294e58",
+      "createdAt": "2026-10-16T01:33:05.761Z",
+      "episodeId": "episode-009-v2",
+      "mediaType": "video/mp4",
+      "path": "content/episode-009-v2/media/assets/seg-006-fc2dca294e58.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "fc2dca294e58b0126ab33ce93f1bff869c85a575c5fc84a4962af7ac4802014c",
+      "sizeBytes": 962741
+    },
+    "sourceSha256": "fc2dca294e58b0126ab33ce93f1bff869c85a575c5fc84a4962af7ac4802014c",
+    "sourceStartMs": 0,
+    "verificationRef": {
+      "artifactId": "episode-009-v2:media-verification:seg-006-episode-009-v2-media-clip-b43d7026d4559a5cd6e08ee4",
+      "createdAt": "2026-10-16T01:35:39.433Z",
+      "episodeId": "episode-009-v2",
+      "mediaType": "application/json",
+      "path": "content/episode-009-v2/media/verifications/seg-006/episode-009-v2-media-clip-b43d7026d4559a5cd6e08ee4.json",
+      "producer": "media-verification-v1:codex:fastlane-observed-v1",
+      "revision": 1,
+      "schemaVersion": "media-verification-v1",
+      "sha256": "e34f4ae038b2721df40a2b897a9ad807a5e4becd0d449923a4c7a4ad5ed1326f",
+      "sizeBytes": 4799
+    }
+  },
+  "overlays": {
+    "badge": null,
+    "captionsEnabled": true,
+    "sourceLabel": "原采访所示Reddit帖局部静帧＋创始人\nARR：2026-04-03创始人自报，非当前收入"
+  },
+  "reasons": [
+    "scene seg-006 at frame 876 (142 frames, 30 fps)",
+    "real media episode-009-v2:media-clip:b43d7026d4559a5cd6e08ee4 trimmed 0..4733ms (recommended 0..4733ms)",
+    "render proxy episode-009-v2:media-render-proxy:seg-006 (video/mp4)",
+    "audio mix original 0 / narration 1 duck 10dB"
+  ],
+  "renderProxyMediaType": "video/mp4",
+  "renderProxyRef": {
+    "artifactId": "episode-009-v2:media-render-proxy:seg-006",
+    "createdAt": "2026-10-16T01:35:42.133Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009-v2/media/render/seg-006.mp4",
+    "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-proxy-v1",
+    "sha256": "3858e9f2f1959dbbf20ca3ac9835d3924b56b60107069f6a17e696f0096ecf7f",
+    "sizeBytes": 639039
+  },
+  "sceneIndex": 5,
+  "schemaVersion": "media-shot-v1",
+  "segmentId": "seg-006",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-fastlane-005"
+    ],
+    "clipId": "episode-009-v2:media-clip:b43d7026d4559a5cd6e08ee4",
+    "createdAt": "2026-10-16T01:35:39.425Z",
+    "endMs": 4733,
+    "episodeId": "episode-009-v2",
+    "mediaId": "episode-009-v2:media:seg-006-fc2dca294e58",
+    "sourceMediaRef": {
+      "artifactId": "episode-009-v2:media:seg-006-fc2dca294e58",
+      "createdAt": "2026-10-16T01:33:05.761Z",
+      "episodeId": "episode-009-v2",
+      "mediaType": "video/mp4",
+      "path": "content/episode-009-v2/media/assets/seg-006-fc2dca294e58.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "fc2dca294e58b0126ab33ce93f1bff869c85a575c5fc84a4962af7ac4802014c",
+      "sizeBytes": 962741
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "原采访689.3–691.7秒展示的真实Reddit帖局部,裁掉3000+数字,接694秒创始人镜头;标注“原采访所示历史帖子”,不将帖内数字作为获客效果。"
+  },
+  "shotId": "episode-009-v2:media-shot:seg-006",
+  "startFrame": 876,
+  "startSeconds": 29.197022,
+  "staticFilePath": "episodes/episode-009-v2/media/seg-006.mp4",
+  "transform": {
+    "freezeFrameMs": null,
+    "pip": null,
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "reframe": {
+      "crop": {
+        "height": 1,
+        "width": 1,
+        "x": 0,
+        "y": 0
+      },
+      "mode": "cover"
+    },
+    "scale": 1,
+    "zoomPan": {
+      "end": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "start": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "type": "none"
+    }
+  },
+  "trim": {
+    "endMs": 4733,
+    "startMs": 0
+  },
+  "verificationRef": {
+    "artifactId": "episode-009-v2:media-verification:seg-006-episode-009-v2-media-clip-b43d7026d4559a5cd6e08ee4",
+    "createdAt": "2026-10-16T01:35:39.433Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "application/json",
+    "path": "content/episode-009-v2/media/verifications/seg-006/episode-009-v2-media-clip-b43d7026d4559a5cd6e08ee4.json",
+    "producer": "media-verification-v1:codex:fastlane-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "e34f4ae038b2721df40a2b897a9ad807a5e4becd0d449923a4c7a4ad5ed1326f",
+    "sizeBytes": 4799
+  },
+  "visualType": "real-media"
+}

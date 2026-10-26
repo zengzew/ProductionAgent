@@ -12,12 +12,12 @@ import {
   createFoundationGraph,
   createInitialProductionState,
   createLocalCheckpoint,
-  importLegacyEpisode001,
   resumeCheckpoint,
   type AgentName,
   type ArtifactRef,
   type ProductionState,
 } from "../../src/orchestration";
+import {importLegacyEpisode001} from "../helpers/legacy-import";
 import {legacyEpisodeRepoFixture} from "../helpers/artifacts";
 
 const temporaryDirectories: string[] = [];

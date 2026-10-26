@@ -9,6 +9,7 @@ import {
   generatedCaptionsPath,
   generatedTimelinePath,
   getRenderContract,
+  renderEntrypoint,
 } from "../src/lib/episode/render-contract";
 
 describe("render contract", () => {
@@ -42,6 +43,25 @@ describe("render contract", () => {
 
   it("fails closed for an episode without a registered composition", () => {
     expect(() => getRenderContract("episode-999")).toThrow(/没有为 episode-999 配置渲染契约/u);
+  });
+
+  it("isolates historical compositions from the current render entrypoint", () => {
+    for (const episodeId of ["episode-001", "episode-002", "episode-003"]) {
+      expect(renderEntrypoint(episodeId)).toBe("src/compositions/legacy/index.tsx");
+    }
+    for (const episodeId of ["episode-009-v2", "episode-011", "episode-012"]) {
+      expect(renderEntrypoint(episodeId)).toBe("src/index.ts");
+    }
+    expect(() => renderEntrypoint("episode-999")).toThrow(/没有为 episode-999/u);
+    const root = fs.readFileSync(path.join(repoRoot, "src/Root.tsx"), "utf8");
+    expect(root).toContain('id="MediaMixVertical"');
+    expect(root).not.toMatch(/compositions\/legacy|content\/episode-00[123]/u);
+    const legacy = fs.readFileSync(
+      path.join(repoRoot, "src/compositions/legacy/index.tsx"),
+      "utf8",
+    );
+    expect(legacy).toContain("registerRoot(RemotionRoot)");
+    expect(legacy).not.toContain("MediaMixEpisode");
   });
 
   it("rejects a generated timeline whose audio belongs to another episode", () => {

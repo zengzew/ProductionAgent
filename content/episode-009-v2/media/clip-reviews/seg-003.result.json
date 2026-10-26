@@ -1,0 +1,25 @@
+{
+  "requestHash": "d5a453dff2854fca4e40e4d6b127141e9eb62cfe6e20066accf321fc11c412d8",
+  "completedAt": "2026-10-16T01:35:38.237166+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.94,
+    "claimMatch": 0.92,
+    "visualQuality": 0.88,
+    "misleadingRisk": 0.07,
+    "observedActions": [
+      "原片官网网址输入宣传动效，接已生成候选；非本次输入生成实测。"
+    ],
+    "observedEntities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "observedText": [],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 7233,
+    "reasons": [
+      "当前制作会话检查原片与派生片段首中尾抽帧；网址采用全幅以避免截字，结尾更换黑屏过渡窗口。不是独立Delivery或用户批准。",
+      "URL为原片官网宣传动效；Reddit标题局部静帧裁除用户数字；人物配图不冒充客户通话；排期停帧与步骤省略须显式标注。"
+    ]
+  }
+}

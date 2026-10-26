@@ -1,0 +1,113 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-012:media-verification:seg-008-episode-012-media-clip-2146cb807fb4aa4ad9f86c0c",
+    "createdAt": "2026-10-25T15:02:11.572Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/verifications/seg-008/episode-012-media-clip-2146cb807fb4aa4ad9f86c0c.json",
+    "producer": "media-verification-v1:codex:photoroom-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "75f46ead437128576ec1ae783a98078241be4d595bec74f33d65e8e47a014703",
+    "sizeBytes": 4066
+  },
+  "cacheKey": "32d9bb88cd6d868511dfa668681dd50e9e81164725d1521bbf73a61809a6befa",
+  "claimIds": [
+    "claim-pr-008"
+  ],
+  "claimMatch": 0.9,
+  "clipArtifactRef": {
+    "artifactId": "episode-012:media-verification-clip:seg-008-episode-012-media-clip-2146cb807fb4aa4ad9f86c0c",
+    "createdAt": "2026-10-25T14:55:55.610Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/verifications/seg-008/episode-012-media-clip-2146cb807fb4aa4ad9f86c0c-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "1eb4098b19a46da4451d8cfec0e9933ba201f1657521698f225a04948a391828",
+    "sizeBytes": 86655
+  },
+  "clipId": "episode-012:media-clip:2146cb807fb4aa4ad9f86c0c",
+  "clipRef": {
+    "claimIds": [
+      "claim-pr-008"
+    ],
+    "clipId": "episode-012:media-clip:2146cb807fb4aa4ad9f86c0c",
+    "createdAt": "2026-10-25T15:02:11.572Z",
+    "endMs": 3567,
+    "episodeId": "episode-012",
+    "mediaId": "episode-012:media:seg-008-b26c3dfa43b9",
+    "sourceMediaRef": {
+      "artifactId": "episode-012:media:seg-008-b26c3dfa43b9",
+      "createdAt": "2026-10-25T14:55:51.114Z",
+      "episodeId": "episode-012",
+      "mediaType": "video/mp4",
+      "path": "content/episode-012/media/assets/seg-008-b26c3dfa43b9.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "b26c3dfa43b9752ec1a2ba4050cdb8250e24448beecaae2eb4b81e7a98616567",
+      "sizeBytes": 35621
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "必要数字卡:2024-02-27、B轮4300万美元、Photoroom公司公告,三者同时可读;不是收入或最新估值。"
+  },
+  "createdAt": "2026-10-25T15:02:11.572Z",
+  "episodeId": "episode-012",
+  "mediaRef": {
+    "artifactId": "episode-012:media:seg-008-b26c3dfa43b9",
+    "createdAt": "2026-10-25T14:55:51.114Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/assets/seg-008-b26c3dfa43b9.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "b26c3dfa43b9752ec1a2ba4050cdb8250e24448beecaae2eb4b81e7a98616567",
+    "sizeBytes": 35621
+  },
+  "misleadingRisk": 0.15,
+  "model": "current-session",
+  "observedActions": [
+    "公司公告数据编辑卡，2024-02-27、B轮、4300万美元同屏，不是营收或现行估值。"
+  ],
+  "observedEntities": [
+    "Photoroom"
+  ],
+  "observedText": [
+    "2024-02-27",
+    "B轮融资",
+    "4300 万美元"
+  ],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "本制作会话已查看当前prepared片段的多点抽帧及当前核验请求所指向的关键帧联系表；这是同会话视觉核对，非独立Delivery或有声观看。",
+    "界面入口裁切可读，人物与日期可见；中文转述卡标编辑排版，官网演示不当本次实测，历史访谈不当当前政策。"
+  ],
+  "recommendedEndMs": 3567,
+  "recommendedStartMs": 0,
+  "relevance": 0.9,
+  "retrievalResultRef": {
+    "artifactId": "episode-012:media-retrieval:seg-008",
+    "createdAt": "2026-10-25T15:01:30.627Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/candidates/seg-008.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 4,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "853e8eb043684ca5c824ceb33a46081664145414279c57833c332161b5b30f3a",
+    "sizeBytes": 26484
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-008",
+  "sourceSha256": "b26c3dfa43b9752ec1a2ba4050cdb8250e24448beecaae2eb4b81e7a98616567",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-012:media-verification:seg-008-episode-012-media-clip-2146cb807fb4aa4ad9f86c0c",
+  "verificationVersion": "photoroom-observed-v1",
+  "visualQuality": 0.85
+}

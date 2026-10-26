@@ -1,7 +1,7 @@
 # WP-M5-03 — Media Ingest + Normalization
 
 - Status: implemented
-- Parent: `docs/milestones/m5-real-media-plan.md`
+- Historical scope: [archived M5 plan](../../../ProductionAgent-legacy-archive/2026-10-26-cleanup/retired/docs/milestones/m5-real-media-plan.md)
 - Code: `src/media/ingest.ts`, `src/media/probe.ts`, `src/media/events.ts`,
   `src/media/ingest-config.ts`, `config/media-ingest.json`
 - Schemas: `src/media/schemas.ts` (`derivedFromMediaRef` on proxy assets)

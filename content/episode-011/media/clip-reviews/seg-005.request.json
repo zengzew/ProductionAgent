@@ -1,0 +1,63 @@
+{
+  "episodeId": "episode-011",
+  "segmentId": "seg-005",
+  "clipId": "episode-011:media-clip:fd6744be0b89366f65236dab",
+  "claimIds": [
+    "claim-gamma-001",
+    "claim-gamma-004"
+  ],
+  "claims": [
+    {
+      "id": "claim-gamma-001",
+      "claim": "Gamma可按主题、提纲或已有文档生成带图文版式的演示稿初稿，再由用户编辑。"
+    },
+    {
+      "id": "claim-gamma-004",
+      "claim": "按2025年Gamma 3.0发布文章及官方GIF，用户可请求Agent修改布局或重构表达，也可使用Smart Diagrams将文字变成图示。"
+    }
+  ],
+  "narration": "有了初稿,还能让AI改布局,把文字变成图示。",
+  "visualIntent": "2025官方Agent与Smart Diagrams动画,按动作分别展示;核对内容为编辑用途建议,不宣称省时测量。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-011/media/verifications/seg-005/episode-011-media-clip-fd6744be0b89366f65236dab-clip.mp4",
+    "sha256": "490a3a42e17f6ccade6b9a4300633897ebef5895081284e94acd97ed7f5e9165",
+    "sizeBytes": 1811440,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 4033,
+    "sourceMediaId": "episode-011:media:seg-005-434a116c153d-official",
+    "sourceMediaSha256": "434a116c153d1d7096f26a83668bcebe8ae61dc477423963158bb693d58e820f"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-011/media/indexes/seg-005-434a116c153d-official/keyframes/keyframe-0-2016.jpg",
+      "timestampMs": 2016,
+      "sha256": "b6738fc9e70e098198b30acf26da159999e2fb1011d938f027346987c050bdba",
+      "sizeBytes": 106517,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "2025官方Agent演示：文字转图示，停留在已完成的蓝色图示结果供阅读；不是本次实测。",
+    "observedText": "",
+    "keywords": [
+      "seg-005",
+      "Gamma",
+      "Agent",
+      "Holographic Technology",
+      "layout",
+      "diagram"
+    ],
+    "entities": [
+      "Gamma",
+      "Holographic Technology"
+    ],
+    "semanticTags": [
+      "official-product-demo",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "0bff34da2f15e1942006251ff7843bf7db4af573d2bc6907896ee5681fc5f9dc"
+}

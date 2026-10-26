@@ -1,0 +1,100 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-009-v2:media:seg-003-20f8500649e1-proxy",
+    "createdAt": "2026-10-16T01:35:00.190Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009-v2/media/assets/seg-003-20f8500649e1-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "0d82c5e6fa2b013d2a89ef4438fe6f5b57638fadc5dd697e13773cf2ee4e0650",
+    "sizeBytes": 382324
+  },
+  "episodeId": "episode-009-v2",
+  "indexVersion": "media-clip-index-v1",
+  "mediaId": "episode-009-v2:media:seg-003-20f8500649e1",
+  "mediaSha256": "20f8500649e1be974787df2d09c6d68c5f8be235c0920981ef0c699a83255ad9",
+  "schemaVersion": "media-understanding-status-v1",
+  "stages": {
+    "clip-index": {
+      "artifactId": "episode-009-v2:media-clip-index:seg-003-20f8500649e1",
+      "availability": "available",
+      "cacheKey": "d4a3ebf84cdf2d5d0f0f3fdd7cd91b68ea878732dc90bad7450d7bee45fb0a35",
+      "ref": {
+        "artifactId": "episode-009-v2:media-clip-index:seg-003-20f8500649e1",
+        "createdAt": "2026-10-16T01:35:00.808Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/indexes/seg-003-20f8500649e1/clip-index.json",
+        "producer": "media-understanding-v1:index:20f8500649e1be97",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "70a915665c60deebece513738e3aa0a9986ddfbcc504c23015e8a550abad9dd3",
+        "sizeBytes": 4285
+      }
+    },
+    "keyframes": {
+      "availability": "available",
+      "cacheKey": "b92cf21886078a6cd84a86f3f04aade185f2ce01d71837c10f4efba0344b7ceb",
+      "entries": [
+        {
+          "artifactId": "episode-009-v2:media-keyframe:seg-003-20f8500649e1-0-3616",
+          "cacheKey": "db4ba755ae343696e00ee96d211eba1a2aa699739cfca05efac67f110cdc625c",
+          "filename": "keyframe-0-3616.jpg",
+          "keyframeIndex": 0,
+          "ref": {
+            "artifactId": "episode-009-v2:media-keyframe:seg-003-20f8500649e1-0-3616",
+            "createdAt": "2026-10-16T01:35:00.785Z",
+            "episodeId": "episode-009-v2",
+            "mediaType": "image/jpeg",
+            "path": "content/episode-009-v2/media/indexes/seg-003-20f8500649e1/keyframes/keyframe-0-3616.jpg",
+            "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+            "revision": 1,
+            "schemaVersion": "media-keyframe-v1",
+            "sha256": "4ea5be42a0b6c4d3a345844d53a73db32c7ab314c77452b9bd6cde130aff20b1",
+            "sizeBytes": 61590
+          }
+        }
+      ],
+      "extractorId": "ffmpeg",
+      "extractorVersion": "ffmpeg-keyframe-v1"
+    },
+    "scenes": {
+      "artifactId": "episode-009-v2:media-scenes:seg-003-20f8500649e1",
+      "availability": "available",
+      "cacheKey": "089e697e9b49c47e22be552e16365944605f2fc38a6d0a548349c0a7c6573b83",
+      "ref": {
+        "artifactId": "episode-009-v2:media-scenes:seg-003-20f8500649e1",
+        "createdAt": "2026-10-16T01:35:00.713Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/indexes/seg-003-20f8500649e1/scenes.json",
+        "producer": "media-understanding-v1:scenes:v1",
+        "revision": 1,
+        "schemaVersion": "media-scenes-v1",
+        "sha256": "294db38dfe1720801e3b9f1534912ce36a55e9cb6d394ab5280a97a15608a3c9",
+        "sizeBytes": 1471
+      }
+    },
+    "transcript": {
+      "artifactId": "episode-009-v2:media-transcript:seg-003-20f8500649e1",
+      "availability": "unavailable",
+      "cacheKey": "b74a721753ed0a086ec462dccef18926faa139b7eca891dd0ae7c7fc63d142a0",
+      "ref": {
+        "artifactId": "episode-009-v2:media-transcript:seg-003-20f8500649e1",
+        "createdAt": "2026-10-16T01:35:00.690Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/indexes/seg-003-20f8500649e1/transcript.json",
+        "producer": "media-understanding-v1:transcript:media-asr-v1",
+        "revision": 1,
+        "schemaVersion": "media-transcript-v1",
+        "sha256": "f0750205b719fd30f8ec908cdd55727a4f8ebb5b8cd294a7042762b88c519a92",
+        "sizeBytes": 1333
+      }
+    }
+  },
+  "updatedAt": "2026-10-16T01:35:00.816Z",
+  "usedProxy": true
+}

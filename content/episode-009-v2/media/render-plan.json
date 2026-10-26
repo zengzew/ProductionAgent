@@ -1,0 +1,2515 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-009-v2:media:render-plan",
+    "createdAt": "2026-10-16T01:35:43.187Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "application/json",
+    "path": "content/episode-009-v2/media/render-plan.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-plan-v1",
+    "sha256": "db881155310669c0f1ddc654345ca639212969b5ad6d5a99a6b77b7fdb346d6b",
+    "sizeBytes": 94764
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "referenceStory": {
+      "claimIds": [
+        "claim-fastlane-001",
+        "claim-fastlane-009"
+      ],
+      "headline": "Fastlane 用网址生成短视频",
+      "profile": "golden-reference-v1",
+      "resultLine": "自报历史ARR超12万澳元"
+    },
+    "timelineSha256": "33c7eb3a75892a9351836f279d363bac2ff123ea6383c34dfcc153cb9fcc47cb",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-10-16T01:35:43.186Z",
+  "episodeId": "episode-009-v2",
+  "fps": 30,
+  "layoutVariant": "poke-standard",
+  "planId": "episode-009-v2:media:render-plan",
+  "schemaVersion": "media-render-plan-v1",
+  "shots": [
+    {
+      "artifactRef": {
+        "artifactId": "episode-009-v2:media-shot:seg-001",
+        "createdAt": "2026-10-16T01:35:40.767Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/shots/seg-001.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "ed9d699b3ef9f7caede2cec578da88350d2f7ccf5605f6aca5edd500846883f0",
+        "sizeBytes": 8055
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-fastlane-001",
+            "claim-fastlane-009"
+          ],
+          "headline": "Fastlane 用网址生成短视频",
+          "profile": "golden-reference-v1",
+          "resultLine": "自报历史ARR超12万澳元"
+        },
+        "timelineSha256": "33c7eb3a75892a9351836f279d363bac2ff123ea6383c34dfcc153cb9fcc47cb",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-16T01:35:40.767Z",
+      "crossfadeMs": 0,
+      "durationFrames": 80,
+      "endSeconds": 2.674229,
+      "episodeId": "episode-009-v2",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": null,
+      "fallbackImagePath": null,
+      "fallbackImageSha256": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-009-v2:media-verification-clip:seg-001-episode-009-v2-media-clip-09a7461e2ceb670570bb7942",
+          "createdAt": "2026-10-16T01:35:02.147Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/verifications/seg-001/episode-009-v2-media-clip-09a7461e2ceb670570bb7942-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "121fb9c809afc92fd26d6d712f8f38be02df1aa7b77e0a8f7815a15fcd165223",
+          "sizeBytes": 1058072
+        },
+        "clipId": "episode-009-v2:media-clip:09a7461e2ceb670570bb7942",
+        "clipIndexRef": {
+          "artifactId": "episode-009-v2:media-clip-index:seg-001-2d56b6c6c4e6",
+          "createdAt": "2026-10-16T01:33:56.662Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/indexes/seg-001-2d56b6c6c4e6/clip-index.json",
+          "producer": "media-understanding-v1:index:2d56b6c6c4e67a36",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "c1b81d46972a09becd54fac0c272468b722cccd168dde5858d8080e26c859be1",
+          "sizeBytes": 4279
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-009-v2:media:seg-001-2d56b6c6c4e6-proxy",
+          "createdAt": "2026-10-16T01:33:01.906Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-001-2d56b6c6c4e6-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "6a9011b945adaf4c544aeae609d2229558bc28d654fadf9d109736f9cb195ab0",
+          "sizeBytes": 217251
+        },
+        "sourceEndMs": 2667,
+        "sourceMediaId": "episode-009-v2:media:seg-001-2d56b6c6c4e6",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-001-2d56b6c6c4e6",
+          "createdAt": "2026-10-16T01:33:01.542Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-001-2d56b6c6c4e6.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "2d56b6c6c4e67a3657b89c9e20bca2e1e64c75b1b61fce11028f48e3c344db60",
+          "sizeBytes": 381969
+        },
+        "sourceSha256": "2d56b6c6c4e67a3657b89c9e20bca2e1e64c75b1b61fce11028f48e3c344db60",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-009-v2:media-verification:seg-001-episode-009-v2-media-clip-09a7461e2ceb670570bb7942",
+          "createdAt": "2026-10-16T01:35:38.541Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/verifications/seg-001/episode-009-v2-media-clip-09a7461e2ceb670570bb7942.json",
+          "producer": "media-verification-v1:codex:fastlane-observed-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "03f57561fb476e5ed020081cd3368064cd5a17a8be52497f610fbebb0d339b2a",
+          "sizeBytes": 4673
+        }
+      },
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Starter Story · 历史产品演示 · Cal AI候选\nARR：2026-04-03创始人自报，非当前收入"
+      },
+      "reasons": [
+        "scene seg-001 at frame 0 (80 frames, 30 fps)",
+        "real media episode-009-v2:media-clip:09a7461e2ceb670570bb7942 trimmed 0..2667ms (recommended 0..2667ms)",
+        "render proxy episode-009-v2:media-render-proxy:seg-001 (video/mp4)",
+        "audio mix original 0 / narration 1 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-009-v2:media-render-proxy:seg-001",
+        "createdAt": "2026-10-16T01:35:40.742Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009-v2/media/render/seg-001.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "f87c8bfa12e24aa66b8a207518accf4a50bcb77f8b0524bc03beed2d6068c325",
+        "sizeBytes": 271124
+      },
+      "sceneIndex": 0,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-001",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-fastlane-001"
+        ],
+        "clipId": "episode-009-v2:media-clip:09a7461e2ceb670570bb7942",
+        "createdAt": "2026-10-16T01:35:38.532Z",
+        "endMs": 2667,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-001-2d56b6c6c4e6",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-001-2d56b6c6c4e6",
+          "createdAt": "2026-10-16T01:33:01.542Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-001-2d56b6c6c4e6.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "2d56b6c6c4e67a3657b89c9e20bca2e1e64c75b1b61fce11028f48e3c344db60",
+          "sizeBytes": 381969
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "Cal AI宣传候选原片797.5秒;网址生成来自创始人描述,原片从已有候选开始。"
+      },
+      "shotId": "episode-009-v2:media-shot:seg-001",
+      "startFrame": 0,
+      "startSeconds": 0,
+      "staticFilePath": "episodes/episode-009-v2/media/seg-001.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 2667,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-009-v2:media-verification:seg-001-episode-009-v2-media-clip-09a7461e2ceb670570bb7942",
+        "createdAt": "2026-10-16T01:35:38.541Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/verifications/seg-001/episode-009-v2-media-clip-09a7461e2ceb670570bb7942.json",
+        "producer": "media-verification-v1:codex:fastlane-observed-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "03f57561fb476e5ed020081cd3368064cd5a17a8be52497f610fbebb0d339b2a",
+        "sizeBytes": 4673
+      },
+      "visualType": "real-media"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-009-v2:media-shot:seg-002",
+        "createdAt": "2026-10-16T01:35:41.146Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/shots/seg-002.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "f051e8a2b3b4a767fd24af59424cd1998a48aa82316f81299a824a94580aab12",
+        "sizeBytes": 8044
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-fastlane-001",
+            "claim-fastlane-009"
+          ],
+          "headline": "Fastlane 用网址生成短视频",
+          "profile": "golden-reference-v1",
+          "resultLine": "自报历史ARR超12万澳元"
+        },
+        "timelineSha256": "33c7eb3a75892a9351836f279d363bac2ff123ea6383c34dfcc153cb9fcc47cb",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-16T01:35:41.146Z",
+      "crossfadeMs": 0,
+      "durationFrames": 223,
+      "endSeconds": 10.109895999999999,
+      "episodeId": "episode-009-v2",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": null,
+      "fallbackImagePath": null,
+      "fallbackImageSha256": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-009-v2:media-verification-clip:seg-002-episode-009-v2-media-clip-c95af9af6c436321fc63ca8e",
+          "createdAt": "2026-10-16T01:35:02.347Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/verifications/seg-002/episode-009-v2-media-clip-c95af9af6c436321fc63ca8e-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "f7c377747fdc936d7ccae478fdc69058124eaf2a3d92e6c0be719e31ce161217",
+          "sizeBytes": 4732335
+        },
+        "clipId": "episode-009-v2:media-clip:c95af9af6c436321fc63ca8e",
+        "clipIndexRef": {
+          "artifactId": "episode-009-v2:media-clip-index:seg-002-a180a26282c8",
+          "createdAt": "2026-10-16T01:33:56.798Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/indexes/seg-002-a180a26282c8/clip-index.json",
+          "producer": "media-understanding-v1:index:a180a26282c8cf75",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "2fccdbde02669bc5200ee786ca77c025599577fadf7443375309239d401dda76",
+          "sizeBytes": 4287
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-009-v2:media:seg-002-a180a26282c8-proxy",
+          "createdAt": "2026-10-16T01:33:03.447Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-002-a180a26282c8-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "042460517aeb8fbba5bfda8a12a2b4de0ee9eb646e660f6cc64c8bf74b2ba5e3",
+          "sizeBytes": 937907
+        },
+        "sourceEndMs": 7433,
+        "sourceMediaId": "episode-009-v2:media:seg-002-a180a26282c8",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-002-a180a26282c8",
+          "createdAt": "2026-10-16T01:33:01.952Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-002-a180a26282c8.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "a180a26282c8cf756bceb5707dbc9e3ff2453b73be23bc076011ff52511efc5c",
+          "sizeBytes": 2074050
+        },
+        "sourceSha256": "a180a26282c8cf756bceb5707dbc9e3ff2453b73be23bc076011ff52511efc5c",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-009-v2:media-verification:seg-002-episode-009-v2-media-clip-c95af9af6c436321fc63ca8e",
+          "createdAt": "2026-10-16T01:35:38.759Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/verifications/seg-002/episode-009-v2-media-clip-c95af9af6c436321fc63ca8e.json",
+          "producer": "media-verification-v1:codex:fastlane-observed-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "624e48c4466b30c689d86bdfe4d76a949051416c8263f654d68575a9d326d39f",
+          "sizeBytes": 4657
+        }
+      },
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Gaurav Thapa · Fastlane创始人 · 原采访\nARR：2026-04-03创始人自报，非当前收入"
+      },
+      "reasons": [
+        "scene seg-002 at frame 80 (223 frames, 30 fps)",
+        "real media episode-009-v2:media-clip:c95af9af6c436321fc63ca8e trimmed 0..7433ms (recommended 0..7433ms)",
+        "render proxy episode-009-v2:media-render-proxy:seg-002 (video/mp4)",
+        "audio mix original 0 / narration 1 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-009-v2:media-render-proxy:seg-002",
+        "createdAt": "2026-10-16T01:35:41.120Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009-v2/media/render/seg-002.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "ae4e2d63f81086600ef32a936603348eb0ea890666405b7b9e3d676dc78433ce",
+        "sizeBytes": 1322751
+      },
+      "sceneIndex": 1,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-002",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-fastlane-002"
+        ],
+        "clipId": "episode-009-v2:media-clip:c95af9af6c436321fc63ca8e",
+        "createdAt": "2026-10-16T01:35:38.752Z",
+        "endMs": 7433,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-002-a180a26282c8",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-002-a180a26282c8",
+          "createdAt": "2026-10-16T01:33:01.952Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-002-a180a26282c8.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "a180a26282c8cf756bceb5707dbc9e3ff2453b73be23bc076011ff52511efc5c",
+          "sizeBytes": 2074050
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "Gaurav采访170.5秒;姓名中文音译高拉夫,画面标原名。"
+      },
+      "shotId": "episode-009-v2:media-shot:seg-002",
+      "startFrame": 80,
+      "startSeconds": 2.674229,
+      "staticFilePath": "episodes/episode-009-v2/media/seg-002.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 7433,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-009-v2:media-verification:seg-002-episode-009-v2-media-clip-c95af9af6c436321fc63ca8e",
+        "createdAt": "2026-10-16T01:35:38.759Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/verifications/seg-002/episode-009-v2-media-clip-c95af9af6c436321fc63ca8e.json",
+        "producer": "media-verification-v1:codex:fastlane-observed-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "624e48c4466b30c689d86bdfe4d76a949051416c8263f654d68575a9d326d39f",
+        "sizeBytes": 4657
+      },
+      "visualType": "real-media"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-009-v2:media-shot:seg-003",
+        "createdAt": "2026-10-16T01:35:41.416Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/shots/seg-003.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "b5a154c5093f2b8daf2ede4c2603603b81c09f2cf3ecd62b31dbf286dcd2f751",
+        "sizeBytes": 8191
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-fastlane-001",
+            "claim-fastlane-009"
+          ],
+          "headline": "Fastlane 用网址生成短视频",
+          "profile": "golden-reference-v1",
+          "resultLine": "自报历史ARR超12万澳元"
+        },
+        "timelineSha256": "33c7eb3a75892a9351836f279d363bac2ff123ea6383c34dfcc153cb9fcc47cb",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-16T01:35:41.415Z",
+      "crossfadeMs": 0,
+      "durationFrames": 217,
+      "endSeconds": 17.329896,
+      "episodeId": "episode-009-v2",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": null,
+      "fallbackImagePath": null,
+      "fallbackImageSha256": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-009-v2:media-verification-clip:seg-003-episode-009-v2-media-clip-0bae78b6e45d66f55e348a84",
+          "createdAt": "2026-10-16T01:35:02.503Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/verifications/seg-003/episode-009-v2-media-clip-0bae78b6e45d66f55e348a84-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "3ef76ce8985cb510e812105bea3bd0d9c87fc961a098428c2845ba05b45f94fd",
+          "sizeBytes": 1951941
+        },
+        "clipId": "episode-009-v2:media-clip:0bae78b6e45d66f55e348a84",
+        "clipIndexRef": {
+          "artifactId": "episode-009-v2:media-clip-index:seg-003-20f8500649e1",
+          "createdAt": "2026-10-16T01:35:00.808Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/indexes/seg-003-20f8500649e1/clip-index.json",
+          "producer": "media-understanding-v1:index:20f8500649e1be97",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "70a915665c60deebece513738e3aa0a9986ddfbcc504c23015e8a550abad9dd3",
+          "sizeBytes": 4285
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-009-v2:media:seg-003-20f8500649e1-proxy",
+          "createdAt": "2026-10-16T01:35:00.190Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-003-20f8500649e1-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "0d82c5e6fa2b013d2a89ef4438fe6f5b57638fadc5dd697e13773cf2ee4e0650",
+          "sizeBytes": 382324
+        },
+        "sourceEndMs": 7233,
+        "sourceMediaId": "episode-009-v2:media:seg-003-20f8500649e1",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-003-20f8500649e1",
+          "createdAt": "2026-10-16T01:34:59.411Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-003-20f8500649e1.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "20f8500649e1be974787df2d09c6d68c5f8be235c0920981ef0c699a83255ad9",
+          "sizeBytes": 688031
+        },
+        "sourceSha256": "20f8500649e1be974787df2d09c6d68c5f8be235c0920981ef0c699a83255ad9",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-009-v2:media-verification:seg-003-episode-009-v2-media-clip-0bae78b6e45d66f55e348a84",
+          "createdAt": "2026-10-16T01:35:38.932Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/verifications/seg-003/episode-009-v2-media-clip-0bae78b6e45d66f55e348a84.json",
+          "producer": "media-verification-v1:codex:fastlane-observed-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "1e9fef8a0a7dc743e8076956fda2d4a6cfb65315ee053c9b2fd2203e34a97e7c",
+          "sizeBytes": 4836
+        }
+      },
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "官网宣传动效＋历史候选 · 非本次生成实录\nARR：2026-04-03创始人自报，非当前收入"
+      },
+      "reasons": [
+        "scene seg-003 at frame 303 (217 frames, 30 fps)",
+        "real media episode-009-v2:media-clip:0bae78b6e45d66f55e348a84 trimmed 0..7233ms (recommended 0..7233ms)",
+        "render proxy episode-009-v2:media-render-proxy:seg-003 (video/mp4)",
+        "audio mix original 0 / narration 1 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-009-v2:media-render-proxy:seg-003",
+        "createdAt": "2026-10-16T01:35:41.392Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009-v2/media/render/seg-003.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "b16338cb1fe910bbab3d28a169c6d8c00cdf7be2831302c8a15dfd0a229a27a1",
+        "sizeBytes": 521567
+      },
+      "sceneIndex": 2,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-003",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-fastlane-001",
+          "claim-fastlane-002",
+          "claim-fastlane-014"
+        ],
+        "clipId": "episode-009-v2:media-clip:0bae78b6e45d66f55e348a84",
+        "createdAt": "2026-10-16T01:35:38.924Z",
+        "endMs": 7233,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-003-20f8500649e1",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-003-20f8500649e1",
+          "createdAt": "2026-10-16T01:34:59.411Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-003-20f8500649e1.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "20f8500649e1be974787df2d09c6d68c5f8be235c0920981ef0c699a83255ad9",
+          "sizeBytes": 688031
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "原采访115.8秒的官网URL宣传动效,接已生成产品候选卡片;明确为原片所示宣传动效,非本次网址输入或生成实录。"
+      },
+      "shotId": "episode-009-v2:media-shot:seg-003",
+      "startFrame": 303,
+      "startSeconds": 10.109895999999999,
+      "staticFilePath": "episodes/episode-009-v2/media/seg-003.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 7233,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-009-v2:media-verification:seg-003-episode-009-v2-media-clip-0bae78b6e45d66f55e348a84",
+        "createdAt": "2026-10-16T01:35:38.932Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/verifications/seg-003/episode-009-v2-media-clip-0bae78b6e45d66f55e348a84.json",
+        "producer": "media-verification-v1:codex:fastlane-observed-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "1e9fef8a0a7dc743e8076956fda2d4a6cfb65315ee053c9b2fd2203e34a97e7c",
+        "sizeBytes": 4836
+      },
+      "visualType": "real-media"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-009-v2:media-shot:seg-004",
+        "createdAt": "2026-10-16T01:35:41.619Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/shots/seg-004.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "d926f3db35e3d851775ec3f39ef66fb0403c7f08532dae7cc6fbb1a756a1ad7c",
+        "sizeBytes": 8084
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-fastlane-001",
+            "claim-fastlane-009"
+          ],
+          "headline": "Fastlane 用网址生成短视频",
+          "profile": "golden-reference-v1",
+          "resultLine": "自报历史ARR超12万澳元"
+        },
+        "timelineSha256": "33c7eb3a75892a9351836f279d363bac2ff123ea6383c34dfcc153cb9fcc47cb",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-16T01:35:41.618Z",
+      "crossfadeMs": 0,
+      "durationFrames": 127,
+      "endSeconds": 21.571459,
+      "episodeId": "episode-009-v2",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": null,
+      "fallbackImagePath": null,
+      "fallbackImageSha256": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-009-v2:media-verification-clip:seg-004-episode-009-v2-media-clip-fb354bd9b2c11483914c9fa6",
+          "createdAt": "2026-10-16T01:35:02.626Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/verifications/seg-004/episode-009-v2-media-clip-fb354bd9b2c11483914c9fa6-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "166c332eee3bc1fb12158c2ccc82389bb37ecdeba94504e9e3c8c12f387c5527",
+          "sizeBytes": 877749
+        },
+        "clipId": "episode-009-v2:media-clip:fb354bd9b2c11483914c9fa6",
+        "clipIndexRef": {
+          "artifactId": "episode-009-v2:media-clip-index:seg-004-3dc56e75a36d",
+          "createdAt": "2026-10-16T01:33:57.040Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/indexes/seg-004-3dc56e75a36d/clip-index.json",
+          "producer": "media-understanding-v1:index:3dc56e75a36dff41",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "a86409c08e2239f5ee919d47141dda9d3c6c3f7110dfb6f939c3f7af32ae40c2",
+          "sizeBytes": 4311
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-009-v2:media:seg-004-3dc56e75a36d-proxy",
+          "createdAt": "2026-10-16T01:33:04.799Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-004-3dc56e75a36d-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "3c485c3bf2f6f7e19298699d90569befc827a25ddef7abdaf738a50b670db4b5",
+          "sizeBytes": 156658
+        },
+        "sourceEndMs": 4233,
+        "sourceMediaId": "episode-009-v2:media:seg-004-3dc56e75a36d",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-004-3dc56e75a36d",
+          "createdAt": "2026-10-16T01:33:04.316Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-004-3dc56e75a36d.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "3dc56e75a36dff415cbf3aeab5458f2f30261f907ed91d149f769d8636aa4a7f",
+          "sizeBytes": 283140
+        },
+        "sourceSha256": "3dc56e75a36dff415cbf3aeab5458f2f30261f907ed91d149f769d8636aa4a7f",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-009-v2:media-verification:seg-004-episode-009-v2-media-clip-fb354bd9b2c11483914c9fa6",
+          "createdAt": "2026-10-16T01:35:39.076Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/verifications/seg-004/episode-009-v2-media-clip-fb354bd9b2c11483914c9fa6.json",
+          "producer": "media-verification-v1:codex:fastlane-observed-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "f1fdcfb92a0b41ae6f417ad6d6beb7b1c51a87fe460681db14be40da74279ed4",
+          "sizeBytes": 4714
+        }
+      },
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "历史实演节选 · 步骤省略 · 排期选项停帧\nARR：2026-04-03创始人自报，非当前收入"
+      },
+      "reasons": [
+        "scene seg-004 at frame 520 (127 frames, 30 fps)",
+        "real media episode-009-v2:media-clip:fb354bd9b2c11483914c9fa6 trimmed 0..4233ms (recommended 0..4233ms)",
+        "render proxy episode-009-v2:media-render-proxy:seg-004 (video/mp4)",
+        "audio mix original 0 / narration 1 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-009-v2:media-render-proxy:seg-004",
+        "createdAt": "2026-10-16T01:35:41.596Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009-v2/media/render/seg-004.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "ccd3e4d0e6b09d1a54d7819efadd1e0ea61167740f6aa0133f85fc57f75b03f0",
+        "sizeBytes": 200016
+      },
+      "sceneIndex": 3,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-004",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-fastlane-001"
+        ],
+        "clipId": "episode-009-v2:media-clip:fb354bd9b2c11483914c9fa6",
+        "createdAt": "2026-10-16T01:35:39.069Z",
+        "endMs": 4233,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-004-3dc56e75a36d",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-004-3dc56e75a36d",
+          "createdAt": "2026-10-16T01:33:04.316Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-004-3dc56e75a36d.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "3dc56e75a36dff415cbf3aeab5458f2f30261f907ed91d149f769d8636aa4a7f",
+          "sizeBytes": 283140
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "820秒滑卡,再接805.5账号和814排期选项;步骤省略,真实排期帧可短暂停留便于阅读。"
+      },
+      "shotId": "episode-009-v2:media-shot:seg-004",
+      "startFrame": 520,
+      "startSeconds": 17.329896,
+      "staticFilePath": "episodes/episode-009-v2/media/seg-004.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 4233,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-009-v2:media-verification:seg-004-episode-009-v2-media-clip-fb354bd9b2c11483914c9fa6",
+        "createdAt": "2026-10-16T01:35:39.076Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/verifications/seg-004/episode-009-v2-media-clip-fb354bd9b2c11483914c9fa6.json",
+        "producer": "media-verification-v1:codex:fastlane-observed-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "f1fdcfb92a0b41ae6f417ad6d6beb7b1c51a87fe460681db14be40da74279ed4",
+        "sizeBytes": 4714
+      },
+      "visualType": "real-media"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-009-v2:media-shot:seg-005",
+        "createdAt": "2026-10-16T01:35:41.906Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/shots/seg-005.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "35a1215a5140aa7f1e97ea3f6d3d3450ca8f560502f523df138a3a23afe8425c",
+        "sizeBytes": 8132
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-fastlane-001",
+            "claim-fastlane-009"
+          ],
+          "headline": "Fastlane 用网址生成短视频",
+          "profile": "golden-reference-v1",
+          "resultLine": "自报历史ARR超12万澳元"
+        },
+        "timelineSha256": "33c7eb3a75892a9351836f279d363bac2ff123ea6383c34dfcc153cb9fcc47cb",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-16T01:35:41.906Z",
+      "crossfadeMs": 0,
+      "durationFrames": 229,
+      "endSeconds": 29.197022,
+      "episodeId": "episode-009-v2",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": null,
+      "fallbackImagePath": null,
+      "fallbackImageSha256": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-009-v2:media-verification-clip:seg-005-episode-009-v2-media-clip-531a0771711f324102898528",
+          "createdAt": "2026-10-16T01:35:02.787Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/verifications/seg-005/episode-009-v2-media-clip-531a0771711f324102898528-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "53561e6a34b836cb32e616651453f8f085a3a4ab05df2a33fa778eb95e8a575d",
+          "sizeBytes": 2761513
+        },
+        "clipId": "episode-009-v2:media-clip:531a0771711f324102898528",
+        "clipIndexRef": {
+          "artifactId": "episode-009-v2:media-clip-index:seg-005-0c10c518aa99",
+          "createdAt": "2026-10-16T01:33:57.164Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/indexes/seg-005-0c10c518aa99/clip-index.json",
+          "producer": "media-understanding-v1:index:0c10c518aa990822",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "86a7a9701fb9b9c551230e4b33a28593a7840602629e931fe468a970e145577c",
+          "sizeBytes": 4302
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-009-v2:media:seg-005-0c10c518aa99-proxy",
+          "createdAt": "2026-10-16T01:33:05.718Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-005-0c10c518aa99-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "2284e1668e20a3e761ecf96bb5425e22035762db1a32614ca329c037b167d22e",
+          "sizeBytes": 381402
+        },
+        "sourceEndMs": 7633,
+        "sourceMediaId": "episode-009-v2:media:seg-005-0c10c518aa99",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-005-0c10c518aa99",
+          "createdAt": "2026-10-16T01:33:04.842Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-005-0c10c518aa99.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "0c10c518aa9908221daa6d1b6e35979ae5c1e0da8c9f894d5c76e19751bf3f24",
+          "sizeBytes": 792990
+        },
+        "sourceSha256": "0c10c518aa9908221daa6d1b6e35979ae5c1e0da8c9f894d5c76e19751bf3f24",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-009-v2:media-verification:seg-005-episode-009-v2-media-clip-531a0771711f324102898528",
+          "createdAt": "2026-10-16T01:35:39.267Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/verifications/seg-005/episode-009-v2-media-clip-531a0771711f324102898528.json",
+          "producer": "media-verification-v1:codex:fastlane-observed-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "5aaeaacb1ba106a70ea6c7cbeff2ff17dd3d709cf9e55dfe779a22e593789653",
+          "sizeBytes": 4759
+        }
+      },
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Starter Story · 历史候选内容与选择界面\nARR：2026-04-03创始人自报，非当前收入"
+      },
+      "reasons": [
+        "scene seg-005 at frame 647 (229 frames, 30 fps)",
+        "real media episode-009-v2:media-clip:531a0771711f324102898528 trimmed 0..7633ms (recommended 0..7633ms)",
+        "render proxy episode-009-v2:media-render-proxy:seg-005 (video/mp4)",
+        "audio mix original 0 / narration 1 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-009-v2:media-render-proxy:seg-005",
+        "createdAt": "2026-10-16T01:35:41.882Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009-v2/media/render/seg-005.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "db314294edda5df13b9352d88a5c6ef75825d673370cb46028a8ee4175575a47",
+        "sizeBytes": 525073
+      },
+      "sceneIndex": 4,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-005",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-fastlane-001"
+        ],
+        "clipId": "episode-009-v2:media-clip:531a0771711f324102898528",
+        "createdAt": "2026-10-16T01:35:39.259Z",
+        "endMs": 7633,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-005-0c10c518aa99",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-005-0c10c518aa99",
+          "createdAt": "2026-10-16T01:33:04.842Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-005-0c10c518aa99.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "0c10c518aa9908221daa6d1b6e35979ae5c1e0da8c9f894d5c76e19751bf3f24",
+          "sizeBytes": 792990
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "为产品生成的候选画面,解释用途,不承诺无需修改或效果;以真实已生成候选承接“挑选”,不声称全自动完成或无需修改。"
+      },
+      "shotId": "episode-009-v2:media-shot:seg-005",
+      "startFrame": 647,
+      "startSeconds": 21.571459,
+      "staticFilePath": "episodes/episode-009-v2/media/seg-005.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 7633,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-009-v2:media-verification:seg-005-episode-009-v2-media-clip-531a0771711f324102898528",
+        "createdAt": "2026-10-16T01:35:39.267Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/verifications/seg-005/episode-009-v2-media-clip-531a0771711f324102898528.json",
+        "producer": "media-verification-v1:codex:fastlane-observed-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "5aaeaacb1ba106a70ea6c7cbeff2ff17dd3d709cf9e55dfe779a22e593789653",
+        "sizeBytes": 4759
+      },
+      "visualType": "real-media"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-009-v2:media-shot:seg-006",
+        "createdAt": "2026-10-16T01:35:42.157Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/shots/seg-006.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "78b9a2dab9cc4d9a43d2618485c889dd35486ff5710bf5dc29a34cfffe948efb",
+        "sizeBytes": 8157
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-fastlane-001",
+            "claim-fastlane-009"
+          ],
+          "headline": "Fastlane 用网址生成短视频",
+          "profile": "golden-reference-v1",
+          "resultLine": "自报历史ARR超12万澳元"
+        },
+        "timelineSha256": "33c7eb3a75892a9351836f279d363bac2ff123ea6383c34dfcc153cb9fcc47cb",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-16T01:35:42.157Z",
+      "crossfadeMs": 0,
+      "durationFrames": 142,
+      "endSeconds": 33.945125999999995,
+      "episodeId": "episode-009-v2",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": null,
+      "fallbackImagePath": null,
+      "fallbackImageSha256": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-009-v2:media-verification-clip:seg-006-episode-009-v2-media-clip-b43d7026d4559a5cd6e08ee4",
+          "createdAt": "2026-10-16T01:35:02.926Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/verifications/seg-006/episode-009-v2-media-clip-b43d7026d4559a5cd6e08ee4-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "2fa370ba396aa3cc069eb77b742188679e14e69ca39ad957451674d8027fbb61",
+          "sizeBytes": 2256011
+        },
+        "clipId": "episode-009-v2:media-clip:b43d7026d4559a5cd6e08ee4",
+        "clipIndexRef": {
+          "artifactId": "episode-009-v2:media-clip-index:seg-006-fc2dca294e58",
+          "createdAt": "2026-10-16T01:33:57.292Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/indexes/seg-006-fc2dca294e58/clip-index.json",
+          "producer": "media-understanding-v1:index:fc2dca294e58b012",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "2ad6a5aee48508690327d4de12f0b94d89eee4a174dc30dccfdd7688103e4464",
+          "sizeBytes": 4319
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-009-v2:media:seg-006-fc2dca294e58-proxy",
+          "createdAt": "2026-10-16T01:33:06.541Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-006-fc2dca294e58-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "72e971b11db21b791bfef057e498398c76e0f7fa0adf606501cb32031f103540",
+          "sizeBytes": 451195
+        },
+        "sourceEndMs": 4733,
+        "sourceMediaId": "episode-009-v2:media:seg-006-fc2dca294e58",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-006-fc2dca294e58",
+          "createdAt": "2026-10-16T01:33:05.761Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-006-fc2dca294e58.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "fc2dca294e58b0126ab33ce93f1bff869c85a575c5fc84a4962af7ac4802014c",
+          "sizeBytes": 962741
+        },
+        "sourceSha256": "fc2dca294e58b0126ab33ce93f1bff869c85a575c5fc84a4962af7ac4802014c",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-009-v2:media-verification:seg-006-episode-009-v2-media-clip-b43d7026d4559a5cd6e08ee4",
+          "createdAt": "2026-10-16T01:35:39.433Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/verifications/seg-006/episode-009-v2-media-clip-b43d7026d4559a5cd6e08ee4.json",
+          "producer": "media-verification-v1:codex:fastlane-observed-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "e34f4ae038b2721df40a2b897a9ad807a5e4becd0d449923a4c7a4ad5ed1326f",
+          "sizeBytes": 4799
+        }
+      },
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "原采访所示Reddit帖局部静帧＋创始人\nARR：2026-04-03创始人自报，非当前收入"
+      },
+      "reasons": [
+        "scene seg-006 at frame 876 (142 frames, 30 fps)",
+        "real media episode-009-v2:media-clip:b43d7026d4559a5cd6e08ee4 trimmed 0..4733ms (recommended 0..4733ms)",
+        "render proxy episode-009-v2:media-render-proxy:seg-006 (video/mp4)",
+        "audio mix original 0 / narration 1 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-009-v2:media-render-proxy:seg-006",
+        "createdAt": "2026-10-16T01:35:42.133Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009-v2/media/render/seg-006.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "3858e9f2f1959dbbf20ca3ac9835d3924b56b60107069f6a17e696f0096ecf7f",
+        "sizeBytes": 639039
+      },
+      "sceneIndex": 5,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-006",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-fastlane-005"
+        ],
+        "clipId": "episode-009-v2:media-clip:b43d7026d4559a5cd6e08ee4",
+        "createdAt": "2026-10-16T01:35:39.425Z",
+        "endMs": 4733,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-006-fc2dca294e58",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-006-fc2dca294e58",
+          "createdAt": "2026-10-16T01:33:05.761Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-006-fc2dca294e58.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "fc2dca294e58b0126ab33ce93f1bff869c85a575c5fc84a4962af7ac4802014c",
+          "sizeBytes": 962741
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "原采访689.3–691.7秒展示的真实Reddit帖局部,裁掉3000+数字,接694秒创始人镜头;标注“原采访所示历史帖子”,不将帖内数字作为获客效果。"
+      },
+      "shotId": "episode-009-v2:media-shot:seg-006",
+      "startFrame": 876,
+      "startSeconds": 29.197022,
+      "staticFilePath": "episodes/episode-009-v2/media/seg-006.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 4733,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-009-v2:media-verification:seg-006-episode-009-v2-media-clip-b43d7026d4559a5cd6e08ee4",
+        "createdAt": "2026-10-16T01:35:39.433Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/verifications/seg-006/episode-009-v2-media-clip-b43d7026d4559a5cd6e08ee4.json",
+        "producer": "media-verification-v1:codex:fastlane-observed-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "e34f4ae038b2721df40a2b897a9ad807a5e4becd0d449923a4c7a4ad5ed1326f",
+        "sizeBytes": 4799
+      },
+      "visualType": "real-media"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-009-v2:media-shot:seg-007",
+        "createdAt": "2026-10-16T01:35:42.477Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/shots/seg-007.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "d33daa343e3d74e99461046a6bcf88c00e1feb58cf25307f8f0a65a4b98f2d09",
+        "sizeBytes": 8058
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-fastlane-001",
+            "claim-fastlane-009"
+          ],
+          "headline": "Fastlane 用网址生成短视频",
+          "profile": "golden-reference-v1",
+          "resultLine": "自报历史ARR超12万澳元"
+        },
+        "timelineSha256": "33c7eb3a75892a9351836f279d363bac2ff123ea6383c34dfcc153cb9fcc47cb",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-16T01:35:42.477Z",
+      "crossfadeMs": 0,
+      "durationFrames": 181,
+      "endSeconds": 39.96300099999999,
+      "episodeId": "episode-009-v2",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": null,
+      "fallbackImagePath": null,
+      "fallbackImageSha256": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-009-v2:media-verification-clip:seg-007-episode-009-v2-media-clip-0dcb9c2879e527327ce2b575",
+          "createdAt": "2026-10-16T01:35:03.098Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/verifications/seg-007/episode-009-v2-media-clip-0dcb9c2879e527327ce2b575-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "c4c5252b299b2c61edb0fb5e4d526c1b3929830627f18460f5682ac7d4883170",
+          "sizeBytes": 4486367
+        },
+        "clipId": "episode-009-v2:media-clip:0dcb9c2879e527327ce2b575",
+        "clipIndexRef": {
+          "artifactId": "episode-009-v2:media-clip-index:seg-007-65ac4ea95d08",
+          "createdAt": "2026-10-16T01:33:57.426Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/indexes/seg-007-65ac4ea95d08/clip-index.json",
+          "producer": "media-understanding-v1:index:65ac4ea95d084a20",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "fea32d970d2ca77544d6c1ea416fe5eabac3260190ebd780c12b1667d2f4d81d",
+          "sizeBytes": 4266
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-009-v2:media:seg-007-65ac4ea95d08-proxy",
+          "createdAt": "2026-10-16T01:33:07.713Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-007-65ac4ea95d08-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "5053987485f9955ab0366a988b7043f90690abf01082e92e2151a3fd0b1b5e83",
+          "sizeBytes": 783280
+        },
+        "sourceEndMs": 6033,
+        "sourceMediaId": "episode-009-v2:media:seg-007-65ac4ea95d08",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-007-65ac4ea95d08",
+          "createdAt": "2026-10-16T01:33:06.586Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-007-65ac4ea95d08.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "65ac4ea95d084a2035baeaffee0a0498466955e3a89b21ab0cddf2d70a9fcc1f",
+          "sizeBytes": 1665729
+        },
+        "sourceSha256": "65ac4ea95d084a2035baeaffee0a0498466955e3a89b21ab0cddf2d70a9fcc1f",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-009-v2:media-verification:seg-007-episode-009-v2-media-clip-0dcb9c2879e527327ce2b575",
+          "createdAt": "2026-10-16T01:35:39.628Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/verifications/seg-007/episode-009-v2-media-clip-0dcb9c2879e527327ce2b575.json",
+          "producer": "media-verification-v1:codex:fastlane-observed-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "2bccf73f5434fe8363f7453619e91c6764e58bbdf25140a41e2b127b265377b8",
+          "sizeBytes": 4637
+        }
+      },
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Gaurav谈用户观察 · 非客户通话录像\nARR：2026-04-03创始人自报，非当前收入"
+      },
+      "reasons": [
+        "scene seg-007 at frame 1018 (181 frames, 30 fps)",
+        "real media episode-009-v2:media-clip:0dcb9c2879e527327ce2b575 trimmed 0..6033ms (recommended 0..6033ms)",
+        "render proxy episode-009-v2:media-render-proxy:seg-007 (video/mp4)",
+        "audio mix original 0 / narration 1 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-009-v2:media-render-proxy:seg-007",
+        "createdAt": "2026-10-16T01:35:42.453Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009-v2/media/render/seg-007.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "64198dd1adb5c91a48d4d2c694b138e347b8caac3aba07b9d3694c63fc053253",
+        "sizeBytes": 1103057
+      },
+      "sceneIndex": 6,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-007",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-fastlane-005"
+        ],
+        "clipId": "episode-009-v2:media-clip:0dcb9c2879e527327ce2b575",
+        "createdAt": "2026-10-16T01:35:39.620Z",
+        "endMs": 6033,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-007-65ac4ea95d08",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-007-65ac4ea95d08",
+          "createdAt": "2026-10-16T01:33:06.586Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-007-65ac4ea95d08.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "65ac4ea95d084a2035baeaffee0a0498466955e3a89b21ab0cddf2d70a9fcc1f",
+          "sizeBytes": 1665729
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "699秒创始人谈共享屏幕观察,无客户录像,注明自述。"
+      },
+      "shotId": "episode-009-v2:media-shot:seg-007",
+      "startFrame": 1018,
+      "startSeconds": 33.945125999999995,
+      "staticFilePath": "episodes/episode-009-v2/media/seg-007.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 6033,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-009-v2:media-verification:seg-007-episode-009-v2-media-clip-0dcb9c2879e527327ce2b575",
+        "createdAt": "2026-10-16T01:35:39.628Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/verifications/seg-007/episode-009-v2-media-clip-0dcb9c2879e527327ce2b575.json",
+        "producer": "media-verification-v1:codex:fastlane-observed-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "2bccf73f5434fe8363f7453619e91c6764e58bbdf25140a41e2b127b265377b8",
+        "sizeBytes": 4637
+      },
+      "visualType": "real-media"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-009-v2:media-shot:seg-008",
+        "createdAt": "2026-10-16T01:35:42.785Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/shots/seg-008.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "b8fc75933fb2fc4f1ff02452373ffa21fcb5bda0a4569741c2e92b098401ebd5",
+        "sizeBytes": 8074
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-fastlane-001",
+            "claim-fastlane-009"
+          ],
+          "headline": "Fastlane 用网址生成短视频",
+          "profile": "golden-reference-v1",
+          "resultLine": "自报历史ARR超12万澳元"
+        },
+        "timelineSha256": "33c7eb3a75892a9351836f279d363bac2ff123ea6383c34dfcc153cb9fcc47cb",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-16T01:35:42.785Z",
+      "crossfadeMs": 0,
+      "durationFrames": 155,
+      "endSeconds": 45.12175099999999,
+      "episodeId": "episode-009-v2",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": null,
+      "fallbackImagePath": null,
+      "fallbackImageSha256": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-009-v2:media-verification-clip:seg-008-episode-009-v2-media-clip-d5c2514c11fc0ca7cbbd022f",
+          "createdAt": "2026-10-16T01:35:03.257Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/verifications/seg-008/episode-009-v2-media-clip-d5c2514c11fc0ca7cbbd022f-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "7d3e553e91522c1b6679965a7ffead6a27e1d70cab7cd4168776c782d3fe27be",
+          "sizeBytes": 3398348
+        },
+        "clipId": "episode-009-v2:media-clip:d5c2514c11fc0ca7cbbd022f",
+        "clipIndexRef": {
+          "artifactId": "episode-009-v2:media-clip-index:seg-008-7b2970eee963",
+          "createdAt": "2026-10-16T01:33:57.565Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/indexes/seg-008-7b2970eee963/clip-index.json",
+          "producer": "media-understanding-v1:index:7b2970eee963e334",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "4ccbbc95f35f41283c286a21c933468774741d2777f206622763cbcc078a21f2",
+          "sizeBytes": 4287
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-009-v2:media:seg-008-7b2970eee963-proxy",
+          "createdAt": "2026-10-16T01:33:08.834Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-008-7b2970eee963-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "e2ae6c93709c018c1954ec5fb53ed5fc17e8bac2b48372b6f4fe7cda276e6dbd",
+          "sizeBytes": 635106
+        },
+        "sourceEndMs": 5166,
+        "sourceMediaId": "episode-009-v2:media:seg-008-7b2970eee963",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-008-7b2970eee963",
+          "createdAt": "2026-10-16T01:33:07.757Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-008-7b2970eee963.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "7b2970eee963e33474d303a7a199defbf05f3af3d2c21e917ee005774bd20194",
+          "sizeBytes": 1388823
+        },
+        "sourceSha256": "7b2970eee963e33474d303a7a199defbf05f3af3d2c21e917ee005774bd20194",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-009-v2:media-verification:seg-008-episode-009-v2-media-clip-d5c2514c11fc0ca7cbbd022f",
+          "createdAt": "2026-10-16T01:35:39.808Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/verifications/seg-008/episode-009-v2-media-clip-d5c2514c11fc0ca7cbbd022f.json",
+          "producer": "media-verification-v1:codex:fastlane-observed-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "082fb39b0f90f8fb9a12ac30ac6bcab99219691db1e6a30eeae4acced3dfd8c5",
+          "sizeBytes": 4664
+        }
+      },
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "创始人介绍历史访谈机制 · 非现行试用规则\nARR：2026-04-03创始人自报，非当前收入"
+      },
+      "reasons": [
+        "scene seg-008 at frame 1199 (155 frames, 30 fps)",
+        "real media episode-009-v2:media-clip:d5c2514c11fc0ca7cbbd022f trimmed 0..5166ms (recommended 0..5166ms)",
+        "render proxy episode-009-v2:media-render-proxy:seg-008 (video/mp4)",
+        "audio mix original 0 / narration 1 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-009-v2:media-render-proxy:seg-008",
+        "createdAt": "2026-10-16T01:35:42.760Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009-v2/media/render/seg-008.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "5a06d5647eac2c8e9aab0cc5aac60302a706d40befc3fa4cd46538d1b50b160e",
+        "sizeBytes": 901869
+      },
+      "sceneIndex": 7,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-008",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-fastlane-004"
+        ],
+        "clipId": "episode-009-v2:media-clip:d5c2514c11fc0ca7cbbd022f",
+        "createdAt": "2026-10-16T01:35:39.801Z",
+        "endMs": 5166,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-008-7b2970eee963",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-008-7b2970eee963",
+          "createdAt": "2026-10-16T01:33:07.757Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-008-7b2970eee963.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "7b2970eee963e33474d303a7a199defbf05f3af3d2c21e917ee005774bd20194",
+          "sizeBytes": 1388823
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "426秒本人谈预约与七天;配有来源文字,非现行试用政策。"
+      },
+      "shotId": "episode-009-v2:media-shot:seg-008",
+      "startFrame": 1199,
+      "startSeconds": 39.96300099999999,
+      "staticFilePath": "episodes/episode-009-v2/media/seg-008.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 5166,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-009-v2:media-verification:seg-008-episode-009-v2-media-clip-d5c2514c11fc0ca7cbbd022f",
+        "createdAt": "2026-10-16T01:35:39.808Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/verifications/seg-008/episode-009-v2-media-clip-d5c2514c11fc0ca7cbbd022f.json",
+        "producer": "media-verification-v1:codex:fastlane-observed-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "082fb39b0f90f8fb9a12ac30ac6bcab99219691db1e6a30eeae4acced3dfd8c5",
+        "sizeBytes": 4664
+      },
+      "visualType": "real-media"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-009-v2:media-shot:seg-009",
+        "createdAt": "2026-10-16T01:35:42.820Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/shots/seg-009.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "350b6a24eb38f5d4353c1cd60198f54b2461b5c4e337bf762e883b5567e90cfe",
+        "sizeBytes": 2957
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-fastlane-001",
+            "claim-fastlane-009"
+          ],
+          "headline": "Fastlane 用网址生成短视频",
+          "profile": "golden-reference-v1",
+          "resultLine": "自报历史ARR超12万澳元"
+        },
+        "timelineSha256": "33c7eb3a75892a9351836f279d363bac2ff123ea6383c34dfcc153cb9fcc47cb",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-16T01:35:42.820Z",
+      "crossfadeMs": 0,
+      "durationFrames": 163,
+      "endSeconds": 50.56329299999999,
+      "episodeId": "episode-009-v2",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": "fastlane-v2-first-customer",
+      "fallbackImagePath": "episodes/episode-009-v2/media/first-customer.png",
+      "fallbackImageSha256": "413b692a0dd31c6b34136be12014ffa6fb64675ed094acf9b116449fbd160942",
+      "fallbackReason": "approved editorial still selected for seg-009",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Starter Story原文摘录 · 编辑排版\nARR：2026-04-03创始人自报，非当前收入"
+      },
+      "reasons": [
+        "scene seg-009 at frame 1354 (163 frames, 30 fps)",
+        "fallback none: approved editorial still selected for seg-009",
+        "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 8,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-009",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-009-v2:media-shot:seg-009",
+      "startFrame": 1354,
+      "startSeconds": 45.12175099999999,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "official-screenshot"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-009-v2:media-shot:seg-010",
+        "createdAt": "2026-10-16T01:35:42.854Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/shots/seg-010.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "ec619549297c3ed8ad1a4e314a32ec830fca3b142a98e2ccdc8d8bcbab02fab7",
+        "sizeBytes": 2957
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-fastlane-001",
+            "claim-fastlane-009"
+          ],
+          "headline": "Fastlane 用网址生成短视频",
+          "profile": "golden-reference-v1",
+          "resultLine": "自报历史ARR超12万澳元"
+        },
+        "timelineSha256": "33c7eb3a75892a9351836f279d363bac2ff123ea6383c34dfcc153cb9fcc47cb",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-16T01:35:42.854Z",
+      "crossfadeMs": 0,
+      "durationFrames": 111,
+      "endSeconds": 54.27079299999998,
+      "episodeId": "episode-009-v2",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": "fastlane-v2-historical-arr",
+      "fallbackImagePath": "episodes/episode-009-v2/media/historical-arr.png",
+      "fallbackImageSha256": "e8007c2640d1e27fc76fd76e8e499c154d403c4e3a11c8edaf2a3d7e5027e971",
+      "fallbackReason": "approved editorial still selected for seg-010",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Starter Story · 真实页面局部截图\nARR：2026-04-03创始人自报，非当前收入"
+      },
+      "reasons": [
+        "scene seg-010 at frame 1517 (111 frames, 30 fps)",
+        "fallback none: approved editorial still selected for seg-010",
+        "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 9,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-010",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-009-v2:media-shot:seg-010",
+      "startFrame": 1517,
+      "startSeconds": 50.56329299999999,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "official-screenshot"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-009-v2:media-shot:seg-011",
+        "createdAt": "2026-10-16T01:35:43.157Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/shots/seg-011.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "f0cfaf706dbe4ab7443c372649c2e2b2da058fde029243dceb2c35d2e5018f18",
+        "sizeBytes": 8159
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-fastlane-001",
+            "claim-fastlane-009"
+          ],
+          "headline": "Fastlane 用网址生成短视频",
+          "profile": "golden-reference-v1",
+          "resultLine": "自报历史ARR超12万澳元"
+        },
+        "timelineSha256": "33c7eb3a75892a9351836f279d363bac2ff123ea6383c34dfcc153cb9fcc47cb",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-16T01:35:43.157Z",
+      "crossfadeMs": 0,
+      "durationFrames": 176,
+      "endSeconds": 60.13720999999998,
+      "episodeId": "episode-009-v2",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": null,
+      "fallbackImagePath": null,
+      "fallbackImageSha256": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-009-v2:media-verification-clip:seg-011-episode-009-v2-media-clip-164fb1dd19c501bff0585fc9",
+          "createdAt": "2026-10-16T01:35:03.416Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/verifications/seg-011/episode-009-v2-media-clip-164fb1dd19c501bff0585fc9-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "dd99008c2058cf40d78433313ad3e764b7ed830f325ac4456e91c8a5afc9dd99",
+          "sizeBytes": 3109366
+        },
+        "clipId": "episode-009-v2:media-clip:164fb1dd19c501bff0585fc9",
+        "clipIndexRef": {
+          "artifactId": "episode-009-v2:media-clip-index:seg-011-7526a02e2703",
+          "createdAt": "2026-10-16T01:33:57.707Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/indexes/seg-011-7526a02e2703/clip-index.json",
+          "producer": "media-understanding-v1:index:7526a02e27034d7c",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "1a308f4ce6551518fe8cbb9954c59ad02220ff8d6dac2e27653e7890ad4b69e2",
+          "sizeBytes": 4287
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-009-v2:media:seg-011-7526a02e2703-proxy",
+          "createdAt": "2026-10-16T01:33:56.372Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-011-7526a02e2703-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "208cebd6015981a735b9e1fea9a646604d91c534d57dba3e0cc794f31cf08b80",
+          "sizeBytes": 528583
+        },
+        "sourceEndMs": 5866,
+        "sourceMediaId": "episode-009-v2:media:seg-011-7526a02e2703",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-011-7526a02e2703",
+          "createdAt": "2026-10-16T01:33:55.365Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-011-7526a02e2703.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "7526a02e27034d7c27f294cb1a8e892916b985c9fe22dd638868aeaa803607e1",
+          "sizeBytes": 1145837
+        },
+        "sourceSha256": "7526a02e27034d7c27f294cb1a8e892916b985c9fe22dd638868aeaa803607e1",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-009-v2:media-verification:seg-011-episode-009-v2-media-clip-164fb1dd19c501bff0585fc9",
+          "createdAt": "2026-10-16T01:35:39.988Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/verifications/seg-011/episode-009-v2-media-clip-164fb1dd19c501bff0585fc9.json",
+          "producer": "media-verification-v1:codex:fastlane-observed-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "2a27bc54bbba2a78ee79efdb8edc2a038d30ed84379d6c44c80aec85822f597e",
+          "sizeBytes": 4805
+        }
+      },
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Starter Story · 创始人与历史产品候选\nARR：2026-04-03创始人自报，非当前收入"
+      },
+      "reasons": [
+        "scene seg-011 at frame 1628 (176 frames, 30 fps)",
+        "real media episode-009-v2:media-clip:164fb1dd19c501bff0585fc9 trimmed 0..5866ms (recommended 0..5866ms)",
+        "render proxy episode-009-v2:media-render-proxy:seg-011 (video/mp4)",
+        "audio mix original 0 / narration 1 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-009-v2:media-render-proxy:seg-011",
+        "createdAt": "2026-10-16T01:35:43.131Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009-v2/media/render/seg-011.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "6d03b686edb935f97bd6405cb4f960f92de1b3953d7ee7dc305aedbc728bb806",
+        "sizeBytes": 727457
+      },
+      "sceneIndex": 10,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-011",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-fastlane-001",
+          "claim-fastlane-002",
+          "claim-fastlane-006"
+        ],
+        "clipId": "episode-009-v2:media-clip:164fb1dd19c501bff0585fc9",
+        "createdAt": "2026-10-16T01:35:39.981Z",
+        "endMs": 5866,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-011-7526a02e2703",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-011-7526a02e2703",
+          "createdAt": "2026-10-16T01:33:55.365Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-011-7526a02e2703.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "7526a02e27034d7c27f294cb1a8e892916b985c9fe22dd638868aeaa803607e1",
+          "sizeBytes": 1145837
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "回到已见候选与创始人,连接人物需求及已发生付款;现在为故事总结不暗示最新营收。"
+      },
+      "shotId": "episode-009-v2:media-shot:seg-011",
+      "startFrame": 1628,
+      "startSeconds": 54.27079299999998,
+      "staticFilePath": "episodes/episode-009-v2/media/seg-011.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 5866,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-009-v2:media-verification:seg-011-episode-009-v2-media-clip-164fb1dd19c501bff0585fc9",
+        "createdAt": "2026-10-16T01:35:39.988Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "application/json",
+        "path": "content/episode-009-v2/media/verifications/seg-011/episode-009-v2-media-clip-164fb1dd19c501bff0585fc9.json",
+        "producer": "media-verification-v1:codex:fastlane-observed-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "2a27bc54bbba2a78ee79efdb8edc2a038d30ed84379d6c44c80aec85822f597e",
+        "sizeBytes": 4805
+      },
+      "visualType": "real-media"
+    }
+  ],
+  "timelineSha256": "33c7eb3a75892a9351836f279d363bac2ff123ea6383c34dfcc153cb9fcc47cb",
+  "totalFrames": 1804,
+  "totalSeconds": 60.13333333333333
+}

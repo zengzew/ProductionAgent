@@ -1,7 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import {parseDirectorBriefGate, parseRetentionGate} from "../src/lib/editorial/story";
-import {directorWorkflowSchema, orderedStoryRoles} from "../src/lib/episode/workflow";
+import {
+  directorWorkflowSchema,
+  isSourceFirstWorkflowData,
+  orderedStoryRoles,
+  sourceFirstWorkflowSchema,
+  validateSourceFirstWorkflow,
+} from "../src/lib/episode/workflow";
 import {episodeId, episodeRoot, repoRoot} from "../src/lib/episode/paths";
 import {
   fatal,
@@ -22,7 +28,21 @@ if (!fs.existsSync(workflowPath)) {
   fatal(`缺少导演工作流清单：${path.relative(repoRoot, workflowPath)}`);
 }
 
-const workflow = directorWorkflowSchema.parse(readJsonFile<unknown>(workflowPath));
+const workflowDocument = readJsonFile<unknown>(workflowPath);
+if (isSourceFirstWorkflowData(workflowDocument)) {
+  const workflow = sourceFirstWorkflowSchema.parse(workflowDocument);
+  const sourceFirstErrors = validateSourceFirstWorkflow({
+    workflow,
+    episodeId,
+    resolveArtifact: (relativePath) => path.join(repoRoot, relativePath),
+  });
+  finishValidation(
+    sourceFirstErrors,
+    `source-first workflow validation passed: ${workflow.stages.length} stages, ${workflow.decisions.length} decisions, status=${workflow.currentStatus}`,
+  );
+  process.exit(sourceFirstErrors.length === 0 ? 0 : 1);
+}
+const workflow = directorWorkflowSchema.parse(workflowDocument);
 if (workflow.episodeId !== episodeId) {
   errors.push(`workflow episodeId 应为 ${episodeId}，当前 ${workflow.episodeId}`);
 }

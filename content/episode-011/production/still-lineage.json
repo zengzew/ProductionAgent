@@ -1,0 +1,41 @@
+{
+  "scope": "本地观看制作；真实来源图与有标注的短摘录/编辑说明，未伪造界面或历史平台截图。",
+  "images": [
+    {
+      "path": "public/episodes/episode-011/assets/activation.png",
+      "sha256": "e62e22bd1c234a0c41115f9d31006a4e963bf664773e4851c8ba52a190606501"
+    },
+    {
+      "path": "public/episodes/episode-011/assets/draft.png",
+      "sha256": "107c4c965d2393ab7713028fd796f1015178814fe75b13b0491cd4c5c118c3e1"
+    },
+    {
+      "path": "public/episodes/episode-011/assets/early-users.png",
+      "sha256": "0b8a7a94fce74f78730fc3ca8a9ce377503044dec6e8f7e9311a4cd6df4327b7"
+    },
+    {
+      "path": "public/episodes/episode-011/assets/feedback.png",
+      "sha256": "ff3a59c35d80555079afcc4f03042939f80e5082fc9dd12cbd66b045070795fb"
+    },
+    {
+      "path": "public/episodes/episode-011/assets/founder.png",
+      "sha256": "e8126adce94052ec2c7fbde56444cd557d12ca0403bc73c07fb3c1bc378febec"
+    },
+    {
+      "path": "public/episodes/episode-011/assets/funding.png",
+      "sha256": "458406ef73a9172776c7e33db6ff49368975088bd030d1847d31c34ac1fef4ed"
+    },
+    {
+      "path": "public/episodes/episode-011/assets/market.png",
+      "sha256": "1f6b03623fa5a600fb2606230b928eadb767f91052d592d4ccfb3300eed22acd"
+    },
+    {
+      "path": "public/episodes/episode-011/assets/ppt-hook.png",
+      "sha256": "ef39d4f0b8d217036e01a2503a88fbaab3d5458c1e83df0cec3bed5ea95a8985"
+    },
+    {
+      "path": "public/episodes/episode-011/assets/writing-first.png",
+      "sha256": "f60d970df497d786b1b4d421bfb8925eac0ce288b6b7f66f189182a79437b6c7"
+    }
+  ]
+}

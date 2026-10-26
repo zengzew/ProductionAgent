@@ -1,0 +1,28 @@
+{
+  "requestHash": "794601d94f2bcf6d27ff009b7b81b18fbebdaed7a9e7998dba90a1fcac89807d",
+  "completedAt": "2026-10-20T07:56:43.811215+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.94,
+    "claimMatch": 0.8,
+    "visualQuality": 0.82,
+    "misleadingRisk": 0.15,
+    "observedActions": [
+      "回看2025官方文字变图演示，结果停帧供理解“已有稿可修改”，不宣称持续生成或实测省时。"
+    ],
+    "observedEntities": [
+      "Gamma",
+      "Holographic Technology"
+    ],
+    "observedText": [
+      "Make this more visual",
+      "Holographic Technology"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 8233,
+    "reasons": [
+      "本制作会话查看完整来源逐半秒帧及当前派生片段联系表；不是独立Delivery或人工批准。",
+      "官方2025演示，不是本次实测。示例数字非Gamma数据，不能作为本期商业事实；结尾为产品用途承接，不证明创始人经历或省时测量。"
+    ]
+  }
+}

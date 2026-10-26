@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "e009-v2-local-request-media-admission",
+  "gate": "media-admission",
+  "decision": "approve",
+  "reviewer": "zengze-user-request",
+  "timestamp": "2026-10-15T07:24:26.600Z",
+  "reason": "承接用户原始制作请求，仅将公开来源的必要署名节选准入本地评估流程。不是用户对成片的最终批准或第三方发布许可。原始请求和解释见content/episode-009-v2/production/local-production-scope.json。",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-009-v2:media:source-manifest",
+      "episodeId": "episode-009-v2",
+      "path": "content/episode-009-v2/media/source-manifest.json",
+      "mediaType": "application/json",
+      "schemaVersion": "media-source-manifest-v1",
+      "revision": 1,
+      "sha256": "c01954f34d1746a925ef627308563b135bc8ffa02b40afea96bf4375a9c4686f",
+      "sizeBytes": 787,
+      "producer": "local-request-scope",
+      "createdAt": "2026-10-15T07:24:26.600Z"
+    }
+  ],
+  "approvalEpoch": 0,
+  "authorizations": [],
+  "edits": []
+}

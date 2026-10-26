@@ -1,0 +1,93 @@
+[
+  {
+    "id": "claim-gamma-001",
+    "claim": "Gamma可按主题、提纲或已有文档生成带图文版式的演示稿初稿，再由用户编辑。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2026-10-20",
+    "sourceIds": [
+      "src-gamma-product",
+      "src-gamma-tutorial"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "用途概括，不承诺正确无误、固定用时或无需修改。"
+  },
+  {
+    "id": "claim-gamma-002",
+    "claim": "Grant Lee在Stanford访谈回忆，做顾问时曾为次日会议熬夜准备Google Slides，大部分精力用在排版；于是联系两位前同事原型探索。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2025-10-21",
+    "sourceIds": [
+      "src-gamma-stanford"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "历史个人回忆，不把主观90%当普遍效率测量，不虚构具体客户。"
+  },
+  {
+    "id": "claim-gamma-003",
+    "claim": "Grant说早期希望让写作成为起点，以灵活版式取代逐像素设计；生成式AI是后续加入。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2025-10-21",
+    "sourceIds": [
+      "src-gamma-stanford"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "保留先有非AI原型、后来加入AI的时间关系。"
+  },
+  {
+    "id": "claim-gamma-004",
+    "claim": "按2025年Gamma 3.0发布文章及官方GIF，用户可请求Agent修改布局或重构表达，也可使用Smart Diagrams将文字变成图示。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2025-09-15",
+    "sourceIds": [
+      "src-gamma-3"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "演示为2025官方录制，非本次实测，中文解释不是界面本地化。"
+  },
+  {
+    "id": "claim-gamma-005",
+    "claim": "Grant在Stanford问答中说，早期找朋友试用；随后在Product Hunt公开测试，无等待名单，可直接注册；团队主动邀请用户通话收集反馈。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2025-10-21",
+    "sourceIds": [
+      "src-gamma-stanford"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "采访回顾，不捏造首单，不把朋友夸赞视为留存，不把反馈直接归因为融资或增长。"
+  },
+  {
+    "id": "claim-gamma-006",
+    "claim": "2025-11-10，Gamma创始人署名文章披露完成6800万美元B轮融资，估值21亿美元。",
+    "metricName": "B轮融资 / 估值",
+    "value": "USD 68M / USD 2.1B",
+    "period": "2025-11-10 announced round",
+    "eventDate": "2025-11-10",
+    "sourceIds": [
+      "src-gamma-growth"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "历史公司披露，不是当前估值、收入或利润；不由融资推出产品有效。"
+  }
+]

@@ -43,6 +43,11 @@ const renderContracts: Readonly<Record<string, RenderContract>> = {
   "episode-006": mediaMix("poke-standard"),
   "episode-007": mediaMix("poke-standard"),
   "episode-008": mediaMix("poke-standard"),
+  "episode-009": mediaMix("poke-standard"),
+  "episode-009-v2": mediaMix("poke-standard"),
+  "episode-010": mediaMix("poke-standard"),
+  "episode-011": mediaMix("poke-standard"),
+  "episode-012": mediaMix("poke-standard"),
 };
 
 export const getRenderContract = (episodeId: string): RenderContract => {
@@ -52,6 +57,12 @@ export const getRenderContract = (episodeId: string): RenderContract => {
   }
   return contract;
 };
+
+/** Historical compositions never enter the current MediaMix bundle. */
+export const renderEntrypoint = (episodeId: string): string =>
+  getRenderContract(episodeId).renderer === "legacy-composition"
+    ? "src/compositions/legacy/index.tsx"
+    : "src/index.ts";
 
 /** Canonical measured timeline. Same bytes as `content/<ep>/production/timeline.json`. */
 export const generatedTimelinePath = (episodeId: string): string =>

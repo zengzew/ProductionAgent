@@ -1,0 +1,115 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-009:media:seg-003-82fe60f79651-proxy",
+    "createdAt": "2026-10-15T03:26:12.711Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-003-82fe60f79651-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "70afa9444b95b59c0afab157985e87bd9f5a1c5a6e71de37f4f2c5b1ca23b0aa",
+    "sizeBytes": 217289
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-009",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-009:media-clip:9fc342edbc851e8e67ade2cb",
+      "endMs": 3466,
+      "entities": [
+        "Fastlane",
+        "Cal AI"
+      ],
+      "episodeId": "episode-009",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-009:media-keyframe:seg-003-82fe60f79651-0-1733",
+          "createdAt": "2026-10-15T03:26:14.404Z",
+          "episodeId": "episode-009",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-009/media/indexes/seg-003-82fe60f79651/keyframes/keyframe-0-1733.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "55deab7177274c9af857681db508c63665cbb35bad7da0704502ad9eda16ccb2",
+          "sizeBytes": 56717
+        }
+      ],
+      "keywords": [
+        "卡片",
+        "跳过",
+        "留下"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-003-82fe60f79651",
+        "createdAt": "2026-10-15T03:26:12.180Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-003-82fe60f79651.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "82fe60f79651bb11c9e7bced9a8f97751963a8bf548509b5addc81c8d6c3ff38",
+        "sizeBytes": 449806
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-009:media-scenes:seg-003-82fe60f79651",
+          "createdAt": "2026-10-15T03:26:14.319Z",
+          "episodeId": "episode-009",
+          "mediaType": "application/json",
+          "path": "content/episode-009/media/indexes/seg-003-82fe60f79651/scenes.json",
+          "producer": "media-understanding-v1:scenes:v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "4dfafe7fdc9109810b863bbf5f41b50f6241b20632c9eba4ba6fa22862343c47",
+          "sizeBytes": 1447
+        }
+      ],
+      "semanticTags": [
+        "founder-interview",
+        "local-evaluation",
+        "measured"
+      ],
+      "sourceSha256": "82fe60f79651bb11c9e7bced9a8f97751963a8bf548509b5addc81c8d6c3ff38",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "同一历史界面的卡片选择和切换，X、Edit、勾选控件可见；未演示网站输入。",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-009:media:seg-003-82fe60f79651",
+  "mediaRef": {
+    "artifactId": "episode-009:media:seg-003-82fe60f79651",
+    "createdAt": "2026-10-15T03:26:12.180Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-003-82fe60f79651.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "82fe60f79651bb11c9e7bced9a8f97751963a8bf548509b5addc81c8d6c3ff38",
+    "sizeBytes": 449806
+  },
+  "sceneDetector": "bounded-reference-excerpt",
+  "sceneDetectorVersion": "v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-observed-reference",
+  "semanticAdapterVersion": "82fe60f79651bb11",
+  "semanticAvailability": "available",
+  "sourceSha256": "82fe60f79651bb11c9e7bced9a8f97751963a8bf548509b5addc81c8d6c3ff38",
+  "transcriptAvailability": "unavailable"
+}

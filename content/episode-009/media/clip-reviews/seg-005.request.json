@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-009",
+  "segmentId": "seg-005",
+  "clipId": "episode-009:media-clip:7c425fa40956856434a60c73",
+  "claimIds": [
+    "claim-fastlane-002"
+  ],
+  "claims": [
+    {
+      "id": "claim-fastlane-002",
+      "claim": "Gaurav回顾，做出应用后自己卡在营销，不愿先花大笔广告预算；Jock也遇到让别人看见产品的难题。"
+    }
+  ],
+  "narration": "这也是创始人自己的难题:应用做出来了,却卡在怎么让人看见。",
+  "visualIntent": "从完成选择的产品画面切到02:50–03:08的Gaurav本人;标姓名及创始人身份,让「自己的难题」有明确人物。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009/media/verifications/seg-005/episode-009-media-clip-7c425fa40956856434a60c73-clip.mp4",
+    "sha256": "f1fd040744d7c8d4757555eb928a4ae364d530cf2b01a6a88fc079e554799c66",
+    "sizeBytes": 3019682,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 4733,
+    "sourceMediaId": "episode-009:media:seg-005-0b0db1888d8c",
+    "sourceMediaSha256": "0b0db1888d8c5ccecb796bc36e991c20e9183a4d72b2f028057ee0fe120afa4a"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009/media/indexes/seg-005-0b0db1888d8c/keyframes/keyframe-0-2366.jpg",
+      "timestampMs": 2366,
+      "sha256": "100ffc75f374887714f116eec7e5a669b3b0db29519d44e94db9e663a51f44a9",
+      "sizeBytes": 51294,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "创始人Gaurav本人采访画面，为本人营销困难自述配图；不是用户实测。",
+    "observedText": "",
+    "keywords": [
+      "创始人",
+      "营销",
+      "需求"
+    ],
+    "entities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "c0e84e51a0d448d461bac22e7788b9598c5734ccf79e8a9eda66f40941154b14"
+}

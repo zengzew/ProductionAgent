@@ -1,0 +1,48 @@
+{
+  "label": "A-plus-xunanchuan",
+  "model": "qwen-audio-3.1-tts-plus",
+  "voice": "xunanchuan_v3.1",
+  "endpoint": "https://dashscope.aliyuncs.com/api/v1/services/audio/tts/SpeechSynthesizer",
+  "createdAt": "2026-10-26T07:18:59.101546+00:00",
+  "textSha256": "b935ba82765a80bdaced5df001686dfe3b33c025e0f8fa13c638f5ad75378ad0",
+  "instruction": "像向朋友讲一个有意思的创业故事，清楚自然，有轻微起伏，按意思安排呼吸，避免播报腔。",
+  "inputParameters": {
+    "text": "一张商品照，AI帮你抠图、换背景。Photoroom的创始人马修，在GoPro做产品时就嫌抠图麻烦，后来干脆回去学了机器学习。他和工程师埃利奥特搭档，两周就做出了第一版Photoroom。",
+    "voice": "xunanchuan_v3.1",
+    "format": "wav",
+    "sample_rate": 48000,
+    "rate": 1.0,
+    "pitch": 1.0,
+    "volume": 50,
+    "language_hints": [
+      "zh"
+    ],
+    "instruction": "像向朋友讲一个有意思的创业故事，清楚自然，有轻微起伏，按意思安排呼吸，避免播报腔。",
+    "seed": 42
+  },
+  "status": "generated",
+  "requestId": "5acb1c55-e535-9ca0-bb97-fedd92f4f186",
+  "usage": {
+    "characters": 155,
+    "input_tokens": 79,
+    "output_tokens": 216,
+    "total_tokens": 295
+  },
+  "finishReason": "stop",
+  "rawFile": "output/episode-012/tts-audition-20261026/A-plus-xunanchuan-raw.wav",
+  "rawSha256": "9e51d33570cfc995984d7beb63625bd54d45ec722418009c9886fc98ec9b6574",
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "48000",
+        "channels": 1
+      }
+    ],
+    "format": {
+      "duration": "17.280000"
+    }
+  }
+}

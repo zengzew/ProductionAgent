@@ -1,0 +1,98 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-009-v2:media-visual-slot:seg-001",
+    "createdAt": "2026-10-16T01:35:40.242Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "application/json",
+    "path": "content/episode-009-v2/media/selections/seg-001.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "432bbc71e0a2c7a95b9935d4a880de46f1593745b1eda8efa1423c891370f8f1",
+    "sizeBytes": 3308
+  },
+  "claimIds": [
+    "claim-fastlane-001"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.85,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": false
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0,
+      "durationSuitability": 0.1,
+      "misleadingRiskSafety": 0.15,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.15,
+      "verificationClaimMatch": 0,
+      "verificationRelevance": 0.05,
+      "visualIntentFit": 0.15,
+      "visualQuality": 0.25
+    }
+  },
+  "createdAt": "2026-10-16T01:35:40.241Z",
+  "episodeId": "episode-009-v2",
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true,
+    "verificationPassed": true
+  },
+  "reasons": [
+    "segment seg-001 claim-bound with 1 claim(s)",
+    "retrieval result episode-009-v2:media-retrieval:seg-001 produced 11 candidate(s)",
+    "1 candidate(s) carry a valid pass verification",
+    "selected episode-009-v2:media-clip:09a7461e2ceb670570bb7942 score 0.714045 (claimFit=0.000, relevance=0.940, claimMatch=0.920, quality=0.880, risk=0.070, tie-breaker=score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-001",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-fastlane-001"
+    ],
+    "clipId": "episode-009-v2:media-clip:09a7461e2ceb670570bb7942",
+    "createdAt": "2026-10-16T01:35:38.532Z",
+    "endMs": 2667,
+    "episodeId": "episode-009-v2",
+    "mediaId": "episode-009-v2:media:seg-001-2d56b6c6c4e6",
+    "sourceMediaRef": {
+      "artifactId": "episode-009-v2:media:seg-001-2d56b6c6c4e6",
+      "createdAt": "2026-10-16T01:33:01.542Z",
+      "episodeId": "episode-009-v2",
+      "mediaType": "video/mp4",
+      "path": "content/episode-009-v2/media/assets/seg-001-2d56b6c6c4e6.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "2d56b6c6c4e67a3657b89c9e20bca2e1e64c75b1b61fce11028f48e3c344db60",
+      "sizeBytes": 381969
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "Cal AI宣传候选原片797.5秒;网址生成来自创始人描述,原片从已有候选开始。"
+  },
+  "selectedType": "real-media",
+  "selectionScore": 0.714045,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-009-v2:media-visual-slot:seg-001",
+  "verificationRef": {
+    "artifactId": "episode-009-v2:media-verification:seg-001-episode-009-v2-media-clip-09a7461e2ceb670570bb7942",
+    "createdAt": "2026-10-16T01:35:38.541Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "application/json",
+    "path": "content/episode-009-v2/media/verifications/seg-001/episode-009-v2-media-clip-09a7461e2ceb670570bb7942.json",
+    "producer": "media-verification-v1:codex:fastlane-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "03f57561fb476e5ed020081cd3368064cd5a17a8be52497f610fbebb0d339b2a",
+    "sizeBytes": 4673
+  },
+  "visualIntent": "Cal AI宣传候选原片797.5秒;网址生成来自创始人描述,原片从已有候选开始。"
+}

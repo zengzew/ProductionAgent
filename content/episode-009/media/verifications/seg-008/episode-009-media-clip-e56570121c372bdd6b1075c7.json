@@ -1,0 +1,109 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-009:media-verification:seg-008-episode-009-media-clip-e56570121c372bdd6b1075c7",
+    "createdAt": "2026-10-15T03:26:40.600Z",
+    "episodeId": "episode-009",
+    "mediaType": "application/json",
+    "path": "content/episode-009/media/verifications/seg-008/episode-009-media-clip-e56570121c372bdd6b1075c7.json",
+    "producer": "media-verification-v1:codex:fastlane-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "fbfb5e4a17aee9ea8c4b2b1fd68b3844f8fb646d5466132b5f5433e9be23c8df",
+    "sizeBytes": 4019
+  },
+  "cacheKey": "5bf59d549ec9b5978becc0016fcabecfc018b9d19c00100b574498dc159b556a",
+  "claimIds": [
+    "claim-fastlane-005"
+  ],
+  "claimMatch": 0.65,
+  "clipArtifactRef": {
+    "artifactId": "episode-009:media-verification-clip:seg-008-episode-009-media-clip-e56570121c372bdd6b1075c7",
+    "createdAt": "2026-10-15T03:23:43.018Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/verifications/seg-008/episode-009-media-clip-e56570121c372bdd6b1075c7-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "31e83fd5599da1f4b0761cee8e04bd40946eeac01d74987dbbb0378c1be06703",
+    "sizeBytes": 3619898
+  },
+  "clipId": "episode-009:media-clip:e56570121c372bdd6b1075c7",
+  "clipRef": {
+    "claimIds": [
+      "claim-fastlane-005"
+    ],
+    "clipId": "episode-009:media-clip:e56570121c372bdd6b1075c7",
+    "createdAt": "2026-10-15T03:26:40.600Z",
+    "endMs": 4933,
+    "episodeId": "episode-009",
+    "mediaId": "episode-009:media:seg-008-79cf7a13ead8",
+    "sourceMediaRef": {
+      "artifactId": "episode-009:media:seg-008-79cf7a13ead8",
+      "createdAt": "2026-10-15T03:22:52.291Z",
+      "episodeId": "episode-009",
+      "mediaType": "video/mp4",
+      "path": "content/episode-009/media/assets/seg-008-79cf7a13ead8.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "79cf7a13ead8bbab3f09899958e53c14f9dae408934ddcbaef9debbccb93ba47",
+      "sizeBytes": 1396163
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "11:38–12:06原片或中文短引说明共享屏幕、观察摩擦与改界面;如用历史卡片辅助,必须与访谈证据区分,不伪造客户通话录像。"
+  },
+  "createdAt": "2026-10-15T03:26:40.600Z",
+  "episodeId": "episode-009",
+  "mediaRef": {
+    "artifactId": "episode-009:media:seg-008-79cf7a13ead8",
+    "createdAt": "2026-10-15T03:22:52.291Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-008-79cf7a13ead8.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "79cf7a13ead8bbab3f09899958e53c14f9dae408934ddcbaef9debbccb93ba47",
+    "sizeBytes": 1396163
+  },
+  "misleadingRisk": 0.06,
+  "model": "current-session",
+  "observedActions": [
+    "Gaurav本人谈话，为观察共享屏幕及界面迭代自述配图；没有真实客户通话录像。"
+  ],
+  "observedEntities": [
+    "Gaurav Thapa"
+  ],
+  "observedText": [],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "当前Codex制作会话实际检查原片与派生窗口抽帧；见media/prepared-check及排期814秒原帧。不是独立Delivery批准。",
+    "来源标示历史采访；输入/生成未实演，访谈配图不是客户现场；排期选项停帧供阅读，不证明上线。"
+  ],
+  "recommendedEndMs": 4933,
+  "recommendedStartMs": 0,
+  "relevance": 0.8,
+  "retrievalResultRef": {
+    "artifactId": "episode-009:media-retrieval:seg-008",
+    "createdAt": "2026-10-15T03:26:15.601Z",
+    "episodeId": "episode-009",
+    "mediaType": "application/json",
+    "path": "content/episode-009/media/candidates/seg-008.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 3,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "e2aa56e1baba1c79fe220244e0d66fca938d9030e28fb7bb09db3fee93024f3e",
+    "sizeBytes": 33358
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-008",
+  "sourceSha256": "79cf7a13ead8bbab3f09899958e53c14f9dae408934ddcbaef9debbccb93ba47",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-009:media-verification:seg-008-episode-009-media-clip-e56570121c372bdd6b1075c7",
+  "verificationVersion": "fastlane-observed-v1",
+  "visualQuality": 0.88
+}

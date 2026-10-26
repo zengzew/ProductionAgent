@@ -1,0 +1,174 @@
+{
+  "requestedProvider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "provider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "providerId": "minimax",
+  "fallbackUsed": false,
+  "fallbackReason": "",
+  "generatedAt": "2026-10-16T01:31:58.131Z",
+  "voice": "Chinese (Mandarin)_Reliable_Executive",
+  "speed": 1.2,
+  "pitch": 0,
+  "normalization": "loudnorm I=-16 TP=-1.5 LRA=7",
+  "credentialRequired": true,
+  "networkRequired": true,
+  "alignmentStrategy": "provider-timestamps",
+  "files": [
+    {
+      "segmentId": "seg-001",
+      "file": "episodes/episode-009-v2/audio/seg-001.mp3",
+      "timestamps": [
+        {
+          "text": "给一个网址,AI帮你做宣传短视频。",
+          "startMs": 0,
+          "endMs": 2454.1950113378684
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-002",
+      "file": "episodes/episode-009-v2/audio/seg-002.mp3",
+      "timestamps": [
+        {
+          "text": "Fastlane的创始人高拉夫做出几个应用后,才发现还有个难题:怎么让人看见?",
+          "startMs": 0,
+          "endMs": 5263.809523809524
+        },
+        {
+          "text": "他又不想一开始就砸钱投广告。",
+          "startMs": 5364,
+          "endMs": 7179.646258503401
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-003",
+      "file": "episodes/episode-009-v2/audio/seg-003.mp3",
+      "timestamps": [
+        {
+          "text": "他和伙伴做的这个工具,会读取网站、参考相关的热门内容,再生成介绍你产品的图文和短视频。",
+          "startMs": 0,
+          "endMs": 7000
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-004",
+      "file": "episodes/episode-009-v2/audio/seg-004.mp3",
+      "timestamps": [
+        {
+          "text": "不喜欢的划走,想用的留下,选好账号,就能安排发布。",
+          "startMs": 0,
+          "endMs": 4021.5419501133783
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-005",
+      "file": "episodes/episode-009-v2/audio/seg-005.mp3",
+      "timestamps": [
+        {
+          "text": "原来要一边开发,一边想选题、写文案、剪视频。",
+          "startMs": 0,
+          "endMs": 3232.063492063492
+        },
+        {
+          "text": "现在先有一批候选,用户把时间花在挑选和调整上。",
+          "startMs": 3332,
+          "endMs": 7353.541950113378
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-006",
+      "file": "episodes/episode-009-v2/audio/seg-006.mp3",
+      "timestamps": [
+        {
+          "text": "那第一批人从哪来?",
+          "startMs": 0,
+          "endMs": 1142.267573696145
+        },
+        {
+          "text": "他们去Reddit和社交平台招募,再约报名者通话。",
+          "startMs": 1242,
+          "endMs": 4474.063492063492
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-007",
+      "file": "episodes/episode-009-v2/audio/seg-007.mp3",
+      "timestamps": [
+        {
+          "text": "通话时让对方共享屏幕,自己少说话,看他在哪一步卡住,再照着这些问题改界面。",
+          "startMs": 0,
+          "endMs": 5797.868480725624
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-008",
+      "file": "episodes/episode-009-v2/audio/seg-008.mp3",
+      "timestamps": [
+        {
+          "text": "为了让人愿意聊,应用里还有个邀请:参加访谈,多送七天使用时间。",
+          "startMs": 0,
+          "endMs": 4938.730158730159
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-009",
+      "file": "episodes/episode-009-v2/audio/seg-009.mp3",
+      "timestamps": [
+        {
+          "text": "第一位付费客户,就是一名测试用户。",
+          "startMs": 0,
+          "endMs": 2489.024943310658
+        },
+        {
+          "text": "他付钱的理由很直接:还想接着用。",
+          "startMs": 2589,
+          "endMs": 5182.5147392290255
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-010",
+      "file": "episodes/episode-009-v2/audio/seg-010.mp3",
+      "timestamps": [
+        {
+          "text": "高拉夫早期披露的年化经常性收入,已超过十二万澳元。",
+          "startMs": 0,
+          "endMs": 3487.4829931972786
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-011",
+      "file": "episodes/episode-009-v2/audio/seg-011.mp3",
+      "timestamps": [
+        {
+          "text": "当初,他为自己的应用找推广办法。",
+          "startMs": 0,
+          "endMs": 2314.8752834467123
+        },
+        {
+          "text": "这份麻烦做成工具,成了别人愿意付钱买的服务。",
+          "startMs": 2415,
+          "endMs": 5577.403628117914
+        }
+      ],
+      "timestampSource": "minimax:word"
+    }
+  ]
+}

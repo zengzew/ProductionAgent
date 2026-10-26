@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "source-first-workflow-v1",
+  "episodeId": "episode-012",
+  "coreStoryQuestion": "Photoroom怎样把抠图的麻烦变成小卖家的商品图工具，再把效果展示给更多人？",
+  "currentStatus": "story-approved",
+  "stages": [
+    {
+      "id": "research-analyst",
+      "owner": "research-analyst",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-012/research/sources.json",
+        "content/episode-012/research/facts.json",
+        "content/episode-012/research/timeline.json"
+      ],
+      "decision": "六项来源已回读并记录身份；未作独立成效验证。"
+    },
+    {
+      "id": "spine-extractor",
+      "owner": "spine-extractor",
+      "status": "complete",
+      "artifacts": ["content/episode-012/story/story-spine.md"],
+      "decision": "multi-source关系与可用画面已记录。"
+    },
+    {
+      "id": "narrative-adapter",
+      "owner": "narrative-adapter",
+      "status": "complete",
+      "artifacts": ["content/episode-012/story/script-draft.md"],
+      "decision": "九段初稿已完成，预算65秒。"
+    },
+    {
+      "id": "script-editor",
+      "owner": "script-editor",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-012/story/final-script.md",
+        "content/episode-012/story/critic-report.md"
+      ],
+      "decision": "同会话全文编辑自查已交付，用户在本聊天明确回复“授权”，允许当前文案进入配音渲染。不是独立会话审核。"
+    },
+    {
+      "id": "fact-guardian",
+      "owner": "fact-guardian",
+      "status": "complete",
+      "artifacts": ["content/episode-012/story/fact-check-report.md"],
+      "decision": "同会话按当前稿逐句核对；不声称独立审稿或人工批准。"
+    },
+    {
+      "id": "visual-director",
+      "owner": "visual-director",
+      "status": "complete",
+      "artifacts": ["content/episode-012/story/visual-plan.md"],
+      "decision": "已查看原始素材并完成可执行视觉方案；媒体准入、派生镜头与渲染未完成。"
+    },
+    {
+      "id": "delivery-critic",
+      "owner": "delivery-critic",
+      "status": "pending",
+      "artifacts": ["content/episode-012/production/delivery-critic-report.md"],
+      "decision": "当前48.4秒本地MP4及机器检查、逐段视觉与最终画面抽查完成；完整听感和独立Delivery未知，维持pending。"
+    }
+  ],
+  "decisions": []
+}

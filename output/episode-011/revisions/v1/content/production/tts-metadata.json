@@ -1,0 +1,150 @@
+{
+  "requestedProvider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "provider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "providerId": "minimax",
+  "fallbackUsed": false,
+  "fallbackReason": "",
+  "generatedAt": "2026-10-20T07:53:51.562Z",
+  "voice": "Chinese (Mandarin)_Reliable_Executive",
+  "speed": 1.2,
+  "pitch": 0,
+  "normalization": "loudnorm I=-16 TP=-1.5 LRA=7",
+  "credentialRequired": true,
+  "networkRequired": true,
+  "alignmentStrategy": "provider-timestamps",
+  "files": [
+    {
+      "segmentId": "seg-001",
+      "file": "episodes/episode-011/audio/seg-001.mp3",
+      "timestamps": [
+        {
+          "text": "大段文字,让AI变成演示图。",
+          "startMs": 0,
+          "endMs": 2454.1950113378684
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-002",
+      "file": "episodes/episode-011/audio/seg-002.mp3",
+      "timestamps": [
+        {
+          "text": "Gamma的创始人格兰特做顾问时,曾为第二天的会议熬夜准备。",
+          "startMs": 0,
+          "endMs": 4694.920634920634
+        },
+        {
+          "text": "他说,大量工夫花在排版,内容反而顾不上。",
+          "startMs": 4795,
+          "endMs": 8212.823129251701
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-003",
+      "file": "episodes/episode-011/audio/seg-003.mp3",
+      "timestamps": [
+        {
+          "text": "他找来两位老同事,想把顺序倒过来:先把话写清楚,再让工具处理版式。",
+          "startMs": 0,
+          "endMs": 5693.378684807256
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-004",
+      "file": "episodes/episode-011/audio/seg-004.mp3",
+      "timestamps": [
+        {
+          "text": "Gamma后来接入AI。",
+          "startMs": 0,
+          "endMs": 1490.5668934240362
+        },
+        {
+          "text": "输入主题或已有文字,选个样式,就能得到配好图文的初稿。",
+          "startMs": 1591,
+          "endMs": 5786.691609977324
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-005",
+      "file": "episodes/episode-011/audio/seg-005.mp3",
+      "timestamps": [
+        {
+          "text": "想换一种表达,还能让AI改布局,或把文字变成图示。",
+          "startMs": 0,
+          "endMs": 4091.201814058957
+        },
+        {
+          "text": "你要做的,是核对内容、调整重点。",
+          "startMs": 4191,
+          "endMs": 7039.9342403628125
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-006",
+      "file": "episodes/episode-011/audio/seg-006.mp3",
+      "timestamps": [
+        {
+          "text": "第一批用户,是他们找来的朋友。",
+          "startMs": 0,
+          "endMs": 2059.455782312925
+        },
+        {
+          "text": "公开测试时,又去Product Hunt发布,让陌生人直接注册。",
+          "startMs": 2159,
+          "endMs": 6285.0317460317465
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-007",
+      "file": "episodes/episode-011/audio/seg-007.mp3",
+      "timestamps": [
+        {
+          "text": "格兰特说,他们还主动邀请用户通话,问清楚哪里不好用,再继续改。",
+          "startMs": 0,
+          "endMs": 4451.111111111111
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-008",
+      "file": "episodes/episode-011/audio/seg-008.mp3",
+      "timestamps": [
+        {
+          "text": "到二零二五年十一月,公司披露新融了六千八百万美元,估值二十一亿美元。",
+          "startMs": 0,
+          "endMs": 6041.678004535147
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-009",
+      "file": "episodes/episode-011/audio/seg-009.mp3",
+      "timestamps": [
+        {
+          "text": "回头看,当初他熬夜,是在让一页页幻灯片好看。",
+          "startMs": 0,
+          "endMs": 3557.142857142857
+        },
+        {
+          "text": "现在,先拿到一份能改的稿子,再把时间花在要讲的事上。",
+          "startMs": 3657,
+          "endMs": 7957.181405895692
+        }
+      ],
+      "timestampSource": "minimax:word"
+    }
+  ]
+}

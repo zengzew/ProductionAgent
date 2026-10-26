@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-009-v2",
+  "segmentId": "seg-005",
+  "clipId": "episode-009-v2:media-clip:531a0771711f324102898528",
+  "claimIds": [
+    "claim-fastlane-001"
+  ],
+  "claims": [
+    {
+      "id": "claim-fastlane-001",
+      "claim": "Gaurav在采访中介绍，Fastlane读取产品网站并生成相关营销短内容；演示从已生成内容开始，用户滑卡挑选后排期发布。"
+    }
+  ],
+  "narration": "原来要一边开发,一边想选题、写文案、剪视频。现在先有一批候选,用户把时间花在挑选和调整上。",
+  "visualIntent": "为产品生成的候选画面,解释用途,不承诺无需修改或效果;以真实已生成候选承接“挑选”,不声称全自动完成或无需修改。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/verifications/seg-005/episode-009-v2-media-clip-531a0771711f324102898528-clip.mp4",
+    "sha256": "53561e6a34b836cb32e616651453f8f085a3a4ab05df2a33fa778eb95e8a575d",
+    "sizeBytes": 2761513,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 7633,
+    "sourceMediaId": "episode-009-v2:media:seg-005-0c10c518aa99",
+    "sourceMediaSha256": "0c10c518aa9908221daa6d1b6e35979ae5c1e0da8c9f894d5c76e19751bf3f24"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/indexes/seg-005-0c10c518aa99/keyframes/keyframe-0-3816.jpg",
+      "timestampMs": 3816,
+      "sha256": "14e5bd608e7b5507bf53f91814d650dc918c89ba9d75780a2567122a456a15b0",
+      "sizeBytes": 54273,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "同一产品候选从图文到短视频切换，X、Edit和接受控件可见；不是营销效果证据。",
+    "observedText": "",
+    "keywords": [
+      "seg-005",
+      "Fastlane",
+      "产品"
+    ],
+    "entities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "06c984cd6a6372d77d129332d48193e882ca27af18b7058b0655b614d0eb6eab"
+}

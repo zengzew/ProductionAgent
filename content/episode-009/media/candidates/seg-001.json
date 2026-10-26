@@ -1,0 +1,880 @@
+{
+  "cacheKey": "36ff65f795928297535bd5beaa2c855a51c1d7383e910a45a89dd2fd9312e05d",
+  "candidates": [
+    {
+      "clipId": "episode-009:media-clip:bf1804fd1b57a1366dc39f44",
+      "endMs": 2067,
+      "episodeId": "episode-009",
+      "indexRef": {
+        "artifactId": "episode-009:media-clip-index:seg-001-08cced478071",
+        "createdAt": "2026-10-15T03:24:41.673Z",
+        "episodeId": "episode-009",
+        "mediaType": "application/json",
+        "path": "content/episode-009/media/indexes/seg-001-08cced478071/clip-index.json",
+        "producer": "media-understanding-v1:index:08cced478071c65e",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "0fb27e0f5bb2863b510bd75417b85bcbb1ca561896304c3b30171c7b974386fd",
+        "sizeBytes": 4237
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-009:media:seg-001-08cced478071",
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-001-08cced478071",
+        "createdAt": "2026-10-15T03:24:38.076Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-001-08cced478071.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "08cced478071c65eb50aaafc692004f3d84f99e5b8646543d5eed439d464862d",
+        "sizeBytes": 312708
+      },
+      "mediaSourceId": "episode-009:media-source:fastlane-interview",
+      "rank": 1,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 1.000 (2067ms)"
+      ],
+      "score": 0.15,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 1,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-009:media-clip:c6465bcecc5c0f1e8d7fea6e",
+      "endMs": 2067,
+      "episodeId": "episode-009",
+      "indexRef": {
+        "artifactId": "episode-009:media-clip-index:seg-001-17127ec8f8d7",
+        "createdAt": "2026-10-15T03:23:24.669Z",
+        "episodeId": "episode-009",
+        "mediaType": "application/json",
+        "path": "content/episode-009/media/indexes/seg-001-17127ec8f8d7/clip-index.json",
+        "producer": "media-understanding-v1:index:17127ec8f8d7a06b",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "6fdf636dd9eed4532080203e30a420d892be36e1ceabc67910dddc3e5768d48d",
+        "sizeBytes": 4237
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-009:media:seg-001-17127ec8f8d7",
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-001-17127ec8f8d7",
+        "createdAt": "2026-10-15T03:22:49.836Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-001-17127ec8f8d7.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "17127ec8f8d7a06bdb9188ac85a0b8082a5e57baf1e8bb1cfeb305f83f3fc193",
+        "sizeBytes": 278495
+      },
+      "mediaSourceId": "episode-009:media-source:fastlane-interview",
+      "rank": 2,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 1.000 (2067ms)"
+      ],
+      "score": 0.15,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 1,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-009:media-clip:9fc342edbc851e8e67ade2cb",
+      "endMs": 3466,
+      "episodeId": "episode-009",
+      "indexRef": {
+        "artifactId": "episode-009:media-clip-index:seg-003-82fe60f79651",
+        "createdAt": "2026-10-15T03:26:14.439Z",
+        "episodeId": "episode-009",
+        "mediaType": "application/json",
+        "path": "content/episode-009/media/indexes/seg-003-82fe60f79651/clip-index.json",
+        "producer": "media-understanding-v1:index:82fe60f79651bb11",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "ac31e957f47959527f3487258e4a974803efbf0b5ff29cae6dc82b8c22c4705f",
+        "sizeBytes": 4236
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-009:media:seg-003-82fe60f79651",
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-003-82fe60f79651",
+        "createdAt": "2026-10-15T03:26:12.180Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-003-82fe60f79651.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "82fe60f79651bb11c9e7bced9a8f97751963a8bf548509b5addc81c8d6c3ff38",
+        "sizeBytes": 449806
+      },
+      "mediaSourceId": "episode-009:media-source:fastlane-interview",
+      "rank": 3,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.323 (3466ms)"
+      ],
+      "score": 0.116159,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.323174,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-009:media-clip:4c122eb05452daee1d31376f",
+      "endMs": 3467,
+      "episodeId": "episode-009",
+      "indexRef": {
+        "artifactId": "episode-009:media-clip-index:seg-003-611c313f4fd6",
+        "createdAt": "2026-10-15T03:23:24.792Z",
+        "episodeId": "episode-009",
+        "mediaType": "application/json",
+        "path": "content/episode-009/media/indexes/seg-003-611c313f4fd6/clip-index.json",
+        "producer": "media-understanding-v1:index:611c313f4fd6948a",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "e1d03bb32972aba6146b21847aedeb7733b05dd99582478ad8df3f9adc483535",
+        "sizeBytes": 4236
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-009:media:seg-003-611c313f4fd6",
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-003-611c313f4fd6",
+        "createdAt": "2026-10-15T03:22:50.193Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-003-611c313f4fd6.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "611c313f4fd6948a127a2dd5ba61498816a2029149b2044d4a8bae1035d2b363",
+        "sizeBytes": 362058
+      },
+      "mediaSourceId": "episode-009:media-source:fastlane-interview",
+      "rank": 4,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.323 (3467ms)"
+      ],
+      "score": 0.116134,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.32269,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-009:media-clip:a8ecf7db0293d6c356fdbf46",
+      "endMs": 3467,
+      "episodeId": "episode-009",
+      "indexRef": {
+        "artifactId": "episode-009:media-clip-index:seg-003-b4acd7fdc8b4",
+        "createdAt": "2026-10-15T03:24:41.829Z",
+        "episodeId": "episode-009",
+        "mediaType": "application/json",
+        "path": "content/episode-009/media/indexes/seg-003-b4acd7fdc8b4/clip-index.json",
+        "producer": "media-understanding-v1:index:b4acd7fdc8b4ea27",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "c4559344a5f309e628d05e2d14a20c540bdca45c7e05151a0ecef4602341e2c5",
+        "sizeBytes": 4236
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-009:media:seg-003-b4acd7fdc8b4",
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-003-b4acd7fdc8b4",
+        "createdAt": "2026-10-15T03:24:38.465Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-003-b4acd7fdc8b4.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "b4acd7fdc8b4ea270458e10ef3b920fd933e33fda2b26158f785a4f1570ddc5e",
+        "sizeBytes": 349874
+      },
+      "mediaSourceId": "episode-009:media-source:fastlane-interview",
+      "rank": 5,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.323 (3467ms)"
+      ],
+      "score": 0.116134,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.32269,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-009:media-clip:9619d1c4c78a49d8422c9e5d",
+      "endMs": 4767,
+      "episodeId": "episode-009",
+      "indexRef": {
+        "artifactId": "episode-009:media-clip-index:seg-004-04d07bc92f62",
+        "createdAt": "2026-10-15T03:24:41.971Z",
+        "episodeId": "episode-009",
+        "mediaType": "application/json",
+        "path": "content/episode-009/media/indexes/seg-004-04d07bc92f62/clip-index.json",
+        "producer": "media-understanding-v1:index:04d07bc92f6260a0",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "8b11800811cc6c866121b3b8f5d9719c9cb4e35dfad207e6a9d9c8650fa73a3c",
+        "sizeBytes": 4266
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-009:media:seg-004-04d07bc92f62",
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-004-04d07bc92f62",
+        "createdAt": "2026-10-15T03:24:38.953Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-004-04d07bc92f62.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "04d07bc92f6260a0929adf214ac90c72f92240b20fbbd1420348b3a9e590a098",
+        "sizeBytes": 258273
+      },
+      "mediaSourceId": "episode-009:media-source:fastlane-interview",
+      "rank": 6,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.000 (4767ms)"
+      ],
+      "score": 0.1,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-009:media-clip:075ef5723fac9ada77f91626",
+      "endMs": 4767,
+      "episodeId": "episode-009",
+      "indexRef": {
+        "artifactId": "episode-009:media-clip-index:seg-004-4ba465f5171d",
+        "createdAt": "2026-10-15T03:26:14.619Z",
+        "episodeId": "episode-009",
+        "mediaType": "application/json",
+        "path": "content/episode-009/media/indexes/seg-004-4ba465f5171d/clip-index.json",
+        "producer": "media-understanding-v1:index:4ba465f5171d0a93",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "e98300a7b5219734bb2ca1abcdf9289d08936fd6e77045920a823ec3daa4083c",
+        "sizeBytes": 4263
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-009:media:seg-004-4ba465f5171d",
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-004-4ba465f5171d",
+        "createdAt": "2026-10-15T03:26:12.774Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-004-4ba465f5171d.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "4ba465f5171d0a933e0d2e4887909f0c101bb9e2ddbdeec753296ff158d8acb6",
+        "sizeBytes": 75907
+      },
+      "mediaSourceId": "episode-009:media-source:fastlane-interview",
+      "rank": 7,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.000 (4767ms)"
+      ],
+      "score": 0.1,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-009:media-clip:1aba187fb72a7913bd63f021",
+      "endMs": 4767,
+      "episodeId": "episode-009",
+      "indexRef": {
+        "artifactId": "episode-009:media-clip-index:seg-004-851b45befd2a",
+        "createdAt": "2026-10-15T03:23:24.905Z",
+        "episodeId": "episode-009",
+        "mediaType": "application/json",
+        "path": "content/episode-009/media/indexes/seg-004-851b45befd2a/clip-index.json",
+        "producer": "media-understanding-v1:index:851b45befd2a6a76",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "4d18b243282fefcd5f106f4c92225d58b1240e2c1491de6c0586624c19089083",
+        "sizeBytes": 4266
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-009:media:seg-004-851b45befd2a",
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-004-851b45befd2a",
+        "createdAt": "2026-10-15T03:22:50.690Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-004-851b45befd2a.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "851b45befd2a6a7646de6da6e8d7eec00534a3e23a9c02d227eea8cb0fcf7632",
+        "sizeBytes": 312682
+      },
+      "mediaSourceId": "episode-009:media-source:fastlane-interview",
+      "rank": 8,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.000 (4767ms)"
+      ],
+      "score": 0.1,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-009:media-clip:7c425fa40956856434a60c73",
+      "endMs": 4733,
+      "episodeId": "episode-009",
+      "indexRef": {
+        "artifactId": "episode-009:media-clip-index:seg-005-0b0db1888d8c",
+        "createdAt": "2026-10-15T03:24:42.129Z",
+        "episodeId": "episode-009",
+        "mediaType": "application/json",
+        "path": "content/episode-009/media/indexes/seg-005-0b0db1888d8c/clip-index.json",
+        "producer": "media-understanding-v1:index:0b0db1888d8c5cce",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "41c3894d227284a40e026371c76169de96f7244ab484fe4ea5c6cad0195abbfe",
+        "sizeBytes": 4233
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-009:media:seg-005-0b0db1888d8c",
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-005-0b0db1888d8c",
+        "createdAt": "2026-10-15T03:24:39.529Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-005-0b0db1888d8c.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "0b0db1888d8c5ccecb796bc36e991c20e9183a4d72b2f028057ee0fe120afa4a",
+        "sizeBytes": 1309969
+      },
+      "mediaSourceId": "episode-009:media-source:fastlane-interview",
+      "rank": 9,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.000 (4733ms)"
+      ],
+      "score": 0.1,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-009:media-clip:acbf923f737dd39ad8beff54",
+      "endMs": 4733,
+      "episodeId": "episode-009",
+      "indexRef": {
+        "artifactId": "episode-009:media-clip-index:seg-005-cd2be8ce1c51",
+        "createdAt": "2026-10-15T03:23:25.034Z",
+        "episodeId": "episode-009",
+        "mediaType": "application/json",
+        "path": "content/episode-009/media/indexes/seg-005-cd2be8ce1c51/clip-index.json",
+        "producer": "media-understanding-v1:index:cd2be8ce1c51c105",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "05820eda413d512c503fb9366283981331b4156ef9a8ca27efeb8ad6b53c3ddf",
+        "sizeBytes": 4233
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-009:media:seg-005-cd2be8ce1c51",
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-005-cd2be8ce1c51",
+        "createdAt": "2026-10-15T03:22:51.252Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-005-cd2be8ce1c51.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "cd2be8ce1c51c105346e6230e39324d3e7fe1e97de9529a055b9d8e77b47907b",
+        "sizeBytes": 1388996
+      },
+      "mediaSourceId": "episode-009:media-source:fastlane-interview",
+      "rank": 10,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.000 (4733ms)"
+      ],
+      "score": 0.1,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-009:media-clip:e56570121c372bdd6b1075c7",
+      "endMs": 4933,
+      "episodeId": "episode-009",
+      "indexRef": {
+        "artifactId": "episode-009:media-clip-index:seg-008-79cf7a13ead8",
+        "createdAt": "2026-10-15T03:23:25.161Z",
+        "episodeId": "episode-009",
+        "mediaType": "application/json",
+        "path": "content/episode-009/media/indexes/seg-008-79cf7a13ead8/clip-index.json",
+        "producer": "media-understanding-v1:index:79cf7a13ead8bbab",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "65c9d152bcf00d304fa859dc467b177b7100b099b3a5bc082748797d9cb2d300",
+        "sizeBytes": 4248
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-009:media:seg-008-79cf7a13ead8",
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-008-79cf7a13ead8",
+        "createdAt": "2026-10-15T03:22:52.291Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-008-79cf7a13ead8.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "79cf7a13ead8bbab3f09899958e53c14f9dae408934ddcbaef9debbccb93ba47",
+        "sizeBytes": 1396163
+      },
+      "mediaSourceId": "episode-009:media-source:fastlane-interview",
+      "rank": 11,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.000 (4933ms)"
+      ],
+      "score": 0.1,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-009:media-clip:8b86b22f73c7c9f20f6473a9",
+      "endMs": 6700,
+      "episodeId": "episode-009",
+      "indexRef": {
+        "artifactId": "episode-009:media-clip-index:seg-010-2b4c9d8dfded",
+        "createdAt": "2026-10-15T03:23:25.288Z",
+        "episodeId": "episode-009",
+        "mediaType": "application/json",
+        "path": "content/episode-009/media/indexes/seg-010-2b4c9d8dfded/clip-index.json",
+        "producer": "media-understanding-v1:index:2b4c9d8dfdeda05c",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "d0adbc543547a26dde8861413e3ca6fe0a461b37ddb819dfa3ee056863929d3d",
+        "sizeBytes": 4238
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-009:media:seg-010-2b4c9d8dfded",
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-010-2b4c9d8dfded",
+        "createdAt": "2026-10-15T03:22:53.313Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-010-2b4c9d8dfded.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "2b4c9d8dfdeda05c4710c17d941245ef1e564ec591d6fdae03ddf1cd59e69da2",
+        "sizeBytes": 560524
+      },
+      "mediaSourceId": "episode-009:media-source:fastlane-interview",
+      "rank": 12,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.000 (6700ms)"
+      ],
+      "score": 0.1,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-009:media-clip:283df1fc7ff9e9071cadeb55",
+      "endMs": 6700,
+      "episodeId": "episode-009",
+      "indexRef": {
+        "artifactId": "episode-009:media-clip-index:seg-010-ce4376085341",
+        "createdAt": "2026-10-15T03:26:14.874Z",
+        "episodeId": "episode-009",
+        "mediaType": "application/json",
+        "path": "content/episode-009/media/indexes/seg-010-ce4376085341/clip-index.json",
+        "producer": "media-understanding-v1:index:ce4376085341b5a3",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "00f2f1e399b65d5f89209dea707d734db076389962c169977d0a98bffc114e4b",
+        "sizeBytes": 4238
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-009:media:seg-010-ce4376085341",
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-010-ce4376085341",
+        "createdAt": "2026-10-15T03:26:13.403Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-010-ce4376085341.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "ce4376085341b5a3016daf53af810234a2ef789e101cc8922b9c8dc0994354d9",
+        "sizeBytes": 358347
+      },
+      "mediaSourceId": "episode-009:media-source:fastlane-interview",
+      "rank": 13,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.000 (6700ms)"
+      ],
+      "score": 0.1,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-009:media-clip:e873d77fa2fe6909eba214bf",
+      "endMs": 6700,
+      "episodeId": "episode-009",
+      "indexRef": {
+        "artifactId": "episode-009:media-clip-index:seg-010-f063135d193f",
+        "createdAt": "2026-10-15T03:24:42.303Z",
+        "episodeId": "episode-009",
+        "mediaType": "application/json",
+        "path": "content/episode-009/media/indexes/seg-010-f063135d193f/clip-index.json",
+        "producer": "media-understanding-v1:index:f063135d193fbb87",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "7a13058ad7e2b4b33635f59e73949352a43f8ed6f009209a7c44de4fa93f11f0",
+        "sizeBytes": 4238
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-009:media:seg-010-f063135d193f",
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-010-f063135d193f",
+        "createdAt": "2026-10-15T03:24:40.661Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-010-f063135d193f.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "f063135d193fbb8744ec490defd8dd4facaab2b997c926a1c2292ad06aca08c3",
+        "sizeBytes": 471564
+      },
+      "mediaSourceId": "episode-009:media-source:fastlane-interview",
+      "rank": 14,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.000 (6700ms)"
+      ],
+      "score": 0.1,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    }
+  ],
+  "claimLedger": {
+    "path": "content/episode-009/research/facts.json",
+    "sha256": "34476612c2f6ce31b6aaf7193a7dcba4b9fa0886476e96488b619255059662ad",
+    "sizeBytes": 10147
+  },
+  "clipIndexRefs": [
+    {
+      "artifactId": "episode-009:media-clip-index:seg-001-08cced478071",
+      "createdAt": "2026-10-15T03:24:41.673Z",
+      "episodeId": "episode-009",
+      "mediaType": "application/json",
+      "path": "content/episode-009/media/indexes/seg-001-08cced478071/clip-index.json",
+      "producer": "media-understanding-v1:index:08cced478071c65e",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "0fb27e0f5bb2863b510bd75417b85bcbb1ca561896304c3b30171c7b974386fd",
+      "sizeBytes": 4237
+    },
+    {
+      "artifactId": "episode-009:media-clip-index:seg-001-17127ec8f8d7",
+      "createdAt": "2026-10-15T03:23:24.669Z",
+      "episodeId": "episode-009",
+      "mediaType": "application/json",
+      "path": "content/episode-009/media/indexes/seg-001-17127ec8f8d7/clip-index.json",
+      "producer": "media-understanding-v1:index:17127ec8f8d7a06b",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "6fdf636dd9eed4532080203e30a420d892be36e1ceabc67910dddc3e5768d48d",
+      "sizeBytes": 4237
+    },
+    {
+      "artifactId": "episode-009:media-clip-index:seg-003-611c313f4fd6",
+      "createdAt": "2026-10-15T03:23:24.792Z",
+      "episodeId": "episode-009",
+      "mediaType": "application/json",
+      "path": "content/episode-009/media/indexes/seg-003-611c313f4fd6/clip-index.json",
+      "producer": "media-understanding-v1:index:611c313f4fd6948a",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "e1d03bb32972aba6146b21847aedeb7733b05dd99582478ad8df3f9adc483535",
+      "sizeBytes": 4236
+    },
+    {
+      "artifactId": "episode-009:media-clip-index:seg-003-82fe60f79651",
+      "createdAt": "2026-10-15T03:26:14.439Z",
+      "episodeId": "episode-009",
+      "mediaType": "application/json",
+      "path": "content/episode-009/media/indexes/seg-003-82fe60f79651/clip-index.json",
+      "producer": "media-understanding-v1:index:82fe60f79651bb11",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "ac31e957f47959527f3487258e4a974803efbf0b5ff29cae6dc82b8c22c4705f",
+      "sizeBytes": 4236
+    },
+    {
+      "artifactId": "episode-009:media-clip-index:seg-003-b4acd7fdc8b4",
+      "createdAt": "2026-10-15T03:24:41.829Z",
+      "episodeId": "episode-009",
+      "mediaType": "application/json",
+      "path": "content/episode-009/media/indexes/seg-003-b4acd7fdc8b4/clip-index.json",
+      "producer": "media-understanding-v1:index:b4acd7fdc8b4ea27",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "c4559344a5f309e628d05e2d14a20c540bdca45c7e05151a0ecef4602341e2c5",
+      "sizeBytes": 4236
+    },
+    {
+      "artifactId": "episode-009:media-clip-index:seg-004-04d07bc92f62",
+      "createdAt": "2026-10-15T03:24:41.971Z",
+      "episodeId": "episode-009",
+      "mediaType": "application/json",
+      "path": "content/episode-009/media/indexes/seg-004-04d07bc92f62/clip-index.json",
+      "producer": "media-understanding-v1:index:04d07bc92f6260a0",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "8b11800811cc6c866121b3b8f5d9719c9cb4e35dfad207e6a9d9c8650fa73a3c",
+      "sizeBytes": 4266
+    },
+    {
+      "artifactId": "episode-009:media-clip-index:seg-004-4ba465f5171d",
+      "createdAt": "2026-10-15T03:26:14.619Z",
+      "episodeId": "episode-009",
+      "mediaType": "application/json",
+      "path": "content/episode-009/media/indexes/seg-004-4ba465f5171d/clip-index.json",
+      "producer": "media-understanding-v1:index:4ba465f5171d0a93",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "e98300a7b5219734bb2ca1abcdf9289d08936fd6e77045920a823ec3daa4083c",
+      "sizeBytes": 4263
+    },
+    {
+      "artifactId": "episode-009:media-clip-index:seg-004-851b45befd2a",
+      "createdAt": "2026-10-15T03:23:24.905Z",
+      "episodeId": "episode-009",
+      "mediaType": "application/json",
+      "path": "content/episode-009/media/indexes/seg-004-851b45befd2a/clip-index.json",
+      "producer": "media-understanding-v1:index:851b45befd2a6a76",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "4d18b243282fefcd5f106f4c92225d58b1240e2c1491de6c0586624c19089083",
+      "sizeBytes": 4266
+    },
+    {
+      "artifactId": "episode-009:media-clip-index:seg-005-0b0db1888d8c",
+      "createdAt": "2026-10-15T03:24:42.129Z",
+      "episodeId": "episode-009",
+      "mediaType": "application/json",
+      "path": "content/episode-009/media/indexes/seg-005-0b0db1888d8c/clip-index.json",
+      "producer": "media-understanding-v1:index:0b0db1888d8c5cce",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "41c3894d227284a40e026371c76169de96f7244ab484fe4ea5c6cad0195abbfe",
+      "sizeBytes": 4233
+    },
+    {
+      "artifactId": "episode-009:media-clip-index:seg-005-cd2be8ce1c51",
+      "createdAt": "2026-10-15T03:23:25.034Z",
+      "episodeId": "episode-009",
+      "mediaType": "application/json",
+      "path": "content/episode-009/media/indexes/seg-005-cd2be8ce1c51/clip-index.json",
+      "producer": "media-understanding-v1:index:cd2be8ce1c51c105",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "05820eda413d512c503fb9366283981331b4156ef9a8ca27efeb8ad6b53c3ddf",
+      "sizeBytes": 4233
+    },
+    {
+      "artifactId": "episode-009:media-clip-index:seg-008-79cf7a13ead8",
+      "createdAt": "2026-10-15T03:23:25.161Z",
+      "episodeId": "episode-009",
+      "mediaType": "application/json",
+      "path": "content/episode-009/media/indexes/seg-008-79cf7a13ead8/clip-index.json",
+      "producer": "media-understanding-v1:index:79cf7a13ead8bbab",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "65c9d152bcf00d304fa859dc467b177b7100b099b3a5bc082748797d9cb2d300",
+      "sizeBytes": 4248
+    },
+    {
+      "artifactId": "episode-009:media-clip-index:seg-010-2b4c9d8dfded",
+      "createdAt": "2026-10-15T03:23:25.288Z",
+      "episodeId": "episode-009",
+      "mediaType": "application/json",
+      "path": "content/episode-009/media/indexes/seg-010-2b4c9d8dfded/clip-index.json",
+      "producer": "media-understanding-v1:index:2b4c9d8dfdeda05c",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "d0adbc543547a26dde8861413e3ca6fe0a461b37ddb819dfa3ee056863929d3d",
+      "sizeBytes": 4238
+    },
+    {
+      "artifactId": "episode-009:media-clip-index:seg-010-ce4376085341",
+      "createdAt": "2026-10-15T03:26:14.874Z",
+      "episodeId": "episode-009",
+      "mediaType": "application/json",
+      "path": "content/episode-009/media/indexes/seg-010-ce4376085341/clip-index.json",
+      "producer": "media-understanding-v1:index:ce4376085341b5a3",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "00f2f1e399b65d5f89209dea707d734db076389962c169977d0a98bffc114e4b",
+      "sizeBytes": 4238
+    },
+    {
+      "artifactId": "episode-009:media-clip-index:seg-010-f063135d193f",
+      "createdAt": "2026-10-15T03:24:42.303Z",
+      "episodeId": "episode-009",
+      "mediaType": "application/json",
+      "path": "content/episode-009/media/indexes/seg-010-f063135d193f/clip-index.json",
+      "producer": "media-understanding-v1:index:f063135d193fbb87",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "7a13058ad7e2b4b33635f59e73949352a43f8ed6f009209a7c44de4fa93f11f0",
+      "sizeBytes": 4238
+    }
+  ],
+  "createdAt": "2026-10-15T03:26:15.182Z",
+  "episodeId": "episode-009",
+  "evidenceMode": "independent-b-roll",
+  "gate": {
+    "claimLedgerValid": true,
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true
+  },
+  "rankingConfig": {
+    "claimlessPenalty": 0.5,
+    "minRelevanceScore": 0.1,
+    "version": "media-retrieval-ranking-v1",
+    "weights": {
+      "claim": 0.4,
+      "duration": 0.05,
+      "lexical": 0.2,
+      "metadata": 0.15,
+      "sourcePreference": 0.1,
+      "visualIntent": 0.1
+    }
+  },
+  "request": {
+    "claimIds": [
+      "claim-fastlane-001",
+      "claim-fastlane-002"
+    ],
+    "durationTargetMs": 2067,
+    "episodeId": "episode-009",
+    "narration": "产品有了,宣传视频怎么拍?",
+    "preferredMediaTypes": [
+      "video"
+    ],
+    "schemaVersion": "media-retrieval-request-v1",
+    "segmentId": "seg-001",
+    "topK": 50,
+    "visualIntent": "第一帧给出历史演示中为Cal AI制作的候选内容,让产品名称、营销用途和具体例子同时可见;裁掉参考视频浏览量,不从采访人脸起步。",
+    "visualTrackMode": "independent-b-roll"
+  },
+  "schemaVersion": "media-retrieval-result-v1",
+  "segmentId": "seg-001"
+}

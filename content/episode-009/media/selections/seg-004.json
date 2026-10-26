@@ -1,0 +1,98 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-009:media-visual-slot:seg-004",
+    "createdAt": "2026-10-15T03:26:41.236Z",
+    "episodeId": "episode-009",
+    "mediaType": "application/json",
+    "path": "content/episode-009/media/selections/seg-004.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "10c67498919592ccd009606fb197e6ecd202bc2dae44d3d1ee61f13a6980cfb0",
+    "sizeBytes": 3564
+  },
+  "claimIds": [
+    "claim-fastlane-001"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.85,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": false
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0,
+      "durationSuitability": 0.1,
+      "misleadingRiskSafety": 0.15,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.15,
+      "verificationClaimMatch": 0,
+      "verificationRelevance": 0.05,
+      "visualIntentFit": 0.15,
+      "visualQuality": 0.25
+    }
+  },
+  "createdAt": "2026-10-15T03:26:41.236Z",
+  "episodeId": "episode-009",
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true,
+    "verificationPassed": true
+  },
+  "reasons": [
+    "segment seg-004 claim-bound with 1 claim(s)",
+    "retrieval result episode-009:media-retrieval:seg-004 produced 14 candidate(s)",
+    "1 candidate(s) carry a valid pass verification",
+    "selected episode-009:media-clip:075ef5723fac9ada77f91626 score 0.704071 (claimFit=0.000, relevance=0.940, claimMatch=0.920, quality=0.880, risk=0.060, tie-breaker=score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-004",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-fastlane-001"
+    ],
+    "clipId": "episode-009:media-clip:075ef5723fac9ada77f91626",
+    "createdAt": "2026-10-15T03:26:40.201Z",
+    "endMs": 4767,
+    "episodeId": "episode-009",
+    "mediaId": "episode-009:media:seg-004-4ba465f5171d",
+    "sourceMediaRef": {
+      "artifactId": "episode-009:media:seg-004-4ba465f5171d",
+      "createdAt": "2026-10-15T03:26:12.774Z",
+      "episodeId": "episode-009",
+      "mediaType": "video/mp4",
+      "path": "content/episode-009/media/assets/seg-004-4ba465f5171d.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "4ba465f5171d0a933e0d2e4887909f0c101bb9e2ddbdeec753296ff158d8acb6",
+      "sizeBytes": 75907
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "接着同一段13:22–13:37实演,呈现选账号后进入Schedule页的连续动作;局部放大Post ASAP与Schedule for later两项,让「现在/以后」可读。关键动作之间不用不相关素材遮挡,未拍到的上线结果不补造。"
+  },
+  "selectedType": "real-media",
+  "selectionScore": 0.704071,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-009:media-visual-slot:seg-004",
+  "verificationRef": {
+    "artifactId": "episode-009:media-verification:seg-004-episode-009-media-clip-075ef5723fac9ada77f91626",
+    "createdAt": "2026-10-15T03:26:40.208Z",
+    "episodeId": "episode-009",
+    "mediaType": "application/json",
+    "path": "content/episode-009/media/verifications/seg-004/episode-009-media-clip-075ef5723fac9ada77f91626.json",
+    "producer": "media-verification-v1:codex:fastlane-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "b5f18a09cd26f267f64d109c5dca8ad8b858330825328c892df6a40d7fea2c2a",
+    "sizeBytes": 4778
+  },
+  "visualIntent": "接着同一段13:22–13:37实演,呈现选账号后进入Schedule页的连续动作;局部放大Post ASAP与Schedule for later两项,让「现在/以后」可读。关键动作之间不用不相关素材遮挡,未拍到的上线结果不补造。"
+}

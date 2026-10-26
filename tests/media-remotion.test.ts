@@ -79,6 +79,7 @@ import {
   mediaShotAudioGainsAtFrame,
   mediaShotDuckingGainFactor,
   mediaShotSchema,
+  mediaRenderPlanSchema,
   mediaShotTransformAtFrame,
   mediaShotVideoOpacityAtFrame,
   normalizeMediaShotGains,
@@ -1713,10 +1714,18 @@ describe("WP-M5.08 render plan (timeline-bound projection for the generic compos
     },
   );
 
-  itSlow("is deterministic and fails closed when the timeline or media goes stale", async () => {
+  itSlow("rejects stale titles, timelines and media", async () => {
     const repoRoot = temporaryRepo();
     const episodeId = "episode-003";
     const {fixture} = await setupSelectedRealMedia(repoRoot, episodeId);
+    const configPath = path.join(repoRoot, "content", episodeId, "episode.config.json");
+    const referenceStory = {
+      profile: "golden-reference-v1",
+      headline: "演示一个产品动作",
+      resultLine: "看见真实结果",
+      claimIds: fixture.request.claimIds,
+    };
+    fs.writeFileSync(configPath, JSON.stringify({production: {referenceStory}}));
     const timeline = makeTimeline(episodeId, [
       {id: "seg-001", claimIds: fixture.request.claimIds, startFrame: 0, durationFrames: 150},
     ]);
@@ -1751,6 +1760,29 @@ describe("WP-M5.08 render plan (timeline-bound projection for the generic compos
     });
     // Identical timeline/render input (fixed clock) → identical plan bytes.
     expect(planB.artifactRef.sha256).toBe(planA.artifactRef.sha256);
+    expect(planB.config.referenceStory).toEqual(referenceStory);
+    expect(planB.shots[0]?.config.referenceStory).toEqual(referenceStory);
+    expect(() => assertMediaRenderPlanRenderable({repoRoot, episodeId})).not.toThrow();
+    const unsupportedPip = structuredClone(planB);
+    unsupportedPip.shots[0]!.transform.pip = {
+      enabled: true,
+      position: "bottom-right",
+      size: 0.25,
+      borderRadius: 18,
+      borderColor: "#ffffff",
+      shadow: true,
+    };
+    expect(mediaRenderPlanSchema.safeParse(unsupportedPip).success).toBe(false);
+    fs.writeFileSync(
+      configPath,
+      JSON.stringify({
+        production: {referenceStory: {...referenceStory, resultLine: "修改后的标题"}},
+      }),
+    );
+    expect(() => assertMediaRenderPlanRenderable({repoRoot, episodeId})).toThrow(
+      /MEDIA_RENDER_PRESENTATION_STALE/u,
+    );
+    fs.writeFileSync(configPath, JSON.stringify({production: {referenceStory}}));
 
     // A stale timeline file fails closed at authorization.
     fs.appendFileSync(
@@ -1868,10 +1900,17 @@ describe("WP-M5.08 render plan (timeline-bound projection for the generic compos
         episodeId,
         timeline,
         timelineSha256,
+        overlays: {sourceLabel: "shared source"},
+        overlaysBySegment: {
+          "seg-001": {sourceLabel: "Editorial diagram with source excerpt", badge: null},
+          "seg-002": {sourceLabel: "Different project"},
+        },
         proxyExtractor: createStubRenderProxyExtractor(),
         cacheDependencyHashes: FIXED_DEPENDENCY_HASHES,
         now: () => FIXED_NOW,
       });
+      expect(plan.shots[0]?.overlays.sourceLabel).toBe("Editorial diagram with source excerpt");
+      expect(plan.shots[0]?.overlays.badge).toBeNull();
       expect(plan.shots[0]?.visualType).toBe("official-screenshot");
       expect(plan.shots[0]?.fallbackImagePath).toMatch(/episodes\/episode-003\/media\/.+\.png$/u);
       expect(assertMediaMixReadyToRender({repoRoot, episodeId}).artifactRef.sha256).toBe(

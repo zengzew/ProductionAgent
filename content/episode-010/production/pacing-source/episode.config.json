@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "episode-config-v2",
+  "kind": "episode",
+  "id": "episode-010",
+  "slug": "granola-human-guided-meeting-notes",
+  "product": "Granola",
+  "title": "开会记几个词，AI补成完整笔记",
+  "language": "zh-CN",
+  "targetSeconds": 60,
+  "production": {
+    "timelineTailSeconds": {},
+    "hookAttributionSubjects": [
+      "Granola",
+      "创始人"
+    ],
+    "referenceStory": {
+      "profile": "golden-reference-v1",
+      "headline": "Granola 随手记，AI补全",
+      "resultLine": "重点由你来定，细节交给AI",
+      "claimIds": [
+        "claim-granola-001",
+        "claim-granola-002"
+      ]
+    }
+  },
+  "selection": "selected",
+  "selectionReason": "全新产品；创始人发布文章提供需求与设计，历史官方演示能展示笔记补全，早期传播及融资均有第一方来源。执行Fastlane V2质量基准。",
+  "publishStatus": "evaluation",
+  "publishBlocker": "本地有声观看版；用户成片评价、完整听感及外部发布权利仍待终审。",
+  "asOf": "2026-10-16",
+  "captureAssets": []
+}

@@ -1,0 +1,28 @@
+{
+  "requestHash": "a16a4222a1313c5e5e7bfc1b68cec1d205f01cebb70f65812b70f7564b20ab3d",
+  "completedAt": "2026-10-15T03:26:39.564068+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.94,
+    "claimMatch": 0.92,
+    "visualQuality": 0.88,
+    "misleadingRisk": 0.06,
+    "observedActions": [
+      "回到观众已见的Cal AI候选，再到现在/稍后排期选项，回收已展示的产品用途。"
+    ],
+    "observedEntities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "observedText": [
+      "Post ASAP",
+      "Schedule for Later"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 6700,
+    "reasons": [
+      "当前Codex制作会话实际检查原片与派生窗口抽帧；见media/prepared-check及排期814秒原帧。不是独立Delivery批准。",
+      "来源标示历史采访；输入/生成未实演，访谈配图不是客户现场；排期选项停帧供阅读，不证明上线。"
+    ]
+  }
+}

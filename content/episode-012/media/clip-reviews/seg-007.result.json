@@ -1,0 +1,27 @@
+{
+  "requestHash": "83e4603ac2215b14035ea3d913fcc614c9f2041e8b59d311b25967add272af9e",
+  "completedAt": "2026-10-25T14:58:03.430466+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.9,
+    "claimMatch": 0.9,
+    "visualQuality": 0.85,
+    "misleadingRisk": 0.15,
+    "observedActions": [
+      "原访谈合作创作者、选择内容及社交广告素材的编辑转述，未造投放后台。"
+    ],
+    "observedEntities": [
+      "Photoroom"
+    ],
+    "observedText": [
+      "联系合作",
+      "把优质内容做成广告素材"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 4267,
+    "reasons": [
+      "本制作会话已查看当前prepared片段的多点抽帧及当前核验请求所指向的关键帧联系表；这是同会话视觉核对，非独立Delivery或有声观看。",
+      "界面入口裁切可读，人物与日期可见；中文转述卡标编辑排版，官网演示不当本次实测，历史访谈不当当前政策。"
+    ]
+  }
+}

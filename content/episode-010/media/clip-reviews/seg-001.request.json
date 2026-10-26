@@ -1,0 +1,56 @@
+{
+  "episodeId": "episode-010",
+  "segmentId": "seg-001",
+  "clipId": "episode-010:media-clip:36eb78188ebf5a428755a258",
+  "claimIds": [
+    "claim-granola-001"
+  ],
+  "claims": [
+    {
+      "id": "claim-granola-001",
+      "claim": "Granola把用户写下的要点与会议转写结合，在会后补全、整理会议笔记；官方2024年演示展示零散记录展开成分层笔记。"
+    }
+  ],
+  "narration": "开会记几个词,AI补成完整笔记。",
+  "visualIntent": "官方2024年笔记补全演示,0秒原始要点→3秒后展开;首屏配中文用途标题。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-010/media/verifications/seg-001/episode-010-media-clip-36eb78188ebf5a428755a258-clip.mp4",
+    "sha256": "8632b3774d85685f86d3b02de870f0671bf61c0074036299b9a9c6163b20f750",
+    "sizeBytes": 661273,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 3467,
+    "sourceMediaId": "episode-010:media:seg-001-e963365959ed",
+    "sourceMediaSha256": "e963365959ed81043f7d999d2e37e551d5210b2f9f3f6bac2986d1dc4fe64d86"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-010/media/indexes/seg-001-e963365959ed/keyframes/keyframe-0-1733.jpg",
+      "timestampMs": 1733,
+      "sha256": "cf8b218906f5a450eccc8e508c7ff2146f05acfbd12230b653cfc44c2a674e2f",
+      "sizeBytes": 35309,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "官方历史演示：零散笔记展开成AllFound Overview等分层条目。",
+    "observedText": "",
+    "keywords": [
+      "seg-001",
+      "Granola",
+      "notes",
+      "AllFound"
+    ],
+    "entities": [
+      "Granola",
+      "AllFound"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "9a7761e3cbc235b0e337fefbf60621fc045a920ca2d555e0fbd4569c3cdca647"
+}

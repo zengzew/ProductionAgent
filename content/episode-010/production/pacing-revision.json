@@ -1,0 +1,79 @@
+{
+  "method": "ffmpeg atempo, pitch preserved; sentence-boundary silence inserted; timestamps transformed",
+  "sourceMetadata": "production/pacing-source/tts-metadata.json",
+  "providerSpeedIsOriginal": true,
+  "segments": [
+    {
+      "segmentId": "seg-001",
+      "tempoFactor": 1,
+      "additionalSentencePauseMs": 0,
+      "timelineTailSeconds": 0.28,
+      "sourceSha256": "219f73978539bfc3457aee139aa1e67a1af9db1827929f7ce7e79c6c2f27004b",
+      "outputSha256": "c3fef1c5c68523527a06361f99f7d0f1957a9d2e0ccd157dbcd1ada6c44a44c4"
+    },
+    {
+      "segmentId": "seg-002",
+      "tempoFactor": 0.94,
+      "additionalSentencePauseMs": 0,
+      "timelineTailSeconds": 0.3,
+      "sourceSha256": "7fa1b39f50cac81ae36cea5c1a6739b1159ea0b9770bff14e84ccf6067b445af",
+      "outputSha256": "8eb52590c89ef7368ff44b02d330e96ca2a2d6604d81507b96a78bfff91f47d0"
+    },
+    {
+      "segmentId": "seg-003",
+      "tempoFactor": 0.8,
+      "additionalSentencePauseMs": 0,
+      "timelineTailSeconds": 0.38,
+      "sourceSha256": "f7653eb23e57a03876cdd356f9ea6a55c7508ce8dfe67b13c17570cbc07b5a73",
+      "outputSha256": "f2339c5f49e87b52a76c2989e196522fbe3a4a942816212c81cc4ed4f01a80a1"
+    },
+    {
+      "segmentId": "seg-004",
+      "tempoFactor": 0.94,
+      "additionalSentencePauseMs": 180,
+      "timelineTailSeconds": 0.3,
+      "sourceSha256": "cd32c006e56467279436ff42d58f9ef8fe8e03b72f4a6ed1a035e9a360cb51cf",
+      "outputSha256": "449feee5237e29df7d5f298591fc2b14f5437c8ab89d096555c1e84a11c3a757"
+    },
+    {
+      "segmentId": "seg-005",
+      "tempoFactor": 1,
+      "additionalSentencePauseMs": 180,
+      "timelineTailSeconds": 0.48,
+      "sourceSha256": "edcb0fd46df39edd5b19a9fdecb38220ee8daa2b3028d429718e58f1caf0ba30",
+      "outputSha256": "9c6fce388977afc93b08a403767342c79ed80ce5d79b670fe8989c38d4ab2c37"
+    },
+    {
+      "segmentId": "seg-006",
+      "tempoFactor": 0.9,
+      "additionalSentencePauseMs": 180,
+      "timelineTailSeconds": 0.32,
+      "sourceSha256": "37d6ea41c7d2b5d03dd6eea216544bc97f195a15ddb748a34006baa2bf167327",
+      "outputSha256": "6d6f97200485ce5c1a24d4e9764cfc3c849813614c5ba632442721bbc75a9243"
+    },
+    {
+      "segmentId": "seg-007",
+      "tempoFactor": 0.91,
+      "additionalSentencePauseMs": 0,
+      "timelineTailSeconds": 0.48,
+      "sourceSha256": "7bd0cc83e1eb8c9ca4fa9e50b2ccd658ff6226b416bd44f9b284834dec55fb16",
+      "outputSha256": "d04c96743498802c780a61c6b68e8656d44bb0833a79e748afd4969603d40284"
+    },
+    {
+      "segmentId": "seg-008",
+      "tempoFactor": 0.96,
+      "additionalSentencePauseMs": 0,
+      "timelineTailSeconds": 0.5,
+      "sourceSha256": "435a339270794ed6847b6167b5e5af60aecdb8a20d6507b390e0e0e0fe665ad1",
+      "outputSha256": "6bd71bc28005c6ee63e9ca3d143fe73641bb415b3a7770a0496543fa102b314e"
+    },
+    {
+      "segmentId": "seg-009",
+      "tempoFactor": 0.94,
+      "additionalSentencePauseMs": 180,
+      "timelineTailSeconds": 0.35,
+      "sourceSha256": "bba3bf1cdf7c7c55f4921e35e1e090a2f6c06e272437b3debe5dd970dfe6f3f3",
+      "outputSha256": "3aaeaca892fff8122f0978cc55b55b7b780cc088ffa7f4cb2d002b1a2e3dcf7d"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "episode-config-v2",
+  "kind": "episode",
+  "id": "episode-011",
+  "slug": "gamma-ideas-before-formatting",
+  "product": "Gamma",
+  "title": "先有演示稿，再打磨重点",
+  "language": "zh-CN",
+  "targetSeconds": 60,
+  "production": {
+    "timelineTailSeconds": {},
+    "hookAttributionSubjects": [
+      "Gamma",
+      "创始人"
+    ],
+    "referenceStory": {
+      "profile": "golden-reference-v1",
+      "headline": "Gamma 把文字变成演示图",
+      "resultLine": "先有初稿，再打磨重点",
+      "claimIds": [
+        "claim-gamma-001",
+        "claim-gamma-003",
+        "claim-gamma-004"
+      ]
+    }
+  },
+  "selection": "selected",
+  "selectionReason": "已通过新选题预检；Stanford创始人访谈提供需求、设计及早期招募，官方素材提供真实界面，融资有日期及公司口径。按Fastlane V2制作。",
+  "publishStatus": "evaluation",
+  "publishBlocker": "本地有声观看版已渲染并完成视觉/机器检查；完整听感、独立Delivery、用户成片评价及外部发布权利待终审。",
+  "asOf": "2026-10-20",
+  "captureAssets": []
+}

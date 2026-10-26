@@ -1,0 +1,476 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-011:media:render-manifest",
+    "createdAt": "2026-10-20T09:31:15.368Z",
+    "episodeId": "episode-011",
+    "mediaType": "application/json",
+    "path": "content/episode-011/media/render-manifest.json",
+    "producer": "media-render-manifest-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-manifest-v1",
+    "sha256": "3ed8f6d762eefe371c02ea303fbfea7876a17cc337c3d35ac5af47b90c79db3d",
+    "sizeBytes": 17209
+  },
+  "assetManifestSha256": "8b2a6542c9f1a177a559a93338b9b65dc1e7437beb8aaaa8ebbb88f0d9871718",
+  "assets": [
+    {
+      "kind": "original",
+      "mediaId": "episode-011:media:seg-001-7c8811ed49e0",
+      "mediaType": "video/mp4",
+      "sha256": "7c8811ed49e057ffcbaca7eceed174392945cffc806e45bace4cd687f16ddd35",
+      "sizeBytes": 1191132,
+      "sourceId": "episode-011:media-source:gamma-official"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-011:media:seg-001-7c8811ed49e0-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "da12f37aba785b60b4a61d062e111f91c478f39978c515481db4e17d15b0288d",
+      "sizeBytes": 504257,
+      "sourceId": "episode-011:media-source:gamma-official"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-011:media:seg-005-098a3576a95f",
+      "mediaType": "video/mp4",
+      "sha256": "098a3576a95f099abce1b7ad3e0dfbb1194e9fa16beb4255a6a533a6ca39e5c0",
+      "sizeBytes": 2312738,
+      "sourceId": "episode-011:media-source:gamma-official"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-011:media:seg-005-098a3576a95f-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "1b7004c9d0b57e443de0a9fdb3cb45314889c28c715b7b070d4ce3e90f7f3a4c",
+      "sizeBytes": 913433,
+      "sourceId": "episode-011:media-source:gamma-official"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-011:media:seg-009-b3db3a18a7af",
+      "mediaType": "video/mp4",
+      "sha256": "b3db3a18a7af71a1f33f2f6a5feced9fbd11f6fbd43721e432ee9818126dc993",
+      "sizeBytes": 1156050,
+      "sourceId": "episode-011:media-source:gamma-official"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-011:media:seg-009-b3db3a18a7af-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "b044eaa32fe5c09af10f43d44bb5c76f51d74e195697b528344e0e5d6e23549f",
+      "sizeBytes": 454590,
+      "sourceId": "episode-011:media-source:gamma-official"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-011:media:seg-009-73990a4920f6",
+      "mediaType": "video/mp4",
+      "sha256": "73990a4920f642ce2502a03f5b80e6b7340e63dd7ce7b99d275aa972b75aab20",
+      "sizeBytes": 2207245,
+      "sourceId": "episode-011:media-source:gamma-official"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-011:media:seg-009-73990a4920f6-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "1f480411cb297676d13c844956c1a164ff3edce887e1b83397422877822fb457",
+      "sizeBytes": 888012,
+      "sourceId": "episode-011:media-source:gamma-official"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-011:media:seg-001-7c8811ed49e0-official",
+      "mediaType": "video/mp4",
+      "sha256": "7c8811ed49e057ffcbaca7eceed174392945cffc806e45bace4cd687f16ddd35",
+      "sizeBytes": 1191132,
+      "sourceId": "episode-011:media-source:gamma-2025-demo"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-011:media:seg-001-7c8811ed49e0-official-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "da12f37aba785b60b4a61d062e111f91c478f39978c515481db4e17d15b0288d",
+      "sizeBytes": 504257,
+      "sourceId": "episode-011:media-source:gamma-2025-demo"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-011:media:seg-005-098a3576a95f-official",
+      "mediaType": "video/mp4",
+      "sha256": "098a3576a95f099abce1b7ad3e0dfbb1194e9fa16beb4255a6a533a6ca39e5c0",
+      "sizeBytes": 2312738,
+      "sourceId": "episode-011:media-source:gamma-2025-demo"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-011:media:seg-005-098a3576a95f-official-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "1b7004c9d0b57e443de0a9fdb3cb45314889c28c715b7b070d4ce3e90f7f3a4c",
+      "sizeBytes": 913433,
+      "sourceId": "episode-011:media-source:gamma-2025-demo"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-011:media:seg-009-73990a4920f6-official",
+      "mediaType": "video/mp4",
+      "sha256": "73990a4920f642ce2502a03f5b80e6b7340e63dd7ce7b99d275aa972b75aab20",
+      "sizeBytes": 2207245,
+      "sourceId": "episode-011:media-source:gamma-2025-demo"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-011:media:seg-009-73990a4920f6-official-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "1f480411cb297676d13c844956c1a164ff3edce887e1b83397422877822fb457",
+      "sizeBytes": 888012,
+      "sourceId": "episode-011:media-source:gamma-2025-demo"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-011:media:seg-005-298b91d35073-official",
+      "mediaType": "video/mp4",
+      "sha256": "298b91d35073c4bdf2e039bd80166fae5ea56b27bb9e2ef6783d64b4e54820c0",
+      "sizeBytes": 2312511,
+      "sourceId": "episode-011:media-source:gamma-2025-demo"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-011:media:seg-005-298b91d35073-official-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "920414859536a18bb7b2ad09d2fbd18049ddcd658fb31dde95e06da5bd134381",
+      "sizeBytes": 913252,
+      "sourceId": "episode-011:media-source:gamma-2025-demo"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-011:media:seg-009-61b515a33f1b-official",
+      "mediaType": "video/mp4",
+      "sha256": "61b515a33f1b61705f912eebc90417702e4fbcd3671d7c08c60d1f9a0fdaea63",
+      "sizeBytes": 2205394,
+      "sourceId": "episode-011:media-source:gamma-2025-demo"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-011:media:seg-009-61b515a33f1b-official-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "cef101903e4c39c8c4fdeda6c14e63caf4ffea941143a060f8d4af12949182f1",
+      "sizeBytes": 886467,
+      "sourceId": "episode-011:media-source:gamma-2025-demo"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-011:media:official-result-still-v2",
+      "mediaType": "image/png",
+      "sha256": "6ba233f37d5814e2dfe77c97c6994d1c0b8aa49e68c2ba84629dd9aadcbbc0a6",
+      "sizeBytes": 584519,
+      "sourceId": "episode-011:media-source:gamma-2025-demo"
+    }
+  ],
+  "clips": [
+    {
+      "clipId": "episode-011:media-clip:3d119f05d0e59fa46548d0e5",
+      "endMs": 7233,
+      "mediaId": "episode-011:media:seg-005-298b91d35073-official",
+      "startMs": 0,
+      "verificationSha256": "89c9e49b3422d5b9ce56943591f6b94c4aa3eab00a956a01ea4fbd6e2805a836"
+    },
+    {
+      "clipId": "episode-011:media-clip:3e68cd5e9350196072c19276",
+      "endMs": 7200,
+      "mediaId": "episode-011:media:seg-009-61b515a33f1b-official",
+      "startMs": 0,
+      "verificationSha256": "22ca2fb0729af33c56835aff7668448e8a18ba5ed874375ebdc337081782dad9"
+    }
+  ],
+  "createdAt": "2026-10-20T09:31:15.368Z",
+  "episodeId": "episode-011",
+  "officialAssets": [
+    {
+      "approved": true,
+      "capturedAt": "2026-10-20",
+      "claimIds": [
+        "claim-gamma-001"
+      ],
+      "id": "gamma-still-0",
+      "licenseOrBasis": "用户请求的本地制作评估；必要署名节选，外部发布权利未确认。",
+      "owner": "Gamma",
+      "path": "public/episodes/episode-011/assets/ppt-hook.png",
+      "segmentIds": [
+        "seg-001"
+      ],
+      "sourceUrl": "https://gamma.app/insights/how-to-create-pitch-decks-with-gamma-or-from-prompt-to-investor-ready-export",
+      "type": "image",
+      "usage": "官方演示结果原图＋文字生成PPT用途的编辑说明，非生成全过程实录",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-10-20",
+      "claimIds": [
+        "claim-gamma-002"
+      ],
+      "id": "gamma-still-1",
+      "licenseOrBasis": "用户请求的本地制作评估；必要署名节选，外部发布权利未确认。",
+      "owner": "Stanford STVP / Grant Lee",
+      "path": "public/episodes/episode-011/assets/founder.png",
+      "segmentIds": [
+        "seg-002"
+      ],
+      "sourceUrl": "https://stvp.stanford.edu/videos/grant-lee-gamma-finding-early-stage-energy/",
+      "type": "image",
+      "usage": "访谈页真实人物图＋必要短摘录；明确编辑排版",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-10-20",
+      "claimIds": [
+        "claim-gamma-002",
+        "claim-gamma-003"
+      ],
+      "id": "gamma-still-2",
+      "licenseOrBasis": "用户请求的本地制作评估；必要署名节选，外部发布权利未确认。",
+      "owner": "Gamma / Stanford STVP",
+      "path": "public/episodes/episode-011/assets/writing-first.png",
+      "segmentIds": [
+        "seg-003"
+      ],
+      "sourceUrl": "https://gamma.app/insights/introducing-gamma-3-0",
+      "type": "image",
+      "usage": "真实官方图示示例＋创始人理念的编辑释义；非2020原型",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-10-20",
+      "claimIds": [
+        "claim-gamma-001",
+        "claim-gamma-003"
+      ],
+      "id": "gamma-still-3",
+      "licenseOrBasis": "用户请求的本地制作评估；必要署名节选，外部发布权利未确认。",
+      "owner": "Gamma",
+      "path": "public/episodes/episode-011/assets/draft.png",
+      "segmentIds": [
+        "seg-004"
+      ],
+      "sourceUrl": "https://gamma.app/insights/how-to-create-pitch-decks-with-gamma-or-from-prompt-to-investor-ready-export",
+      "type": "image",
+      "usage": "官方教程的编辑说明＋真实官方演示结果；不是生成实录",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-10-20",
+      "claimIds": [
+        "claim-gamma-005"
+      ],
+      "id": "gamma-still-4",
+      "licenseOrBasis": "用户请求的本地制作评估；必要署名节选，外部发布权利未确认。",
+      "owner": "Stanford STVP / Grant Lee",
+      "path": "public/episodes/episode-011/assets/early-users.png",
+      "segmentIds": [
+        "seg-006"
+      ],
+      "sourceUrl": "https://stvp.stanford.edu/videos/grant-lee-gamma-finding-early-stage-energy/",
+      "type": "image",
+      "usage": "原文关键词及中文释义；不是Product Hunt历史截图",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-10-20",
+      "claimIds": [
+        "claim-gamma-005"
+      ],
+      "id": "gamma-still-5",
+      "licenseOrBasis": "用户请求的本地制作评估；必要署名节选，外部发布权利未确认。",
+      "owner": "Stanford STVP / Grant Lee",
+      "path": "public/episodes/episode-011/assets/feedback.png",
+      "segmentIds": [
+        "seg-007"
+      ],
+      "sourceUrl": "https://stvp.stanford.edu/videos/grant-lee-gamma-finding-early-stage-energy/",
+      "type": "image",
+      "usage": "必要短摘录＋中文释义；非用户通话录像",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-10-20",
+      "claimIds": [
+        "claim-gamma-007",
+        "claim-gamma-008"
+      ],
+      "id": "gamma-still-6",
+      "licenseOrBasis": "用户请求的本地制作评估；必要署名节选，外部发布权利未确认。",
+      "owner": "Gamma / Grant Lee",
+      "path": "public/episodes/episode-011/assets/market.png",
+      "segmentIds": [
+        "seg-008"
+      ],
+      "sourceUrl": "https://gamma.app/insights/how-we-built-a-usd100m-business-differently",
+      "type": "image",
+      "usage": "两项公司披露指标与各自日期，ARR不当销售额、累计人数不当付费或活跃人数；Creation Index见research/sources.json",
+      "usedInRender": true
+    }
+  ],
+  "renderPlanSha256": "a374de78cf9e6ae9862f1699152056cc89f089d6002f3739a8c5168feaf8c65c",
+  "schemaVersion": "media-render-manifest-v1",
+  "sourceManifestSha256": "cfc4ec4f6f296e81d5e6303d3217c7d0ccf90b620c72ea43d7d9155db20998fc",
+  "sources": [
+    {
+      "admissionStatus": "admitted",
+      "admitted": true,
+      "publisher": "Gamma",
+      "rightsApproved": true,
+      "rightsStatus": "approved",
+      "sourceId": "episode-011:media-source:gamma-official",
+      "sourceType": "founder"
+    },
+    {
+      "admissionStatus": "admitted",
+      "admitted": true,
+      "publisher": "Gamma",
+      "rightsApproved": true,
+      "rightsStatus": "approved",
+      "sourceId": "episode-011:media-source:gamma-2025-demo",
+      "sourceType": "official"
+    }
+  ],
+  "timelineSha256": "9d0e4b74fd62984b438692132af5757da374502ec601ee65ae311a70f6c49b44",
+  "usage": [
+    {
+      "clipRef": null,
+      "fallbackReason": "no candidate has a valid pass verification (missing, reject, or uncertain)",
+      "fallbackType": "REAL_MEDIA_NOT_VERIFIED",
+      "officialAssetId": "gamma-still-0",
+      "segmentId": "seg-001",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-002",
+      "fallbackType": null,
+      "officialAssetId": "gamma-still-1",
+      "segmentId": "seg-002",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-003",
+      "fallbackType": null,
+      "officialAssetId": "gamma-still-2",
+      "segmentId": "seg-003",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-004",
+      "fallbackType": null,
+      "officialAssetId": "gamma-still-3",
+      "segmentId": "seg-004",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-gamma-001",
+          "claim-gamma-004"
+        ],
+        "clipId": "episode-011:media-clip:3d119f05d0e59fa46548d0e5",
+        "createdAt": "2026-10-20T09:31:13.161Z",
+        "endMs": 7233,
+        "episodeId": "episode-011",
+        "mediaId": "episode-011:media:seg-005-298b91d35073-official",
+        "sourceMediaRef": {
+          "artifactId": "episode-011:media:seg-005-298b91d35073-official",
+          "createdAt": "2026-10-20T09:26:16.982Z",
+          "episodeId": "episode-011",
+          "mediaType": "video/mp4",
+          "path": "content/episode-011/media/assets/seg-005-298b91d35073-official.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "298b91d35073c4bdf2e039bd80166fae5ea56b27bb9e2ef6783d64b4e54820c0",
+          "sizeBytes": 2312511
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "2025官方Agent与Smart Diagrams动画,按动作分别展示;核对内容为编辑用途建议,不宣称省时测量。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-005",
+      "selectedType": "real-media",
+      "verificationSha256": "89c9e49b3422d5b9ce56943591f6b94c4aa3eab00a956a01ea4fbd6e2805a836"
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-006",
+      "fallbackType": null,
+      "officialAssetId": "gamma-still-4",
+      "segmentId": "seg-006",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-007",
+      "fallbackType": null,
+      "officialAssetId": "gamma-still-5",
+      "segmentId": "seg-007",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-008",
+      "fallbackType": null,
+      "officialAssetId": "gamma-still-6",
+      "segmentId": "seg-008",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-gamma-001",
+          "claim-gamma-002",
+          "claim-gamma-003"
+        ],
+        "clipId": "episode-011:media-clip:3e68cd5e9350196072c19276",
+        "createdAt": "2026-10-20T09:31:13.388Z",
+        "endMs": 7200,
+        "episodeId": "episode-011",
+        "mediaId": "episode-011:media:seg-009-61b515a33f1b-official",
+        "sourceMediaRef": {
+          "artifactId": "episode-011:media:seg-009-61b515a33f1b-official",
+          "createdAt": "2026-10-20T09:26:18.038Z",
+          "episodeId": "episode-011",
+          "mediaType": "video/mp4",
+          "path": "content/episode-011/media/assets/seg-009-61b515a33f1b-official.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "61b515a33f1b61705f912eebc90417702e4fbcd3671d7c08c60d1f9a0fdaea63",
+          "sizeBytes": 2205394
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "回到真实官方演示稿编辑结果;结尾落在输入文字后生成初稿再修改的工作方式,不声称Gamma已取代PowerPoint或消灭人工编辑。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-009",
+      "selectedType": "real-media",
+      "verificationSha256": "22ca2fb0729af33c56835aff7668448e8a18ba5ed874375ebdc337081782dad9"
+    }
+  ]
+}

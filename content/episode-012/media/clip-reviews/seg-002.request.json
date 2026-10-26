@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-012",
+  "segmentId": "seg-002",
+  "clipId": "episode-012:media-clip:d2a79ad290a0c6b5183a72a8",
+  "claimIds": [
+    "claim-pr-002"
+  ],
+  "claims": [
+    {
+      "id": "claim-pr-002",
+      "claim": "Matthieu Rouif在2024年原始访谈中回忆，在GoPro任产品经理时感到去背景等编辑任务费劲，随后去学习机器学习。"
+    }
+  ],
+  "narration": "Photoroom的创始人马修,在GoPro做产品时就嫌抠图麻烦,后来干脆回去学了机器学习。",
+  "visualIntent": "Stripe合照保持两人身份;标Matthieu Rouif、2024访谈回忆,不伪造GoPro操作。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/verifications/seg-002/episode-012-media-clip-d2a79ad290a0c6b5183a72a8-clip.mp4",
+    "sha256": "8faaa58b24baf04570d1164c6b560b7295455f06d60ef32d1925395f7bcf56e9",
+    "sizeBytes": 437815,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 5933,
+    "sourceMediaId": "episode-012:media:seg-002-a93299117c36",
+    "sourceMediaSha256": "a93299117c36a890996a3b8ba9a150d3022eea8135a3335f509f2ca7f83ed2eb"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/indexes/seg-002-a93299117c36/keyframes/keyframe-0-2966.jpg",
+      "timestampMs": 2966,
+      "sha256": "ae1db0169c0c3df21a365195df7a93087300d32e4b30f97b61299bc3e28189f8",
+      "sizeBytes": 128541,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "Stripe原始人物合照及有日期的创始人困扰回忆转述，不是GoPro历史操作。",
+    "observedText": "",
+    "keywords": [
+      "seg-002",
+      "Photoroom",
+      "founder",
+      "attributed-local-evaluation"
+    ],
+    "entities": [
+      "Photoroom"
+    ],
+    "semanticTags": [
+      "attributed-source-excerpt",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "9765c2b8ea97a4c424ea919f7bbdf71eded22397ffb3049f1c4e251007885b6c"
+}

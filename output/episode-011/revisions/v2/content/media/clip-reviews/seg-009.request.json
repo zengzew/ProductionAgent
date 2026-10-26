@@ -1,0 +1,68 @@
+{
+  "episodeId": "episode-011",
+  "segmentId": "seg-009",
+  "clipId": "episode-011:media-clip:3e68cd5e9350196072c19276",
+  "claimIds": [
+    "claim-gamma-001",
+    "claim-gamma-002",
+    "claim-gamma-003"
+  ],
+  "claims": [
+    {
+      "id": "claim-gamma-001",
+      "claim": "Gamma可按主题、提纲或已有文档生成带图文版式的演示稿初稿，再由用户编辑。"
+    },
+    {
+      "id": "claim-gamma-002",
+      "claim": "Grant Lee在Stanford访谈回忆，做咨询时曾为次日会议熬夜准备Google Slides，大部分精力用在排版；于是联系两位前同事原型探索。"
+    },
+    {
+      "id": "claim-gamma-003",
+      "claim": "Grant说早期希望让写作成为起点，以灵活版式取代逐像素设计；生成式AI是后续加入。"
+    }
+  ],
+  "narration": "从熬夜排版,到输入文字就有初稿。就这样,Gamma把做PPT,变成了先生成、再修改。",
+  "visualIntent": "回到真实官方演示稿编辑结果;结尾落在输入文字后生成初稿再修改的工作方式,不声称Gamma已取代PowerPoint或消灭人工编辑。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-011/media/verifications/seg-009/episode-011-media-clip-3e68cd5e9350196072c19276-clip.mp4",
+    "sha256": "434e3db916e990eddc43aa890d485cf761a9977be1bebe8661b994547a92a117",
+    "sizeBytes": 3063632,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 7200,
+    "sourceMediaId": "episode-011:media:seg-009-61b515a33f1b-official",
+    "sourceMediaSha256": "61b515a33f1b61705f912eebc90417702e4fbcd3671d7c08c60d1f9a0fdaea63"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-011/media/indexes/seg-009-61b515a33f1b-official/keyframes/keyframe-0-3600.jpg",
+      "timestampMs": 3600,
+      "sha256": "3bdb17d30664eecc1b7f389ba64f4a457bd256a3e954c958808088b49c07a3ba",
+      "sizeBytes": 57018,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "回看2025官方文字变图演示，结果停帧供理解“已有稿可修改”，不宣称持续生成或实测省时。",
+    "observedText": "",
+    "keywords": [
+      "seg-009",
+      "Gamma",
+      "Agent",
+      "Holographic Technology",
+      "layout",
+      "diagram"
+    ],
+    "entities": [
+      "Gamma",
+      "Holographic Technology"
+    ],
+    "semanticTags": [
+      "official-product-demo",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "635debc7e615ea42bf59724d1c3861b97c7d8a44c8e780e5cf6233432a61b67d"
+}

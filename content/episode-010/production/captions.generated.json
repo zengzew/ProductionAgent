@@ -1,0 +1,272 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 1.3254616132167152,
+    "startFrame": 0,
+    "endFrame": 40,
+    "text": "开会记几个词"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-001",
+    "startSeconds": 1.3254616132167152,
+    "endSeconds": 3.092743764172336,
+    "startFrame": 40,
+    "endFrame": 93,
+    "text": "AI补成完整笔记"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 3.4650420000000004,
+    "endSeconds": 5.89978894842476,
+    "startFrame": 104,
+    "endFrame": 177,
+    "text": "Granola的创始人克里斯"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 5.89978894842476,
+    "endSeconds": 8.508446393165574,
+    "startFrame": 177,
+    "endFrame": 255,
+    "text": "在意的，是普通AI纪要的一个毛病"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-002",
+    "startSeconds": 8.508446393165574,
+    "endSeconds": 10.76928284527428,
+    "startFrame": 255,
+    "endFrame": 323,
+    "text": "看着完整，却未必记住你的重点"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-003",
+    "startSeconds": 11.162042000000001,
+    "endSeconds": 12.924759309145882,
+    "startFrame": 335,
+    "endFrame": 388,
+    "text": "他和团队换了个思路"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-003",
+    "startSeconds": 12.924759309145882,
+    "endSeconds": 14.687476618291761,
+    "startFrame": 388,
+    "endFrame": 441,
+    "text": "让你随手记下的要点"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-003",
+    "startSeconds": 14.687476618291761,
+    "endSeconds": 16.450193927437642,
+    "startFrame": 441,
+    "endFrame": 494,
+    "text": "告诉AI什么最重要"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-004",
+    "startSeconds": 16.939209,
+    "endSeconds": 19.04127393945096,
+    "startFrame": 508,
+    "endFrame": 571,
+    "text": "会议里，你照常写几个关键词"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-004",
+    "startSeconds": 19.04127393945096,
+    "endSeconds": 21.14333887890192,
+    "startFrame": 571,
+    "endFrame": 634,
+    "text": "Granola在后台转写"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-004",
+    "startSeconds": 21.14333887890192,
+    "endSeconds": 24.608840881121246,
+    "startFrame": 634,
+    "endFrame": 738,
+    "text": "结束后，再把你写的\n和会上说的合在一起"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-005",
+    "startSeconds": 25.055292,
+    "endSeconds": 27.04526932426304,
+    "startFrame": 752,
+    "endFrame": 811,
+    "text": "像这段演示，几条零散记录"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-005",
+    "startSeconds": 27.04526932426304,
+    "endSeconds": 29.216153678004538,
+    "startFrame": 811,
+    "endFrame": 876,
+    "text": "就展开成了分好层次的笔记"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-005",
+    "startSeconds": 29.216153678004538,
+    "endSeconds": 31.728400843537415,
+    "startFrame": 876,
+    "endFrame": 952,
+    "text": "开会时，不用为了记全每句话"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-005",
+    "startSeconds": 31.728400843537415,
+    "endSeconds": 32.844455265306124,
+    "startFrame": 952,
+    "endFrame": 985,
+    "text": "一直盯着键盘"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-006",
+    "startSeconds": 33.47,
+    "endSeconds": 35.78413174323227,
+    "startFrame": 1004,
+    "endFrame": 1074,
+    "text": "他们先和一小群测试用户打磨"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-006",
+    "startSeconds": 35.78413174323227,
+    "endSeconds": 37.969854875283445,
+    "startFrame": 1074,
+    "endFrame": 1139,
+    "text": "再公开推出早期用的人里"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-006",
+    "startSeconds": 37.969854875283445,
+    "endSeconds": 39.64368707482993,
+    "startFrame": 1139,
+    "endFrame": 1189,
+    "text": "有经常听项目的投资人"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-006",
+    "startSeconds": 39.64368707482993,
+    "endSeconds": 41.150136054421765,
+    "startFrame": 1189,
+    "endFrame": 1235,
+    "text": "也有创业公司负责人"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-007",
+    "startSeconds": 41.609146,
+    "endSeconds": 43.035979786017464,
+    "startFrame": 1248,
+    "endFrame": 1291,
+    "text": "按公司当时的说法"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-007",
+    "startSeconds": 43.035979786017464,
+    "endSeconds": 44.99787624179147,
+    "startFrame": 1291,
+    "endFrame": 1350,
+    "text": "产品会从负责人传到团队"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-007",
+    "startSeconds": 44.99787624179147,
+    "endSeconds": 46.95977269756548,
+    "startFrame": 1350,
+    "endFrame": 1409,
+    "text": "笔记也能一键分享给同事"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-008",
+    "startSeconds": 47.536291999999996,
+    "endSeconds": 49.066770141077214,
+    "startFrame": 1426,
+    "endFrame": 1472,
+    "text": "到二零二六年三月"
+  },
+  {
+    "index": 24,
+    "sceneId": "seg-008",
+    "startSeconds": 49.066770141077214,
+    "endSeconds": 50.40593851451978,
+    "startFrame": 1472,
+    "endFrame": 1512,
+    "text": "公司宣布新融了"
+  },
+  {
+    "index": 25,
+    "sceneId": "seg-008",
+    "startSeconds": 50.40593851451978,
+    "endSeconds": 52.12772642323166,
+    "startFrame": 1512,
+    "endFrame": 1564,
+    "text": "一亿两千五百万美元"
+  },
+  {
+    "index": 26,
+    "sceneId": "seg-008",
+    "startSeconds": 52.12772642323166,
+    "endSeconds": 53.46689479667422,
+    "startFrame": 1564,
+    "endFrame": 1604,
+    "text": "估值十五亿美元"
+  },
+  {
+    "index": 27,
+    "sceneId": "seg-009",
+    "startSeconds": 54.061271,
+    "endSeconds": 55.80112976545467,
+    "startFrame": 1622,
+    "endFrame": 1674,
+    "text": "回头看那几个关键词"
+  },
+  {
+    "index": 28,
+    "sceneId": "seg-009",
+    "startSeconds": 55.80112976545467,
+    "endSeconds": 57.73430617151541,
+    "startFrame": 1674,
+    "endFrame": 1732,
+    "text": "它们留下的是你的判断"
+  },
+  {
+    "index": 29,
+    "sceneId": "seg-009",
+    "startSeconds": 57.73430617151541,
+    "endSeconds": 60.12274444044,
+    "startFrame": 1732,
+    "endFrame": 1804,
+    "text": "AI补上的，是让这份判断"
+  },
+  {
+    "index": 30,
+    "sceneId": "seg-009",
+    "startSeconds": 60.12274444044,
+    "endSeconds": 61.84230588203792,
+    "startFrame": 1804,
+    "endFrame": 1855,
+    "text": "能被同事看懂的细节"
+  }
+]

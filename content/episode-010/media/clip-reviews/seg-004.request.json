@@ -1,0 +1,56 @@
+{
+  "episodeId": "episode-010",
+  "segmentId": "seg-004",
+  "clipId": "episode-010:media-clip:73478ba37acafe8633d9e323",
+  "claimIds": [
+    "claim-granola-001"
+  ],
+  "claims": [
+    {
+      "id": "claim-granola-001",
+      "claim": "Granola把用户写下的要点与会议转写结合，在会后补全、整理会议笔记；官方2024年演示展示零散记录展开成分层笔记。"
+    }
+  ],
+  "narration": "会议里,你照常写几个关键词,Granola在后台转写。结束后,再把你写的和会上说的合在一起。",
+  "visualIntent": "官方历史补全演示连续展示原始记录到展开;明确官网演示、非本次实测。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-010/media/verifications/seg-004/episode-010-media-clip-73478ba37acafe8633d9e323-clip.mp4",
+    "sha256": "7c6ff7faa132db67a1da8ffb11ea1894dcd49f7522f5062d52fcdf2a8bb4cfad",
+    "sizeBytes": 763240,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 8100,
+    "sourceMediaId": "episode-010:media:seg-004-98f649cafa95",
+    "sourceMediaSha256": "98f649cafa955ce20643d12371cd67fcda9ef74013c173b120c5f5e11b0e9d5a"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-010/media/indexes/seg-004-98f649cafa95/keyframes/keyframe-0-4050.jpg",
+      "timestampMs": 4050,
+      "sha256": "00443f422027ef7594a0d68fbab805dff5cc6e01ce101bb51151de1efadcbccf",
+      "sizeBytes": 31516,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "官方历史演示原始要点和Analyzing transcript状态，接补全结果；不是本次会议实录。",
+    "observedText": "",
+    "keywords": [
+      "seg-004",
+      "Granola",
+      "notes",
+      "AllFound"
+    ],
+    "entities": [
+      "Granola",
+      "AllFound"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "40110489e8cfde31998e251bf346397ec661a8be3ece04a7b531964906216572"
+}

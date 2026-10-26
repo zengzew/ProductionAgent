@@ -2,11 +2,8 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import {afterEach, describe, expect, it} from "vitest";
-import {
-  appendExecutionEvent,
-  importLegacyEpisode001,
-  type ExecutionEvent,
-} from "../../src/orchestration";
+import {appendExecutionEvent, type ExecutionEvent} from "../../src/orchestration";
+import {importLegacyEpisode001} from "../helpers/legacy-import";
 import {legacyEpisodeRepoFixture} from "../helpers/artifacts";
 
 const temporaryDirectories: string[] = [];

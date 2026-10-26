@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-012",
+  "segmentId": "seg-004",
+  "clipId": "episode-012:media-clip:d3c259964012fb65bf2b6484",
+  "claimIds": [
+    "claim-pr-001"
+  ],
+  "claims": [
+    {
+      "id": "claim-pr-001",
+      "claim": "Photoroom支持从商品照片去除背景，再改用白底、模板或AI生成的商品场景。"
+    }
+  ],
+  "narration": "现在,卖家放进商品照片,就能去掉杂乱背景,再换成白底,或者生成新的场景。",
+  "visualIntent": "先展示官网Start from a photo入口,再接官方MP4白底状态及椅子场景示例;不同示例显式分镜,不冒充一次生成过程。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/verifications/seg-004/episode-012-media-clip-d3c259964012fb65bf2b6484-clip.mp4",
+    "sha256": "4a4bad6cb1d2b5cf8e672bc889eee27a3dce18a5591548d41e57f5885f36796a",
+    "sizeBytes": 1686093,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 6300,
+    "sourceMediaId": "episode-012:media:seg-004-be6b3df8fde1",
+    "sourceMediaSha256": "be6b3df8fde1aa88b509ab340fea6e1eceeee7acfd4c86e6bfbbf6fa32daa5bc"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/indexes/seg-004-be6b3df8fde1/keyframes/keyframe-0-3150.jpg",
+      "timestampMs": 3150,
+      "sha256": "ccf7f2390bd50c189dbf9ca55bd56050f954dcb2794b22ada25ca3c3a92eb76f",
+      "sizeBytes": 40941,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "先显示真实官网上传入口，再接官方去背景宣传动效及椅子布景示例；不同示例，非同次生成过程。",
+    "observedText": "",
+    "keywords": [
+      "seg-004",
+      "Photoroom",
+      "official",
+      "attributed-local-evaluation"
+    ],
+    "entities": [
+      "Photoroom"
+    ],
+    "semanticTags": [
+      "attributed-source-excerpt",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "674d0dec4e3fc1862955ba55b52315e9fb4df7faa209166cefbab4d8c3c9d59f"
+}

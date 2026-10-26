@@ -97,6 +97,7 @@ export const timelineTailSeconds = (
   contract: ProductionContract = productionContract,
 ): number =>
   episode.production.timelineTailSeconds[segment.id] ??
+  (episode.production.referenceStory ? 0.12 : undefined) ??
   (segment.section === "hook"
     ? contract.timeline.hookTailSeconds
     : contract.timeline.bodyTailSeconds);

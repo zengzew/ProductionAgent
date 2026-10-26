@@ -1,0 +1,255 @@
+{
+  "requestedProvider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "provider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "providerId": "minimax",
+  "fallbackUsed": false,
+  "fallbackReason": "",
+  "generatedAt": "2026-10-20T12:06:00.625Z",
+  "voice": "Chinese (Mandarin)_Reliable_Executive",
+  "speed": 1.2,
+  "pitch": 0,
+  "normalization": "loudnorm I=-16 TP=-1.5 LRA=7",
+  "credentialRequired": true,
+  "networkRequired": true,
+  "alignmentStrategy": "provider-timestamps",
+  "files": [
+    {
+      "segmentId": "seg-001",
+      "file": "episodes/episode-011/audio/seg-001.mp3",
+      "timestamps": [
+        {
+          "text": "输入文字,AI帮你生成PPT。",
+          "startMs": 0,
+          "endMs": 2454.1950113378684
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-002",
+      "file": "episodes/episode-011/audio/seg-002.mp3",
+      "timestamps": [
+        {
+          "text": "Gamma的创始人格兰特做咨询时,曾为第二天的会议熬夜准备。",
+          "startMs": 0,
+          "endMs": 5054.829931972789
+        },
+        {
+          "text": "他说,大量工夫花在排版,内容反而顾不上。",
+          "startMs": 5155,
+          "endMs": 8178.083900226758
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-003",
+      "file": "episodes/episode-011/audio/seg-003.mp3",
+      "timestamps": [
+        {
+          "text": "他找来两位老同事,想把顺序倒过来:先把话写清楚,再让工具处理版式。",
+          "startMs": 0,
+          "endMs": 5159.319727891157
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-004",
+      "file": "episodes/episode-011/audio/seg-004.mp3",
+      "timestamps": [
+        {
+          "text": "Gamma后来接入AI,让文字先变成配好图文的初稿。",
+          "startMs": 0,
+          "endMs": 3487.4829931972786
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-005",
+      "file": "episodes/episode-011/audio/seg-005.mp3",
+      "timestamps": [
+        {
+          "text": "有了初稿,还能让AI改布局,把文字变成图示。",
+          "startMs": 0,
+          "endMs": 3452.6530612244896
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-006",
+      "file": "episodes/episode-011/audio/seg-006.mp3",
+      "timestamps": [
+        {
+          "text": "他们拿下了Product Hunt月榜第一,增长却还是卡住了。",
+          "startMs": 0,
+          "endMs": 4195.691609977324
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-007",
+      "file": "episodes/episode-011/audio/seg-007.mp3",
+      "timestamps": [
+        {
+          "text": "于是,十二个人花了三个月,重做用户进来的前三十秒。",
+          "startMs": 0.0,
+          "endMs": 3814.2006802721085
+        },
+        {
+          "text": "他们把AI生成直接放进新手流程:输入一句想法,先得到一份有内容、有版式的PPT。",
+          "startMs": 3918.75,
+          "endMs": 10804.757180650036
+        }
+      ],
+      "timestampSource": "minimax:sentence+measured-pacing-transform"
+    },
+    {
+      "segmentId": "seg-010",
+      "file": "episodes/episode-011/audio/seg-010.mp3",
+      "timestamps": [
+        {
+          "text": "用户面对的不再是空白页,而是一份能接着修改的初稿,第一次用就看得见它的价值。",
+          "startMs": 0.0,
+          "endMs": 6039.446334089192
+        },
+        {
+          "text": "按创始人的回顾,日注册量随后从几百,涨到了几万。",
+          "startMs": 6243.75,
+          "endMs": 10505.418556311413
+        }
+      ],
+      "timestampSource": "minimax:sentence+measured-pacing-transform"
+    },
+    {
+      "segmentId": "seg-008",
+      "file": "episodes/episode-011/audio/seg-008.mp3",
+      "timestamps": [
+        {
+          "text": "二零二五年十一月,Gamma自报年化经常性收入突破一亿美元。",
+          "startMs": 0,
+          "endMs": 4160.861678004536
+        },
+        {
+          "text": "到二零二六年八月,公司披露累计用户已超一亿。",
+          "startMs": 4261,
+          "endMs": 7852.972789115646
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-009",
+      "file": "episodes/episode-011/audio/seg-009.mp3",
+      "timestamps": [
+        {
+          "text": "做PPT,不必再从空白页一页页排起。",
+          "startMs": 0.0,
+          "endMs": 2698.0045351473923
+        },
+        {
+          "text": "输入文字,先有初稿,再动手改。",
+          "startMs": 2798.0,
+          "endMs": 5217.3650793650795
+        },
+        {
+          "text": "就这样,Gamma干掉了PPT。",
+          "startMs": 5467.0,
+          "endMs": 7526.455782312925
+        }
+      ],
+      "timestampSource": "minimax:sentence+measured-pacing-transform"
+    }
+  ],
+  "pacingRevision": {
+    "method": "semantic transition tails, selective sentence breathing, optional pitch-preserving atempo; original pauses counted",
+    "sourceMetadata": "production/pacing-source-v4/tts-metadata.json",
+    "providerSpeedIsOriginal": true,
+    "segments": [
+      {
+        "segmentId": "seg-001",
+        "tempoFactor": 1,
+        "additionalSentencePauseMs": [],
+        "sourceSha256": "7b81b93c5b55682a2de4376d0547bb992d7c46a06319b150e73135b1d6640498",
+        "outputSha256": "7b81b93c5b55682a2de4376d0547bb992d7c46a06319b150e73135b1d6640498"
+      },
+      {
+        "segmentId": "seg-002",
+        "tempoFactor": 1,
+        "additionalSentencePauseMs": [
+          0
+        ],
+        "sourceSha256": "db5b0ec1ce9edcd27c1020f3391a4e7bfc8db06dc9f9d8cee41c0a3425172d96",
+        "outputSha256": "db5b0ec1ce9edcd27c1020f3391a4e7bfc8db06dc9f9d8cee41c0a3425172d96"
+      },
+      {
+        "segmentId": "seg-003",
+        "tempoFactor": 1,
+        "additionalSentencePauseMs": [],
+        "sourceSha256": "92979494ecb4341dd2460b284755660dc8164652f20acfe273909b087ff75300",
+        "outputSha256": "92979494ecb4341dd2460b284755660dc8164652f20acfe273909b087ff75300"
+      },
+      {
+        "segmentId": "seg-004",
+        "tempoFactor": 1,
+        "additionalSentencePauseMs": [],
+        "sourceSha256": "f1c05193a706615b723cc8a21662f848240b63a57a7662fb339c79cfadb54e33",
+        "outputSha256": "f1c05193a706615b723cc8a21662f848240b63a57a7662fb339c79cfadb54e33"
+      },
+      {
+        "segmentId": "seg-005",
+        "tempoFactor": 1,
+        "additionalSentencePauseMs": [],
+        "sourceSha256": "439f04efbc70b3601a10495917197d600a1fa9cc660e2c1ff83eeb15f9849932",
+        "outputSha256": "439f04efbc70b3601a10495917197d600a1fa9cc660e2c1ff83eeb15f9849932"
+      },
+      {
+        "segmentId": "seg-006",
+        "tempoFactor": 1,
+        "additionalSentencePauseMs": [],
+        "sourceSha256": "942b4975bc8caf667da8f6d62f6946a3c68eff278edf3a5e09eae500b510ebcb",
+        "outputSha256": "942b4975bc8caf667da8f6d62f6946a3c68eff278edf3a5e09eae500b510ebcb"
+      },
+      {
+        "segmentId": "seg-007",
+        "tempoFactor": 0.96,
+        "additionalSentencePauseMs": [
+          0
+        ],
+        "sourceSha256": "9393f7094df15da9dcf47044dca8d87b92b6f601cbd78216af92ce7e2e1f0e0e",
+        "outputSha256": "ea73dcd4204ea288fdc56ac39854dc65d29c076f952a035d4e5bc4a5f55727d5"
+      },
+      {
+        "segmentId": "seg-010",
+        "tempoFactor": 0.96,
+        "additionalSentencePauseMs": [
+          100
+        ],
+        "sourceSha256": "c4afc2c0d7fdbcea43c988deac9730a4c380b81ca4637965700c6714841de564",
+        "outputSha256": "a035b972970060e1b60663763485d04a79286da3ffdd207acf6a9c389b0aa3b0"
+      },
+      {
+        "segmentId": "seg-008",
+        "tempoFactor": 1,
+        "additionalSentencePauseMs": [
+          0
+        ],
+        "sourceSha256": "b8fba73601fe08320bbd3022c91dc636e3697aab26cc1e1243f09e644f645a41",
+        "outputSha256": "b8fba73601fe08320bbd3022c91dc636e3697aab26cc1e1243f09e644f645a41"
+      },
+      {
+        "segmentId": "seg-009",
+        "tempoFactor": 1,
+        "additionalSentencePauseMs": [
+          0,
+          150
+        ],
+        "sourceSha256": "b40d87536e8c8987b2d45db1c5826be4675850f5abcc93e435e750580128172a",
+        "outputSha256": "f083b4245736e26f2c1832de9575e7c264ddf2e1aa0e4d9f243c602e44bfc219"
+      }
+    ]
+  }
+}

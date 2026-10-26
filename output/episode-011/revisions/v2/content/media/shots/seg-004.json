@@ -1,0 +1,128 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-011:media-shot:seg-004",
+    "createdAt": "2026-10-20T09:31:14.528Z",
+    "episodeId": "episode-011",
+    "mediaType": "application/json",
+    "path": "content/episode-011/media/shots/seg-004.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-shot-v1",
+    "sha256": "90b6b9351d993e6ce7a3ba1ab30d2a8926ad85304d4cc696cdcc964eb6b583db",
+    "sizeBytes": 2848
+  },
+  "audio": {
+    "ducking": {
+      "attackMs": 0,
+      "enabled": false,
+      "reductionDb": 0,
+      "releaseMs": 0
+    },
+    "fadeInMs": 0,
+    "fadeOutMs": 0,
+    "narrationGain": 1,
+    "originalAudioGain": 0
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "referenceStory": {
+      "claimIds": [
+        "claim-gamma-001"
+      ],
+      "headline": "Gamma 输入文字生成PPT",
+      "profile": "golden-reference-v1",
+      "resultLine": "先生成，再修改"
+    },
+    "timelineSha256": "9d0e4b74fd62984b438692132af5757da374502ec601ee65ae311a70f6c49b44",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-10-20T09:31:14.528Z",
+  "crossfadeMs": 0,
+  "durationFrames": 204,
+  "endSeconds": 22.850062000000005,
+  "episodeId": "episode-011",
+  "evidenceImageAssetId": null,
+  "evidenceImagePath": null,
+  "evidenceImageSha256": null,
+  "fade": {
+    "inMs": 0,
+    "outMs": 0
+  },
+  "fallbackImageAssetId": "gamma-still-3",
+  "fallbackImagePath": "episodes/episode-011/media/draft.png",
+  "fallbackImageSha256": "107c4c965d2393ab7713028fd796f1015178814fe75b13b0491cd4c5c118c3e1",
+  "fallbackReason": "approved editorial still selected for seg-004",
+  "fallbackType": null,
+  "gate": {
+    "clipVerified": false,
+    "episodeIsolated": true,
+    "hashesValid": true,
+    "rightsApproved": false,
+    "slotValid": false,
+    "timestampsValid": false
+  },
+  "lineage": null,
+  "overlays": {
+    "badge": null,
+    "captionsEnabled": true,
+    "sourceLabel": "Gamma官方教程＋演示结果 · 编辑说明 · 非实测"
+  },
+  "reasons": [
+    "scene seg-004 at frame 482 (204 frames, 30 fps)",
+    "fallback none: approved editorial still selected for seg-004",
+    "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+  ],
+  "renderProxyMediaType": null,
+  "renderProxyRef": null,
+  "sceneIndex": 3,
+  "schemaVersion": "media-shot-v1",
+  "segmentId": "seg-004",
+  "selectedMediaClipRef": null,
+  "shotId": "episode-011:media-shot:seg-004",
+  "startFrame": 482,
+  "startSeconds": 16.066708000000002,
+  "staticFilePath": null,
+  "transform": {
+    "freezeFrameMs": null,
+    "pip": null,
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "reframe": {
+      "crop": {
+        "height": 1,
+        "width": 1,
+        "x": 0,
+        "y": 0
+      },
+      "mode": "cover"
+    },
+    "scale": 1,
+    "zoomPan": {
+      "end": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "start": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "type": "none"
+    }
+  },
+  "trim": null,
+  "verificationRef": null,
+  "visualType": "official-screenshot"
+}

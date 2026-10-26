@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "source-first-workflow-v1",
+  "episodeId": "episode-009-v2",
+  "coreStoryQuestion": "一个自己也为推广发愁的开发者，怎样做出别人愿意付费使用的营销工具？",
+  "currentStatus": "story-approved",
+  "stages": [
+    {
+      "id": "research-analyst",
+      "owner": "research-analyst",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-009-v2/research/facts.json",
+        "content/episode-009-v2/research/sources.json",
+        "content/episode-009-v2/research/timeline.json",
+        "content/episode-009-v2/research/technology.md",
+        "content/episode-009-v2/research/growth-data.md"
+      ],
+      "decision": "新版工件重新交接：独立Script Editor、Fact Guardian及原素材画面核验；不继承旧版批准。"
+    },
+    {
+      "id": "spine-extractor",
+      "owner": "spine-extractor",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-009-v2/story/story-spine.md"
+      ],
+      "decision": "新版工件重新交接：独立Script Editor、Fact Guardian及原素材画面核验；不继承旧版批准。"
+    },
+    {
+      "id": "narrative-adapter",
+      "owner": "narrative-adapter",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-009-v2/story/script-draft.md"
+      ],
+      "decision": "新版工件重新交接：独立Script Editor、Fact Guardian及原素材画面核验；不继承旧版批准。"
+    },
+    {
+      "id": "script-editor",
+      "owner": "script-editor",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-009-v2/story/final-script.md",
+        "content/episode-009-v2/story/critic-report.md"
+      ],
+      "decision": "新版工件重新交接：独立Script Editor、Fact Guardian及原素材画面核验；不继承旧版批准。"
+    },
+    {
+      "id": "fact-guardian",
+      "owner": "fact-guardian",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-009-v2/story/fact-check-report.md"
+      ],
+      "decision": "新版工件重新交接：独立Script Editor、Fact Guardian及原素材画面核验；不继承旧版批准。"
+    },
+    {
+      "id": "visual-director",
+      "owner": "visual-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-009-v2/story/visual-plan.md"
+      ],
+      "decision": "新版工件重新交接：独立Script Editor、Fact Guardian及原素材画面核验；不继承旧版批准。"
+    },
+    {
+      "id": "delivery-critic",
+      "owner": "delivery-critic",
+      "status": "rejected",
+      "artifacts": [
+        "content/episode-009-v2/production/delivery-critic-report.md"
+      ],
+      "decision": "独立逐cue、逐秒和结尾密集帧检查完成，未确认视觉硬缺陷；完整人工听感未完成，Delivery REJECT/tts表示待听辨而非已确认音频缺陷，不要求无依据重配。"
+    }
+  ],
+  "decisions": []
+}

@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-009",
+  "segmentId": "seg-004",
+  "clipId": "episode-009:media-clip:075ef5723fac9ada77f91626",
+  "claimIds": [
+    "claim-fastlane-001"
+  ],
+  "claims": [
+    {
+      "id": "claim-fastlane-001",
+      "claim": "Gaurav在采访中介绍，Fastlane读取产品网站并生成相关营销短内容；演示从已生成内容开始，用户滑卡挑选后排期发布。"
+    }
+  ],
+  "narration": "挑好内容,再选账号;现在发,还是排到以后,也能在这里选。",
+  "visualIntent": "接着同一段13:22–13:37实演,呈现选账号后进入Schedule页的连续动作;局部放大Post ASAP与Schedule for later两项,让「现在/以后」可读。关键动作之间不用不相关素材遮挡,未拍到的上线结果不补造。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009/media/verifications/seg-004/episode-009-media-clip-075ef5723fac9ada77f91626-clip.mp4",
+    "sha256": "2f8c45a0b1105597987a4908670cfbb46a8e19425518cb0ae8a98670a5932d89",
+    "sizeBytes": 177477,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 4767,
+    "sourceMediaId": "episode-009:media:seg-004-4ba465f5171d",
+    "sourceMediaSha256": "4ba465f5171d0a933e0d2e4887909f0c101bb9e2ddbdeec753296ff158d8acb6"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009/media/indexes/seg-004-4ba465f5171d/keyframes/keyframe-0-2383.jpg",
+      "timestampMs": 2383,
+      "sha256": "9f6ddd8451932055ec7b4e7a7a103b7c934a3d4e41b347c970b2814ebe5d745b",
+      "sizeBytes": 33134,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "真实Select Platforms账号选择后，剪到Schedule中Post ASAP与Schedule for Later；中间步骤省略，不证明上线。",
+    "observedText": "",
+    "keywords": [
+      "账号",
+      "排期",
+      "Schedule"
+    ],
+    "entities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "4a8660f177d027746bc08956c683f6f9847e486fc46ee6a243b812c063ca8066"
+}

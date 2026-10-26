@@ -1,0 +1,72 @@
+[
+  {
+    "id": "src-gamma-stanford",
+    "title": "Grant Lee (Gamma) – Finding Early-Stage Energy",
+    "publisher": "Stanford STVP / Grant Lee",
+    "url": "https://stvp.stanford.edu/videos/grant-lee-gamma-finding-early-stage-energy/",
+    "publishedAt": "2025-10-21",
+    "accessedAt": "2026-10-20",
+    "sourceType": "founder",
+    "notes": "公开一手来源。创始人及公司口径保留；当前页面功能不倒作2020年能力。产品页日期为本次访问日，未声称发布日期。"
+  },
+  {
+    "id": "src-gamma-product",
+    "title": "AI Deck Generator | Gamma",
+    "publisher": "Gamma",
+    "url": "https://gamma.app/products/presentations",
+    "publishedAt": "2026-10-20",
+    "accessedAt": "2026-10-20",
+    "sourceType": "official",
+    "notes": "公开一手来源。创始人及公司口径保留；当前页面功能不倒作2020年能力。产品页日期为本次访问日，未声称发布日期。"
+  },
+  {
+    "id": "src-gamma-growth",
+    "title": "How we built Gamma differently",
+    "publisher": "Gamma / Grant Lee",
+    "url": "https://gamma.app/insights/how-we-built-a-usd100m-business-differently",
+    "publishedAt": "2025-11-10",
+    "accessedAt": "2026-10-20",
+    "sourceType": "founder",
+    "notes": "公开一手来源。创始人及公司口径保留；当前页面功能不倒作2020年能力。产品页日期为本次访问日，未声称发布日期。"
+  },
+  {
+    "id": "src-gamma-3",
+    "title": "Introducing Gamma 3.0",
+    "publisher": "Gamma / Akiva Gottlieb",
+    "url": "https://gamma.app/insights/introducing-gamma-3-0",
+    "publishedAt": "2025-09-15",
+    "accessedAt": "2026-10-20",
+    "sourceType": "official",
+    "notes": "公开一手来源。创始人及公司口径保留；当前页面功能不倒作2020年能力。产品页日期为本次访问日，未声称发布日期。"
+  },
+  {
+    "id": "src-gamma-tutorial",
+    "title": "How to create pitch decks with Gamma",
+    "publisher": "Gamma / Tamar Wittenberg",
+    "url": "https://gamma.app/insights/how-to-create-pitch-decks-with-gamma-or-from-prompt-to-investor-ready-export",
+    "publishedAt": "2025-10-07",
+    "accessedAt": "2026-10-20",
+    "sourceType": "official",
+    "notes": "历史教程，支持主题/文字到初稿再修改；不用当前版本界面倒作2025实录。"
+  },
+  {
+    "id": "src-gamma-creation-index",
+    "title": "The Creation Index: How 100 million people actually create with AI",
+    "publisher": "Gamma / Prasiddhi Jain",
+    "url": "https://gamma.app/insights/creation-index",
+    "publishedAt": "2026-08-11",
+    "accessedAt": "2026-10-20",
+    "sourceType": "official",
+    "notes": "本轮实时回读首段及数据截止说明；生命周期累计人数，不是活跃或付费人数。"
+  },
+  {
+    "id": "src-gamma-founder-growth-post",
+    "title": "Gamma did not start with AI: founder retrospective on the first 30 seconds",
+    "publisher": "Grant Lee / LinkedIn",
+    "url": "https://www.linkedin.com/posts/grantslee_gamma-didnt-start-with-ai-it-started-with-activity-7410349072529948672-X8w-",
+    "publishedAt": "unknown; page displays relative time only",
+    "accessedAt": "2026-10-20",
+    "sourceType": "founder",
+    "notes": "本轮直接回读公开本人帖。2022、2023是原文历史年份；页面精确发帖日未核实，不用相对时间倒推日期。月榜成绩与增长变化为创始人自述，不冒充平台独立核验。"
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "requestHash": "9765c2b8ea97a4c424ea919f7bbdf71eded22397ffb3049f1c4e251007885b6c",
+  "completedAt": "2026-10-25T14:58:03.429540+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.9,
+    "claimMatch": 0.9,
+    "visualQuality": 0.85,
+    "misleadingRisk": 0.15,
+    "observedActions": [
+      "Stripe原始人物合照及有日期的创始人困扰回忆转述，不是GoPro历史操作。"
+    ],
+    "observedEntities": [
+      "Photoroom"
+    ],
+    "observedText": [
+      "Matthieu Rouif",
+      "在GoPro时，觉得抠图太麻烦",
+      "2024年本人访谈回忆"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 5933,
+    "reasons": [
+      "本制作会话已查看当前prepared片段的多点抽帧及当前核验请求所指向的关键帧联系表；这是同会话视觉核对，非独立Delivery或有声观看。",
+      "界面入口裁切可读，人物与日期可见；中文转述卡标编辑排版，官网演示不当本次实测，历史访谈不当当前政策。"
+    ]
+  }
+}

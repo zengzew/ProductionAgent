@@ -1,0 +1,74 @@
+[
+  {
+    "id": "fastlane-website-flow",
+    "type": "image",
+    "path": "public/episodes/episode-009/assets/website-flow.png",
+    "sourceUrl": "https://www.starterstory.com/stories/the-insanely-obvious-secret-behind-this-69k-month-saas",
+    "owner": "流程示意 · 据创始人介绍",
+    "licenseOrBasis": "本期自制编辑图示，据创始人公开自述；不冒充真实应用/用户操作。",
+    "capturedAt": "2026-10-14",
+    "usage": "seg-002：流程示意 · 据创始人介绍",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-fastlane-001"
+    ],
+    "segmentIds": [
+      "seg-002"
+    ]
+  },
+  {
+    "id": "fastlane-early-users",
+    "type": "image",
+    "path": "public/episodes/episode-009/assets/early-users.png",
+    "sourceUrl": "https://www.starterstory.com/stories/the-insanely-obvious-secret-behind-this-69k-month-saas",
+    "owner": "获客流程示意 · 据创始人介绍",
+    "licenseOrBasis": "本期自制编辑图示，据创始人公开自述；不冒充真实应用/用户操作。",
+    "capturedAt": "2026-10-14",
+    "usage": "seg-006：获客流程示意 · 据创始人介绍",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-fastlane-005"
+    ],
+    "segmentIds": [
+      "seg-006"
+    ]
+  },
+  {
+    "id": "fastlane-seven-days",
+    "type": "image",
+    "path": "public/episodes/episode-009/assets/seven-days.png",
+    "sourceUrl": "https://www.starterstory.com/stories/the-insanely-obvious-secret-behind-this-69k-month-saas",
+    "owner": "访谈机制示意 · 据创始人介绍",
+    "licenseOrBasis": "本期自制编辑图示，据创始人公开自述；不冒充真实应用/用户操作。",
+    "capturedAt": "2026-10-14",
+    "usage": "seg-007：访谈机制示意 · 据创始人介绍",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-fastlane-004"
+    ],
+    "segmentIds": [
+      "seg-007"
+    ]
+  },
+  {
+    "id": "fastlane-historical-arr",
+    "type": "screenshot",
+    "path": "public/episodes/episode-009/assets/historical-arr.png",
+    "sourceUrl": "https://www.starterstory.com/stories/fastlane-create-winning-short-form-content-in-seconds",
+    "owner": "Starter Story · 2026-04-03 · 创始人自报",
+    "licenseOrBasis": "用户请求本地制作评估；必要原文局部截图与中文解释，署名和日期保留；外部发布未授权。",
+    "capturedAt": "2026-10-14",
+    "usage": "seg-009：Starter Story · 2026-04-03 · 创始人自报",
+    "approved": true,
+    "usedInRender": true,
+    "claimIds": [
+      "claim-fastlane-009"
+    ],
+    "segmentIds": [
+      "seg-009"
+    ]
+  }
+]

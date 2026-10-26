@@ -1,0 +1,168 @@
+[
+  {
+    "id": "seg-001",
+    "section": "hook",
+    "targetSeconds": 3,
+    "narration": "输入文字，AI帮你生成PPT。",
+    "claimIds": [
+      "claim-gamma-001"
+    ],
+    "title": "输入文字，生成PPT",
+    "visual": "显示2025官方演示中的真实演示稿结果与左侧多页缩略图；输入文字到生成初稿的关系来自官方教程，中文为编辑说明，不冒充生成过程实录。",
+    "cues": [
+      "输入文字",
+      "AI帮你生成PPT"
+    ],
+    "sourceId": "src-gamma-tutorial"
+  },
+  {
+    "id": "seg-002",
+    "section": "need",
+    "targetSeconds": 8,
+    "narration": "Gamma的创始人格兰特做咨询时，曾为第二天的会议熬夜准备。他说，大量工夫花在排版，内容反而顾不上。",
+    "claimIds": [
+      "claim-gamma-002"
+    ],
+    "title": "熬夜，忙的却是排版",
+    "visual": "Stanford访谈原文中的late night及formatting短摘录；标明创始人回忆，非重演。",
+    "cues": [
+      "Gamma的创始人格兰特做咨询时",
+      "曾为第二天的会议熬夜准备",
+      "他说，大量工夫花在排版",
+      "内容反而顾不上"
+    ],
+    "sourceId": "src-gamma-stanford"
+  },
+  {
+    "id": "seg-003",
+    "section": "decision",
+    "targetSeconds": 6,
+    "narration": "他找来两位老同事，想把顺序倒过来：先把话写清楚，再让工具处理版式。",
+    "claimIds": [
+      "claim-gamma-002",
+      "claim-gamma-003"
+    ],
+    "title": "先写内容，再处理版式",
+    "visual": "Stanford原文write as the starting point短摘录及官方原图；不将2025界面当2020原型。",
+    "cues": [
+      "他找来两位老同事",
+      "想把顺序倒过来",
+      "先把话写清楚",
+      "再让工具处理版式"
+    ],
+    "sourceId": "src-gamma-stanford"
+  },
+  {
+    "id": "seg-004",
+    "section": "mechanism",
+    "targetSeconds": 7,
+    "narration": "Gamma后来接入AI。输入主题或已有文字，选个样式，就能得到配好图文的初稿。",
+    "claimIds": [
+      "claim-gamma-001",
+      "claim-gamma-003"
+    ],
+    "title": "先得到一份可以改的稿",
+    "visual": "官方演示稿及2025官方教程的必要短摘录；本段不声称画面录到生成过程，中文为编辑说明。",
+    "cues": [
+      "Gamma后来接入AI",
+      "输入主题或已有文字",
+      "选个样式",
+      "就能得到配好图文的初稿"
+    ],
+    "sourceId": "src-gamma-product"
+  },
+  {
+    "id": "seg-005",
+    "section": "value",
+    "targetSeconds": 7,
+    "narration": "想换一种表达，还能让AI改布局，或把文字变成图示。你要做的，是核对内容、调整重点。",
+    "claimIds": [
+      "claim-gamma-001",
+      "claim-gamma-004"
+    ],
+    "title": "把精力留给内容",
+    "visual": "2025官方Agent与Smart Diagrams动画，按动作分别展示；核对内容为编辑用途建议，不宣称省时测量。",
+    "cues": [
+      "想换一种表达",
+      "还能让AI改布局",
+      "或把文字变成图示",
+      "你要做的，是核对内容、调整重点"
+    ],
+    "sourceId": "src-gamma-3"
+  },
+  {
+    "id": "seg-006",
+    "section": "distribution",
+    "targetSeconds": 5,
+    "narration": "他们拿下了Product Hunt月榜第一，增长却还是卡住了。",
+    "claimIds": [
+      "claim-gamma-009"
+    ],
+    "title": "榜单第一，增长仍卡住",
+    "visual": "Product Hunt历史月榜成绩与增长卡住的对照，以创始人原文短摘录和编辑释义呈现；不是平台历史榜单截图。",
+    "cues": [
+      "他们拿下了Product Hunt\n月榜第一",
+      "增长却还是卡住了"
+    ],
+    "sourceId": "src-gamma-founder-growth-post"
+  },
+  {
+    "id": "seg-007",
+    "section": "iteration",
+    "targetSeconds": 8,
+    "narration": "十二个人花了三个月，重新打磨用户进来的前三十秒：输入一句话，先看到一份PPT。",
+    "claimIds": [
+      "claim-gamma-010",
+      "claim-gamma-001"
+    ],
+    "title": "三个月，打磨前三十秒",
+    "visual": "3个月与30秒的大字对照，配官方真实PPT结果；显示首次体验的产品选择。原文提到AI进入新手流程；结果图来自2025演示，非2023年现场录像或本次生成实录。",
+    "cues": [
+      "十二个人花了三个月",
+      "重新打磨用户进来的前三十秒",
+      "输入一句话",
+      "先看到一份PPT"
+    ],
+    "sourceId": "src-gamma-founder-growth-post"
+  },
+  {
+    "id": "seg-008",
+    "section": "result",
+    "targetSeconds": 11,
+    "narration": "二零二五年十一月，Gamma自报年化经常性收入突破一亿美元。到二零二六年八月，公司披露累计用户已超一亿。",
+    "claimIds": [
+      "claim-gamma-007",
+      "claim-gamma-008"
+    ],
+    "title": "收入与用户，都有市场回应",
+    "visual": "双指标编辑数据卡：2025-11-10公司自报ARR超1亿美元；2026-08-11公司报告披露累计使用人数超1亿。日期与口径各自同现，不把累计人数当活跃/付费用户，不把ARR当实际年度收款。",
+    "cues": [
+      "二零二五年十一月",
+      "Gamma自报年化经常性收入\n突破一亿美元",
+      "到二零二六年八月",
+      "公司披露累计用户已超一亿"
+    ],
+    "sourceId": "src-gamma-growth / src-gamma-creation-index"
+  },
+  {
+    "id": "seg-009",
+    "section": "payoff",
+    "targetSeconds": 9,
+    "narration": "做PPT，不必再从空白页一页页排起。输入文字，先有初稿，再动手改。就这样，Gamma干掉了PPT。",
+    "claimIds": [
+      "claim-gamma-001",
+      "claim-gamma-002",
+      "claim-gamma-003",
+      "claim-gamma-011"
+    ],
+    "title": "告别从零排版",
+    "visual": "回到真实官方演示稿编辑结果，最后一帧持续显示“告别从零排版”。“Gamma干掉了PPT”为用户选定的编辑修辞，指传统从空白页排版的工作方式，不是PowerPoint被市场淘汰或市占率结论。",
+    "cues": [
+      "做PPT",
+      "不必再从空白页一页页排起",
+      "输入文字，先有初稿，再动手改",
+      "就这样，Gamma干掉了PPT"
+    ],
+    "sourceId": "src-gamma-tutorial / src-gamma-stanford"
+  }
+]

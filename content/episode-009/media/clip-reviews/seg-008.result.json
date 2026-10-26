@@ -1,0 +1,24 @@
+{
+  "requestHash": "f7b9e3b404581758989f1a2c5cddd51ecc50b69a757e9220617aa48ca79af67f",
+  "completedAt": "2026-10-15T03:26:39.564594+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.8,
+    "claimMatch": 0.65,
+    "visualQuality": 0.88,
+    "misleadingRisk": 0.06,
+    "observedActions": [
+      "Gaurav本人谈话，为观察共享屏幕及界面迭代自述配图；没有真实客户通话录像。"
+    ],
+    "observedEntities": [
+      "Gaurav Thapa"
+    ],
+    "observedText": [],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 4933,
+    "reasons": [
+      "当前Codex制作会话实际检查原片与派生窗口抽帧；见media/prepared-check及排期814秒原帧。不是独立Delivery批准。",
+      "来源标示历史采访；输入/生成未实演，访谈配图不是客户现场；排期选项停帧供阅读，不证明上线。"
+    ]
+  }
+}

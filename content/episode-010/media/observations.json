@@ -1,0 +1,38 @@
+[
+  {
+    "segmentId": "seg-001",
+    "mediaId": "episode-010:media:seg-001-e963365959ed",
+    "sha256": "e963365959ed81043f7d999d2e37e551d5210b2f9f3f6bac2986d1dc4fe64d86",
+    "textSummary": "官方历史演示：零散笔记展开成AllFound Overview等分层条目。",
+    "keywords": [
+      "seg-001",
+      "Granola",
+      "notes",
+      "AllFound"
+    ]
+  },
+  {
+    "segmentId": "seg-004",
+    "mediaId": "episode-010:media:seg-004-98f649cafa95",
+    "sha256": "98f649cafa955ce20643d12371cd67fcda9ef74013c173b120c5f5e11b0e9d5a",
+    "textSummary": "官方历史演示原始要点和Analyzing transcript状态，接补全结果；不是本次会议实录。",
+    "keywords": [
+      "seg-004",
+      "Granola",
+      "notes",
+      "AllFound"
+    ]
+  },
+  {
+    "segmentId": "seg-005",
+    "mediaId": "episode-010:media:seg-005-8483c5e80015",
+    "sha256": "8483c5e800150b82e61a79feb827932ad86d30382352fc742a0af2a8b97258fc",
+    "textSummary": "官方演示结果局部停帧供阅读：Current Provider、Their Requirements和Next steps；非继续生成实录。",
+    "keywords": [
+      "seg-005",
+      "Granola",
+      "notes",
+      "AllFound"
+    ]
+  }
+]

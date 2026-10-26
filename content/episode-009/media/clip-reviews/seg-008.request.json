@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-009",
+  "segmentId": "seg-008",
+  "clipId": "episode-009:media-clip:e56570121c372bdd6b1075c7",
+  "claimIds": [
+    "claim-fastlane-005"
+  ],
+  "claims": [
+    {
+      "id": "claim-fastlane-005",
+      "claim": "Gaurav回顾，早期在Reddit线程和社媒找用户；加入等候名单后团队发邮件约谈，让用户共享屏幕试用并观察卡点。"
+    }
+  ],
+  "narration": "通话时让对方共享屏幕,少说话,先看人卡在哪,再改界面。",
+  "visualIntent": "11:38–12:06原片或中文短引说明共享屏幕、观察摩擦与改界面;如用历史卡片辅助,必须与访谈证据区分,不伪造客户通话录像。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009/media/verifications/seg-008/episode-009-media-clip-e56570121c372bdd6b1075c7-clip.mp4",
+    "sha256": "31e83fd5599da1f4b0761cee8e04bd40946eeac01d74987dbbb0378c1be06703",
+    "sizeBytes": 3619898,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 4933,
+    "sourceMediaId": "episode-009:media:seg-008-79cf7a13ead8",
+    "sourceMediaSha256": "79cf7a13ead8bbab3f09899958e53c14f9dae408934ddcbaef9debbccb93ba47"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009/media/indexes/seg-008-79cf7a13ead8/keyframes/keyframe-0-2466.jpg",
+      "timestampMs": 2466,
+      "sha256": "d48f9632a3c44bcf28d1077353072239a0b77ddaba2b7fd5ae592d35ad34f9f2",
+      "sizeBytes": 61279,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "Gaurav本人谈话，为观察共享屏幕及界面迭代自述配图；没有真实客户通话录像。",
+    "observedText": "",
+    "keywords": [
+      "访谈",
+      "共享屏幕",
+      "界面"
+    ],
+    "entities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "f7b9e3b404581758989f1a2c5cddd51ecc50b69a757e9220617aa48ca79af67f"
+}

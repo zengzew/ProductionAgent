@@ -1,0 +1,204 @@
+{
+  "episodeId": "episode-012",
+  "layoutVariant": "poke-standard",
+  "fps": 30,
+  "totalFrames": 1452,
+  "totalSeconds": 48.4,
+  "ttsProvider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "captionAlignment": "provider-timestamps",
+  "scenes": [
+    {
+      "id": "seg-001",
+      "section": "hook",
+      "narration": "一张商品照，AI帮你抠图、换背景。",
+      "onScreenText": [
+        "商品照，抠图换背景"
+      ],
+      "claimIds": [
+        "claim-pr-001"
+      ],
+      "scene": "商品照，抠图换背景",
+      "visualIntent": "官方MP4约1–4秒：杯子原场景与白底对照，按单个商品裁切；画面标“官方宣传演示·非本次实测”。",
+      "targetSeconds": 3,
+      "index": 0,
+      "startFrame": 0,
+      "durationFrames": 91,
+      "startSeconds": 0,
+      "endSeconds": 3.034125,
+      "audioDurationSeconds": 2.914125,
+      "audio": "episodes/episode-012/audio/seg-001.mp3"
+    },
+    {
+      "id": "seg-002",
+      "section": "need",
+      "narration": "Photoroom的创始人马修，在GoPro做产品时就嫌抠图麻烦，后来干脆回去学了机器学习。",
+      "onScreenText": [
+        "自己也嫌抠图麻烦"
+      ],
+      "claimIds": [
+        "claim-pr-002"
+      ],
+      "scene": "自己也嫌抠图麻烦",
+      "visualIntent": "Stripe合照保持两人身份；标Matthieu Rouif、2024访谈回忆，不伪造GoPro操作。",
+      "targetSeconds": 9,
+      "index": 1,
+      "startFrame": 91,
+      "durationFrames": 178,
+      "startSeconds": 3.034125,
+      "endSeconds": 8.982353999999999,
+      "audioDurationSeconds": 5.828229,
+      "audio": "episodes/episode-012/audio/seg-002.mp3"
+    },
+    {
+      "id": "seg-003",
+      "section": "decision",
+      "narration": "他和工程师埃利奥特搭档，两周就做出了第一版Photoroom。",
+      "onScreenText": [
+        "两周做出第一版"
+      ],
+      "claimIds": [
+        "claim-pr-003"
+      ],
+      "scene": "两周做出第一版",
+      "visualIntent": "同一合照配Eliot Andres原名和“两周·创始人回忆”，不是当年开发现场。",
+      "targetSeconds": 6,
+      "index": 2,
+      "startFrame": 269,
+      "durationFrames": 151,
+      "startSeconds": 8.982353999999999,
+      "endSeconds": 14.001791999999998,
+      "audioDurationSeconds": 4.899438,
+      "audio": "episodes/episode-012/audio/seg-003.mp3"
+    },
+    {
+      "id": "seg-004",
+      "section": "mechanism",
+      "narration": "现在，卖家放进商品照片，就能去掉杂乱背景，再换成白底，或者生成新的场景。",
+      "onScreenText": [
+        "商品原照，换一个场景"
+      ],
+      "claimIds": [
+        "claim-pr-001"
+      ],
+      "scene": "商品原照，换一个场景",
+      "visualIntent": "先展示官网Start from a photo入口，再接官方MP4白底状态及椅子场景示例；不同示例显式分镜，不冒充一次生成过程。",
+      "targetSeconds": 8,
+      "index": 3,
+      "startFrame": 420,
+      "durationFrames": 188,
+      "startSeconds": 14.001791999999998,
+      "endSeconds": 20.263479999999998,
+      "audioDurationSeconds": 6.141688,
+      "audio": "episodes/episode-012/audio/seg-004.mp3"
+    },
+    {
+      "id": "seg-005",
+      "section": "value",
+      "narration": "马修在访谈里强调，背景可以变，商品的细节和瑕疵要留下。毕竟，卖家卖的是手里的真东西。",
+      "onScreenText": [
+        "背景变，商品细节要留下"
+      ],
+      "claimIds": [
+        "claim-pr-004",
+        "claim-pr-009"
+      ],
+      "scene": "背景变，商品细节要留下",
+      "visualIntent": "Stripe真实性问答转述与商品原始对照；小字“创始人设计取向”，不打100%保真承诺。",
+      "targetSeconds": 8,
+      "index": 4,
+      "startFrame": 608,
+      "durationFrames": 207,
+      "startSeconds": 20.263479999999998,
+      "endSeconds": 27.152959,
+      "audioDurationSeconds": 6.769479,
+      "audio": "episodes/episode-012/audio/seg-005.mp3"
+    },
+    {
+      "id": "seg-006",
+      "section": "distribution",
+      "narration": "获客也围着这个效果做。增长负责人说，免费抠图是他们的获客入口，团队还在TikTok演示图片前后的变化。",
+      "onScreenText": [
+        "把效果演示给卖家看"
+      ],
+      "claimIds": [
+        "claim-pr-005",
+        "claim-pr-006"
+      ],
+      "scene": "把效果演示给卖家看",
+      "visualIntent": "12:42、13:24原访谈定位与中文转述，配官网演示；标“2023访谈回顾”，不制作假TikTok页面或假创作者。",
+      "targetSeconds": 10,
+      "index": 5,
+      "startFrame": 815,
+      "durationFrames": 218,
+      "startSeconds": 27.152959,
+      "endSeconds": 34.427437999999995,
+      "audioDurationSeconds": 7.154479,
+      "audio": "episodes/episode-012/audio/seg-006.mp3"
+    },
+    {
+      "id": "seg-007",
+      "section": "distribution",
+      "narration": "他们联系主动发布演示的用户合作，再把好内容拿去投广告。",
+      "onScreenText": [
+        "用户做的内容，也能用来推广"
+      ],
+      "claimIds": [
+        "claim-pr-006",
+        "claim-pr-007"
+      ],
+      "scene": "用户做的内容，也能用来推广",
+      "visualIntent": "访谈14:21、16:21、17:36中文转述，清楚写“创作者合作→广告素材”；编辑排版，不装作真实投放画面。",
+      "targetSeconds": 8,
+      "index": 6,
+      "startFrame": 1033,
+      "durationFrames": 128,
+      "startSeconds": 34.427437999999995,
+      "endSeconds": 38.70381299999999,
+      "audioDurationSeconds": 4.156375,
+      "audio": "episodes/episode-012/audio/seg-007.mp3"
+    },
+    {
+      "id": "seg-008",
+      "section": "result",
+      "narration": "2024年，公司披露拿到四千三百万美元B轮融资。",
+      "onScreenText": [
+        "2024年B轮融资4300万美元"
+      ],
+      "claimIds": [
+        "claim-pr-008"
+      ],
+      "scene": "2024年B轮融资4300万美元",
+      "visualIntent": "必要数字卡：2024-02-27、B轮4300万美元、Photoroom公司公告，三者同时可读；不是收入或最新估值。",
+      "targetSeconds": 5,
+      "index": 7,
+      "startFrame": 1161,
+      "durationFrames": 107,
+      "startSeconds": 38.70381299999999,
+      "endSeconds": 42.27200099999999,
+      "audioDurationSeconds": 3.448188,
+      "audio": "episodes/episode-012/audio/seg-008.mp3"
+    },
+    {
+      "id": "seg-009",
+      "section": "payoff",
+      "narration": "它接住的，就是小卖家每天都要做的事：把手里的货，清清楚楚地摆到买家面前。",
+      "onScreenText": [
+        "把手里的货，清楚地展示出去"
+      ],
+      "claimIds": [
+        "claim-pr-001",
+        "claim-pr-009"
+      ],
+      "scene": "把手里的货，清楚地展示出去",
+      "visualIntent": "回到开头同一杯子/鞋子官方白底结果；不加销量、利润承诺或关注口号。",
+      "targetSeconds": 7,
+      "index": 8,
+      "startFrame": 1268,
+      "durationFrames": 184,
+      "startSeconds": 42.27200099999999,
+      "endSeconds": 48.39437599999999,
+      "audioDurationSeconds": 6.002375,
+      "audio": "episodes/episode-012/audio/seg-009.mp3"
+    }
+  ]
+}

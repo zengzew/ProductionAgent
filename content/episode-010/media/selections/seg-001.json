@@ -1,0 +1,98 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-010:media-visual-slot:seg-001",
+    "createdAt": "2026-10-20T11:35:26.213Z",
+    "episodeId": "episode-010",
+    "mediaType": "application/json",
+    "path": "content/episode-010/media/selections/seg-001.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "6812f0f3f1ddb02199b64c866b834b94eea324415384e9391ccd3195ce46cb09",
+    "sizeBytes": 3252
+  },
+  "claimIds": [
+    "claim-granola-001"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.85,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": false
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0,
+      "durationSuitability": 0.1,
+      "misleadingRiskSafety": 0.15,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.15,
+      "verificationClaimMatch": 0,
+      "verificationRelevance": 0.05,
+      "visualIntentFit": 0.15,
+      "visualQuality": 0.25
+    }
+  },
+  "createdAt": "2026-10-20T11:35:26.213Z",
+  "episodeId": "episode-010",
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true,
+    "verificationPassed": true
+  },
+  "reasons": [
+    "segment seg-001 claim-bound with 1 claim(s)",
+    "retrieval result episode-010:media-retrieval:seg-001 produced 6 candidate(s)",
+    "1 candidate(s) carry a valid pass verification",
+    "selected episode-010:media-clip:36eb78188ebf5a428755a258 score 0.678000 (claimFit=0.000, relevance=0.950, claimMatch=0.940, quality=0.880, risk=0.080, tie-breaker=score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-001",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-granola-001"
+    ],
+    "clipId": "episode-010:media-clip:36eb78188ebf5a428755a258",
+    "createdAt": "2026-10-20T11:35:25.535Z",
+    "endMs": 3467,
+    "episodeId": "episode-010",
+    "mediaId": "episode-010:media:seg-001-e963365959ed",
+    "sourceMediaRef": {
+      "artifactId": "episode-010:media:seg-001-e963365959ed",
+      "createdAt": "2026-10-20T11:01:27.926Z",
+      "episodeId": "episode-010",
+      "mediaType": "video/mp4",
+      "path": "content/episode-010/media/assets/seg-001-e963365959ed.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "e963365959ed81043f7d999d2e37e551d5210b2f9f3f6bac2986d1dc4fe64d86",
+      "sizeBytes": 199097
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "官方2024年笔记补全演示,0秒原始要点→3秒后展开;首屏配中文用途标题。"
+  },
+  "selectedType": "real-media",
+  "selectionScore": 0.678,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-010:media-visual-slot:seg-001",
+  "verificationRef": {
+    "artifactId": "episode-010:media-verification:seg-001-episode-010-media-clip-36eb78188ebf5a428755a258",
+    "createdAt": "2026-10-20T11:35:25.544Z",
+    "episodeId": "episode-010",
+    "mediaType": "application/json",
+    "path": "content/episode-010/media/verifications/seg-001/episode-010-media-clip-36eb78188ebf5a428755a258.json",
+    "producer": "media-verification-v1:codex:granola-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "329d292892e1868b68f6f525822fce2eac3810aee2ea17c1f46d05771f2d5d11",
+    "sizeBytes": 4520
+  },
+  "visualIntent": "官方2024年笔记补全演示,0秒原始要点→3秒后展开;首屏配中文用途标题。"
+}

@@ -1,0 +1,135 @@
+{
+  "requestedProvider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "provider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "providerId": "minimax",
+  "fallbackUsed": false,
+  "fallbackReason": "",
+  "generatedAt": "2026-10-25T14:50:10.176Z",
+  "voice": "Chinese (Mandarin)_Reliable_Executive",
+  "speed": 1.2,
+  "pitch": 0,
+  "normalization": "loudnorm I=-16 TP=-1.5 LRA=7",
+  "credentialRequired": true,
+  "networkRequired": true,
+  "alignmentStrategy": "provider-timestamps",
+  "files": [
+    {
+      "segmentId": "seg-001",
+      "file": "episodes/episode-012/audio/seg-001.mp3",
+      "timestamps": [
+        {
+          "text": "一张商品照,AI帮你抠图、换背景。",
+          "startMs": 0,
+          "endMs": 2814.104308390023
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-002",
+      "file": "episodes/episode-012/audio/seg-002.mp3",
+      "timestamps": [
+        {
+          "text": "Photoroom的创始人马修,在GoPro做产品时就嫌抠图麻烦,后来干脆回去学了机器学习。",
+          "startMs": 0,
+          "endMs": 5728.208616780046
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-003",
+      "file": "episodes/episode-012/audio/seg-003.mp3",
+      "timestamps": [
+        {
+          "text": "他和工程师埃利奥特搭档,两周就做出了第一版Photoroom。",
+          "startMs": 0,
+          "endMs": 4799.410430839002
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-004",
+      "file": "episodes/episode-012/audio/seg-004.mp3",
+      "timestamps": [
+        {
+          "text": "现在,卖家放进商品照片,就能去掉杂乱背景,再换成白底,或者生成新的场景。",
+          "startMs": 0,
+          "endMs": 6041.678004535147
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-005",
+      "file": "episodes/episode-012/audio/seg-005.mp3",
+      "timestamps": [
+        {
+          "text": "马修在访谈里强调,背景可以变,商品的细节和瑕疵要留下。",
+          "startMs": 0,
+          "endMs": 4126.0317460317465
+        },
+        {
+          "text": "毕竟,卖家卖的是手里的真东西。",
+          "startMs": 4226,
+          "endMs": 6610.53514739229
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-006",
+      "file": "episodes/episode-012/audio/seg-006.mp3",
+      "timestamps": [
+        {
+          "text": "获客也围着这个效果做。",
+          "startMs": 0,
+          "endMs": 1351.2471655328798
+        },
+        {
+          "text": "增长负责人说,免费抠图是他们的获客入口,团队还在TikTok演示图片前后的变化。",
+          "startMs": 1451,
+          "endMs": 6993.448979591837
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-007",
+      "file": "episodes/episode-012/audio/seg-007.mp3",
+      "timestamps": [
+        {
+          "text": "他们联系主动发布演示的用户合作,再把好内容拿去投广告。",
+          "startMs": 0,
+          "endMs": 4056.3718820861677
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-008",
+      "file": "episodes/episode-012/audio/seg-008.mp3",
+      "timestamps": [
+        {
+          "text": "二零二四年,公司披露拿到四千三百万美元B轮融资。",
+          "startMs": 0,
+          "endMs": 3348.1632653061224
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-009",
+      "file": "episodes/episode-012/audio/seg-009.mp3",
+      "timestamps": [
+        {
+          "text": "它接住的,就是小卖家每天都要做的事:把手里的货,清清楚楚地摆到买家面前。",
+          "startMs": 0,
+          "endMs": 5902.358276643991
+        }
+      ],
+      "timestampSource": "minimax:word"
+    }
+  ]
+}

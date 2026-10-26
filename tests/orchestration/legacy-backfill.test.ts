@@ -4,18 +4,20 @@ import os from "node:os";
 import path from "node:path";
 import {afterEach, describe, expect, it} from "vitest";
 import {
-  LEGACY_PACKAGE_SPECS,
   appendExecutionEvent,
   buildArtifactRef,
   emptyArtifactIndex,
   evaluateObservabilityCompleteness,
-  importLegacyPackage,
-  importLegacyPackages,
   readExecutionEventLog,
   registerCandidate,
   selectArtifact,
-  type LegacyPackageId,
 } from "../../src/orchestration";
+import {
+  LEGACY_PACKAGE_SPECS,
+  importLegacyPackage,
+  importLegacyPackages,
+  type LegacyPackageId,
+} from "../helpers/legacy-import";
 
 const repoRoot = path.resolve(import.meta.dirname, "../..");
 const temporaryDirectories: string[] = [];

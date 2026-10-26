@@ -1,0 +1,62 @@
+[
+  {
+    "id": "src-pr-founder",
+    "title": "Photoroom founder interview",
+    "publisher": "Pulse 2.0 / Matthieu Rouif",
+    "url": "https://pulse2.com/photoroom-matthieu-rouif-profile/amp/",
+    "publishedAt": "2024-04-25",
+    "accessedAt": "2026-10-25",
+    "sourceType": "founder",
+    "notes": "原始访谈或官方页面；公司与创始人自报保留身份。 产品页访问日不作为发布日期；媒体发现或下载不代表外部发布许可。"
+  },
+  {
+    "id": "src-pr-growth",
+    "title": "PhotoRoom growth interview with Olivier Lemarie",
+    "publisher": "Subscription League / Olivier Lemarie",
+    "url": "https://subscriptionleague.com/episode/photoroom-how-to-grow-a-subscription-app-business-and-its-user-base-globally-by-olivier-lemarie",
+    "publishedAt": "2023-03-01",
+    "accessedAt": "2026-10-25",
+    "sourceType": "official",
+    "notes": "在职增长负责人第一人称原始访谈；official指公司员工口径，不是创始人，也不是独立验证。 产品页访问日不作为发布日期；媒体发现或下载不代表外部发布许可。"
+  },
+  {
+    "id": "src-pr-remove",
+    "title": "Background Remover",
+    "publisher": "Photoroom",
+    "url": "https://www.photoroom.com/tools/background-remover",
+    "publishedAt": "unknown; current product page",
+    "accessedAt": "2026-10-25",
+    "sourceType": "official",
+    "notes": "原始访谈或官方页面；公司与创始人自报保留身份。 产品页访问日不作为发布日期；媒体发现或下载不代表外部发布许可。"
+  },
+  {
+    "id": "src-pr-product",
+    "title": "AI Product Photography",
+    "publisher": "Photoroom",
+    "url": "https://www.photoroom.com/ai-product-photography",
+    "publishedAt": "unknown; current product page",
+    "accessedAt": "2026-10-25",
+    "sourceType": "official",
+    "notes": "原始访谈或官方页面；公司与创始人自报保留身份。 产品页访问日不作为发布日期；媒体发现或下载不代表外部发布许可。"
+  },
+  {
+    "id": "src-pr-stripe",
+    "title": "An interview with the cofounder of PhotoRoom",
+    "publisher": "Stripe / Matthieu Rouif",
+    "url": "https://stripe.com/au/newsroom/stories/stripe-and-photoroom",
+    "publishedAt": "2023-04-07",
+    "accessedAt": "2026-10-25",
+    "sourceType": "founder",
+    "notes": "原始访谈或官方页面；公司与创始人自报保留身份。 产品页访问日不作为发布日期；媒体发现或下载不代表外部发布许可。"
+  },
+  {
+    "id": "src-pr-finance",
+    "title": "Photoroom Secures $43M in Series B Funding",
+    "publisher": "Photoroom via PR Newswire",
+    "url": "https://www.prnewswire.com/news-releases/photoroom-secures-43m-in-series-b-funding-launches-next-generation-ai-photo-editing-features-for-businesses-302071832.html",
+    "publishedAt": "2024-02-27",
+    "accessedAt": "2026-10-25",
+    "sourceType": "official",
+    "notes": "原始访谈或官方页面；公司与创始人自报保留身份。 产品页访问日不作为发布日期；媒体发现或下载不代表外部发布许可。"
+  }
+]

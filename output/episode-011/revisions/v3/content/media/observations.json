@@ -1,0 +1,30 @@
+[
+  {
+    "segmentId": "seg-005",
+    "mediaId": "episode-011:media:seg-005-298b91d35073-official",
+    "sha256": "298b91d35073c4bdf2e039bd80166fae5ea56b27bb9e2ef6783d64b4e54820c0",
+    "textSummary": "2025官方Agent演示：文字转图示，再上传截图重排为同样主题的表格；不是本次实测。",
+    "keywords": [
+      "seg-005",
+      "Gamma",
+      "Agent",
+      "Holographic Technology",
+      "layout",
+      "diagram"
+    ]
+  },
+  {
+    "segmentId": "seg-009",
+    "mediaId": "episode-011:media:seg-009-44e3ae83872c-official",
+    "sha256": "44e3ae83872ca4adb6fabbf13c1424dd350267467f53b19fdab4c933433c8dd7",
+    "textSummary": "回看2025官方文字变图演示，结果停帧供理解“已有稿可修改”，不宣称持续生成或实测省时。",
+    "keywords": [
+      "seg-009",
+      "Gamma",
+      "Agent",
+      "Holographic Technology",
+      "layout",
+      "diagram"
+    ]
+  }
+]

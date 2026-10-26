@@ -58,6 +58,7 @@ import {
 } from "./observability";
 import {createObservabilityControlEvent} from "./observability-gate";
 import {createFoundationGraph} from "./graph/main-graph";
+import {createReferenceContentNode, usesReferenceContent} from "./graph/reference-content";
 import {
   createProductionSubgraph,
   type MediaLifecycleOptions,
@@ -841,6 +842,16 @@ export const createLangGraphEntrypoint = (
   input: ProductionEntrypointOptions & {state: ProductionState; runId: string},
 ): LangGraphEntrypointRuntime => {
   const repoRoot = path.resolve(input.repoRoot);
+  const referenceDriven = usesReferenceContent(repoRoot, input.episodeId);
+  if (
+    referenceDriven &&
+    input.state.completedAgents.some((role) => role !== "delivery-critic") &&
+    !input.state.decisions["reference-content"]
+  ) {
+    throw new Error(
+      "REFERENCE_CHECKPOINT_MIGRATION_REQUIRED:preserve the legacy checkpoint and start the migrated episode in an isolated run",
+    );
+  }
   const now = input.now ?? (() => new Date().toISOString());
   const createdAt = input.createdAt ?? now;
   const contracts = input.contracts ?? loadRoleModelContractFile({repoRoot});
@@ -1099,7 +1110,8 @@ export const createLangGraphEntrypoint = (
         const checkpointResumeNode =
           pendingCapability === "media-delivery-critic"
             ? "media_delivery_critic"
-            : typeof pendingCapability === "string" && pendingCapability.startsWith("media-discovery")
+            : typeof pendingCapability === "string" &&
+                pendingCapability.startsWith("media-discovery")
               ? "media_discovery"
               : typeof pendingCapability === "string" && pendingCapability.startsWith("unfreeze-")
                 ? "production_unfreeze_review"
@@ -1139,10 +1151,15 @@ export const createLangGraphEntrypoint = (
     repoRoot,
     requireFormalHumanDecision: true,
     humanDecision: {repoRoot, now},
-    contentLoop: {
-      nodes: contentLoopNodes,
-      artifactIndex: input.artifactIndex ?? loadEpisodeArtifactIndex(repoRoot, input.episodeId),
-    },
+    referenceContent: referenceDriven
+      ? createReferenceContentNode({repoRoot, now, eventSink})
+      : undefined,
+    contentLoop: referenceDriven
+      ? undefined
+      : {
+          nodes: contentLoopNodes,
+          artifactIndex: input.artifactIndex ?? loadEpisodeArtifactIndex(repoRoot, input.episodeId),
+        },
     observability: {
       ...observability,
       ...(fs.existsSync(cacheEventLogPath) ? {cacheEventLogPath} : {cacheEventLogPath: undefined}),
@@ -1186,12 +1203,13 @@ export const createLangGraphEntrypoint = (
   };
 };
 
-const manualHandoff = (episodeId: string): OrchestratorRunResult => ({
+const manualHandoff = (episodeId: string, referenceDriven = false): OrchestratorRunResult => ({
   mode: "manual",
   status: "manual-handoff",
   episodeId,
-  nextAction:
-    "Manual orchestrator selected. Continue the existing stage-specific manual commands documented in README.md; no LangGraph checkpoint or approval is created.",
+  nextAction: referenceDriven
+    ? "Follow agents/reference-producer.md and docs/golden-workflow/README.md: inspect sources and usable media together, adapt the shared Spine, edit script and visuals, verify facts and title, then use measured TTS, media rendering and real delivery review. No approval is inferred."
+    : "Manual orchestrator selected. Continue the existing stage-specific manual commands documented in README.md; no LangGraph checkpoint or approval is created.",
 });
 
 export const runLangGraphEpisode = async (
@@ -1672,7 +1690,15 @@ export const runEpisodeOrchestrator = async (
   input: ProductionEntrypointRunOptions,
 ): Promise<OrchestratorRunResult> => {
   const mode = selectOrchestrator(input.env?.ORCHESTRATOR ?? process.env.ORCHESTRATOR);
-  if (mode === "manual") return manualHandoff(input.episodeId);
+  if (mode === "manual") {
+    const configPath = path.join(input.repoRoot, "content", input.episodeId, "episode.config.json");
+    const config = fs.existsSync(configPath)
+      ? (JSON.parse(fs.readFileSync(configPath, "utf8")) as {
+          production?: {referenceStory?: unknown};
+        })
+      : undefined;
+    return manualHandoff(input.episodeId, !config || Boolean(config.production?.referenceStory));
+  }
   return runLangGraphEpisode(input);
 };
 

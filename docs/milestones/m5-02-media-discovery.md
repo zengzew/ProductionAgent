@@ -1,7 +1,7 @@
 # WP-M5-02 — Media Discovery + Source Admission
 
 - Status: implemented
-- Parent: `docs/milestones/m5-real-media-plan.md`
+- Historical scope: [archived M5 plan](../../../ProductionAgent-legacy-archive/2026-10-26-cleanup/retired/docs/milestones/m5-real-media-plan.md)
 - Code: `src/media/discovery.ts`, `src/media/discovery-config.ts`,
   `config/media-discovery.json`
 - Schemas: `src/media/schemas.ts` (optional decision refs on `MediaSource`),

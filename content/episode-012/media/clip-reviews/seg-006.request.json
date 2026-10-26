@@ -1,0 +1,60 @@
+{
+  "episodeId": "episode-012",
+  "segmentId": "seg-006",
+  "clipId": "episode-012:media-clip:f02325aba6aecfc4a85c1de8",
+  "claimIds": [
+    "claim-pr-005",
+    "claim-pr-006"
+  ],
+  "claims": [
+    {
+      "id": "claim-pr-005",
+      "claim": "2023-03-01增长访谈12:42，Olivier Lemarie称免费抠图层是主要获客渠道。"
+    },
+    {
+      "id": "claim-pr-006",
+      "claim": "同一访谈13:24至14:21，Lemarie说团队在TikTok展示去背景效果，发现自发使用并发布内容的人后联系合作。"
+    }
+  ],
+  "narration": "获客也围着这个效果做。增长负责人说,免费抠图是他们的获客入口,团队还在TikTok演示图片前后的变化。",
+  "visualIntent": "12:42、13:24原访谈定位与中文转述,配官网演示;标“2023访谈回顾”,不制作假TikTok页面或假创作者。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/verifications/seg-006/episode-012-media-clip-f02325aba6aecfc4a85c1de8-clip.mp4",
+    "sha256": "9e0cdc0514d9fb8c04103fa5d439bcc9ce39d1ca1cf982114269b134ced9b37d",
+    "sizeBytes": 1917602,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 7267,
+    "sourceMediaId": "episode-012:media:seg-006-5e5865b94e51",
+    "sourceMediaSha256": "5e5865b94e5143de617e1cbd03862a8c10caf157de70b12306a652330d4eca15"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/indexes/seg-006-5e5865b94e51/keyframes/keyframe-0-3633.jpg",
+      "timestampMs": 3633,
+      "sha256": "b7ce24ae0800a152c8f99b767e25fc528e3b287557a4f76158848b1e84d5edec",
+      "sizeBytes": 71816,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "2023增长负责人访谈转述免费去背景入口与TikTok演示；配官网效果，非真实TikTok帖子。",
+    "observedText": "",
+    "keywords": [
+      "seg-006",
+      "Photoroom",
+      "growth",
+      "attributed-local-evaluation"
+    ],
+    "entities": [
+      "Photoroom"
+    ],
+    "semanticTags": [
+      "attributed-source-excerpt",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "f28cc07ad81e600908fb232e204a032fcfa82615a314a1c9b8d22803e8c1ac2c"
+}

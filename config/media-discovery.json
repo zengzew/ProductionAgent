@@ -5,8 +5,15 @@
     "www.example.com",
     "cdn.example.com",
     "static.gamma.app",
+    "gamma.app",
     "www.youtube.com",
-    "lovablebrand.lovable.app"
+    "www.granola.ai",
+    "lovablebrand.lovable.app",
+    "www.photoroom.com",
+    "pulse2.com",
+    "stripe.com",
+    "subscriptionleague.com",
+    "www.prnewswire.com"
   ],
   "allowedSourceTypes": [
     "official",

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "source-first-workflow-v1",
+  "episodeId": "episode-011",
+  "coreStoryQuestion": "Gamma怎样把排版的麻烦变成先有初稿的体验，并找到愿意使用它的人？",
+  "currentStatus": "story-approved",
+  "stages": [
+    {
+      "id": "research-analyst",
+      "owner": "research-analyst",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-011/research/sources.json",
+        "content/episode-011/research/facts.json",
+        "content/episode-011/research/timeline.json"
+      ],
+      "decision": "本会话按职责制作并记录；不声称独立审稿。"
+    },
+    {
+      "id": "spine-extractor",
+      "owner": "spine-extractor",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-011/story/story-spine.md"
+      ],
+      "decision": "本会话按职责制作并记录；不声称独立审稿。"
+    },
+    {
+      "id": "narrative-adapter",
+      "owner": "narrative-adapter",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-011/story/script-draft.md"
+      ],
+      "decision": "本会话按职责制作并记录；不声称独立审稿。"
+    },
+    {
+      "id": "script-editor",
+      "owner": "script-editor",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-011/story/final-script.md",
+        "content/episode-011/story/critic-report.md"
+      ],
+      "decision": "本会话按职责制作并记录；不声称独立审稿。"
+    },
+    {
+      "id": "fact-guardian",
+      "owner": "fact-guardian",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-011/story/fact-check-report.md"
+      ],
+      "decision": "本会话回读来源及实际素材后完成复核；不声称独立审稿或人类终审。"
+    },
+    {
+      "id": "visual-director",
+      "owner": "visual-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-011/story/visual-plan.md"
+      ],
+      "decision": "本会话回读来源及实际素材后完成复核；不声称独立审稿或人类终审。"
+    },
+    {
+      "id": "delivery-critic",
+      "owner": "delivery-critic",
+      "status": "pending",
+      "artifacts": [
+        "content/episode-011/production/delivery-critic-report.md"
+      ],
+      "decision": "当前MP4视觉与机器检查已完成；完整听感与独立Delivery未知，不标delivery-approved。"
+    }
+  ],
+  "decisions": []
+}

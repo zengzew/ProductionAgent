@@ -1,0 +1,109 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-012:media-verification:seg-001-episode-012-media-clip-e9dcd618623bdacff4422365",
+    "createdAt": "2026-10-25T15:02:10.161Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/verifications/seg-001/episode-012-media-clip-e9dcd618623bdacff4422365.json",
+    "producer": "media-verification-v1:codex:photoroom-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "e23bb3a458012b8c9be19ccc389f1c62eae231f1721363ab5e606a22c408e1bf",
+    "sizeBytes": 4023
+  },
+  "cacheKey": "451cee2712d99c59ed2b39b48c79c4f18da5575d1dada9fa064cb85c5e3cc5b4",
+  "claimIds": [
+    "claim-pr-001"
+  ],
+  "claimMatch": 0.9,
+  "clipArtifactRef": {
+    "artifactId": "episode-012:media-verification-clip:seg-001-episode-012-media-clip-e9dcd618623bdacff4422365",
+    "createdAt": "2026-10-25T14:55:54.688Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/verifications/seg-001/episode-012-media-clip-e9dcd618623bdacff4422365-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "693b7fe88c930c5da9c41fdd59362146bc6a5686a48f642bc6fa171c00fc5063",
+    "sizeBytes": 1286317
+  },
+  "clipId": "episode-012:media-clip:e9dcd618623bdacff4422365",
+  "clipRef": {
+    "claimIds": [
+      "claim-pr-001"
+    ],
+    "clipId": "episode-012:media-clip:e9dcd618623bdacff4422365",
+    "createdAt": "2026-10-25T15:02:10.161Z",
+    "endMs": 3033,
+    "episodeId": "episode-012",
+    "mediaId": "episode-012:media:seg-001-f4f8df40e597",
+    "sourceMediaRef": {
+      "artifactId": "episode-012:media:seg-001-f4f8df40e597",
+      "createdAt": "2026-10-25T14:55:46.712Z",
+      "episodeId": "episode-012",
+      "mediaType": "video/mp4",
+      "path": "content/episode-012/media/assets/seg-001-f4f8df40e597.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "f4f8df40e597a85eb860fe2af35d543e942151326a3b73f2eeb690233bef9e28",
+      "sizeBytes": 442105
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "官方MP4约1–4秒:杯子原场景与白底对照,按单个商品裁切;画面标“官方宣传演示·非本次实测”。"
+  },
+  "createdAt": "2026-10-25T15:02:10.161Z",
+  "episodeId": "episode-012",
+  "mediaRef": {
+    "artifactId": "episode-012:media:seg-001-f4f8df40e597",
+    "createdAt": "2026-10-25T14:55:46.712Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/assets/seg-001-f4f8df40e597.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "f4f8df40e597a85eb860fe2af35d543e942151326a3b73f2eeb690233bef9e28",
+    "sizeBytes": 442105
+  },
+  "misleadingRisk": 0.15,
+  "model": "current-session",
+  "observedActions": [
+    "官网宣传动效展示同一商品在原场景与白底之间变化；不是本次上传或生成实测。"
+  ],
+  "observedEntities": [
+    "Photoroom"
+  ],
+  "observedText": [],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "本制作会话已查看当前prepared片段的多点抽帧及当前核验请求所指向的关键帧联系表；这是同会话视觉核对，非独立Delivery或有声观看。",
+    "界面入口裁切可读，人物与日期可见；中文转述卡标编辑排版，官网演示不当本次实测，历史访谈不当当前政策。"
+  ],
+  "recommendedEndMs": 3033,
+  "recommendedStartMs": 0,
+  "relevance": 0.9,
+  "retrievalResultRef": {
+    "artifactId": "episode-012:media-retrieval:seg-001",
+    "createdAt": "2026-10-25T15:01:29.855Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/candidates/seg-001.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 4,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "8e39797b7d4f87794321cb521dc60a3b11d232d450c744c05726b0e6b3c925d9",
+    "sizeBytes": 26290
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-001",
+  "sourceSha256": "f4f8df40e597a85eb860fe2af35d543e942151326a3b73f2eeb690233bef9e28",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-012:media-verification:seg-001-episode-012-media-clip-e9dcd618623bdacff4422365",
+  "verificationVersion": "photoroom-observed-v1",
+  "visualQuality": 0.85
+}

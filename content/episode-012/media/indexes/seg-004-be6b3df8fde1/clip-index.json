@@ -1,0 +1,115 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-012:media:seg-004-be6b3df8fde1-proxy",
+    "createdAt": "2026-10-25T14:57:15.541Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/assets/seg-004-be6b3df8fde1-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "b921791e83f92e85b1db30a4f6c87d7b3f977dc53f9ab3de7bae462464b9151c",
+    "sizeBytes": 296462
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-012",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-012:media-clip:d3c259964012fb65bf2b6484",
+      "endMs": 6300,
+      "entities": [
+        "Photoroom"
+      ],
+      "episodeId": "episode-012",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-012:media-keyframe:seg-004-be6b3df8fde1-0-3150",
+          "createdAt": "2026-10-25T14:57:16.193Z",
+          "episodeId": "episode-012",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-012/media/indexes/seg-004-be6b3df8fde1/keyframes/keyframe-0-3150.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "ccf7f2390bd50c189dbf9ca55bd56050f954dcb2794b22ada25ca3c3a92eb76f",
+          "sizeBytes": 40941
+        }
+      ],
+      "keywords": [
+        "seg-004",
+        "Photoroom",
+        "official",
+        "attributed-local-evaluation"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-012:media:seg-004-be6b3df8fde1",
+        "createdAt": "2026-10-25T14:57:14.793Z",
+        "episodeId": "episode-012",
+        "mediaType": "video/mp4",
+        "path": "content/episode-012/media/assets/seg-004-be6b3df8fde1.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "be6b3df8fde1aa88b509ab340fea6e1eceeee7acfd4c86e6bfbbf6fa32daa5bc",
+        "sizeBytes": 586277
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-012:media-scenes:seg-004-be6b3df8fde1",
+          "createdAt": "2026-10-25T14:57:16.107Z",
+          "episodeId": "episode-012",
+          "mediaType": "application/json",
+          "path": "content/episode-012/media/indexes/seg-004-be6b3df8fde1/scenes.json",
+          "producer": "media-understanding-v1:scenes:v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "cf6906025813476052e56cdd3762616ef493de60d3fd2f64f600236feb515fde",
+          "sizeBytes": 1447
+        }
+      ],
+      "semanticTags": [
+        "attributed-source-excerpt",
+        "local-evaluation",
+        "measured"
+      ],
+      "sourceSha256": "be6b3df8fde1aa88b509ab340fea6e1eceeee7acfd4c86e6bfbbf6fa32daa5bc",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "先显示真实官网上传入口，再接官方去背景宣传动效及椅子布景示例；不同示例，非同次生成过程。",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-012:media:seg-004-be6b3df8fde1",
+  "mediaRef": {
+    "artifactId": "episode-012:media:seg-004-be6b3df8fde1",
+    "createdAt": "2026-10-25T14:57:14.793Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/assets/seg-004-be6b3df8fde1.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "be6b3df8fde1aa88b509ab340fea6e1eceeee7acfd4c86e6bfbbf6fa32daa5bc",
+    "sizeBytes": 586277
+  },
+  "sceneDetector": "bounded-reference-excerpt",
+  "sceneDetectorVersion": "v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-observed-reference",
+  "semanticAdapterVersion": "be6b3df8fde1aa88",
+  "semanticAvailability": "available",
+  "sourceSha256": "be6b3df8fde1aa88b509ab340fea6e1eceeee7acfd4c86e6bfbbf6fa32daa5bc",
+  "transcriptAvailability": "unavailable"
+}

@@ -1,0 +1,17 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import sharp from 'sharp';
+const root='content/episode-009-v2',out='public/episodes/episode-009-v2/assets';fs.mkdirSync(out,{recursive:true});
+const card=async(name:string,body:string)=>{const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="984" height="760"><rect width="984" height="760" fill="#101111"/><g font-family="Hiragino Sans GB,sans-serif" fill="white">${body}</g></svg>`;await sharp(Buffer.from(svg)).png().toFile(`${out}/${name}.png`);};
+await card('first-customer',`<text x="72" y="102" font-size="32" fill="#b8b8b8">创始人回忆第一位付费客户</text><text x="72" y="245" font-size="58">他已经试用过，</text><text x="72" y="330" font-size="58" fill="#f4d66c">还想接着用。</text><path d="M72 393h100" stroke="#f4d66c" stroke-width="3"/><text x="72" y="480" font-size="35">“paid just to keep access”</text><text x="72" y="579" font-size="27" fill="#b8b8b8">首位付费者来自 beta 测试用户</text><text x="72" y="667" font-size="24" fill="#aaa">原文摘录 · 编辑排版 · 非网页截图</text><text x="72" y="709" font-size="24" fill="#aaa">Starter Story · 2026-04-03 · Gaurav 自述</text>`);
+const raw=fs.readFileSync('public/episodes/episode-009-v2/captured/fastlane-founder.png');
+const date=await sharp(raw).extract({left:550,top:185,width:480,height:42}).png().toBuffer();
+const quote=await sharp(raw).extract({left:550,top:797,width:770,height:46}).png().toBuffer();
+await card('historical-arr',`<text x="52" y="95" font-size="32" fill="#b8b8b8">创始人披露的早期收入</text><text x="52" y="229" font-size="73" fill="#f4d66c">超过 12 万澳元</text><text x="52" y="307" font-size="42">ARR · 年化经常性收入</text><image x="52" y="403" width="480" height="42" href="data:image/png;base64,${date.toString('base64')}"/><image x="52" y="487" width="880" height="53" href="data:image/png;base64,${quote.toString('base64')}"/><text x="52" y="631" font-size="28" fill="#b8b8b8">真实页面局部截图 · Starter Story</text><text x="52" y="698" font-size="25" fill="#aaa">2026-04-03 历史自述 · 非利润或全年实收</text>`);
+const script=JSON.parse(fs.readFileSync(`${root}/story/script.json`,'utf8'));
+const definitions=[['first-customer','image','seg-009','原文摘录 · 编辑排版'],['historical-arr','screenshot','seg-010','真实页面局部截图']];
+const sourceUrl='https://www.starterstory.com/stories/fastlane-create-winning-short-form-content-in-seconds';
+const assets=definitions.map(([slug,type,segmentId,label])=>({id:`fastlane-v2-${slug}`,type,path:`${out}/${slug}.png`,sourceUrl,owner:'Starter Story / Gaurav Thapa; 本期中文解释与编辑排版',licenseOrBasis:'用户请求本地制作评估；必要署名短摘录与中文解释，非外部发布授权。',capturedAt:'2026-10-15',usage:`${segmentId}：${label}`,approved:true,usedInRender:true,claimIds:script.segments.find((s:any)=>s.id===segmentId).claimIds,segmentIds:[segmentId]}));
+fs.writeFileSync(`${root}/production/asset-manifest.json`,JSON.stringify(assets,null,2)+'\n');
+fs.writeFileSync(`${root}/production/still-lineage.json`,JSON.stringify({parentScreenshotPath:'public/episodes/episode-009-v2/captured/fastlane-founder.png',parentScreenshotSha256:crypto.createHash('sha256').update(raw).digest('hex'),crops:[{left:550,top:185,width:480,height:42},{left:550,top:797,width:770,height:46}],firstCustomer:'公开文章正文核实；原网页该段有模糊遮罩，不使用该截图。短摘录明确编辑排版，未仿造原网页。'},null,2)+'\n');
+console.log('2 evidence stills prepared');

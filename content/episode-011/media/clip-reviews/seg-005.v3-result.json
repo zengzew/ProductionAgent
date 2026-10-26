@@ -1,0 +1,28 @@
+{
+  "requestHash": "529d247db867fdf46c12d9c5870b069b75a78554339bdb6ef6e9a5304b29037f",
+  "completedAt": "2026-10-20T10:30:37.969085+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.93,
+    "claimMatch": 0.88,
+    "visualQuality": 0.82,
+    "misleadingRisk": 0.15,
+    "observedActions": [
+      "2025官方Agent演示：文字转图示，再上传截图重排为同样主题的表格；不是本次实测。"
+    ],
+    "observedEntities": [
+      "Gamma",
+      "Holographic Technology"
+    ],
+    "observedText": [
+      "Make this more visual",
+      "Holographic Technology"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 7233,
+    "reasons": [
+      "本制作会话检查V3派生片段联系表，未继承V2签名。",
+      "2025官方编辑演示，非本次实测；结尾是告别从零排版的编辑修辞，不证明PowerPoint商业淘汰。"
+    ]
+  }
+}

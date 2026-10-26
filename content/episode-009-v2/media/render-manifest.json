@@ -1,0 +1,634 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-009-v2:media:render-manifest",
+    "createdAt": "2026-10-16T01:35:43.420Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "application/json",
+    "path": "content/episode-009-v2/media/render-manifest.json",
+    "producer": "media-render-manifest-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-manifest-v1",
+    "sha256": "fc4df10469e2b185db83ea8428b030b44bb172f33831ebbf6a69d59ebcf1506e",
+    "sizeBytes": 24519
+  },
+  "assetManifestSha256": "60cc6ebf48fde3f515806cac29735d36c0b34ab21a422e4633ec481e56ff415e",
+  "assets": [
+    {
+      "kind": "original",
+      "mediaId": "episode-009-v2:media:seg-001-2d56b6c6c4e6",
+      "mediaType": "video/mp4",
+      "sha256": "2d56b6c6c4e67a3657b89c9e20bca2e1e64c75b1b61fce11028f48e3c344db60",
+      "sizeBytes": 381969,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-009-v2:media:seg-001-2d56b6c6c4e6-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "6a9011b945adaf4c544aeae609d2229558bc28d654fadf9d109736f9cb195ab0",
+      "sizeBytes": 217251,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-009-v2:media:seg-002-a180a26282c8",
+      "mediaType": "video/mp4",
+      "sha256": "a180a26282c8cf756bceb5707dbc9e3ff2453b73be23bc076011ff52511efc5c",
+      "sizeBytes": 2074050,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-009-v2:media:seg-002-a180a26282c8-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "042460517aeb8fbba5bfda8a12a2b4de0ee9eb646e660f6cc64c8bf74b2ba5e3",
+      "sizeBytes": 937907,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-009-v2:media:seg-003-e2507afef153",
+      "mediaType": "video/mp4",
+      "sha256": "e2507afef153cb1a2b787ed98fc49310c2d9964557d6effbfa9809e9a55f348a",
+      "sizeBytes": 705011,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-009-v2:media:seg-003-e2507afef153-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "845acf82eb74c2a6bfd41b58a43407b4dc4eb30fc9350e26848cb1b3585a0aca",
+      "sizeBytes": 393238,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-009-v2:media:seg-004-3dc56e75a36d",
+      "mediaType": "video/mp4",
+      "sha256": "3dc56e75a36dff415cbf3aeab5458f2f30261f907ed91d149f769d8636aa4a7f",
+      "sizeBytes": 283140,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-009-v2:media:seg-004-3dc56e75a36d-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "3c485c3bf2f6f7e19298699d90569befc827a25ddef7abdaf738a50b670db4b5",
+      "sizeBytes": 156658,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-009-v2:media:seg-005-0c10c518aa99",
+      "mediaType": "video/mp4",
+      "sha256": "0c10c518aa9908221daa6d1b6e35979ae5c1e0da8c9f894d5c76e19751bf3f24",
+      "sizeBytes": 792990,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-009-v2:media:seg-005-0c10c518aa99-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "2284e1668e20a3e761ecf96bb5425e22035762db1a32614ca329c037b167d22e",
+      "sizeBytes": 381402,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-009-v2:media:seg-006-fc2dca294e58",
+      "mediaType": "video/mp4",
+      "sha256": "fc2dca294e58b0126ab33ce93f1bff869c85a575c5fc84a4962af7ac4802014c",
+      "sizeBytes": 962741,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-009-v2:media:seg-006-fc2dca294e58-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "72e971b11db21b791bfef057e498398c76e0f7fa0adf606501cb32031f103540",
+      "sizeBytes": 451195,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-009-v2:media:seg-007-65ac4ea95d08",
+      "mediaType": "video/mp4",
+      "sha256": "65ac4ea95d084a2035baeaffee0a0498466955e3a89b21ab0cddf2d70a9fcc1f",
+      "sizeBytes": 1665729,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-009-v2:media:seg-007-65ac4ea95d08-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "5053987485f9955ab0366a988b7043f90690abf01082e92e2151a3fd0b1b5e83",
+      "sizeBytes": 783280,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-009-v2:media:seg-008-7b2970eee963",
+      "mediaType": "video/mp4",
+      "sha256": "7b2970eee963e33474d303a7a199defbf05f3af3d2c21e917ee005774bd20194",
+      "sizeBytes": 1388823,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-009-v2:media:seg-008-7b2970eee963-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "e2ae6c93709c018c1954ec5fb53ed5fc17e8bac2b48372b6f4fe7cda276e6dbd",
+      "sizeBytes": 635106,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-009-v2:media:seg-011-2696f0c689c7",
+      "mediaType": "video/mp4",
+      "sha256": "2696f0c689c7b6fb079819a0fdcd48fc8893d60ac7f97de20a01b1b0ef316615",
+      "sizeBytes": 1035652,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-009-v2:media:seg-011-2696f0c689c7-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "24eb3034dbee3950130963cf235298aad055e0e587c779b52ba2b51205802ef8",
+      "sizeBytes": 489426,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-009-v2:media:seg-011-7526a02e2703",
+      "mediaType": "video/mp4",
+      "sha256": "7526a02e27034d7c27f294cb1a8e892916b985c9fe22dd638868aeaa803607e1",
+      "sizeBytes": 1145837,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-009-v2:media:seg-011-7526a02e2703-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "208cebd6015981a735b9e1fea9a646604d91c534d57dba3e0cc794f31cf08b80",
+      "sizeBytes": 528583,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-009-v2:media:seg-003-20f8500649e1",
+      "mediaType": "video/mp4",
+      "sha256": "20f8500649e1be974787df2d09c6d68c5f8be235c0920981ef0c699a83255ad9",
+      "sizeBytes": 688031,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-009-v2:media:seg-003-20f8500649e1-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "0d82c5e6fa2b013d2a89ef4438fe6f5b57638fadc5dd697e13773cf2ee4e0650",
+      "sizeBytes": 382324,
+      "sourceId": "episode-009-v2:media-source:fastlane-interview"
+    }
+  ],
+  "clips": [
+    {
+      "clipId": "episode-009-v2:media-clip:09a7461e2ceb670570bb7942",
+      "endMs": 2667,
+      "mediaId": "episode-009-v2:media:seg-001-2d56b6c6c4e6",
+      "startMs": 0,
+      "verificationSha256": "03f57561fb476e5ed020081cd3368064cd5a17a8be52497f610fbebb0d339b2a"
+    },
+    {
+      "clipId": "episode-009-v2:media-clip:c95af9af6c436321fc63ca8e",
+      "endMs": 7433,
+      "mediaId": "episode-009-v2:media:seg-002-a180a26282c8",
+      "startMs": 0,
+      "verificationSha256": "624e48c4466b30c689d86bdfe4d76a949051416c8263f654d68575a9d326d39f"
+    },
+    {
+      "clipId": "episode-009-v2:media-clip:0bae78b6e45d66f55e348a84",
+      "endMs": 7233,
+      "mediaId": "episode-009-v2:media:seg-003-20f8500649e1",
+      "startMs": 0,
+      "verificationSha256": "1e9fef8a0a7dc743e8076956fda2d4a6cfb65315ee053c9b2fd2203e34a97e7c"
+    },
+    {
+      "clipId": "episode-009-v2:media-clip:fb354bd9b2c11483914c9fa6",
+      "endMs": 4233,
+      "mediaId": "episode-009-v2:media:seg-004-3dc56e75a36d",
+      "startMs": 0,
+      "verificationSha256": "f1fdcfb92a0b41ae6f417ad6d6beb7b1c51a87fe460681db14be40da74279ed4"
+    },
+    {
+      "clipId": "episode-009-v2:media-clip:531a0771711f324102898528",
+      "endMs": 7633,
+      "mediaId": "episode-009-v2:media:seg-005-0c10c518aa99",
+      "startMs": 0,
+      "verificationSha256": "5aaeaacb1ba106a70ea6c7cbeff2ff17dd3d709cf9e55dfe779a22e593789653"
+    },
+    {
+      "clipId": "episode-009-v2:media-clip:b43d7026d4559a5cd6e08ee4",
+      "endMs": 4733,
+      "mediaId": "episode-009-v2:media:seg-006-fc2dca294e58",
+      "startMs": 0,
+      "verificationSha256": "e34f4ae038b2721df40a2b897a9ad807a5e4becd0d449923a4c7a4ad5ed1326f"
+    },
+    {
+      "clipId": "episode-009-v2:media-clip:0dcb9c2879e527327ce2b575",
+      "endMs": 6033,
+      "mediaId": "episode-009-v2:media:seg-007-65ac4ea95d08",
+      "startMs": 0,
+      "verificationSha256": "2bccf73f5434fe8363f7453619e91c6764e58bbdf25140a41e2b127b265377b8"
+    },
+    {
+      "clipId": "episode-009-v2:media-clip:d5c2514c11fc0ca7cbbd022f",
+      "endMs": 5166,
+      "mediaId": "episode-009-v2:media:seg-008-7b2970eee963",
+      "startMs": 0,
+      "verificationSha256": "082fb39b0f90f8fb9a12ac30ac6bcab99219691db1e6a30eeae4acced3dfd8c5"
+    },
+    {
+      "clipId": "episode-009-v2:media-clip:164fb1dd19c501bff0585fc9",
+      "endMs": 5866,
+      "mediaId": "episode-009-v2:media:seg-011-7526a02e2703",
+      "startMs": 0,
+      "verificationSha256": "2a27bc54bbba2a78ee79efdb8edc2a038d30ed84379d6c44c80aec85822f597e"
+    }
+  ],
+  "createdAt": "2026-10-16T01:35:43.420Z",
+  "episodeId": "episode-009-v2",
+  "officialAssets": [
+    {
+      "approved": true,
+      "capturedAt": "2026-10-15",
+      "claimIds": [
+        "claim-fastlane-006"
+      ],
+      "id": "fastlane-v2-first-customer",
+      "licenseOrBasis": "用户请求本地制作评估；必要署名短摘录与中文解释，非外部发布授权。",
+      "owner": "Starter Story / Gaurav Thapa; 本期中文解释与编辑排版",
+      "path": "public/episodes/episode-009-v2/assets/first-customer.png",
+      "segmentIds": [
+        "seg-009"
+      ],
+      "sourceUrl": "https://www.starterstory.com/stories/fastlane-create-winning-short-form-content-in-seconds",
+      "type": "image",
+      "usage": "seg-009：原文摘录 · 编辑排版",
+      "usedInRender": true
+    },
+    {
+      "approved": true,
+      "capturedAt": "2026-10-15",
+      "claimIds": [
+        "claim-fastlane-009"
+      ],
+      "id": "fastlane-v2-historical-arr",
+      "licenseOrBasis": "用户请求本地制作评估；必要署名短摘录与中文解释，非外部发布授权。",
+      "owner": "Starter Story / Gaurav Thapa; 本期中文解释与编辑排版",
+      "path": "public/episodes/episode-009-v2/assets/historical-arr.png",
+      "segmentIds": [
+        "seg-010"
+      ],
+      "sourceUrl": "https://www.starterstory.com/stories/fastlane-create-winning-short-form-content-in-seconds",
+      "type": "screenshot",
+      "usage": "seg-010：真实页面局部截图",
+      "usedInRender": true
+    }
+  ],
+  "renderPlanSha256": "db881155310669c0f1ddc654345ca639212969b5ad6d5a99a6b77b7fdb346d6b",
+  "schemaVersion": "media-render-manifest-v1",
+  "sourceManifestSha256": "7eaa6217526869c1de74c8a0cbd0e9cfac4b57626496a81cac4bba48bc340ba0",
+  "sources": [
+    {
+      "admissionStatus": "admitted",
+      "admitted": true,
+      "publisher": "Starter Story / Gaurav Thapa",
+      "rightsApproved": true,
+      "rightsStatus": "approved",
+      "sourceId": "episode-009-v2:media-source:fastlane-interview",
+      "sourceType": "founder"
+    }
+  ],
+  "timelineSha256": "33c7eb3a75892a9351836f279d363bac2ff123ea6383c34dfcc153cb9fcc47cb",
+  "usage": [
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-fastlane-001"
+        ],
+        "clipId": "episode-009-v2:media-clip:09a7461e2ceb670570bb7942",
+        "createdAt": "2026-10-16T01:35:38.532Z",
+        "endMs": 2667,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-001-2d56b6c6c4e6",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-001-2d56b6c6c4e6",
+          "createdAt": "2026-10-16T01:33:01.542Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-001-2d56b6c6c4e6.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "2d56b6c6c4e67a3657b89c9e20bca2e1e64c75b1b61fce11028f48e3c344db60",
+          "sizeBytes": 381969
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "Cal AI宣传候选原片797.5秒;网址生成来自创始人描述,原片从已有候选开始。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-001",
+      "selectedType": "real-media",
+      "verificationSha256": "03f57561fb476e5ed020081cd3368064cd5a17a8be52497f610fbebb0d339b2a"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-fastlane-002"
+        ],
+        "clipId": "episode-009-v2:media-clip:c95af9af6c436321fc63ca8e",
+        "createdAt": "2026-10-16T01:35:38.752Z",
+        "endMs": 7433,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-002-a180a26282c8",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-002-a180a26282c8",
+          "createdAt": "2026-10-16T01:33:01.952Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-002-a180a26282c8.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "a180a26282c8cf756bceb5707dbc9e3ff2453b73be23bc076011ff52511efc5c",
+          "sizeBytes": 2074050
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "Gaurav采访170.5秒;姓名中文音译高拉夫,画面标原名。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-002",
+      "selectedType": "real-media",
+      "verificationSha256": "624e48c4466b30c689d86bdfe4d76a949051416c8263f654d68575a9d326d39f"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-fastlane-001",
+          "claim-fastlane-002",
+          "claim-fastlane-014"
+        ],
+        "clipId": "episode-009-v2:media-clip:0bae78b6e45d66f55e348a84",
+        "createdAt": "2026-10-16T01:35:38.924Z",
+        "endMs": 7233,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-003-20f8500649e1",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-003-20f8500649e1",
+          "createdAt": "2026-10-16T01:34:59.411Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-003-20f8500649e1.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "20f8500649e1be974787df2d09c6d68c5f8be235c0920981ef0c699a83255ad9",
+          "sizeBytes": 688031
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "原采访115.8秒的官网URL宣传动效,接已生成产品候选卡片;明确为原片所示宣传动效,非本次网址输入或生成实录。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-003",
+      "selectedType": "real-media",
+      "verificationSha256": "1e9fef8a0a7dc743e8076956fda2d4a6cfb65315ee053c9b2fd2203e34a97e7c"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-fastlane-001"
+        ],
+        "clipId": "episode-009-v2:media-clip:fb354bd9b2c11483914c9fa6",
+        "createdAt": "2026-10-16T01:35:39.069Z",
+        "endMs": 4233,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-004-3dc56e75a36d",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-004-3dc56e75a36d",
+          "createdAt": "2026-10-16T01:33:04.316Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-004-3dc56e75a36d.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "3dc56e75a36dff415cbf3aeab5458f2f30261f907ed91d149f769d8636aa4a7f",
+          "sizeBytes": 283140
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "820秒滑卡,再接805.5账号和814排期选项;步骤省略,真实排期帧可短暂停留便于阅读。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-004",
+      "selectedType": "real-media",
+      "verificationSha256": "f1fdcfb92a0b41ae6f417ad6d6beb7b1c51a87fe460681db14be40da74279ed4"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-fastlane-001"
+        ],
+        "clipId": "episode-009-v2:media-clip:531a0771711f324102898528",
+        "createdAt": "2026-10-16T01:35:39.259Z",
+        "endMs": 7633,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-005-0c10c518aa99",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-005-0c10c518aa99",
+          "createdAt": "2026-10-16T01:33:04.842Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-005-0c10c518aa99.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "0c10c518aa9908221daa6d1b6e35979ae5c1e0da8c9f894d5c76e19751bf3f24",
+          "sizeBytes": 792990
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "为产品生成的候选画面,解释用途,不承诺无需修改或效果;以真实已生成候选承接“挑选”,不声称全自动完成或无需修改。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-005",
+      "selectedType": "real-media",
+      "verificationSha256": "5aaeaacb1ba106a70ea6c7cbeff2ff17dd3d709cf9e55dfe779a22e593789653"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-fastlane-005"
+        ],
+        "clipId": "episode-009-v2:media-clip:b43d7026d4559a5cd6e08ee4",
+        "createdAt": "2026-10-16T01:35:39.425Z",
+        "endMs": 4733,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-006-fc2dca294e58",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-006-fc2dca294e58",
+          "createdAt": "2026-10-16T01:33:05.761Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-006-fc2dca294e58.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "fc2dca294e58b0126ab33ce93f1bff869c85a575c5fc84a4962af7ac4802014c",
+          "sizeBytes": 962741
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "原采访689.3–691.7秒展示的真实Reddit帖局部,裁掉3000+数字,接694秒创始人镜头;标注“原采访所示历史帖子”,不将帖内数字作为获客效果。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-006",
+      "selectedType": "real-media",
+      "verificationSha256": "e34f4ae038b2721df40a2b897a9ad807a5e4becd0d449923a4c7a4ad5ed1326f"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-fastlane-005"
+        ],
+        "clipId": "episode-009-v2:media-clip:0dcb9c2879e527327ce2b575",
+        "createdAt": "2026-10-16T01:35:39.620Z",
+        "endMs": 6033,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-007-65ac4ea95d08",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-007-65ac4ea95d08",
+          "createdAt": "2026-10-16T01:33:06.586Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-007-65ac4ea95d08.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "65ac4ea95d084a2035baeaffee0a0498466955e3a89b21ab0cddf2d70a9fcc1f",
+          "sizeBytes": 1665729
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "699秒创始人谈共享屏幕观察,无客户录像,注明自述。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-007",
+      "selectedType": "real-media",
+      "verificationSha256": "2bccf73f5434fe8363f7453619e91c6764e58bbdf25140a41e2b127b265377b8"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-fastlane-004"
+        ],
+        "clipId": "episode-009-v2:media-clip:d5c2514c11fc0ca7cbbd022f",
+        "createdAt": "2026-10-16T01:35:39.801Z",
+        "endMs": 5166,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-008-7b2970eee963",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-008-7b2970eee963",
+          "createdAt": "2026-10-16T01:33:07.757Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-008-7b2970eee963.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "7b2970eee963e33474d303a7a199defbf05f3af3d2c21e917ee005774bd20194",
+          "sizeBytes": 1388823
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "426秒本人谈预约与七天;配有来源文字,非现行试用政策。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-008",
+      "selectedType": "real-media",
+      "verificationSha256": "082fb39b0f90f8fb9a12ac30ac6bcab99219691db1e6a30eeae4acced3dfd8c5"
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-009",
+      "fallbackType": null,
+      "officialAssetId": "fastlane-v2-first-customer",
+      "segmentId": "seg-009",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": null,
+      "fallbackReason": "approved editorial still selected for seg-010",
+      "fallbackType": null,
+      "officialAssetId": "fastlane-v2-historical-arr",
+      "segmentId": "seg-010",
+      "selectedType": "official-screenshot",
+      "verificationSha256": null
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-fastlane-001",
+          "claim-fastlane-002",
+          "claim-fastlane-006"
+        ],
+        "clipId": "episode-009-v2:media-clip:164fb1dd19c501bff0585fc9",
+        "createdAt": "2026-10-16T01:35:39.981Z",
+        "endMs": 5866,
+        "episodeId": "episode-009-v2",
+        "mediaId": "episode-009-v2:media:seg-011-7526a02e2703",
+        "sourceMediaRef": {
+          "artifactId": "episode-009-v2:media:seg-011-7526a02e2703",
+          "createdAt": "2026-10-16T01:33:55.365Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "video/mp4",
+          "path": "content/episode-009-v2/media/assets/seg-011-7526a02e2703.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "7526a02e27034d7c27f294cb1a8e892916b985c9fe22dd638868aeaa803607e1",
+          "sizeBytes": 1145837
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "回到已见候选与创始人,连接人物需求及已发生付款;现在为故事总结不暗示最新营收。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-011",
+      "selectedType": "real-media",
+      "verificationSha256": "2a27bc54bbba2a78ee79efdb8edc2a038d30ed84379d6c44c80aec85822f597e"
+    }
+  ]
+}

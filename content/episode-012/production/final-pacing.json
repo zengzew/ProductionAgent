@@ -1,0 +1,53 @@
+{
+  "method": "Final MP4 silencedetect -38dB, min 0.08 seconds; intervals include original TTS pauses",
+  "tempoChanges": false,
+  "segmentTails": "existing reference default 0.12 seconds; no extra silence or duration padding",
+  "boundaries": [
+    {
+      "beforeSegment": "seg-002",
+      "boundarySeconds": 3.033333333333333,
+      "measuredSilenceSeconds": 0.484
+    },
+    {
+      "beforeSegment": "seg-003",
+      "boundarySeconds": 8.966666666666667,
+      "measuredSilenceSeconds": 0.597
+    },
+    {
+      "beforeSegment": "seg-004",
+      "boundarySeconds": 14.0,
+      "measuredSilenceSeconds": 0.556
+    },
+    {
+      "beforeSegment": "seg-005",
+      "boundarySeconds": 20.266666666666666,
+      "measuredSilenceSeconds": 0.515
+    },
+    {
+      "beforeSegment": "seg-006",
+      "boundarySeconds": 27.166666666666668,
+      "measuredSilenceSeconds": 0.57
+    },
+    {
+      "beforeSegment": "seg-007",
+      "boundarySeconds": 34.43333333333333,
+      "measuredSilenceSeconds": 0.681
+    },
+    {
+      "beforeSegment": "seg-008",
+      "boundarySeconds": 38.7,
+      "measuredSilenceSeconds": 0.601
+    },
+    {
+      "beforeSegment": "seg-009",
+      "boundarySeconds": 42.266666666666666,
+      "measuredSilenceSeconds": 0.615
+    }
+  ],
+  "reviewedVideoSha256": "1a3bd44bffe84481ee17976504f00701944ed84cf3e069c601e681d3b4e95011",
+  "unchangedAudioProof": {
+    "v1": "SHA256=a602c4e0c2340892b9d93cb297b7d18fc1b35a63bb75a2a236ea165e2d818930",
+    "v2": "SHA256=a602c4e0c2340892b9d93cb297b7d18fc1b35a63bb75a2a236ea165e2d818930",
+    "sameEncodedAudio": true
+  }
+}

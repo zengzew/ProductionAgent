@@ -1,0 +1,25 @@
+{
+  "requestHash": "0672fedc63fabac5e16db57862cbe63269816c5acfd4c0b336228e9c638caa92",
+  "completedAt": "2026-10-16T01:35:38.238069+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.94,
+    "claimMatch": 0.92,
+    "visualQuality": 0.88,
+    "misleadingRisk": 0.07,
+    "observedActions": [
+      "Gaurav本人谈访谈激励；额外七天为历史做法，不冒充当前试用规则。"
+    ],
+    "observedEntities": [
+      "Fastlane",
+      "Gaurav Thapa"
+    ],
+    "observedText": [],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 5166,
+    "reasons": [
+      "当前制作会话检查原片与派生片段首中尾抽帧；网址采用全幅以避免截字，结尾更换黑屏过渡窗口。不是独立Delivery或用户批准。",
+      "URL为原片官网宣传动效；Reddit标题局部静帧裁除用户数字；人物配图不冒充客户通话；排期停帧与步骤省略须显式标注。"
+    ]
+  }
+}

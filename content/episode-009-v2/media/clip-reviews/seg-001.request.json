@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-009-v2",
+  "segmentId": "seg-001",
+  "clipId": "episode-009-v2:media-clip:09a7461e2ceb670570bb7942",
+  "claimIds": [
+    "claim-fastlane-001"
+  ],
+  "claims": [
+    {
+      "id": "claim-fastlane-001",
+      "claim": "Gaurav在采访中介绍，Fastlane读取产品网站并生成相关营销短内容；演示从已生成内容开始，用户滑卡挑选后排期发布。"
+    }
+  ],
+  "narration": "给一个网址,AI帮你做宣传短视频。",
+  "visualIntent": "Cal AI宣传候选原片797.5秒;网址生成来自创始人描述,原片从已有候选开始。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/verifications/seg-001/episode-009-v2-media-clip-09a7461e2ceb670570bb7942-clip.mp4",
+    "sha256": "121fb9c809afc92fd26d6d712f8f38be02df1aa7b77e0a8f7815a15fcd165223",
+    "sizeBytes": 1058072,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 2667,
+    "sourceMediaId": "episode-009-v2:media:seg-001-2d56b6c6c4e6",
+    "sourceMediaSha256": "2d56b6c6c4e67a3657b89c9e20bca2e1e64c75b1b61fce11028f48e3c344db60"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/indexes/seg-001-2d56b6c6c4e6/keyframes/keyframe-0-1333.jpg",
+      "timestampMs": 1333,
+      "sha256": "6dd783cc2c0ce5924b7e75d5473899d94eb8806347662e4465e208906cad48b9",
+      "sizeBytes": 83814,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "Cal AI产品的宣传候选，原片历史演示；不等于现场输入与生成。",
+    "observedText": "",
+    "keywords": [
+      "seg-001",
+      "Fastlane",
+      "产品"
+    ],
+    "entities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "1eb2371d86460bb81780db7f7fa053a6388456ed1ec5b4be4f30420aec1aa72b"
+}

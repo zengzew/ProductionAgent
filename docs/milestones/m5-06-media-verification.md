@@ -1,7 +1,7 @@
 # WP-M5-06 — Multimodal Clip Verification
 
 - Status: implemented
-- Parent: `docs/milestones/m5-real-media-plan.md`
+- Historical scope: [archived M5 plan](../../../ProductionAgent-legacy-archive/2026-10-26-cleanup/retired/docs/milestones/m5-real-media-plan.md)
 - Code: `src/media/verify.ts`, `src/media/schemas.ts` (formal
   `media-verification-v1`), `src/media/paths.ts` (verification paths),
   `src/media/events.ts` (verification events + `clipId`/`verdict` fields),

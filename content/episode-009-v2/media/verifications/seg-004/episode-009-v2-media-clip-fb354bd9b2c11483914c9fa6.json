@@ -1,0 +1,110 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-009-v2:media-verification:seg-004-episode-009-v2-media-clip-fb354bd9b2c11483914c9fa6",
+    "createdAt": "2026-10-16T01:35:39.069Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "application/json",
+    "path": "content/episode-009-v2/media/verifications/seg-004/episode-009-v2-media-clip-fb354bd9b2c11483914c9fa6.json",
+    "producer": "media-verification-v1:codex:fastlane-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "a7cfd74aad00686ee927626fdcd62534d1e84650a0fa3dcb71dd4377b50384d2",
+    "sizeBytes": 4100
+  },
+  "cacheKey": "41d503c0e8a5e184144d24fefb860eeb1b65b28cd70692a8fc154d1612d6c004",
+  "claimIds": [
+    "claim-fastlane-001"
+  ],
+  "claimMatch": 0.92,
+  "clipArtifactRef": {
+    "artifactId": "episode-009-v2:media-verification-clip:seg-004-episode-009-v2-media-clip-fb354bd9b2c11483914c9fa6",
+    "createdAt": "2026-10-16T01:35:02.626Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009-v2/media/verifications/seg-004/episode-009-v2-media-clip-fb354bd9b2c11483914c9fa6-clip.mp4",
+    "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-clip-v1",
+    "sha256": "166c332eee3bc1fb12158c2ccc82389bb37ecdeba94504e9e3c8c12f387c5527",
+    "sizeBytes": 877749
+  },
+  "clipId": "episode-009-v2:media-clip:fb354bd9b2c11483914c9fa6",
+  "clipRef": {
+    "claimIds": [
+      "claim-fastlane-001"
+    ],
+    "clipId": "episode-009-v2:media-clip:fb354bd9b2c11483914c9fa6",
+    "createdAt": "2026-10-16T01:35:39.069Z",
+    "endMs": 4233,
+    "episodeId": "episode-009-v2",
+    "mediaId": "episode-009-v2:media:seg-004-3dc56e75a36d",
+    "sourceMediaRef": {
+      "artifactId": "episode-009-v2:media:seg-004-3dc56e75a36d",
+      "createdAt": "2026-10-16T01:33:04.316Z",
+      "episodeId": "episode-009-v2",
+      "mediaType": "video/mp4",
+      "path": "content/episode-009-v2/media/assets/seg-004-3dc56e75a36d.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "3dc56e75a36dff415cbf3aeab5458f2f30261f907ed91d149f769d8636aa4a7f",
+      "sizeBytes": 283140
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "820秒滑卡,再接805.5账号和814排期选项;步骤省略,真实排期帧可短暂停留便于阅读。"
+  },
+  "createdAt": "2026-10-16T01:35:39.069Z",
+  "episodeId": "episode-009-v2",
+  "mediaRef": {
+    "artifactId": "episode-009-v2:media:seg-004-3dc56e75a36d",
+    "createdAt": "2026-10-16T01:33:04.316Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009-v2/media/assets/seg-004-3dc56e75a36d.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "3dc56e75a36dff415cbf3aeab5458f2f30261f907ed91d149f769d8636aa4a7f",
+    "sizeBytes": 283140
+  },
+  "misleadingRisk": 0.07,
+  "model": "current-session",
+  "observedActions": [
+    "历史滑卡选择接账号选择及真实Schedule选项短暂停留，中间步骤省略，不证明发布成功。"
+  ],
+  "observedEntities": [
+    "Fastlane",
+    "Cal AI"
+  ],
+  "observedText": [],
+  "promptVersion": "media-verification-prompt-v2-broll",
+  "provider": "codex",
+  "reasons": [
+    "当前制作会话检查原片与派生片段首中尾抽帧；网址采用全幅以避免截字，结尾更换黑屏过渡窗口。不是独立Delivery或用户批准。",
+    "URL为原片官网宣传动效；Reddit标题局部静帧裁除用户数字；人物配图不冒充客户通话；排期停帧与步骤省略须显式标注。"
+  ],
+  "recommendedEndMs": 4233,
+  "recommendedStartMs": 0,
+  "relevance": 0.94,
+  "retrievalResultRef": {
+    "artifactId": "episode-009-v2:media-retrieval:seg-004",
+    "createdAt": "2026-10-16T01:35:01.534Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "application/json",
+    "path": "content/episode-009-v2/media/candidates/seg-004.json",
+    "producer": "media-retrieval-v1:media-retrieval-ranking-v1",
+    "revision": 1,
+    "schemaVersion": "media-retrieval-result-v1",
+    "sha256": "7ff40acac95d91e5d0cafa0b834e10d501468b33b20dc15ac675e92af892aac2",
+    "sizeBytes": 26965
+  },
+  "schemaVersion": "media-verification-v1",
+  "segmentId": "seg-004",
+  "sourceSha256": "3dc56e75a36dff415cbf3aeab5458f2f30261f907ed91d149f769d8636aa4a7f",
+  "toolVersion": "media-verification-v1",
+  "verdict": "pass",
+  "verificationId": "episode-009-v2:media-verification:seg-004-episode-009-v2-media-clip-fb354bd9b2c11483914c9fa6",
+  "verificationVersion": "fastlane-observed-v1",
+  "visualQuality": 0.88
+}

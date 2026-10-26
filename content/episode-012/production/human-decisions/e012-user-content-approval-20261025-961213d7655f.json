@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "human-decision-v1",
+  "decisionId": "e012-user-content-approval-20261025",
+  "gate": "content-approval",
+  "decision": "approve",
+  "reviewer": "zengze",
+  "timestamp": "2026-10-25T14:50:55.828Z",
+  "reason": "用户在本聊天针对第012集旁白进入配音渲染的请求明确回复“授权”。允许本地配音、字幕、必要素材处理和竖屏渲染；不包括外部发布。首段仅将预算4秒校正为3秒，旁白文字未改。",
+  "artifactRefs": [
+    {
+      "artifactId": "episode-012:approved:story-final-script-md",
+      "episodeId": "episode-012",
+      "path": "content/episode-012/story/final-script.md",
+      "mediaType": "text/markdown",
+      "schemaVersion": "approved-content-file-v1",
+      "revision": 1,
+      "sha256": "64bc650aebe0fac60d2ecafae0724a8732ecb745a56accc6900c21a2c7d2455a",
+      "sizeBytes": 11634,
+      "producer": "codex-current-session",
+      "createdAt": "2026-10-25T14:50:55.828Z"
+    },
+    {
+      "artifactId": "episode-012:approved:story-caption-plan-json",
+      "episodeId": "episode-012",
+      "path": "content/episode-012/story/caption-plan.json",
+      "mediaType": "application/json",
+      "schemaVersion": "approved-content-file-v1",
+      "revision": 1,
+      "sha256": "e1ec3fe2968c97f3b491758cbfbf31da061db4266abc3e967d8c379bb6da4b7a",
+      "sizeBytes": 1747,
+      "producer": "codex-current-session",
+      "createdAt": "2026-10-25T14:50:55.828Z"
+    },
+    {
+      "artifactId": "episode-012:approved:story-visual-plan-md",
+      "episodeId": "episode-012",
+      "path": "content/episode-012/story/visual-plan.md",
+      "mediaType": "text/markdown",
+      "schemaVersion": "approved-content-file-v1",
+      "revision": 1,
+      "sha256": "452937fb9e30bb5ffa71f2ee3352b272d2e8fc95e38b23c11ebe3ebe1a1413b3",
+      "sizeBytes": 14415,
+      "producer": "codex-current-session",
+      "createdAt": "2026-10-25T14:50:55.828Z"
+    },
+    {
+      "artifactId": "episode-012:approved:research-facts-json",
+      "episodeId": "episode-012",
+      "path": "content/episode-012/research/facts.json",
+      "mediaType": "application/json",
+      "schemaVersion": "approved-content-file-v1",
+      "revision": 1,
+      "sha256": "b3d734f426ab842cba274e4ec6f9fe4406f8e3f86bf968874ab38065f83bb860",
+      "sizeBytes": 5096,
+      "producer": "codex-current-session",
+      "createdAt": "2026-10-25T14:50:55.828Z"
+    },
+    {
+      "artifactId": "episode-012:approved:research-sources-json",
+      "episodeId": "episode-012",
+      "path": "content/episode-012/research/sources.json",
+      "mediaType": "application/json",
+      "schemaVersion": "approved-content-file-v1",
+      "revision": 1,
+      "sha256": "3c5dcaae7a7c57dabeee94af5a9b402a24be31d8b93235d48f576c2ced87b209",
+      "sizeBytes": 3112,
+      "producer": "codex-current-session",
+      "createdAt": "2026-10-25T14:50:55.828Z"
+    }
+  ],
+  "approvalEpoch": 1,
+  "authorizations": [],
+  "edits": []
+}

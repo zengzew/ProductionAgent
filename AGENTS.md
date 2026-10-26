@@ -44,6 +44,11 @@ Build an autonomous product storytelling studio that optimizes for audience rete
 
 ## 质量判定
 
+后续新视频以用户于2026-10-16明确认可的 Fastlane V2（`episode-009-v2`）为默认质量基准，
+执行[基准与对照要求](docs/golden-workflow/fastlane-v2-quality-baseline.md)。开始制作时读取基准，
+编辑与成片检查时对照自然文案、人物需求、产品价值、故事推进、同期证据和结尾兑现。
+不要退回功能罗列，也不要照抄本期台词或强套首单／营收情节；每期事实与成片独立验证。
+
 不承诺“爆款”或具体播放量。生产阶段用可观察的质量代理指标把关：前三秒理解速度、
 前二十秒悬念、每 20～40 秒的信息推进、可复述的核心发现和明确的转发理由；发布后
 再用真实留存、完播、评论和转发数据验证。代理指标不能代替真实发布数据。

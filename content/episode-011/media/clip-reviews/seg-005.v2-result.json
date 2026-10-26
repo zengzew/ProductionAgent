@@ -1,0 +1,28 @@
+{
+  "requestHash": "529d247db867fdf46c12d9c5870b069b75a78554339bdb6ef6e9a5304b29037f",
+  "completedAt": "2026-10-20T09:31:11.870918+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.93,
+    "claimMatch": 0.88,
+    "visualQuality": 0.82,
+    "misleadingRisk": 0.15,
+    "observedActions": [
+      "2025官方Agent演示：文字转图示，再上传截图重排为同样主题的表格；不是本次实测。"
+    ],
+    "observedEntities": [
+      "Gamma",
+      "Holographic Technology"
+    ],
+    "observedText": [
+      "Make this more visual",
+      "Holographic Technology"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 7233,
+    "reasons": [
+      "本制作会话检查V2派生片段联系表并回看原始GIF；按V2声音重新派生，未继承V1核验签名。",
+      "2025官方编辑演示，非本次产品实测或从零生成实录；结尾仅承接生成再修改，不证明已取代PowerPoint。"
+    ]
+  }
+}

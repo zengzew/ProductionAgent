@@ -1,0 +1,98 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-012:media-visual-slot:seg-002",
+    "createdAt": "2026-10-25T15:02:12.179Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/selections/seg-002.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "aa7c176df17e3d3d5e67a8b551298ab9e552e978ab800294ee3b5671750033ba",
+    "sizeBytes": 3238
+  },
+  "claimIds": [
+    "claim-pr-002"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.85,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": false
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0,
+      "durationSuitability": 0.1,
+      "misleadingRiskSafety": 0.15,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.15,
+      "verificationClaimMatch": 0,
+      "verificationRelevance": 0.05,
+      "visualIntentFit": 0.15,
+      "visualQuality": 0.25
+    }
+  },
+  "createdAt": "2026-10-25T15:02:12.179Z",
+  "episodeId": "episode-012",
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true,
+    "verificationPassed": true
+  },
+  "reasons": [
+    "segment seg-002 claim-bound with 1 claim(s)",
+    "retrieval result episode-012:media-retrieval:seg-002 produced 11 candidate(s)",
+    "1 candidate(s) carry a valid pass verification",
+    "selected episode-012:media-clip:d2a79ad290a0c6b5183a72a8 score 0.657500 (claimFit=0.000, relevance=0.900, claimMatch=0.900, quality=0.850, risk=0.150, tie-breaker=score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-002",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-pr-002"
+    ],
+    "clipId": "episode-012:media-clip:d2a79ad290a0c6b5183a72a8",
+    "createdAt": "2026-10-25T15:02:10.376Z",
+    "endMs": 5933,
+    "episodeId": "episode-012",
+    "mediaId": "episode-012:media:seg-002-a93299117c36",
+    "sourceMediaRef": {
+      "artifactId": "episode-012:media:seg-002-a93299117c36",
+      "createdAt": "2026-10-25T14:55:47.297Z",
+      "episodeId": "episode-012",
+      "mediaType": "video/mp4",
+      "path": "content/episode-012/media/assets/seg-002-a93299117c36.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "a93299117c36a890996a3b8ba9a150d3022eea8135a3335f509f2ca7f83ed2eb",
+      "sizeBytes": 132488
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "Stripe合照保持两人身份;标Matthieu Rouif、2024访谈回忆,不伪造GoPro操作。"
+  },
+  "selectedType": "real-media",
+  "selectionScore": 0.6575,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-012:media-visual-slot:seg-002",
+  "verificationRef": {
+    "artifactId": "episode-012:media-verification:seg-002-episode-012-media-clip-d2a79ad290a0c6b5183a72a8",
+    "createdAt": "2026-10-25T15:02:10.388Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/verifications/seg-002/episode-012-media-clip-d2a79ad290a0c6b5183a72a8.json",
+    "producer": "media-verification-v1:codex:photoroom-observed-v1",
+    "revision": 3,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "d502fdf07ccf26644818e4c3bff6b28f7122b59f5f33ac5e70f076ed23e72546",
+    "sizeBytes": 4673
+  },
+  "visualIntent": "Stripe合照保持两人身份;标Matthieu Rouif、2024访谈回忆,不伪造GoPro操作。"
+}

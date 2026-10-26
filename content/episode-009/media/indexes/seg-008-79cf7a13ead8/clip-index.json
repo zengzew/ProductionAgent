@@ -1,0 +1,115 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-009:media:seg-008-79cf7a13ead8-proxy",
+    "createdAt": "2026-10-15T03:22:53.269Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-008-79cf7a13ead8-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "ef772067f9801542f7342cd5a80f17e8bd00b1fae934c4da4b099cddf93a8b8d",
+    "sizeBytes": 670786
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-009",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-009:media-clip:e56570121c372bdd6b1075c7",
+      "endMs": 4933,
+      "entities": [
+        "Fastlane",
+        "Cal AI"
+      ],
+      "episodeId": "episode-009",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-009:media-keyframe:seg-008-79cf7a13ead8-0-2466",
+          "createdAt": "2026-10-15T03:23:25.144Z",
+          "episodeId": "episode-009",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-009/media/indexes/seg-008-79cf7a13ead8/keyframes/keyframe-0-2466.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "d48f9632a3c44bcf28d1077353072239a0b77ddaba2b7fd5ae592d35ad34f9f2",
+          "sizeBytes": 61279
+        }
+      ],
+      "keywords": [
+        "访谈",
+        "共享屏幕",
+        "界面"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-008-79cf7a13ead8",
+        "createdAt": "2026-10-15T03:22:52.291Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-008-79cf7a13ead8.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "79cf7a13ead8bbab3f09899958e53c14f9dae408934ddcbaef9debbccb93ba47",
+        "sizeBytes": 1396163
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-009:media-scenes:seg-008-79cf7a13ead8",
+          "createdAt": "2026-10-15T03:23:25.071Z",
+          "episodeId": "episode-009",
+          "mediaType": "application/json",
+          "path": "content/episode-009/media/indexes/seg-008-79cf7a13ead8/scenes.json",
+          "producer": "media-understanding-v1:scenes:v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "b4dbde7a1c3446b381050539cb3d76a00f0c489da8dd934cf55fa6e37f25095c",
+          "sizeBytes": 1448
+        }
+      ],
+      "semanticTags": [
+        "founder-interview",
+        "local-evaluation",
+        "measured"
+      ],
+      "sourceSha256": "79cf7a13ead8bbab3f09899958e53c14f9dae408934ddcbaef9debbccb93ba47",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "Gaurav本人谈话，为观察共享屏幕及界面迭代自述配图；没有真实客户通话录像。",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-009:media:seg-008-79cf7a13ead8",
+  "mediaRef": {
+    "artifactId": "episode-009:media:seg-008-79cf7a13ead8",
+    "createdAt": "2026-10-15T03:22:52.291Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-008-79cf7a13ead8.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "79cf7a13ead8bbab3f09899958e53c14f9dae408934ddcbaef9debbccb93ba47",
+    "sizeBytes": 1396163
+  },
+  "sceneDetector": "bounded-reference-excerpt",
+  "sceneDetectorVersion": "v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-observed-reference",
+  "semanticAdapterVersion": "79cf7a13ead8bbab",
+  "semanticAvailability": "available",
+  "sourceSha256": "79cf7a13ead8bbab3f09899958e53c14f9dae408934ddcbaef9debbccb93ba47",
+  "transcriptAvailability": "unavailable"
+}

@@ -1,7 +1,7 @@
 # WP-M5-09 — Delivery Gate + Real-Media E2E
 
 - Status: implemented
-- Parent: `docs/milestones/m5-real-media-plan.md`
+- Historical scope: [archived M5 plan](../../../ProductionAgent-legacy-archive/2026-10-26-cleanup/retired/docs/milestones/m5-real-media-plan.md)
 - Code: `src/media/projection.ts` (`media-render-manifest-v1` dual-ledger
   projection), `src/media/delivery-gate.ts` (inspect 1080×1920 / 40–80s,
   lineage, media observability, optional M4 approval completeness),

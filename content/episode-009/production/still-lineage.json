@@ -1,0 +1,19 @@
+{
+  "parentScreenshotPath": "public/episodes/episode-009/captured/fastlane-founder.png",
+  "parentScreenshotSha256": "222291e4dd0c4b8d9a03c241a6f456b4895fb209639a51a20014d2ee3ad5fcd6",
+  "crops": [
+    {
+      "left": 550,
+      "top": 185,
+      "width": 480,
+      "height": 42
+    },
+    {
+      "left": 550,
+      "top": 797,
+      "width": 770,
+      "height": 46
+    }
+  ],
+  "editorial": "中文解释与原文局部并列，不修改来源数字或日期。"
+}

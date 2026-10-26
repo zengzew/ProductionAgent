@@ -1,0 +1,191 @@
+{
+  "schemaVersion": "story-source-preflight-v2",
+  "candidateId": "photoroom-product-photo",
+  "product": "Photoroom",
+  "asOf": "2026-10-25",
+  "sourceStrategy": "multi-source",
+  "storyProfiles": ["founder-journey", "product-mechanism", "cold-start-distribution"],
+  "universalCriteria": {
+    "productOrEventClarity": {
+      "status": "supported",
+      "sourceIds": ["src-pr-remove", "src-pr-product"],
+      "notes": "零背景展示商品原照、去背景及新场景；官网有原始MP4与商品图，非本次实测。"
+    },
+    "storyMotion": {
+      "status": "supported",
+      "sourceIds": ["src-pr-remove", "src-pr-product"],
+      "notes": "零背景展示商品原照、去背景及新场景；官网有原始MP4与商品图，非本次实测。"
+    },
+    "factTraceability": {
+      "status": "supported",
+      "sourceIds": ["src-pr-remove", "src-pr-product"],
+      "notes": "零背景展示商品原照、去背景及新场景；官网有原始MP4与商品图，非本次实测。"
+    },
+    "realVisualFeasibility": {
+      "status": "supported",
+      "sourceIds": ["src-pr-remove", "src-pr-product"],
+      "notes": "零背景展示商品原照、去背景及新场景；官网有原始MP4与商品图，非本次实测。"
+    },
+    "audienceQuestion": {
+      "status": "supported",
+      "sourceIds": ["src-pr-founder", "src-pr-stripe", "src-pr-growth"],
+      "notes": "人物需求、产品选择及获客分别由原始访谈支撑，不拼接增长因果。",
+      "text": "Photoroom怎样把抠图的麻烦变成小卖家的商品图工具，再把效果展示给更多人？"
+    },
+    "rightsBoundaryRecorded": true
+  },
+  "sources": [
+    {
+      "id": "src-pr-founder",
+      "title": "Photoroom founder interview",
+      "publisher": "Pulse 2.0 / Matthieu Rouif",
+      "url": "https://pulse2.com/photoroom-matthieu-rouif-profile/amp/",
+      "sourceType": "founder-interview",
+      "roles": ["spine", "verification"],
+      "firstPerson": true,
+      "transcriptAvailable": true,
+      "supports": ["protagonist", "userNeed", "founderDecision"],
+      "mediaTypes": ["founder-footage"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "公开来源仅作本地评估必要引用，保留署名和来源身份；发现或下载不代表外部发布许可。"
+    },
+    {
+      "id": "src-pr-growth",
+      "title": "PhotoRoom growth interview with Olivier Lemarie",
+      "publisher": "Subscription League / Olivier Lemarie",
+      "url": "https://subscriptionleague.com/episode/photoroom-how-to-grow-a-subscription-app-business-and-its-user-base-globally-by-olivier-lemarie",
+      "sourceType": "official",
+      "roles": ["spine", "verification", "visual"],
+      "firstPerson": true,
+      "transcriptAvailable": true,
+      "supports": ["userNeed", "distribution"],
+      "mediaTypes": ["result-evidence"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "公开来源仅作本地评估必要引用，保留署名和来源身份；发现或下载不代表外部发布许可。"
+    },
+    {
+      "id": "src-pr-remove",
+      "title": "Background Remover",
+      "publisher": "Photoroom",
+      "url": "https://www.photoroom.com/tools/background-remover",
+      "sourceType": "official",
+      "roles": ["verification", "visual"],
+      "firstPerson": false,
+      "transcriptAvailable": false,
+      "supports": ["productMechanism", "userNeed"],
+      "mediaTypes": ["product-demo"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "公开来源仅作本地评估必要引用，保留署名和来源身份；发现或下载不代表外部发布许可。"
+    },
+    {
+      "id": "src-pr-product",
+      "title": "AI Product Photography",
+      "publisher": "Photoroom",
+      "url": "https://www.photoroom.com/ai-product-photography",
+      "sourceType": "official",
+      "roles": ["verification", "visual"],
+      "firstPerson": false,
+      "transcriptAvailable": false,
+      "supports": ["productMechanism"],
+      "mediaTypes": ["product-demo"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "公开来源仅作本地评估必要引用，保留署名和来源身份；发现或下载不代表外部发布许可。"
+    },
+    {
+      "id": "src-pr-stripe",
+      "title": "An interview with the cofounder of PhotoRoom",
+      "publisher": "Stripe / Matthieu Rouif",
+      "url": "https://stripe.com/au/newsroom/stories/stripe-and-photoroom",
+      "sourceType": "founder-interview",
+      "roles": ["spine", "verification", "visual"],
+      "firstPerson": true,
+      "transcriptAvailable": true,
+      "supports": ["protagonist", "userNeed", "founderDecision", "productMechanism"],
+      "mediaTypes": ["founder-footage", "result-evidence"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "公开来源仅作本地评估必要引用，保留署名和来源身份；发现或下载不代表外部发布许可。"
+    },
+    {
+      "id": "src-pr-finance",
+      "title": "Photoroom Secures $43M in Series B Funding",
+      "publisher": "Photoroom via PR Newswire",
+      "url": "https://www.prnewswire.com/news-releases/photoroom-secures-43m-in-series-b-funding-launches-next-generation-ai-photo-editing-features-for-businesses-302071832.html",
+      "sourceType": "official",
+      "roles": ["verification", "visual"],
+      "firstPerson": false,
+      "transcriptAvailable": false,
+      "supports": ["measurableOutcome"],
+      "mediaTypes": ["result-evidence"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "公开来源仅作本地评估必要引用，保留署名和来源身份；发现或下载不代表外部发布许可。"
+    }
+  ],
+  "storyEvidence": {
+    "protagonist": {
+      "status": "supported",
+      "sourceIds": ["src-pr-founder"],
+      "notes": "已回读一手访谈或公司公告；访谈是本人/员工自述，非独立成效验证。"
+    },
+    "userNeed": {
+      "status": "supported",
+      "sourceIds": ["src-pr-stripe"],
+      "notes": "已回读一手访谈或公司公告；访谈是本人/员工自述，非独立成效验证。"
+    },
+    "productMechanism": {
+      "status": "supported",
+      "sourceIds": ["src-pr-product", "src-pr-remove"],
+      "notes": "已回读一手访谈或公司公告；访谈是本人/员工自述，非独立成效验证。"
+    },
+    "founderDecision": {
+      "status": "supported",
+      "sourceIds": ["src-pr-founder", "src-pr-stripe"],
+      "notes": "已回读一手访谈或公司公告；访谈是本人/员工自述，非独立成效验证。"
+    },
+    "buildFriction": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "本期不选择此维度，不补写。"
+    },
+    "distribution": {
+      "status": "supported",
+      "sourceIds": ["src-pr-growth"],
+      "notes": "已回读一手访谈或公司公告；访谈是本人/员工自述，非独立成效验证。"
+    },
+    "marketEvent": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "本期不选择此维度，不补写。"
+    },
+    "userBehavior": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "本期不选择此维度，不补写。"
+    },
+    "measurableOutcome": {
+      "status": "supported",
+      "sourceIds": ["src-pr-finance"],
+      "notes": "已回读一手访谈或公司公告；访谈是本人/员工自述，非独立成效验证。"
+    },
+    "turningPoint": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "本期不选择此维度，不补写。"
+    }
+  },
+  "keyClaims": [
+    {
+      "claim": "2024-02-27公司公告完成4300万美元B轮融资；不当当前收入、利润或最新一轮。",
+      "sourceIds": ["src-pr-finance"],
+      "reportingType": "company-reported",
+      "attributionRequired": true
+    }
+  ],
+  "blockers": [],
+  "notes": "增长来源为2023年在职增长负责人原始访谈，schema以official分类，不冒充创始人。免费层政策仅历史自述；不用2026官网倒作初版界面，不声称首次用户渠道或首单已核实。"
+}

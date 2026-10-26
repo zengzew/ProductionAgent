@@ -95,3 +95,12 @@ Fact Guardian 不得自己修正上游文件。
 填写唯一首要退回角色。
 
 完成 PASS 后，故事状态才是 `story-approved`。
+
+## 参考驱动的新 Episode
+
+使用 `production.referenceStory` 时，也核对其中 headline、resultLine 和 claimIds，
+尤其是金额口径、时间区间和归因。报告记录
+`- Reference title SHA-256: <sha256(JSON.stringify(parsedReferenceStory))>`，其中
+parsedReferenceStory 是 episodeConfigSchema 解析后的 production.referenceStory。
+Source-First 输入使用 Spine、最终稿和编辑记录，不要求旧路径的 oral-review。
+参考短片的经营数字只证明短片说过什么，不能代替本期的一手来源。

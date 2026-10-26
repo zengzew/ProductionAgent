@@ -1,0 +1,39 @@
+{
+  "durationBasis": "measured-TTS-timeline",
+  "parts": [
+    {
+      "segmentId": "seg-005",
+      "sourcePath": "content/episode-011/media/assets/Agent.gif",
+      "sourceSha256": "fa2c84dab940292e45ec3460cc7d39ba169966dde9c194ea3cfc287211f7f307",
+      "sourceStartSeconds": 0,
+      "sourceWindowSeconds": 5.38,
+      "seconds": 7.233333333333333,
+      "cropPixels": [
+        0,
+        0,
+        800,
+        450
+      ],
+      "freezeForReadabilitySeconds": 1.8533333333333335,
+      "playbackRate": 1,
+      "outputPath": "content/episode-011/media/prepared/seg-005.mp4"
+    },
+    {
+      "segmentId": "seg-009",
+      "sourcePath": "content/episode-011/media/assets/Agent.gif",
+      "sourceSha256": "fa2c84dab940292e45ec3460cc7d39ba169966dde9c194ea3cfc287211f7f307",
+      "sourceStartSeconds": 0,
+      "sourceWindowSeconds": 5.38,
+      "seconds": 8.166666666666666,
+      "cropPixels": [
+        38,
+        0,
+        756,
+        420
+      ],
+      "freezeForReadabilitySeconds": 2.786666666666666,
+      "playbackRate": 1,
+      "outputPath": "content/episode-011/media/prepared/seg-009.mp4"
+    }
+  ]
+}

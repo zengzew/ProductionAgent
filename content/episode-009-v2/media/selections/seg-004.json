@@ -1,0 +1,98 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-009-v2:media-visual-slot:seg-004",
+    "createdAt": "2026-10-16T01:35:40.372Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "application/json",
+    "path": "content/episode-009-v2/media/selections/seg-004.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "52b77848e5847082777a2e33396bcfc0eb072ade76ecb9fb664bd929f84c6b00",
+    "sizeBytes": 3325
+  },
+  "claimIds": [
+    "claim-fastlane-001"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.85,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": false
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0,
+      "durationSuitability": 0.1,
+      "misleadingRiskSafety": 0.15,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.15,
+      "verificationClaimMatch": 0,
+      "verificationRelevance": 0.05,
+      "visualIntentFit": 0.15,
+      "visualQuality": 0.25
+    }
+  },
+  "createdAt": "2026-10-16T01:35:40.372Z",
+  "episodeId": "episode-009-v2",
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true,
+    "verificationPassed": true
+  },
+  "reasons": [
+    "segment seg-004 claim-bound with 1 claim(s)",
+    "retrieval result episode-009-v2:media-retrieval:seg-004 produced 11 candidate(s)",
+    "1 candidate(s) carry a valid pass verification",
+    "selected episode-009-v2:media-clip:fb354bd9b2c11483914c9fa6 score 0.712000 (claimFit=0.000, relevance=0.940, claimMatch=0.920, quality=0.880, risk=0.070, tie-breaker=score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-004",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-fastlane-001"
+    ],
+    "clipId": "episode-009-v2:media-clip:fb354bd9b2c11483914c9fa6",
+    "createdAt": "2026-10-16T01:35:39.069Z",
+    "endMs": 4233,
+    "episodeId": "episode-009-v2",
+    "mediaId": "episode-009-v2:media:seg-004-3dc56e75a36d",
+    "sourceMediaRef": {
+      "artifactId": "episode-009-v2:media:seg-004-3dc56e75a36d",
+      "createdAt": "2026-10-16T01:33:04.316Z",
+      "episodeId": "episode-009-v2",
+      "mediaType": "video/mp4",
+      "path": "content/episode-009-v2/media/assets/seg-004-3dc56e75a36d.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "3dc56e75a36dff415cbf3aeab5458f2f30261f907ed91d149f769d8636aa4a7f",
+      "sizeBytes": 283140
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "820秒滑卡,再接805.5账号和814排期选项;步骤省略,真实排期帧可短暂停留便于阅读。"
+  },
+  "selectedType": "real-media",
+  "selectionScore": 0.712,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-009-v2:media-visual-slot:seg-004",
+  "verificationRef": {
+    "artifactId": "episode-009-v2:media-verification:seg-004-episode-009-v2-media-clip-fb354bd9b2c11483914c9fa6",
+    "createdAt": "2026-10-16T01:35:39.076Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "application/json",
+    "path": "content/episode-009-v2/media/verifications/seg-004/episode-009-v2-media-clip-fb354bd9b2c11483914c9fa6.json",
+    "producer": "media-verification-v1:codex:fastlane-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "f1fdcfb92a0b41ae6f417ad6d6beb7b1c51a87fe460681db14be40da74279ed4",
+    "sizeBytes": 4714
+  },
+  "visualIntent": "820秒滑卡,再接805.5账号和814排期选项;步骤省略,真实排期帧可短暂停留便于阅读。"
+}

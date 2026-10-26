@@ -1,0 +1,115 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-009:media:seg-004-851b45befd2a-proxy",
+    "createdAt": "2026-10-15T03:22:51.206Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-004-851b45befd2a-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "287727bb26e42ab5b117cbcab8132962497796930901e9c458620bbede221135",
+    "sizeBytes": 173888
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-009",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-009:media-clip:1aba187fb72a7913bd63f021",
+      "endMs": 4767,
+      "entities": [
+        "Fastlane",
+        "Cal AI"
+      ],
+      "episodeId": "episode-009",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-009:media-keyframe:seg-004-851b45befd2a-0-2383",
+          "createdAt": "2026-10-15T03:23:24.889Z",
+          "episodeId": "episode-009",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-009/media/indexes/seg-004-851b45befd2a/keyframes/keyframe-0-2383.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "02ca9286e91a38b1e063246b37f6101bc780855500e3811017b0acd713bf9468",
+          "sizeBytes": 33136
+        }
+      ],
+      "keywords": [
+        "账号",
+        "排期",
+        "Schedule"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-004-851b45befd2a",
+        "createdAt": "2026-10-15T03:22:50.690Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-004-851b45befd2a.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "851b45befd2a6a7646de6da6e8d7eec00534a3e23a9c02d227eea8cb0fcf7632",
+        "sizeBytes": 312682
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-009:media-scenes:seg-004-851b45befd2a",
+          "createdAt": "2026-10-15T03:23:24.827Z",
+          "episodeId": "episode-009",
+          "mediaType": "application/json",
+          "path": "content/episode-009/media/indexes/seg-004-851b45befd2a/scenes.json",
+          "producer": "media-understanding-v1:scenes:v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "cb5430363d69a634cf0b54b13afabf085987e39486eae63f78227cb425838972",
+          "sizeBytes": 1447
+        }
+      ],
+      "semanticTags": [
+        "founder-interview",
+        "local-evaluation",
+        "measured"
+      ],
+      "sourceSha256": "851b45befd2a6a7646de6da6e8d7eec00534a3e23a9c02d227eea8cb0fcf7632",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "真实Select Platforms账号选择后，剪到Schedule中Post ASAP与Schedule for Later；中间步骤省略，不证明上线。",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-009:media:seg-004-851b45befd2a",
+  "mediaRef": {
+    "artifactId": "episode-009:media:seg-004-851b45befd2a",
+    "createdAt": "2026-10-15T03:22:50.690Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-004-851b45befd2a.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "851b45befd2a6a7646de6da6e8d7eec00534a3e23a9c02d227eea8cb0fcf7632",
+    "sizeBytes": 312682
+  },
+  "sceneDetector": "bounded-reference-excerpt",
+  "sceneDetectorVersion": "v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-observed-reference",
+  "semanticAdapterVersion": "851b45befd2a6a76",
+  "semanticAvailability": "available",
+  "sourceSha256": "851b45befd2a6a7646de6da6e8d7eec00534a3e23a9c02d227eea8cb0fcf7632",
+  "transcriptAvailability": "unavailable"
+}

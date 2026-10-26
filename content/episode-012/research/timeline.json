@@ -1,0 +1,70 @@
+{
+  "asOf": "2026-10-25",
+  "events": [
+    {
+      "id": "ev-pr-001",
+      "dateLabel": "2020年推出应用前；创始人回顾，确日未知",
+      "sortDate": "2020-01-01",
+      "datePrecision": "before",
+      "event": "创始人回忆抠图困扰、学习机器学习，与Eliot合作完成首版。",
+      "eventType": "product",
+      "factIds": ["claim-pr-002", "claim-pr-003"],
+      "sourceIds": ["src-pr-founder"],
+      "relationToPrevious": "not-applicable",
+      "storyFunction": "decision",
+      "notes": "排序锚不等于实际发生日；各自为来源回顾或披露时间，没有由先后推导因果。"
+    },
+    {
+      "id": "ev-pr-002",
+      "dateLabel": "2023-03-01访谈披露，动作发生在此前",
+      "sortDate": "2023-03-01",
+      "datePrecision": "day",
+      "event": "增长负责人解释免费层、效果演示和创作者广告素材策略。",
+      "eventType": "distribution",
+      "factIds": ["claim-pr-005", "claim-pr-006", "claim-pr-007"],
+      "sourceIds": ["src-pr-growth"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "distribution-event",
+      "notes": "排序锚不等于实际发生日；各自为来源回顾或披露时间，没有由先后推导因果。"
+    },
+    {
+      "id": "ev-pr-003",
+      "dateLabel": "2023-04-07访谈披露",
+      "sortDate": "2023-04-07",
+      "datePrecision": "day",
+      "event": "创始人强调商品保真，访谈导语说明线上卖家用途。",
+      "eventType": "product",
+      "factIds": ["claim-pr-004", "claim-pr-010"],
+      "sourceIds": ["src-pr-stripe"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "context",
+      "notes": "排序锚不等于实际发生日；各自为来源回顾或披露时间，没有由先后推导因果。"
+    },
+    {
+      "id": "ev-pr-004",
+      "dateLabel": "2024-02-27公司公告",
+      "sortDate": "2024-02-27",
+      "datePrecision": "day",
+      "event": "公司公告4300万美元B轮融资。",
+      "eventType": "growth",
+      "factIds": ["claim-pr-008"],
+      "sourceIds": ["src-pr-finance"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "validation",
+      "notes": "排序锚不等于实际发生日；各自为来源回顾或披露时间，没有由先后推导因果。"
+    },
+    {
+      "id": "ev-pr-005",
+      "dateLabel": "2026-10-25当前页面访问日；非发布日期",
+      "sortDate": "2026-10-25",
+      "datePrecision": "as-of",
+      "event": "当前官网展示去背景入口、白底和AI场景产品用途。",
+      "eventType": "product",
+      "factIds": ["claim-pr-001"],
+      "sourceIds": ["src-pr-remove", "src-pr-product"],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "context",
+      "notes": "排序锚不等于实际发生日；各自为来源回顾或披露时间，没有由先后推导因果。"
+    }
+  ]
+}

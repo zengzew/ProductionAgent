@@ -1,0 +1,98 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-009:media-visual-slot:seg-003",
+    "createdAt": "2026-10-15T03:26:41.181Z",
+    "episodeId": "episode-009",
+    "mediaType": "application/json",
+    "path": "content/episode-009/media/selections/seg-003.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "1321051c96eba9ddedf4788ca26e5fdef8ea97eb762045f33a154d521566bdb1",
+    "sizeBytes": 3433
+  },
+  "claimIds": [
+    "claim-fastlane-001"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.85,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": false
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0,
+      "durationSuitability": 0.1,
+      "misleadingRiskSafety": 0.15,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.15,
+      "verificationClaimMatch": 0,
+      "verificationRelevance": 0.05,
+      "visualIntentFit": 0.15,
+      "visualQuality": 0.25
+    }
+  },
+  "createdAt": "2026-10-15T03:26:41.181Z",
+  "episodeId": "episode-009",
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true,
+    "verificationPassed": true
+  },
+  "reasons": [
+    "segment seg-003 claim-bound with 1 claim(s)",
+    "retrieval result episode-009:media-retrieval:seg-003 produced 14 candidate(s)",
+    "1 candidate(s) carry a valid pass verification",
+    "selected episode-009:media-clip:9fc342edbc851e8e67ade2cb score 0.680469 (claimFit=0.000, relevance=0.940, claimMatch=0.920, quality=0.880, risk=0.060, tie-breaker=score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-003",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-fastlane-001"
+    ],
+    "clipId": "episode-009:media-clip:9fc342edbc851e8e67ade2cb",
+    "createdAt": "2026-10-15T03:26:40.041Z",
+    "endMs": 3466,
+    "episodeId": "episode-009",
+    "mediaId": "episode-009:media:seg-003-82fe60f79651",
+    "sourceMediaRef": {
+      "artifactId": "episode-009:media:seg-003-82fe60f79651",
+      "createdAt": "2026-10-15T03:26:12.180Z",
+      "episodeId": "episode-009",
+      "mediaType": "video/mp4",
+      "path": "content/episode-009/media/assets/seg-003-82fe60f79651.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "82fe60f79651bb11c9e7bced9a8f97751963a8bf548509b5addc81c8d6c3ff38",
+      "sizeBytes": 449806
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "使用13:00–13:26内已核验的候选、拒绝与接受动作,保留同一组卡片的操作反馈;方向与裁切由visual-preflight落实,不用文字替代不可见的操作。"
+  },
+  "selectedType": "real-media",
+  "selectionScore": 0.680469,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-009:media-visual-slot:seg-003",
+  "verificationRef": {
+    "artifactId": "episode-009:media-verification:seg-003-episode-009-media-clip-9fc342edbc851e8e67ade2cb",
+    "createdAt": "2026-10-15T03:26:40.050Z",
+    "episodeId": "episode-009",
+    "mediaType": "application/json",
+    "path": "content/episode-009/media/verifications/seg-003/episode-009-media-clip-9fc342edbc851e8e67ade2cb.json",
+    "producer": "media-verification-v1:codex:fastlane-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "cfdbc9f76ce856f64d3ac10ec6cf152347b76fb909792db91eb36fc499ba3637",
+    "sizeBytes": 4665
+  },
+  "visualIntent": "使用13:00–13:26内已核验的候选、拒绝与接受动作,保留同一组卡片的操作反馈;方向与裁切由visual-preflight落实,不用文字替代不可见的操作。"
+}

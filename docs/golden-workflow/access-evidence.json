@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-10-13",
+  "author": "逸蒙的赛博空间",
+  "authorProfileId": "5905bf795e87e74079e2d2f8",
+  "authorization": "用户提供三条 golden set 并要求完整访问画面与音频、据此重构 workflow pipeline。",
+  "samples": [
+    {
+      "id": "6acb76450000000012037c64",
+      "title": "17岁小伙靠AI给内容算命",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6acb76450000000012037c64",
+      "localMedia": "downloads/golden-20261013/6acb7645/source.mp4",
+      "sha256": "1e3629e0aedb65daf5b0d7d0630773983a7f1ec3c15823695daf2d53eac776a2",
+      "bytes": 3289049,
+      "durationSeconds": 67.818667,
+      "video": {
+        "codec": "hevc",
+        "width": 1080,
+        "height": 1920
+      },
+      "audio": {
+        "codec": "aac",
+        "sampleRate": 48000,
+        "channels": 2
+      },
+      "fullDecodeExitCode": 0,
+      "visualReview": "Two-second interval contact sheets spanning the video; fine cuts not exhaustively inspected.",
+      "audioReview": "Entire AAC decoded; offline MLX Whisper small ASR compared with sampled captions; EBU R128 measurement. No human listening or music/timbre classification.",
+      "usage": "User-designated design example, not independent evidence of business claims or a blind holdout."
+    },
+    {
+      "id": "6ac8dea000000000130187fc",
+      "title": "准爸爸用AI做待产清单",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6ac8dea000000000130187fc",
+      "localMedia": "downloads/golden-20261013/6ac8dea0/source.mp4",
+      "sha256": "41bd587c4a5fc87177d0310852ed17ac0953260124a008ee680edf3c9516deb8",
+      "bytes": 2996287,
+      "durationSeconds": 56.512,
+      "video": {
+        "codec": "hevc",
+        "width": 1080,
+        "height": 1920
+      },
+      "audio": {
+        "codec": "aac",
+        "sampleRate": 48000,
+        "channels": 2
+      },
+      "fullDecodeExitCode": 0,
+      "visualReview": "Two-second interval contact sheets spanning the video; fine cuts not exhaustively inspected.",
+      "audioReview": "Entire AAC decoded; offline MLX Whisper small ASR compared with sampled captions; EBU R128 measurement. No human listening or music/timbre classification.",
+      "usage": "User-designated design example, not independent evidence of business claims or a blind holdout."
+    },
+    {
+      "id": "6ac055ec0000000013018310",
+      "title": "中国团队做AI相框",
+      "sourceUrl": "https://www.xiaohongshu.com/explore/6ac055ec0000000013018310",
+      "localMedia": "downloads/golden-20261013/6ac055ec/source.mp4",
+      "sha256": "95b4fa86d0fbf4493c700456f2af8112bd7cb34181de787edccf49b9b6e876de",
+      "bytes": 4346871,
+      "durationSeconds": 70.208,
+      "video": {
+        "codec": "hevc",
+        "width": 1080,
+        "height": 1920
+      },
+      "audio": {
+        "codec": "aac",
+        "sampleRate": 48000,
+        "channels": 2
+      },
+      "fullDecodeExitCode": 0,
+      "visualReview": "Two-second interval contact sheets spanning the video; fine cuts not exhaustively inspected.",
+      "audioReview": "Entire AAC decoded; offline MLX Whisper small ASR compared with sampled captions; EBU R128 measurement. No human listening or music/timbre classification.",
+      "usage": "User-designated design example, not independent evidence of business claims or a blind holdout."
+    }
+  ]
+}

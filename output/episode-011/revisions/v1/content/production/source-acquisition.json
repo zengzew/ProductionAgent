@@ -1,0 +1,33 @@
+{
+  "assets": [
+    {
+      "path": "content/episode-011/media/assets/Agent.gif",
+      "sourceUrl": "https://images.ctfassets.net/30c0u70rkzek/7wbOx9aQjp0yLTcZdZOz1j/ee1df1ecd068db64db94dceeb9bb304b/Agent.gif",
+      "sha256": "fa2c84dab940292e45ec3460cc7d39ba169966dde9c194ea3cfc287211f7f307",
+      "sizeBytes": 4261815,
+      "accessedAt": "2026-10-20",
+      "scope": "public-source necessary excerpt for local production; external publication rights unknown"
+    },
+    {
+      "path": "content/episode-011/media/assets/Bento.gif",
+      "sourceUrl": "https://images.ctfassets.net/30c0u70rkzek/5J2Wu8mIcgzeQLJB3XZ075/8b8904152fb2832e2447d17dbd5550c8/Bento.gif",
+      "sha256": "96389fad1b1a75374479d088cb110c9a5f047779703608d9b89111fdc2c6d820",
+      "sizeBytes": 4650458,
+      "accessedAt": "2026-10-20",
+      "scope": "public-source necessary excerpt for local production; external publication rights unknown"
+    },
+    {
+      "path": "content/episode-011/media/assets/grant.png",
+      "sourceUrl": "https://stvp.stanford.edu/sites/g/files/sbiybj34351/files/styles/card_1192x596/public/media/wordpress/grant-lee-1920x1080-1.png?h=d1cb525d&itok=E9zIeAU6",
+      "sha256": "1393b17c50e924a36ee3ea9d0b6865e64432313b1e6de4a1ee4a7c13a6dc86ba",
+      "sizeBytes": 717688,
+      "accessedAt": "2026-10-20",
+      "scope": "public-source necessary excerpt for local production; external publication rights unknown"
+    }
+  ],
+  "browserCheck": {
+    "url": "https://gamma.app/products/presentations",
+    "result": "Just a moment challenge page; no product operation or account use claimed",
+    "fallback": "Original official embedded GIF assets and source-labelled editorial excerpts"
+  }
+}

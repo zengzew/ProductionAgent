@@ -1,0 +1,116 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-010:media:seg-005-8483c5e80015-proxy",
+    "createdAt": "2026-10-20T11:01:29.809Z",
+    "episodeId": "episode-010",
+    "mediaType": "video/mp4",
+    "path": "content/episode-010/media/assets/seg-005-8483c5e80015-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "772b6a145d2e5eb7e8a12e85f980c768086db87d8cd5f1c69958c8cab936f923",
+    "sizeBytes": 72402
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-010",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-010:media-clip:b335167b5b2fb51bc8accb85",
+      "endMs": 8400,
+      "entities": [
+        "Granola",
+        "AllFound"
+      ],
+      "episodeId": "episode-010",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-010:media-keyframe:seg-005-8483c5e80015-0-4200",
+          "createdAt": "2026-10-20T11:01:30.423Z",
+          "episodeId": "episode-010",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-010/media/indexes/seg-005-8483c5e80015/keyframes/keyframe-0-4200.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "0e821fe7177df676a4c7207d36be2e8e4660ac834da0d2ddbed6f5642fc1ef26",
+          "sizeBytes": 68691
+        }
+      ],
+      "keywords": [
+        "seg-005",
+        "Granola",
+        "notes",
+        "AllFound"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-010:media:seg-005-8483c5e80015",
+        "createdAt": "2026-10-20T11:01:29.172Z",
+        "episodeId": "episode-010",
+        "mediaType": "video/mp4",
+        "path": "content/episode-010/media/assets/seg-005-8483c5e80015.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8483c5e800150b82e61a79feb827932ad86d30382352fc742a0af2a8b97258fc",
+        "sizeBytes": 111381
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-010:media-scenes:seg-005-8483c5e80015",
+          "createdAt": "2026-10-20T11:01:30.345Z",
+          "episodeId": "episode-010",
+          "mediaType": "application/json",
+          "path": "content/episode-010/media/indexes/seg-005-8483c5e80015/scenes.json",
+          "producer": "media-understanding-v1:scenes:v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "ec595c669a983a614b6536fa15f02d1b82531eebca73c5ce3e8c676be13de0e1",
+          "sizeBytes": 1446
+        }
+      ],
+      "semanticTags": [
+        "founder-interview",
+        "local-evaluation",
+        "measured"
+      ],
+      "sourceSha256": "8483c5e800150b82e61a79feb827932ad86d30382352fc742a0af2a8b97258fc",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "官方演示结果局部停帧供阅读：Current Provider、Their Requirements和Next steps；非继续生成实录。",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-010:media:seg-005-8483c5e80015",
+  "mediaRef": {
+    "artifactId": "episode-010:media:seg-005-8483c5e80015",
+    "createdAt": "2026-10-20T11:01:29.172Z",
+    "episodeId": "episode-010",
+    "mediaType": "video/mp4",
+    "path": "content/episode-010/media/assets/seg-005-8483c5e80015.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "8483c5e800150b82e61a79feb827932ad86d30382352fc742a0af2a8b97258fc",
+    "sizeBytes": 111381
+  },
+  "sceneDetector": "bounded-reference-excerpt",
+  "sceneDetectorVersion": "v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-observed-reference",
+  "semanticAdapterVersion": "8483c5e800150b82",
+  "semanticAvailability": "available",
+  "sourceSha256": "8483c5e800150b82e61a79feb827932ad86d30382352fc742a0af2a8b97258fc",
+  "transcriptAvailability": "unavailable"
+}

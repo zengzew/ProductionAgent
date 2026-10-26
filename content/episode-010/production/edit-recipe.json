@@ -1,0 +1,53 @@
+{
+  "durationBasis": "measured-TTS-timeline",
+  "parts": [
+    {
+      "segmentId": "seg-001",
+      "sourcePath": "content/episode-010/media/assets/enhance-2024.mp4",
+      "sourceSha256": "4b6bf95d24c15a01558b35d409a0c34e94e1b6578bb9e8dd40c9f88e386af73f",
+      "sourceStartSeconds": 2.4,
+      "seconds": 3.466666666666667,
+      "cropPixels": [
+        450,
+        210,
+        1020,
+        700
+      ],
+      "freezeForReadability": false,
+      "playbackRate": 1,
+      "outputPath": "content/episode-010/media/prepared/seg-001.mp4"
+    },
+    {
+      "segmentId": "seg-004",
+      "sourcePath": "content/episode-010/media/assets/enhance-2024.mp4",
+      "sourceSha256": "4b6bf95d24c15a01558b35d409a0c34e94e1b6578bb9e8dd40c9f88e386af73f",
+      "sourceStartSeconds": 0,
+      "seconds": 8.1,
+      "cropPixels": [
+        450,
+        50,
+        1020,
+        980
+      ],
+      "freezeForReadability": false,
+      "playbackRate": 1,
+      "outputPath": "content/episode-010/media/prepared/seg-004.mp4"
+    },
+    {
+      "segmentId": "seg-005",
+      "sourcePath": "content/episode-010/media/assets/enhance-2024.mp4",
+      "sourceSha256": "4b6bf95d24c15a01558b35d409a0c34e94e1b6578bb9e8dd40c9f88e386af73f",
+      "sourceStartSeconds": 7,
+      "seconds": 8.4,
+      "cropPixels": [
+        535,
+        260,
+        850,
+        660
+      ],
+      "freezeForReadability": true,
+      "playbackRate": 1,
+      "outputPath": "content/episode-010/media/prepared/seg-005.mp4"
+    }
+  ]
+}

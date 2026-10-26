@@ -1,0 +1,155 @@
+{
+  "requestedProvider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "provider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "providerId": "minimax",
+  "fallbackUsed": false,
+  "fallbackReason": "",
+  "generatedAt": "2026-10-20T09:21:33.582Z",
+  "voice": "Chinese (Mandarin)_Reliable_Executive",
+  "speed": 1.2,
+  "pitch": 0,
+  "normalization": "loudnorm I=-16 TP=-1.5 LRA=7",
+  "credentialRequired": true,
+  "networkRequired": true,
+  "alignmentStrategy": "provider-timestamps",
+  "files": [
+    {
+      "segmentId": "seg-001",
+      "file": "episodes/episode-011/audio/seg-001.mp3",
+      "timestamps": [
+        {
+          "text": "输入文字,AI帮你生成PPT。",
+          "startMs": 0,
+          "endMs": 2245.215419501134
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-002",
+      "file": "episodes/episode-011/audio/seg-002.mp3",
+      "timestamps": [
+        {
+          "text": "Gamma的创始人格兰特做咨询时,曾为第二天的会议熬夜准备。",
+          "startMs": 0,
+          "endMs": 3882.222222222222
+        },
+        {
+          "text": "他说,大量工夫花在排版,内容反而顾不上。",
+          "startMs": 3982,
+          "endMs": 7882
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-003",
+      "file": "episodes/episode-011/audio/seg-003.mp3",
+      "timestamps": [
+        {
+          "text": "他找来两位老同事,想把顺序倒过来:先把话写清楚,再让工具处理版式。",
+          "startMs": 0,
+          "endMs": 5228.9795918367345
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-004",
+      "file": "episodes/episode-011/audio/seg-004.mp3",
+      "timestamps": [
+        {
+          "text": "Gamma后来接入AI。",
+          "startMs": 0,
+          "endMs": 1246.7573696145125
+        },
+        {
+          "text": "输入主题或已有文字,选个样式,就能得到配好图文的初稿。",
+          "startMs": 1347,
+          "endMs": 6506.319727891157
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-005",
+      "file": "episodes/episode-011/audio/seg-005.mp3",
+      "timestamps": [
+        {
+          "text": "想换一种表达,还能让AI改布局,或把文字变成图示。",
+          "startMs": 0,
+          "endMs": 4451.111111111111
+        },
+        {
+          "text": "你要做的,是核对内容、调整重点。",
+          "startMs": 4551,
+          "endMs": 6970.3650793650795
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-006",
+      "file": "episodes/episode-011/audio/seg-006.mp3",
+      "timestamps": [
+        {
+          "text": "第一批用户,是他们找来的朋友。",
+          "startMs": 0,
+          "endMs": 2210.3854875283446
+        },
+        {
+          "text": "公开测试时,又去Product Hunt发布,让陌生人直接注册。",
+          "startMs": 2310,
+          "endMs": 6366.371882086168
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-007",
+      "file": "episodes/episode-011/audio/seg-007.mp3",
+      "timestamps": [
+        {
+          "text": "格兰特说,他们还主动邀请用户通话,问清楚哪里不好用,再继续改。",
+          "startMs": 0,
+          "endMs": 4694.920634920634
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-008",
+      "file": "episodes/episode-011/audio/seg-008.mp3",
+      "timestamps": [
+        {
+          "text": "二零二五年十一月,Gamma自报年化经常性收入突破一亿美元。",
+          "startMs": 0,
+          "endMs": 4021.5419501133783
+        },
+        {
+          "text": "到二零二六年八月,公司披露累计用户已超一亿。",
+          "startMs": 4122,
+          "endMs": 7783.632653061224
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-009",
+      "file": "episodes/episode-011/audio/seg-009.mp3",
+      "timestamps": [
+        {
+          "text": "从熬夜排版,到输入文字就有初稿。",
+          "startMs": 0,
+          "endMs": 2744.4444444444443
+        },
+        {
+          "text": "就这样,Gamma把做PPT,变成了先生成、再修改。",
+          "startMs": 2845,
+          "endMs": 6901.371882086168
+        }
+      ],
+      "timestampSource": "minimax:word"
+    }
+  ]
+}

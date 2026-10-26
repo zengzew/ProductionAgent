@@ -1,0 +1,254 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 2.4541950113378683,
+    "startFrame": 0,
+    "endFrame": 74,
+    "text": "大段文字让AI变成演示图"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-002",
+    "startSeconds": 2.674229,
+    "endSeconds": 5.35704079138322,
+    "startFrame": 80,
+    "endFrame": 161,
+    "text": "Gamma的创始人格兰特做顾问时"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 5.35704079138322,
+    "endSeconds": 7.369149634920634,
+    "startFrame": 161,
+    "endFrame": 221,
+    "text": "曾为第二天的会议熬夜准备"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 7.369149634920634,
+    "endSeconds": 9.47971319367747,
+    "startFrame": 221,
+    "endFrame": 284,
+    "text": "他说，大量工夫花在排版"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-002",
+    "startSeconds": 9.47971319367747,
+    "endSeconds": 10.887052129251702,
+    "startFrame": 284,
+    "endFrame": 327,
+    "text": "内容反而顾不上"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-003",
+    "startSeconds": 11.172082999999999,
+    "endSeconds": 12.742670223395104,
+    "startFrame": 335,
+    "endFrame": 382,
+    "text": "他找来两位老同事"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-003",
+    "startSeconds": 12.742670223395104,
+    "endSeconds": 14.116934043865822,
+    "startFrame": 382,
+    "endFrame": 424,
+    "text": "想把顺序倒过来"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-003",
+    "startSeconds": 14.116934043865822,
+    "endSeconds": 15.29487446141215,
+    "startFrame": 424,
+    "endFrame": 459,
+    "text": "先把话写清楚"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-003",
+    "startSeconds": 15.29487446141215,
+    "endSeconds": 16.865461684807254,
+    "startFrame": 459,
+    "endFrame": 506,
+    "text": "再让工具处理版式"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-004",
+    "startSeconds": 17.0855,
+    "endSeconds": 18.576066893424034,
+    "startFrame": 513,
+    "endFrame": 557,
+    "text": "Gamma后来接入AI"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-004",
+    "startSeconds": 18.576066893424034,
+    "endSeconds": 20.949166288737718,
+    "startFrame": 557,
+    "endFrame": 628,
+    "text": "输入主题或已有文字选个样式"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-004",
+    "startSeconds": 20.949166288737718,
+    "endSeconds": 22.872191609977325,
+    "startFrame": 628,
+    "endFrame": 686,
+    "text": "就能得到配好图文的初稿"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-005",
+    "startSeconds": 23.157229,
+    "endSeconds": 24.27301131292517,
+    "startFrame": 695,
+    "endFrame": 728,
+    "text": "想换一种表达"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-005",
+    "startSeconds": 24.27301131292517,
+    "endSeconds": 25.760721063492063,
+    "startFrame": 728,
+    "endFrame": 773,
+    "text": "还能让AI改布局"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-005",
+    "startSeconds": 25.760721063492063,
+    "endSeconds": 27.248430814058956,
+    "startFrame": 773,
+    "endFrame": 817,
+    "text": "或把文字变成图示"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-005",
+    "startSeconds": 27.248430814058956,
+    "endSeconds": 30.197163240362812,
+    "startFrame": 817,
+    "endFrame": 906,
+    "text": "你要做的，是核对内容、调整重点"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-006",
+    "startSeconds": 30.474167,
+    "endSeconds": 32.533622782312925,
+    "startFrame": 914,
+    "endFrame": 976,
+    "text": "第一批用户，是他们找来的朋友"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-006",
+    "startSeconds": 32.533622782312925,
+    "endSeconds": 35.58033253287982,
+    "startFrame": 976,
+    "endFrame": 1067,
+    "text": "公开测试时\n又去Product Hunt发布"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-006",
+    "startSeconds": 35.58033253287982,
+    "endSeconds": 36.75919874603175,
+    "startFrame": 1067,
+    "endFrame": 1103,
+    "text": "让陌生人直接注册"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-007",
+    "startSeconds": 37.01623,
+    "endSeconds": 39.48906950617284,
+    "startFrame": 1110,
+    "endFrame": 1185,
+    "text": "格兰特说，他们还主动邀请用户通话"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-007",
+    "startSeconds": 39.48906950617284,
+    "endSeconds": 41.46734111111111,
+    "startFrame": 1185,
+    "endFrame": 1244,
+    "text": "问清楚哪里不好用再继续改"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-008",
+    "startSeconds": 41.687355,
+    "endSeconds": 43.44139054970375,
+    "startFrame": 1251,
+    "endFrame": 1303,
+    "text": "到二零二五年十一月"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-008",
+    "startSeconds": 43.44139054970375,
+    "endSeconds": 46.16989029368737,
+    "startFrame": 1303,
+    "endFrame": 1385,
+    "text": "公司披露新融了六千八百万美元"
+  },
+  {
+    "index": 24,
+    "sceneId": "seg-008",
+    "startSeconds": 46.16989029368737,
+    "endSeconds": 47.72903300453514,
+    "startFrame": 1385,
+    "endFrame": 1432,
+    "text": "估值二十一亿美元"
+  },
+  {
+    "index": 25,
+    "sceneId": "seg-009",
+    "startSeconds": 47.949042999999996,
+    "endSeconds": 49.44678736090225,
+    "startFrame": 1438,
+    "endFrame": 1483,
+    "text": "回头看，当初他熬夜"
+  },
+  {
+    "index": 26,
+    "sceneId": "seg-009",
+    "startSeconds": 49.44678736090225,
+    "endSeconds": 51.50618585714285,
+    "startFrame": 1483,
+    "endFrame": 1545,
+    "text": "是在让一页页幻灯片好看"
+  },
+  {
+    "index": 27,
+    "sceneId": "seg-009",
+    "startSeconds": 51.50618585714285,
+    "endSeconds": 53.84961590742383,
+    "startFrame": 1545,
+    "endFrame": 1615,
+    "text": "现在，先拿到一份能改的稿子"
+  },
+  {
+    "index": 28,
+    "sceneId": "seg-009",
+    "startSeconds": 53.84961590742383,
+    "endSeconds": 55.906224405895685,
+    "startFrame": 1615,
+    "endFrame": 1677,
+    "text": "再把时间花在要讲的事上"
+  }
+]

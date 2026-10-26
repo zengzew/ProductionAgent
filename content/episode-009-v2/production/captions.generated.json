@@ -1,0 +1,299 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 2.4541950113378683,
+    "startFrame": 0,
+    "endFrame": 74,
+    "text": "给一个网址AI帮你做宣传短视频"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-002",
+    "startSeconds": 2.674229,
+    "endSeconds": 4.867482968253968,
+    "startFrame": 80,
+    "endFrame": 146,
+    "text": "Fastlane的创始人高拉夫"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 4.867482968253968,
+    "endSeconds": 5.8910014867724865,
+    "startFrame": 146,
+    "endFrame": 177,
+    "text": "做出几个应用后"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 5.8910014867724865,
+    "endSeconds": 7.938038523809524,
+    "startFrame": 177,
+    "endFrame": 238,
+    "text": "才发现还有个难题怎么让人看见"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-002",
+    "startSeconds": 7.938038523809524,
+    "endSeconds": 9.853875258503402,
+    "startFrame": 238,
+    "endFrame": 296,
+    "text": "他又不想一开始就砸钱投广告"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-003",
+    "startSeconds": 10.109895999999999,
+    "endSeconds": 11.904767794871795,
+    "startFrame": 303,
+    "endFrame": 357,
+    "text": "他和伙伴做的这个工具"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-003",
+    "startSeconds": 11.904767794871795,
+    "endSeconds": 14.417588307692306,
+    "startFrame": 357,
+    "endFrame": 433,
+    "text": "会读取网站参考相关的热门内容"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-003",
+    "startSeconds": 14.417588307692306,
+    "endSeconds": 16.032972923076922,
+    "startFrame": 433,
+    "endFrame": 481,
+    "text": "再生成介绍你产品的"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-003",
+    "startSeconds": 16.032972923076922,
+    "endSeconds": 17.109896,
+    "startFrame": 481,
+    "endFrame": 513,
+    "text": "图文和短视频"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-004",
+    "startSeconds": 17.329896,
+    "endSeconds": 19.436417973868913,
+    "startFrame": 520,
+    "endFrame": 583,
+    "text": "不喜欢的划走想用的留下"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-004",
+    "startSeconds": 19.436417973868913,
+    "endSeconds": 21.35143795011338,
+    "startFrame": 583,
+    "endFrame": 641,
+    "text": "选好账号，就能安排发布"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-005",
+    "startSeconds": 21.571459,
+    "endSeconds": 22.828372580246914,
+    "startFrame": 647,
+    "endFrame": 685,
+    "text": "原来要一边开发"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-005",
+    "startSeconds": 22.828372580246914,
+    "endSeconds": 24.803522492063493,
+    "startFrame": 685,
+    "endFrame": 744,
+    "text": "一边想选题、写文案、剪视频"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-005",
+    "startSeconds": 24.803522492063493,
+    "endSeconds": 26.435474980995572,
+    "startFrame": 744,
+    "endFrame": 793,
+    "text": "现在先有一批候选"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-005",
+    "startSeconds": 26.435474980995572,
+    "endSeconds": 28.92500095011338,
+    "startFrame": 793,
+    "endFrame": 868,
+    "text": "用户把时间花在挑选和调整上"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-006",
+    "startSeconds": 29.197022,
+    "endSeconds": 30.339289573696146,
+    "startFrame": 876,
+    "endFrame": 910,
+    "text": "那第一批人从哪来"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-006",
+    "startSeconds": 30.339289573696146,
+    "endSeconds": 32.68741399447895,
+    "startFrame": 910,
+    "endFrame": 981,
+    "text": "他们去Reddit和社交平台招募"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-006",
+    "startSeconds": 32.68741399447895,
+    "endSeconds": 33.67108549206349,
+    "startFrame": 981,
+    "endFrame": 1010,
+    "text": "再约报名者通话"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-007",
+    "startSeconds": 33.945125999999995,
+    "endSeconds": 35.70205584264412,
+    "startFrame": 1018,
+    "endFrame": 1071,
+    "text": "通话时让对方共享屏幕"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-007",
+    "startSeconds": 35.70205584264412,
+    "endSeconds": 37.98606463808149,
+    "startFrame": 1071,
+    "endFrame": 1140,
+    "text": "自己少说话看他在哪一步卡住"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-007",
+    "startSeconds": 37.98606463808149,
+    "endSeconds": 39.74299448072562,
+    "startFrame": 1140,
+    "endFrame": 1192,
+    "text": "再照着这些问题改界面"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-008",
+    "startSeconds": 39.96300099999999,
+    "endSeconds": 41.24341252263373,
+    "startFrame": 1199,
+    "endFrame": 1237,
+    "text": "为了让人愿意聊"
+  },
+  {
+    "index": 23,
+    "sceneId": "seg-008",
+    "startSeconds": 41.24341252263373,
+    "endSeconds": 42.7067399770723,
+    "startFrame": 1237,
+    "endFrame": 1281,
+    "text": "应用里还有个邀请"
+  },
+  {
+    "index": 24,
+    "sceneId": "seg-008",
+    "startSeconds": 42.7067399770723,
+    "endSeconds": 44.90173115873015,
+    "startFrame": 1281,
+    "endFrame": 1347,
+    "text": "参加访谈，多送七天使用时间"
+  },
+  {
+    "index": 25,
+    "sceneId": "seg-009",
+    "startSeconds": 45.12175099999999,
+    "endSeconds": 46.283295973544966,
+    "startFrame": 1354,
+    "endFrame": 1388,
+    "text": "第一位付费客户"
+  },
+  {
+    "index": 26,
+    "sceneId": "seg-009",
+    "startSeconds": 46.283295973544966,
+    "endSeconds": 47.61077594331065,
+    "startFrame": 1388,
+    "endFrame": 1428,
+    "text": "就是一名测试用户"
+  },
+  {
+    "index": 27,
+    "sceneId": "seg-009",
+    "startSeconds": 47.61077594331065,
+    "endSeconds": 50.30426573922902,
+    "startFrame": 1428,
+    "endFrame": 1509,
+    "text": "他付钱的理由很直接还想接着用"
+  },
+  {
+    "index": 28,
+    "sceneId": "seg-010",
+    "startSeconds": 50.56329299999999,
+    "endSeconds": 51.776330562851214,
+    "startFrame": 1517,
+    "endFrame": 1553,
+    "text": "高拉夫早期披露的"
+  },
+  {
+    "index": 29,
+    "sceneId": "seg-010",
+    "startSeconds": 51.776330562851214,
+    "endSeconds": 52.837738430346036,
+    "startFrame": 1553,
+    "endFrame": 1585,
+    "text": "年化经常性收入"
+  },
+  {
+    "index": 30,
+    "sceneId": "seg-010",
+    "startSeconds": 52.837738430346036,
+    "endSeconds": 54.05077599319726,
+    "startFrame": 1585,
+    "endFrame": 1622,
+    "text": "已超过十二万澳元"
+  },
+  {
+    "index": 31,
+    "sceneId": "seg-011",
+    "startSeconds": 54.27079299999998,
+    "endSeconds": 56.585668283446694,
+    "startFrame": 1628,
+    "endFrame": 1698,
+    "text": "当初，他为自己的应用找推广办法"
+  },
+  {
+    "index": 32,
+    "sceneId": "seg-011",
+    "startSeconds": 56.585668283446694,
+    "endSeconds": 57.95075445124715,
+    "startFrame": 1698,
+    "endFrame": 1739,
+    "text": "这份麻烦做成工具"
+  },
+  {
+    "index": 33,
+    "sceneId": "seg-011",
+    "startSeconds": 57.95075445124715,
+    "endSeconds": 59.8481966281179,
+    "startFrame": 1739,
+    "endFrame": 1795,
+    "text": "成了别人愿意付钱买的服务"
+  }
+]

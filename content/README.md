@@ -27,7 +27,8 @@ content/<episode-id>/
 
 ## What belongs here
 
-- `episode-001` … `episode-005` are product stories.
+- `episode-001` … `episode-012` are product stories; the latest is [Photoroom](episode-012/README.md).
+- `episode-009-v2` is the preserved [Fastlane V2 quality baseline](../docs/golden-workflow/fastlane-v2-quality-baseline.md).
 - `episode-001/v2-goal3` and `episode-002/v2-goal3` are frozen Goal 3 benchmarks.
   Resolve them with `EPISODE_ID=episode-001-v2-goal3`; do not add a sibling
   symlink at `content/` root, and do not register them as renderable episodes.

@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-009-v2",
+  "segmentId": "seg-004",
+  "clipId": "episode-009-v2:media-clip:fb354bd9b2c11483914c9fa6",
+  "claimIds": [
+    "claim-fastlane-001"
+  ],
+  "claims": [
+    {
+      "id": "claim-fastlane-001",
+      "claim": "Gaurav在采访中介绍，Fastlane读取产品网站并生成相关营销短内容；演示从已生成内容开始，用户滑卡挑选后排期发布。"
+    }
+  ],
+  "narration": "不喜欢的划走,想用的留下,选好账号,就能安排发布。",
+  "visualIntent": "820秒滑卡,再接805.5账号和814排期选项;步骤省略,真实排期帧可短暂停留便于阅读。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/verifications/seg-004/episode-009-v2-media-clip-fb354bd9b2c11483914c9fa6-clip.mp4",
+    "sha256": "166c332eee3bc1fb12158c2ccc82389bb37ecdeba94504e9e3c8c12f387c5527",
+    "sizeBytes": 877749,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 4233,
+    "sourceMediaId": "episode-009-v2:media:seg-004-3dc56e75a36d",
+    "sourceMediaSha256": "3dc56e75a36dff415cbf3aeab5458f2f30261f907ed91d149f769d8636aa4a7f"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/indexes/seg-004-3dc56e75a36d/keyframes/keyframe-0-2116.jpg",
+      "timestampMs": 2116,
+      "sha256": "f5c3f903c6d1bc504cdf8a19a08c924b052c85efc1b40152a580749f1aebc152",
+      "sizeBytes": 49992,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "历史滑卡选择接账号选择及真实Schedule选项短暂停留，中间步骤省略，不证明发布成功。",
+    "observedText": "",
+    "keywords": [
+      "seg-004",
+      "Fastlane",
+      "产品"
+    ],
+    "entities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "591e61a7637255eb69386c4e5e6004325cbed3edd0c3414e0728c7c1cb06cfad"
+}

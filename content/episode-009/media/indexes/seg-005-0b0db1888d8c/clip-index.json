@@ -1,0 +1,115 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-009:media:seg-005-0b0db1888d8c-proxy",
+    "createdAt": "2026-10-15T03:24:40.561Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-005-0b0db1888d8c-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "9c3e36f3e8f3a18418e5921b92d9d6c6a68b9da632b15968e139a71972554061",
+    "sizeBytes": 593088
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-009",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-009:media-clip:7c425fa40956856434a60c73",
+      "endMs": 4733,
+      "entities": [
+        "Fastlane",
+        "Cal AI"
+      ],
+      "episodeId": "episode-009",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-009:media-keyframe:seg-005-0b0db1888d8c-0-2366",
+          "createdAt": "2026-10-15T03:24:42.104Z",
+          "episodeId": "episode-009",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-009/media/indexes/seg-005-0b0db1888d8c/keyframes/keyframe-0-2366.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "100ffc75f374887714f116eec7e5a669b3b0db29519d44e94db9e663a51f44a9",
+          "sizeBytes": 51294
+        }
+      ],
+      "keywords": [
+        "创始人",
+        "营销",
+        "需求"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-009:media:seg-005-0b0db1888d8c",
+        "createdAt": "2026-10-15T03:24:39.529Z",
+        "episodeId": "episode-009",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009/media/assets/seg-005-0b0db1888d8c.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "0b0db1888d8c5ccecb796bc36e991c20e9183a4d72b2f028057ee0fe120afa4a",
+        "sizeBytes": 1309969
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-009:media-scenes:seg-005-0b0db1888d8c",
+          "createdAt": "2026-10-15T03:24:42.020Z",
+          "episodeId": "episode-009",
+          "mediaType": "application/json",
+          "path": "content/episode-009/media/indexes/seg-005-0b0db1888d8c/scenes.json",
+          "producer": "media-understanding-v1:scenes:v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "0329ed21e78a91e3ca02633089c12f6613b645839c9b58cb38d163bdf3837cfc",
+          "sizeBytes": 1448
+        }
+      ],
+      "semanticTags": [
+        "founder-interview",
+        "local-evaluation",
+        "measured"
+      ],
+      "sourceSha256": "0b0db1888d8c5ccecb796bc36e991c20e9183a4d72b2f028057ee0fe120afa4a",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "创始人Gaurav本人采访画面，为本人营销困难自述配图；不是用户实测。",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-009:media:seg-005-0b0db1888d8c",
+  "mediaRef": {
+    "artifactId": "episode-009:media:seg-005-0b0db1888d8c",
+    "createdAt": "2026-10-15T03:24:39.529Z",
+    "episodeId": "episode-009",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009/media/assets/seg-005-0b0db1888d8c.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "0b0db1888d8c5ccecb796bc36e991c20e9183a4d72b2f028057ee0fe120afa4a",
+    "sizeBytes": 1309969
+  },
+  "sceneDetector": "bounded-reference-excerpt",
+  "sceneDetectorVersion": "v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-observed-reference",
+  "semanticAdapterVersion": "0b0db1888d8c5cce",
+  "semanticAvailability": "available",
+  "sourceSha256": "0b0db1888d8c5ccecb796bc36e991c20e9183a4d72b2f028057ee0fe120afa4a",
+  "transcriptAvailability": "unavailable"
+}

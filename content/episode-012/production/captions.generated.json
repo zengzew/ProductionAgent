@@ -1,0 +1,200 @@
+[
+  {
+    "index": 1,
+    "sceneId": "seg-001",
+    "startSeconds": 0,
+    "endSeconds": 2.8141043083900232,
+    "startFrame": 0,
+    "endFrame": 84,
+    "text": "一张商品照AI帮你抠图、换背景"
+  },
+  {
+    "index": 2,
+    "sceneId": "seg-002",
+    "startSeconds": 3.034125,
+    "endSeconds": 5.032337308179086,
+    "startFrame": 91,
+    "endFrame": 151,
+    "text": "Photoroom的创始人马修"
+  },
+  {
+    "index": 3,
+    "sceneId": "seg-002",
+    "startSeconds": 5.032337308179086,
+    "endSeconds": 7.163763770236777,
+    "startFrame": 151,
+    "endFrame": 215,
+    "text": "在GoPro做产品时就嫌抠图麻烦"
+  },
+  {
+    "index": 4,
+    "sceneId": "seg-002",
+    "startSeconds": 7.163763770236777,
+    "endSeconds": 8.762333616780046,
+    "startFrame": 215,
+    "endFrame": 263,
+    "text": "后来干脆回去学了机器学习"
+  },
+  {
+    "index": 5,
+    "sceneId": "seg-003",
+    "startSeconds": 8.982353999999999,
+    "endSeconds": 10.802820025490655,
+    "startFrame": 269,
+    "endFrame": 324,
+    "text": "他和工程师埃利奥特搭档"
+  },
+  {
+    "index": 6,
+    "sceneId": "seg-003",
+    "startSeconds": 10.802820025490655,
+    "endSeconds": 13.781764430839,
+    "startFrame": 324,
+    "endFrame": 413,
+    "text": "两周就做出了\n第一版Photoroom"
+  },
+  {
+    "index": 7,
+    "sceneId": "seg-004",
+    "startSeconds": 14.001791999999998,
+    "endSeconds": 15.950720388559724,
+    "startFrame": 420,
+    "endFrame": 479,
+    "text": "现在，卖家放进商品照片"
+  },
+  {
+    "index": 8,
+    "sceneId": "seg-004",
+    "startSeconds": 15.950720388559724,
+    "endSeconds": 18.484327293687365,
+    "startFrame": 479,
+    "endFrame": 555,
+    "text": "就能去掉杂乱背景再换成白底"
+  },
+  {
+    "index": 9,
+    "sceneId": "seg-004",
+    "startSeconds": 18.484327293687365,
+    "endSeconds": 20.043470004535145,
+    "startFrame": 555,
+    "endFrame": 601,
+    "text": "或者生成新的场景"
+  },
+  {
+    "index": 10,
+    "sceneId": "seg-005",
+    "startSeconds": 20.263479999999998,
+    "endSeconds": 22.49841386243386,
+    "startFrame": 608,
+    "endFrame": 675,
+    "text": "马修在访谈里强调背景可以变"
+  },
+  {
+    "index": 11,
+    "sceneId": "seg-005",
+    "startSeconds": 22.49841386243386,
+    "endSeconds": 24.389511746031744,
+    "startFrame": 675,
+    "endFrame": 732,
+    "text": "商品的细节和瑕疵要留下"
+  },
+  {
+    "index": 12,
+    "sceneId": "seg-005",
+    "startSeconds": 24.389511746031744,
+    "endSeconds": 26.87401514739229,
+    "startFrame": 732,
+    "endFrame": 806,
+    "text": "毕竟，卖家卖的是手里的真东西"
+  },
+  {
+    "index": 13,
+    "sceneId": "seg-006",
+    "startSeconds": 27.152959,
+    "endSeconds": 29.502734510204082,
+    "startFrame": 815,
+    "endFrame": 885,
+    "text": "获客也围着这个效果做增长负责人说"
+  },
+  {
+    "index": 14,
+    "sceneId": "seg-006",
+    "startSeconds": 29.502734510204082,
+    "endSeconds": 31.300285530612243,
+    "startFrame": 885,
+    "endFrame": 939,
+    "text": "免费抠图是他们的获客入口"
+  },
+  {
+    "index": 15,
+    "sceneId": "seg-006",
+    "startSeconds": 31.300285530612243,
+    "endSeconds": 33.09783655102041,
+    "startFrame": 939,
+    "endFrame": 993,
+    "text": "团队还在TikTok演示"
+  },
+  {
+    "index": 16,
+    "sceneId": "seg-006",
+    "startSeconds": 33.09783655102041,
+    "endSeconds": 34.146407979591835,
+    "startFrame": 993,
+    "endFrame": 1024,
+    "text": "图片前后的变化"
+  },
+  {
+    "index": 17,
+    "sceneId": "seg-007",
+    "startSeconds": 34.427437999999995,
+    "endSeconds": 36.861261129251695,
+    "startFrame": 1033,
+    "endFrame": 1106,
+    "text": "他们联系主动发布演示的用户合作"
+  },
+  {
+    "index": 18,
+    "sceneId": "seg-007",
+    "startSeconds": 36.861261129251695,
+    "endSeconds": 38.48380988208616,
+    "startFrame": 1106,
+    "endFrame": 1155,
+    "text": "再把好内容拿去投广告"
+  },
+  {
+    "index": 19,
+    "sceneId": "seg-008",
+    "startSeconds": 38.70381299999999,
+    "endSeconds": 40.20302517391303,
+    "startFrame": 1161,
+    "endFrame": 1206,
+    "text": "2024年，公司披露"
+  },
+  {
+    "index": 20,
+    "sceneId": "seg-008",
+    "startSeconds": 40.20302517391303,
+    "endSeconds": 42.15200099999999,
+    "startFrame": 1206,
+    "endFrame": 1265,
+    "text": "拿到四千三百万美元B轮融资"
+  },
+  {
+    "index": 21,
+    "sceneId": "seg-009",
+    "startSeconds": 42.27200099999999,
+    "endSeconds": 45.223180138321986,
+    "startFrame": 1268,
+    "endFrame": 1357,
+    "text": "它接住的就是小卖家每天都要做的事"
+  },
+  {
+    "index": 22,
+    "sceneId": "seg-009",
+    "startSeconds": 45.223180138321986,
+    "endSeconds": 48.17435927664398,
+    "startFrame": 1357,
+    "endFrame": 1445,
+    "text": "把手里的货清清楚楚地摆到买家面前"
+  }
+]

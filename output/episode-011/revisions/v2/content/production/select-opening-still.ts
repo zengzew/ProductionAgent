@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {ingestMediaSource} from '../../../src/media/ingest';
+import {retrieveMediaCandidates, mediaRetrievalRequestSchema} from '../../../src/media/retrieve';
+import {selectVisualSlotForSegment} from '../../../src/media/select';
+const repoRoot=process.cwd(),episodeId='episode-011';
+await ingestMediaSource({repoRoot,episodeId,sourceId:`${episodeId}:media-source:gamma-2025-demo`,mediaId:`${episodeId}:media:official-result-still-v2`,adapter:{id:'gamma-official-result-frame-v2',async acquire(context){const filePath=path.join(context.tempDirectory,'diagram.png');fs.copyFileSync('content/episode-011/media/assets/diagram.png',filePath);return {filePath,originalFilename:'diagram.png',declaredContentType:'image/png'};}}});
+const script=JSON.parse(fs.readFileSync('content/episode-011/story/script.json','utf8'));
+const seg=script.segments[0];
+const segment={segmentId:seg.id,claimIds:seg.claimIds,narration:seg.narration,visualIntent:seg.visualIntent,durationTargetMs:3000};
+await retrieveMediaCandidates({repoRoot,episodeId,request:mediaRetrievalRequestSchema.parse({schemaVersion:'media-retrieval-request-v1',episodeId,...segment,visualTrackMode:'independent-b-roll',preferredMediaTypes:['video'],topK:50})});
+const result=await selectVisualSlotForSegment({repoRoot,episodeId,segment});
+console.log('opening selection',result.selectedType);
+if(result.selectedType!=='official-screenshot')throw new Error('Opening must show sourced PPT result with explicit editorial explanation.');

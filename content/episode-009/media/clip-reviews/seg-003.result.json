@@ -1,0 +1,28 @@
+{
+  "requestHash": "2e37b9113acf8ad2ebec6cc4631a36805dc62f7d71171777498e338ef2bd63dc",
+  "completedAt": "2026-10-15T03:26:39.564255+00:00",
+  "output": {
+    "verdict": "pass",
+    "relevance": 0.94,
+    "claimMatch": 0.92,
+    "visualQuality": 0.88,
+    "misleadingRisk": 0.06,
+    "observedActions": [
+      "同一历史界面的卡片选择和切换，X、Edit、勾选控件可见；未演示网站输入。"
+    ],
+    "observedEntities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "observedText": [
+      "X",
+      "Edit"
+    ],
+    "recommendedStartMs": 0,
+    "recommendedEndMs": 3466,
+    "reasons": [
+      "当前Codex制作会话实际检查原片与派生窗口抽帧；见media/prepared-check及排期814秒原帧。不是独立Delivery批准。",
+      "来源标示历史采访；输入/生成未实演，访谈配图不是客户现场；排期选项停帧供阅读，不证明上线。"
+    ]
+  }
+}

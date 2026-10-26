@@ -1,0 +1,58 @@
+{
+  "episodeId": "episode-011",
+  "segmentId": "seg-001",
+  "clipId": "episode-011:media-clip:a82ef88c9c22d2f7eca82e26",
+  "claimIds": [
+    "claim-gamma-004"
+  ],
+  "claims": [
+    {
+      "id": "claim-gamma-004",
+      "claim": "按2025年Gamma 3.0发布文章及官方GIF，用户可请求Agent修改布局或重构表达，也可使用Smart Diagrams将文字变成图示。"
+    }
+  ],
+  "narration": "大段文字,让AI变成演示图。",
+  "visualIntent": "2025官方Agent动画可见文字块变成图示;标明官方演示及示例数字,非本次实测。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-011/media/verifications/seg-001/episode-011-media-clip-a82ef88c9c22d2f7eca82e26-clip.mp4",
+    "sha256": "85fa0c4b46206edc15241ac2e956fff93f4255728fd12cacf9fc7f8b4b250473",
+    "sizeBytes": 1687907,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 2633,
+    "sourceMediaId": "episode-011:media:seg-001-7c8811ed49e0-official",
+    "sourceMediaSha256": "7c8811ed49e057ffcbaca7eceed174392945cffc806e45bace4cd687f16ddd35"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-011/media/indexes/seg-001-7c8811ed49e0-official/keyframes/keyframe-0-1316.jpg",
+      "timestampMs": 1316,
+      "sha256": "db5c30ae612924f6b3aa74a3b351c5062201852226dd24546554a06e574dc94b",
+      "sizeBytes": 77715,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "2025官方演示：大段文字在Make this more visual后转为蓝色图示；图内数字仅为演示内容，非Gamma数据。",
+    "observedText": "",
+    "keywords": [
+      "seg-001",
+      "Gamma",
+      "Agent",
+      "Holographic Technology",
+      "layout",
+      "diagram"
+    ],
+    "entities": [
+      "Gamma",
+      "Holographic Technology"
+    ],
+    "semanticTags": [
+      "official-product-demo",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "54b26ad0b77b4d62a692cc6c5a3d4665107f58b829202c28fd86b6a37f15d0cb"
+}

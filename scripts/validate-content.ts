@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import {assetSchema, episodeConfigSchema, factSchema} from "../src/schemas/episode";
+import {REFERENCE_HOOK_MAX_SECONDS} from "../src/schemas/reference-story";
 import {episodeId, episodeRoot, repoRoot} from "../src/lib/episode/paths";
 import {captionPartsFromPlan, visibleLength} from "../src/lib/delivery/captions";
 import {
@@ -58,6 +59,13 @@ const assets =
     : readJsonFile<unknown[]>(assetManifestPath).map((asset) => assetSchema.parse(asset));
 const errors = new ValidationErrors();
 const claimMap = new Map(claims.map((claim) => [claim.id, claim]));
+const referenceStory = episodeConfig.production.referenceStory;
+for (const claimId of referenceStory?.claimIds ?? []) {
+  const claim = claimMap.get(claimId);
+  if (!claim?.allowedInNarration || claim.confidence === "low") {
+    errors.push(`常驻标题引用了不可使用的 Claim：${claimId}`);
+  }
+}
 
 errors.push(...validateCaptionPlanCoverage(script, captionPlan));
 for (const segment of script.segments) {
@@ -97,7 +105,9 @@ const hookNarration = hook.map((segment) => segment.narration).join(" ");
 const hookText = hook
   .map((segment) => `${segment.narration} ${segment.onScreenText.join(" ")}`)
   .join(" ");
-if (hookSeconds !== productionContract.hook.targetSeconds) {
+if (referenceStory && (hookSeconds <= 0 || hookSeconds > REFERENCE_HOOK_MAX_SECONDS)) {
+  errors.push(`Reference Hook 目标时长必须大于 0 且不超过 ${REFERENCE_HOOK_MAX_SECONDS} 秒`);
+} else if (!referenceStory && hookSeconds !== productionContract.hook.targetSeconds) {
   errors.push(`Hook 目标时长应为 ${productionContract.hook.targetSeconds} 秒，当前 ${hookSeconds}`);
 }
 const firstHook = hook.at(0);
@@ -106,13 +116,13 @@ if (!firstHook || firstHook.targetSeconds > productionContract.hook.firstSegment
     `Hook 第一段必须在 ${productionContract.hook.firstSegmentMaximumSeconds} 秒内给出零背景可懂的核心动作`,
   );
 }
-if (!containsConfiguredHookAction(hookText)) {
+if (!referenceStory && !containsConfiguredHookAction(hookText)) {
   errors.push("Hook 前二十秒缺少陌生观众能立即理解的具体动作");
 }
 if (startsWithConfiguredAttribution(firstHook?.narration ?? "", episodeConfig)) {
   errors.push("Hook 第一段不得以陌生公司或产品名加来源归因起头");
 }
-if (!/[？?]/u.test(hookNarration)) errors.push("Hook 缺少未解决问题");
+if (!referenceStory && !/[？?]/u.test(hookNarration)) errors.push("Hook 缺少未解决问题");
 
 const sourceNarration = fs
   .readFileSync(path.join(episodeRoot, "story/narration.txt"), "utf8")
@@ -200,11 +210,13 @@ if (!fs.existsSync(timelinePath) && !preProduction) {
         .filter((scene) => scene.section === "hook")
         .map((scene) => scene.endSeconds),
     );
-    const hookHardMaximum =
-      productionContract.hook.targetSeconds + productionContract.hook.timingToleranceSeconds;
+    const hookTargetMaximum = referenceStory
+      ? REFERENCE_HOOK_MAX_SECONDS
+      : productionContract.hook.targetSeconds;
+    const hookHardMaximum = hookTargetMaximum + productionContract.hook.timingToleranceSeconds;
     if (!Number.isFinite(actualHookEnd) || actualHookEnd > hookHardMaximum) {
       errors.push(
-        `Hook 真实音频目标 ${productionContract.hook.targetSeconds} 秒、最大容差 ${hookHardMaximum} 秒，当前 ${actualHookEnd.toFixed(3)} 秒`,
+        `Hook 真实音频目标上限 ${hookTargetMaximum} 秒、最大容差 ${hookHardMaximum} 秒，当前 ${actualHookEnd.toFixed(3)} 秒`,
       );
     }
   }

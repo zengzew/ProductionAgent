@@ -1,0 +1,244 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-012:media-shot:seg-008",
+    "createdAt": "2026-10-25T15:02:14.760Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/shots/seg-008.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-shot-v1",
+    "sha256": "b0ded247ce063fddb2eb9f03ea56645a0619c1a648963ba85d884d1b289ca2a3",
+    "sizeBytes": 7884
+  },
+  "audio": {
+    "ducking": {
+      "attackMs": 80,
+      "enabled": true,
+      "reductionDb": 10,
+      "releaseMs": 240
+    },
+    "fadeInMs": 0,
+    "fadeOutMs": 0,
+    "narrationGain": 1,
+    "originalAudioGain": 0
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "referenceStory": {
+      "claimIds": [
+        "claim-pr-001"
+      ],
+      "headline": "Photoroom 商品照换背景",
+      "profile": "golden-reference-v1",
+      "resultLine": "从随手拍到商品展示图"
+    },
+    "timelineSha256": "35c0ea41d261148730d981b3a7e8f9246a2de1b3bb037b7cc1ebd5a900d72805",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-10-25T15:02:14.760Z",
+  "crossfadeMs": 0,
+  "durationFrames": 107,
+  "endSeconds": 42.27200099999999,
+  "episodeId": "episode-012",
+  "evidenceImageAssetId": null,
+  "evidenceImagePath": null,
+  "evidenceImageSha256": null,
+  "fade": {
+    "inMs": 0,
+    "outMs": 0
+  },
+  "fallbackImageAssetId": null,
+  "fallbackImagePath": null,
+  "fallbackImageSha256": null,
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "clipVerified": true,
+    "episodeIsolated": true,
+    "hashesValid": true,
+    "rightsApproved": true,
+    "slotValid": true,
+    "timestampsValid": true
+  },
+  "lineage": {
+    "clipArtifactRef": {
+      "artifactId": "episode-012:media-verification-clip:seg-008-episode-012-media-clip-2146cb807fb4aa4ad9f86c0c",
+      "createdAt": "2026-10-25T14:55:55.610Z",
+      "episodeId": "episode-012",
+      "mediaType": "video/mp4",
+      "path": "content/episode-012/media/verifications/seg-008/episode-012-media-clip-2146cb807fb4aa4ad9f86c0c-clip.mp4",
+      "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+      "revision": 1,
+      "schemaVersion": "media-verification-clip-v1",
+      "sha256": "1eb4098b19a46da4451d8cfec0e9933ba201f1657521698f225a04948a391828",
+      "sizeBytes": 86655
+    },
+    "clipId": "episode-012:media-clip:2146cb807fb4aa4ad9f86c0c",
+    "clipIndexRef": {
+      "artifactId": "episode-012:media-clip-index:seg-008-b26c3dfa43b9",
+      "createdAt": "2026-10-25T14:55:53.630Z",
+      "episodeId": "episode-012",
+      "mediaType": "application/json",
+      "path": "content/episode-012/media/indexes/seg-008-b26c3dfa43b9/clip-index.json",
+      "producer": "media-understanding-v1:index:b26c3dfa43b9752e",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "fa94898fb192d47c2e41d78e93db692bac0b7d7b299a681bcf1d8a088a842676",
+      "sizeBytes": 4269
+    },
+    "cutSourceRef": {
+      "artifactId": "episode-012:media:seg-008-b26c3dfa43b9-proxy",
+      "createdAt": "2026-10-25T14:55:51.429Z",
+      "episodeId": "episode-012",
+      "mediaType": "video/mp4",
+      "path": "content/episode-012/media/assets/seg-008-b26c3dfa43b9-proxy.mp4",
+      "producer": "media-ingest-v1:normalize",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "beb08072561214a91580f0c0baf26cef83c62031a6c14a828357374b59fa8e49",
+      "sizeBytes": 25488
+    },
+    "sourceEndMs": 3567,
+    "sourceMediaId": "episode-012:media:seg-008-b26c3dfa43b9",
+    "sourceMediaRef": {
+      "artifactId": "episode-012:media:seg-008-b26c3dfa43b9",
+      "createdAt": "2026-10-25T14:55:51.114Z",
+      "episodeId": "episode-012",
+      "mediaType": "video/mp4",
+      "path": "content/episode-012/media/assets/seg-008-b26c3dfa43b9.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "b26c3dfa43b9752ec1a2ba4050cdb8250e24448beecaae2eb4b81e7a98616567",
+      "sizeBytes": 35621
+    },
+    "sourceSha256": "b26c3dfa43b9752ec1a2ba4050cdb8250e24448beecaae2eb4b81e7a98616567",
+    "sourceStartMs": 0,
+    "verificationRef": {
+      "artifactId": "episode-012:media-verification:seg-008-episode-012-media-clip-2146cb807fb4aa4ad9f86c0c",
+      "createdAt": "2026-10-25T15:02:11.583Z",
+      "episodeId": "episode-012",
+      "mediaType": "application/json",
+      "path": "content/episode-012/media/verifications/seg-008/episode-012-media-clip-2146cb807fb4aa4ad9f86c0c.json",
+      "producer": "media-verification-v1:codex:photoroom-observed-v1",
+      "revision": 3,
+      "schemaVersion": "media-verification-v1",
+      "sha256": "6549badc944ad33eb658b85f90f6358feeeda662165b52bea9d1e8870c98693c",
+      "sizeBytes": 4666
+    }
+  },
+  "overlays": {
+    "badge": null,
+    "captionsEnabled": true,
+    "sourceLabel": "Photoroom公司公告 2024-02-27｜B轮融资"
+  },
+  "reasons": [
+    "scene seg-008 at frame 1161 (107 frames, 30 fps)",
+    "real media episode-012:media-clip:2146cb807fb4aa4ad9f86c0c trimmed 0..3567ms (recommended 0..3567ms)",
+    "render proxy episode-012:media-render-proxy:seg-008 (video/mp4)",
+    "audio mix original 0 / narration 1 duck 10dB"
+  ],
+  "renderProxyMediaType": "video/mp4",
+  "renderProxyRef": {
+    "artifactId": "episode-012:media-render-proxy:seg-008",
+    "createdAt": "2026-10-25T15:02:14.723Z",
+    "episodeId": "episode-012",
+    "mediaType": "video/mp4",
+    "path": "content/episode-012/media/render/seg-008.mp4",
+    "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-proxy-v1",
+    "sha256": "51bfe59ca3a16365da5a69b2061f6ac57ad33e5d6b19d838cadeb58319005c52",
+    "sizeBytes": 29626
+  },
+  "sceneIndex": 7,
+  "schemaVersion": "media-shot-v1",
+  "segmentId": "seg-008",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-pr-008"
+    ],
+    "clipId": "episode-012:media-clip:2146cb807fb4aa4ad9f86c0c",
+    "createdAt": "2026-10-25T15:02:11.572Z",
+    "endMs": 3567,
+    "episodeId": "episode-012",
+    "mediaId": "episode-012:media:seg-008-b26c3dfa43b9",
+    "sourceMediaRef": {
+      "artifactId": "episode-012:media:seg-008-b26c3dfa43b9",
+      "createdAt": "2026-10-25T14:55:51.114Z",
+      "episodeId": "episode-012",
+      "mediaType": "video/mp4",
+      "path": "content/episode-012/media/assets/seg-008-b26c3dfa43b9.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "b26c3dfa43b9752ec1a2ba4050cdb8250e24448beecaae2eb4b81e7a98616567",
+      "sizeBytes": 35621
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "必要数字卡:2024-02-27、B轮4300万美元、Photoroom公司公告,三者同时可读;不是收入或最新估值。"
+  },
+  "shotId": "episode-012:media-shot:seg-008",
+  "startFrame": 1161,
+  "startSeconds": 38.70381299999999,
+  "staticFilePath": "episodes/episode-012/media/seg-008.mp4",
+  "transform": {
+    "freezeFrameMs": null,
+    "pip": null,
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "reframe": {
+      "crop": {
+        "height": 1,
+        "width": 1,
+        "x": 0,
+        "y": 0
+      },
+      "mode": "cover"
+    },
+    "scale": 1,
+    "zoomPan": {
+      "end": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "start": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "type": "none"
+    }
+  },
+  "trim": {
+    "endMs": 3567,
+    "startMs": 0
+  },
+  "verificationRef": {
+    "artifactId": "episode-012:media-verification:seg-008-episode-012-media-clip-2146cb807fb4aa4ad9f86c0c",
+    "createdAt": "2026-10-25T15:02:11.583Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/verifications/seg-008/episode-012-media-clip-2146cb807fb4aa4ad9f86c0c.json",
+    "producer": "media-verification-v1:codex:photoroom-observed-v1",
+    "revision": 3,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "6549badc944ad33eb658b85f90f6358feeeda662165b52bea9d1e8870c98693c",
+    "sizeBytes": 4666
+  },
+  "visualType": "real-media"
+}

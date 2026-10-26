@@ -1,0 +1,98 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-009:media-visual-slot:seg-005",
+    "createdAt": "2026-10-15T03:26:41.292Z",
+    "episodeId": "episode-009",
+    "mediaType": "application/json",
+    "path": "content/episode-009/media/selections/seg-005.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "f7ef5c00c49c960fcb7821a8def41722e4bd418cb1d98706a3f11305d35c53db",
+    "sizeBytes": 3338
+  },
+  "claimIds": [
+    "claim-fastlane-002"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.85,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": false
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0,
+      "durationSuitability": 0.1,
+      "misleadingRiskSafety": 0.15,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.15,
+      "verificationClaimMatch": 0,
+      "verificationRelevance": 0.05,
+      "visualIntentFit": 0.15,
+      "visualQuality": 0.25
+    }
+  },
+  "createdAt": "2026-10-15T03:26:41.291Z",
+  "episodeId": "episode-009",
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true,
+    "verificationPassed": true
+  },
+  "reasons": [
+    "segment seg-005 claim-bound with 1 claim(s)",
+    "retrieval result episode-009:media-retrieval:seg-005 produced 14 candidate(s)",
+    "1 candidate(s) carry a valid pass verification",
+    "selected episode-009:media-clip:7c425fa40956856434a60c73 score 0.673500 (claimFit=0.000, relevance=0.800, claimMatch=0.650, quality=0.880, risk=0.060, tie-breaker=score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-005",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-fastlane-002"
+    ],
+    "clipId": "episode-009:media-clip:7c425fa40956856434a60c73",
+    "createdAt": "2026-10-15T03:26:40.398Z",
+    "endMs": 4733,
+    "episodeId": "episode-009",
+    "mediaId": "episode-009:media:seg-005-0b0db1888d8c",
+    "sourceMediaRef": {
+      "artifactId": "episode-009:media:seg-005-0b0db1888d8c",
+      "createdAt": "2026-10-15T03:24:39.529Z",
+      "episodeId": "episode-009",
+      "mediaType": "video/mp4",
+      "path": "content/episode-009/media/assets/seg-005-0b0db1888d8c.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "0b0db1888d8c5ccecb796bc36e991c20e9183a4d72b2f028057ee0fe120afa4a",
+      "sizeBytes": 1309969
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "从完成选择的产品画面切到02:50–03:08的Gaurav本人;标姓名及创始人身份,让「自己的难题」有明确人物。"
+  },
+  "selectedType": "real-media",
+  "selectionScore": 0.6735,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-009:media-visual-slot:seg-005",
+  "verificationRef": {
+    "artifactId": "episode-009:media-verification:seg-005-episode-009-media-clip-7c425fa40956856434a60c73",
+    "createdAt": "2026-10-15T03:26:40.408Z",
+    "episodeId": "episode-009",
+    "mediaType": "application/json",
+    "path": "content/episode-009/media/verifications/seg-005/episode-009-media-clip-7c425fa40956856434a60c73.json",
+    "producer": "media-verification-v1:codex:fastlane-observed-v1",
+    "revision": 1,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "20c2a48687a8dec639bca4cbc3a358f704630307a10748d57fdf174d400afb89",
+    "sizeBytes": 4578
+  },
+  "visualIntent": "从完成选择的产品画面切到02:50–03:08的Gaurav本人;标姓名及创始人身份,让「自己的难题」有明确人物。"
+}

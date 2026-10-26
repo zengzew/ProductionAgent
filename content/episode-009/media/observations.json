@@ -1,0 +1,74 @@
+[
+  {
+    "segmentId": "seg-001",
+    "mediaId": "episode-009:media:seg-001-08cced478071",
+    "sha256": "08cced478071c65eb50aaafc692004f3d84f99e5b8646543d5eed439d464862d",
+    "textSummary": "Cal AI的候选宣传内容，手机应用与食物图集可见；裁掉热门参考视频浏览量。",
+    "keywords": [
+      "候选",
+      "Cal AI",
+      "宣传"
+    ],
+    "inspection": "Codex checked original source frames; prepared output still requires bounded clip inspection."
+  },
+  {
+    "segmentId": "seg-003",
+    "mediaId": "episode-009:media:seg-003-82fe60f79651",
+    "sha256": "82fe60f79651bb11c9e7bced9a8f97751963a8bf548509b5addc81c8d6c3ff38",
+    "textSummary": "同一历史界面的卡片选择和切换，X、Edit、勾选控件可见；未演示网站输入。",
+    "keywords": [
+      "卡片",
+      "跳过",
+      "留下"
+    ],
+    "inspection": "Codex checked original source frames; prepared output still requires bounded clip inspection."
+  },
+  {
+    "segmentId": "seg-004",
+    "mediaId": "episode-009:media:seg-004-4ba465f5171d",
+    "sha256": "4ba465f5171d0a933e0d2e4887909f0c101bb9e2ddbdeec753296ff158d8acb6",
+    "textSummary": "真实Select Platforms账号选择后，剪到Schedule中Post ASAP与Schedule for Later；中间步骤省略，不证明上线。",
+    "keywords": [
+      "账号",
+      "排期",
+      "Schedule"
+    ],
+    "inspection": "Codex checked original source frames; prepared output still requires bounded clip inspection."
+  },
+  {
+    "segmentId": "seg-005",
+    "mediaId": "episode-009:media:seg-005-0b0db1888d8c",
+    "sha256": "0b0db1888d8c5ccecb796bc36e991c20e9183a4d72b2f028057ee0fe120afa4a",
+    "textSummary": "创始人Gaurav本人采访画面，为本人营销困难自述配图；不是用户实测。",
+    "keywords": [
+      "创始人",
+      "营销",
+      "需求"
+    ],
+    "inspection": "Codex checked original source frames; prepared output still requires bounded clip inspection."
+  },
+  {
+    "segmentId": "seg-008",
+    "mediaId": "episode-009:media:seg-008-79cf7a13ead8",
+    "sha256": "79cf7a13ead8bbab3f09899958e53c14f9dae408934ddcbaef9debbccb93ba47",
+    "textSummary": "Gaurav本人谈话，为观察共享屏幕及界面迭代自述配图；没有真实客户通话录像。",
+    "keywords": [
+      "访谈",
+      "共享屏幕",
+      "界面"
+    ],
+    "inspection": "Codex checked original source frames; prepared output still requires bounded clip inspection."
+  },
+  {
+    "segmentId": "seg-010",
+    "mediaId": "episode-009:media:seg-010-ce4376085341",
+    "sha256": "ce4376085341b5a3016daf53af810234a2ef789e101cc8922b9c8dc0994354d9",
+    "textSummary": "回到观众已见的Cal AI候选，再到现在/稍后排期选项，回收已展示的产品用途。",
+    "keywords": [
+      "候选",
+      "排期",
+      "内容"
+    ],
+    "inspection": "Codex checked original source frames; prepared output still requires bounded clip inspection."
+  }
+]

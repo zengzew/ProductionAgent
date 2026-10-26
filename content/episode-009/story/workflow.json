@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "source-first-workflow-v1",
+  "episodeId": "episode-009",
+  "coreStoryQuestion": "Fastlane 怎样让会做产品的人，把营销内容做出来并发出去？",
+  "currentStatus": "story-approved",
+  "stages": [
+    {
+      "id": "research-analyst",
+      "owner": "research-analyst",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-009/research/facts.json",
+        "content/episode-009/research/sources.json",
+        "content/episode-009/research/timeline.json",
+        "content/episode-009/research/technology.md",
+        "content/episode-009/research/growth-data.md"
+      ],
+      "decision": "真实工件完成交接；后续独立编辑与核验尚未完成。"
+    },
+    {
+      "id": "spine-extractor",
+      "owner": "spine-extractor",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-009/story/story-spine.md"
+      ],
+      "decision": "真实工件完成交接；后续独立编辑与核验尚未完成。"
+    },
+    {
+      "id": "narrative-adapter",
+      "owner": "narrative-adapter",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-009/story/script-draft.md"
+      ],
+      "decision": "真实工件完成交接；后续独立编辑与核验尚未完成。"
+    },
+    {
+      "id": "script-editor",
+      "owner": "script-editor",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-009/story/final-script.md",
+        "content/episode-009/story/critic-report.md"
+      ],
+      "decision": "独立会话完成对应职责；脚本和报告已真实交接。"
+    },
+    {
+      "id": "fact-guardian",
+      "owner": "fact-guardian",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-009/story/fact-check-report.md"
+      ],
+      "decision": "独立会话完成对应职责；脚本和报告已真实交接。"
+    },
+    {
+      "id": "visual-director",
+      "owner": "visual-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-009/story/visual-plan.md"
+      ],
+      "decision": "原片抽帧、截图及自制示意已检查；正式方案READY，仅限本地制作。"
+    },
+    {
+      "id": "delivery-critic",
+      "owner": "delivery-critic",
+      "status": "rejected",
+      "artifacts": [
+        "content/episode-009/production/delivery-critic-report.md"
+      ],
+      "decision": "独立成片画面与字幕检查完成；完整音轨人工听辨未完成，Delivery未批准，不要求无依据重配。"
+    }
+  ],
+  "decisions": []
+}

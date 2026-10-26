@@ -1,0 +1,107 @@
+{
+  "asOf": "2026-10-20",
+  "events": [
+    {
+      "id": "ev-gamma-001",
+      "dateLabel": "2025-09-15",
+      "sortDate": "2025-09-15",
+      "datePrecision": "day",
+      "event": "按2025年Gamma 3.0发布文章及官方GIF，用户可请求Agent修改布局或重构表达，也可使用Smart Diagrams将文字变成图示。",
+      "eventType": "product",
+      "factIds": [
+        "claim-gamma-004"
+      ],
+      "sourceIds": [
+        "src-gamma-3"
+      ],
+      "relationToPrevious": "not-applicable",
+      "storyFunction": "decision",
+      "notes": "日期是来源发表或当前页访问日；历史个人回忆未被写成当日发生。"
+    },
+    {
+      "id": "ev-gamma-002",
+      "dateLabel": "2025-10-21",
+      "sortDate": "2025-10-21",
+      "datePrecision": "day",
+      "event": "Grant Lee在Stanford访谈回忆，做顾问时曾为次日会议熬夜准备Google Slides，大部分精力用在排版；于是联系两位前同事原型探索。",
+      "eventType": "product",
+      "factIds": [
+        "claim-gamma-002"
+      ],
+      "sourceIds": [
+        "src-gamma-stanford"
+      ],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "decision",
+      "notes": "日期是来源发表或当前页访问日；历史个人回忆未被写成当日发生。"
+    },
+    {
+      "id": "ev-gamma-003",
+      "dateLabel": "2025-10-21",
+      "sortDate": "2025-10-21",
+      "datePrecision": "day",
+      "event": "Grant说早期希望让写作成为起点，以灵活版式取代逐像素设计；生成式AI是后续加入。",
+      "eventType": "product",
+      "factIds": [
+        "claim-gamma-003"
+      ],
+      "sourceIds": [
+        "src-gamma-stanford"
+      ],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "decision",
+      "notes": "日期是来源发表或当前页访问日；历史个人回忆未被写成当日发生。"
+    },
+    {
+      "id": "ev-gamma-004",
+      "dateLabel": "2025-10-21",
+      "sortDate": "2025-10-21",
+      "datePrecision": "day",
+      "event": "Grant在Stanford问答中说，早期找朋友试用；随后在Product Hunt公开测试，无等待名单，可直接注册；团队主动邀请用户通话收集反馈。",
+      "eventType": "distribution",
+      "factIds": [
+        "claim-gamma-005"
+      ],
+      "sourceIds": [
+        "src-gamma-stanford"
+      ],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "decision",
+      "notes": "日期是来源发表或当前页访问日；历史个人回忆未被写成当日发生。"
+    },
+    {
+      "id": "ev-gamma-005",
+      "dateLabel": "2025-11-10",
+      "sortDate": "2025-11-10",
+      "datePrecision": "day",
+      "event": "2025-11-10，Gamma创始人署名文章披露完成6800万美元B轮融资，估值21亿美元。",
+      "eventType": "growth",
+      "factIds": [
+        "claim-gamma-006"
+      ],
+      "sourceIds": [
+        "src-gamma-growth"
+      ],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "validation",
+      "notes": "日期是来源发表或当前页访问日；历史个人回忆未被写成当日发生。"
+    },
+    {
+      "id": "ev-gamma-006",
+      "dateLabel": "2026-10-20",
+      "sortDate": "2026-10-20",
+      "datePrecision": "day",
+      "event": "Gamma可按主题、提纲或已有文档生成带图文版式的演示稿初稿，再由用户编辑。",
+      "eventType": "product",
+      "factIds": [
+        "claim-gamma-001"
+      ],
+      "sourceIds": [
+        "src-gamma-product"
+      ],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "decision",
+      "notes": "日期是来源发表或当前页访问日；历史个人回忆未被写成当日发生。"
+    }
+  ]
+}

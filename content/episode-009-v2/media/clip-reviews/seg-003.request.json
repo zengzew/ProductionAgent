@@ -1,0 +1,65 @@
+{
+  "episodeId": "episode-009-v2",
+  "segmentId": "seg-003",
+  "clipId": "episode-009-v2:media-clip:0bae78b6e45d66f55e348a84",
+  "claimIds": [
+    "claim-fastlane-001",
+    "claim-fastlane-002",
+    "claim-fastlane-014"
+  ],
+  "claims": [
+    {
+      "id": "claim-fastlane-001",
+      "claim": "Gaurav在采访中介绍，Fastlane读取产品网站并生成相关营销短内容；演示从已生成内容开始，用户滑卡挑选后排期发布。"
+    },
+    {
+      "id": "claim-fastlane-002",
+      "claim": "Gaurav回顾，做出应用后自己卡在营销，不愿先花大笔广告预算；Jock也遇到让别人看见产品的难题。"
+    },
+    {
+      "id": "claim-fastlane-014",
+      "claim": "Gaurav称他们研究已有热门视频格式，再为自己的产品改编，通过等候名单与两轮beta验证需求。"
+    }
+  ],
+  "narration": "他和伙伴做的这个工具,会读取网站、参考相关的热门内容,再生成介绍你产品的图文和短视频。",
+  "visualIntent": "原采访115.8秒的官网URL宣传动效,接已生成产品候选卡片;明确为原片所示宣传动效,非本次网址输入或生成实录。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/verifications/seg-003/episode-009-v2-media-clip-0bae78b6e45d66f55e348a84-clip.mp4",
+    "sha256": "3ef76ce8985cb510e812105bea3bd0d9c87fc961a098428c2845ba05b45f94fd",
+    "sizeBytes": 1951941,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 7233,
+    "sourceMediaId": "episode-009-v2:media:seg-003-20f8500649e1",
+    "sourceMediaSha256": "20f8500649e1be974787df2d09c6d68c5f8be235c0920981ef0c699a83255ad9"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/indexes/seg-003-20f8500649e1/keyframes/keyframe-0-3616.jpg",
+      "timestampMs": 3616,
+      "sha256": "4ea5be42a0b6c4d3a345844d53a73db32c7ab314c77452b9bd6cde130aff20b1",
+      "sizeBytes": 61590,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "原片官网网址输入宣传动效，接已生成候选；非本次输入生成实测。",
+    "observedText": "",
+    "keywords": [
+      "seg-003",
+      "Fastlane",
+      "产品"
+    ],
+    "entities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "d5a453dff2854fca4e40e4d6b127141e9eb62cfe6e20066accf321fc11c412d8"
+}

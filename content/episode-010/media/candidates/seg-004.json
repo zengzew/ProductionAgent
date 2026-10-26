@@ -1,0 +1,407 @@
+{
+  "cacheKey": "17b85e6f01eefa80544a24a008849c2d0586d8a3c10907aa51582bb1b7063265",
+  "candidates": [
+    {
+      "clipId": "episode-010:media-clip:73478ba37acafe8633d9e323",
+      "endMs": 8100,
+      "episodeId": "episode-010",
+      "indexRef": {
+        "artifactId": "episode-010:media-clip-index:seg-004-98f649cafa95",
+        "createdAt": "2026-10-20T11:01:30.296Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/indexes/seg-004-98f649cafa95/clip-index.json",
+        "producer": "media-understanding-v1:index:98f649cafa955ce2",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "516528f3aaa62bf2c05192e5a47677818a7a224c86ffbebd6b7e685ab2346879",
+        "sizeBytes": 4264
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-010:media:seg-004-98f649cafa95",
+      "mediaRef": {
+        "artifactId": "episode-010:media:seg-004-98f649cafa95",
+        "createdAt": "2026-10-20T11:01:28.414Z",
+        "episodeId": "episode-010",
+        "mediaType": "video/mp4",
+        "path": "content/episode-010/media/assets/seg-004-98f649cafa95.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "98f649cafa955ce20643d12371cd67fcda9ef74013c173b120c5f5e11b0e9d5a",
+        "sizeBytes": 208699
+      },
+      "mediaSourceId": "episode-010:media-source:granola-official",
+      "rank": 1,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 1.000 (8100ms)"
+      ],
+      "score": 0.15,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 1,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-010:media-clip:2709b56b317086bc81ddaa3a",
+      "endMs": 7900,
+      "episodeId": "episode-010",
+      "indexRef": {
+        "artifactId": "episode-010:media-clip-index:seg-005-2921cde4f4e4",
+        "createdAt": "2026-10-16T12:44:12.463Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/indexes/seg-005-2921cde4f4e4/clip-index.json",
+        "producer": "media-understanding-v1:index:2921cde4f4e46ef6",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "cfb296ee587120be84a291790e219319dfda3c9987c247dcdf655aadfd07745b",
+        "sizeBytes": 4273
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-010:media:seg-005-2921cde4f4e4",
+      "mediaRef": {
+        "artifactId": "episode-010:media:seg-005-2921cde4f4e4",
+        "createdAt": "2026-10-16T12:44:11.324Z",
+        "episodeId": "episode-010",
+        "mediaType": "video/mp4",
+        "path": "content/episode-010/media/assets/seg-005-2921cde4f4e4.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "2921cde4f4e46ef69e8a4310ae7ec91aea30f7c19afffabb96103d44d716c4a4",
+        "sizeBytes": 70885
+      },
+      "mediaSourceId": "episode-010:media-source:granola-official",
+      "rank": 2,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.975 (7900ms)"
+      ],
+      "score": 0.148765,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.975309,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-010:media-clip:b335167b5b2fb51bc8accb85",
+      "endMs": 8400,
+      "episodeId": "episode-010",
+      "indexRef": {
+        "artifactId": "episode-010:media-clip-index:seg-005-8483c5e80015",
+        "createdAt": "2026-10-20T11:01:30.448Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/indexes/seg-005-8483c5e80015/clip-index.json",
+        "producer": "media-understanding-v1:index:8483c5e800150b82",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "a9f78c0f6c8da9c6a95d8f9b05ced8249b1de83e71e50169357cf2cb1eabfef0",
+        "sizeBytes": 4275
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-010:media:seg-005-8483c5e80015",
+      "mediaRef": {
+        "artifactId": "episode-010:media:seg-005-8483c5e80015",
+        "createdAt": "2026-10-20T11:01:29.172Z",
+        "episodeId": "episode-010",
+        "mediaType": "video/mp4",
+        "path": "content/episode-010/media/assets/seg-005-8483c5e80015.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "8483c5e800150b82e61a79feb827932ad86d30382352fc742a0af2a8b97258fc",
+        "sizeBytes": 111381
+      },
+      "mediaSourceId": "episode-010:media-source:granola-official",
+      "rank": 3,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.963 (8400ms)"
+      ],
+      "score": 0.148148,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.962963,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-010:media-clip:d5559cf67d6825c02c0cb0dd",
+      "endMs": 7300,
+      "episodeId": "episode-010",
+      "indexRef": {
+        "artifactId": "episode-010:media-clip-index:seg-004-bc127a9b8732",
+        "createdAt": "2026-10-16T12:44:12.339Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/indexes/seg-004-bc127a9b8732/clip-index.json",
+        "producer": "media-understanding-v1:index:bc127a9b87324851",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "9e15721acc669033addf476c021f74067ef4de90394c005cf0b0631103d39c37",
+        "sizeBytes": 4264
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-010:media:seg-004-bc127a9b8732",
+      "mediaRef": {
+        "artifactId": "episode-010:media:seg-004-bc127a9b8732",
+        "createdAt": "2026-10-16T12:44:10.633Z",
+        "episodeId": "episode-010",
+        "mediaType": "video/mp4",
+        "path": "content/episode-010/media/assets/seg-004-bc127a9b8732.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "bc127a9b87324851ee1f0512077c7a8d212e56aee0f5d6425982e215a344b879",
+        "sizeBytes": 206880
+      },
+      "mediaSourceId": "episode-010:media-source:granola-official",
+      "rank": 4,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.901 (7300ms)"
+      ],
+      "score": 0.145062,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.901235,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-010:media-clip:36eb78188ebf5a428755a258",
+      "endMs": 3467,
+      "episodeId": "episode-010",
+      "indexRef": {
+        "artifactId": "episode-010:media-clip-index:seg-001-e963365959ed",
+        "createdAt": "2026-10-20T11:01:30.144Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/indexes/seg-001-e963365959ed/clip-index.json",
+        "producer": "media-understanding-v1:index:e963365959ed8104",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "b1c923b974cca0f691ee42ffc0f65ddac421ad936ba967b9ae892184c3ed585b",
+        "sizeBytes": 4234
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-010:media:seg-001-e963365959ed",
+      "mediaRef": {
+        "artifactId": "episode-010:media:seg-001-e963365959ed",
+        "createdAt": "2026-10-20T11:01:27.926Z",
+        "episodeId": "episode-010",
+        "mediaType": "video/mp4",
+        "path": "content/episode-010/media/assets/seg-001-e963365959ed.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "e963365959ed81043f7d999d2e37e551d5210b2f9f3f6bac2986d1dc4fe64d86",
+        "sizeBytes": 199097
+      },
+      "mediaSourceId": "episode-010:media-source:granola-official",
+      "rank": 5,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.428 (3467ms)"
+      ],
+      "score": 0.121401,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.428025,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    },
+    {
+      "clipId": "episode-010:media-clip:ab8896e5cb21b8b0d2872938",
+      "endMs": 3300,
+      "episodeId": "episode-010",
+      "indexRef": {
+        "artifactId": "episode-010:media-clip-index:seg-001-1483695738d6",
+        "createdAt": "2026-10-16T12:44:12.218Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/indexes/seg-001-1483695738d6/clip-index.json",
+        "producer": "media-understanding-v1:index:1483695738d6a8c5",
+        "revision": 1,
+        "schemaVersion": "media-clip-index-v1",
+        "sha256": "ec55097c88119406515f14f51912e7df11dc872d660e6dd026305c3c4e11464e",
+        "sizeBytes": 4234
+      },
+      "matchedClaimIds": [],
+      "mediaId": "episode-010:media:seg-001-1483695738d6",
+      "mediaRef": {
+        "artifactId": "episode-010:media:seg-001-1483695738d6",
+        "createdAt": "2026-10-16T12:44:10.156Z",
+        "episodeId": "episode-010",
+        "mediaType": "video/mp4",
+        "path": "content/episode-010/media/assets/seg-001-1483695738d6.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "1483695738d6a8c5ddeedb318ec0281f06b6f8b7f6da56d9f958504cb6d594ce",
+        "sizeBytes": 193638
+      },
+      "mediaSourceId": "episode-010:media-source:granola-official",
+      "rank": 6,
+      "reasons": [
+        "source preference founder (5/5)",
+        "duration proximity 0.407 (3300ms)"
+      ],
+      "score": 0.12037,
+      "scoreBreakdown": {
+        "claim": 0,
+        "duration": 0.407407,
+        "lexical": 0,
+        "metadata": 0,
+        "sourcePreference": 1,
+        "visualIntent": 0
+      },
+      "startMs": 0
+    }
+  ],
+  "claimLedger": {
+    "path": "content/episode-010/research/facts.json",
+    "sha256": "d39b62fba794410641907f3c104546bda712ac1dd8cac01ca6f0b2e38878b5f7",
+    "sizeBytes": 2799
+  },
+  "clipIndexRefs": [
+    {
+      "artifactId": "episode-010:media-clip-index:seg-001-1483695738d6",
+      "createdAt": "2026-10-16T12:44:12.218Z",
+      "episodeId": "episode-010",
+      "mediaType": "application/json",
+      "path": "content/episode-010/media/indexes/seg-001-1483695738d6/clip-index.json",
+      "producer": "media-understanding-v1:index:1483695738d6a8c5",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "ec55097c88119406515f14f51912e7df11dc872d660e6dd026305c3c4e11464e",
+      "sizeBytes": 4234
+    },
+    {
+      "artifactId": "episode-010:media-clip-index:seg-001-e963365959ed",
+      "createdAt": "2026-10-20T11:01:30.144Z",
+      "episodeId": "episode-010",
+      "mediaType": "application/json",
+      "path": "content/episode-010/media/indexes/seg-001-e963365959ed/clip-index.json",
+      "producer": "media-understanding-v1:index:e963365959ed8104",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "b1c923b974cca0f691ee42ffc0f65ddac421ad936ba967b9ae892184c3ed585b",
+      "sizeBytes": 4234
+    },
+    {
+      "artifactId": "episode-010:media-clip-index:seg-004-98f649cafa95",
+      "createdAt": "2026-10-20T11:01:30.296Z",
+      "episodeId": "episode-010",
+      "mediaType": "application/json",
+      "path": "content/episode-010/media/indexes/seg-004-98f649cafa95/clip-index.json",
+      "producer": "media-understanding-v1:index:98f649cafa955ce2",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "516528f3aaa62bf2c05192e5a47677818a7a224c86ffbebd6b7e685ab2346879",
+      "sizeBytes": 4264
+    },
+    {
+      "artifactId": "episode-010:media-clip-index:seg-004-bc127a9b8732",
+      "createdAt": "2026-10-16T12:44:12.339Z",
+      "episodeId": "episode-010",
+      "mediaType": "application/json",
+      "path": "content/episode-010/media/indexes/seg-004-bc127a9b8732/clip-index.json",
+      "producer": "media-understanding-v1:index:bc127a9b87324851",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "9e15721acc669033addf476c021f74067ef4de90394c005cf0b0631103d39c37",
+      "sizeBytes": 4264
+    },
+    {
+      "artifactId": "episode-010:media-clip-index:seg-005-2921cde4f4e4",
+      "createdAt": "2026-10-16T12:44:12.463Z",
+      "episodeId": "episode-010",
+      "mediaType": "application/json",
+      "path": "content/episode-010/media/indexes/seg-005-2921cde4f4e4/clip-index.json",
+      "producer": "media-understanding-v1:index:2921cde4f4e46ef6",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "cfb296ee587120be84a291790e219319dfda3c9987c247dcdf655aadfd07745b",
+      "sizeBytes": 4273
+    },
+    {
+      "artifactId": "episode-010:media-clip-index:seg-005-8483c5e80015",
+      "createdAt": "2026-10-20T11:01:30.448Z",
+      "episodeId": "episode-010",
+      "mediaType": "application/json",
+      "path": "content/episode-010/media/indexes/seg-005-8483c5e80015/clip-index.json",
+      "producer": "media-understanding-v1:index:8483c5e800150b82",
+      "revision": 1,
+      "schemaVersion": "media-clip-index-v1",
+      "sha256": "a9f78c0f6c8da9c6a95d8f9b05ced8249b1de83e71e50169357cf2cb1eabfef0",
+      "sizeBytes": 4275
+    }
+  ],
+  "createdAt": "2026-10-20T11:01:30.785Z",
+  "episodeId": "episode-010",
+  "evidenceMode": "independent-b-roll",
+  "gate": {
+    "claimLedgerValid": true,
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true
+  },
+  "rankingConfig": {
+    "claimlessPenalty": 0.5,
+    "minRelevanceScore": 0.1,
+    "version": "media-retrieval-ranking-v1",
+    "weights": {
+      "claim": 0.4,
+      "duration": 0.05,
+      "lexical": 0.2,
+      "metadata": 0.15,
+      "sourcePreference": 0.1,
+      "visualIntent": 0.1
+    }
+  },
+  "request": {
+    "claimIds": [
+      "claim-granola-001"
+    ],
+    "durationTargetMs": 8100,
+    "episodeId": "episode-010",
+    "narration": "会议里,你照常写几个关键词,Granola在后台转写。结束后,再把你写的和会上说的合在一起。",
+    "preferredMediaTypes": [
+      "video"
+    ],
+    "schemaVersion": "media-retrieval-request-v1",
+    "segmentId": "seg-004",
+    "topK": 50,
+    "visualIntent": "官方历史补全演示连续展示原始记录到展开;明确官网演示、非本次实测。",
+    "visualTrackMode": "independent-b-roll"
+  },
+  "schemaVersion": "media-retrieval-result-v1",
+  "segmentId": "seg-004"
+}

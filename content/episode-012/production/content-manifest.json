@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "content-manifest-v1",
+  "episodeId": "episode-012",
+  "frozenAt": "2026-10-25T14:50:55.828Z",
+  "frozenBy": "human:zengze",
+  "approvalEpoch": 1,
+  "selectionHash": "665226de7cf99c1424b2f06f42d906218044c7ffdfd44b66613f4bef457cfa44",
+  "artifacts": [
+    {
+      "artifactId": "episode-012:approved:research-facts-json",
+      "episodeId": "episode-012",
+      "path": "content/episode-012/research/facts.json",
+      "mediaType": "application/json",
+      "schemaVersion": "approved-content-file-v1",
+      "revision": 1,
+      "sha256": "b3d734f426ab842cba274e4ec6f9fe4406f8e3f86bf968874ab38065f83bb860",
+      "sizeBytes": 5096,
+      "producer": "codex-current-session",
+      "createdAt": "2026-10-25T14:50:55.828Z"
+    },
+    {
+      "artifactId": "episode-012:approved:research-sources-json",
+      "episodeId": "episode-012",
+      "path": "content/episode-012/research/sources.json",
+      "mediaType": "application/json",
+      "schemaVersion": "approved-content-file-v1",
+      "revision": 1,
+      "sha256": "3c5dcaae7a7c57dabeee94af5a9b402a24be31d8b93235d48f576c2ced87b209",
+      "sizeBytes": 3112,
+      "producer": "codex-current-session",
+      "createdAt": "2026-10-25T14:50:55.828Z"
+    },
+    {
+      "artifactId": "episode-012:approved:story-caption-plan-json",
+      "episodeId": "episode-012",
+      "path": "content/episode-012/story/caption-plan.json",
+      "mediaType": "application/json",
+      "schemaVersion": "approved-content-file-v1",
+      "revision": 1,
+      "sha256": "e1ec3fe2968c97f3b491758cbfbf31da061db4266abc3e967d8c379bb6da4b7a",
+      "sizeBytes": 1747,
+      "producer": "codex-current-session",
+      "createdAt": "2026-10-25T14:50:55.828Z"
+    },
+    {
+      "artifactId": "episode-012:approved:story-final-script-md",
+      "episodeId": "episode-012",
+      "path": "content/episode-012/story/final-script.md",
+      "mediaType": "text/markdown",
+      "schemaVersion": "approved-content-file-v1",
+      "revision": 1,
+      "sha256": "64bc650aebe0fac60d2ecafae0724a8732ecb745a56accc6900c21a2c7d2455a",
+      "sizeBytes": 11634,
+      "producer": "codex-current-session",
+      "createdAt": "2026-10-25T14:50:55.828Z"
+    },
+    {
+      "artifactId": "episode-012:approved:story-visual-plan-md",
+      "episodeId": "episode-012",
+      "path": "content/episode-012/story/visual-plan.md",
+      "mediaType": "text/markdown",
+      "schemaVersion": "approved-content-file-v1",
+      "revision": 1,
+      "sha256": "452937fb9e30bb5ffa71f2ee3352b272d2e8fc95e38b23c11ebe3ebe1a1413b3",
+      "sizeBytes": 14415,
+      "producer": "codex-current-session",
+      "createdAt": "2026-10-25T14:50:55.828Z"
+    }
+  ],
+  "gateSnapshot": {
+    "contentGate": "pass",
+    "openIssueIds": [],
+    "blockerIssueIds": [],
+    "majorIssueIds": [],
+    "rubricVersions": []
+  }
+}

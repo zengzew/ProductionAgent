@@ -1,0 +1,77 @@
+[
+  {
+    "id": "claim-granola-001",
+    "claim": "Granola把用户写下的要点与会议转写结合，在会后补全、整理会议笔记；官方2024年演示展示零散记录展开成分层笔记。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2024-05-22",
+    "sourceIds": [
+      "src-granola-launch"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "product-mechanism / value；不是本次使用实测，不承诺完整无误，不展示未取得的实时生成。"
+  },
+  {
+    "id": "claim-granola-002",
+    "claim": "Chris Pedregal在发布文章说普通AI会议总结常常笼统、未捕捉用户在意的内容；Granola让用户的笔记引导AI关注重点。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2024-05-22",
+    "sourceIds": [
+      "src-granola-launch"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "idea-origin / user-need；不推断创始人亲自遇到某场具体会议，也不宣称所有AI都如此。"
+  },
+  {
+    "id": "claim-granola-003",
+    "claim": "团队先与封闭小群测试用户打磨产品，于2024年5月公开发布；早期用户包括投资人及科技公司负责人，公司称产品从负责人扩散到团队。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2024-10-23",
+    "sourceIds": [
+      "src-granola-series-a"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "cold-start-or-gtm；公司历史回顾；不捏造付费客户、渠道转化率、邀请机制或独立增长因果。"
+  },
+  {
+    "id": "claim-granola-004",
+    "claim": "2024年Granola支持一键分享文字或笔记链接，也可发到Slack。",
+    "metricName": "",
+    "value": "",
+    "period": "",
+    "eventDate": "2024-10-23",
+    "sourceIds": [
+      "src-granola-series-a"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "product-mechanism / sharing；产品可分享不代表分享单独导致增长。"
+  },
+  {
+    "id": "claim-granola-005",
+    "claim": "Granola在2026年3月25日宣布完成1.25亿美元C轮融资，估值15亿美元。",
+    "metricName": "C轮融资 / 估值",
+    "value": "USD 125M / USD 1.5B",
+    "period": "2026-03-25 announced round",
+    "eventDate": "2026-03-25",
+    "sourceIds": [
+      "src-granola-series-c"
+    ],
+    "confidence": "high",
+    "reportingType": "founder-reported",
+    "allowedInNarration": true,
+    "notes": "capital-market；公司披露的本轮融资和估值，不是收入、利润或产品效果。"
+  }
+]

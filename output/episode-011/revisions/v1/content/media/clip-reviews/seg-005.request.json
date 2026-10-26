@@ -1,0 +1,63 @@
+{
+  "episodeId": "episode-011",
+  "segmentId": "seg-005",
+  "clipId": "episode-011:media-clip:8135b44e40a6d67a21cbfc33",
+  "claimIds": [
+    "claim-gamma-001",
+    "claim-gamma-004"
+  ],
+  "claims": [
+    {
+      "id": "claim-gamma-001",
+      "claim": "Gamma可按主题、提纲或已有文档生成带图文版式的演示稿初稿，再由用户编辑。"
+    },
+    {
+      "id": "claim-gamma-004",
+      "claim": "按2025年Gamma 3.0发布文章及官方GIF，用户可请求Agent修改布局或重构表达，也可使用Smart Diagrams将文字变成图示。"
+    }
+  ],
+  "narration": "想换一种表达,还能让AI改布局,或把文字变成图示。你要做的,是核对内容、调整重点。",
+  "visualIntent": "2025官方Agent与Smart Diagrams动画,按动作分别展示;核对内容为编辑用途建议,不宣称省时测量。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-011/media/verifications/seg-005/episode-011-media-clip-8135b44e40a6d67a21cbfc33-clip.mp4",
+    "sha256": "642b872ccc6f40c4ea6dcf85737816fc9ac33f529367e909dcaedab7a01ccebf",
+    "sizeBytes": 3127815,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 7333,
+    "sourceMediaId": "episode-011:media:seg-005-098a3576a95f-official",
+    "sourceMediaSha256": "098a3576a95f099abce1b7ad3e0dfbb1194e9fa16beb4255a6a533a6ca39e5c0"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-011/media/indexes/seg-005-098a3576a95f-official/keyframes/keyframe-0-3666.jpg",
+      "timestampMs": 3666,
+      "sha256": "7600498595d0cbde1b21598f22a4e78f62c07aa6428903f6d9c41afa4ef1b3af",
+      "sizeBytes": 58087,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "2025官方Agent演示：文字转图示，再上传截图重排为同样主题的表格；不是本次实测。",
+    "observedText": "",
+    "keywords": [
+      "seg-005",
+      "Gamma",
+      "Agent",
+      "Holographic Technology",
+      "layout",
+      "diagram"
+    ],
+    "entities": [
+      "Gamma",
+      "Holographic Technology"
+    ],
+    "semanticTags": [
+      "official-product-demo",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "8ff55dfbe73005d7d4adda887274a2e837fdda7fe1fbb4fe8c5e9d6928b7b16f"
+}

@@ -1,0 +1,110 @@
+[
+  {
+    "segmentId": "seg-001",
+    "mediaId": "episode-009-v2:media:seg-001-2d56b6c6c4e6",
+    "sha256": "2d56b6c6c4e67a3657b89c9e20bca2e1e64c75b1b61fce11028f48e3c344db60",
+    "textSummary": "Cal AI产品的宣传候选，原片历史演示；不等于现场输入与生成。",
+    "keywords": [
+      "seg-001",
+      "Fastlane",
+      "产品"
+    ],
+    "inspection": "Source frames checked; prepared excerpts require current bounded visual inspection."
+  },
+  {
+    "segmentId": "seg-002",
+    "mediaId": "episode-009-v2:media:seg-002-a180a26282c8",
+    "sha256": "a180a26282c8cf756bceb5707dbc9e3ff2453b73be23bc076011ff52511efc5c",
+    "textSummary": "Gaurav本人访谈，讲自身做应用后遇到推广困难；保留真实机位切换。",
+    "keywords": [
+      "seg-002",
+      "Fastlane",
+      "人物"
+    ],
+    "inspection": "Source frames checked; prepared excerpts require current bounded visual inspection."
+  },
+  {
+    "segmentId": "seg-003",
+    "mediaId": "episode-009-v2:media:seg-003-20f8500649e1",
+    "sha256": "20f8500649e1be974787df2d09c6d68c5f8be235c0920981ef0c699a83255ad9",
+    "textSummary": "原片官网网址输入宣传动效，接已生成候选；非本次输入生成实测。",
+    "keywords": [
+      "seg-003",
+      "Fastlane",
+      "产品"
+    ],
+    "inspection": "Source frames checked; prepared excerpts require current bounded visual inspection."
+  },
+  {
+    "segmentId": "seg-004",
+    "mediaId": "episode-009-v2:media:seg-004-3dc56e75a36d",
+    "sha256": "3dc56e75a36dff415cbf3aeab5458f2f30261f907ed91d149f769d8636aa4a7f",
+    "textSummary": "历史滑卡选择接账号选择及真实Schedule选项短暂停留，中间步骤省略，不证明发布成功。",
+    "keywords": [
+      "seg-004",
+      "Fastlane",
+      "产品"
+    ],
+    "inspection": "Source frames checked; prepared excerpts require current bounded visual inspection."
+  },
+  {
+    "segmentId": "seg-005",
+    "mediaId": "episode-009-v2:media:seg-005-0c10c518aa99",
+    "sha256": "0c10c518aa9908221daa6d1b6e35979ae5c1e0da8c9f894d5c76e19751bf3f24",
+    "textSummary": "同一产品候选从图文到短视频切换，X、Edit和接受控件可见；不是营销效果证据。",
+    "keywords": [
+      "seg-005",
+      "Fastlane",
+      "产品"
+    ],
+    "inspection": "Source frames checked; prepared excerpts require current bounded visual inspection."
+  },
+  {
+    "segmentId": "seg-006",
+    "mediaId": "episode-009-v2:media:seg-006-fc2dca294e58",
+    "sha256": "fc2dca294e58b0126ab33ce93f1bff869c85a575c5fc84a4962af7ac4802014c",
+    "textSummary": "原采访中Reddit r/SideProject帖子标题局部静帧，裁去3000+用户数字，接创始人本人；非本次发帖。",
+    "keywords": [
+      "seg-006",
+      "Fastlane",
+      "人物"
+    ],
+    "inspection": "Source frames checked; prepared excerpts require current bounded visual inspection."
+  },
+  {
+    "segmentId": "seg-007",
+    "mediaId": "episode-009-v2:media:seg-007-65ac4ea95d08",
+    "sha256": "65ac4ea95d084a2035baeaffee0a0498466955e3a89b21ab0cddf2d70a9fcc1f",
+    "textSummary": "Gaurav本人谈用户试用观察，不是客户共享屏幕实录。",
+    "keywords": [
+      "seg-007",
+      "Fastlane",
+      "人物"
+    ],
+    "inspection": "Source frames checked; prepared excerpts require current bounded visual inspection."
+  },
+  {
+    "segmentId": "seg-008",
+    "mediaId": "episode-009-v2:media:seg-008-7b2970eee963",
+    "sha256": "7b2970eee963e33474d303a7a199defbf05f3af3d2c21e917ee005774bd20194",
+    "textSummary": "Gaurav本人谈访谈激励；额外七天为历史做法，不冒充当前试用规则。",
+    "keywords": [
+      "seg-008",
+      "Fastlane",
+      "人物"
+    ],
+    "inspection": "Source frames checked; prepared excerpts require current bounded visual inspection."
+  },
+  {
+    "segmentId": "seg-011",
+    "mediaId": "episode-009-v2:media:seg-011-7526a02e2703",
+    "sha256": "7526a02e27034d7c27f294cb1a8e892916b985c9fe22dd638868aeaa803607e1",
+    "textSummary": "先回创始人再回Cal AI宣传候选，呈现人物与已展示产品用途的关系。",
+    "keywords": [
+      "seg-011",
+      "Fastlane",
+      "产品"
+    ],
+    "inspection": "Source frames checked; prepared excerpts require current bounded visual inspection."
+  }
+]

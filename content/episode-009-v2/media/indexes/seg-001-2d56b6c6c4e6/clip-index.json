@@ -1,0 +1,115 @@
+{
+  "analysisSourceRef": {
+    "artifactId": "episode-009-v2:media:seg-001-2d56b6c6c4e6-proxy",
+    "createdAt": "2026-10-16T01:33:01.906Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009-v2/media/assets/seg-001-2d56b6c6c4e6-proxy.mp4",
+    "producer": "media-ingest-v1:normalize",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "6a9011b945adaf4c544aeae609d2229558bc28d654fadf9d109736f9cb195ab0",
+    "sizeBytes": 217251
+  },
+  "asrModel": null,
+  "asrProvider": "none",
+  "clipWindowConfig": {
+    "maxWindowMs": 60000,
+    "minWindowMs": 0
+  },
+  "episodeId": "episode-009-v2",
+  "indexVersion": "media-clip-index-v1",
+  "items": [
+    {
+      "clipId": "episode-009-v2:media-clip:09a7461e2ceb670570bb7942",
+      "endMs": 2667,
+      "entities": [
+        "Fastlane",
+        "Cal AI"
+      ],
+      "episodeId": "episode-009-v2",
+      "indexVersion": "media-clip-index-v1",
+      "keyframeRefs": [
+        {
+          "artifactId": "episode-009-v2:media-keyframe:seg-001-2d56b6c6c4e6-0-1333",
+          "createdAt": "2026-10-16T01:33:56.644Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "image/jpeg",
+          "path": "content/episode-009-v2/media/indexes/seg-001-2d56b6c6c4e6/keyframes/keyframe-0-1333.jpg",
+          "producer": "media-understanding-v1:keyframes:ffmpeg-keyframe-v1",
+          "revision": 1,
+          "schemaVersion": "media-keyframe-v1",
+          "sha256": "6dd783cc2c0ce5924b7e75d5473899d94eb8806347662e4465e208906cad48b9",
+          "sizeBytes": 83814
+        }
+      ],
+      "keywords": [
+        "seg-001",
+        "Fastlane",
+        "产品"
+      ],
+      "mediaRef": {
+        "artifactId": "episode-009-v2:media:seg-001-2d56b6c6c4e6",
+        "createdAt": "2026-10-16T01:33:01.542Z",
+        "episodeId": "episode-009-v2",
+        "mediaType": "video/mp4",
+        "path": "content/episode-009-v2/media/assets/seg-001-2d56b6c6c4e6.mp4",
+        "producer": "media-ingest-v1",
+        "revision": 1,
+        "schemaVersion": "media-asset-v1",
+        "sha256": "2d56b6c6c4e67a3657b89c9e20bca2e1e64c75b1b61fce11028f48e3c344db60",
+        "sizeBytes": 381969
+      },
+      "observedText": "",
+      "sceneRefs": [
+        {
+          "artifactId": "episode-009-v2:media-scenes:seg-001-2d56b6c6c4e6",
+          "createdAt": "2026-10-16T01:33:56.576Z",
+          "episodeId": "episode-009-v2",
+          "mediaType": "application/json",
+          "path": "content/episode-009-v2/media/indexes/seg-001-2d56b6c6c4e6/scenes.json",
+          "producer": "media-understanding-v1:scenes:v1",
+          "revision": 1,
+          "schemaVersion": "media-scenes-v1",
+          "sha256": "29ae4fd22c7e7665ca1676d8faba4d7e0dfa1f837843e0cfcf7f6cd8788ad759",
+          "sizeBytes": 1471
+        }
+      ],
+      "semanticTags": [
+        "founder-interview",
+        "local-evaluation",
+        "measured"
+      ],
+      "sourceSha256": "2d56b6c6c4e67a3657b89c9e20bca2e1e64c75b1b61fce11028f48e3c344db60",
+      "speaker": null,
+      "startMs": 0,
+      "textSummary": "Cal AI产品的宣传候选，原片历史演示；不等于现场输入与生成。",
+      "transcriptRefs": []
+    }
+  ],
+  "keyframeTool": "ffmpeg",
+  "keyframeToolVersion": "ffmpeg-keyframe-v1",
+  "keyframesAvailability": "available",
+  "mediaId": "episode-009-v2:media:seg-001-2d56b6c6c4e6",
+  "mediaRef": {
+    "artifactId": "episode-009-v2:media:seg-001-2d56b6c6c4e6",
+    "createdAt": "2026-10-16T01:33:01.542Z",
+    "episodeId": "episode-009-v2",
+    "mediaType": "video/mp4",
+    "path": "content/episode-009-v2/media/assets/seg-001-2d56b6c6c4e6.mp4",
+    "producer": "media-ingest-v1",
+    "revision": 1,
+    "schemaVersion": "media-asset-v1",
+    "sha256": "2d56b6c6c4e67a3657b89c9e20bca2e1e64c75b1b61fce11028f48e3c344db60",
+    "sizeBytes": 381969
+  },
+  "sceneDetector": "bounded-reference-excerpt",
+  "sceneDetectorVersion": "v1",
+  "scenesAvailability": "available",
+  "schemaVersion": "media-clip-index-v1",
+  "semanticAdapter": "codex-observed-reference",
+  "semanticAdapterVersion": "2d56b6c6c4e67a36",
+  "semanticAvailability": "available",
+  "sourceSha256": "2d56b6c6c4e67a3657b89c9e20bca2e1e64c75b1b61fce11028f48e3c344db60",
+  "transcriptAvailability": "unavailable"
+}

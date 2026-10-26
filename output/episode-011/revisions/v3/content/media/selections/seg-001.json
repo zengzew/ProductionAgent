@@ -1,0 +1,63 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-011:media-visual-slot:seg-001",
+    "createdAt": "2026-10-20T10:23:32.706Z",
+    "episodeId": "episode-011",
+    "mediaType": "application/json",
+    "path": "content/episode-011/media/selections/seg-001.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "b3bc4fc3403c98dc0ea144fe8ab609c74ebf76d1091e2cf292790211e21e6c67",
+    "sizeBytes": 1870
+  },
+  "claimIds": [
+    "claim-gamma-001"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.85,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": false
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0,
+      "durationSuitability": 0.1,
+      "misleadingRiskSafety": 0.15,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.15,
+      "verificationClaimMatch": 0,
+      "verificationRelevance": 0.05,
+      "visualIntentFit": 0.15,
+      "visualQuality": 0.25
+    }
+  },
+  "createdAt": "2026-10-20T10:23:32.706Z",
+  "episodeId": "episode-011",
+  "fallbackReason": "no candidate has a valid pass verification (missing, reject, or uncertain)",
+  "fallbackType": "REAL_MEDIA_NOT_VERIFIED",
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": false,
+    "sourceAdmitted": false,
+    "verificationPassed": false
+  },
+  "reasons": [
+    "segment seg-001 claim-bound with 1 claim(s)",
+    "retrieval result episode-011:media-retrieval:seg-001 produced 9 candidate(s)",
+    "fallback REAL_MEDIA_NOT_VERIFIED: no candidate has a valid pass verification (missing, reject, or uncertain)",
+    "fallback stage official-screenshot (official screenshot → data/evidence card → programmatic visual)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-001",
+  "selectedMediaClipRef": null,
+  "selectedType": "official-screenshot",
+  "selectionScore": 0,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-011:media-visual-slot:seg-001",
+  "verificationRef": null,
+  "visualIntent": "显示2025官方演示中的真实演示稿结果与左侧多页缩略图;输入文字到生成初稿的关系来自官方教程,中文为编辑说明,不冒充生成过程实录。"
+}

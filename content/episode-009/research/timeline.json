@@ -1,0 +1,154 @@
+{
+  "asOf": "2026-10-14",
+  "events": [
+    {
+      "id": "ev-fastlane-001",
+      "dateLabel": "公开发布前；年月未核实",
+      "sortDate": "2026-03-22",
+      "datePrecision": "before",
+      "event": "Gaurav回顾，做出应用后自己卡在营销，不愿先花大笔广告预算；Jock也遇到让别人看见产品的难题。；Gaurav称他们研究已有热门视频格式，再为自己的产品改编，通过等候名单与两轮beta验证需求。",
+      "eventType": "problem",
+      "factIds": [
+        "claim-fastlane-002",
+        "claim-fastlane-014"
+      ],
+      "sourceIds": [
+        "src-fastlane-interview",
+        "src-fastlane-launch-account"
+      ],
+      "relationToPrevious": "not-applicable",
+      "storyFunction": "problem",
+      "notes": "sortDate仅排序上界，不是事件发生日期。"
+    },
+    {
+      "id": "ev-fastlane-002",
+      "dateLabel": "公开发布前迭代；年月未核实",
+      "sortDate": "2026-03-22",
+      "datePrecision": "before",
+      "event": "Gaurav称团队起初试做多种营销功能，后来根据客户反馈收窄到短内容。；Gaurav回顾，早期在Reddit线程和社媒找用户；加入等候名单后团队发邮件约谈，让用户共享屏幕试用并观察卡点。",
+      "eventType": "product",
+      "factIds": [
+        "claim-fastlane-003",
+        "claim-fastlane-005"
+      ],
+      "sourceIds": [
+        "src-fastlane-interview"
+      ],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "decision",
+      "notes": "采访提及7月广工具、10月收窄、12月beta，年份未在话中明说，不补精确日期。"
+    },
+    {
+      "id": "ev-fastlane-003",
+      "dateLabel": "beta期间；首单日未知",
+      "sortDate": "2026-03-22",
+      "datePrecision": "before",
+      "event": "Gaurav称第一位付费客户来自beta用户，对方付费是为了保留访问权限。",
+      "eventType": "growth",
+      "factIds": [
+        "claim-fastlane-006"
+      ],
+      "sourceIds": [
+        "src-fastlane-launch-account"
+      ],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "validation",
+      "notes": "beta开放与正式发布分开；首单金额未披露。"
+    },
+    {
+      "id": "ev-fastlane-004",
+      "dateLabel": "2026-03-23",
+      "sortDate": "2026-03-23",
+      "datePrecision": "day",
+      "event": "Product Hunt平台记录Fastlane在2026年3月23日获得当日第三名。",
+      "eventType": "distribution",
+      "factIds": [
+        "claim-fastlane-008"
+      ],
+      "sourceIds": [
+        "src-fastlane-producthunt"
+      ],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "public-expansion",
+      "notes": "平台日期；采访4:27也提3月23日，不压缩整个开发为两个月。"
+    },
+    {
+      "id": "ev-fastlane-005",
+      "dateLabel": "2026-04-03创始人复盘",
+      "sortDate": "2026-04-03",
+      "datePrecision": "day",
+      "event": "Gaurav称正式发布利用了已积累的X个人账号，并配合LinkedIn和Product Hunt发布。；Gaurav称团队用Fastlane为自己生成内容、右滑并排期，每周发布一百多条短视频。；Gaurav称X发布帖获得超过21万次浏览。",
+      "eventType": "distribution",
+      "factIds": [
+        "claim-fastlane-007",
+        "claim-fastlane-013",
+        "claim-fastlane-018"
+      ],
+      "sourceIds": [
+        "src-fastlane-launch-account"
+      ],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "distribution-event",
+      "notes": "发表日不是所有动作发生日。"
+    },
+    {
+      "id": "ev-fastlane-006",
+      "dateLabel": "2026-04-03文章：上线后一周",
+      "sortDate": "2026-04-03",
+      "datePrecision": "as-of",
+      "event": "2026年4月3日的创始人自述称Fastlane上线后ARR已超过12万澳元。",
+      "eventType": "growth",
+      "factIds": [
+        "claim-fastlane-009"
+      ],
+      "sourceIds": [
+        "src-fastlane-launch-account"
+      ],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "validation",
+      "notes": "明确AUD ARR，截止日未精确披露，不是首日现金。"
+    },
+    {
+      "id": "ev-fastlane-007",
+      "dateLabel": "2026-08-30发表采访；录制日未知",
+      "sortDate": "2026-08-30",
+      "datePrecision": "as-of",
+      "event": "Gaurav在采访中介绍，Fastlane读取产品网站并生成相关营销短内容；演示从已生成内容开始，用户滑卡挑选后排期发布。；Gaurav称团队在界面放预约访谈按钮，用户可用一次访谈换额外七天访问权限。；Gaurav在采访中称软件产品每月经常性收入约为6.9万，原文未说明货币。；Gaurav在采访中称整个业务ARR超过一百万，与软件产品MRR口径不同。；Gaurav在采访中称已超过一千名付费用户。；Gaurav称累计做了两千次客户访谈，并提到与Jock每周约二十次。",
+      "eventType": "company",
+      "factIds": [
+        "claim-fastlane-001",
+        "claim-fastlane-004",
+        "claim-fastlane-010",
+        "claim-fastlane-011",
+        "claim-fastlane-012",
+        "claim-fastlane-017"
+      ],
+      "sourceIds": [
+        "src-fastlane-interview",
+        "src-fastlane-video",
+        "src-fastlane-producthunt"
+      ],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "context",
+      "notes": "网页发布时间与两个月前发布不一致，不倒推数据日。"
+    },
+    {
+      "id": "ev-fastlane-008",
+      "dateLabel": "2026-10-14页面访问",
+      "sortDate": "2026-10-14",
+      "datePrecision": "as-of",
+      "event": "2026年10月14日官网将Fastlane v2描述为Senna学习品牌、研究市场、生成广告和内容、投放并读取结果的循环。；官网AG1营销循环示例明确标为示例输出，并说明Fastlane与AG1无关联。",
+      "eventType": "product",
+      "factIds": [
+        "claim-fastlane-015",
+        "claim-fastlane-016"
+      ],
+      "sourceIds": [
+        "src-fastlane-home"
+      ],
+      "relationToPrevious": "chronology-only",
+      "storyFunction": "context",
+      "notes": "现行官网v2，不倒灌历史。"
+    }
+  ]
+}

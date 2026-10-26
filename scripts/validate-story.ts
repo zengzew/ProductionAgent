@@ -3,6 +3,10 @@ import fs from "node:fs";
 import path from "node:path";
 import {episodeConfigSchema, factSchema} from "../src/schemas/episode";
 import {
+  isSourceFirstWorkflowData,
+  validateSourceFirstStory,
+} from "../src/lib/editorial/source-first";
+import {
   findOralReviewDecisionErrors,
   parseCriticGate,
   parseDirectorBriefGate,
@@ -51,6 +55,19 @@ const workflow = spawnSync(
   {encoding: "utf8", env: process.env, stdio: "inherit"},
 );
 if (workflow.status !== 0) process.exit(workflow.status ?? 1);
+
+const workflowDocument = readJsonFile<unknown>(path.join(episodeRoot, "story/workflow.json"));
+if (isSourceFirstWorkflowData(workflowDocument)) {
+  const sourceFirstErrors = validateSourceFirstStory({
+    episodeId,
+    episodeRoot,
+  });
+  const sourceFirstPassed = finishValidation(
+    sourceFirstErrors,
+    `source-first story validation passed: ${episodeId}; continuity and AI-texture remain editorial review notes`,
+  );
+  process.exit(sourceFirstPassed ? 0 : 1);
+}
 
 const storyRoot = path.join(episodeRoot, "story");
 const requiredFiles = [

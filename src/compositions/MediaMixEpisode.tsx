@@ -1,6 +1,7 @@
 import React from "react";
 import {AbsoluteFill, Sequence, staticFile} from "remotion";
 import {CaptionLayer} from "./shared";
+import {referenceCaptionStyle} from "./components/ReferenceStoryFrame";
 import {MediaShotNarration, MediaShotScene} from "../media/remotion";
 import {mediaRenderPublicFilePath} from "../media/render-math";
 import type {MediaRenderPlan} from "../media/render";
@@ -152,7 +153,10 @@ export const MediaMixEpisode: React.FC<MediaMixEpisodeProps> = ({
           </Sequence>
         );
       })}
-      <CaptionLayer captions={captions} style={CAPTION_STYLE} />
+      <CaptionLayer
+        captions={captions}
+        style={plan.config.referenceStory ? referenceCaptionStyle : CAPTION_STYLE}
+      />
     </AbsoluteFill>
   );
 };

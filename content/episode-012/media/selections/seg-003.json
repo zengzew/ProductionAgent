@@ -1,0 +1,98 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-012:media-visual-slot:seg-003",
+    "createdAt": "2026-10-25T15:02:12.251Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/selections/seg-003.json",
+    "producer": "media-selection-v1:visual-selection-config-v1",
+    "revision": 1,
+    "schemaVersion": "visual-slot-v1",
+    "sha256": "c78f1a6cf45feb1d1458ba6f4719e08c77fea281bdd7628aeb9a8eae07b5a781",
+    "sizeBytes": 3242
+  },
+  "claimIds": [
+    "claim-pr-003"
+  ],
+  "config": {
+    "gates": {
+      "maxMisleadingRisk": 0.85,
+      "minVisualQuality": 0.5,
+      "requireClaimEvidence": false
+    },
+    "tieBreaker": "score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc",
+    "version": "visual-selection-config-v1",
+    "weights": {
+      "claimFit": 0,
+      "durationSuitability": 0.1,
+      "misleadingRiskSafety": 0.15,
+      "retrievalScore": 0.15,
+      "sourceTrust": 0.15,
+      "verificationClaimMatch": 0,
+      "verificationRelevance": 0.05,
+      "visualIntentFit": 0.15,
+      "visualQuality": 0.25
+    }
+  },
+  "createdAt": "2026-10-25T15:02:12.251Z",
+  "episodeId": "episode-012",
+  "fallbackReason": null,
+  "fallbackType": null,
+  "gate": {
+    "episodeIsolated": true,
+    "hashValid": true,
+    "rightsApproved": true,
+    "sourceAdmitted": true,
+    "verificationPassed": true
+  },
+  "reasons": [
+    "segment seg-003 claim-bound with 1 claim(s)",
+    "retrieval result episode-012:media-retrieval:seg-003 produced 11 candidate(s)",
+    "1 candidate(s) carry a valid pass verification",
+    "selected episode-012:media-clip:939f3c4a1913afd052b9f250 score 0.690500 (claimFit=0.000, relevance=0.900, claimMatch=0.900, quality=0.850, risk=0.150, tie-breaker=score-desc:sourceTrust-desc:rank-asc:mediaId-asc:startMs-asc:clipId-asc)"
+  ],
+  "schemaVersion": "visual-slot-v1",
+  "segmentId": "seg-003",
+  "selectedMediaClipRef": {
+    "claimIds": [
+      "claim-pr-003"
+    ],
+    "clipId": "episode-012:media-clip:939f3c4a1913afd052b9f250",
+    "createdAt": "2026-10-25T15:02:10.578Z",
+    "endMs": 5033,
+    "episodeId": "episode-012",
+    "mediaId": "episode-012:media:seg-003-3f05572b6606",
+    "sourceMediaRef": {
+      "artifactId": "episode-012:media:seg-003-3f05572b6606",
+      "createdAt": "2026-10-25T14:55:47.831Z",
+      "episodeId": "episode-012",
+      "mediaType": "video/mp4",
+      "path": "content/episode-012/media/assets/seg-003-3f05572b6606.mp4",
+      "producer": "media-ingest-v1",
+      "revision": 1,
+      "schemaVersion": "media-asset-v1",
+      "sha256": "3f05572b660677ccf4a379f456365d1a9b29044c75a95a1484a9f5e24e50c41a",
+      "sizeBytes": 105670
+    },
+    "startMs": 0,
+    "transcriptRefs": [],
+    "visualIntent": "同一合照配Eliot Andres原名和“两周·创始人回忆”,不是当年开发现场。"
+  },
+  "selectedType": "real-media",
+  "selectionScore": 0.6905,
+  "selectionVersion": "visual-selection-v1",
+  "slotId": "episode-012:media-visual-slot:seg-003",
+  "verificationRef": {
+    "artifactId": "episode-012:media-verification:seg-003-episode-012-media-clip-939f3c4a1913afd052b9f250",
+    "createdAt": "2026-10-25T15:02:10.588Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/verifications/seg-003/episode-012-media-clip-939f3c4a1913afd052b9f250.json",
+    "producer": "media-verification-v1:codex:photoroom-observed-v1",
+    "revision": 3,
+    "schemaVersion": "media-verification-v1",
+    "sha256": "3ff840cc81fa6d69d3b9dea750ccc2c3fcbc8837259c78db275991b7f963a606",
+    "sizeBytes": 4613
+  },
+  "visualIntent": "同一合照配Eliot Andres原名和“两周·创始人回忆”,不是当年开发现场。"
+}

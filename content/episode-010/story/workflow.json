@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "source-first-workflow-v1",
+  "episodeId": "episode-010",
+  "coreStoryQuestion": "用户在意的事，怎样成为AI纪要的重点，并让这个工具从个人走进团队？",
+  "currentStatus": "story-approved",
+  "stages": [
+    {
+      "id": "research-analyst",
+      "owner": "research-analyst",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-010/research/sources.json",
+        "content/episode-010/research/facts.json",
+        "content/episode-010/research/timeline.json"
+      ],
+      "decision": "同一制作会话按角色完成；不声称独立审稿，后续逐项检查。"
+    },
+    {
+      "id": "spine-extractor",
+      "owner": "spine-extractor",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-010/story/story-spine.md"
+      ],
+      "decision": "同一制作会话按角色完成；不声称独立审稿，后续逐项检查。"
+    },
+    {
+      "id": "narrative-adapter",
+      "owner": "narrative-adapter",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-010/story/script-draft.md"
+      ],
+      "decision": "同一制作会话按角色完成；不声称独立审稿，后续逐项检查。"
+    },
+    {
+      "id": "script-editor",
+      "owner": "script-editor",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-010/story/final-script.md",
+        "content/episode-010/story/critic-report.md"
+      ],
+      "decision": "同一制作会话按角色完成；不声称独立审稿，后续逐项检查。"
+    },
+    {
+      "id": "fact-guardian",
+      "owner": "fact-guardian",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-010/story/fact-check-report.md"
+      ],
+      "decision": "本制作会话回读一手来源并核对实际素材；未宣称独立会话审核。"
+    },
+    {
+      "id": "visual-director",
+      "owner": "visual-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-010/story/visual-plan.md"
+      ],
+      "decision": "本制作会话回读一手来源并核对实际素材；未宣称独立会话审核。"
+    },
+    {
+      "id": "delivery-critic",
+      "owner": "delivery-critic",
+      "status": "rejected",
+      "artifacts": [
+        "content/episode-010/production/delivery-critic-report.md"
+      ],
+      "decision": "原版曾获用户整体认可，后收到节奏修正意见；62.30秒修订版完成渲染与机器、抽帧检查，新版听感及独立Delivery待确认。"
+    }
+  ],
+  "decisions": []
+}

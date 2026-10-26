@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "source-first-workflow-v1",
+  "episodeId": "episode-011",
+  "coreStoryQuestion": "Gamma怎样把排版的麻烦变成先有初稿的体验，并找到愿意使用它的人？",
+  "currentStatus": "story-approved",
+  "stages": [
+    {
+      "id": "research-analyst",
+      "owner": "research-analyst",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-011/research/sources.json",
+        "content/episode-011/research/facts.json",
+        "content/episode-011/research/timeline.json"
+      ],
+      "decision": "本会话按用户反馈完成V2职责并回读来源/原始素材；不是独立会话审核。"
+    },
+    {
+      "id": "spine-extractor",
+      "owner": "spine-extractor",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-011/story/story-spine.md"
+      ],
+      "decision": "本会话按用户反馈完成V2职责并回读来源/原始素材；不是独立会话审核。"
+    },
+    {
+      "id": "narrative-adapter",
+      "owner": "narrative-adapter",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-011/story/script-draft.md"
+      ],
+      "decision": "本会话按用户反馈完成V2职责并回读来源/原始素材；不是独立会话审核。"
+    },
+    {
+      "id": "script-editor",
+      "owner": "script-editor",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-011/story/final-script.md",
+        "content/episode-011/story/critic-report.md"
+      ],
+      "decision": "本会话按用户反馈完成V2职责并回读来源/原始素材；不是独立会话审核。"
+    },
+    {
+      "id": "fact-guardian",
+      "owner": "fact-guardian",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-011/story/fact-check-report.md"
+      ],
+      "decision": "本会话按用户反馈完成V2职责并回读来源/原始素材；不是独立会话审核。"
+    },
+    {
+      "id": "visual-director",
+      "owner": "visual-director",
+      "status": "complete",
+      "artifacts": [
+        "content/episode-011/story/visual-plan.md"
+      ],
+      "decision": "本会话按用户反馈完成V2职责并回读来源/原始素材；不是独立会话审核。"
+    },
+    {
+      "id": "delivery-critic",
+      "owner": "delivery-critic",
+      "status": "pending",
+      "artifacts": [
+        "content/episode-011/production/delivery-critic-report.md"
+      ],
+      "decision": "V2实际MP4已做视觉与机器检查；完整听感与独立Delivery未知，未标delivery-approved。"
+    }
+  ],
+  "decisions": []
+}

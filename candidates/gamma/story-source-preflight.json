@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "story-source-preflight-v2",
+  "candidateId": "gamma-ideas-before-formatting",
+  "product": "Gamma",
+  "asOf": "2026-10-20",
+  "sourceStrategy": "single-spine",
+  "storyProfiles": ["founder-journey", "product-mechanism", "cold-start-distribution"],
+  "universalCriteria": {
+    "productOrEventClarity": {
+      "status": "supported",
+      "sourceIds": ["src-gamma-stanford", "src-gamma-product", "src-gamma-3"],
+      "notes": "创始人公开访谈支撑排版需求与主动招募反馈；官方产品页和3.0演示可见产品动作。"
+    },
+    "audienceQuestion": {
+      "status": "supported",
+      "sourceIds": ["src-gamma-stanford", "src-gamma-product", "src-gamma-3"],
+      "notes": "创始人公开访谈支撑排版需求与主动招募反馈；官方产品页和3.0演示可见产品动作。",
+      "text": "Gamma怎样把排版的麻烦变成先有初稿的体验，并找到愿意使用它的人？"
+    },
+    "storyMotion": {
+      "status": "supported",
+      "sourceIds": ["src-gamma-stanford", "src-gamma-product", "src-gamma-3"],
+      "notes": "创始人公开访谈支撑排版需求与主动招募反馈；官方产品页和3.0演示可见产品动作。"
+    },
+    "factTraceability": {
+      "status": "supported",
+      "sourceIds": ["src-gamma-stanford", "src-gamma-product", "src-gamma-3"],
+      "notes": "创始人公开访谈支撑排版需求与主动招募反馈；官方产品页和3.0演示可见产品动作。"
+    },
+    "realVisualFeasibility": {
+      "status": "supported",
+      "sourceIds": ["src-gamma-stanford", "src-gamma-product", "src-gamma-3"],
+      "notes": "创始人公开访谈支撑排版需求与主动招募反馈；官方产品页和3.0演示可见产品动作。"
+    },
+    "rightsBoundaryRecorded": true
+  },
+  "sources": [
+    {
+      "id": "src-gamma-stanford",
+      "title": "Grant Lee – Finding Early-Stage Energy",
+      "publisher": "Stanford STVP",
+      "url": "https://stvp.stanford.edu/videos/grant-lee-gamma-finding-early-stage-energy/",
+      "sourceType": "founder-interview",
+      "roles": ["spine", "verification"],
+      "firstPerson": true,
+      "transcriptAvailable": true,
+      "supports": ["protagonist", "userNeed", "founderDecision", "distribution"],
+      "mediaTypes": ["interview-video"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "公开第一方材料的必要署名节选，仅供用户请求的本地制作评估；外部发布权利未获确认。"
+    },
+    {
+      "id": "src-gamma-product",
+      "title": "Gamma presentations",
+      "publisher": "Gamma",
+      "url": "https://gamma.app/products/presentations",
+      "sourceType": "official",
+      "roles": ["verification", "visual"],
+      "firstPerson": false,
+      "transcriptAvailable": false,
+      "supports": ["productMechanism", "userNeed"],
+      "mediaTypes": ["product-demo"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "公开第一方材料的必要署名节选，仅供用户请求的本地制作评估；外部发布权利未获确认。"
+    },
+    {
+      "id": "src-gamma-growth",
+      "title": "How we built Gamma differently",
+      "publisher": "Gamma / Grant Lee",
+      "url": "https://gamma.app/insights/how-we-built-a-usd100m-business-differently",
+      "sourceType": "founder-interview",
+      "roles": ["verification", "visual"],
+      "firstPerson": true,
+      "transcriptAvailable": false,
+      "supports": ["protagonist", "userNeed", "founderDecision", "measurableOutcome"],
+      "mediaTypes": ["result-evidence"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "公开第一方材料的必要署名节选，仅供用户请求的本地制作评估；外部发布权利未获确认。"
+    },
+    {
+      "id": "src-gamma-3",
+      "title": "Introducing Gamma 3.0",
+      "publisher": "Gamma",
+      "url": "https://gamma.app/insights/introducing-gamma-3-0",
+      "sourceType": "official",
+      "roles": ["visual", "verification"],
+      "firstPerson": false,
+      "transcriptAvailable": false,
+      "supports": ["productMechanism"],
+      "mediaTypes": ["product-demo"],
+      "discoverable": true,
+      "rightsStatus": "review-required",
+      "rightsBoundary": "公开第一方材料的必要署名节选，仅供用户请求的本地制作评估；外部发布权利未获确认。"
+    }
+  ],
+  "storyEvidence": {
+    "protagonist": {
+      "status": "supported",
+      "sourceIds": ["src-gamma-stanford"],
+      "notes": "已回读公开一手来源，保留创始人及公司口径。"
+    },
+    "userNeed": {
+      "status": "supported",
+      "sourceIds": ["src-gamma-stanford"],
+      "notes": "已回读公开一手来源，保留创始人及公司口径。"
+    },
+    "productMechanism": {
+      "status": "supported",
+      "sourceIds": ["src-gamma-product"],
+      "notes": "已回读公开一手来源，保留创始人及公司口径。"
+    },
+    "founderDecision": {
+      "status": "supported",
+      "sourceIds": ["src-gamma-stanford"],
+      "notes": "已回读公开一手来源，保留创始人及公司口径。"
+    },
+    "buildFriction": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "未选择此维度，不补写。"
+    },
+    "distribution": {
+      "status": "supported",
+      "sourceIds": ["src-gamma-stanford"],
+      "notes": "已回读公开一手来源，保留创始人及公司口径。"
+    },
+    "marketEvent": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "未选择此维度，不补写。"
+    },
+    "userBehavior": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "未选择此维度，不补写。"
+    },
+    "measurableOutcome": {
+      "status": "supported",
+      "sourceIds": ["src-gamma-growth"],
+      "notes": "已回读公开一手来源，保留创始人及公司口径。"
+    },
+    "turningPoint": {
+      "status": "not-applicable",
+      "sourceIds": [],
+      "notes": "未选择此维度，不补写。"
+    }
+  },
+  "keyClaims": [
+    {
+      "claim": "2025-11-10公司披露B轮6800万美元，估值21亿美元；为历史融资口径，非利润。",
+      "sourceIds": ["src-gamma-growth"],
+      "reportingType": "founder-reported",
+      "attributionRequired": true
+    }
+  ],
+  "blockers": [],
+  "notes": "首版非AI产品与后续AI版本分开；Product Hunt及访谈不是单独增长原因；当前官网与2025官方演示明确标版本。"
+}

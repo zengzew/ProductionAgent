@@ -1,0 +1,1558 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-010:media:render-plan",
+    "createdAt": "2026-10-20T11:35:27.176Z",
+    "episodeId": "episode-010",
+    "mediaType": "application/json",
+    "path": "content/episode-010/media/render-plan.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-plan-v1",
+    "sha256": "3ca5e053168769a4f7c6ba8cae5173b592611ba28cbf212bf310ab012f86abfd",
+    "sizeBytes": 52079
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "referenceStory": {
+      "claimIds": [
+        "claim-granola-001",
+        "claim-granola-002"
+      ],
+      "headline": "Granola 随手记，AI补全",
+      "profile": "golden-reference-v1",
+      "resultLine": "重点由你来定，细节交给AI"
+    },
+    "timelineSha256": "bfeb13e228c6e5408b2d8f1a689358523cd87c755969eb2e9375bdd35956c3f9",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-10-20T11:35:27.176Z",
+  "episodeId": "episode-010",
+  "fps": 30,
+  "layoutVariant": "poke-standard",
+  "planId": "episode-010:media:render-plan",
+  "schemaVersion": "media-render-plan-v1",
+  "shots": [
+    {
+      "artifactRef": {
+        "artifactId": "episode-010:media-shot:seg-001",
+        "createdAt": "2026-10-20T11:35:26.488Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/shots/seg-001.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "0cd07b8476b91f9929bf76df63d82ac5b3ef754b5bfba6bf0b6fc4a61175c43a",
+        "sizeBytes": 7893
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-granola-001",
+            "claim-granola-002"
+          ],
+          "headline": "Granola 随手记，AI补全",
+          "profile": "golden-reference-v1",
+          "resultLine": "重点由你来定，细节交给AI"
+        },
+        "timelineSha256": "bfeb13e228c6e5408b2d8f1a689358523cd87c755969eb2e9375bdd35956c3f9",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T11:35:26.488Z",
+      "crossfadeMs": 0,
+      "durationFrames": 104,
+      "endSeconds": 3.4650420000000004,
+      "episodeId": "episode-010",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": null,
+      "fallbackImagePath": null,
+      "fallbackImageSha256": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-010:media-verification-clip:seg-001-episode-010-media-clip-36eb78188ebf5a428755a258",
+          "createdAt": "2026-10-20T11:01:56.781Z",
+          "episodeId": "episode-010",
+          "mediaType": "video/mp4",
+          "path": "content/episode-010/media/verifications/seg-001/episode-010-media-clip-36eb78188ebf5a428755a258-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "8632b3774d85685f86d3b02de870f0671bf61c0074036299b9a9c6163b20f750",
+          "sizeBytes": 661273
+        },
+        "clipId": "episode-010:media-clip:36eb78188ebf5a428755a258",
+        "clipIndexRef": {
+          "artifactId": "episode-010:media-clip-index:seg-001-e963365959ed",
+          "createdAt": "2026-10-20T11:01:30.144Z",
+          "episodeId": "episode-010",
+          "mediaType": "application/json",
+          "path": "content/episode-010/media/indexes/seg-001-e963365959ed/clip-index.json",
+          "producer": "media-understanding-v1:index:e963365959ed8104",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "b1c923b974cca0f691ee42ffc0f65ddac421ad936ba967b9ae892184c3ed585b",
+          "sizeBytes": 4234
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-010:media:seg-001-e963365959ed-proxy",
+          "createdAt": "2026-10-20T11:01:28.367Z",
+          "episodeId": "episode-010",
+          "mediaType": "video/mp4",
+          "path": "content/episode-010/media/assets/seg-001-e963365959ed-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "e5da2a9bf28e87876212be7cdcc87d5457646d885466875b27e60ce0fbbd4ed3",
+          "sizeBytes": 108707
+        },
+        "sourceEndMs": 3467,
+        "sourceMediaId": "episode-010:media:seg-001-e963365959ed",
+        "sourceMediaRef": {
+          "artifactId": "episode-010:media:seg-001-e963365959ed",
+          "createdAt": "2026-10-20T11:01:27.926Z",
+          "episodeId": "episode-010",
+          "mediaType": "video/mp4",
+          "path": "content/episode-010/media/assets/seg-001-e963365959ed.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "e963365959ed81043f7d999d2e37e551d5210b2f9f3f6bac2986d1dc4fe64d86",
+          "sizeBytes": 199097
+        },
+        "sourceSha256": "e963365959ed81043f7d999d2e37e551d5210b2f9f3f6bac2986d1dc4fe64d86",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-010:media-verification:seg-001-episode-010-media-clip-36eb78188ebf5a428755a258",
+          "createdAt": "2026-10-20T11:35:25.544Z",
+          "episodeId": "episode-010",
+          "mediaType": "application/json",
+          "path": "content/episode-010/media/verifications/seg-001/episode-010-media-clip-36eb78188ebf5a428755a258.json",
+          "producer": "media-verification-v1:codex:granola-observed-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "329d292892e1868b68f6f525822fce2eac3810aee2ea17c1f46d05771f2d5d11",
+          "sizeBytes": 4520
+        }
+      },
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Granola官网 · 2024年产品演示 · 非本次实测"
+      },
+      "reasons": [
+        "scene seg-001 at frame 0 (104 frames, 30 fps)",
+        "real media episode-010:media-clip:36eb78188ebf5a428755a258 trimmed 0..3467ms (recommended 0..3467ms)",
+        "render proxy episode-010:media-render-proxy:seg-001 (video/mp4)",
+        "audio mix original 0 / narration 1 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-010:media-render-proxy:seg-001",
+        "createdAt": "2026-10-20T11:35:26.466Z",
+        "episodeId": "episode-010",
+        "mediaType": "video/mp4",
+        "path": "content/episode-010/media/render/seg-001.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "1eb8721ecc29988d963e1c9b8c1ce58e0b975cce750c81369b7a0297b1da6054",
+        "sizeBytes": 149634
+      },
+      "sceneIndex": 0,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-001",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-granola-001"
+        ],
+        "clipId": "episode-010:media-clip:36eb78188ebf5a428755a258",
+        "createdAt": "2026-10-20T11:35:25.535Z",
+        "endMs": 3467,
+        "episodeId": "episode-010",
+        "mediaId": "episode-010:media:seg-001-e963365959ed",
+        "sourceMediaRef": {
+          "artifactId": "episode-010:media:seg-001-e963365959ed",
+          "createdAt": "2026-10-20T11:01:27.926Z",
+          "episodeId": "episode-010",
+          "mediaType": "video/mp4",
+          "path": "content/episode-010/media/assets/seg-001-e963365959ed.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "e963365959ed81043f7d999d2e37e551d5210b2f9f3f6bac2986d1dc4fe64d86",
+          "sizeBytes": 199097
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "官方2024年笔记补全演示,0秒原始要点→3秒后展开;首屏配中文用途标题。"
+      },
+      "shotId": "episode-010:media-shot:seg-001",
+      "startFrame": 0,
+      "startSeconds": 0,
+      "staticFilePath": "episodes/episode-010/media/seg-001.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 3467,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-010:media-verification:seg-001-episode-010-media-clip-36eb78188ebf5a428755a258",
+        "createdAt": "2026-10-20T11:35:25.544Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/verifications/seg-001/episode-010-media-clip-36eb78188ebf5a428755a258.json",
+        "producer": "media-verification-v1:codex:granola-observed-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "329d292892e1868b68f6f525822fce2eac3810aee2ea17c1f46d05771f2d5d11",
+        "sizeBytes": 4520
+      },
+      "visualType": "real-media"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-010:media-shot:seg-002",
+        "createdAt": "2026-10-20T11:35:26.524Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/shots/seg-002.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "c19b3cb07ed56c9bf822933690b8e69a5e4c644abb94c48acae6cc12f7c9f093",
+        "sizeBytes": 2893
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-granola-001",
+            "claim-granola-002"
+          ],
+          "headline": "Granola 随手记，AI补全",
+          "profile": "golden-reference-v1",
+          "resultLine": "重点由你来定，细节交给AI"
+        },
+        "timelineSha256": "bfeb13e228c6e5408b2d8f1a689358523cd87c755969eb2e9375bdd35956c3f9",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T11:35:26.523Z",
+      "crossfadeMs": 0,
+      "durationFrames": 231,
+      "endSeconds": 11.162042000000001,
+      "episodeId": "episode-010",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": "granola-still-0",
+      "fallbackImagePath": "episodes/episode-010/media/founder.png",
+      "fallbackImageSha256": "5f9f8ad9c17d6feacc233b1318524104c44266f4b4252a77dd3ab6dbd30d93f4",
+      "fallbackReason": "approved editorial still selected for seg-002",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "官网创始人照片＋真实页面局部 · 2024-05-22"
+      },
+      "reasons": [
+        "scene seg-002 at frame 104 (231 frames, 30 fps)",
+        "fallback none: approved editorial still selected for seg-002",
+        "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 1,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-002",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-010:media-shot:seg-002",
+      "startFrame": 104,
+      "startSeconds": 3.4650420000000004,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "official-screenshot"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-010:media-shot:seg-003",
+        "createdAt": "2026-10-20T11:35:26.553Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/shots/seg-003.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "0440d51964e35d348255fedaab134d090ea4a80c077dd782db2effebcc1e833d",
+        "sizeBytes": 2887
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-granola-001",
+            "claim-granola-002"
+          ],
+          "headline": "Granola 随手记，AI补全",
+          "profile": "golden-reference-v1",
+          "resultLine": "重点由你来定，细节交给AI"
+        },
+        "timelineSha256": "bfeb13e228c6e5408b2d8f1a689358523cd87c755969eb2e9375bdd35956c3f9",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T11:35:26.553Z",
+      "crossfadeMs": 0,
+      "durationFrames": 173,
+      "endSeconds": 16.939209,
+      "episodeId": "episode-010",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": "granola-still-1",
+      "fallbackImagePath": "episodes/episode-010/media/human-ai.png",
+      "fallbackImageSha256": "c8c6d83462e4d91794e8220257d371b0e8e89a444dc10926af95ea1e6b294e68",
+      "fallbackReason": "approved editorial still selected for seg-003",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Granola官网原图 · 2024-05-22 · 中文为编辑释义"
+      },
+      "reasons": [
+        "scene seg-003 at frame 335 (173 frames, 30 fps)",
+        "fallback none: approved editorial still selected for seg-003",
+        "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 2,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-003",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-010:media-shot:seg-003",
+      "startFrame": 335,
+      "startSeconds": 11.162042000000001,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "official-screenshot"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-010:media-shot:seg-004",
+        "createdAt": "2026-10-20T11:35:26.805Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/shots/seg-004.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "84ea6599edea066a330a43ee6313ac58e3ae3e0777c346753f9196ea307f6af6",
+        "sizeBytes": 7898
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-granola-001",
+            "claim-granola-002"
+          ],
+          "headline": "Granola 随手记，AI补全",
+          "profile": "golden-reference-v1",
+          "resultLine": "重点由你来定，细节交给AI"
+        },
+        "timelineSha256": "bfeb13e228c6e5408b2d8f1a689358523cd87c755969eb2e9375bdd35956c3f9",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T11:35:26.805Z",
+      "crossfadeMs": 0,
+      "durationFrames": 243,
+      "endSeconds": 25.055292,
+      "episodeId": "episode-010",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": null,
+      "fallbackImagePath": null,
+      "fallbackImageSha256": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-010:media-verification-clip:seg-004-episode-010-media-clip-73478ba37acafe8633d9e323",
+          "createdAt": "2026-10-20T11:01:56.929Z",
+          "episodeId": "episode-010",
+          "mediaType": "video/mp4",
+          "path": "content/episode-010/media/verifications/seg-004/episode-010-media-clip-73478ba37acafe8633d9e323-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "7c6ff7faa132db67a1da8ffb11ea1894dcd49f7522f5062d52fcdf2a8bb4cfad",
+          "sizeBytes": 763240
+        },
+        "clipId": "episode-010:media-clip:73478ba37acafe8633d9e323",
+        "clipIndexRef": {
+          "artifactId": "episode-010:media-clip-index:seg-004-98f649cafa95",
+          "createdAt": "2026-10-20T11:01:30.296Z",
+          "episodeId": "episode-010",
+          "mediaType": "application/json",
+          "path": "content/episode-010/media/indexes/seg-004-98f649cafa95/clip-index.json",
+          "producer": "media-understanding-v1:index:98f649cafa955ce2",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "516528f3aaa62bf2c05192e5a47677818a7a224c86ffbebd6b7e685ab2346879",
+          "sizeBytes": 4264
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-010:media:seg-004-98f649cafa95-proxy",
+          "createdAt": "2026-10-20T11:01:29.121Z",
+          "episodeId": "episode-010",
+          "mediaType": "video/mp4",
+          "path": "content/episode-010/media/assets/seg-004-98f649cafa95-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "c783dd496667295dade0bd4c062634dd0c99517b1113176a3e6008dec92a5b6e",
+          "sizeBytes": 116678
+        },
+        "sourceEndMs": 8100,
+        "sourceMediaId": "episode-010:media:seg-004-98f649cafa95",
+        "sourceMediaRef": {
+          "artifactId": "episode-010:media:seg-004-98f649cafa95",
+          "createdAt": "2026-10-20T11:01:28.414Z",
+          "episodeId": "episode-010",
+          "mediaType": "video/mp4",
+          "path": "content/episode-010/media/assets/seg-004-98f649cafa95.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "98f649cafa955ce20643d12371cd67fcda9ef74013c173b120c5f5e11b0e9d5a",
+          "sizeBytes": 208699
+        },
+        "sourceSha256": "98f649cafa955ce20643d12371cd67fcda9ef74013c173b120c5f5e11b0e9d5a",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-010:media-verification:seg-004-episode-010-media-clip-73478ba37acafe8633d9e323",
+          "createdAt": "2026-10-20T11:35:25.719Z",
+          "episodeId": "episode-010",
+          "mediaType": "application/json",
+          "path": "content/episode-010/media/verifications/seg-004/episode-010-media-clip-73478ba37acafe8633d9e323.json",
+          "producer": "media-verification-v1:codex:granola-observed-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "7d9a96e90d49f4a772867769849b87e88cf5e0e096c5f46e4c6a4c21fad7b3d8",
+          "sizeBytes": 4552
+        }
+      },
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Granola官网 · 2024年产品演示 · 非本次实测"
+      },
+      "reasons": [
+        "scene seg-004 at frame 508 (243 frames, 30 fps)",
+        "real media episode-010:media-clip:73478ba37acafe8633d9e323 trimmed 0..8100ms (recommended 0..8100ms)",
+        "render proxy episode-010:media-render-proxy:seg-004 (video/mp4)",
+        "audio mix original 0 / narration 1 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-010:media-render-proxy:seg-004",
+        "createdAt": "2026-10-20T11:35:26.787Z",
+        "episodeId": "episode-010",
+        "mediaType": "video/mp4",
+        "path": "content/episode-010/media/render/seg-004.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "5efacce985528f4c77985f2fa0edd92e9a6225935ec0776df7d0df886c8bd2c5",
+        "sizeBytes": 160137
+      },
+      "sceneIndex": 3,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-004",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-granola-001"
+        ],
+        "clipId": "episode-010:media-clip:73478ba37acafe8633d9e323",
+        "createdAt": "2026-10-20T11:35:25.712Z",
+        "endMs": 8100,
+        "episodeId": "episode-010",
+        "mediaId": "episode-010:media:seg-004-98f649cafa95",
+        "sourceMediaRef": {
+          "artifactId": "episode-010:media:seg-004-98f649cafa95",
+          "createdAt": "2026-10-20T11:01:28.414Z",
+          "episodeId": "episode-010",
+          "mediaType": "video/mp4",
+          "path": "content/episode-010/media/assets/seg-004-98f649cafa95.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "98f649cafa955ce20643d12371cd67fcda9ef74013c173b120c5f5e11b0e9d5a",
+          "sizeBytes": 208699
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "官方历史补全演示连续展示原始记录到展开;明确官网演示、非本次实测。"
+      },
+      "shotId": "episode-010:media-shot:seg-004",
+      "startFrame": 508,
+      "startSeconds": 16.939209,
+      "staticFilePath": "episodes/episode-010/media/seg-004.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 8100,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-010:media-verification:seg-004-episode-010-media-clip-73478ba37acafe8633d9e323",
+        "createdAt": "2026-10-20T11:35:25.719Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/verifications/seg-004/episode-010-media-clip-73478ba37acafe8633d9e323.json",
+        "producer": "media-verification-v1:codex:granola-observed-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "7d9a96e90d49f4a772867769849b87e88cf5e0e096c5f46e4c6a4c21fad7b3d8",
+        "sizeBytes": 4552
+      },
+      "visualType": "real-media"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-010:media-shot:seg-005",
+        "createdAt": "2026-10-20T11:35:27.042Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/shots/seg-005.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "b3b13f936b70331d625bfc08c5d234bc36ff58c3a9d8ea21ef67e6547648689c",
+        "sizeBytes": 7913
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-granola-001",
+            "claim-granola-002"
+          ],
+          "headline": "Granola 随手记，AI补全",
+          "profile": "golden-reference-v1",
+          "resultLine": "重点由你来定，细节交给AI"
+        },
+        "timelineSha256": "bfeb13e228c6e5408b2d8f1a689358523cd87c755969eb2e9375bdd35956c3f9",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T11:35:27.042Z",
+      "crossfadeMs": 0,
+      "durationFrames": 252,
+      "endSeconds": 33.47,
+      "episodeId": "episode-010",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": null,
+      "fallbackImagePath": null,
+      "fallbackImageSha256": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-010:media-verification-clip:seg-005-episode-010-media-clip-b335167b5b2fb51bc8accb85",
+          "createdAt": "2026-10-20T11:01:57.213Z",
+          "episodeId": "episode-010",
+          "mediaType": "video/mp4",
+          "path": "content/episode-010/media/verifications/seg-005/episode-010-media-clip-b335167b5b2fb51bc8accb85-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "c366c70d9c14a96409f50232be8cfbaea3a15a3859a20a51bb3293afc072bec9",
+          "sizeBytes": 327253
+        },
+        "clipId": "episode-010:media-clip:b335167b5b2fb51bc8accb85",
+        "clipIndexRef": {
+          "artifactId": "episode-010:media-clip-index:seg-005-8483c5e80015",
+          "createdAt": "2026-10-20T11:01:30.448Z",
+          "episodeId": "episode-010",
+          "mediaType": "application/json",
+          "path": "content/episode-010/media/indexes/seg-005-8483c5e80015/clip-index.json",
+          "producer": "media-understanding-v1:index:8483c5e800150b82",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "a9f78c0f6c8da9c6a95d8f9b05ced8249b1de83e71e50169357cf2cb1eabfef0",
+          "sizeBytes": 4275
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-010:media:seg-005-8483c5e80015-proxy",
+          "createdAt": "2026-10-20T11:01:29.809Z",
+          "episodeId": "episode-010",
+          "mediaType": "video/mp4",
+          "path": "content/episode-010/media/assets/seg-005-8483c5e80015-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "772b6a145d2e5eb7e8a12e85f980c768086db87d8cd5f1c69958c8cab936f923",
+          "sizeBytes": 72402
+        },
+        "sourceEndMs": 8400,
+        "sourceMediaId": "episode-010:media:seg-005-8483c5e80015",
+        "sourceMediaRef": {
+          "artifactId": "episode-010:media:seg-005-8483c5e80015",
+          "createdAt": "2026-10-20T11:01:29.172Z",
+          "episodeId": "episode-010",
+          "mediaType": "video/mp4",
+          "path": "content/episode-010/media/assets/seg-005-8483c5e80015.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "8483c5e800150b82e61a79feb827932ad86d30382352fc742a0af2a8b97258fc",
+          "sizeBytes": 111381
+        },
+        "sourceSha256": "8483c5e800150b82e61a79feb827932ad86d30382352fc742a0af2a8b97258fc",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-010:media-verification:seg-005-episode-010-media-clip-b335167b5b2fb51bc8accb85",
+          "createdAt": "2026-10-20T11:35:25.916Z",
+          "episodeId": "episode-010",
+          "mediaType": "application/json",
+          "path": "content/episode-010/media/verifications/seg-005/episode-010-media-clip-b335167b5b2fb51bc8accb85.json",
+          "producer": "media-verification-v1:codex:granola-observed-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "dc4671396e30da83252466aaec96ba05c8db21e2e518a14e2c7b5635fc419ed8",
+          "sizeBytes": 4615
+        }
+      },
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Granola官网演示结果 · 局部停帧供阅读"
+      },
+      "reasons": [
+        "scene seg-005 at frame 751 (252 frames, 30 fps)",
+        "real media episode-010:media-clip:b335167b5b2fb51bc8accb85 trimmed 0..8400ms (recommended 0..8400ms)",
+        "render proxy episode-010:media-render-proxy:seg-005 (video/mp4)",
+        "audio mix original 0 / narration 1 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-010:media-render-proxy:seg-005",
+        "createdAt": "2026-10-20T11:35:27.025Z",
+        "episodeId": "episode-010",
+        "mediaType": "video/mp4",
+        "path": "content/episode-010/media/render/seg-005.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "51df99662a77525541a5e523dd3c5ff05123d5b37a8cd2702c95a6bc55ed90de",
+        "sizeBytes": 86629
+      },
+      "sceneIndex": 4,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-005",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-granola-001",
+          "claim-granola-002"
+        ],
+        "clipId": "episode-010:media-clip:b335167b5b2fb51bc8accb85",
+        "createdAt": "2026-10-20T11:35:25.907Z",
+        "endMs": 8400,
+        "episodeId": "episode-010",
+        "mediaId": "episode-010:media:seg-005-8483c5e80015",
+        "sourceMediaRef": {
+          "artifactId": "episode-010:media:seg-005-8483c5e80015",
+          "createdAt": "2026-10-20T11:01:29.172Z",
+          "episodeId": "episode-010",
+          "mediaType": "video/mp4",
+          "path": "content/episode-010/media/assets/seg-005-8483c5e80015.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "8483c5e800150b82e61a79feb827932ad86d30382352fc742a0af2a8b97258fc",
+          "sizeBytes": 111381
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "同段官方演示展示分层笔记与Next steps,缩小到笔记区域,保留标题与原词。"
+      },
+      "shotId": "episode-010:media-shot:seg-005",
+      "startFrame": 751,
+      "startSeconds": 25.055292,
+      "staticFilePath": "episodes/episode-010/media/seg-005.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 8400,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-010:media-verification:seg-005-episode-010-media-clip-b335167b5b2fb51bc8accb85",
+        "createdAt": "2026-10-20T11:35:25.916Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/verifications/seg-005/episode-010-media-clip-b335167b5b2fb51bc8accb85.json",
+        "producer": "media-verification-v1:codex:granola-observed-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "dc4671396e30da83252466aaec96ba05c8db21e2e518a14e2c7b5635fc419ed8",
+        "sizeBytes": 4615
+      },
+      "visualType": "real-media"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-010:media-shot:seg-006",
+        "createdAt": "2026-10-20T11:35:27.074Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/shots/seg-006.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "7af2237a98559b997389aab02b48899885944c2f9747751d12814f676a872f25",
+        "sizeBytes": 2876
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-granola-001",
+            "claim-granola-002"
+          ],
+          "headline": "Granola 随手记，AI补全",
+          "profile": "golden-reference-v1",
+          "resultLine": "重点由你来定，细节交给AI"
+        },
+        "timelineSha256": "bfeb13e228c6e5408b2d8f1a689358523cd87c755969eb2e9375bdd35956c3f9",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T11:35:27.073Z",
+      "crossfadeMs": 0,
+      "durationFrames": 244,
+      "endSeconds": 41.609146,
+      "episodeId": "episode-010",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": "granola-still-3",
+      "fallbackImagePath": "episodes/episode-010/media/early-users.png",
+      "fallbackImageSha256": "cef51b655b383ba7a1001620e5042b86ba693d459c2e594d8095b7e2d36973f5",
+      "fallbackReason": "approved editorial still selected for seg-006",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Granola真实页面局部 · 2024-10-23 · 公司自述"
+      },
+      "reasons": [
+        "scene seg-006 at frame 1003 (244 frames, 30 fps)",
+        "fallback none: approved editorial still selected for seg-006",
+        "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 5,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-006",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-010:media-shot:seg-006",
+      "startFrame": 1003,
+      "startSeconds": 33.47,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "official-screenshot"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-010:media-shot:seg-007",
+        "createdAt": "2026-10-20T11:35:27.101Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/shots/seg-007.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "74e68fb41db1e80880ba4187616141405faa3af16cedc622c3a46c05d761fc9b",
+        "sizeBytes": 2889
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-granola-001",
+            "claim-granola-002"
+          ],
+          "headline": "Granola 随手记，AI补全",
+          "profile": "golden-reference-v1",
+          "resultLine": "重点由你来定，细节交给AI"
+        },
+        "timelineSha256": "bfeb13e228c6e5408b2d8f1a689358523cd87c755969eb2e9375bdd35956c3f9",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T11:35:27.101Z",
+      "crossfadeMs": 0,
+      "durationFrames": 178,
+      "endSeconds": 47.536291999999996,
+      "episodeId": "episode-010",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": "granola-still-4",
+      "fallbackImagePath": "episodes/episode-010/media/team-spread.png",
+      "fallbackImageSha256": "70085fa9a5a3132536fac285a729866e80fb1c6d773ec5a41d30d7aef8b713cb",
+      "fallbackReason": "approved editorial still selected for seg-007",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Granola真实页面局部 · 2024-10-23 · 公司自述"
+      },
+      "reasons": [
+        "scene seg-007 at frame 1247 (178 frames, 30 fps)",
+        "fallback none: approved editorial still selected for seg-007",
+        "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 6,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-007",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-010:media-shot:seg-007",
+      "startFrame": 1247,
+      "startSeconds": 41.609146,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "official-screenshot"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-010:media-shot:seg-008",
+        "createdAt": "2026-10-20T11:35:27.128Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/shots/seg-008.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "45cadd3a8228bb7d6f62bdab9f268f9b61f37ef2296d1621ad84bb4d761e3d6c",
+        "sizeBytes": 2885
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-granola-001",
+            "claim-granola-002"
+          ],
+          "headline": "Granola 随手记，AI补全",
+          "profile": "golden-reference-v1",
+          "resultLine": "重点由你来定，细节交给AI"
+        },
+        "timelineSha256": "bfeb13e228c6e5408b2d8f1a689358523cd87c755969eb2e9375bdd35956c3f9",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T11:35:27.128Z",
+      "crossfadeMs": 0,
+      "durationFrames": 196,
+      "endSeconds": 54.061271,
+      "episodeId": "episode-010",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": "granola-still-5",
+      "fallbackImagePath": "episodes/episode-010/media/funding.png",
+      "fallbackImageSha256": "1d46fbe30bfd9006cc00eb1cae7093b726341a8158e3d7bb7e29e711b5ae15ec",
+      "fallbackReason": "approved editorial still selected for seg-008",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Granola真实页面局部 · 2026-03-25 · 公司披露"
+      },
+      "reasons": [
+        "scene seg-008 at frame 1425 (196 frames, 30 fps)",
+        "fallback none: approved editorial still selected for seg-008",
+        "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 7,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-008",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-010:media-shot:seg-008",
+      "startFrame": 1425,
+      "startSeconds": 47.536291999999996,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "official-screenshot"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-010:media-shot:seg-009",
+        "createdAt": "2026-10-20T11:35:27.155Z",
+        "episodeId": "episode-010",
+        "mediaType": "application/json",
+        "path": "content/episode-010/media/shots/seg-009.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "16bb644125f063e82210868ba28a0249b738a9dc152fb7fc70c3028066eb8fa6",
+        "sizeBytes": 2890
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-granola-001",
+            "claim-granola-002"
+          ],
+          "headline": "Granola 随手记，AI补全",
+          "profile": "golden-reference-v1",
+          "resultLine": "重点由你来定，细节交给AI"
+        },
+        "timelineSha256": "bfeb13e228c6e5408b2d8f1a689358523cd87c755969eb2e9375bdd35956c3f9",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T11:35:27.155Z",
+      "crossfadeMs": 0,
+      "durationFrames": 248,
+      "endSeconds": 62.334021,
+      "episodeId": "episode-010",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": "granola-still-2",
+      "fallbackImagePath": "episodes/episode-010/media/human-ai.png",
+      "fallbackImageSha256": "c8c6d83462e4d91794e8220257d371b0e8e89a444dc10926af95ea1e6b294e68",
+      "fallbackReason": "approved editorial still selected for seg-009",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Granola官网原图 · 黑色手记／灰色AI补全 · 编辑释义"
+      },
+      "reasons": [
+        "scene seg-009 at frame 1621 (248 frames, 30 fps)",
+        "fallback none: approved editorial still selected for seg-009",
+        "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 8,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-009",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-010:media-shot:seg-009",
+      "startFrame": 1621,
+      "startSeconds": 54.061271,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "official-screenshot"
+    }
+  ],
+  "timelineSha256": "bfeb13e228c6e5408b2d8f1a689358523cd87c755969eb2e9375bdd35956c3f9",
+  "totalFrames": 1869,
+  "totalSeconds": 62.3
+}

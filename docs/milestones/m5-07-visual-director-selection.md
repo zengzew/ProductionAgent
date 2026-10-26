@@ -1,7 +1,7 @@
 # WP-M5-07 — Visual Director Real-Media-First Integration
 
 - Status: implemented
-- Parent: `docs/milestones/m5-real-media-plan.md`
+- Historical scope: [archived M5 plan](../../../ProductionAgent-legacy-archive/2026-10-26-cleanup/retired/docs/milestones/m5-real-media-plan.md)
 - Code: `src/media/select.ts` (formal `visual-slot-v1`), `src/media/paths.ts`
   (`media/selections/` paths), `src/media/events.ts`
   (`media.selection.started/completed/failed` + `selectedType`/`fallbackType`

@@ -292,6 +292,7 @@ export const createFoundationGraph = (input: {
   observability?: FoundationObservabilityOptions;
   agentRequestFor?: FoundationAgentRequestBuilder;
   production?: FoundationNode;
+  referenceContent?: FoundationNode;
   afterProduction?: (state: ProductionState) => "execute_agent" | "final_approval";
   concurrency?: ConcurrencyConfig;
 }) => {
@@ -438,9 +439,15 @@ export const createFoundationGraph = (input: {
   };
 
   const executeNext = async (state: ProductionState) => {
-    const contentAgentsComplete = agentNames
-      .slice(0, -1)
-      .every((candidate) => state.completedAgents.includes(candidate));
+    if (
+      input.referenceContent &&
+      state.productionAuthorization?.approvalEpoch !== state.approvalEpoch
+    ) {
+      return input.referenceContent(state);
+    }
+    const contentAgentsComplete =
+      Boolean(input.referenceContent) ||
+      agentNames.slice(0, -1).every((candidate) => state.completedAgents.includes(candidate));
     if (
       input.production &&
       contentAgentsComplete &&
@@ -462,7 +469,7 @@ export const createFoundationGraph = (input: {
         ? (routedOwner as AgentName)
         : undefined;
     const agentName =
-      routedAgent ??
+      (input.referenceContent ? "delivery-critic" : routedAgent) ??
       agentNames.find((candidate) => {
         if (state.completedAgents.includes(candidate)) return false;
         if (
@@ -1235,6 +1242,12 @@ export const createFoundationGraph = (input: {
     finalApproval,
     finalize,
     afterAgent: (state) => {
+      if (input.referenceContent) {
+        if (state.completedAgents.includes("delivery-critic")) return "final_approval";
+        return state.decisions["reference-content"]?.code === "REFERENCE_CONTENT_READY"
+          ? "content_approval"
+          : "continue";
+      }
       if (contentLoopEnabled) {
         const prepComplete = prepAgentNames.every((agentName) =>
           state.completedAgents.includes(agentName),
@@ -1257,6 +1270,11 @@ export const createFoundationGraph = (input: {
         : "content_approval";
     },
     afterInitialize: (state) => {
+      if (
+        input.referenceContent &&
+        state.productionAuthorization?.approvalEpoch !== state.approvalEpoch
+      )
+        return "execute_agent";
       if (
         state.phase === "content_eval" &&
         state.productionAuthorization?.approvalEpoch !== state.approvalEpoch

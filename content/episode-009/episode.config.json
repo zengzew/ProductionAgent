@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "episode-config-v2",
+  "kind": "episode",
+  "id": "episode-009",
+  "slug": "fastlane-content-distribution",
+  "product": "Fastlane",
+  "title": "把产品链接，变成营销短视频",
+  "language": "zh-CN",
+  "targetSeconds": 60,
+  "production": {
+    "timelineTailSeconds": {},
+    "hookAttributionSubjects": [
+      "Fastlane",
+      "创始人"
+    ],
+    "referenceStory": {
+      "profile": "golden-reference-v1",
+      "headline": "Fastlane 把产品链接",
+      "resultLine": "变成营销短视频",
+      "claimIds": [
+        "claim-fastlane-001"
+      ]
+    }
+  },
+  "selection": "selected",
+  "selectionReason": "用户指定Fastlane；候选预检ready，公开采访包含产品操作与创始人获客自述。",
+  "publishStatus": "evaluation",
+  "publishBlocker": "本地制作评估；独立Delivery审核和用户观看后决定最终批准，外部发布权利未终审。",
+  "asOf": "2026-10-14",
+  "captureAssets": [
+    {
+      "file": "fastlane-founder.png",
+      "url": "https://www.starterstory.com/stories/fastlane-create-winning-short-form-content-in-seconds",
+      "anchor": {
+        "role": "heading",
+        "name": "Who are you and what business did you start?"
+      }
+    },
+    {
+      "file": "fastlane-signup.png",
+      "url": "https://app.usefastlane.ai/signup"
+    },
+    {
+      "file": "fastlane-home.png",
+      "url": "https://www.usefastlane.ai/"
+    }
+  ]
+}

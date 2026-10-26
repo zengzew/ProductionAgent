@@ -1,0 +1,60 @@
+{
+  "episodeId": "episode-012",
+  "segmentId": "seg-009",
+  "clipId": "episode-012:media-clip:9da3e4dcac0e6469df6cef25",
+  "claimIds": [
+    "claim-pr-001",
+    "claim-pr-009"
+  ],
+  "claims": [
+    {
+      "id": "claim-pr-001",
+      "claim": "Photoroom支持从商品照片去除背景，再改用白底、模板或AI生成的商品场景。"
+    },
+    {
+      "id": "claim-pr-009",
+      "claim": "把重复的背景编辑工作交给工具，可以让卖家围绕真实商品准备展示图。"
+    }
+  ],
+  "narration": "它接住的,就是小卖家每天都要做的事:把手里的货,清清楚楚地摆到买家面前。",
+  "visualIntent": "回到开头同一杯子/鞋子官方白底结果;不加销量、利润承诺或关注口号。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/verifications/seg-009/episode-012-media-clip-9da3e4dcac0e6469df6cef25-clip.mp4",
+    "sha256": "1793f38f118b3abcb29aa3470a3b3ef1654e34f6347756f91760ffd9da74f97d",
+    "sizeBytes": 2507795,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 6133,
+    "sourceMediaId": "episode-012:media:seg-009-1fd53f6672de",
+    "sourceMediaSha256": "1fd53f6672de73cbfc7c5d4c562384e65d682fefa4ff397486c65fb2db9187ec"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/indexes/seg-009-1fd53f6672de/keyframes/keyframe-0-3066.jpg",
+      "timestampMs": 3066,
+      "sha256": "b6337b1c33dd47052476bf4d9ed8ea9b349c9b0970113d4b6dd30c329cd82c83",
+      "sizeBytes": 66764,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "结尾回看官方去背景演示，最后一秒落回开头黄色杯子的干净白底结果，停帧供阅读，不延长片长，无销售效果承诺。",
+    "observedText": "",
+    "keywords": [
+      "seg-009",
+      "Photoroom",
+      "official",
+      "attributed-local-evaluation"
+    ],
+    "entities": [
+      "Photoroom"
+    ],
+    "semanticTags": [
+      "attributed-source-excerpt",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "c2a8fe5b18a818ce0078e698183ac9356abbeb415e7ac15201fc023797accb31"
+}

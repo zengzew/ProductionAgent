@@ -1,0 +1,147 @@
+{
+  "requestedProvider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "provider": "MiniMax Speech via Alibaba Cloud Model Studio",
+  "providerId": "minimax",
+  "fallbackUsed": false,
+  "fallbackReason": "",
+  "generatedAt": "2026-10-14T11:56:23.284Z",
+  "voice": "Chinese (Mandarin)_Reliable_Executive",
+  "speed": 1.2,
+  "pitch": 0,
+  "normalization": "loudnorm I=-16 TP=-1.5 LRA=7",
+  "credentialRequired": true,
+  "networkRequired": true,
+  "alignmentStrategy": "provider-timestamps",
+  "files": [
+    {
+      "segmentId": "seg-001",
+      "file": "episodes/episode-009/audio/seg-001.mp3",
+      "timestamps": [
+        {
+          "text": "产品有了,宣传视频怎么拍?",
+          "startMs": 0,
+          "endMs": 1850.4761904761904
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-002",
+      "file": "episodes/episode-009/audio/seg-002.mp3",
+      "timestamps": [
+        {
+          "text": "Fastlane把产品链接,变成一组营销内容。",
+          "startMs": 0,
+          "endMs": 3232.063492063492
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-003",
+      "file": "episodes/episode-009/audio/seg-003.mp3",
+      "timestamps": [
+        {
+          "text": "一张张滑着挑,不喜欢就跳过,喜欢就留下。",
+          "startMs": 0,
+          "endMs": 3232.063492063492
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-004",
+      "file": "episodes/episode-009/audio/seg-004.mp3",
+      "timestamps": [
+        {
+          "text": "挑好内容,再选账号;",
+          "startMs": 0,
+          "endMs": 1745.9863945578231
+        },
+        {
+          "text": "现在发,还是排到以后,也能在这里选。",
+          "startMs": 1846,
+          "endMs": 4474.344671201814
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-005",
+      "file": "episodes/episode-009/audio/seg-005.mp3",
+      "timestamps": [
+        {
+          "text": "这也是创始人自己的难题:应用做出来了,却卡在怎么让人看见。",
+          "startMs": 0,
+          "endMs": 4520.770975056689
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-006",
+      "file": "episodes/episode-009/audio/seg-006.mp3",
+      "timestamps": [
+        {
+          "text": "找第一批用户,他们去Reddit和社交平台找人,再发邮件约报名者通话。",
+          "startMs": 0,
+          "endMs": 4625.260770975056
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-007",
+      "file": "episodes/episode-009/audio/seg-007.mp3",
+      "timestamps": [
+        {
+          "text": "应用里还放了个预约按钮:聊一次,就多送七天使用时间。",
+          "startMs": 0,
+          "endMs": 3591.9727891156463
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-008",
+      "file": "episodes/episode-009/audio/seg-008.mp3",
+      "timestamps": [
+        {
+          "text": "通话时让对方共享屏幕,少说话,先看人卡在哪,再改界面。",
+          "startMs": 0,
+          "endMs": 4729.750566893425
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-009",
+      "file": "episodes/episode-009/audio/seg-009.mp3",
+      "timestamps": [
+        {
+          "text": "收入呢?",
+          "startMs": 0,
+          "endMs": 677.8684807256235
+        },
+        {
+          "text": "二零二六年四月,创始人自报:年化经常性收入超过十二万澳元。",
+          "startMs": 778,
+          "endMs": 5612.240362811791
+        }
+      ],
+      "timestampSource": "minimax:word"
+    },
+    {
+      "segmentId": "seg-010",
+      "file": "episodes/episode-009/audio/seg-010.mp3",
+      "timestamps": [
+        {
+          "text": "做产品的人,不必每条宣传都从空白开始:有了内容,挑好,再排期发出去。",
+          "startMs": 0,
+          "endMs": 6471.247165532879
+        }
+      ],
+      "timestampSource": "minimax:word"
+    }
+  ]
+}

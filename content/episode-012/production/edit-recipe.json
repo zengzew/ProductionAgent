@@ -1,0 +1,175 @@
+{
+  "durationBasis": "measured-TTS-timeline",
+  "parts": [
+    {
+      "segmentId": "seg-001",
+      "seconds": 3.033333333333333,
+      "parts": [
+        {
+          "source": "content/episode-012/media/raw/official-background-demo.mp4",
+          "sourceSha256": "d14a78a57d5fbf3676b51293d91aa0c181e9242d447bf8d6f432b49d83979ada",
+          "startSeconds": 0,
+          "seconds": 3.033333333333333,
+          "still": false
+        }
+      ],
+      "outputPath": "content/episode-012/media/prepared/seg-001.mp4",
+      "outputSha256": "f4f8df40e597a85eb860fe2af35d543e942151326a3b73f2eeb690233bef9e28"
+    },
+    {
+      "segmentId": "seg-002",
+      "seconds": 5.933333333333334,
+      "parts": [
+        {
+          "source": "content/episode-012/media/cards/founder.png",
+          "sourceSha256": "82698e0ec0c67c5e555a657ca1b0188e13c84a5761a530fd04bada4dc62b1d39",
+          "startSeconds": 0,
+          "seconds": 5.933333333333334,
+          "still": true
+        }
+      ],
+      "outputPath": "content/episode-012/media/prepared/seg-002.mp4",
+      "outputSha256": "a93299117c36a890996a3b8ba9a150d3022eea8135a3335f509f2ca7f83ed2eb"
+    },
+    {
+      "segmentId": "seg-003",
+      "seconds": 5.033333333333333,
+      "parts": [
+        {
+          "source": "content/episode-012/media/cards/prototype.png",
+          "sourceSha256": "d2b92cb7c93d8119ae0498b32a29dfe3106824eadd6ae54342380744a4bc41cb",
+          "startSeconds": 0,
+          "seconds": 5.033333333333333,
+          "still": true
+        }
+      ],
+      "outputPath": "content/episode-012/media/prepared/seg-003.mp4",
+      "outputSha256": "3f05572b660677ccf4a379f456365d1a9b29044c75a95a1484a9f5e24e50c41a"
+    },
+    {
+      "segmentId": "seg-004",
+      "seconds": 6.266666666666667,
+      "parts": [
+        {
+          "source": "content/episode-012/media/cards/upload.png",
+          "sourceSha256": "d199f2f7e071c200757314c247d1d573bfc1940e4d6a7775e786366214522151",
+          "startSeconds": 0,
+          "seconds": 1.35,
+          "still": true
+        },
+        {
+          "source": "content/episode-012/media/raw/official-background-demo.mp4",
+          "sourceSha256": "d14a78a57d5fbf3676b51293d91aa0c181e9242d447bf8d6f432b49d83979ada",
+          "startSeconds": 0,
+          "seconds": 3.2,
+          "still": false
+        },
+        {
+          "source": "content/episode-012/media/cards/scene.png",
+          "sourceSha256": "ee13a71d063f4b5a75e8282cf50e05b9b3a59d48d8e6ced85dc5599f16b5aff8",
+          "startSeconds": 0,
+          "seconds": 1.716666666666666,
+          "still": true
+        }
+      ],
+      "outputPath": "content/episode-012/media/prepared/seg-004.mp4",
+      "outputSha256": "be6b3df8fde1aa88b509ab340fea6e1eceeee7acfd4c86e6bfbbf6fa32daa5bc"
+    },
+    {
+      "segmentId": "seg-005",
+      "seconds": 6.9,
+      "parts": [
+        {
+          "source": "content/episode-012/media/cards/trust.png",
+          "sourceSha256": "54f123328ae5b6dbdc8802277341978dcbeb7be89d46fa75ce4f00d519623439",
+          "startSeconds": 0,
+          "seconds": 3.2,
+          "still": true
+        },
+        {
+          "source": "content/episode-012/media/raw/official-background-demo.mp4",
+          "sourceSha256": "d14a78a57d5fbf3676b51293d91aa0c181e9242d447bf8d6f432b49d83979ada",
+          "startSeconds": 3,
+          "seconds": 3.7,
+          "still": false
+        }
+      ],
+      "outputPath": "content/episode-012/media/prepared/seg-005.mp4",
+      "outputSha256": "7835b4489ba1a78953e30753e7a6f64dda45a739d2edaacf8142c645a06c5fe0"
+    },
+    {
+      "segmentId": "seg-006",
+      "seconds": 7.266666666666667,
+      "parts": [
+        {
+          "source": "content/episode-012/media/cards/growth.png",
+          "sourceSha256": "0f0297070089168be4ecf516746f2b24c0aeea46c18ce010d167e04d3b2f6a84",
+          "startSeconds": 0,
+          "seconds": 3.7,
+          "still": true
+        },
+        {
+          "source": "content/episode-012/media/raw/official-background-demo.mp4",
+          "sourceSha256": "d14a78a57d5fbf3676b51293d91aa0c181e9242d447bf8d6f432b49d83979ada",
+          "startSeconds": 5,
+          "seconds": 3.5666666666666664,
+          "still": false
+        }
+      ],
+      "outputPath": "content/episode-012/media/prepared/seg-006.mp4",
+      "outputSha256": "5e5865b94e5143de617e1cbd03862a8c10caf157de70b12306a652330d4eca15"
+    },
+    {
+      "segmentId": "seg-007",
+      "seconds": 4.266666666666667,
+      "parts": [
+        {
+          "source": "content/episode-012/media/cards/creators.png",
+          "sourceSha256": "765cdc3d93b07bde3dee80d2d57d8ea12cd643870d14b16a71aced0831912488",
+          "startSeconds": 0,
+          "seconds": 4.266666666666667,
+          "still": true
+        }
+      ],
+      "outputPath": "content/episode-012/media/prepared/seg-007.mp4",
+      "outputSha256": "59d25de792b0fea069202535ae5af37551e5359c58a35051b8763168199b6dc5"
+    },
+    {
+      "segmentId": "seg-008",
+      "seconds": 3.566666666666667,
+      "parts": [
+        {
+          "source": "content/episode-012/media/cards/funding.png",
+          "sourceSha256": "01781f05772ac597c309ea2b4e6d62e34a80dd6a1ac1f5376e3c031233cd7f03",
+          "startSeconds": 0,
+          "seconds": 3.566666666666667,
+          "still": true
+        }
+      ],
+      "outputPath": "content/episode-012/media/prepared/seg-008.mp4",
+      "outputSha256": "b26c3dfa43b9752ec1a2ba4050cdb8250e24448beecaae2eb4b81e7a98616567"
+    },
+    {
+      "segmentId": "seg-009",
+      "seconds": 6.133333333333334,
+      "parts": [
+        {
+          "source": "content/episode-012/media/raw/official-background-demo.mp4",
+          "sourceSha256": "d14a78a57d5fbf3676b51293d91aa0c181e9242d447bf8d6f432b49d83979ada",
+          "startSeconds": 0,
+          "seconds": 5.133333333333334,
+          "still": false
+        },
+        {
+          "source": "content/episode-012/media/prepared/cup-result.png",
+          "sourceSha256": "d968a2545fa3fb8c1d0d1d64989d25bb72914e6a4529f471c5c418201feca913",
+          "startSeconds": 0,
+          "seconds": 1.0,
+          "still": true
+        }
+      ],
+      "outputPath": "content/episode-012/media/prepared/seg-009.mp4",
+      "outputSha256": "1fd53f6672de73cbfc7c5d4c562384e65d682fefa4ff397486c65fb2db9187ec"
+    }
+  ]
+}

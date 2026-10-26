@@ -1,0 +1,61 @@
+{
+  "scope": "真实截图局部和官方原图裁切；中文文字为明确标注的编辑释义；无仿制应用UI。",
+  "images": [
+    {
+      "path": "public/episodes/episode-010/assets/announcement-0.png",
+      "sha256": "e53cb8d15bc90a6c19464d4869f3aa5409b78fa74b496adbd766a5def8bcd986"
+    },
+    {
+      "path": "public/episodes/episode-010/assets/announcement-1.png",
+      "sha256": "b5667a91a9c4c45018b7306aa53494c0658fc80964417e44c3234080f84e5089"
+    },
+    {
+      "path": "public/episodes/episode-010/assets/early-users.png",
+      "sha256": "cef51b655b383ba7a1001620e5042b86ba693d459c2e594d8095b7e2d36973f5"
+    },
+    {
+      "path": "public/episodes/episode-010/assets/founder.png",
+      "sha256": "5f9f8ad9c17d6feacc233b1318524104c44266f4b4252a77dd3ab6dbd30d93f4"
+    },
+    {
+      "path": "public/episodes/episode-010/assets/funding.png",
+      "sha256": "1d46fbe30bfd9006cc00eb1cae7093b726341a8158e3d7bb7e29e711b5ae15ec"
+    },
+    {
+      "path": "public/episodes/episode-010/assets/human-ai.png",
+      "sha256": "c8c6d83462e4d91794e8220257d371b0e8e89a444dc10926af95ea1e6b294e68"
+    },
+    {
+      "path": "public/episodes/episode-010/assets/series-a-0.png",
+      "sha256": "bf675e7375abac581de7c88b0253679ee92af1f32d2b937870565ec279b7edb2"
+    },
+    {
+      "path": "public/episodes/episode-010/assets/series-a-1.png",
+      "sha256": "67401ada15d1c53d8d92f30ddf8d51bc1556d305add5eb767adef613e9baa041"
+    },
+    {
+      "path": "public/episodes/episode-010/assets/series-a-2.png",
+      "sha256": "f00f8a41c658a86385f0fde2a1d2116130e3e79cc6cda1a88a263ba414cb1f4e"
+    },
+    {
+      "path": "public/episodes/episode-010/assets/series-a-3.png",
+      "sha256": "c950240043356e5594bffeffe9a3faa551f4c6be5af0f39ede01f18d5fbf5f06"
+    },
+    {
+      "path": "public/episodes/episode-010/assets/series-c-0.png",
+      "sha256": "3c7a772d6ae6d04f150c5ec41948cd16f358088b15143d0054c58419509c7fec"
+    },
+    {
+      "path": "public/episodes/episode-010/assets/series-c-date.png",
+      "sha256": "6d3342c44faadd4cbdfb4a39ea9ef0c6776fd5d3d85330038d56b0a9ad3515f2"
+    },
+    {
+      "path": "public/episodes/episode-010/assets/series-c-title.png",
+      "sha256": "74d769a1c674dc6c1ba967233ce91220e39f04d1462e49675feae745153c95d6"
+    },
+    {
+      "path": "public/episodes/episode-010/assets/team-spread.png",
+      "sha256": "70085fa9a5a3132536fac285a729866e80fb1c6d773ec5a41d30d7aef8b713cb"
+    }
+  ]
+}

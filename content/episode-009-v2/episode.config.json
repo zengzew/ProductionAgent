@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "episode-config-v2",
+  "kind": "episode",
+  "id": "episode-009-v2",
+  "slug": "fastlane-founder-story-v2",
+  "product": "Fastlane",
+  "title": "把自己的推广难题，做成付费工具",
+  "language": "zh-CN",
+  "targetSeconds": 60,
+  "production": {
+    "timelineTailSeconds": {},
+    "hookAttributionSubjects": [
+      "Fastlane",
+      "创始人"
+    ],
+    "referenceStory": {
+      "profile": "golden-reference-v1",
+      "headline": "Fastlane 用网址生成短视频",
+      "resultLine": "自报历史ARR超12万澳元",
+      "claimIds": [
+        "claim-fastlane-001",
+        "claim-fastlane-009"
+      ]
+    }
+  },
+  "selection": "selected",
+  "selectionReason": "用户要求重新制作，尽量贴近指定Fastlane golden example；保留旧版用于对照。",
+  "publishStatus": "evaluation",
+  "publishBlocker": "本地制作评估；独立Delivery审核和用户观看后决定最终批准，外部发布权利未终审。",
+  "asOf": "2026-10-14",
+  "captureAssets": [
+    {
+      "file": "fastlane-founder.png",
+      "url": "https://www.starterstory.com/stories/fastlane-create-winning-short-form-content-in-seconds",
+      "anchor": {
+        "role": "heading",
+        "name": "Who are you and what business did you start?"
+      }
+    },
+    {
+      "file": "fastlane-signup.png",
+      "url": "https://app.usefastlane.ai/signup"
+    },
+    {
+      "file": "fastlane-home.png",
+      "url": "https://www.usefastlane.ai/"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "model": "qwen-audio-3.1-tts-plus",
+  "input": {
+    "text": "一张商品照，AI帮你抠图、换背景。Photoroom的创始人马修，在GoPro做产品时就嫌抠图麻烦，后来干脆回去学了机器学习。他和工程师埃利奥特搭档，两周就做出了第一版Photoroom。现在，卖家放进商品照片，就能去掉杂乱背景。",
+    "voice": "xunanchuan_v3.1",
+    "format": "wav",
+    "sample_rate": 48000,
+    "rate": 1.0,
+    "pitch": 1.0,
+    "volume": 50,
+    "language_hints": [
+      "zh"
+    ],
+    "instruction": "像向朋友讲一个有意思的创业故事，清楚自然，有轻微起伏，按意思安排呼吸，避免播报腔。",
+    "seed": 42
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "episodeId": "episode-010",
+  "segmentId": "seg-005",
+  "clipId": "episode-010:media-clip:b335167b5b2fb51bc8accb85",
+  "claimIds": [
+    "claim-granola-001",
+    "claim-granola-002"
+  ],
+  "claims": [
+    {
+      "id": "claim-granola-001",
+      "claim": "Granola把用户写下的要点与会议转写结合，在会后补全、整理会议笔记；官方2024年演示展示零散记录展开成分层笔记。"
+    },
+    {
+      "id": "claim-granola-002",
+      "claim": "Chris Pedregal在发布文章说普通AI会议总结常常笼统、未捕捉用户在意的内容；Granola让用户的笔记引导AI关注重点。"
+    }
+  ],
+  "narration": "像这段演示,几条零散记录,就展开成了分好层次的笔记。开会时,不用为了记全每句话,一直盯着键盘。",
+  "visualIntent": "同段官方演示展示分层笔记与Next steps,缩小到笔记区域,保留标题与原词。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-010/media/verifications/seg-005/episode-010-media-clip-b335167b5b2fb51bc8accb85-clip.mp4",
+    "sha256": "c366c70d9c14a96409f50232be8cfbaea3a15a3859a20a51bb3293afc072bec9",
+    "sizeBytes": 327253,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 8400,
+    "sourceMediaId": "episode-010:media:seg-005-8483c5e80015",
+    "sourceMediaSha256": "8483c5e800150b82e61a79feb827932ad86d30382352fc742a0af2a8b97258fc"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-010/media/indexes/seg-005-8483c5e80015/keyframes/keyframe-0-4200.jpg",
+      "timestampMs": 4200,
+      "sha256": "0e821fe7177df676a4c7207d36be2e8e4660ac834da0d2ddbed6f5642fc1ef26",
+      "sizeBytes": 68691,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "官方演示结果局部停帧供阅读：Current Provider、Their Requirements和Next steps；非继续生成实录。",
+    "observedText": "",
+    "keywords": [
+      "seg-005",
+      "Granola",
+      "notes",
+      "AllFound"
+    ],
+    "entities": [
+      "Granola",
+      "AllFound"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "94a89c2158f3f6acb7465872f68a749f835882d0c45b367c8d8da5176a1ecc39"
+}

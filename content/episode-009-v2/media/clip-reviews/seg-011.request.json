@@ -1,0 +1,65 @@
+{
+  "episodeId": "episode-009-v2",
+  "segmentId": "seg-011",
+  "clipId": "episode-009-v2:media-clip:164fb1dd19c501bff0585fc9",
+  "claimIds": [
+    "claim-fastlane-001",
+    "claim-fastlane-002",
+    "claim-fastlane-006"
+  ],
+  "claims": [
+    {
+      "id": "claim-fastlane-001",
+      "claim": "Gaurav在采访中介绍，Fastlane读取产品网站并生成相关营销短内容；演示从已生成内容开始，用户滑卡挑选后排期发布。"
+    },
+    {
+      "id": "claim-fastlane-002",
+      "claim": "Gaurav回顾，做出应用后自己卡在营销，不愿先花大笔广告预算；Jock也遇到让别人看见产品的难题。"
+    },
+    {
+      "id": "claim-fastlane-006",
+      "claim": "Gaurav称第一位付费客户来自beta用户，对方付费是为了保留访问权限。"
+    }
+  ],
+  "narration": "当初,他为自己的应用找推广办法。这份麻烦做成工具,成了别人愿意付钱买的服务。",
+  "visualIntent": "回到已见候选与创始人,连接人物需求及已发生付款;现在为故事总结不暗示最新营收。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/verifications/seg-011/episode-009-v2-media-clip-164fb1dd19c501bff0585fc9-clip.mp4",
+    "sha256": "dd99008c2058cf40d78433313ad3e764b7ed830f325ac4456e91c8a5afc9dd99",
+    "sizeBytes": 3109366,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 5866,
+    "sourceMediaId": "episode-009-v2:media:seg-011-7526a02e2703",
+    "sourceMediaSha256": "7526a02e27034d7c27f294cb1a8e892916b985c9fe22dd638868aeaa803607e1"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009-v2/media/indexes/seg-011-7526a02e2703/keyframes/keyframe-0-2933.jpg",
+      "timestampMs": 2933,
+      "sha256": "87eb5dd3beafbb1409ac9b85c2073e975313b583b0a588fbc472704aa6cded01",
+      "sizeBytes": 49641,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "先回创始人再回Cal AI宣传候选，呈现人物与已展示产品用途的关系。",
+    "observedText": "",
+    "keywords": [
+      "seg-011",
+      "Fastlane",
+      "产品"
+    ],
+    "entities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "52f1a892045422c103143c3dbd736db2cb92de75453d8cf6a8638e9fff4858cb"
+}

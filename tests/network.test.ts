@@ -2,7 +2,6 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import {afterEach, describe, expect, it, vi} from "vitest";
-import {chatJson} from "../src/lib/editorial/llm";
 import {fetchWithRetry} from "../src/lib/platform/network";
 import {loadTtsV2Config} from "../src/lib/editorial/pipeline-config";
 import {
@@ -115,26 +114,6 @@ describe("network request safeguards", () => {
         },
       ),
     ).rejects.toThrow(/5ms 超时/u);
-  });
-
-  it("includes a response snippet when the LLM returns invalid JSON", async () => {
-    const fetchImpl: typeof fetch = async () =>
-      response(200, {
-        choices: [{message: {content: '{"broken":'}}],
-      });
-
-    await expect(
-      chatJson(
-        {
-          endpoint: "https://example.test/chat",
-          apiKey: "test-key",
-          model: "test-model",
-          temperature: 0,
-          network: {fetchImpl, maxRetries: 0},
-        },
-        [{role: "user", content: "test"}],
-      ),
-    ).rejects.toThrow(/content=\{"broken":/u);
   });
 
   it("applies the retrying fetcher to MiniMax TTS", async () => {

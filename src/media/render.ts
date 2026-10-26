@@ -14,6 +14,7 @@ import {
 } from "../lib/platform/cache";
 import {assertTimelineMatchesEpisode, generatedCaptionsPath} from "../lib/episode/render-contract";
 import {assetSchema, timelineSchema, type Asset, type Timeline} from "../schemas/episode";
+import {referenceStorySchema, type ReferenceStory} from "../schemas/reference-story";
 import {
   artifactRefIsIndexed,
   assertArtifactRefBytes,
@@ -195,11 +196,23 @@ export const mediaRenderConfigSchema = z
     /** SHA-256 of the exact `content/<ep>/production/timeline.json` bytes. */
     timelineSha256: sha256Schema,
     layoutVariant: z.enum(["poke-standard", "roost-standard", "roost-goal3"]),
+    referenceStory: referenceStorySchema.optional(),
     proxyExtractor: z.object({id: z.string().min(1), version: z.string().min(1)}).strict(),
   })
   .strict();
 
 export type MediaRenderConfig = z.infer<typeof mediaRenderConfigSchema>;
+
+const readReferenceStory = (root: string, episode: string): ReferenceStory | undefined => {
+  const file = path.join(root, "content", episode, "episode.config.json");
+  if (!fs.existsSync(file)) return undefined;
+  const raw = JSON.parse(fs.readFileSync(file, "utf8")) as {
+    production?: {referenceStory?: unknown};
+  };
+  return raw.production?.referenceStory === undefined
+    ? undefined
+    : referenceStorySchema.parse(raw.production.referenceStory);
+};
 
 /* ------------------------------------------------------------------------- *
  * Transform contract (crop / reframe / PiP / zoom-pan / freeze)
@@ -818,6 +831,22 @@ export const mediaRenderPlanSchema = z
       });
     }
     for (const [index, shot] of value.shots.entries()) {
+      if (value.config.referenceStory && shot.transform.pip?.enabled) {
+        context.addIssue({
+          code: "custom",
+          path: ["shots", index, "transform", "pip"],
+          message: "reference presentation uses a single evidence viewport; PiP is unsupported",
+        });
+      }
+      if (
+        JSON.stringify(shot.config.referenceStory) !== JSON.stringify(value.config.referenceStory)
+      ) {
+        context.addIssue({
+          code: "custom",
+          path: ["shots", index, "config", "referenceStory"],
+          message: "shot presentation must match the plan",
+        });
+      }
       if (shot.episodeId !== value.episodeId) {
         context.addIssue({
           code: "custom",
@@ -1789,6 +1818,12 @@ export const assertMediaRenderPlanRenderable = (input: {
   const repoRoot = path.resolve(input.repoRoot);
   const {episodeId} = input;
   const plan = readMediaRenderPlan(repoRoot, episodeId);
+  if (
+    JSON.stringify(plan.config.referenceStory) !==
+    JSON.stringify(readReferenceStory(repoRoot, episodeId))
+  ) {
+    throw new Error(`MEDIA_RENDER_PRESENTATION_STALE:${episodeId}`);
+  }
   assertArtifactRegisteredBytes({
     repoRoot,
     episodeId,
@@ -2046,6 +2081,7 @@ export const buildMediaShotForSegment = (input: BuildMediaShotInput): BuildMedia
       fps: input.config?.fps ?? input.timeline.fps,
       timelineSha256: input.timelineSha256,
       layoutVariant: input.config?.layoutVariant ?? input.timeline.layoutVariant,
+      referenceStory: readReferenceStory(repoRoot, episodeId),
       proxyExtractor:
         input.config?.proxyExtractor ??
         (input.proxyExtractor
@@ -2518,6 +2554,8 @@ export type BuildMediaRenderPlanInput = {
   transform?: Partial<MediaShotTransform>;
   audio?: BuildMediaShotInput["audio"];
   overlays?: Partial<MediaShotOverlays>;
+  /** Source labels must describe the actual evidence used in each segment. */
+  overlaysBySegment?: Record<string, Partial<MediaShotOverlays>>;
   fade?: {inMs?: number; outMs?: number};
   crossfadeMs?: number;
   cache?: FineGrainedCacheStore | null;
@@ -2559,7 +2597,7 @@ export const buildMediaRenderPlanForTimeline = (
       config: input.config,
       transform: input.transform,
       audio: input.audio,
-      overlays: input.overlays,
+      overlays: {...input.overlays, ...input.overlaysBySegment?.[scene.id]},
       fade: input.fade,
       crossfadeMs: input.crossfadeMs,
       cache: input.cache ?? null,
@@ -2581,6 +2619,7 @@ export const buildMediaRenderPlanForTimeline = (
     fps: input.config?.fps ?? timeline.fps,
     timelineSha256,
     layoutVariant: input.config?.layoutVariant ?? timeline.layoutVariant,
+    referenceStory: readReferenceStory(repoRoot, episodeId),
     proxyExtractor:
       input.config?.proxyExtractor ??
       (input.proxyExtractor

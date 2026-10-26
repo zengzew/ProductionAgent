@@ -1,0 +1,55 @@
+{
+  "episodeId": "episode-012",
+  "segmentId": "seg-008",
+  "clipId": "episode-012:media-clip:2146cb807fb4aa4ad9f86c0c",
+  "claimIds": [
+    "claim-pr-008"
+  ],
+  "claims": [
+    {
+      "id": "claim-pr-008",
+      "claim": "2024-02-27，Photoroom公告完成4300万美元B轮融资。"
+    }
+  ],
+  "narration": "2024年,公司披露拿到四千三百万美元B轮融资。",
+  "visualIntent": "必要数字卡:2024-02-27、B轮4300万美元、Photoroom公司公告,三者同时可读;不是收入或最新估值。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/verifications/seg-008/episode-012-media-clip-2146cb807fb4aa4ad9f86c0c-clip.mp4",
+    "sha256": "1eb4098b19a46da4451d8cfec0e9933ba201f1657521698f225a04948a391828",
+    "sizeBytes": 86655,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 3567,
+    "sourceMediaId": "episode-012:media:seg-008-b26c3dfa43b9",
+    "sourceMediaSha256": "b26c3dfa43b9752ec1a2ba4050cdb8250e24448beecaae2eb4b81e7a98616567"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-012/media/indexes/seg-008-b26c3dfa43b9/keyframes/keyframe-0-1783.jpg",
+      "timestampMs": 1783,
+      "sha256": "8d69a5fc731c44f4a32f0665ed818c40c3b8cd0e4946a072b2c4a84889196aab",
+      "sizeBytes": 51329,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "公司公告数据编辑卡，2024-02-27、B轮、4300万美元同屏，不是营收或现行估值。",
+    "observedText": "",
+    "keywords": [
+      "seg-008",
+      "Photoroom",
+      "finance",
+      "attributed-local-evaluation"
+    ],
+    "entities": [
+      "Photoroom"
+    ],
+    "semanticTags": [
+      "attributed-source-excerpt",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "17d73ee6e5f68302c7ba0891277c780edcb59a829379f54fab0ef7ac2eb61f3d"
+}

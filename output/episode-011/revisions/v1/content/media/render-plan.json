@@ -1,0 +1,1570 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-011:media:render-plan",
+    "createdAt": "2026-10-20T07:56:47.205Z",
+    "episodeId": "episode-011",
+    "mediaType": "application/json",
+    "path": "content/episode-011/media/render-plan.json",
+    "producer": "media-render-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-plan-v1",
+    "sha256": "78ca498f5d08ae2ce35287bacf896b4cb95dbe29add39796af3a8d2b52a3f397",
+    "sizeBytes": 52687
+  },
+  "config": {
+    "canvas": {
+      "height": 1920,
+      "width": 1080
+    },
+    "fps": 30,
+    "layoutVariant": "poke-standard",
+    "proxyExtractor": {
+      "id": "ffmpeg",
+      "version": "ffmpeg-render-proxy-v1"
+    },
+    "referenceStory": {
+      "claimIds": [
+        "claim-gamma-001",
+        "claim-gamma-003",
+        "claim-gamma-004"
+      ],
+      "headline": "Gamma 把文字变成演示图",
+      "profile": "golden-reference-v1",
+      "resultLine": "先有初稿，再打磨重点"
+    },
+    "timelineSha256": "6b06e725bc008f326795eed29d5924c66e49dfde68646e6af9ffb0bd6131ade5",
+    "version": "media-render-config-v1"
+  },
+  "createdAt": "2026-10-20T07:56:47.204Z",
+  "episodeId": "episode-011",
+  "fps": 30,
+  "layoutVariant": "poke-standard",
+  "planId": "episode-011:media:render-plan",
+  "schemaVersion": "media-render-plan-v1",
+  "shots": [
+    {
+      "artifactRef": {
+        "artifactId": "episode-011:media-shot:seg-001",
+        "createdAt": "2026-10-20T07:56:46.368Z",
+        "episodeId": "episode-011",
+        "mediaType": "application/json",
+        "path": "content/episode-011/media/shots/seg-001.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "9cd77cd917ae6d1b24fb2f4e11ed952aea18899889ebb245304a58d21db59ec7",
+        "sizeBytes": 8000
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-gamma-001",
+            "claim-gamma-003",
+            "claim-gamma-004"
+          ],
+          "headline": "Gamma 把文字变成演示图",
+          "profile": "golden-reference-v1",
+          "resultLine": "先有初稿，再打磨重点"
+        },
+        "timelineSha256": "6b06e725bc008f326795eed29d5924c66e49dfde68646e6af9ffb0bd6131ade5",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T07:56:46.368Z",
+      "crossfadeMs": 0,
+      "durationFrames": 80,
+      "endSeconds": 2.674229,
+      "episodeId": "episode-011",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": null,
+      "fallbackImagePath": null,
+      "fallbackImageSha256": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-011:media-verification-clip:seg-001-episode-011-media-clip-a82ef88c9c22d2f7eca82e26",
+          "createdAt": "2026-10-20T07:56:25.638Z",
+          "episodeId": "episode-011",
+          "mediaType": "video/mp4",
+          "path": "content/episode-011/media/verifications/seg-001/episode-011-media-clip-a82ef88c9c22d2f7eca82e26-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "85fa0c4b46206edc15241ac2e956fff93f4255728fd12cacf9fc7f8b4b250473",
+          "sizeBytes": 1687907
+        },
+        "clipId": "episode-011:media-clip:a82ef88c9c22d2f7eca82e26",
+        "clipIndexRef": {
+          "artifactId": "episode-011:media-clip-index:seg-001-7c8811ed49e0-official",
+          "createdAt": "2026-10-20T07:56:23.296Z",
+          "episodeId": "episode-011",
+          "mediaType": "application/json",
+          "path": "content/episode-011/media/indexes/seg-001-7c8811ed49e0-official/clip-index.json",
+          "producer": "media-understanding-v1:index:7c8811ed49e057ff",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "4861a3423d3621113b9a2bfb097e0670099a4e4fe42b207ff3da61aa916aeb2d",
+          "sizeBytes": 4452
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-011:media:seg-001-7c8811ed49e0-official-proxy",
+          "createdAt": "2026-10-20T07:56:20.205Z",
+          "episodeId": "episode-011",
+          "mediaType": "video/mp4",
+          "path": "content/episode-011/media/assets/seg-001-7c8811ed49e0-official-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "da12f37aba785b60b4a61d062e111f91c478f39978c515481db4e17d15b0288d",
+          "sizeBytes": 504257
+        },
+        "sourceEndMs": 2633,
+        "sourceMediaId": "episode-011:media:seg-001-7c8811ed49e0-official",
+        "sourceMediaRef": {
+          "artifactId": "episode-011:media:seg-001-7c8811ed49e0-official",
+          "createdAt": "2026-10-20T07:56:19.657Z",
+          "episodeId": "episode-011",
+          "mediaType": "video/mp4",
+          "path": "content/episode-011/media/assets/seg-001-7c8811ed49e0-official.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "7c8811ed49e057ffcbaca7eceed174392945cffc806e45bace4cd687f16ddd35",
+          "sizeBytes": 1191132
+        },
+        "sourceSha256": "7c8811ed49e057ffcbaca7eceed174392945cffc806e45bace4cd687f16ddd35",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-011:media-verification:seg-001-episode-011-media-clip-a82ef88c9c22d2f7eca82e26",
+          "createdAt": "2026-10-20T07:56:44.767Z",
+          "episodeId": "episode-011",
+          "mediaType": "application/json",
+          "path": "content/episode-011/media/verifications/seg-001/episode-011-media-clip-a82ef88c9c22d2f7eca82e26.json",
+          "producer": "media-verification-v1:codex:gamma-observed-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "74cfa3382b175595ab43617b1b6616c025b52c5e962401dc62279ca701dc642f",
+          "sizeBytes": 4713
+        }
+      },
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Gamma官网 · 2025官方演示 · 示例数字非Gamma数据"
+      },
+      "reasons": [
+        "scene seg-001 at frame 0 (80 frames, 30 fps)",
+        "real media episode-011:media-clip:a82ef88c9c22d2f7eca82e26 trimmed 0..2633ms (recommended 0..2633ms)",
+        "render proxy episode-011:media-render-proxy:seg-001 (video/mp4)",
+        "audio mix original 0 / narration 1 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-011:media-render-proxy:seg-001",
+        "createdAt": "2026-10-20T07:56:46.347Z",
+        "episodeId": "episode-011",
+        "mediaType": "video/mp4",
+        "path": "content/episode-011/media/render/seg-001.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "77cc944b93b3623edb790f61e9e048f5195affdef1606d3ed013154107e71c04",
+        "sizeBytes": 634236
+      },
+      "sceneIndex": 0,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-001",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-gamma-004"
+        ],
+        "clipId": "episode-011:media-clip:a82ef88c9c22d2f7eca82e26",
+        "createdAt": "2026-10-20T07:56:44.759Z",
+        "endMs": 2633,
+        "episodeId": "episode-011",
+        "mediaId": "episode-011:media:seg-001-7c8811ed49e0-official",
+        "sourceMediaRef": {
+          "artifactId": "episode-011:media:seg-001-7c8811ed49e0-official",
+          "createdAt": "2026-10-20T07:56:19.657Z",
+          "episodeId": "episode-011",
+          "mediaType": "video/mp4",
+          "path": "content/episode-011/media/assets/seg-001-7c8811ed49e0-official.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "7c8811ed49e057ffcbaca7eceed174392945cffc806e45bace4cd687f16ddd35",
+          "sizeBytes": 1191132
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "2025官方Agent动画可见文字块变成图示;标明官方演示及示例数字,非本次实测。"
+      },
+      "shotId": "episode-011:media-shot:seg-001",
+      "startFrame": 0,
+      "startSeconds": 0,
+      "staticFilePath": "episodes/episode-011/media/seg-001.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 2633,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-011:media-verification:seg-001-episode-011-media-clip-a82ef88c9c22d2f7eca82e26",
+        "createdAt": "2026-10-20T07:56:44.767Z",
+        "episodeId": "episode-011",
+        "mediaType": "application/json",
+        "path": "content/episode-011/media/verifications/seg-001/episode-011-media-clip-a82ef88c9c22d2f7eca82e26.json",
+        "producer": "media-verification-v1:codex:gamma-observed-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "74cfa3382b175595ab43617b1b6616c025b52c5e962401dc62279ca701dc642f",
+        "sizeBytes": 4713
+      },
+      "visualType": "real-media"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-011:media-shot:seg-002",
+        "createdAt": "2026-10-20T07:56:46.403Z",
+        "episodeId": "episode-011",
+        "mediaType": "application/json",
+        "path": "content/episode-011/media/shots/seg-002.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "e72ad7631de0e4a2a8066b81a93b97f674acd75522793a4a35bd77873abdf3c5",
+        "sizeBytes": 2889
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-gamma-001",
+            "claim-gamma-003",
+            "claim-gamma-004"
+          ],
+          "headline": "Gamma 把文字变成演示图",
+          "profile": "golden-reference-v1",
+          "resultLine": "先有初稿，再打磨重点"
+        },
+        "timelineSha256": "6b06e725bc008f326795eed29d5924c66e49dfde68646e6af9ffb0bd6131ade5",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T07:56:46.402Z",
+      "crossfadeMs": 0,
+      "durationFrames": 255,
+      "endSeconds": 11.172082999999999,
+      "episodeId": "episode-011",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": "gamma-still-0",
+      "fallbackImagePath": "episodes/episode-011/media/founder.png",
+      "fallbackImageSha256": "e8126adce94052ec2c7fbde56444cd557d12ca0403bc73c07fb3c1bc378febec",
+      "fallbackReason": "approved editorial still selected for seg-002",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Stanford STVP · 2025-10-21 · 创始人回忆"
+      },
+      "reasons": [
+        "scene seg-002 at frame 80 (255 frames, 30 fps)",
+        "fallback none: approved editorial still selected for seg-002",
+        "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 1,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-002",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-011:media-shot:seg-002",
+      "startFrame": 80,
+      "startSeconds": 2.674229,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "official-screenshot"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-011:media-shot:seg-003",
+        "createdAt": "2026-10-20T07:56:46.429Z",
+        "episodeId": "episode-011",
+        "mediaType": "application/json",
+        "path": "content/episode-011/media/shots/seg-003.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "10d82cb0b475055dab06009258ac8720039f9006c677a1b7cee53d6f9b231644",
+        "sizeBytes": 2912
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-gamma-001",
+            "claim-gamma-003",
+            "claim-gamma-004"
+          ],
+          "headline": "Gamma 把文字变成演示图",
+          "profile": "golden-reference-v1",
+          "resultLine": "先有初稿，再打磨重点"
+        },
+        "timelineSha256": "6b06e725bc008f326795eed29d5924c66e49dfde68646e6af9ffb0bd6131ade5",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T07:56:46.429Z",
+      "crossfadeMs": 0,
+      "durationFrames": 177,
+      "endSeconds": 17.0855,
+      "episodeId": "episode-011",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": "gamma-still-1",
+      "fallbackImagePath": "episodes/episode-011/media/writing-first.png",
+      "fallbackImageSha256": "f60d970df497d786b1b4d421bfb8925eac0ce288b6b7f66f189182a79437b6c7",
+      "fallbackReason": "approved editorial still selected for seg-003",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "官方图示＋访谈摘录 · 编辑释义 · 非早期原型"
+      },
+      "reasons": [
+        "scene seg-003 at frame 335 (177 frames, 30 fps)",
+        "fallback none: approved editorial still selected for seg-003",
+        "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 2,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-003",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-011:media-shot:seg-003",
+      "startFrame": 335,
+      "startSeconds": 11.172082999999999,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "official-screenshot"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-011:media-shot:seg-004",
+        "createdAt": "2026-10-20T07:56:46.457Z",
+        "episodeId": "episode-011",
+        "mediaType": "application/json",
+        "path": "content/episode-011/media/shots/seg-004.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "860f20b95e560f32d9c15a6ac7ae61d017c608698ed1cc7fe86c71aefb2c7b15",
+        "sizeBytes": 2894
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-gamma-001",
+            "claim-gamma-003",
+            "claim-gamma-004"
+          ],
+          "headline": "Gamma 把文字变成演示图",
+          "profile": "golden-reference-v1",
+          "resultLine": "先有初稿，再打磨重点"
+        },
+        "timelineSha256": "6b06e725bc008f326795eed29d5924c66e49dfde68646e6af9ffb0bd6131ade5",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T07:56:46.457Z",
+      "crossfadeMs": 0,
+      "durationFrames": 182,
+      "endSeconds": 23.157229,
+      "episodeId": "episode-011",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": "gamma-still-2",
+      "fallbackImagePath": "episodes/episode-011/media/draft.png",
+      "fallbackImageSha256": "107c4c965d2393ab7713028fd796f1015178814fe75b13b0491cd4c5c118c3e1",
+      "fallbackReason": "approved editorial still selected for seg-004",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Gamma官方教程＋演示结果 · 编辑说明 · 非实测"
+      },
+      "reasons": [
+        "scene seg-004 at frame 512 (182 frames, 30 fps)",
+        "fallback none: approved editorial still selected for seg-004",
+        "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 3,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-004",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-011:media-shot:seg-004",
+      "startFrame": 512,
+      "startSeconds": 17.0855,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "official-screenshot"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-011:media-shot:seg-005",
+        "createdAt": "2026-10-20T07:56:46.790Z",
+        "episodeId": "episode-011",
+        "mediaType": "application/json",
+        "path": "content/episode-011/media/shots/seg-005.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "4bb8980c877a0044d0efb33bb0dda89d9ede00ea7197fae039db1df9ec92ac67",
+        "sizeBytes": 8059
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-gamma-001",
+            "claim-gamma-003",
+            "claim-gamma-004"
+          ],
+          "headline": "Gamma 把文字变成演示图",
+          "profile": "golden-reference-v1",
+          "resultLine": "先有初稿，再打磨重点"
+        },
+        "timelineSha256": "6b06e725bc008f326795eed29d5924c66e49dfde68646e6af9ffb0bd6131ade5",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T07:56:46.790Z",
+      "crossfadeMs": 0,
+      "durationFrames": 220,
+      "endSeconds": 30.474167,
+      "episodeId": "episode-011",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": null,
+      "fallbackImagePath": null,
+      "fallbackImageSha256": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-011:media-verification-clip:seg-005-episode-011-media-clip-8135b44e40a6d67a21cbfc33",
+          "createdAt": "2026-10-20T07:56:25.822Z",
+          "episodeId": "episode-011",
+          "mediaType": "video/mp4",
+          "path": "content/episode-011/media/verifications/seg-005/episode-011-media-clip-8135b44e40a6d67a21cbfc33-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "642b872ccc6f40c4ea6dcf85737816fc9ac33f529367e909dcaedab7a01ccebf",
+          "sizeBytes": 3127815
+        },
+        "clipId": "episode-011:media-clip:8135b44e40a6d67a21cbfc33",
+        "clipIndexRef": {
+          "artifactId": "episode-011:media-clip-index:seg-005-098a3576a95f-official",
+          "createdAt": "2026-10-20T07:56:23.443Z",
+          "episodeId": "episode-011",
+          "mediaType": "application/json",
+          "path": "content/episode-011/media/indexes/seg-005-098a3576a95f-official/clip-index.json",
+          "producer": "media-understanding-v1:index:098a3576a95f099a",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "f77883c0cb6af599ee8053edec930ef2b71fdc01450abb3dcc34b6af18cda15b",
+          "sizeBytes": 4434
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-011:media:seg-005-098a3576a95f-official-proxy",
+          "createdAt": "2026-10-20T07:56:21.232Z",
+          "episodeId": "episode-011",
+          "mediaType": "video/mp4",
+          "path": "content/episode-011/media/assets/seg-005-098a3576a95f-official-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "1b7004c9d0b57e443de0a9fdb3cb45314889c28c715b7b070d4ce3e90f7f3a4c",
+          "sizeBytes": 913433
+        },
+        "sourceEndMs": 7333,
+        "sourceMediaId": "episode-011:media:seg-005-098a3576a95f-official",
+        "sourceMediaRef": {
+          "artifactId": "episode-011:media:seg-005-098a3576a95f-official",
+          "createdAt": "2026-10-20T07:56:20.268Z",
+          "episodeId": "episode-011",
+          "mediaType": "video/mp4",
+          "path": "content/episode-011/media/assets/seg-005-098a3576a95f-official.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "098a3576a95f099abce1b7ad3e0dfbb1194e9fa16beb4255a6a533a6ca39e5c0",
+          "sizeBytes": 2312738
+        },
+        "sourceSha256": "098a3576a95f099abce1b7ad3e0dfbb1194e9fa16beb4255a6a533a6ca39e5c0",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-011:media-verification:seg-005-episode-011-media-clip-8135b44e40a6d67a21cbfc33",
+          "createdAt": "2026-10-20T07:56:44.975Z",
+          "episodeId": "episode-011",
+          "mediaType": "application/json",
+          "path": "content/episode-011/media/verifications/seg-005/episode-011-media-clip-8135b44e40a6d67a21cbfc33.json",
+          "producer": "media-verification-v1:codex:gamma-observed-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "1e9d156c2241f7eade94f0ec0765995b0ae0618bebdfca1471e5523d7d917cbe",
+          "sizeBytes": 4761
+        }
+      },
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Gamma官网 · 2025官方演示 · 示例数字非Gamma数据"
+      },
+      "reasons": [
+        "scene seg-005 at frame 694 (220 frames, 30 fps)",
+        "real media episode-011:media-clip:8135b44e40a6d67a21cbfc33 trimmed 0..7333ms (recommended 0..7333ms)",
+        "render proxy episode-011:media-render-proxy:seg-005 (video/mp4)",
+        "audio mix original 0 / narration 1 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-011:media-render-proxy:seg-005",
+        "createdAt": "2026-10-20T07:56:46.771Z",
+        "episodeId": "episode-011",
+        "mediaType": "video/mp4",
+        "path": "content/episode-011/media/render/seg-005.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "932719186b393890f8059d84a91cc895d0f985bc11decb252f85dc827ebe1ed3",
+        "sizeBytes": 1184296
+      },
+      "sceneIndex": 4,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-005",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-gamma-001",
+          "claim-gamma-004"
+        ],
+        "clipId": "episode-011:media-clip:8135b44e40a6d67a21cbfc33",
+        "createdAt": "2026-10-20T07:56:44.967Z",
+        "endMs": 7333,
+        "episodeId": "episode-011",
+        "mediaId": "episode-011:media:seg-005-098a3576a95f-official",
+        "sourceMediaRef": {
+          "artifactId": "episode-011:media:seg-005-098a3576a95f-official",
+          "createdAt": "2026-10-20T07:56:20.268Z",
+          "episodeId": "episode-011",
+          "mediaType": "video/mp4",
+          "path": "content/episode-011/media/assets/seg-005-098a3576a95f-official.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "098a3576a95f099abce1b7ad3e0dfbb1194e9fa16beb4255a6a533a6ca39e5c0",
+          "sizeBytes": 2312738
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "2025官方Agent与Smart Diagrams动画,按动作分别展示;核对内容为编辑用途建议,不宣称省时测量。"
+      },
+      "shotId": "episode-011:media-shot:seg-005",
+      "startFrame": 694,
+      "startSeconds": 23.157229,
+      "staticFilePath": "episodes/episode-011/media/seg-005.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 7333,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-011:media-verification:seg-005-episode-011-media-clip-8135b44e40a6d67a21cbfc33",
+        "createdAt": "2026-10-20T07:56:44.975Z",
+        "episodeId": "episode-011",
+        "mediaType": "application/json",
+        "path": "content/episode-011/media/verifications/seg-005/episode-011-media-clip-8135b44e40a6d67a21cbfc33.json",
+        "producer": "media-verification-v1:codex:gamma-observed-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "1e9d156c2241f7eade94f0ec0765995b0ae0618bebdfca1471e5523d7d917cbe",
+        "sizeBytes": 4761
+      },
+      "visualType": "real-media"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-011:media-shot:seg-006",
+        "createdAt": "2026-10-20T07:56:46.818Z",
+        "episodeId": "episode-011",
+        "mediaType": "application/json",
+        "path": "content/episode-011/media/shots/seg-006.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "4752427a18397b14f77c9fd7141c1a39a9c0ad1cd8f84760940723dc636d1fff",
+        "sizeBytes": 2895
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-gamma-001",
+            "claim-gamma-003",
+            "claim-gamma-004"
+          ],
+          "headline": "Gamma 把文字变成演示图",
+          "profile": "golden-reference-v1",
+          "resultLine": "先有初稿，再打磨重点"
+        },
+        "timelineSha256": "6b06e725bc008f326795eed29d5924c66e49dfde68646e6af9ffb0bd6131ade5",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T07:56:46.818Z",
+      "crossfadeMs": 0,
+      "durationFrames": 196,
+      "endSeconds": 37.01623,
+      "episodeId": "episode-011",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": "gamma-still-3",
+      "fallbackImagePath": "episodes/episode-011/media/early-users.png",
+      "fallbackImageSha256": "67a4e1dbd118886fa8eaf212f2f5b1345d6c187d4fe8178eb6d6647f4f956a4e",
+      "fallbackReason": "approved editorial still selected for seg-006",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Stanford STVP · 2025-10-21 · 访谈内容编辑释义"
+      },
+      "reasons": [
+        "scene seg-006 at frame 914 (196 frames, 30 fps)",
+        "fallback none: approved editorial still selected for seg-006",
+        "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 5,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-006",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-011:media-shot:seg-006",
+      "startFrame": 914,
+      "startSeconds": 30.474167,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "official-screenshot"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-011:media-shot:seg-007",
+        "createdAt": "2026-10-20T07:56:46.844Z",
+        "episodeId": "episode-011",
+        "mediaType": "application/json",
+        "path": "content/episode-011/media/shots/seg-007.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "e44bb0e3bcb2d24cc8e0804dd5fb7d0d8e959b3e2313dfd67adc7c9a39fcd920",
+        "sizeBytes": 2885
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-gamma-001",
+            "claim-gamma-003",
+            "claim-gamma-004"
+          ],
+          "headline": "Gamma 把文字变成演示图",
+          "profile": "golden-reference-v1",
+          "resultLine": "先有初稿，再打磨重点"
+        },
+        "timelineSha256": "6b06e725bc008f326795eed29d5924c66e49dfde68646e6af9ffb0bd6131ade5",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T07:56:46.844Z",
+      "crossfadeMs": 0,
+      "durationFrames": 140,
+      "endSeconds": 41.687355,
+      "episodeId": "episode-011",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": "gamma-still-4",
+      "fallbackImagePath": "episodes/episode-011/media/feedback.png",
+      "fallbackImageSha256": "688861d9aa54d9db1fbd0ec9744325d6a84b3acec85a2990f8ce82b1e3255e3a",
+      "fallbackReason": "approved editorial still selected for seg-007",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Stanford STVP · 2025-10-21 · 访谈短摘录"
+      },
+      "reasons": [
+        "scene seg-007 at frame 1110 (140 frames, 30 fps)",
+        "fallback none: approved editorial still selected for seg-007",
+        "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 6,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-007",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-011:media-shot:seg-007",
+      "startFrame": 1110,
+      "startSeconds": 37.01623,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "official-screenshot"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-011:media-shot:seg-008",
+        "createdAt": "2026-10-20T07:56:46.870Z",
+        "episodeId": "episode-011",
+        "mediaType": "application/json",
+        "path": "content/episode-011/media/shots/seg-008.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "1ad057a6d3a4021b1245e908aec947adc2688ee9c727173451a216f7aa1a5745",
+        "sizeBytes": 2904
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 0,
+          "enabled": false,
+          "reductionDb": 0,
+          "releaseMs": 0
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-gamma-001",
+            "claim-gamma-003",
+            "claim-gamma-004"
+          ],
+          "headline": "Gamma 把文字变成演示图",
+          "profile": "golden-reference-v1",
+          "resultLine": "先有初稿，再打磨重点"
+        },
+        "timelineSha256": "6b06e725bc008f326795eed29d5924c66e49dfde68646e6af9ffb0bd6131ade5",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T07:56:46.870Z",
+      "crossfadeMs": 0,
+      "durationFrames": 188,
+      "endSeconds": 47.949042999999996,
+      "episodeId": "episode-011",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": "gamma-still-5",
+      "fallbackImagePath": "episodes/episode-011/media/funding.png",
+      "fallbackImageSha256": "458406ef73a9172776c7e33db6ff49368975088bd030d1847d31c34ac1fef4ed",
+      "fallbackReason": "approved editorial still selected for seg-008",
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": false,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": false,
+        "slotValid": false,
+        "timestampsValid": false
+      },
+      "lineage": null,
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Gamma公司披露 · 2025-11-10 · 历史融资及估值"
+      },
+      "reasons": [
+        "scene seg-008 at frame 1250 (188 frames, 30 fps)",
+        "fallback none: approved editorial still selected for seg-008",
+        "visualType official-screenshot (fixed stage order official screenshot → data card → programmatic)"
+      ],
+      "renderProxyMediaType": null,
+      "renderProxyRef": null,
+      "sceneIndex": 7,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-008",
+      "selectedMediaClipRef": null,
+      "shotId": "episode-011:media-shot:seg-008",
+      "startFrame": 1250,
+      "startSeconds": 41.687355,
+      "staticFilePath": null,
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": null,
+      "verificationRef": null,
+      "visualType": "official-screenshot"
+    },
+    {
+      "artifactRef": {
+        "artifactId": "episode-011:media-shot:seg-009",
+        "createdAt": "2026-10-20T07:56:47.186Z",
+        "episodeId": "episode-011",
+        "mediaType": "application/json",
+        "path": "content/episode-011/media/shots/seg-009.json",
+        "producer": "media-render-v1",
+        "revision": 1,
+        "schemaVersion": "media-shot-v1",
+        "sha256": "c3fdc45e31158bb9e235b1ed77f840b99f0dbf7020770e11abb1569c594bc95a",
+        "sizeBytes": 8116
+      },
+      "audio": {
+        "ducking": {
+          "attackMs": 80,
+          "enabled": true,
+          "reductionDb": 10,
+          "releaseMs": 240
+        },
+        "fadeInMs": 0,
+        "fadeOutMs": 0,
+        "narrationGain": 1,
+        "originalAudioGain": 0
+      },
+      "config": {
+        "canvas": {
+          "height": 1920,
+          "width": 1080
+        },
+        "fps": 30,
+        "layoutVariant": "poke-standard",
+        "proxyExtractor": {
+          "id": "ffmpeg",
+          "version": "ffmpeg-render-proxy-v1"
+        },
+        "referenceStory": {
+          "claimIds": [
+            "claim-gamma-001",
+            "claim-gamma-003",
+            "claim-gamma-004"
+          ],
+          "headline": "Gamma 把文字变成演示图",
+          "profile": "golden-reference-v1",
+          "resultLine": "先有初稿，再打磨重点"
+        },
+        "timelineSha256": "6b06e725bc008f326795eed29d5924c66e49dfde68646e6af9ffb0bd6131ade5",
+        "version": "media-render-config-v1"
+      },
+      "createdAt": "2026-10-20T07:56:47.186Z",
+      "crossfadeMs": 0,
+      "durationFrames": 247,
+      "endSeconds": 56.17723099999999,
+      "episodeId": "episode-011",
+      "evidenceImageAssetId": null,
+      "evidenceImagePath": null,
+      "evidenceImageSha256": null,
+      "fade": {
+        "inMs": 0,
+        "outMs": 0
+      },
+      "fallbackImageAssetId": null,
+      "fallbackImagePath": null,
+      "fallbackImageSha256": null,
+      "fallbackReason": null,
+      "fallbackType": null,
+      "gate": {
+        "clipVerified": true,
+        "episodeIsolated": true,
+        "hashesValid": true,
+        "rightsApproved": true,
+        "slotValid": true,
+        "timestampsValid": true
+      },
+      "lineage": {
+        "clipArtifactRef": {
+          "artifactId": "episode-011:media-verification-clip:seg-009-episode-011-media-clip-e4eeeb7970a08f86f0282dc8",
+          "createdAt": "2026-10-20T07:56:26.018Z",
+          "episodeId": "episode-011",
+          "mediaType": "video/mp4",
+          "path": "content/episode-011/media/verifications/seg-009/episode-011-media-clip-e4eeeb7970a08f86f0282dc8-clip.mp4",
+          "producer": "media-verification-v1:clip:ffmpeg:ffmpeg-short-clip-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-clip-v1",
+          "sha256": "b4259192899e4358406176397e7e750b2679f85e86f322b8368f1368bdc2408b",
+          "sizeBytes": 3105774
+        },
+        "clipId": "episode-011:media-clip:e4eeeb7970a08f86f0282dc8",
+        "clipIndexRef": {
+          "artifactId": "episode-011:media-clip-index:seg-009-73990a4920f6-official",
+          "createdAt": "2026-10-20T07:56:23.590Z",
+          "episodeId": "episode-011",
+          "mediaType": "application/json",
+          "path": "content/episode-011/media/indexes/seg-009-73990a4920f6-official/clip-index.json",
+          "producer": "media-understanding-v1:index:73990a4920f642ce",
+          "revision": 1,
+          "schemaVersion": "media-clip-index-v1",
+          "sha256": "c39f55e95f26caa738a8d45fd49ae321a48bb246f057906aa69d7cf8b11652d7",
+          "sizeBytes": 4447
+        },
+        "cutSourceRef": {
+          "artifactId": "episode-011:media:seg-009-73990a4920f6-official-proxy",
+          "createdAt": "2026-10-20T07:56:22.298Z",
+          "episodeId": "episode-011",
+          "mediaType": "video/mp4",
+          "path": "content/episode-011/media/assets/seg-009-73990a4920f6-official-proxy.mp4",
+          "producer": "media-ingest-v1:normalize",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "1f480411cb297676d13c844956c1a164ff3edce887e1b83397422877822fb457",
+          "sizeBytes": 888012
+        },
+        "sourceEndMs": 8233,
+        "sourceMediaId": "episode-011:media:seg-009-73990a4920f6-official",
+        "sourceMediaRef": {
+          "artifactId": "episode-011:media:seg-009-73990a4920f6-official",
+          "createdAt": "2026-10-20T07:56:21.296Z",
+          "episodeId": "episode-011",
+          "mediaType": "video/mp4",
+          "path": "content/episode-011/media/assets/seg-009-73990a4920f6-official.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "73990a4920f642ce2502a03f5b80e6b7340e63dd7ce7b99d275aa972b75aab20",
+          "sizeBytes": 2207245
+        },
+        "sourceSha256": "73990a4920f642ce2502a03f5b80e6b7340e63dd7ce7b99d275aa972b75aab20",
+        "sourceStartMs": 0,
+        "verificationRef": {
+          "artifactId": "episode-011:media-verification:seg-009-episode-011-media-clip-e4eeeb7970a08f86f0282dc8",
+          "createdAt": "2026-10-20T07:56:45.186Z",
+          "episodeId": "episode-011",
+          "mediaType": "application/json",
+          "path": "content/episode-011/media/verifications/seg-009/episode-011-media-clip-e4eeeb7970a08f86f0282dc8.json",
+          "producer": "media-verification-v1:codex:gamma-observed-v1",
+          "revision": 1,
+          "schemaVersion": "media-verification-v1",
+          "sha256": "298a459f0faecc7a64acbf9b3e27d044164ccb7044cf6eedef866aa0cca71007",
+          "sizeBytes": 4840
+        }
+      },
+      "overlays": {
+        "badge": null,
+        "captionsEnabled": true,
+        "sourceLabel": "Gamma官网 · 2025官方演示 · 结果停帧供阅读"
+      },
+      "reasons": [
+        "scene seg-009 at frame 1438 (247 frames, 30 fps)",
+        "real media episode-011:media-clip:e4eeeb7970a08f86f0282dc8 trimmed 0..8233ms (recommended 0..8233ms)",
+        "render proxy episode-011:media-render-proxy:seg-009 (video/mp4)",
+        "audio mix original 0 / narration 1 duck 10dB"
+      ],
+      "renderProxyMediaType": "video/mp4",
+      "renderProxyRef": {
+        "artifactId": "episode-011:media-render-proxy:seg-009",
+        "createdAt": "2026-10-20T07:56:47.169Z",
+        "episodeId": "episode-011",
+        "mediaType": "video/mp4",
+        "path": "content/episode-011/media/render/seg-009.mp4",
+        "producer": "media-render-v1:proxy:ffmpeg:ffmpeg-render-proxy-v1",
+        "revision": 1,
+        "schemaVersion": "media-render-proxy-v1",
+        "sha256": "e9167490e8b7f4429fd08d5e029ad820f97b79e44bac9b4e322206d66758c255",
+        "sizeBytes": 1144536
+      },
+      "sceneIndex": 8,
+      "schemaVersion": "media-shot-v1",
+      "segmentId": "seg-009",
+      "selectedMediaClipRef": {
+        "claimIds": [
+          "claim-gamma-001",
+          "claim-gamma-002",
+          "claim-gamma-003"
+        ],
+        "clipId": "episode-011:media-clip:e4eeeb7970a08f86f0282dc8",
+        "createdAt": "2026-10-20T07:56:45.179Z",
+        "endMs": 8233,
+        "episodeId": "episode-011",
+        "mediaId": "episode-011:media:seg-009-73990a4920f6-official",
+        "sourceMediaRef": {
+          "artifactId": "episode-011:media:seg-009-73990a4920f6-official",
+          "createdAt": "2026-10-20T07:56:21.296Z",
+          "episodeId": "episode-011",
+          "mediaType": "video/mp4",
+          "path": "content/episode-011/media/assets/seg-009-73990a4920f6-official.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "73990a4920f642ce2502a03f5b80e6b7340e63dd7ce7b99d275aa972b75aab20",
+          "sizeBytes": 2207245
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "回看官方演示的真实演示稿;让观众看到从空白开始与修改既有内容的工作变化,不声称实测节省小时数。"
+      },
+      "shotId": "episode-011:media-shot:seg-009",
+      "startFrame": 1438,
+      "startSeconds": 47.949042999999996,
+      "staticFilePath": "episodes/episode-011/media/seg-009.mp4",
+      "transform": {
+        "freezeFrameMs": null,
+        "pip": null,
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "reframe": {
+          "crop": {
+            "height": 1,
+            "width": 1,
+            "x": 0,
+            "y": 0
+          },
+          "mode": "cover"
+        },
+        "scale": 1,
+        "zoomPan": {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "zoom": 1
+          },
+          "type": "none"
+        }
+      },
+      "trim": {
+        "endMs": 8233,
+        "startMs": 0
+      },
+      "verificationRef": {
+        "artifactId": "episode-011:media-verification:seg-009-episode-011-media-clip-e4eeeb7970a08f86f0282dc8",
+        "createdAt": "2026-10-20T07:56:45.186Z",
+        "episodeId": "episode-011",
+        "mediaType": "application/json",
+        "path": "content/episode-011/media/verifications/seg-009/episode-011-media-clip-e4eeeb7970a08f86f0282dc8.json",
+        "producer": "media-verification-v1:codex:gamma-observed-v1",
+        "revision": 1,
+        "schemaVersion": "media-verification-v1",
+        "sha256": "298a459f0faecc7a64acbf9b3e27d044164ccb7044cf6eedef866aa0cca71007",
+        "sizeBytes": 4840
+      },
+      "visualType": "real-media"
+    }
+  ],
+  "timelineSha256": "6b06e725bc008f326795eed29d5924c66e49dfde68646e6af9ffb0bd6131ade5",
+  "totalFrames": 1685,
+  "totalSeconds": 56.166666666666664
+}

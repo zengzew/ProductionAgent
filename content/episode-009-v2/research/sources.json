@@ -1,0 +1,62 @@
+[
+  {
+    "id": "src-fastlane-interview",
+    "title": "The Insanely Obvious Secret Behind This $69K/Month SaaS",
+    "publisher": "Starter Story",
+    "url": "https://www.starterstory.com/stories/the-insanely-obvious-secret-behind-this-69k-month-saas",
+    "publishedAt": "2026-08-30",
+    "accessedAt": "2026-10-14",
+    "sourceType": "founder",
+    "notes": "Gaurav接受Pat Walls采访，公开正文含全段同步转录。网页日期与3月23日发布后两个月说法不一致；录制和统计日未知。转录早期产品名Cassius AI未独立核实。主持人因果评价不升级为独立核验。"
+  },
+  {
+    "id": "src-fastlane-video",
+    "title": "How This SaaS Hit $69K/Month In Just 2 Months",
+    "publisher": "Starter Story",
+    "url": "https://www.youtube.com/watch?v=BA_fC95p43c",
+    "publishedAt": "2026-08-30",
+    "accessedAt": "2026-10-14",
+    "sourceType": "founder",
+    "notes": "官方认证频道同一采访；发布日期沿用采访页，YouTube精确日期未单独读出。时间码从公开同步转录读取：01:09 MRR、02:34 idea、07:06七天权限换访谈、11:28一对一获客、13:00历史Blitz操作。当前浏览器广告后正片无法播放，动态像素未核验；版权属于Starter Story，公开播放不等于再发布授权。"
+  },
+  {
+    "id": "src-fastlane-launch-account",
+    "title": "How My App Made $100K On Launch Day",
+    "publisher": "Starter Story / Gaurav",
+    "url": "https://www.starterstory.com/stories/fastlane-create-winning-short-form-content-in-seconds",
+    "publishedAt": "2026-04-03",
+    "accessedAt": "2026-10-14",
+    "sourceType": "founder",
+    "notes": "第一人称自述：idea、beta首单、X/LinkedIn/Product Hunt发布、AUD120000 ARR、每周100+视频。How did you build中第三人称编辑总结与原话分开。标题不能解释成首日现金收入。仅读取公开可读正文，未绕过会员门禁。"
+  },
+  {
+    "id": "src-fastlane-home",
+    "title": "Fastlane — Create, launch and scale winning ads with AI",
+    "publisher": "Fastlane",
+    "url": "https://www.usefastlane.ai/",
+    "publishedAt": "",
+    "accessedAt": "2026-10-14",
+    "sourceType": "official",
+    "notes": "当前官网v2：Senna从URL学习品牌、研究市场、生成内容、投放与回读结果；仅公司宣传非本人实测。AG1明确示例输出/无关联，ROAS/CPA不代表实绩。可支持真实官网截图，不能倒灌现行能力到3月版本。"
+  },
+  {
+    "id": "src-fastlane-producthunt",
+    "title": "Fastlane on Product Hunt",
+    "publisher": "Product Hunt",
+    "url": "https://www.producthunt.com/products/fastlane-3",
+    "publishedAt": "2026-03-23",
+    "accessedAt": "2026-10-14",
+    "sourceType": "platform",
+    "notes": "平台Awards明确2026-03-23当日第三名；顶部文案已更新v2，历史Maker留言仍解释Blitz滑卡与排期。页面当前425 points，不沿用二手432；评价和留言不独立证明营收。gallery为产品素材候选，权利待登记。"
+  },
+  {
+    "id": "src-fastlane-signup",
+    "title": "Fastlane signup",
+    "publisher": "Fastlane",
+    "url": "https://app.usefastlane.ai/signup",
+    "publishedAt": "",
+    "accessedAt": "2026-10-14",
+    "sourceType": "official",
+    "notes": "用户指定注册入口，官网CTA指向同域名。已访问但动态壳正文为空；未注册，未核验登录后生成排期，不冒充应用内截图。"
+  }
+]

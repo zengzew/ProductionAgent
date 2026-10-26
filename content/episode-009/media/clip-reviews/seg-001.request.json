@@ -1,0 +1,60 @@
+{
+  "episodeId": "episode-009",
+  "segmentId": "seg-001",
+  "clipId": "episode-009:media-clip:bf1804fd1b57a1366dc39f44",
+  "claimIds": [
+    "claim-fastlane-001",
+    "claim-fastlane-002"
+  ],
+  "claims": [
+    {
+      "id": "claim-fastlane-001",
+      "claim": "Gaurav在采访中介绍，Fastlane读取产品网站并生成相关营销短内容；演示从已生成内容开始，用户滑卡挑选后排期发布。"
+    },
+    {
+      "id": "claim-fastlane-002",
+      "claim": "Gaurav回顾，做出应用后自己卡在营销，不愿先花大笔广告预算；Jock也遇到让别人看见产品的难题。"
+    }
+  ],
+  "narration": "产品有了,宣传视频怎么拍?",
+  "visualIntent": "第一帧给出历史演示中为Cal AI制作的候选内容,让产品名称、营销用途和具体例子同时可见;裁掉参考视频浏览量,不从采访人脸起步。",
+  "clip": {
+    "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009/media/verifications/seg-001/episode-009-media-clip-bf1804fd1b57a1366dc39f44-clip.mp4",
+    "sha256": "77d1ad58980520eb668adad4bf250979e5aee57005e9622337ad51ba0d4f68e9",
+    "sizeBytes": 868046,
+    "mediaType": "video/mp4",
+    "startMs": 0,
+    "endMs": 2067,
+    "sourceMediaId": "episode-009:media:seg-001-08cced478071",
+    "sourceMediaSha256": "08cced478071c65eb50aaafc692004f3d84f99e5b8646543d5eed439d464862d"
+  },
+  "keyframes": [
+    {
+      "path": "/Users/zengze/Documents/ProductionAgent/content/episode-009/media/indexes/seg-001-08cced478071/keyframes/keyframe-0-1033.jpg",
+      "timestampMs": 1033,
+      "sha256": "df369bd58816628f7b5f29e3cbe025ce8a191922c8ea902524c75509be2c26bc",
+      "sizeBytes": 65033,
+      "mediaType": "image/jpeg"
+    }
+  ],
+  "clipMetadata": {
+    "textSummary": "Cal AI的候选宣传内容，手机应用与食物图集可见；裁掉热门参考视频浏览量。",
+    "observedText": "",
+    "keywords": [
+      "候选",
+      "Cal AI",
+      "宣传"
+    ],
+    "entities": [
+      "Fastlane",
+      "Cal AI"
+    ],
+    "semanticTags": [
+      "founder-interview",
+      "local-evaluation",
+      "measured"
+    ],
+    "speaker": null
+  },
+  "requestHash": "198c7f38d6232d65437ed1b8fee74de40d0d5aa456e93032bbf919796c322819"
+}

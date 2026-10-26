@@ -1,0 +1,615 @@
+{
+  "artifactRef": {
+    "artifactId": "episode-012:media:render-manifest",
+    "createdAt": "2026-10-25T15:02:15.498Z",
+    "episodeId": "episode-012",
+    "mediaType": "application/json",
+    "path": "content/episode-012/media/render-manifest.json",
+    "producer": "media-render-manifest-v1",
+    "revision": 1,
+    "schemaVersion": "media-render-manifest-v1",
+    "sha256": "e005d918d79ab0aa11f27c8f23c2f3f5cd6c7a4be62a8c3985a66109ecdc4dd9",
+    "sizeBytes": 22898
+  },
+  "assetManifestSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "assets": [
+    {
+      "kind": "original",
+      "mediaId": "episode-012:media:seg-001-f4f8df40e597",
+      "mediaType": "video/mp4",
+      "sha256": "f4f8df40e597a85eb860fe2af35d543e942151326a3b73f2eeb690233bef9e28",
+      "sizeBytes": 442105,
+      "sourceId": "episode-012:media-source:official"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-012:media:seg-001-f4f8df40e597-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "dbc737e85625bb36e28737f6d752995c006e520fe8e62a04049f1316e62311e3",
+      "sizeBytes": 200791,
+      "sourceId": "episode-012:media-source:official"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-012:media:seg-002-a93299117c36",
+      "mediaType": "video/mp4",
+      "sha256": "a93299117c36a890996a3b8ba9a150d3022eea8135a3335f509f2ca7f83ed2eb",
+      "sizeBytes": 132488,
+      "sourceId": "episode-012:media-source:founder"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-012:media:seg-002-a93299117c36-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "fc0236bfb896adafb35a6c747d5dd7cd3f041a089cabb6c20a956e36c78ee839",
+      "sizeBytes": 71978,
+      "sourceId": "episode-012:media-source:founder"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-012:media:seg-003-3f05572b6606",
+      "mediaType": "video/mp4",
+      "sha256": "3f05572b660677ccf4a379f456365d1a9b29044c75a95a1484a9f5e24e50c41a",
+      "sizeBytes": 105670,
+      "sourceId": "episode-012:media-source:founder"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-012:media:seg-003-3f05572b6606-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "aa7fcef0d1237a9eef87506fbb9b93ee108880c9b9864189d16feda0aa9d2fa4",
+      "sizeBytes": 58827,
+      "sourceId": "episode-012:media-source:founder"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-012:media:seg-004-d571f77181a8",
+      "mediaType": "video/mp4",
+      "sha256": "d571f77181a892ce343d5ef0126092a8e0f6751809050eb9c3ec16a4f78418ff",
+      "sizeBytes": 594636,
+      "sourceId": "episode-012:media-source:official"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-012:media:seg-004-d571f77181a8-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "f61437123fcbf26848678781f985c8124ccf3c62b17846f1d660f532203a9e57",
+      "sizeBytes": 302571,
+      "sourceId": "episode-012:media-source:official"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-012:media:seg-005-7835b4489ba1",
+      "mediaType": "video/mp4",
+      "sha256": "7835b4489ba1a78953e30753e7a6f64dda45a739d2edaacf8142c645a06c5fe0",
+      "sizeBytes": 590530,
+      "sourceId": "episode-012:media-source:trust"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-012:media:seg-005-7835b4489ba1-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "a6218a6ebf544c494398597d10424a2ad3e0ac374c8a0608cbeec2f3be29530a",
+      "sizeBytes": 281699,
+      "sourceId": "episode-012:media-source:trust"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-012:media:seg-006-5e5865b94e51",
+      "mediaType": "video/mp4",
+      "sha256": "5e5865b94e5143de617e1cbd03862a8c10caf157de70b12306a652330d4eca15",
+      "sizeBytes": 606484,
+      "sourceId": "episode-012:media-source:growth"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-012:media:seg-006-5e5865b94e51-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "675f564a37b5776f21ccffa697aea932c86563938bdcfee510cc98d8d61b7f5f",
+      "sizeBytes": 293881,
+      "sourceId": "episode-012:media-source:growth"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-012:media:seg-007-59d25de792b0",
+      "mediaType": "video/mp4",
+      "sha256": "59d25de792b0fea069202535ae5af37551e5359c58a35051b8763168199b6dc5",
+      "sizeBytes": 45105,
+      "sourceId": "episode-012:media-source:growth"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-012:media:seg-007-59d25de792b0-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "78ab0e736c03afa516a231e716757201925f5f40dcda5e3fbb6a6bab93bb0d98",
+      "sizeBytes": 32885,
+      "sourceId": "episode-012:media-source:growth"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-012:media:seg-008-b26c3dfa43b9",
+      "mediaType": "video/mp4",
+      "sha256": "b26c3dfa43b9752ec1a2ba4050cdb8250e24448beecaae2eb4b81e7a98616567",
+      "sizeBytes": 35621,
+      "sourceId": "episode-012:media-source:finance"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-012:media:seg-008-b26c3dfa43b9-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "beb08072561214a91580f0c0baf26cef83c62031a6c14a828357374b59fa8e49",
+      "sizeBytes": 25488,
+      "sourceId": "episode-012:media-source:finance"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-012:media:seg-009-9e3cb6dcbc55",
+      "mediaType": "video/mp4",
+      "sha256": "9e3cb6dcbc55f2b2a8ba85276b4bc81b33d17d36162c995425c94eddedf82ef3",
+      "sizeBytes": 874230,
+      "sourceId": "episode-012:media-source:official"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-012:media:seg-009-9e3cb6dcbc55-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "596e34de14a19ac64dc4e5657baeedca43f304800840b0bf2c6d9ccf3411ba3b",
+      "sizeBytes": 384845,
+      "sourceId": "episode-012:media-source:official"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-012:media:seg-004-be6b3df8fde1",
+      "mediaType": "video/mp4",
+      "sha256": "be6b3df8fde1aa88b509ab340fea6e1eceeee7acfd4c86e6bfbbf6fa32daa5bc",
+      "sizeBytes": 586277,
+      "sourceId": "episode-012:media-source:official"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-012:media:seg-004-be6b3df8fde1-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "b921791e83f92e85b1db30a4f6c87d7b3f977dc53f9ab3de7bae462464b9151c",
+      "sizeBytes": 296462,
+      "sourceId": "episode-012:media-source:official"
+    },
+    {
+      "kind": "original",
+      "mediaId": "episode-012:media:seg-009-1fd53f6672de",
+      "mediaType": "video/mp4",
+      "sha256": "1fd53f6672de73cbfc7c5d4c562384e65d682fefa4ff397486c65fb2db9187ec",
+      "sizeBytes": 778961,
+      "sourceId": "episode-012:media-source:official"
+    },
+    {
+      "kind": "proxy",
+      "mediaId": "episode-012:media:seg-009-1fd53f6672de-proxy",
+      "mediaType": "video/mp4",
+      "sha256": "4a781377673da3a0f4900dd88266d3b7eab96e67cf45a75d1807b383e5f2d858",
+      "sizeBytes": 351635,
+      "sourceId": "episode-012:media-source:official"
+    }
+  ],
+  "clips": [
+    {
+      "clipId": "episode-012:media-clip:e9dcd618623bdacff4422365",
+      "endMs": 3033,
+      "mediaId": "episode-012:media:seg-001-f4f8df40e597",
+      "startMs": 0,
+      "verificationSha256": "074ffdea50ecaca1688d9cd0e4b6fcfaeeb2341f9fc063859ff47915f9e23904"
+    },
+    {
+      "clipId": "episode-012:media-clip:d2a79ad290a0c6b5183a72a8",
+      "endMs": 5933,
+      "mediaId": "episode-012:media:seg-002-a93299117c36",
+      "startMs": 0,
+      "verificationSha256": "d502fdf07ccf26644818e4c3bff6b28f7122b59f5f33ac5e70f076ed23e72546"
+    },
+    {
+      "clipId": "episode-012:media-clip:939f3c4a1913afd052b9f250",
+      "endMs": 5033,
+      "mediaId": "episode-012:media:seg-003-3f05572b6606",
+      "startMs": 0,
+      "verificationSha256": "3ff840cc81fa6d69d3b9dea750ccc2c3fcbc8837259c78db275991b7f963a606"
+    },
+    {
+      "clipId": "episode-012:media-clip:d3c259964012fb65bf2b6484",
+      "endMs": 6300,
+      "mediaId": "episode-012:media:seg-004-be6b3df8fde1",
+      "startMs": 0,
+      "verificationSha256": "bb39378ff92d28b87feb6d61cf782f958602fe1ab78a232b08c2f2f80b039d9a"
+    },
+    {
+      "clipId": "episode-012:media-clip:1b0d4fc8e6129699e5d8bd3f",
+      "endMs": 6900,
+      "mediaId": "episode-012:media:seg-005-7835b4489ba1",
+      "startMs": 0,
+      "verificationSha256": "51852c58e9016b31f6cab4b1cef0d43d43bd134ce7409c8d9389055678a34f2a"
+    },
+    {
+      "clipId": "episode-012:media-clip:f02325aba6aecfc4a85c1de8",
+      "endMs": 7267,
+      "mediaId": "episode-012:media:seg-006-5e5865b94e51",
+      "startMs": 0,
+      "verificationSha256": "75c9eb4243ad40d23af7865628698dad6ff3170e3c19cdca378ae7326bbcbd4c"
+    },
+    {
+      "clipId": "episode-012:media-clip:a52f6c1bbc3c4fb80313648d",
+      "endMs": 4267,
+      "mediaId": "episode-012:media:seg-007-59d25de792b0",
+      "startMs": 0,
+      "verificationSha256": "6a837fedf0ba90f593d9988425fceea7d520857b9355f2b1253c4e4645ed1da8"
+    },
+    {
+      "clipId": "episode-012:media-clip:2146cb807fb4aa4ad9f86c0c",
+      "endMs": 3567,
+      "mediaId": "episode-012:media:seg-008-b26c3dfa43b9",
+      "startMs": 0,
+      "verificationSha256": "6549badc944ad33eb658b85f90f6358feeeda662165b52bea9d1e8870c98693c"
+    },
+    {
+      "clipId": "episode-012:media-clip:9da3e4dcac0e6469df6cef25",
+      "endMs": 6133,
+      "mediaId": "episode-012:media:seg-009-1fd53f6672de",
+      "startMs": 0,
+      "verificationSha256": "907b1b87cf8dea25592c221cb6015b8b9349b813790e7014d6571992e1c67c7c"
+    }
+  ],
+  "createdAt": "2026-10-25T15:02:15.497Z",
+  "episodeId": "episode-012",
+  "officialAssets": [],
+  "renderPlanSha256": "621cecff8b71b85677acd6bea5569ec9ca8a7b136b6db199b9944d7b950bbd8c",
+  "schemaVersion": "media-render-manifest-v1",
+  "sourceManifestSha256": "b06dca5b192ea3180aa200b10fdd539a6f12edc2ccf4b6192fc7fcf8cdb22c9e",
+  "sources": [
+    {
+      "admissionStatus": "admitted",
+      "admitted": true,
+      "publisher": "Photoroom",
+      "rightsApproved": true,
+      "rightsStatus": "approved",
+      "sourceId": "episode-012:media-source:official",
+      "sourceType": "official"
+    },
+    {
+      "admissionStatus": "admitted",
+      "admitted": true,
+      "publisher": "Matthieu Rouif / Pulse 2.0; portrait from Stripe",
+      "rightsApproved": true,
+      "rightsStatus": "approved",
+      "sourceId": "episode-012:media-source:founder",
+      "sourceType": "official"
+    },
+    {
+      "admissionStatus": "admitted",
+      "admitted": true,
+      "publisher": "Stripe / Matthieu Rouif",
+      "rightsApproved": true,
+      "rightsStatus": "approved",
+      "sourceId": "episode-012:media-source:trust",
+      "sourceType": "official"
+    },
+    {
+      "admissionStatus": "admitted",
+      "admitted": true,
+      "publisher": "Subscription League / Olivier Lemarie",
+      "rightsApproved": true,
+      "rightsStatus": "approved",
+      "sourceId": "episode-012:media-source:growth",
+      "sourceType": "official"
+    },
+    {
+      "admissionStatus": "admitted",
+      "admitted": true,
+      "publisher": "Photoroom via PR Newswire",
+      "rightsApproved": true,
+      "rightsStatus": "approved",
+      "sourceId": "episode-012:media-source:finance",
+      "sourceType": "official"
+    }
+  ],
+  "timelineSha256": "35c0ea41d261148730d981b3a7e8f9246a2de1b3bb037b7cc1ebd5a900d72805",
+  "usage": [
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-pr-001"
+        ],
+        "clipId": "episode-012:media-clip:e9dcd618623bdacff4422365",
+        "createdAt": "2026-10-25T15:02:10.161Z",
+        "endMs": 3033,
+        "episodeId": "episode-012",
+        "mediaId": "episode-012:media:seg-001-f4f8df40e597",
+        "sourceMediaRef": {
+          "artifactId": "episode-012:media:seg-001-f4f8df40e597",
+          "createdAt": "2026-10-25T14:55:46.712Z",
+          "episodeId": "episode-012",
+          "mediaType": "video/mp4",
+          "path": "content/episode-012/media/assets/seg-001-f4f8df40e597.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "f4f8df40e597a85eb860fe2af35d543e942151326a3b73f2eeb690233bef9e28",
+          "sizeBytes": 442105
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "官方MP4约1–4秒:杯子原场景与白底对照,按单个商品裁切;画面标“官方宣传演示·非本次实测”。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-001",
+      "selectedType": "real-media",
+      "verificationSha256": "074ffdea50ecaca1688d9cd0e4b6fcfaeeb2341f9fc063859ff47915f9e23904"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-pr-002"
+        ],
+        "clipId": "episode-012:media-clip:d2a79ad290a0c6b5183a72a8",
+        "createdAt": "2026-10-25T15:02:10.376Z",
+        "endMs": 5933,
+        "episodeId": "episode-012",
+        "mediaId": "episode-012:media:seg-002-a93299117c36",
+        "sourceMediaRef": {
+          "artifactId": "episode-012:media:seg-002-a93299117c36",
+          "createdAt": "2026-10-25T14:55:47.297Z",
+          "episodeId": "episode-012",
+          "mediaType": "video/mp4",
+          "path": "content/episode-012/media/assets/seg-002-a93299117c36.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "a93299117c36a890996a3b8ba9a150d3022eea8135a3335f509f2ca7f83ed2eb",
+          "sizeBytes": 132488
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "Stripe合照保持两人身份;标Matthieu Rouif、2024访谈回忆,不伪造GoPro操作。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-002",
+      "selectedType": "real-media",
+      "verificationSha256": "d502fdf07ccf26644818e4c3bff6b28f7122b59f5f33ac5e70f076ed23e72546"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-pr-003"
+        ],
+        "clipId": "episode-012:media-clip:939f3c4a1913afd052b9f250",
+        "createdAt": "2026-10-25T15:02:10.578Z",
+        "endMs": 5033,
+        "episodeId": "episode-012",
+        "mediaId": "episode-012:media:seg-003-3f05572b6606",
+        "sourceMediaRef": {
+          "artifactId": "episode-012:media:seg-003-3f05572b6606",
+          "createdAt": "2026-10-25T14:55:47.831Z",
+          "episodeId": "episode-012",
+          "mediaType": "video/mp4",
+          "path": "content/episode-012/media/assets/seg-003-3f05572b6606.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "3f05572b660677ccf4a379f456365d1a9b29044c75a95a1484a9f5e24e50c41a",
+          "sizeBytes": 105670
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "同一合照配Eliot Andres原名和“两周·创始人回忆”,不是当年开发现场。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-003",
+      "selectedType": "real-media",
+      "verificationSha256": "3ff840cc81fa6d69d3b9dea750ccc2c3fcbc8837259c78db275991b7f963a606"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-pr-001"
+        ],
+        "clipId": "episode-012:media-clip:d3c259964012fb65bf2b6484",
+        "createdAt": "2026-10-25T15:02:10.795Z",
+        "endMs": 6300,
+        "episodeId": "episode-012",
+        "mediaId": "episode-012:media:seg-004-be6b3df8fde1",
+        "sourceMediaRef": {
+          "artifactId": "episode-012:media:seg-004-be6b3df8fde1",
+          "createdAt": "2026-10-25T14:57:14.793Z",
+          "episodeId": "episode-012",
+          "mediaType": "video/mp4",
+          "path": "content/episode-012/media/assets/seg-004-be6b3df8fde1.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "be6b3df8fde1aa88b509ab340fea6e1eceeee7acfd4c86e6bfbbf6fa32daa5bc",
+          "sizeBytes": 586277
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "先展示官网Start from a photo入口,再接官方MP4白底状态及椅子场景示例;不同示例显式分镜,不冒充一次生成过程。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-004",
+      "selectedType": "real-media",
+      "verificationSha256": "bb39378ff92d28b87feb6d61cf782f958602fe1ab78a232b08c2f2f80b039d9a"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-pr-004",
+          "claim-pr-009"
+        ],
+        "clipId": "episode-012:media-clip:1b0d4fc8e6129699e5d8bd3f",
+        "createdAt": "2026-10-25T15:02:11.019Z",
+        "endMs": 6900,
+        "episodeId": "episode-012",
+        "mediaId": "episode-012:media:seg-005-7835b4489ba1",
+        "sourceMediaRef": {
+          "artifactId": "episode-012:media:seg-005-7835b4489ba1",
+          "createdAt": "2026-10-25T14:55:49.077Z",
+          "episodeId": "episode-012",
+          "mediaType": "video/mp4",
+          "path": "content/episode-012/media/assets/seg-005-7835b4489ba1.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "7835b4489ba1a78953e30753e7a6f64dda45a739d2edaacf8142c645a06c5fe0",
+          "sizeBytes": 590530
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "Stripe真实性问答转述与商品原始对照;小字“创始人设计取向”,不打100%保真承诺。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-005",
+      "selectedType": "real-media",
+      "verificationSha256": "51852c58e9016b31f6cab4b1cef0d43d43bd134ce7409c8d9389055678a34f2a"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-pr-005",
+          "claim-pr-006"
+        ],
+        "clipId": "episode-012:media-clip:f02325aba6aecfc4a85c1de8",
+        "createdAt": "2026-10-25T15:02:11.229Z",
+        "endMs": 7267,
+        "episodeId": "episode-012",
+        "mediaId": "episode-012:media:seg-006-5e5865b94e51",
+        "sourceMediaRef": {
+          "artifactId": "episode-012:media:seg-006-5e5865b94e51",
+          "createdAt": "2026-10-25T14:55:49.884Z",
+          "episodeId": "episode-012",
+          "mediaType": "video/mp4",
+          "path": "content/episode-012/media/assets/seg-006-5e5865b94e51.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "5e5865b94e5143de617e1cbd03862a8c10caf157de70b12306a652330d4eca15",
+          "sizeBytes": 606484
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "12:42、13:24原访谈定位与中文转述,配官网演示;标“2023访谈回顾”,不制作假TikTok页面或假创作者。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-006",
+      "selectedType": "real-media",
+      "verificationSha256": "75c9eb4243ad40d23af7865628698dad6ff3170e3c19cdca378ae7326bbcbd4c"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-pr-006",
+          "claim-pr-007"
+        ],
+        "clipId": "episode-012:media-clip:a52f6c1bbc3c4fb80313648d",
+        "createdAt": "2026-10-25T15:02:11.404Z",
+        "endMs": 4267,
+        "episodeId": "episode-012",
+        "mediaId": "episode-012:media:seg-007-59d25de792b0",
+        "sourceMediaRef": {
+          "artifactId": "episode-012:media:seg-007-59d25de792b0",
+          "createdAt": "2026-10-25T14:55:50.713Z",
+          "episodeId": "episode-012",
+          "mediaType": "video/mp4",
+          "path": "content/episode-012/media/assets/seg-007-59d25de792b0.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "59d25de792b0fea069202535ae5af37551e5359c58a35051b8763168199b6dc5",
+          "sizeBytes": 45105
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "访谈14:21、16:21、17:36中文转述,清楚写“创作者合作→广告素材”;编辑排版,不装作真实投放画面。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-007",
+      "selectedType": "real-media",
+      "verificationSha256": "6a837fedf0ba90f593d9988425fceea7d520857b9355f2b1253c4e4645ed1da8"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-pr-008"
+        ],
+        "clipId": "episode-012:media-clip:2146cb807fb4aa4ad9f86c0c",
+        "createdAt": "2026-10-25T15:02:11.572Z",
+        "endMs": 3567,
+        "episodeId": "episode-012",
+        "mediaId": "episode-012:media:seg-008-b26c3dfa43b9",
+        "sourceMediaRef": {
+          "artifactId": "episode-012:media:seg-008-b26c3dfa43b9",
+          "createdAt": "2026-10-25T14:55:51.114Z",
+          "episodeId": "episode-012",
+          "mediaType": "video/mp4",
+          "path": "content/episode-012/media/assets/seg-008-b26c3dfa43b9.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "b26c3dfa43b9752ec1a2ba4050cdb8250e24448beecaae2eb4b81e7a98616567",
+          "sizeBytes": 35621
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "必要数字卡:2024-02-27、B轮4300万美元、Photoroom公司公告,三者同时可读;不是收入或最新估值。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-008",
+      "selectedType": "real-media",
+      "verificationSha256": "6549badc944ad33eb658b85f90f6358feeeda662165b52bea9d1e8870c98693c"
+    },
+    {
+      "clipRef": {
+        "claimIds": [
+          "claim-pr-001",
+          "claim-pr-009"
+        ],
+        "clipId": "episode-012:media-clip:9da3e4dcac0e6469df6cef25",
+        "createdAt": "2026-10-25T15:02:11.795Z",
+        "endMs": 6133,
+        "episodeId": "episode-012",
+        "mediaId": "episode-012:media:seg-009-1fd53f6672de",
+        "sourceMediaRef": {
+          "artifactId": "episode-012:media:seg-009-1fd53f6672de",
+          "createdAt": "2026-10-25T15:01:27.793Z",
+          "episodeId": "episode-012",
+          "mediaType": "video/mp4",
+          "path": "content/episode-012/media/assets/seg-009-1fd53f6672de.mp4",
+          "producer": "media-ingest-v1",
+          "revision": 1,
+          "schemaVersion": "media-asset-v1",
+          "sha256": "1fd53f6672de73cbfc7c5d4c562384e65d682fefa4ff397486c65fb2db9187ec",
+          "sizeBytes": 778961
+        },
+        "startMs": 0,
+        "transcriptRefs": [],
+        "visualIntent": "回到开头同一杯子/鞋子官方白底结果;不加销量、利润承诺或关注口号。"
+      },
+      "fallbackReason": null,
+      "fallbackType": null,
+      "officialAssetId": null,
+      "segmentId": "seg-009",
+      "selectedType": "real-media",
+      "verificationSha256": "907b1b87cf8dea25592c221cb6015b8b9349b813790e7014d6571992e1c67c7c"
+    }
+  ]
+}
